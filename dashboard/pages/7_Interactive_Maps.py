@@ -16,7 +16,7 @@ st.markdown(
 )
 st.markdown("---")
 
-MAP_SERVER_BASE = "/app/static"
+MAP_SERVER_BASE = "static"
 
 # ============ SLR EXPOSURE ============
 SLR_DATA = {
