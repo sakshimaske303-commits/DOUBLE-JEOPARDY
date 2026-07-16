@@ -16,7 +16,7 @@ st.markdown(
 )
 st.markdown("---")
 
-MAP_SERVER_BASE = "static"
+MAP_SERVER_BASE = "/app/static"
 
 # ============ SLR EXPOSURE ============
 SLR_DATA = {
@@ -111,7 +111,11 @@ st.markdown(f"""
 </div>
 """, unsafe_allow_html=True)
 
-components.iframe(src=f"{MAP_SERVER_BASE}/{info2['folder']}/index.html", height=550, scrolling=True)
+components.iframe(
+    src=f"{MAP_SERVER_BASE}/{info2['folder']}/index.html",
+    height=550,
+    scrolling=True,
+)
 
 st.markdown(f"""
 <div style="background: {PALETTE['card_bg']}; border-left: 5px solid {PALETTE['mint']};
