@@ -1,0 +1,124 @@
+{
+  "pre_cyclone": {
+    "data": [
+      {
+        "interval": {
+          "from": "2020-09-01T00:00:00Z",
+          "to": "2020-10-01T00:00:00Z"
+        },
+        "outputs": {
+          "ndvi": {
+            "bands": {
+              "B0": {
+                "stats": {
+                  "min": -1.0,
+                  "max": 1.0,
+                  "mean": 0.028276253525092422,
+                  "stDev": 0.3173110177321643,
+                  "sampleCount": 65536,
+                  "noDataCount": 1920
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "interval": {
+          "from": "2020-10-01T00:00:00Z",
+          "to": "2020-10-31T00:00:00Z"
+        },
+        "outputs": {
+          "ndvi": {
+            "bands": {
+              "B0": {
+                "stats": {
+                  "min": -1.0,
+                  "max": 1.0,
+                  "mean": 0.06030070909858916,
+                  "stDev": 0.2793251652554551,
+                  "sampleCount": 65536,
+                  "noDataCount": 1920
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "interval": {
+          "from": "2020-10-31T00:00:00Z",
+          "to": "2020-11-30T00:00:00Z"
+        },
+        "outputs": {
+          "ndvi": {
+            "bands": {
+              "B0": {
+                "stats": {
+                  "min": -1.0,
+                  "max": 1.0,
+                  "mean": 0.0607123215908959,
+                  "stDev": 0.26220141085558957,
+                  "sampleCount": 65536,
+                  "noDataCount": 1920
+                }
+              }
+            }
+          }
+        }
+      }
+    ],
+    "status": "OK",
+    "geometryPixelCount": 65536
+  },
+  "post_cyclone": {
+    "data": [
+      {
+        "interval": {
+          "from": "2021-01-01T00:00:00Z",
+          "to": "2021-01-31T00:00:00Z"
+        },
+        "outputs": {
+          "ndvi": {
+            "bands": {
+              "B0": {
+                "stats": {
+                  "min": -0.8894997239112854,
+                  "max": 1.0,
+                  "mean": 0.03318866743720123,
+                  "stDev": 0.10258488708226378,
+                  "sampleCount": 65536,
+                  "noDataCount": 1920
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "interval": {
+          "from": "2021-01-31T00:00:00Z",
+          "to": "2021-03-02T00:00:00Z"
+        },
+        "outputs": {
+          "ndvi": {
+            "bands": {
+              "B0": {
+                "stats": {
+                  "min": -1.0,
+                  "max": 1.0,
+                  "mean": 0.03907156716580809,
+                  "stDev": 0.14465393808601895,
+                  "sampleCount": 65536,
+                  "noDataCount": 1920
+                }
+              }
+            }
+          }
+        }
+      }
+    ],
+    "status": "OK",
+    "geometryPixelCount": 65536
+  }
+}

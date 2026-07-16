@@ -1,0 +1,58 @@
+{
+  "pre_cyclone": {
+    "data": [
+      {
+        "interval": {
+          "from": "2016-01-01T00:00:00Z",
+          "to": "2016-01-31T00:00:00Z"
+        },
+        "outputs": {
+          "ndvi": {
+            "bands": {
+              "B0": {
+                "stats": {
+                  "min": -1.0,
+                  "max": 1.0,
+                  "mean": 0.05527616221944178,
+                  "stDev": 0.4335765200180812,
+                  "sampleCount": 65536,
+                  "noDataCount": 1920
+                }
+              }
+            }
+          }
+        }
+      }
+    ],
+    "status": "OK",
+    "geometryPixelCount": 65536
+  },
+  "post_cyclone": {
+    "data": [
+      {
+        "interval": {
+          "from": "2016-03-01T00:00:00Z",
+          "to": "2016-03-31T00:00:00Z"
+        },
+        "outputs": {
+          "ndvi": {
+            "bands": {
+              "B0": {
+                "stats": {
+                  "min": -1.0,
+                  "max": 1.0,
+                  "mean": 0.030708847698409966,
+                  "stDev": 0.34184111729135697,
+                  "sampleCount": 65536,
+                  "noDataCount": 1920
+                }
+              }
+            }
+          }
+        }
+      }
+    ],
+    "status": "OK",
+    "geometryPixelCount": 65536
+  }
+}

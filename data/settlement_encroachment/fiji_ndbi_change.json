@@ -1,0 +1,102 @@
+{
+  "early_2016": {
+    "data": [
+      {
+        "interval": {
+          "from": "2016-01-01T00:00:00Z",
+          "to": "2016-07-01T00:00:00Z"
+        },
+        "outputs": {
+          "ndbi": {
+            "bands": {
+              "B0": {
+                "stats": {
+                  "min": -1.0,
+                  "max": 1.0,
+                  "mean": -0.21430633439028654,
+                  "stDev": 0.2951890628219764,
+                  "sampleCount": 65536,
+                  "noDataCount": 0
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "interval": {
+          "from": "2016-07-01T00:00:00Z",
+          "to": "2017-01-01T00:00:00Z"
+        },
+        "outputs": {
+          "ndbi": {
+            "bands": {
+              "B0": {
+                "stats": {
+                  "min": -1.0,
+                  "max": 1.0,
+                  "mean": -0.15346141047915218,
+                  "stDev": 0.20831677044612706,
+                  "sampleCount": 65536,
+                  "noDataCount": 0
+                }
+              }
+            }
+          }
+        }
+      }
+    ],
+    "status": "OK",
+    "geometryPixelCount": 65536
+  },
+  "recent_2024": {
+    "data": [
+      {
+        "interval": {
+          "from": "2024-01-01T00:00:00Z",
+          "to": "2024-07-01T00:00:00Z"
+        },
+        "outputs": {
+          "ndbi": {
+            "bands": {
+              "B0": {
+                "stats": {
+                  "min": -1.0,
+                  "max": 1.0,
+                  "mean": -0.17853125112541995,
+                  "stDev": 0.29745323189958345,
+                  "sampleCount": 65536,
+                  "noDataCount": 0
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "interval": {
+          "from": "2024-07-01T00:00:00Z",
+          "to": "2025-01-01T00:00:00Z"
+        },
+        "outputs": {
+          "ndbi": {
+            "bands": {
+              "B0": {
+                "stats": {
+                  "min": -1.0,
+                  "max": 1.0,
+                  "mean": -0.1907516910356323,
+                  "stDev": 0.22595871131664683,
+                  "sampleCount": 65536,
+                  "noDataCount": 0
+                }
+              }
+            }
+          }
+        }
+      }
+    ],
+    "status": "OK",
+    "geometryPixelCount": 65536
+  }
+}
