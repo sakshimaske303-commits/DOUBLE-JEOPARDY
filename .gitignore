@@ -3,4 +3,3 @@ data/mangroves/*.zip
 qgis_processing/*/resources/
 qgis_processing/*/webfonts/
 *.tif
-.streamlit/
