@@ -24,11 +24,21 @@ Built on the same **"Trust, But Verify"** philosophy as its companion project, G
 
 Interactive geospatial maps are hosted separately via GitHub Pages. Sample links:
 
+**Ecosystem Buffer Overview**
+- [Maldives — Ecosystem Buffer](https://sakshimaske303-commits.github.io/DOUBLE-JEOPARDY/dashboard/static/maldives_ecosystem_buffer_webmap/index.html)
+- [Seychelles — Ecosystem Buffer](https://sakshimaske303-commits.github.io/DOUBLE-JEOPARDY/dashboard/static/seychelles_ecosystem_buffer_webmap/index.html)
+- [Fiji — Ecosystem Buffer](https://sakshimaske303-commits.github.io/DOUBLE-JEOPARDY/dashboard/static/fiji_ecosystem_buffer_webmap/index.html)
+- [Canary Islands — Ecosystem Buffer](https://sakshimaske303-commits.github.io/DOUBLE-JEOPARDY/dashboard/static/canary_ecosystem_buffer_webmap/index.html)
+- [Lakshadweep — Ecosystem Buffer](https://sakshimaske303-commits.github.io/DOUBLE-JEOPARDY/dashboard/static/lakshadweep_ecosystem_buffer_webmap/index.html)
+
+**Sea-Level-Rise Exposure**
 - [Maldives — SLR Exposure](https://sakshimaske303-commits.github.io/DOUBLE-JEOPARDY/dashboard/static/maldives_slr_exposure_webmap/index.html)
 - [Seychelles — SLR Exposure](https://sakshimaske303-commits.github.io/DOUBLE-JEOPARDY/dashboard/static/seychelles_slr_exposure_webmap/index.html)
 - [Fiji — SLR Exposure](https://sakshimaske303-commits.github.io/DOUBLE-JEOPARDY/dashboard/static/fiji_slr_exposure_webmap/index.html)
 - [Canary Islands — SLR Exposure](https://sakshimaske303-commits.github.io/DOUBLE-JEOPARDY/dashboard/static/canary_slr_exposure_webmap/index.html)
-- [Lakshadweep — SLR Exposure](https://sakshimaside303-commits.github.io/DOUBLE-JEOPARDY/dashboard/static/lakshadweep_slr_exposure_webmap/index.html)
+- [Lakshadweep — SLR Exposure](https://sakshimaske303-commits.github.io/DOUBLE-JEOPARDY/dashboard/static/lakshadweep_slr_exposure_webmap/index.html)
+
+*(For the full interactive experience with dynamic legends and key observations, visit the [live dashboard](https://double-jeopardy-6ev9trz3dwafsb7panbnxg.streamlit.app/) → Interactive Maps page)*
 
 *(For the full interactive experience with dynamic legends and key observations, visit the [live dashboard](https://double-jeopardy-6ev9trz3dwafsb7panbnxg.streamlit.app/) → Interactive Maps page)*
 ---
