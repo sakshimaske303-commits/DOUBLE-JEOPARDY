@@ -22,7 +22,7 @@ Built on the same **"Trust, But Verify"** philosophy as its companion project, G
 
 ---
 
-Interactive geospatial maps are hosted separately via GitHub Pages and embedded live in the dashboard: **[Browse map exports →](https://sakshimaske303-commits.github.io/DOUBLE-JEOPARDY/dashboard/static/)**
+Interactive geospatial maps are hosted separately via GitHub Pages and embedded live in the dashboard: **[View a sample interactive map →](https://sakshimaske303-commits.github.io/DOUBLE-JEOPARDY/dashboard/static/maldives_slr_exposure_webmap/index.html)
 
 ---
 
