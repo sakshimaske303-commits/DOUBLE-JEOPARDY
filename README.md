@@ -22,8 +22,15 @@ Built on the same **"Trust, But Verify"** philosophy as its companion project, G
 
 ---
 
-Interactive geospatial maps are hosted separately via GitHub Pages and embedded live in the dashboard: **[View a sample interactive map →](https://sakshimaske303-commits.github.io/DOUBLE-JEOPARDY/dashboard/static/maldives_slr_exposure_webmap/index.html)
+Interactive geospatial maps are hosted separately via GitHub Pages. Sample links:
 
+- [Maldives — SLR Exposure](https://sakshimaske303-commits.github.io/DOUBLE-JEOPARDY/dashboard/static/maldives_slr_exposure_webmap/index.html)
+- [Seychelles — SLR Exposure](https://sakshimaske303-commits.github.io/DOUBLE-JEOPARDY/dashboard/static/seychelles_slr_exposure_webmap/index.html)
+- [Fiji — SLR Exposure](https://sakshimaske303-commits.github.io/DOUBLE-JEOPARDY/dashboard/static/fiji_slr_exposure_webmap/index.html)
+- [Canary Islands — SLR Exposure](https://sakshimaske303-commits.github.io/DOUBLE-JEOPARDY/dashboard/static/canary_slr_exposure_webmap/index.html)
+- [Lakshadweep — SLR Exposure](https://sakshimaside303-commits.github.io/DOUBLE-JEOPARDY/dashboard/static/lakshadweep_slr_exposure_webmap/index.html)
+
+*(For the full interactive experience with dynamic legends and key observations, visit the [live dashboard](https://double-jeopardy-6ev9trz3dwafsb7panbnxg.streamlit.app/) → Interactive Maps page)*
 ---
 
 ## 📊 What This Project Does
