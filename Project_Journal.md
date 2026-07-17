@@ -1,73 +1,88 @@
-# DOUBLE JEOPARDY: The Vulnerability Spiral — Quantifying Compound Coastal Risk and Governance-Evidence Alignment Across Five Island Nations
+# DOUBLE JEOPARDY: The Vulnerability Spiral
+
+## Project Journal
 
 ## Project Overview
 
-DOUBLE JEOPARDY is a geospatial framework that tests whether small island nations face a compounding vulnerability to sea-level rise: high physical exposure combined with degrading natural coastal defenses. Rather than assuming all coastal ecosystems degrade uniformly, this project rigorously tests each ecosystem type independently — mangroves and coral reefs — across five island nations spanning three ocean basins: Maldives, Lakshadweep, Seychelles, Fiji, and the Canary Islands. The project deliberately avoids treating "ecosystem buffer" as a single undifferentiated category, testing mangrove and coral trajectories separately and combining them with physical exposure into a composite, evidence-based vulnerability assessment.
+DOUBLE JEOPARDY is a geospatial framework built to test whether small island nations face a compounding vulnerability to climate change: high physical exposure to sea-level rise, layered with degrading natural coastal defenses. Rather than treating "ecosystem buffer" as one undifferentiated category, this project deliberately tests two ecosystem types independently — mangroves and coral reefs — across five island nations spanning three ocean basins: Maldives, Lakshadweep, Seychelles, Fiji, and the Canary Islands.
 
-Beyond quantifying ecological and physical risk, this project extends into an explicit governance dimension: it tests whether formal protected-area designation — the primary policy instrument through which island governments and international bodies claim to manage coastal ecosystem risk — is actually aligned with where empirically verified vulnerability is highest. This transforms the project from a purely environmental-science exercise into a policy-evaluation framework, testing whether governance response is evidence-based or spatially disconnected from the risk it claims to manage — directly relevant to environmental economics, adaptation-finance prioritization, and marine spatial governance.
+Beyond ecological and physical risk, the project extends into a governance dimension, testing whether formal protected-area designation — the main policy tool through which governments claim to manage coastal ecosystem risk — is actually aligned with where verified vulnerability is highest, or whether it reflects a "paper park" gap between policy and evidence.
 
 ## Problem Statement
 
-International climate adaptation policy and nature-based solutions financing frequently treat coastal ecosystems as a single protective category, assuming mangroves and coral reefs degrade together under climate pressure and jointly determine a settlement's exposure to sea-level rise. This assumption is rarely tested against independent, multi-temporal evidence at a systematic, cross-national scale. If ecosystems degrade at genuinely different rates — or in different directions entirely — then adaptation planning that treats ecosystem buffer as a single category risks misallocating resources and misjudging which coastal zones are genuinely most at risk.
-
-A second, distinct problem compounds the first: formal protected-area designation is widely treated, in both national policy and international financing frameworks, as a proxy for effective ecosystem management. Yet protected-area boundaries are frequently drawn based on historical, political, or administrative considerations rather than continuously updated empirical risk data. Whether protection status in these five island nations genuinely corresponds to locations of highest verified ecological and physical vulnerability — or is a "paper park" phenomenon, spatially disconnected from where risk is actually concentrated — has not been systematically tested using independent, satellite-derived evidence.
+Climate adaptation policy and conservation financing frequently assume that mangroves and coral reefs degrade together under environmental pressure, and jointly determine a coastal settlement's exposure to sea-level rise. This assumption is rarely tested against independent, multi-temporal evidence at a systematic, cross-national scale. A second, related problem is that formal protected-area status is often treated as a proxy for effective ecosystem management, even though protected-area boundaries are frequently drawn on historical or administrative grounds rather than continuously updated risk data.
 
 ## Aim
 
-To develop a reproducible geospatial framework that (1) independently quantifies physical sea-level-rise exposure and multi-temporal ecosystem trajectory — tested separately for mangroves and coral reefs — across five island nations, producing a composite, evidence-based vulnerability assessment; and (2) tests whether existing formal protected-area governance is statistically aligned with this empirically verified vulnerability, or represents a measurable governance-evidence gap.
+To build a reproducible geospatial framework that independently quantifies physical sea-level-rise exposure and ecosystem degradation — tested separately for mangroves and coral reefs — across five island nations, and to test whether existing protected-area governance is statistically aligned with this empirically verified vulnerability.
 
 ## Research Questions
 
-**RQ1 (Ecological/Physical)**: Does physical sea-level-rise exposure combine with ecosystem buffer degradation to produce compounding settlement-level vulnerability across five island nations — and does this compounding effect operate uniformly across ecosystem types, or does it depend on which specific ecosystem is actually degrading in a given location?
+**RQ1**: Does physical sea-level-rise exposure combine with ecosystem buffer degradation to produce compounding settlement-level vulnerability — and does this operate uniformly across ecosystem types, or does it depend on which specific ecosystem is degrading?
 
-**RQ2 (Governance)**: Does the spatial distribution of formal protected-area designation (WDPA) correlate with empirically verified compound vulnerability — indicating evidence-responsive governance — or is protection status statistically independent of, or even inversely related to, actual satellite-derived ecosystem risk, indicating a spatial misalignment between policy instrument and empirical need?
+**RQ2**: Does the spatial distribution of formal protected-area designation correlate with empirically verified compound vulnerability, or is it statistically independent of actual, satellite-derived ecosystem risk?
 
 ## Hypotheses
 
-**H1 (Coral Pathway)**: Coral reef ecosystems will show a statistically detectable increase in thermal bleaching stress over a multi-decadal period, and this increase will be more pronounced in islands with higher physical sea-level-rise exposure, consistent with a genuine compounding vulnerability pathway.
+**H1 (Coral Pathway)**: Coral reef ecosystems will show a measurable increase in thermal bleaching stress over a multi-decadal period, more pronounced in islands with higher physical exposure.
 
-**H2 (Mangrove Pathway)**: Mangrove ecosystems will show a statistically detectable decline in spatial extent over the same period, contributing an independent compounding pathway alongside coral degradation. This hypothesis is tested with equal rigor to H1, and will be reported honestly regardless of outcome.
+**H2 (Mangrove Pathway)**: Mangrove ecosystems will show a measurable decline in spatial extent over the same period, contributing an independent compounding pathway alongside coral degradation.
 
-**H3 (Governance-Evidence Alignment)**: Islands and coastal zones with higher composite vulnerability scores will show correspondingly higher formal protected-area coverage, consistent with risk-responsive governance. A finding of no relationship, or an inverse relationship, would indicate that protected-area designation in this sample is not empirically risk-driven — a substantive governance finding in its own right, reported transparently regardless of direction.
+**H3 (Governance Alignment)**: Islands with higher compound vulnerability scores will show correspondingly higher formal protected-area coverage, consistent with risk-responsive governance.
 
-## Objectives
+## Data Sources
 
-- Construct a settlement-level physical exposure dataset across five island nations using elevation and slope data, identifying the proportion of settlements below a standard one-meter sea-level-rise threshold.
-- Construct a multi-temporal mangrove extent dataset across five island nations using the Global Mangrove Watch archive, testing for genuine area-based decline across multiple independent time points rather than relying on a single before-after snapshot.
-- Construct a multi-temporal coral reef thermal stress dataset across five island nations using satellite-derived Degree Heating Week data, testing for a measurable increase in bleaching-level heat stress over time.
-- Construct a composite Compound Vulnerability Score integrating physical exposure and ecosystem degradation signals at the island level.
-- Quantify formal protected-area (WDPA) coverage at the island and coastal-zone level, and statistically test its relationship to the Compound Vulnerability Score — directly testing whether governance instruments are spatially aligned with empirically verified risk.
-- Test whether settlement and infrastructure expansion disproportionately occurs within or adjacent to ecosystem buffer zones over time, using satellite-derived built-up area change detection.
-- Validate all ecosystem-trend findings against multiple independent time points rather than a single comparison, consistent with rigorous causal-inference practice.
-- Produce a reproducible, cross-national geospatial framework and interactive dashboard communicating both the compound vulnerability findings and the governance-alignment analysis, framed for direct relevance to adaptation policy and conservation finance decision-making.
+The project integrates ten independently-sourced datasets across all five islands: settlements, tourism infrastructure, and general infrastructure (OpenStreetMap); mangrove extent (Global Mangrove Watch, three independent years — 1996, 2010, 2020); coral reef extent (WCMC Ocean Data Viewer and OpenStreetMap); coral thermal stress (NOAA Coral Reef Watch Degree Heating Week, a continuous 1996–2020 time series); protected areas (World Database on Protected Areas); elevation and slope (Copernicus DEM); population (WorldPop); and historical cyclone tracks (IBTrACS).
 
-## Methodology Summary
+All datasets were acquired via reproducible, API-based or memory-efficient bounding-box-filtered pipelines rather than manual download, consistent with the project's emphasis on transparency and reproducibility.
 
-Physical exposure is quantified using elevation and slope data intersected with settlement locations across all five islands, identifying the proportion of settlements at or below a one-meter elevation threshold. Ecosystem degradation is quantified independently for two ecosystem types: mangrove extent, using multiple independent time points from the Global Mangrove Watch archive to test for genuine multi-decadal area change; and coral reef condition, using a continuous multi-decadal time series of satellite-derived thermal stress data, comparing early-period and recent-period averages. These two ecosystem signals, together with physical exposure, are combined into a normalized Compound Vulnerability Score per island.
+## Methodology
 
-The governance dimension is tested by quantifying the spatial extent and density of formally designated protected areas (drawn from the World Database on Protected Areas) per island and, where resolution permits, per coastal zone, and statistically comparing this governance coverage against the Compound Vulnerability Score — testing directly whether higher-risk zones are more, equally, or less likely to carry formal protection status. This transforms the project's ecological findings into a direct, testable statement about policy effectiveness and resource allocation, rather than leaving the governance implications as unexamined commentary.
+### Phase 1 — Baseline Dataset Construction
 
-A subsequent phase tests whether settlement and infrastructure expansion, derived from satellite-based built-up area change detection, is disproportionately concentrated within or adjacent to ecosystem buffer zones — testing whether human response to environmental pressure itself contributes to a self-reinforcing vulnerability dynamic, and whether such encroachment is more prevalent inside or outside formally protected boundaries.
+Settlement, tourism, and infrastructure data were acquired from OpenStreetMap for all five islands and standardized into a consistent, minimal-column format. Ecosystem-buffer data (mangroves, coral reefs, protected areas) were acquired from a mix of scientific atlas sources (WCMC) and OpenStreetMap depending on island, requiring two parallel cleaning pipelines. Terrain, population, and cyclone-track data completed the baseline, with population and elevation figures independently validated against known real-world totals and geography before being trusted for analysis.
 
-## Study Area
+Two islands were confirmed to genuinely lack specific ecosystems rather than simply missing data for them: Lakshadweep has no recorded mangroves, and the Canary Islands has no recorded coral reefs — both consistent with the islands' underlying ecology (a small coral atoll without intertidal delta conditions, and a subtropical volcanic Atlantic setting outside typical coral habitat range, respectively) and confirmed independently across multiple data sources rather than accepted from a single query.
 
-Five island nations spanning three ocean basins: Maldives and Lakshadweep (Indian Ocean), Seychelles (western Indian Ocean), Fiji (South Pacific), and the Canary Islands (eastern Atlantic) — selected for consistent multi-source data availability and geographic, geological, and climatic diversity, allowing the compound vulnerability and governance-alignment framework to be tested across genuinely different island contexts, protected-area regimes, and administrative systems rather than a single case.
+Protected-area coverage was substantially upgraded during this phase from an initial low-quality OpenStreetMap source (which implausibly showed as few as one protected area for some islands) to the World Database on Protected Areas, the authoritative global source — increasing coverage from single digits to 49–385 features per island depending on location.
 
-## Expected Outputs
+### Phase 2 — Multi-Temporal Ecosystem Analysis
 
-- A settlement-level physical exposure dataset across five island nations.
-- A validated multi-temporal mangrove extent dataset.
-- A validated multi-decadal coral reef thermal stress dataset.
-- A composite Compound Vulnerability Score and risk ranking across all five islands.
-- A governance-alignment analysis testing the statistical relationship between protected-area coverage and empirically verified vulnerability, including identification of any "governance-evidence gap" zones — areas of high verified risk with low or no formal protection.
-- A settlement/infrastructure encroachment analysis testing the ecosystem-buffer feedback hypothesis, disaggregated by protection status.
-- An interactive geospatial dashboard and complete open-source codebase, extensible to additional island nations and ecosystem types.
+Rather than relying on a single before/after snapshot, mangrove extent was tracked across three independent time points (1996, 2010, 2020) and measured by true area in an equal-area projection rather than polygon count, since satellite classification algorithms can segment the same physical extent into a different number of polygons across years without any genuine change in area. This produced a clear result: mangrove extent has remained essentially stable across all three tested islands (Maldives, Seychelles, Fiji) over the full 24-year span, with no measurable decline in any case.
 
-## Relevance
+Coral reef condition was tracked differently, using satellite-derived thermal stress (Degree Heating Week) rather than mapped extent, since coral degradation manifests primarily as bleaching rather than area loss. This continuous 1996–2020 time series showed a rising thermal-stress trend in four of five islands, most severely in Seychelles, whose maximum recorded value falls within the range associated with severe bleaching and coral mortality.
 
-This project is directly relevant to climate adaptation policy, nature-based solutions financing, ecosystem-services valuation, and marine spatial governance. Its central contribution is twofold: first, demonstrating that treating coastal ecosystem protection as an undifferentiated category can obscure materially different risk profiles, requiring rigorous, ecosystem-specific, multi-temporal verification rather than an assumed uniform decline narrative; and second, directly testing — rather than assuming — whether existing conservation governance instruments are empirically aligned with verified risk, providing a transferable methodology for evaluating adaptation-finance and protected-area prioritization decisions in any coastal or island context facing compound climate vulnerability.
+### Phase 3 — Physical Exposure and the Compound Vulnerability Score
 
-## Current Status
+Physical exposure was quantified by sampling elevation at every settlement's location across all five islands and calculating the proportion at or below a standard one-meter sea-level-rise threshold, producing a wide range from 12.1% (Canary Islands) to 99.1% (Maldives), directly reflecting the geological difference between low-lying coral-atoll nations and volcanic, mountainous terrain.
 
-Project Concept Finalized
-Version 1.0
+Physical exposure and coral thermal-stress trend were then normalized to a common 0–1 scale and combined into a single Compound Vulnerability Score per island. This produced the project's central finding: Seychelles ranks as the highest-overall-risk island (score 0.880) despite having lower physical exposure than the Maldives, because its coral degradation trend is the most severe recorded across the sample — directly demonstrating that physical exposure alone is an incomplete measure of true climate vulnerability.
+
+### Phase 4 — Governance Alignment
+
+Protected-area coverage was quantified within a 10-kilometer coastal buffer around each island (rather than using total captured protected-area extent, which for some islands included vast, only loosely-relevant offshore marine zones), and statistically compared against the Compound Vulnerability Score using a Pearson correlation. This produced a moderately strong positive relationship (r=0.727) — Seychelles, the highest-vulnerability island, also shows the highest coastal protection ratio — but the relationship did not reach conventional statistical significance (p=0.164), a limitation directly attributable to the small five-island sample size rather than to any flaw in the underlying logic. This is reported as a suggestive, not confirmatory, finding.
+
+### Phase 5 — Settlement Encroachment
+
+Using satellite-derived built-up area change (Sentinel-2, comparing 2016 against 2024), the project tested whether settlement expansion was concentrated near ecosystem buffer zones for the three mangrove-present islands. Both Maldives and Seychelles showed a clear increase in built-up density, with Seychelles' change the most pronounced — notably shifting from a vegetation-dominated to a built-up-dominated signal over the eight-year period. Fiji showed effectively no change, consistent with its stability across every other measure tested in this project.
+
+### Phase 6 — Supporting Evidence: Cyclone Damage
+
+As supporting evidence alongside the project's core sea-level-rise and ecosystem-degradation findings, satellite-derived vegetation damage (NDVI, before/after) was tested for Fiji's two strongest recorded cyclones, the only island with both meaningful cyclone-intensity variation and events recent enough to fall within the operational record of the satellite platform used. A clear vegetation decline followed the more extreme of the two events (Cyclone Winston, Category-5 equivalent), while no comparable decline followed the moderate event (Cyclone Yasa) — consistent with the broader pattern of ecosystem resilience observed in Fiji throughout this project.
+
+## Final Findings
+
+Coral reef ecosystems show a genuine, measurable degradation signal across most of the study sample, supporting Hypothesis H1. Mangrove ecosystems, tested with equal rigor across three independent time points, show no comparable decline in any tested island — a result that does not support Hypothesis H2, and is reported as a substantive finding in its own right rather than adjusted to fit the project's original framing. This asymmetry between ecosystem types is itself one of the project's core contributions: ecosystem buffer degradation is not a uniform phenomenon, and conservation resources may need to be prioritized differently across ecosystem types rather than allocated under an assumption of uniform risk.
+
+The governance-alignment test (H3) finds a directionally encouraging but statistically inconclusive relationship between vulnerability and protection — a limitation of sample size rather than of the underlying evidence, and reported transparently as such.
+
+Physical exposure alone is shown, directly and quantitatively, to be an insufficient measure of true climate risk: the island with the highest exposure (Maldives) is not the island with the highest overall compound vulnerability (Seychelles) once ecosystem degradation is properly accounted for — the project's central, headline result.
+
+## Deliverables
+
+A fully reproducible, cross-national geospatial data-acquisition and analysis pipeline spanning ten datasets and five island nations; a validated multi-temporal mangrove and coral dataset; a composite Compound Vulnerability Score with full cross-island ranking; a governance-alignment analysis; a settlement-encroachment analysis; a multi-page interactive Streamlit dashboard combining live-recalculating features, interactive QGIS-based maps, and static visualizations; and a complete open-source codebase.
+
+## Limitations
+
+The governance-alignment finding is limited by a small five-island sample, providing insufficient statistical power to confirm a relationship that is nonetheless directionally consistent with risk-responsive governance. Lakshadweep population data was not acquired due to an impractically large source-file requirement and is deferred rather than estimated. Cyclone-damage supporting evidence was only possible for Fiji, since satellite verification is inherently bounded by the operational start date of the Sentinel-2 platform (2015), and the other four islands' strongest historically recorded cyclones predate this record.
+

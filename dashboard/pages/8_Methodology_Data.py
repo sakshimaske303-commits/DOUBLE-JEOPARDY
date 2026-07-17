@@ -105,7 +105,7 @@ st.markdown("---")
 
 st.markdown("""
 <div style="background: rgba(0,150,199,0.06); border: 1px solid rgba(0,150,199,0.25); border-radius: 10px; padding: 16px;">
-    <strong style="color: #072a4d;">GitHub Repository:</strong> <a href="#" style="color: #0096c7;">github.com/sakshimaske303-commits/DOUBLE-JEOPARDY</a>
+    <strong style="color: #072a4d;">GitHub Repository:</strong> <a href="https://github.com/sakshimaske303-commits/DOUBLE-JEOPARDY" target="_blank" style="color: #0096c7;">github.com/sakshimaske303-commits/DOUBLE-JEOPARDY</a>
 </div>
 """, unsafe_allow_html=True)
 
