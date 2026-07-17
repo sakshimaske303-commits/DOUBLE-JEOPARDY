@@ -16,7 +16,7 @@ st.markdown(
 )
 st.markdown("---")
 
-MAP_SERVER_BASE = "/app/static"
+MAP_SERVER_BASE = "https://sakshimaske303-commits.github.io/DOUBLE-JEOPARDY/dashboard/static"
 
 # ============ SLR EXPOSURE ============
 SLR_DATA = {
