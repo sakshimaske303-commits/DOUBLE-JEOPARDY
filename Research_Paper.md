@@ -87,6 +87,12 @@ Comparing early-period and recent-period averages, four of five islands showed i
 
 The composite score ranked Seychelles highest (0.880), followed by Maldives (0.651), Lakshadweep (0.467), Fiji (0.217), and Canary Islands (0.000). This directly demonstrates that physical exposure alone would misidentify the highest-risk island: Maldives has substantially higher exposure alone (99.1% versus 78.3%), yet Seychelles produces the higher composite score once its more severe coral degradation trend is incorporated.
 
+<p align="center">
+  <img src="outputs/plots/compound_vulnerability_score.png" width="700">
+</p>
+
+**Figure 1.** Compound Vulnerability Score across the five study islands, combining normalized physical sea-level-rise exposure and long-term coral thermal-stress trend using equal weighting. Seychelles emerges as the most vulnerable island despite Maldives having the highest physical exposure alone, demonstrating that exposure by itself is an incomplete measure of climate vulnerability and reinforcing the need for a multi-indicator assessment framework.
+
 ### 4.5 Governance Alignment: Suggestive, Not Confirmatory
 
 The correlation between compound vulnerability and coastal protected-area coverage was moderately positive (r=0.727) but did not reach conventional statistical significance (p=0.164), a result attributable to the study's necessarily small five-island sample rather than to an absence of any underlying relationship.
