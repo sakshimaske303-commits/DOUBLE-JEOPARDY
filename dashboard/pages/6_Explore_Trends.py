@@ -12,7 +12,7 @@ apply_custom_style()
 
 st.markdown("<h1 style='text-align: center;'>📈 EXPLORE TRENDS</h1>", unsafe_allow_html=True)
 st.markdown(
-    "<h3 style='text-align: center; color: #1b4332; font-weight: 400;'>Interactive Island-Level Time Series</h3>",
+    "<h3 style='text-align: center; color: #67E8F9; font-weight: 400;'>Interactive Island-Level Time Series</h3>",
     unsafe_allow_html=True,
 )
 st.markdown("---")
@@ -22,6 +22,8 @@ ISLAND_FILE_MAP = {
     "Maldives": "maldives", "Seychelles": "seychelles", "Fiji": "fiji",
     "Canary Islands": "canary", "Lakshadweep": "lakshadweep",
 }
+
+color_palette = [PALETTE["cyan"], PALETTE["risk"], PALETTE["mint"], PALETTE["navy"], "#f4a261"]
 
 st.markdown("### 🌡️ Coral Thermal Stress Over Time (1996–2020)")
 
@@ -33,7 +35,6 @@ selected_islands = st.multiselect(
 
 if selected_islands:
     fig = go.Figure()
-    color_palette = [PALETTE["cyan"], PALETTE["risk"], PALETTE["mint"], PALETTE["navy"], "#f4a261"]
 
     for i, island_name in enumerate(selected_islands):
         file_key = ISLAND_FILE_MAP[island_name]
@@ -53,16 +54,16 @@ if selected_islands:
     fig.add_hline(y=8, line_dash="dot", line_color="red", annotation_text="Severe bleaching/mortality (8°C-wk)")
 
     fig.update_layout(
-        template="plotly_white",
+        template="plotly_dark",
         xaxis_title="Date",
         yaxis_title="Degree Heating Week (°C-weeks)",
-        xaxis=dict(tickfont=dict(color="#000000")),
-        yaxis=dict(tickfont=dict(color="#000000"), title_font=dict(color="#000000")),
+        xaxis=dict(tickfont=dict(color="#FFD60A")),
+        yaxis=dict(tickfont=dict(color="#FFD60A"), title_font=dict(color="#FFD60A")),
         height=500,
-        font=dict(family="Poppins", color="#000000"),
+        font=dict(family="Poppins", color="#FFD60A"),
         plot_bgcolor="rgba(0,0,0,0)",
         paper_bgcolor="rgba(0,0,0,0)",
-        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="center", x=0.5, font=dict(color="#000000")),
+        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="center", x=0.5, font=dict(color="#FFD60A")),
         margin=dict(t=60, b=40, l=40, r=40),
     )
 
@@ -102,16 +103,16 @@ if selected_mangrove_islands:
         ))
 
     fig2.update_layout(
-        template="plotly_white",
+        template="plotly_dark",
         xaxis_title="Year",
         yaxis_title="Mangrove Area (km²)",
-        xaxis=dict(tickmode="array", tickvals=years, tickfont=dict(color="#000000")),
-        yaxis=dict(tickfont=dict(color="#000000"), title_font=dict(color="#000000")),
+        xaxis=dict(tickmode="array", tickvals=years, tickfont=dict(color="#FFD60A")),
+        yaxis=dict(tickfont=dict(color="#FFD60A"), title_font=dict(color="#FFD60A")),
         height=450,
-        font=dict(family="Poppins", color="#000000"),
+        font=dict(family="Poppins", color="#FFD60A"),
         plot_bgcolor="rgba(0,0,0,0)",
         paper_bgcolor="rgba(0,0,0,0)",
-        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="center", x=0.5, font=dict(color="#000000")),
+        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="center", x=0.5, font=dict(color="#FFD60A")),
         margin=dict(t=60, b=40, l=40, r=40),
     )
 

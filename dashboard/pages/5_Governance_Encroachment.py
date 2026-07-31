@@ -11,7 +11,7 @@ apply_custom_style()
 
 st.markdown("<h1 style='text-align: center;'>🏛️ GOVERNANCE & ENCROACHMENT</h1>", unsafe_allow_html=True)
 st.markdown(
-    "<h3 style='text-align: center; color: #1b4332; font-weight: 400;'>Is Protection Policy Aligned With Verified Risk?</h3>",
+    "<h3 style='text-align: center; color: #67E8F9; font-weight: 400;'>Is Protection Policy Aligned With Verified Risk?</h3>",
     unsafe_allow_html=True,
 )
 st.markdown("---")
@@ -37,19 +37,19 @@ with tab1:
     fig.add_trace(go.Scatter(
         x=vuln_scores, y=wdpa_ratios, mode="markers+text",
         text=islands, textposition="top center",
-        textfont=dict(size=12, color="#000000"),
+        textfont=dict(size=12, color="#FFD60A"),
         marker=dict(size=16, color=PALETTE["cyan"], line=dict(width=2, color=PALETTE["navy"])),
     ))
 
     fig.update_layout(
-        template="plotly_white",
+        template="plotly_dark",
         xaxis_title="Compound Vulnerability Score",
         yaxis_title="Coastal WDPA Protection Ratio",
-        xaxis=dict(tickfont=dict(color="#000000", size=12), title_font=dict(color="#000000", size=13)),
-        yaxis=dict(tickfont=dict(color="#000000", size=12), title_font=dict(color="#000000", size=13)),
+        xaxis=dict(tickfont=dict(color="#FFD60A", size=12), title_font=dict(color="#FFD60A", size=13)),
+        yaxis=dict(tickfont=dict(color="#FFD60A", size=12), title_font=dict(color="#FFD60A", size=13)),
         height=440,
         margin=dict(t=20, b=40, l=20, r=20),
-        font=dict(family="Poppins", color="#000000"),
+        font=dict(family="Poppins", color="#FFD60A"),
         plot_bgcolor="rgba(0,0,0,0)",
         paper_bgcolor="rgba(0,0,0,0)",
     )
@@ -86,17 +86,17 @@ with tab2:
     fig2.add_trace(go.Bar(
         x=encroach_islands, y=ndbi_change, marker_color=colors2,
         text=[f"{v:+.4f}" for v in ndbi_change], textposition="outside",
-        textfont=dict(color="#000000", size=13),
+        textfont=dict(color="#FFD60A", size=13),
     ))
 
     fig2.update_layout(
-        template="plotly_white",
+        template="plotly_dark",
         yaxis_title="NDBI Change (2016 → 2024)",
-        xaxis=dict(tickfont=dict(color="#000000", size=13)),
-        yaxis=dict(tickfont=dict(color="#000000", size=12), title_font=dict(color="#000000", size=13)),
+        xaxis=dict(tickfont=dict(color="#FFD60A", size=13)),
+        yaxis=dict(tickfont=dict(color="#FFD60A", size=12), title_font=dict(color="#FFD60A", size=13)),
         height=400,
         margin=dict(t=20, b=40, l=20, r=20),
-        font=dict(family="Poppins", color="#000000"),
+        font=dict(family="Poppins", color="#FFD60A"),
         plot_bgcolor="rgba(0,0,0,0)",
         paper_bgcolor="rgba(0,0,0,0)",
     )

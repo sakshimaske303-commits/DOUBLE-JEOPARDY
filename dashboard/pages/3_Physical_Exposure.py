@@ -12,7 +12,7 @@ apply_custom_style()
 
 st.markdown("<h1 style='text-align: center;'>📉 PHYSICAL EXPOSURE</h1>", unsafe_allow_html=True)
 st.markdown(
-    "<h3 style='text-align: center; color: #1b4332; font-weight: 400;'>Settlement-Level Sea-Level-Rise Risk</h3>",
+    "<h3 style='text-align: center; color: #67E8F9; font-weight: 400;'>Settlement-Level Sea-Level-Rise Risk</h3>",
     unsafe_allow_html=True,
 )
 st.markdown("---")
@@ -41,11 +41,11 @@ for col, (island, pct, total) in zip(cols, exposure_data):
         bar_color = PALETTE["risk"] if pct >= 50 else PALETTE["cyan"]
         st.markdown(f"""
         <div style="background: {PALETTE['card_bg']}; border-radius: 12px; padding: 16px;
-                    text-align: center; min-height: 190px; border: 1.5px solid rgba(0,150,199,0.3);">
+                    text-align: center; min-height: 190px; border: 1.5px solid rgba(34,211,238,0.3);">
             <p style="color: {PALETTE['navy']}; font-weight: 700; font-size: 0.95rem; margin-bottom: 10px;">{island}</p>
             <p style="color: {bar_color}; font-weight: 900; font-size: 2rem; margin-bottom: 4px;">{pct}%</p>
             <p style="color: {PALETTE['text_muted']}; font-size: 0.75rem; margin-bottom: 10px;">at or below 1m</p>
-            <div style="background: #dfe9ef; border-radius: 20px; height: 10px; overflow: hidden;">
+            <div style="background: rgba(255,255,255,0.1); border-radius: 20px; height: 10px; overflow: hidden;">
                 <div style="background: {bar_color}; width: {pct}%; height: 100%;"></div>
             </div>
             <p style="color: {PALETTE['text_muted']}; font-size: 0.7rem; margin-top: 8px;">{total} settlements</p>
@@ -87,15 +87,15 @@ fig_dynamic = go.Figure()
 fig_dynamic.add_trace(go.Bar(
     x=display_names, y=custom_pcts, marker_color=colors_dynamic,
     text=[f"{p:.1f}%" for p in custom_pcts], textposition="outside",
-    textfont=dict(color="#000000", size=13),
+    textfont=dict(color="#FFD60A", size=13),
 ))
 fig_dynamic.update_layout(
-    template="plotly_white",
+    template="plotly_dark",
     yaxis_title=f"% Settlements At or Below {threshold}m",
-    yaxis=dict(range=[0, 105], tickfont=dict(color="#000000"), title_font=dict(color="#000000")),
-    xaxis=dict(tickfont=dict(color="#000000", size=13)),
+    yaxis=dict(range=[0, 105], tickfont=dict(color="#FFD60A"), title_font=dict(color="#FFD60A")),
+    xaxis=dict(tickfont=dict(color="#FFD60A", size=13)),
     height=400,
-    font=dict(family="Poppins", color="#000000"),
+    font=dict(family="Poppins", color="#FFD60A"),
     plot_bgcolor="rgba(0,0,0,0)",
     paper_bgcolor="rgba(0,0,0,0)",
     margin=dict(t=20, b=40, l=20, r=20),

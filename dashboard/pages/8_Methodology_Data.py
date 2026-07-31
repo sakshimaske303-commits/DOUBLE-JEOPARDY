@@ -11,7 +11,7 @@ apply_custom_style()
 
 st.markdown("<h1 style='text-align: center;'>📖 METHODOLOGY & DATA</h1>", unsafe_allow_html=True)
 st.markdown(
-    "<h3 style='text-align: center; color: #1b4332; font-weight: 400;'>Full Transparency, Reproducibility, and Limitations</h3>",
+    "<h3 style='text-align: center; color: #67E8F9; font-weight: 400;'>Full Transparency, Reproducibility, and Limitations</h3>",
     unsafe_allow_html=True,
 )
 st.markdown("---")
@@ -103,9 +103,9 @@ except FileNotFoundError:
 
 st.markdown("---")
 
-st.markdown("""
-<div style="background: rgba(0,150,199,0.06); border: 1px solid rgba(0,150,199,0.25); border-radius: 10px; padding: 16px;">
-    <strong style="color: #072a4d;">GitHub Repository:</strong> <a href="https://github.com/sakshimaske303-commits/DOUBLE-JEOPARDY" target="_blank" style="color: #0096c7;">github.com/sakshimaske303-commits/DOUBLE-JEOPARDY</a>
+st.markdown(f"""
+<div style="background: {PALETTE['card_bg']}; border: 1px solid rgba(34,211,238,0.3); border-radius: 10px; padding: 16px;">
+    <strong style="color: {PALETTE['green']};">GitHub Repository:</strong> <a href="https://github.com/sakshimaske303-commits/DOUBLE-JEOPARDY" target="_blank" style="color: {PALETTE['navy']};">github.com/sakshimaske303-commits/DOUBLE-JEOPARDY</a>
 </div>
 """, unsafe_allow_html=True)
 
@@ -113,9 +113,9 @@ st.markdown("---")
 
 st.markdown(
     f"""
-    <div style="text-align: center; padding: 25px; background: linear-gradient(135deg, {PALETTE['card_bg']}, #e8f4f8); border-radius: 16px; border: 1px solid rgba(0,150,199,0.2);">
+    <div style="text-align: center; padding: 25px; background: {PALETTE['card_bg']}; border-radius: 16px; border: 1px solid rgba(34,211,238,0.25);">
         <p style="color: {PALETTE['text_muted']}; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem;">Project Author</p>
-        <h2 style="color: {PALETTE['navy']}; margin: 5px 0;">SAKSHI D. MASKE</h2>
+        <h2 style="color: {PALETTE['navy']}; margin: 5px 0; border: none; padding: 0;">SAKSHI D. MASKE</h2>
         <p style="color: {PALETTE['green']}; font-weight: 600;">Independent Geospatial Researcher</p>
     </div>
     """,

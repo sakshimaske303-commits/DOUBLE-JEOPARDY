@@ -14,9 +14,11 @@ st.set_page_config(
 
 apply_custom_style()
 
+GITHUB_URL = "https://github.com/sakshimaske303-commits/DOUBLE-JEOPARDY"
+
 st.markdown("<h1 style='text-align: center;'>🌊 DOUBLE JEOPARDY</h1>", unsafe_allow_html=True)
 st.markdown(
-    "<h3 style='text-align: center; color: #2d6a4f; font-weight: 400; margin-top: -10px;'>"
+    "<h3 style='text-align: center; color: #67E8F9; font-weight: 400; margin-top: -10px;'>"
     "The Vulnerability Spiral — Compound Climate Risk Across Five Island Nations</h3>",
     unsafe_allow_html=True,
 )
@@ -55,9 +57,9 @@ with col_left:
 with col_right:
     st.markdown(
         f"""
-        <div style="background: linear-gradient(135deg, {PALETTE['card_bg']}, #e8f4f8);
-                    border-left: 5px solid {PALETTE['cyan']}; border-radius: 12px;
-                    padding: 22px; height: 100%;">
+        <div style="background: {PALETTE['card_bg']};
+                    border-left: 5px solid {PALETTE['navy']}; border-radius: 12px;
+                    padding: 22px; height: 100%; border: 1px solid rgba(34,211,238,0.2);">
             <p style="color:{PALETTE['navy']}; text-transform:uppercase; font-size:0.75rem;
                       letter-spacing:1.5px; font-weight:700; margin-bottom:10px;">Core Finding</p>
             <p style="color:{PALETTE['text_dark']}; font-size:0.95rem; line-height:1.6; margin:0;">
@@ -79,7 +81,7 @@ h1, h2, h3 = st.columns(3)
 
 with h1:
     st.markdown(f"""
-    <div style="background: linear-gradient(135deg, #fff0ee, #ffe5e0); border-radius: 14px;
+    <div style="background: {PALETTE['card_bg']}; border-radius: 14px;
                 padding: 20px; border: 2px solid {PALETTE['risk']}; min-height: 200px;">
         <p style="color: {PALETTE['risk']}; font-weight: 800; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 8px;">✅ H1 — Supported</p>
         <p style="color: {PALETTE['navy']}; font-weight: 700; font-size: 1rem; margin-bottom: 8px;">Coral Reefs Are Degrading</p>
@@ -92,7 +94,7 @@ with h1:
 
 with h2:
     st.markdown(f"""
-    <div style="background: linear-gradient(135deg, #e8f5e9, #d4ecd6); border-radius: 14px;
+    <div style="background: {PALETTE['card_bg']}; border-radius: 14px;
                 padding: 20px; border: 2px solid {PALETTE['mint']}; min-height: 200px;">
         <p style="color: {PALETTE['mint']}; font-weight: 800; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 8px;">❌ H2 — Not Supported</p>
         <p style="color: {PALETTE['navy']}; font-weight: 700; font-size: 1rem; margin-bottom: 8px;">Mangroves Are Stable</p>
@@ -134,7 +136,7 @@ for i, (icon, title, desc) in enumerate(nav_items):
     with cols[i % 3]:
         st.markdown(f"""
         <div style="background: {PALETTE['card_bg']}; border-radius: 12px; padding: 16px;
-                    margin-bottom: 14px; border: 1px solid rgba(0,180,216,0.2); min-height: 110px;">
+                    margin-bottom: 14px; border: 1px solid rgba(34,211,238,0.2); min-height: 110px;">
             <p style="font-size: 1.6rem; margin: 0 0 6px 0;">{icon}</p>
             <p style="color: {PALETTE['navy']}; font-weight: 700; font-size: 0.95rem; margin: 0 0 4px 0;">{title}</p>
             <p style="color: {PALETTE['text_muted']}; font-size: 0.8rem; margin: 0;">{desc}</p>
@@ -143,13 +145,72 @@ for i, (icon, title, desc) in enumerate(nav_items):
 
 st.markdown("---")
 
+# ============================================================
+# FULL PROJECT DOCUMENTATION
+# ============================================================
+st.markdown("### 📄 Full Project Documentation")
+st.markdown(
+    f"<p style='color:{PALETTE['text_muted']}; font-weight:600;'>"
+    "Download the complete research paper, project journal, and development log.</p>",
+    unsafe_allow_html=True,
+)
+
+doc1, doc2, doc3 = st.columns(3)
+
+with doc1:
+    try:
+        with open("../Research_Paper.pdf", "rb") as f:
+            st.download_button(
+                label="📘 Research Paper (PDF)",
+                data=f,
+                file_name="DOUBLE_JEOPARDY_Research_Paper.pdf",
+                mime="application/pdf",
+                use_container_width=True,
+            )
+    except FileNotFoundError:
+        st.warning("Research_Paper.pdf not found.")
+
+with doc2:
+    try:
+        with open("../Project_Journal.pdf", "rb") as f:
+            st.download_button(
+                label="📗 Project Journal (PDF)",
+                data=f,
+                file_name="DOUBLE_JEOPARDY_Project_Journal.pdf",
+                mime="application/pdf",
+                use_container_width=True,
+            )
+    except FileNotFoundError:
+        st.warning("Project_Journal.pdf not found.")
+
+with doc3:
+    try:
+        with open("../Devlopment_Log.pdf", "rb") as f:
+            st.download_button(
+                label="📙 Development Log (PDF)",
+                data=f,
+                file_name="DOUBLE_JEOPARDY_Devlopment_Log.pdf",
+                mime="application/pdf",
+                use_container_width=True,
+            )
+    except FileNotFoundError:
+        st.warning("Development_Log.pdf not found.")
+
+st.markdown("---")
+
+# ============================================================
+# FOOTER — NAME + GITHUB LINK
+# ============================================================
 st.markdown(
     f"""
-    <div style="text-align: center; padding: 25px; background: linear-gradient(135deg, {PALETTE['card_bg']}, #e8f4f8);
-                border-radius: 16px; border: 1px solid rgba(0,180,216,0.2);">
+    <div style="text-align: center; padding: 25px; background: {PALETTE['card_bg']};
+                border-radius: 16px; border: 1px solid rgba(34,211,238,0.25);">
         <p style="color: {PALETTE['text_muted']}; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem;">Developed by</p>
-        <h2 style="color: {PALETTE['navy']}; margin: 5px 0;">SAKSHI D. MASKE</h2>
-        <p style="color: {PALETTE['green']}; font-weight: 600;">Independent Geospatial Researcher</p>
+        <h2 style="color: {PALETTE['navy']}; margin: 5px 0; border: none; padding: 0;">SAKSHI D. MASKE</h2>
+        <p style="color: {PALETTE['green']}; font-weight: 600; margin-bottom: 18px;">Independent Geospatial Researcher</p>
+        <a href="{GITHUB_URL}" target="_blank" style="text-decoration:none;">
+            <span style="display:inline-block; background: linear-gradient(90deg, {PALETTE['navy']}, {PALETTE['green']}); color:#0A0A0A; font-weight:800; font-size:0.9rem; padding:10px 24px; border-radius:6px;">🔗 View on GitHub</span>
+        </a>
     </div>
     """,
     unsafe_allow_html=True,
