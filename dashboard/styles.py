@@ -22,10 +22,14 @@ def apply_custom_style():
         }
 
         [data-testid="stHeader"] {
-            background-color: transparent !important;
-            height: 0rem !important;
+            background-color: #0A0A0A !important;
+            height: 3rem !important;
         }
-        [data-testid="stToolbar"] {
+        /* Hide only the Deploy button and the "..." app menu inside the
+        toolbar — NOT the whole toolbar — so whatever else Streamlit
+        renders there (including the sidebar collapse/expand control,
+        wherever it lives in this version) stays intact and clickable. */
+        [data-testid="stAppDeployButton"] {
             display: none !important;
         }
         [data-testid="stDecoration"] {
@@ -35,7 +39,7 @@ def apply_custom_style():
             visibility: hidden !important;
         }
         .block-container {
-            padding-top: 1.5rem !important;
+            padding-top: 1rem !important;
         }
 
         section[data-testid="stSidebar"] {
@@ -241,26 +245,44 @@ section[data-testid="stSidebar"] a[aria-current="page"] {
             color: #22D3EE !important;
         }
 
-        /* Sidebar collapse/expand arrow — kept visible and clickable even
-        though stHeader/stToolbar (where it normally lives) are hidden
-        above. Without this, once the sidebar is collapsed there is no
-        way to bring it back. */
-        [data-testid="collapsedControl"] {
+        /* Sidebar collapse/expand control — safety net covering every
+        naming variant Streamlit has used across versions for this
+        button, since it's normally invisible-by-default on a dark theme
+        (it inherits a light-mode icon color) and its exact internal name
+        isn't the same in every Streamlit release. Forcing all of these
+        to be visible/opaque/on-top means whichever one actually exists
+        in your deployed version will show up. */
+        [data-testid="collapsedControl"],
+        [data-testid="stSidebarCollapsedControl"],
+        [data-testid="stSidebarCollapseButton"],
+        [data-testid="baseButton-header"],
+        [data-testid="stHeader"] button,
+        [data-testid*="ollapse" i],
+        button[kind="header"] {
             display: flex !important;
             visibility: visible !important;
             opacity: 1 !important;
+            z-index: 999999 !important;
+        }
+        [data-testid="collapsedControl"],
+        [data-testid="stSidebarCollapsedControl"] {
             position: fixed !important;
             top: 12px !important;
             left: 12px !important;
-            z-index: 999999 !important;
             background: #141414 !important;
             border: 1.5px solid rgba(34, 211, 238, 0.4) !important;
             border-radius: 8px !important;
             padding: 4px !important;
         }
-        [data-testid="collapsedControl"] svg {
+        [data-testid="collapsedControl"] svg,
+        [data-testid="stSidebarCollapsedControl"] svg,
+        [data-testid="stSidebarCollapseButton"] svg,
+        [data-testid="baseButton-header"] svg,
+        [data-testid="stHeader"] button svg,
+        button[kind="header"] svg {
             fill: #22D3EE !important;
             stroke: #22D3EE !important;
+            opacity: 1 !important;
         }
         </style>
     """, unsafe_allow_html=True)
