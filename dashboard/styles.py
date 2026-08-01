@@ -240,6 +240,28 @@ section[data-testid="stSidebar"] a[aria-current="page"] {
         details summary::marker {
             color: #22D3EE !important;
         }
+
+        /* Sidebar collapse/expand arrow — kept visible and clickable even
+        though stHeader/stToolbar (where it normally lives) are hidden
+        above. Without this, once the sidebar is collapsed there is no
+        way to bring it back. */
+        [data-testid="collapsedControl"] {
+            display: flex !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            position: fixed !important;
+            top: 12px !important;
+            left: 12px !important;
+            z-index: 999999 !important;
+            background: #141414 !important;
+            border: 1.5px solid rgba(34, 211, 238, 0.4) !important;
+            border-radius: 8px !important;
+            padding: 4px !important;
+        }
+        [data-testid="collapsedControl"] svg {
+            fill: #22D3EE !important;
+            stroke: #22D3EE !important;
+        }
         </style>
     """, unsafe_allow_html=True)
 
