@@ -16,6 +16,15 @@ apply_custom_style()
 
 GITHUB_URL = "https://github.com/sakshimaske303-commits/DOUBLE-JEOPARDY"
 
+# ------------------------------------------------------------------
+# Robust path resolution: works both locally (running from inside
+# dashboard/) and on Streamlit Cloud (which runs from the repo root
+# without cd'ing into dashboard/ first). Same fix applied to
+# STOLEN_STRATA after its PDFs 404'd only in the cloud deployment.
+# ------------------------------------------------------------------
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))   # .../dashboard
+ROOT_DIR = os.path.dirname(BASE_DIR)                      # repo root
+
 st.markdown("<h1 style='text-align: center;'>🌊 DOUBLE JEOPARDY</h1>", unsafe_allow_html=True)
 st.markdown(
     "<h3 style='text-align: center; color: #67E8F9; font-weight: 400; margin-top: -10px;'>"
@@ -43,14 +52,14 @@ with col_left:
     st.markdown("""
     ### What Is Double Jeopardy?
 
-    Small island nations face a **compounding vulnerability** to climate change — high 
-    physical exposure to sea-level rise, layered with **degrading natural coastal defenses**: 
-    mangroves and coral reefs that have historically buffered these islands from erosion 
+    Small island nations face a **compounding vulnerability** to climate change — high
+    physical exposure to sea-level rise, layered with **degrading natural coastal defenses**:
+    mangroves and coral reefs that have historically buffered these islands from erosion
     and storm damage.
 
-    This project independently tests whether that compounding risk is real, and whether 
-    it affects every ecosystem type equally. Rather than assuming mangroves and coral reefs 
-    degrade together, each is tested independently across five island nations spanning 
+    This project independently tests whether that compounding risk is real, and whether
+    it affects every ecosystem type equally. Rather than assuming mangroves and coral reefs
+    degrade together, each is tested independently across five island nations spanning
     three ocean basins.
     """)
 
@@ -63,10 +72,10 @@ with col_right:
             <p style="color:{PALETTE['navy']}; text-transform:uppercase; font-size:0.75rem;
                       letter-spacing:1.5px; font-weight:700; margin-bottom:10px;">Core Finding</p>
             <p style="color:{PALETTE['text_dark']}; font-size:0.95rem; line-height:1.6; margin:0;">
-                Physical exposure alone doesn't tell the whole story. The <b>Maldives</b> has the 
-                highest sea-level-rise exposure of any island tested (99.1% of settlements at risk) — 
-                yet <b>Seychelles</b> emerges as the highest overall-risk island once ecosystem 
-                degradation is factored in, driven by the most severe coral thermal-stress 
+                Physical exposure alone doesn't tell the whole story. The <b>Maldives</b> has the
+                highest sea-level-rise exposure of any island tested (99.1% of settlements at risk) —
+                yet <b>Seychelles</b> emerges as the highest overall-risk island once ecosystem
+                degradation is factored in, driven by the most severe coral thermal-stress
                 trend recorded across the sample.
             </p>
         </div>
@@ -86,8 +95,9 @@ with h1:
         <p style="color: {PALETTE['risk']}; font-weight: 800; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 8px;">✅ H1 — Supported</p>
         <p style="color: {PALETTE['navy']}; font-weight: 700; font-size: 1rem; margin-bottom: 8px;">Coral Reefs Are Degrading</p>
         <p style="color: {PALETTE['text_dark']}; font-size: 0.85rem; margin: 0;">
-            4 of 5 islands show rising thermal-bleaching stress over 24 years — Seychelles 
-            most severely (+0.68°C-weeks).
+            4 of 5 islands show a nominal rise in thermal-bleaching stress over 24 years; a
+            formal trend test confirms this as statistically significant for Maldives and
+            Seychelles (+0.68°C-weeks) — the two islands driving this project's central finding.
         </p>
     </div>
     """, unsafe_allow_html=True)
@@ -99,7 +109,7 @@ with h2:
         <p style="color: {PALETTE['mint']}; font-weight: 800; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 8px;">❌ H2 — Not Supported</p>
         <p style="color: {PALETTE['navy']}; font-weight: 700; font-size: 1rem; margin-bottom: 8px;">Mangroves Are Stable</p>
         <p style="color: {PALETTE['text_dark']}; font-size: 0.85rem; margin: 0;">
-            Zero net decline across 3 tested islands and 3 independent time points 
+            Zero net decline across 3 tested islands and 3 independent time points
             (1996–2020) — a genuine, robustness-checked finding.
         </p>
     </div>
@@ -112,8 +122,8 @@ with h3:
         <p style="color: {PALETTE['cyan']}; font-weight: 800; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 8px;">⚠️ H3 — Suggestive</p>
         <p style="color: {PALETTE['navy']}; font-weight: 700; font-size: 1rem; margin-bottom: 8px;">Governance Is Partially Aligned</p>
         <p style="color: {PALETTE['text_dark']}; font-size: 0.85rem; margin: 0;">
-            Moderate positive correlation (r=0.727) between risk and protection — but not 
-            statistically significant at this sample size (p=0.164).
+            Moderate positive correlation (r=0.727) between risk and protection — but not
+            statistically significant at this sample size (p=0.164, 95% CI: -0.43 to 0.98).
         </p>
     </div>
     """, unsafe_allow_html=True)
@@ -158,8 +168,9 @@ st.markdown(
 doc1, doc2, doc3 = st.columns(3)
 
 with doc1:
+    pdf_path = os.path.join(ROOT_DIR, "Research_Paper.pdf")
     try:
-        with open("../Research_Paper.pdf", "rb") as f:
+        with open(pdf_path, "rb") as f:
             st.download_button(
                 label="📘 Research Paper (PDF)",
                 data=f,
@@ -171,8 +182,9 @@ with doc1:
         st.warning("Research_Paper.pdf not found.")
 
 with doc2:
+    pdf_path = os.path.join(ROOT_DIR, "Project_Journal.pdf")
     try:
-        with open("../Project_Journal.pdf", "rb") as f:
+        with open(pdf_path, "rb") as f:
             st.download_button(
                 label="📗 Project Journal (PDF)",
                 data=f,
@@ -184,8 +196,9 @@ with doc2:
         st.warning("Project_Journal.pdf not found.")
 
 with doc3:
+    pdf_path = os.path.join(ROOT_DIR, "Devlopment_Log.pdf")
     try:
-        with open("../Devlopment_Log.pdf", "rb") as f:
+        with open(pdf_path, "rb") as f:
             st.download_button(
                 label="📙 Development Log (PDF)",
                 data=f,

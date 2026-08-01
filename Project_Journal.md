@@ -52,6 +52,8 @@ Rather than relying on a single before/after snapshot, mangrove extent was track
 
 Coral reef condition was tracked differently, using satellite-derived thermal stress (Degree Heating Week) rather than mapped extent, since coral degradation manifests primarily as bleaching rather than area loss. This continuous 1996–2020 time series showed a rising thermal-stress trend in four of five islands, most severely in Seychelles, whose maximum recorded value falls within the range associated with severe bleaching and coral mortality.
 
+A supplementary Mann-Kendall trend test on the complete 24-year series confirmed this increasing trend as statistically significant for Maldives (p=0.011) and Seychelles (p=0.025); the more modest increases observed in Fiji and Lakshadweep did not reach statistical significance over the full series, while the Canary Islands showed no significant trend, consistent with the period-comparison result.
+
 ### Phase 3 — Physical Exposure and the Compound Vulnerability Score
 
 Physical exposure was quantified by sampling elevation at every settlement's location across all five islands and calculating the proportion at or below a standard one-meter sea-level-rise threshold, producing a wide range from 12.1% (Canary Islands) to 99.1% (Maldives), directly reflecting the geological difference between low-lying coral-atoll nations and volcanic, mountainous terrain.
@@ -84,5 +86,4 @@ A fully reproducible, cross-national geospatial data-acquisition and analysis pi
 
 ## Limitations
 
-The governance-alignment finding is limited by a small five-island sample, providing insufficient statistical power to confirm a relationship that is nonetheless directionally consistent with risk-responsive governance. Lakshadweep population data was not acquired due to an impractically large source-file requirement and is deferred rather than estimated. Cyclone-damage supporting evidence was only possible for Fiji, since satellite verification is inherently bounded by the operational start date of the Sentinel-2 platform (2015), and the other four islands' strongest historically recorded cyclones predate this record.
-
+The governance-alignment finding is limited by a small five-island sample, providing insufficient statistical power to confirm a relationship that is nonetheless directionally consistent with risk-responsive governance.Population-weighted exposure for Fiji reflects approximately 97.6% of the island's population; elevation data did not cover Fiji's easternmost territory (the Lau Islands, beyond the antimeridian), and this excluded population is reported explicitly rather than assumed negligible. This gap does not affect any other analysis in this study, which relies on settlement point locations rather than the population raster.

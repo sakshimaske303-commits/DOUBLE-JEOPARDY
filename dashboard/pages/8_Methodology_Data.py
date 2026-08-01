@@ -40,36 +40,45 @@ st.markdown("### The Validation Journey (Click to view the dropdown)")
 
 with st.expander("**Feature Count ≠ Area: The Mangrove Measurement Trap**"):
     st.markdown("""
-    An initial comparison using raw polygon feature counts suggested a 14.2% mangrove decline in 
-    Fiji between 1996 and 2020. Before accepting this, area was independently recalculated in an 
-    equal-area projection across all three time points — revealing the apparent decline was an 
-    artifact of how satellite classification algorithms segment polygons differently across years, 
+    An initial comparison using raw polygon feature counts suggested a 14.2% mangrove decline in
+    Fiji between 1996 and 2020. Before accepting this, area was independently recalculated in an
+    equal-area projection across all three time points — revealing the apparent decline was an
+    artifact of how satellite classification algorithms segment polygons differently across years,
     not a genuine reduction in mangrove extent. True area remained essentially stable.
     """)
 
 with st.expander("**A Data-Quality Bug: Maldives' Coral File Wasn't Actually Coral Data**"):
     st.markdown("""
-    An initial coral reef file for the Maldives contained 4,230 rows — but inspection revealed 
-    columns like `cuisine`, `spa`, and `payment:visa`, indicating the file was an unfiltered 
-    general OpenStreetMap export, not coral-specific data. Filtering to genuine `natural=reef` 
+    An initial coral reef file for the Maldives contained 4,230 rows — but inspection revealed
+    columns like `cuisine`, `spa`, and `payment:visa`, indicating the file was an unfiltered
+    general OpenStreetMap export, not coral-specific data. Filtering to genuine `natural=reef`
     tags recovered 2,921 verified coral reef features.
     """)
 
 with st.expander("**A Satellite-Record Constraint: Cyclone Damage Verification**"):
     st.markdown("""
-    An attempt to extend satellite-based cyclone damage verification to Maldives, Seychelles, and 
-    Lakshadweep failed for a structural reason: each island's strongest historically recorded 
-    cyclone predates 2015, when Sentinel-2 (the satellite used throughout this project) launched. 
-    No valid "before" imagery could exist for these events. This is documented as a genuine 
+    An attempt to extend satellite-based cyclone damage verification to Maldives, Seychelles, and
+    Lakshadweep failed for a structural reason: each island's strongest historically recorded
+    cyclone predates 2015, when Sentinel-2 (the satellite used throughout this project) launched.
+    No valid "before" imagery could exist for these events. This is documented as a genuine
     methodological boundary, not a gap to work around.
     """)
 
 with st.expander("**Governance Ratio Sanity Check: Comparing Land to Marine EEZs**"):
     st.markdown("""
-    An initial protected-area-to-land ratio for Seychelles came out to 1,005.69 — a nonsensical 
-    result caused by including the country's Exclusive Economic Zone (over a million km² of ocean) 
-    in the calculation. This was corrected by restricting the metric to a 10km coastal buffer 
+    An initial protected-area-to-land ratio for Seychelles came out to 1,005.69 — a nonsensical
+    result caused by including the country's Exclusive Economic Zone (over a million km² of ocean)
+    in the calculation. This was corrected by restricting the metric to a 10km coastal buffer
     around each island, producing interpretable, comparable ratios.
+    """)
+
+with st.expander("**Filling a Data Gap: Lakshadweep's Population, Revisited**"):
+    st.markdown("""
+    Lakshadweep population data was initially unavailable, since the only access method found
+    required downloading a population raster covering the entirety of India. A smaller, more
+    targeted file — WorldPop's constrained, UN-adjusted 2020 India dataset (~470MB rather than
+    several gigabytes) — was later identified, clipped down to Lakshadweep's boundary, and
+    incorporated into a population-weighted exposure analysis alongside all four other islands.
     """)
 
 st.markdown("---")
@@ -77,15 +86,25 @@ st.markdown("---")
 st.markdown("### Honest Limitations")
 
 st.warning("""
-**Small sample size.** With only five islands, several findings — particularly the governance 
-correlation (H3) — are statistically suggestive rather than confirmatory. This is a genuine 
-constraint of cross-national island-nation research, not glossed over in this project's conclusions.
+**Small sample size.** With only five islands, several findings — particularly the governance
+correlation (H3), whose 95% confidence interval spans from r = -0.43 to r = 0.98 — are
+statistically suggestive rather than confirmatory. This is a genuine constraint of cross-national
+island-nation research, not glossed over in this project's conclusions.
 """)
 
 st.info("""
-**Uneven data depth.** Lakshadweep population data and Canary Islands coral/mangrove data were 
-confirmed genuinely absent (not acquisition failures) — geographically and ecologically explained, 
-and documented transparently rather than substituted or estimated.
+**Uneven data depth.** Canary Islands coral and mangrove data were confirmed genuinely absent —
+geographically and ecologically explained by its subtropical, volcanic Atlantic setting outside
+typical coral and mangrove habitat range — and documented transparently rather than substituted
+or estimated. Lakshadweep population data, initially unavailable for the reason described above,
+was later obtained and is now included in the population-weighted exposure analysis.
+""")
+
+st.error("""
+**Partial elevation coverage for Fiji.** Elevation data did not extend to Fiji's easternmost
+territory (the Lau Islands, beyond the antimeridian). Fiji's population-weighted exposure figure
+therefore reflects approximately 97.6% of its national population; the excluded population is
+reported explicitly rather than assumed negligible.
 """)
 
 st.markdown("---")

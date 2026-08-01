@@ -9,6 +9,11 @@ from styles import apply_custom_style, PALETTE
 
 apply_custom_style()
 
+# Folder where the publication-quality static figures (research_paper_figures.py)
+# get saved. Used below to show the "as it appears in the Research Paper" version
+# alongside the interactive chart.
+FIGURES_DIR = os.path.join(PROJECT_ROOT, "outputs", "plots")
+
 st.markdown("<h1 style='text-align: center;'>🏛️ GOVERNANCE & ENCROACHMENT</h1>", unsafe_allow_html=True)
 st.markdown(
     "<h3 style='text-align: center; color: #67E8F9; font-weight: 400;'>Is Protection Policy Aligned With Verified Risk?</h3>",
@@ -17,8 +22,8 @@ st.markdown(
 st.markdown("---")
 
 st.markdown("""
-Beyond ecological and physical risk, DOUBLE JEOPARDY tests a governance dimension: does formal 
-protected-area designation — the primary policy instrument for managing coastal ecosystem risk — 
+Beyond ecological and physical risk, DOUBLE JEOPARDY tests a governance dimension: does formal
+protected-area designation — the primary policy instrument for managing coastal ecosystem risk —
 actually align with where empirically verified vulnerability is highest?
 """)
 
@@ -63,18 +68,27 @@ with tab1:
         st.metric("P-VALUE", "0.164", "Not statistically significant")
 
     st.warning("""
-    **A suggestive, not confirmatory, finding.** The direction of the relationship is consistent 
-    with risk-responsive governance — Seychelles, the highest-vulnerability island, also has the 
-    highest coastal protection ratio. But with only five islands in the sample, there isn't 
-    sufficient statistical power to confirm this relationship with confidence. Reported honestly 
-    as suggestive evidence, not proof.
+    **A suggestive, not confirmatory, finding.** The direction of the relationship is consistent
+    with risk-responsive governance — Seychelles, the highest-vulnerability island, also has the
+    highest coastal protection ratio. But with only five islands in the sample — and a 95%
+    confidence interval spanning from r = -0.43 to r = 0.98 — there isn't sufficient statistical
+    power to confirm this relationship with confidence. Reported honestly as suggestive evidence,
+    not proof.
     """)
+
+    st.markdown("")
+    st.markdown("##### 📄 Figure 6 — As it appears in the Research Paper")
+    fig6_path = os.path.join(FIGURES_DIR, "fig6_governance_alignment.png")
+    if os.path.exists(fig6_path):
+        st.image(fig6_path, use_container_width=True)
+    else:
+        st.caption("Figure not found yet — run research_paper_figures.py once to generate it.")
 
 with tab2:
     st.markdown("### Built-Up Area Change: 2016 vs. 2024")
     st.markdown("""
-    Using Sentinel-2 satellite imagery, the Normalized Difference Built-up Index (NDBI) was compared 
-    between 2016 and 2024 for the three islands with mangrove ecosystems, testing whether settlement 
+    Using Sentinel-2 satellite imagery, the Normalized Difference Built-up Index (NDBI) was compared
+    between 2016 and 2024 for the three islands with mangrove ecosystems, testing whether settlement
     expansion is concentrated near degrading ecosystem buffer zones.
     """)
 
@@ -104,9 +118,9 @@ with tab2:
     st.plotly_chart(fig2, use_container_width=True)
 
     st.error("""
-    **Seychelles shows the strongest encroachment signal** (+0.1135) — notably crossing from a 
-    vegetation-dominated to a built-up-dominated average, consistent with its status as the 
-    highest compound-vulnerability island. Fiji shows effectively no change, consistent with its 
+    **Seychelles shows the strongest encroachment signal** (+0.1135) — notably crossing from a
+    vegetation-dominated to a built-up-dominated average, consistent with its status as the
+    highest compound-vulnerability island. Fiji shows effectively no change, consistent with its
     stable mangrove extent and mild coral thermal-stress trend.
     """)
 

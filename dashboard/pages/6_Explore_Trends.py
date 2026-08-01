@@ -23,7 +23,27 @@ ISLAND_FILE_MAP = {
     "Canary Islands": "canary", "Lakshadweep": "lakshadweep",
 }
 
-color_palette = [PALETTE["cyan"], PALETTE["risk"], PALETTE["mint"], PALETTE["navy"], "#f4a261"]
+# Precomputed OLS trend line (intercept + slope/year, in years since 1996-01-01)
+# and Mann-Kendall significance, from the robustness-check trend test run
+# on the complete 24-year series for each island.
+TREND_INFO = {
+    "Maldives": {"intercept": 0.0895, "slope_per_year": 0.00450, "significant": True, "p": 0.011},
+    "Seychelles": {"intercept": -0.0668, "slope_per_year": 0.02532, "significant": True, "p": 0.025},
+    "Fiji": {"intercept": 0.3250, "slope_per_year": 0.00151, "significant": False, "p": 0.184},
+    "Lakshadweep": {"intercept": 0.1072, "slope_per_year": 0.00254, "significant": False, "p": 0.386},
+    "Canary Islands": {"intercept": 0.4762, "slope_per_year": 0.01905, "significant": False, "p": 0.641},
+}
+
+# Fixed, clearly-distinguishable color per island (not pulled from PALETTE,
+# since several PALETTE entries read as near-identical shades of blue/cyan
+# on the dark theme and made the lines impossible to tell apart).
+ISLAND_COLOR = {
+    "Maldives": "#ef4444",        # red
+    "Seychelles": "#22c55e",      # green
+    "Fiji": "#3b82f6",            # blue
+    "Canary Islands": "#eab308",  # yellow
+    "Lakshadweep": "#a855f7",     # purple
+}
 
 st.markdown("### 🌡️ Coral Thermal Stress Over Time (1996–2020)")
 
@@ -33,20 +53,41 @@ selected_islands = st.multiselect(
     default=["Seychelles", "Canary Islands"],
 )
 
+show_trend = st.checkbox("Show trend line (Mann-Kendall / OLS robustness check)", value=True)
+
 if selected_islands:
     fig = go.Figure()
 
-    for i, island_name in enumerate(selected_islands):
+    for island_name in selected_islands:
         file_key = ISLAND_FILE_MAP[island_name]
         path = os.path.join(PROJECT_ROOT, "data", "coral_bleaching", f"{file_key}_dhw_timeseries.csv")
         try:
             df = pd.read_csv(path, skiprows=[1])
             df["time"] = pd.to_datetime(df["time"])
+            df = df.sort_values("time")
+            line_color = ISLAND_COLOR[island_name]
+
             fig.add_trace(go.Scatter(
                 x=df["time"], y=df["degree_heating_week"],
                 mode="lines", name=island_name,
-                line=dict(color=color_palette[i % len(color_palette)], width=2),
+                line=dict(color=line_color, width=2),
             ))
+
+            if show_trend and island_name in TREND_INFO:
+                info = TREND_INFO[island_name]
+                start_date = df["time"].iloc[0]
+                end_date = df["time"].iloc[-1]
+                years_elapsed = (end_date - start_date).days / 365.25
+                y_start = info["intercept"]
+                y_end = info["intercept"] + info["slope_per_year"] * years_elapsed
+                sig_label = f"significant, p={info['p']:.3f}" if info["significant"] else f"not significant, p={info['p']:.3f}"
+
+                fig.add_trace(go.Scatter(
+                    x=[start_date, end_date], y=[y_start, y_end],
+                    mode="lines", name=f"{island_name} trend ({sig_label})",
+                    line=dict(color=line_color, width=2, dash="dash"),
+                    opacity=0.85,
+                ))
         except FileNotFoundError:
             st.warning(f"Data not found for {island_name}")
 
@@ -69,7 +110,10 @@ if selected_islands:
 
     st.plotly_chart(fig, use_container_width=True)
     st.markdown(
-        "<p class='caption-text'>Dotted lines mark bleaching thresholds. Higher, more frequent peaks above these lines indicate greater thermal stress on coral reefs.</p>",
+        "<p class='caption-text'>Dotted lines mark bleaching thresholds. Dashed lines (if shown) are the OLS trend "
+        "fit for each island; significance is assessed via a Mann-Kendall trend test on the complete 24-year series. "
+        "Only Maldives and Seychelles reach statistical significance — the two islands driving this project's "
+        "compound vulnerability ranking.</p>",
         unsafe_allow_html=True,
     )
 else:
@@ -94,11 +138,11 @@ selected_mangrove_islands = st.multiselect(
 
 if selected_mangrove_islands:
     fig2 = go.Figure()
-    for i, island_name in enumerate(selected_mangrove_islands):
+    for island_name in selected_mangrove_islands:
         fig2.add_trace(go.Scatter(
             x=years, y=mangrove_data[island_name],
             mode="lines+markers", name=island_name,
-            line=dict(color=color_palette[i % len(color_palette)], width=3),
+            line=dict(color=ISLAND_COLOR[island_name], width=3),
             marker=dict(size=10),
         ))
 

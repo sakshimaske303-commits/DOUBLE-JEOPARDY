@@ -40,12 +40,11 @@ Interactive geospatial maps are hosted separately via GitHub Pages. Sample links
 
 *(For the full interactive experience with dynamic legends and key observations, visit the [live dashboard](https://double-jeopardy-6ev9trz3dwafsb7panbnxg.streamlit.app/) → Interactive Maps page)*
 
-*(For the full interactive experience with dynamic legends and key observations, visit the [live dashboard](https://double-jeopardy-6ev9trz3dwafsb7panbnxg.streamlit.app/) → Interactive Maps page)*
 ---
 
 ## 📊 What This Project Does
 
-- Tests physical sea-level-rise exposure at the settlement level across all five islands, using elevation data intersected with over 6,000 individual settlement points
+- Tests physical sea-level-rise exposure at the settlement level across all five islands, using elevation data intersected with over 6,000 individual settlement points — complemented by a population-weighted recomputation using WorldPop 2020 data
 - Independently tracks **mangrove extent** across three time points (1996, 2010, 2020) and **coral reef thermal stress** across a continuous 24-year satellite record — treating them as two separate hypotheses, not one combined assumption
 - Combines physical exposure and ecosystem degradation into a single **Compound Vulnerability Score**, revealing that the island with the highest physical exposure is *not* the island with the highest overall risk
 - Tests whether formal protected-area governance is statistically aligned with verified vulnerability, or represents a "paper park" gap between policy and evidence
@@ -60,6 +59,8 @@ Interactive geospatial maps are hosted separately via GitHub Pages. Sample links
 
 **Governance alignment is suggestive, not confirmed.** A moderately strong positive correlation (r=0.727) exists between protected-area coverage and verified vulnerability, but does not reach statistical significance at this sample size (p=0.164) — reported honestly as a limitation of scale, not glossed over.
 
+**Findings hold up under robustness checks.** The coral thermal-stress trend is confirmed statistically significant via a Mann-Kendall test for Maldives (p=0.011) and Seychelles (p=0.025); the Compound Vulnerability ranking is stable across the full 0–100% weighting-sensitivity range; and physical exposure recomputed on a population-weighted basis confirms that single-indicator exposure measures alone can misrepresent true risk.
+
 Full methodology, including two hypotheses tested and one not supported, is documented in the dashboard's Methodology page and in `Project_Journal.md`.
 
 ## 🗂️ Repository Structure
@@ -73,7 +74,10 @@ DOUBLE_JEOPARDY/
 │   ├── cyclone_tracks/, boundaries/, mangroves/, coral_bleaching/
 │   └── settlement_encroachment/
 ├── outputs/
-│   └── plots/                       # Static map exports (mangrove trend, SLR exposure)
+│   └── plots/                       # Publication-quality static figures for the Research Paper
+│                                     # (compound vulnerability, physical exposure, population-weighted
+│                                     #  comparison, mangrove extent, coral trends, governance alignment,
+│                                     #  weighting-sensitivity curve)
 ├── qgis_processing/                 # Original QGIS2Web webmap exports
 ├── Project_Journal.md               # Polished project summary and methodology
 ├── Research_Paper.md                # Formal academic research paper
@@ -81,12 +85,13 @@ DOUBLE_JEOPARDY/
 ├── download_*.py                    # Dataset acquisition scripts
 ├── clean_*.py / filter_*.py         # Data cleaning and filtering scripts
 ├── map*.py                          # Static visualization scripts
+├── research_paper_figures.py        # Generates all Research Paper figures (Figures 2–7) in one run
 └── requirements.txt
 ```
 
 ## 🛠️ Tech Stack
 
-Python · GeoPandas · Rasterio · Statsmodels · Plotly · Streamlit · QGIS · QGIS2Web · GitHub Pages · Sentinel Hub API · NOAA Coral Reef Watch API · Global Mangrove Watch
+Python · GeoPandas · Rasterio · SciPy · PyMannKendall · Statsmodels · Plotly · Streamlit · QGIS · QGIS2Web · GitHub Pages · Sentinel Hub API · NOAA Coral Reef Watch API · Global Mangrove Watch
 
 ## 📚 Data Sources
 
@@ -111,6 +116,8 @@ pip install -r requirements.txt
 cd dashboard
 streamlit run app.py
 ```
+
+Note: The dashboard runs directly on the processed data already included in data/ — no API keys required. The raw data-acquisition scripts (e.g. download_coral_bleaching_stress.py, auth_sentinelhub.py) require a free Sentinel Hub account; credentials should be placed in a local .env file (see .gitignore — this file is not committed)
 
 ## 👤 Author
 
