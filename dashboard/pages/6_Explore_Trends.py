@@ -36,14 +36,40 @@ TREND_INFO = {
 
 # Fixed, clearly-distinguishable color per island (not pulled from PALETTE,
 # since several PALETTE entries read as near-identical shades of blue/cyan
-# on the dark theme and made the lines impossible to tell apart).
+# on the dark theme and made the lines impossible to tell apart). Canary
+# Islands is deliberately NOT yellow — the chart's axis/legend font is
+# already a gold-yellow (#FFD60A), so a yellow data line would blend into
+# the text and become hard to read.
 ISLAND_COLOR = {
     "Maldives": "#ef4444",        # red
     "Seychelles": "#22c55e",      # green
     "Fiji": "#3b82f6",            # blue
-    "Canary Islands": "#eab308",  # yellow
+    "Canary Islands": "#ec4899",  # pink/magenta
     "Lakshadweep": "#a855f7",     # purple
 }
+
+# Colors for the two horizontal reference thresholds (distinct from every
+# island color above, so a threshold line is never confused with island data).
+THRESHOLD_COLOR = "#f4a261"       # amber — 4°C-wk bleaching threshold
+SEVERE_COLOR = "#dc2626"          # deep red — 8°C-wk severe bleaching/mortality
+
+
+def add_threshold_line(fig, y, label, color, anchor_x, ay_offset):
+    """Draws a horizontal reference line plus a clearly separated, boxed
+    annotation with a small arrow pointing back to the line. Placing the
+    label in a fixed spot with its own background box (rather than letting
+    Plotly auto-place inline text on the line) keeps it legible no matter
+    which island lines happen to cross that region."""
+    fig.add_hline(y=y, line_dash="dot", line_color=color)
+    fig.add_annotation(
+        x=anchor_x, y=y, xref="x", yref="y",
+        text=label,
+        showarrow=True, arrowhead=2, arrowsize=1, arrowwidth=1.3,
+        arrowcolor=color, ax=0, ay=ay_offset,
+        font=dict(color=color, size=11, family="Poppins"),
+        bgcolor="rgba(10,10,10,0.75)", bordercolor=color, borderwidth=1, borderpad=5,
+    )
+
 
 st.markdown("### 🌡️ Coral Thermal Stress Over Time (1996–2020)")
 
@@ -91,8 +117,13 @@ if selected_islands:
         except FileNotFoundError:
             st.warning(f"Data not found for {island_name}")
 
-    fig.add_hline(y=4, line_dash="dot", line_color="orange", annotation_text="Bleaching threshold (4°C-wk)")
-    fig.add_hline(y=8, line_dash="dot", line_color="red", annotation_text="Severe bleaching/mortality (8°C-wk)")
+    # Reference threshold lines — labels boxed and arrow-anchored, spread
+    # apart on the x-axis and offset upward, so they never sit on top of a
+    # data spike the way a default inline annotation would.
+    add_threshold_line(fig, y=4, label="Bleaching threshold (4°C-wk)",
+                        color=THRESHOLD_COLOR, anchor_x="1997-03-01", ay_offset=-38)
+    add_threshold_line(fig, y=8, label="Severe bleaching / mortality (8°C-wk)",
+                        color=SEVERE_COLOR, anchor_x="2001-09-01", ay_offset=-38)
 
     fig.update_layout(
         template="plotly_dark",
@@ -100,20 +131,21 @@ if selected_islands:
         yaxis_title="Degree Heating Week (°C-weeks)",
         xaxis=dict(tickfont=dict(color="#FFD60A")),
         yaxis=dict(tickfont=dict(color="#FFD60A"), title_font=dict(color="#FFD60A")),
-        height=500,
+        height=520,
         font=dict(family="Poppins", color="#FFD60A"),
         plot_bgcolor="rgba(0,0,0,0)",
         paper_bgcolor="rgba(0,0,0,0)",
         legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="center", x=0.5, font=dict(color="#FFD60A")),
-        margin=dict(t=60, b=40, l=40, r=40),
+        margin=dict(t=70, b=40, l=40, r=40),
     )
 
-    st.plotly_chart(fig, use_container_width=True)
+    # Hide the hover modebar (camera/zoom/pan icons) — on the live dashboard
+    # it was rendering directly over the legend text, adding clutter.
+    st.plotly_chart(fig, use_container_width=True, config={"displayModeBar": False})
     st.markdown(
-        "<p class='caption-text'>Dotted lines mark bleaching thresholds. Dashed lines (if shown) are the OLS trend "
-        "fit for each island; significance is assessed via a Mann-Kendall trend test on the complete 24-year series. "
-        "Only Maldives and Seychelles reach statistical significance — the two islands driving this project's "
-        "compound vulnerability ranking.</p>",
+        "<p class='caption-text'>Dashed lines (if shown) are the OLS trend fit for each island; significance is "
+        "assessed via a Mann-Kendall trend test on the complete 24-year series. Only Maldives and Seychelles reach "
+        "statistical significance — the two islands driving this project's compound vulnerability ranking.</p>",
         unsafe_allow_html=True,
     )
 else:
@@ -160,7 +192,7 @@ if selected_mangrove_islands:
         margin=dict(t=60, b=40, l=40, r=40),
     )
 
-    st.plotly_chart(fig2, use_container_width=True)
+    st.plotly_chart(fig2, use_container_width=True, config={"displayModeBar": False})
     st.markdown(
         "<p class='caption-text'>Note the near-flat lines — mangrove extent shows no meaningful decline across any tested island, contrary to the original hypothesis.</p>",
         unsafe_allow_html=True,
