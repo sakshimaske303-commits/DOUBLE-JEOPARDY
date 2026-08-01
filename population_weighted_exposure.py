@@ -1,29 +1,23 @@
 """
-DOUBLE JEOPARDY - Population-Weighted Physical Exposure
-==========================================================
-Computes what % of an island's POPULATION (not just settlements) lives at
-or below the 1-meter sea-level-rise elevation threshold, for all 5 islands.
+Population-weighted physical exposure
 
-FIX v4 (final): the earlier "auto-scan the raster to find where data is"
-approach was both slow (Fiji) AND, worse, silently WRONG for Maldives and
-Seychelles — the fast nearest-neighbor preview scan skipped over real
-population data that didn't happen to land on a sampled pixel, understating
-Maldives' total population by about a third.
+Computes what % of each island's population (not just settlement count)
+sits at or below the 1m SLR elevation threshold, across all 5 islands.
 
-This version drops raster-scanning entirely. Instead it uses each island's
-own real, known geographic bounding box — derived directly from your
-data/boundaries/*.gpkg files (the same boundary data used elsewhere in this
-project) for four islands, and two manually-defined boxes for Fiji (one on
-each side of the antimeridian, the same "two sub-queries" approach you used
-for Fiji's WDPA data). This is simpler, faster, and — most importantly —
-verifiably correct: single-window totals for Maldives/Seychelles/Canary/
-Lakshadweep can be sanity-checked directly against the real population
-figures already validated in your Dev Log (Part 4).
+v4: dropped the earlier raster auto-scan approach — it was slow for Fiji
+and, worse, quietly wrong for Maldives and Seychelles (the nearest-neighbor
+preview scan missed real population that didn't land on a sampled pixel,
+undercounting Maldives' population by about a third).
 
-HOW TO USE:
-Just run: python population_weighted_exposure.py
+Uses each island's actual bounding box instead, pulled from the
+data/boundaries/*.gpkg files already used elsewhere in this project. Fiji
+gets two boxes since it straddles the antimeridian — same two-sub-query
+approach used for its WDPA data. Slower to write but the totals are
+checkable directly against the population figures confirmed earlier
+(Dev Log, Part 4).
 
-Requires: rasterio, numpy  (pip install rasterio numpy)
+Run: python population_weighted_exposure.py
+Needs: rasterio, numpy
 """
 
 import numpy as np

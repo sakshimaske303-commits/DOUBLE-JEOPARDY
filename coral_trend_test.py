@@ -1,27 +1,19 @@
 """
-DOUBLE JEOPARDY - Coral Thermal Stress Trend Test (Mann-Kendall + OLS)
-==========================================================================
-Your paper currently reports coral thermal-stress trend as a difference
-between two period averages (1996-2000 vs 2016-2020). This script adds a
-proper trend test over the FULL 24-year continuous DHW time series per
-island, as a robustness check — this is the standard method for testing
-trends in environmental time series, and it directly answers the "why not
-just fit a trend instead of comparing two windows?" question a reviewer
-could raise.
+Coral thermal stress trend test — Mann-Kendall + OLS
+
+The paper originally compared just two period averages (1996-2000 vs
+2016-2020) for the coral DHW trend. Adding a proper trend test over the
+full 24-year series here as a robustness check, since a two-window
+comparison alone doesn't really hold up to "why not just fit a trend
+line" scrutiny.
 
 Runs two tests per island:
-  1. Mann-Kendall trend test (non-parametric — doesn't assume the data is
-     normally distributed, which is standard practice for climate/ecological
-     time series) -> reports trend direction, p-value, and Sen's slope
-     (an estimate of the trend's magnitude, in degree-heating-weeks/year).
-  2. A simple OLS linear regression slope + p-value, as a second,
-     more familiar reference point.
+  1. Mann-Kendall (non-parametric, standard for climate/ecological time
+     series) -> trend direction, p-value, Sen's slope (DHW/year)
+  2. OLS linear regression slope + p-value as a simpler reference point
 
-HOW TO USE:
-1. pip install pymannkendall pandas scipy
-2. Run: python coral_trend_test.py
-3. Send me the printed table — I'll give you the exact sentence to add to
-   the paper.
+Run: python coral_trend_test.py
+Needs: pymannkendall, pandas, scipy
 """
 
 import pandas as pd

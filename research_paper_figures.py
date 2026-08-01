@@ -1,27 +1,25 @@
 """
-DOUBLE JEOPARDY - Additional Research Paper Figures
-==========================================================
-This project's analysis produced only one static figure (Figure 1,
-compound_vulnerability_score.png). This script generates six more,
-covering results that are currently only described in text/tables in
-the paper but were never actually plotted.
+Additional research paper figures
 
-Matches the visual style already established in map1_vulnerability_score.py
-(matplotlib, blue/red risk coding, bold two-line titles, source caption,
-saved at 200 dpi into outputs/plots/).
+The paper only had one static figure (compound_vulnerability_score.png).
+This generates six more, covering results that were only in text/tables
+so far but never actually plotted.
 
-Every number plotted here is read directly from your own data/ CSVs where
-a CSV exists (slr_exposure_summary.csv, governance_alignment_test.csv,
-coral_bleaching/*.csv), or uses the same hardcoded values already verified
-and used elsewhere in this project (population-weighted exposure %,
-mangrove areas, Mann-Kendall trend results) where no CSV was saved. No new
-data is downloaded or recomputed differently from what you already validated.
+Matches the style already set in map1_vulnerability_score.py — matplotlib,
+blue/red risk coding, bold two-line titles, source caption, 200dpi, saved
+to outputs/plots/.
 
-HOW TO USE:
-Just run: python research_paper_figures.py
-Requires: matplotlib, pandas, numpy, scipy (all already used in this project)
+Every number here comes straight from the project's own CSVs where one
+exists (slr_exposure_summary.csv, governance_alignment_test.csv,
+coral_bleaching/*.csv), or reuses values already verified elsewhere
+(population-weighted exposure %, mangrove areas, Mann-Kendall results)
+where there's no separate CSV. Nothing new gets downloaded or recomputed
+differently from what's already validated.
 
-Output files (in outputs/plots/):
+Run: python research_paper_figures.py
+Needs: matplotlib, pandas, numpy, scipy
+
+Writes to outputs/plots/:
   fig2_physical_exposure_by_island.png
   fig3_settlement_vs_population_weighted.png
   fig4_coral_thermal_stress_trends.png

@@ -83,6 +83,53 @@ with st.expander("**Filling a Data Gap: Lakshadweep's Population, Revisited**"):
 
 st.markdown("---")
 
+st.markdown("---")
+
+st.markdown("### Behind the Scenes — QGIS & VS Code")
+st.markdown(
+    "<p class='caption-text'>A look at the actual geospatial and coding workflow behind this "
+    "project — not just the finished dashboard.</p>",
+    unsafe_allow_html=True,
+)
+
+SCREENSHOTS_DIR = os.path.join(PROJECT_ROOT, "outputs", "plots")
+
+QGIS_SHOTS = [
+    ("QGIS_SS1.png", "Canary Islands WDPA protected areas overlaid on satellite basemap, with live attribute inspection (Identify Results panel)."),
+    ("QGIS_SS2.png", "Seychelles elevation (Copernicus DEM) styled as a pseudocolor raster, with the Symbology panel used to configure the classification."),
+    ("QGIS_SS3.png", "Fiji coral reef features — attribute table showing 196 individual reef polygons alongside cyclone track data."),
+    ("QGIS_SS4.png", "Canary Islands settlement points with live attribute inspection — real place names and metadata (population, source tags) pulled directly via the Identify tool."),
+]
+
+VS_SHOTS = [
+    ("VS_SS1.png", "population_weighted_exposure.py — per-island elevation/population raster windows, including the antimeridian handling for Fiji."),
+    ("VS_SS2.png", "coral_trend_test.py — the Mann-Kendall trend test function, run live in the integrated terminal."),
+    ("VS_SS3.png", "governance_correlation_test.py — the Pearson correlation test between compound vulnerability and protected-area coverage."),
+    ("VS_SS4.png", "6_Explore_Trends.py — source code for one of the dashboard's interactive pages."),
+]
+
+st.markdown("##### QGIS — Geospatial Analysis")
+cols = st.columns(2)
+for i, (fname, caption) in enumerate(QGIS_SHOTS):
+    path = os.path.join(SCREENSHOTS_DIR, fname)
+    with cols[i % 2]:
+        if os.path.exists(path):
+            st.image(path, use_container_width=True)
+            st.markdown(f"<p class='caption-text'>{caption}</p>", unsafe_allow_html=True)
+        else:
+            st.markdown(f"*(Missing: {fname})*")
+
+st.markdown("##### VS Code — Analysis & Dashboard Code")
+cols = st.columns(2)
+for i, (fname, caption) in enumerate(VS_SHOTS):
+    path = os.path.join(SCREENSHOTS_DIR, fname)
+    with cols[i % 2]:
+        if os.path.exists(path):
+            st.image(path, use_container_width=True)
+            st.markdown(f"<p class='caption-text'>{caption}</p>", unsafe_allow_html=True)
+        else:
+            st.markdown(f"*(Missing: {fname})*")
+
 st.markdown("### Honest Limitations")
 
 st.warning("""

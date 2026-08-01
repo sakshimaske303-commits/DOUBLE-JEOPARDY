@@ -1,27 +1,21 @@
 """
-DOUBLE JEOPARDY - Download + Clip Lakshadweep Population Data
-==================================================================
-The reason Lakshadweep's population data was skipped originally was that
-the only version you found required downloading a population raster
-covering the ENTIRE country of India. Turns out there's a smaller,
-more targeted version: WorldPop's "constrained, UN-adjusted" 2020 India
-raster is only ~466 MB (not the multi-GB unconstrained version), and this
-script downloads it ONCE, immediately clips it down to just the small
-Lakshadweep bounding box (derived directly from your own
-data/boundaries/lakshadweep_islands.gpkg file, so it's consistent with the
-rest of your pipeline), saves the small clipped file, and then deletes the
-large source file so it doesn't sit around eating disk space.
+Download + clip Lakshadweep population data
 
-HOW TO USE:
-1. Make sure you're in your gpie2 environment and in the DOUBLE_JEOPARDY
-   folder (same as before).
-2. Run: python download_lakshadweep_population.py
-3. It will download ~466 MB (takes a few minutes depending on your internet),
-   then produce a small file at data/population/lakshadweep_population_clean.tif
-4. Once that's done, re-run population_weighted_exposure.py — it now
-   includes Lakshadweep automatically.
+Lakshadweep population was skipped originally because the only version
+found meant downloading a population raster for the whole of India. Found
+a smaller option since — WorldPop's constrained, UN-adjusted 2020 India
+raster is ~466MB instead of multiple GB. This downloads it once, clips it
+straight down to the Lakshadweep bounding box (from
+data/boundaries/lakshadweep_islands.gpkg, same as the rest of the
+pipeline), saves the small clipped file, then deletes the large source so
+it isn't sitting around taking up space.
 
-Requires: requests, rasterio, geopandas  (pip install requests rasterio geopandas)
+Run from the project root: python download_lakshadweep_population.py
+Downloads ~466MB, then writes data/population/lakshadweep_population_clean.tif.
+Re-run population_weighted_exposure.py after — Lakshadweep gets picked up
+automatically.
+
+Needs: requests, rasterio, geopandas
 """
 
 import os
