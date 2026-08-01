@@ -15,6 +15,7 @@ st.set_page_config(
 apply_custom_style()
 
 GITHUB_URL = "https://github.com/sakshimaske303-commits/DOUBLE-JEOPARDY"
+ZENODO_URL = "https://zenodo.org/records/21739961"
 
 # ------------------------------------------------------------------
 # Robust path resolution: works both locally (running from inside
@@ -208,6 +209,26 @@ with doc3:
             )
     except FileNotFoundError:
         st.warning("Development_Log.pdf not found.")
+
+# ============================================================
+# CITE THIS WORK — ZENODO DOI
+# ============================================================
+st.markdown(
+    f"""
+    <div style="text-align: center; padding: 16px; margin-top: 14px;
+                background: {PALETTE['card_bg']}; border-radius: 12px;
+                border: 1px solid rgba(34,211,238,0.25);">
+        <p style="color:{PALETTE['text_muted']}; font-size:0.9rem; margin:0;">
+            📄 <b style="color:{PALETTE['text_dark']};">Cite this project</b> — permanently archived on Zenodo:
+            <a href="{ZENODO_URL}" target="_blank"
+               style="color:{PALETTE['navy']}; font-weight:700; text-decoration:none;">
+                DOI 10.5281/zenodo.21739961
+            </a>
+        </p>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
 
 st.markdown("---")
 

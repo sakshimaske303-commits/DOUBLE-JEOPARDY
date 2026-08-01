@@ -6,6 +6,8 @@
 
 **[View the interactive dashboard →](https://double-jeopardy-6ev9trz3dwafsb7panbnxg.streamlit.app/)**
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21739961.svg)](https://zenodo.org/records/21739961)
+
 ## 📄 Project Documentation
 
 | Document | What's Inside |
