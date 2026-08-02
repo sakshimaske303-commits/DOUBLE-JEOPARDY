@@ -16,6 +16,8 @@ apply_custom_style()
 
 GITHUB_URL = "https://github.com/sakshimaske303-commits/DOUBLE-JEOPARDY"
 ZENODO_URL = "https://zenodo.org/records/21739961"
+ZENODO_DOI_URL = "https://doi.org/10.5281/zenodo.21739961"
+ZENODO_BADGE_URL = "https://zenodo.org/badge/DOI/10.5281/zenodo.21739961.svg"
 
 # ------------------------------------------------------------------
 # Robust path resolution: works both locally (running from inside
@@ -30,6 +32,17 @@ st.markdown("<h1 style='text-align: center;'>🌊 DOUBLE JEOPARDY</h1>", unsafe_
 st.markdown(
     "<h3 style='text-align: center; color: #67E8F9; font-weight: 400; margin-top: -10px;'>"
     "The Vulnerability Spiral — Compound Climate Risk Across Five Island Nations</h3>",
+    unsafe_allow_html=True,
+)
+
+st.markdown(
+    f"""
+    <div style="text-align:center; margin-top:6px;">
+        <a href="{ZENODO_DOI_URL}" target="_blank">
+            <img src="{ZENODO_BADGE_URL}" alt="DOI">
+        </a>
+    </div>
+    """,
     unsafe_allow_html=True,
 )
 
@@ -209,26 +222,6 @@ with doc3:
             )
     except FileNotFoundError:
         st.warning("Development_Log.pdf not found.")
-
-# ============================================================
-# CITE THIS WORK — ZENODO DOI
-# ============================================================
-st.markdown(
-    f"""
-    <div style="text-align: center; padding: 16px; margin-top: 14px;
-                background: {PALETTE['card_bg']}; border-radius: 12px;
-                border: 1px solid rgba(34,211,238,0.25);">
-        <p style="color:{PALETTE['text_muted']}; font-size:0.9rem; margin:0;">
-            📄 <b style="color:{PALETTE['text_dark']};">Cite this project</b> — permanently archived on Zenodo:
-            <a href="{ZENODO_URL}" target="_blank"
-               style="color:{PALETTE['navy']}; font-weight:700; text-decoration:none;">
-                DOI 10.5281/zenodo.21739961
-            </a>
-        </p>
-    </div>
-    """,
-    unsafe_allow_html=True,
-)
 
 st.markdown("---")
 
