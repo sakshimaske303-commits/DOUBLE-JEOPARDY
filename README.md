@@ -1,12 +1,12 @@
 # 🌊 DOUBLE JEOPARDY — The Vulnerability Spiral
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21739961.svg)](https://doi.org/10.5281/zenodo.21739961)
+
 **Testing whether compound coastal climate vulnerability is real — and whether it affects every ecosystem equally.**
 
 ## 🔗 Live Dashboard
 
 **[View the interactive dashboard →](https://double-jeopardy-6ev9trz3dwafsb7panbnxg.streamlit.app/)**
-
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21739961.svg)](https://zenodo.org/records/21739961)
 
 ## 📄 Project Documentation
 
@@ -126,6 +126,10 @@ Note: The dashboard runs directly on the processed data already included in data
 **Sakshi D. Maske**
 
 Independent Geospatial Researcher
+
+## 📜 License
+
+This project is licensed under [CC BY 4.0](./LICENSE) — free to share and adapt, with attribution. See `CITATION.cff` for citation metadata.
 
 ---
 

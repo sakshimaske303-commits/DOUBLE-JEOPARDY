@@ -1,0 +1,38 @@
+cff-version: 1.2.0
+message: "If you use this software or its findings, please cite it using the metadata below."
+title: "DOUBLE JEOPARDY: The Vulnerability Spiral — Compound Climate Risk Across Five Island Nations"
+type: software
+authors:
+  - family-names: "Maske"
+    given-names: "Sakshi D."
+repository-code: "https://github.com/sakshimaske303-commits/DOUBLE-JEOPARDY"
+url: "https://github.com/sakshimaske303-commits/DOUBLE-JEOPARDY"
+abstract: >-
+  This geospatial analysis examines climate vulnerability across five island
+  nations (Maldives, Lakshadweep, Seychelles, Fiji, Canary Islands) by
+  analyzing physical exposure to sea-level rise and degradation of natural
+  coastal defenses independently. The project combines settlement-level
+  elevation data, mangrove extent tracking (1996, 2010, 2020), and 24-year
+  coral bleaching records. Key findings reveal statistically significant
+  coral bleaching stress trends in the Maldives and Seychelles, stable
+  mangrove coverage across all islands, and a Compound Vulnerability Score
+  showing highest risk in Seychelles despite the Maldives having the
+  greatest physical exposure (99.1% of settlements at risk).
+keywords:
+  - sea-level rise
+  - mangroves
+  - coral bleaching
+  - compound vulnerability
+  - small island developing states
+  - protected-area effectiveness
+  - remote sensing
+  - climate adaptation
+  - geospatial analysis
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.21739961"
+    description: "Zenodo archive of DOUBLE JEOPARDY v1.0.0"
+doi: "10.5281/zenodo.21739961"
+license: CC-BY-4.0
+version: 1.0.0
+date-released: "2026-08-01"

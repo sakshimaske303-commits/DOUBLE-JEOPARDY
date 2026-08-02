@@ -1,3 +1,7 @@
+# Environment & credentials
+.env
+*.json.key
+
 data/mangroves/extracted*/
 data/mangroves/*.zip
 qgis_processing/*/resources/
