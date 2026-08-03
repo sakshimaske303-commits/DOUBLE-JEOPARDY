@@ -68,7 +68,7 @@ As a robustness check, a Mann-Kendall trend test (non-parametric, standard for e
 ### 3.6 Compound Vulnerability Score
 
 Physical exposure and coral thermal-stress trend were normalized to a common 0–1 scale using min-max normalization and combined with equal weighting into a single Compound Vulnerability Score per island. Mangrove trend was not included as a weighted input, given the absence of any measurable decline to weight.
-To test sensitivity to this equal-weighting choice, the composite ranking was recomputed across the full 0–100% weighting range between the two input variables; Seychelles remained the highest-ranked island across this entire range, indicating that the central finding is not an artifact of the specific 50/50 weighting used. Equal weighting was adopted as a conservative baseline, since no established literature provides a robust empirical basis for differential weighting between physical exposure and coral thermal stress in this specific cross-national context; the sensitivity analysis in Section 4.6 confirms the central finding is not an artifact of this choice.
+To test sensitivity to this equal-weighting choice, the composite ranking was recomputed across the full 0–100% weighting range between the two input variables. Seychelles remained the highest-ranked island for the large majority of that range — from 0% up to approximately 74.5% physical-exposure weighting — with Maldives overtaking it only beyond that point, i.e. only if physical exposure were weighted at roughly three-quarters or more of the composite score. At the equal 50/50 weighting actually used in this study, Seychelles is unambiguously highest-ranked, and the crossover point is far enough from 50/50 that the central finding is not an artifact of the specific weighting chosen — but it is not accurate to say Seychelles leads across the entire range. Equal weighting was adopted as a conservative baseline, since no established literature provides a robust empirical basis for differential weighting between physical exposure and coral thermal stress in this specific cross-national context; the sensitivity analysis in Section 4.6 gives the exact range over which this choice holds.
 
 ### 3.7 Governance Alignment
 
@@ -152,7 +152,7 @@ The 95% confidence interval for this correlation, computed via Fisher's z-transf
 
 Several additional checks were run to test the sensitivity of this study's central findings to specific methodological choices:
 
-— Compound Vulnerability Score weighting (Section 4.4): recomputed across the full 0–100% weighting range between physical exposure and coral thermal stress; Seychelles remained the highest-ranked island across the entire range.
+— Compound Vulnerability Score weighting (Section 4.4): recomputed across the full 0–100% weighting range between physical exposure and coral thermal stress; Seychelles remained the highest-ranked island from 0% up to ~74.5% physical-exposure weighting, with Maldives overtaking it only beyond that point (a later verification pass corrected this from an earlier, less precise claim that Seychelles led across the entire range — see Devlopment_Log.md).
 
 — Coral thermal-stress trend (Section 4.3): tested using a Mann-Kendall trend test on the complete 24-year time series in addition to the period-comparison method; the increasing trend reached statistical significance for Maldives (p=0.011) and Seychelles (p=0.025) — the two islands central to the compound vulnerability ranking.
 
@@ -164,7 +164,7 @@ Several additional checks were run to test the sensitivity of this study's centr
   <img src="outputs/plots/fig7_weighting_sensitivity_curve.png" width="700">
 </p>
 
-**Figure 7.** Compound Vulnerability Score for each island as the weighting between physical exposure and coral thermal stress is swept continuously from 0% to 100%. Seychelles remains the highest-ranked island across virtually the entire weighting range, confirming that the central finding is not an artifact of the specific 50/50 weighting used in this study.
+**Figure 7.** Compound Vulnerability Score for each island as the weighting between physical exposure and coral thermal stress is swept continuously from 0% to 100%. Seychelles remains the highest-ranked island across roughly the first three-quarters of the range (up to ~74.5% physical-exposure weighting); Maldives overtakes it only beyond that point. Since the crossover point is well away from the 50/50 weighting actually used in this study, the central finding is not an artifact of the specific weighting chosen.
 
 Together, these checks indicate that the study's central finding — that Seychelles carries the highest compound vulnerability despite lower physical exposure than the Maldives — is robust to the specific weighting choice and supported by a statistically significant trend test, while more exploratory components of the analysis (governance alignment, the smaller coral trends in Fiji and Lakshadweep) are appropriately reported with their associated uncertainty rather than overstated.
 

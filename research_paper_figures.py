@@ -1,25 +1,27 @@
 """
-Additional research paper figures
+DOUBLE JEOPARDY - Additional Research Paper Figures
+==========================================================
+This project's analysis produced only one static figure (Figure 1,
+compound_vulnerability_score.png). This script generates six more,
+covering results that are currently only described in text/tables in
+the paper but were never actually plotted.
 
-The paper only had one static figure (compound_vulnerability_score.png).
-This generates six more, covering results that were only in text/tables
-so far but never actually plotted.
+Matches the visual style already established in map1_vulnerability_score.py
+(matplotlib, blue/red risk coding, bold two-line titles, source caption,
+saved at 200 dpi into outputs/plots/).
 
-Matches the style already set in map1_vulnerability_score.py — matplotlib,
-blue/red risk coding, bold two-line titles, source caption, 200dpi, saved
-to outputs/plots/.
+Every number plotted here is read directly from your own data/ CSVs where
+a CSV exists (slr_exposure_summary.csv, governance_alignment_test.csv,
+coral_bleaching/*.csv), or uses the same hardcoded values already verified
+and used elsewhere in this project (population-weighted exposure %,
+mangrove areas, Mann-Kendall trend results) where no CSV was saved. No new
+data is downloaded or recomputed differently from what you already validated.
 
-Every number here comes straight from the project's own CSVs where one
-exists (slr_exposure_summary.csv, governance_alignment_test.csv,
-coral_bleaching/*.csv), or reuses values already verified elsewhere
-(population-weighted exposure %, mangrove areas, Mann-Kendall results)
-where there's no separate CSV. Nothing new gets downloaded or recomputed
-differently from what's already validated.
+HOW TO USE:
+Just run: python research_paper_figures.py
+Requires: matplotlib, pandas, numpy, scipy (all already used in this project)
 
-Run: python research_paper_figures.py
-Needs: matplotlib, pandas, numpy, scipy
-
-Writes to outputs/plots/:
+Output files (in outputs/plots/):
   fig2_physical_exposure_by_island.png
   fig3_settlement_vs_population_weighted.png
   fig4_coral_thermal_stress_trends.png
@@ -320,7 +322,7 @@ def fig7_weighting_sensitivity():
     ax.set_ylabel("Compound Vulnerability Score (normalized, 0–1)", fontsize=11)
     ax.set_title(
         "Compound Vulnerability Score — Weighting Sensitivity\n"
-        "Island rankings stay stable across the full 0–100% weighting range",
+        "Seychelles leads up to ~74.5% physical-exposure weighting; Maldives overtakes beyond that",
         fontsize=13, fontweight="bold", pad=15
     )
     ax.set_xlim(0, 100)

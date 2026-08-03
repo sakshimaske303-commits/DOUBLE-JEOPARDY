@@ -15,9 +15,6 @@ st.set_page_config(
 apply_custom_style()
 
 GITHUB_URL = "https://github.com/sakshimaske303-commits/DOUBLE-JEOPARDY"
-ZENODO_URL = "https://zenodo.org/records/21739961"
-ZENODO_DOI_URL = "https://doi.org/10.5281/zenodo.21739961"
-ZENODO_BADGE_URL = "https://zenodo.org/badge/DOI/10.5281/zenodo.21739961.svg"
 
 # ------------------------------------------------------------------
 # Robust path resolution: works both locally (running from inside
@@ -37,9 +34,26 @@ st.markdown(
 
 st.markdown(
     f"""
-    <div style="text-align:center; margin-top:6px;">
-        <a href="{ZENODO_DOI_URL}" target="_blank">
-            <img src="{ZENODO_BADGE_URL}" alt="DOI">
+    <div style="display:flex; justify-content:center; margin: 10px 0 18px 0;">
+        <a href="https://doi.org/10.5281/zenodo.21739961" target="_blank" style="text-decoration:none;">
+            <div style="
+                display:flex; align-items:center; gap:18px;
+                background: linear-gradient(145deg, {PALETTE['card_bg']}, #0A0A0A);
+                border: 2px solid {PALETTE['navy']};
+                border-radius: 14px;
+                padding: 16px 32px;
+                box-shadow: 0 4px 20px rgba(34, 211, 238, 0.35);
+            ">
+                <span style="font-size:2.1rem; line-height:1;">📦</span>
+                <div style="text-align:left;">
+                    <div style="color:{PALETTE['green']}; font-family:'Poppins',sans-serif; font-weight:800; font-size:1.05rem; letter-spacing:0.4px;">
+                        ARCHIVED &amp; CITABLE ON ZENODO
+                    </div>
+                    <div style="color:{PALETTE['text_dark']}; font-family:'Poppins',sans-serif; font-weight:900; font-size:1.35rem; margin-top:2px;">
+                        DOI: 10.5281/zenodo.21739961
+                    </div>
+                </div>
+            </div>
         </a>
     </div>
     """,

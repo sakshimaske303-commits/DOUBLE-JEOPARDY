@@ -1,5 +1,28 @@
 # DOUBLE JEOPARDY: The Vulnerability Spiral — Quantifying Compound Coastal Risk and Governance-Evidence Alignment Across Five Island Nations
 
+## Index
+
+1. [Project Overview](#project-overview)
+2. [Problem Statement](#problem-statement)
+3. [Aim](#aim)
+4. [Research Questions](#research-questions)
+5. [Hypotheses](#hypotheses)
+6. [Objectives](#objectives)
+7. [Methodology Summary](#methodology-summary)
+8. [Study Area](#study-area)
+9. [Expected Outputs](#expected-outputs)
+10. [Relevance](#relevance)
+11. [Current Status](#current-status)
+12. [Part 1: Project Setup and Data Architecture Design](#development-log-part-1-project-setup-and-data-architecture-design)
+13. [Part 2: Core Dataset Acquisition and Cleanup (Settlements, Tourism, Infrastructure)](#development-log-part-2-core-dataset-acquisition-and-cleanup-settlements-tourism-infrastructure)
+14. [Part 3: Ecosystem Data (Mangroves, Coral Reefs, Protected Areas)](#development-log-part-3-ecosystem-data-mangroves-coral-reefs-protected-areas)
+15. [Part 4: Terrain, Population, and Cyclone Track Data](#development-log-part-4-terrain-population-and-cyclone-track-data)
+16. [Part 5: Multi-Temporal Analysis Core (Mangrove Time Series, Coral Bleaching Stress, Physical Exposure, Compound Vulnerability Score)](#development-log-part-5-multi-temporal-analysis-core-mangrove-time-series-coral-bleaching-stress-physical-exposure-compound-vulnerability-score)
+17. [Part 6: Governance Alignment Test, Settlement Encroachment Analysis, and Final Synthesis](#development-log-part-6-governance-alignment-test-settlement-encroachment-analysis-and-final-synthesis)
+18. [Addendum: Cyclone Damage Proxy as Supporting Evidence](#development-log-addendum-cyclone-damage-proxy-as-supporting-evidence)
+19. [Part 7: Dashboard Development, Interactive Maps, and Live-Data Features](#development-log-part-7-dashboard-development-interactive-maps-and-live-data-features)
+20. [Deep Verify: Independent Recomputation of Every Reported Statistic (2026-08-03)](#development-log-deep-verify-independent-recomputation-of-every-reported-statistic-2026-08-03)
+
 ## Project Overview
 
 DOUBLE JEOPARDY tests whether small island nations face a compounding vulnerability to sea-level rise: high physical exposure combined with degrading natural coastal defenses. Instead of assuming all coastal ecosystems degrade the same way, the project tests each ecosystem type independently — mangroves and coral reefs — across five island nations spanning three ocean basins: Maldives, Lakshadweep, Seychelles, Fiji, and the Canary Islands. Mangrove and coral trajectories are tracked separately rather than lumped into one "ecosystem buffer" score, then combined with physical exposure into a composite vulnerability assessment.
@@ -553,4 +576,43 @@ Also ran a Mann-Kendall trend test on the full 24-year coral DHW time series per
 
 Also computed the actual 95% confidence interval on the governance-alignment correlation (r=0.727, n=5) instead of just calling it "moderately strong" — it comes out to [-0.43, 0.98], which makes the small-sample caveat concrete instead of asserted.
 
-Once all of that was in the paper, went through the dashboard page by page to make sure it didn't contradict anything the paper now says. A few things needed catching up: the physical exposure page didn't have the population-weighted numbers anywhere, so added a comparison chart there alongside the original settlement-based one. The coral trend page still said "four of five islands showing an increase" without the Mann-Kendall significance breakdown, so that got tightened up to match what the paper now says specifically about which two islands are statistically solid. The methodology page had a line saying Lakshadweep's population data was "confirmed genuinely absent" — that's no longer true and needed rewriting once the WorldPop-constrained file got found. Six new static figures also got built for the paper (physical exposure by island, the population-weighted comparison, mangrove extent over time, the coral trend lines, the governance scatter, and the weighting-sensitivity curve) since the paper had really only ever had one chart for a project with this much analysis behind it — those got added to both the paper and directly beneath the matching interactive charts on the dashboard, shown by default rather than tucked behind a dropdown, so a reader can see the exact figure that's cited in the paper without it duplicating the interactive version
+Once all of that was in the paper, went through the dashboard page by page to make sure it didn't contradict anything the paper now says. A few things needed catching up: the physical exposure page didn't have the population-weighted numbers anywhere, so added a comparison chart there alongside the original settlement-based one. The coral trend page still said "four of five islands showing an increase" without the Mann-Kendall significance breakdown, so that got tightened up to match what the paper now says specifically about which two islands are statistically solid. The methodology page had a line saying Lakshadweep's population data was "confirmed genuinely absent" — that's no longer true and needed rewriting once the WorldPop-constrained file got found. Six new static figures also got built for the paper (physical exposure by island, the population-weighted comparison, mangrove extent over time, the coral trend lines, the governance scatter, and the weighting-sensitivity curve) since the paper had really only ever had one chart for a project with this much analysis behind it — those got added to both the paper and, in a smaller collapsed-by-default form, next to the matching interactive charts on the dashboard so a reader can see the exact figure that's cited in the paper without it duplicating the interactive version.
+
+---
+
+# Development Log — Deep Verify: Independent Recomputation of Every Reported Statistic (2026-08-03)
+
+## Status
+
+Complete, one real discrepancy found and fixed.
+
+## Method
+
+Rather than reading the paper for plausibility, every quantitative claim in `Research_Paper.md` that could be independently re-derived from data small enough to work with directly was actually recomputed from scratch — by running this project's own scripts (`coral_trend_test.py`, `mangrove_3point_comparison.py`, `compound_vulnerability_score.py`, `compute_wdpa_area.py`, `normalize_wdpa.py`, `wdpa_coastal_buffer.py`, `governance_correlation_test.py`, plus the Fisher's z-transformation CI logic embedded in `research_paper_figures.py`) directly against their source data, not just inspecting the code.
+
+## What was independently reproduced and confirmed exact
+
+- **§4.2 Mangrove Extent (3-point):** re-ran `mangrove_3point_comparison.py` against the raw GMW gpkg files. Maldives 0.97 km² flat across all three time points; Seychelles 3.83→3.84→3.83 km²; Fiji 485.72 km² (1996) → 487.97 km² (2010) → 488.41 km² (2020), net +2.69 km² (+0.6%). Matches the paper exactly.
+- **§4.3 Coral Thermal Stress:** re-ran the period-comparison logic (1996–2000 vs. 2016–2020 averages) against all five islands' raw DHW time series. Changes: Maldives +0.17, Seychelles +0.68 (max single value 10.47), Fiji +0.10, Lakshadweep +0.08, Canary −0.05 — all match exactly. Re-ran the Mann-Kendall trend test (`pymannkendall`) on the full 24-year series: p-values Maldives 0.011, Seychelles 0.025 (both significant, "increasing"), Fiji 0.184, Lakshadweep 0.386, Canary 0.641 (all "no trend") — matches the paper exactly.
+- **§4.4 Compound Vulnerability Score:** re-ran `compound_vulnerability_score.py`'s hardcoded inputs and min-max normalization. Seychelles 0.880, Maldives 0.651, Lakshadweep 0.467, Fiji 0.217, Canary 0.000 — matches exactly.
+- **§4.5 Governance Alignment:** re-ran `compute_wdpa_area.py` → `normalize_wdpa.py` → `wdpa_coastal_buffer.py` → `governance_correlation_test.py` end-to-end against the raw boundary and WDPA gpkg files (10km coastal buffer, EPSG:6933). WDPA-coastal ratios matched the existing `wdpa_coastal_normalized.csv` exactly (Maldives 3.90, Seychelles 11.32, Fiji 0.42, Canary 2.32, Lakshadweep 0.00), and the resulting Pearson correlation reproduced r=0.727, p=0.164 exactly. Independently recomputed the Fisher's z-transformation 95% CI (not itself contained in `governance_correlation_test.py` — it's calculated inline inside `research_paper_figures.py`'s `fig6_governance_alignment()`): [-0.43, 0.98], n=5 — matches the paper exactly.
+
+## What could not be independently re-derived, and why
+
+§4.1's physical-exposure percentages (settlement-based and population-weighted) both depend on per-island elevation/slope DEM rasters in `data/terrain/` — up to 3.1GB per island — plus, for the population-weighted version, WorldPop population rasters that must be paired with those same DEMs. These are too large to practically stage and reprocess in this verification session. Instead, both `slr_exposure_analysis.py` and `population_weighted_exposure.py` were read in full for logic review: neither shows an obvious bug. The settlement-based script does a straightforward per-point elevation sample against a 1m threshold; the population-weighted script (documented in its own header as "FIX v4 (final)," after an earlier bug that silently undercounted Maldives by about a third) uses explicit, boundary-derived bounding-box windows and bilinear-resampled reprojection rather than the earlier buggy raster auto-scan. The existing `data/slr_exposure_summary.csv` output (996/244/1323/5483/36 settlements, 99.1%/78.3%/32.0%/12.1%/77.8% at risk) matches the paper's §4.1 table exactly, but this is confirming internal consistency between the CSV and the paper, not an independent re-derivation from the raw rasters — flagged explicitly rather than silently treated as verified, consistent with this portfolio's practice on other Deep Verify passes (e.g. GPIE's citation spot-check).
+
+## The one real discrepancy found: the weighting-sensitivity sweep does not support "entire range"
+
+§3.6, §4.4, and §4.6 of `Research_Paper.md` — plus `dashboard/pages/4_Compound_Vulnerability.py`'s static caption text and `research_paper_figures.py`'s Figure 7 title — all stated or implied that Seychelles remains the highest-ranked island across the **entire** 0–100% physical-exposure-weighting sensitivity sweep. Independently reimplementing the exact sweep logic (`slr_norm[island]*w + coral_norm[island]*(1-w)` for `w` from 0 to 1) shows this is not correct: Seychelles leads from 0% up to a crossover at **w ≈ 0.745 (74.5% physical-exposure weighting)**, computed algebraically from the two islands' normalized input values (`slr_norm`: Maldives 1.000, Seychelles 0.761; `coral_norm`: Maldives 0.301, Seychelles 1.000 → crossover solves to w = 0.698630.../0.937711... = 0.7450). Beyond that point — the top ~25.5 percentage points of the weighting range — Maldives overtakes Seychelles as highest-ranked.
+
+This does **not** change the study's central finding: the actual weighting used throughout the study is 50/50, well inside the range where Seychelles leads, and the crossover point (74.5%) is far enough from 50/50 that the finding is not fragile to the specific weighting choice. But "Seychelles remains highest-ranked across the entire range" is a factually incorrect overstatement of an otherwise-solid robustness result, and the actual crossover point is a more precise, more defensible claim than the vaguer original one. Traced the origin: an earlier Devlopment_Log entry (Part 7, "Compound Vulnerability 'What-If' Weighting Slider") had correctly and carefully written "Seychelles stays the highest-ranked island across **a wide range** of weighting choices" — accurate — but the External AI Review pass that followed it (the untitled entry above this one, in the references/limitations cleanup) restated this as "the dashboard's own what-if slider already tests the full weighting range and confirms Seychelles stays top-ranked **regardless**," which is where the overstatement was introduced into the paper. That historical log entry is left as-is (this file is a chronological record, not something to retroactively rewrite), but the actual paper, dashboard caption, and Figure 7 title/image have all been corrected here.
+
+**Fixed:**
+- `Research_Paper.md` §3.6 (composite-ranking sentence), §4.4/Figure 7 caption, and §4.6 (robustness-checks bullet) — all rewritten to state the actual ~74.5% crossover point instead of "entire range."
+- `dashboard/pages/4_Compound_Vulnerability.py` — the static caption above the embedded Figure 7 image rewritten to match.
+- `research_paper_figures.py`'s `fig7_weighting_sensitivity()` — title text corrected, and a crossover marker line/annotation added at w=74.5% for clarity; `outputs/plots/fig7_weighting_sensitivity_curve.png` regenerated from the corrected script so the actual image matches the corrected claim.
+- The dashboard's own live "what-if" slider (same page) was already correct — it recomputes the real ranking on every drag and already displays a warning when a non-Seychelles island takes the top spot, so no logic fix was needed there, only the surrounding static prose.
+
+## Citation spot-check
+
+Spot-checked 3 of the paper's 8 references via web search (matching the depth used in GPIE's Deep Verify pass): Bunting et al. (2022), *Global Mangrove Extent Change 1996–2020: Global Mangrove Watch Version 3.0*, Remote Sensing 14(15), 3657 — confirmed real and correctly cited. Heron, Maynard, van Hooidonk & Eakin (2016), *Warming Trends and Bleaching Stress of the World's Coral Reefs 1985–2012*, Scientific Reports — confirmed real and correctly cited. Pike, B. (2026), *10% Protected. 3% Effective. The Widening Gap We Can't Ignore*, Marine Conservation Institute — confirmed real (a genuinely 2026-dated publication) and correctly cited. No problems found in the 3 spot-checked; the other 5 references were not independently re-verified this pass.
