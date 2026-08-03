@@ -1,6 +1,6 @@
 # DOUBLE JEOPARDY: The Vulnerability Spiral
 
-## Project Journal
+## Project Report
 
 ## Project Overview
 
