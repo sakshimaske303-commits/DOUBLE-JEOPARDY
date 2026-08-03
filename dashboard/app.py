@@ -202,13 +202,13 @@ st.markdown(
 doc1, doc2, doc3 = st.columns(3)
 
 with doc1:
-    pdf_path = os.path.join(ROOT_DIR, "Research_Paper.pdf")
+    pdf_path = os.path.join(ROOT_DIR, "DJ_Research_Paper.pdf")
     try:
         with open(pdf_path, "rb") as f:
             st.download_button(
                 label="📘 Research Paper (PDF)",
                 data=f,
-                file_name="DOUBLE_JEOPARDY_Research_Paper.pdf",
+                file_name="DJ_Research_Paper.pdf",
                 mime="application/pdf",
                 use_container_width=True,
             )
@@ -216,13 +216,13 @@ with doc1:
         st.warning("Research_Paper.pdf not found.")
 
 with doc2:
-    pdf_path = os.path.join(ROOT_DIR, "Project_Journal.pdf")
+    pdf_path = os.path.join(ROOT_DIR, "DJ_Project_Report.pdf")
     try:
         with open(pdf_path, "rb") as f:
             st.download_button(
-                label="📗 Project Journal (PDF)",
+                label="📗 Project Report (PDF)",
                 data=f,
-                file_name="DOUBLE_JEOPARDY_Project_Journal.pdf",
+                file_name="DJ_Project_Report.pdf",
                 mime="application/pdf",
                 use_container_width=True,
             )
@@ -230,13 +230,13 @@ with doc2:
         st.warning("Project_Journal.pdf not found.")
 
 with doc3:
-    pdf_path = os.path.join(ROOT_DIR, "Devlopment_Log.pdf")
+    pdf_path = os.path.join(ROOT_DIR, "DJ_Development_Log.pdf")
     try:
         with open(pdf_path, "rb") as f:
             st.download_button(
                 label="📙 Development Log (PDF)",
                 data=f,
-                file_name="DOUBLE_JEOPARDY_Devlopment_Log.pdf",
+                file_name="DJ_Development_Log.pdf",
                 mime="application/pdf",
                 use_container_width=True,
             )
