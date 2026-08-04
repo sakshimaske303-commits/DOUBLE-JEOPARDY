@@ -16,23 +16,84 @@ st.markdown(
 )
 st.markdown("---")
 
+# ============================================================
+# PROOF-OF-WORK POPOVERS — tiny, pulsing "📸" buttons next to the
+# exact data source / script they back up. Click to reveal the
+# screenshot inline; nothing pushes the page layout around. Drop
+# the PNGs into outputs/proof_screenshots/ (see filenames below)
+# and these activate automatically — until then each falls back to
+# a quiet "not added yet" note instead of breaking the page.
+# ============================================================
+st.markdown(f"""
+<style>
+    div[data-testid="stPopover"] button {{
+        animation: proof-blink 1.8s ease-in-out infinite;
+        border: 3px solid {PALETTE['navy']} !important;
+        width: 32px !important;
+        height: 32px !important;
+        border-radius: 50% !important;
+        padding: 0 !important;
+        min-height: unset !important;
+        min-width: unset !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }}
+    div[data-testid="stPopover"] button p {{
+        margin: 0 !important;
+        font-size: 0.95rem !important;
+        line-height: 1 !important;
+    }}
+    @keyframes proof-blink {{
+        0%, 100% {{ box-shadow: 0 0 0px rgba(34, 211, 238, 0); }}
+        50% {{ box-shadow: 0 0 12px rgba(34, 211, 238, 0.85); }}
+    }}
+</style>
+""", unsafe_allow_html=True)
+
+PROOF_DIR = os.path.join(PROJECT_ROOT, "outputs", "proof_screenshots")
+
+def proof_popover(filename, caption):
+    path = os.path.join(PROOF_DIR, filename)
+    with st.popover("📸"):
+        if os.path.exists(path):
+            st.image(path, caption=caption, use_container_width=True)
+        else:
+            st.caption(f"Screenshot not added yet — save it as `outputs/proof_screenshots/{filename}`.")
+
 st.markdown("### Data Sources")
 
 col1, col2 = st.columns(2)
 with col1:
-    st.markdown("""
-    - **Settlements, Tourism, Infrastructure** — OpenStreetMap
-    - **Mangrove Extent (1996/2010/2020)** — Global Mangrove Watch
-    - **Coral Reef Extent** — WCMC / OpenStreetMap
-    - **Coral Thermal Stress (1996–2020)** — NOAA Coral Reef Watch
-    """)
+    r1a, r1b = st.columns([0.88, 0.12])
+    with r1a:
+        st.markdown("- **Settlements, Tourism, Infrastructure** — OpenStreetMap")
+    with r1b:
+        proof_popover("04_canary_settlements_qgis.png", "Canary Islands OpenStreetMap settlement points in QGIS, attribute table open — named places (Santa Cruz de La Palma, San Telmo, El Muelle, etc.) used for the settlement/tourism exposure layer.")
+    st.markdown("- **Mangrove Extent (1996/2010/2020)** — Global Mangrove Watch")
+    r2a, r2b = st.columns([0.88, 0.12])
+    with r2a:
+        st.markdown("- **Coral Reef Extent** — WCMC / OpenStreetMap")
+    with r2b:
+        proof_popover("03_fiji_coral_qgis.png", "Fiji's cleaned coral reef layer in QGIS, attribute table open — 196 reef features (Albert Reef, Cakaulevu, etc.) — the same cleaning pass that caught the Maldives coral data-quality bug described below.")
+    st.markdown("- **Coral Thermal Stress (1996–2020)** — NOAA Coral Reef Watch")
 with col2:
-    st.markdown("""
-    - **Elevation, Slope** — Copernicus DEM GLO-30
-    - **Population** — WorldPop 2020
-    - **Cyclone Tracks** — IBTrACS v04r01
-    - **Protected Areas** — World Database on Protected Areas (WDPA)
-    """)
+    r3a, r3b = st.columns([0.88, 0.12])
+    with r3a:
+        st.markdown("- **Elevation, Slope** — Copernicus DEM GLO-30")
+    with r3b:
+        proof_popover("02_seychelles_elevation_qgis.png", "Seychelles elevation (Copernicus DEM) in QGIS, pseudocolor-styled, with the Seychelles WDPA boundary overlaid — the elevation layer behind the SLR exposure analysis.")
+    r5a, r5b = st.columns([0.88, 0.12])
+    with r5a:
+        st.markdown("- **Population** — WorldPop 2020")
+    with r5b:
+        proof_popover("05_population_exposure_vscode.png", "population_weighted_exposure.py open in VS Code — computes what % of each island's population (not just settlements) lives at or below the 1m sea-level-rise threshold.")
+    st.markdown("- **Cyclone Tracks** — IBTrACS v04r01")
+    r4a, r4b = st.columns([0.88, 0.12])
+    with r4a:
+        st.markdown("- **Protected Areas** — World Database on Protected Areas (WDPA)")
+    with r4b:
+        proof_popover("01_canary_wdpa_qgis.png", "Canary Islands WDPA protected areas in QGIS over a satellite basemap — La Resbala, Las Lagunetas, Montes y Cumbre de Tenerife, etc. — the layer behind the governance/protected-area ratio analysis.")
 
 st.markdown("---")
 
@@ -71,6 +132,9 @@ with st.expander("**Governance Ratio Sanity Check: Comparing Land to Marine EEZs
     in the calculation. This was corrected by restricting the metric to a 10km coastal buffer
     around each island, producing interpretable, comparable ratios.
     """)
+    rga, rgb = st.columns([0.92, 0.08])
+    with rgb:
+        proof_popover("06_wdpa_coastal_buffer_vscode.png", "wdpa_coastal_buffer.py open in VS Code — the fix for the Seychelles 1,005.69 EEZ bug, restricting WDPA area to a 10km coastal buffer per island.")
 
 with st.expander("**Filling a Data Gap: Lakshadweep's Population, Revisited**"):
     st.markdown("""
@@ -83,61 +147,18 @@ with st.expander("**Filling a Data Gap: Lakshadweep's Population, Revisited**"):
 
 st.markdown("---")
 
-st.markdown("---")
-
-st.markdown("### Behind the Scenes — QGIS & VS Code")
-st.markdown(
-    "<p class='caption-text'>A look at the actual geospatial and coding workflow behind this "
-    "project — not just the finished dashboard.</p>",
-    unsafe_allow_html=True,
-)
-
-SCREENSHOTS_DIR = os.path.join(PROJECT_ROOT, "outputs", "plots")
-
-QGIS_SHOTS = [
-    ("QGIS_SS1.png", "Canary Islands WDPA protected areas overlaid on satellite basemap, with live attribute inspection (Identify Results panel)."),
-    ("QGIS_SS2.png", "Seychelles elevation (Copernicus DEM) styled as a pseudocolor raster, with the Symbology panel used to configure the classification."),
-    ("QGIS_SS3.png", "Fiji coral reef features — attribute table showing 196 individual reef polygons alongside cyclone track data."),
-    ("QGIS_SS4.png", "Canary Islands settlement points with live attribute inspection — real place names and metadata (population, source tags) pulled directly via the Identify tool."),
-]
-
-VS_SHOTS = [
-    ("VS_SS1.png", "population_weighted_exposure.py — per-island elevation/population raster windows, including the antimeridian handling for Fiji."),
-    ("VS_SS2.png", "coral_trend_test.py — the Mann-Kendall trend test function, run live in the integrated terminal."),
-    ("VS_SS3.png", "governance_correlation_test.py — the Pearson correlation test between compound vulnerability and protected-area coverage."),
-    ("VS_SS4.png", "6_Explore_Trends.py — source code for one of the dashboard's interactive pages."),
-]
-
-st.markdown("##### QGIS — Geospatial Analysis")
-cols = st.columns(2)
-for i, (fname, caption) in enumerate(QGIS_SHOTS):
-    path = os.path.join(SCREENSHOTS_DIR, fname)
-    with cols[i % 2]:
-        if os.path.exists(path):
-            st.image(path, use_container_width=True)
-            st.markdown(f"<p class='caption-text'>{caption}</p>", unsafe_allow_html=True)
-        else:
-            st.markdown(f"*(Missing: {fname})*")
-
-st.markdown("##### VS Code — Analysis & Dashboard Code")
-cols = st.columns(2)
-for i, (fname, caption) in enumerate(VS_SHOTS):
-    path = os.path.join(SCREENSHOTS_DIR, fname)
-    with cols[i % 2]:
-        if os.path.exists(path):
-            st.image(path, use_container_width=True)
-            st.markdown(f"<p class='caption-text'>{caption}</p>", unsafe_allow_html=True)
-        else:
-            st.markdown(f"*(Missing: {fname})*")
-
 st.markdown("### Honest Limitations")
 
-st.warning("""
-**Small sample size.** With only five islands, several findings — particularly the governance
-correlation (H3), whose 95% confidence interval spans from r = -0.43 to r = 0.98 — are
-statistically suggestive rather than confirmatory. This is a genuine constraint of cross-national
-island-nation research, not glossed over in this project's conclusions.
-""")
+hl1, hl2 = st.columns([0.94, 0.06])
+with hl1:
+    st.warning("""
+    **Small sample size.** With only five islands, several findings — particularly the governance
+    correlation (H3), whose 95% confidence interval spans from r = -0.43 to r = 0.98 — are
+    statistically suggestive rather than confirmatory. This is a genuine constraint of cross-national
+    island-nation research, not glossed over in this project's conclusions.
+    """)
+with hl2:
+    proof_popover("07_governance_correlation_vscode.png", "governance_correlation_test.py open in VS Code — the Pearson correlation test (r, p-value) behind the H3 governance-alignment finding.")
 
 st.info("""
 **Uneven data depth.** Canary Islands coral and mangrove data were confirmed genuinely absent —
@@ -156,7 +177,12 @@ reported explicitly rather than assumed negligible.
 
 st.markdown("---")
 
-st.markdown("### Download the Data")
+dd1, dd2 = st.columns([0.94, 0.06])
+with dd1:
+    st.markdown("### Download the Data")
+with dd2:
+    st.markdown("<div style='margin-top: 1.6rem;'></div>", unsafe_allow_html=True)
+    proof_popover("08_compound_vulnerability_score_vscode.png", "compound_vulnerability_score.py open in VS Code — the script that computes the Compound Vulnerability Score (SLR exposure + coral decline) and produces this CSV.")
 
 try:
     df = pd.read_csv(os.path.join(PROJECT_ROOT, "data", "compound_vulnerability_scores.csv"))
@@ -166,27 +192,6 @@ try:
                         "double_jeopardy_vulnerability_scores.csv", "text/csv")
 except FileNotFoundError:
     st.markdown("*(Data file not found — check path)*")
-
-st.markdown("---")
-
-st.markdown(f"""
-<div style="background: {PALETTE['card_bg']}; border: 1px solid rgba(34,211,238,0.3); border-radius: 10px; padding: 16px;">
-    <strong style="color: {PALETTE['green']};">GitHub Repository:</strong> <a href="https://github.com/sakshimaske303-commits/DOUBLE-JEOPARDY" target="_blank" style="color: {PALETTE['navy']};">github.com/sakshimaske303-commits/DOUBLE-JEOPARDY</a>
-</div>
-""", unsafe_allow_html=True)
-
-st.markdown("---")
-
-st.markdown(
-    f"""
-    <div style="text-align: center; padding: 25px; background: {PALETTE['card_bg']}; border-radius: 16px; border: 1px solid rgba(34,211,238,0.25);">
-        <p style="color: {PALETTE['text_muted']}; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem;">Project Author</p>
-        <h2 style="color: {PALETTE['navy']}; margin: 5px 0; border: none; padding: 0;">SAKSHI D. MASKE</h2>
-        <p style="color: {PALETTE['green']}; font-weight: 600;">Independent Geospatial Researcher</p>
-    </div>
-    """,
-    unsafe_allow_html=True,
-)
 
 st.markdown("---")
 st.markdown(
