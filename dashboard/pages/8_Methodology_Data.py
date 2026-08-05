@@ -125,16 +125,18 @@ with st.expander("**A Satellite-Record Constraint: Cyclone Damage Verification**
     methodological boundary, not a gap to work around.
     """)
 
-with st.expander("**Governance Ratio Sanity Check: Comparing Land to Marine EEZs**"):
-    st.markdown("""
-    An initial protected-area-to-land ratio for Seychelles came out to 1,005.69 — a nonsensical
-    result caused by including the country's Exclusive Economic Zone (over a million km² of ocean)
-    in the calculation. This was corrected by restricting the metric to a 10km coastal buffer
-    around each island, producing interpretable, comparable ratios.
-    """)
-    rga, rgb = st.columns([0.92, 0.08])
-    with rgb:
-        proof_popover("06_wdpa_coastal_buffer_vscode.png", "wdpa_coastal_buffer.py open in VS Code — the fix for the Seychelles 1,005.69 EEZ bug, restricting WDPA area to a 10km coastal buffer per island.")
+rga, rgb = st.columns([0.94, 0.06])
+with rga:
+    with st.expander("**Governance Ratio Sanity Check: Comparing Land to Marine EEZs**"):
+        st.markdown("""
+        An initial protected-area-to-land ratio for Seychelles came out to 1,005.69 — a nonsensical
+        result caused by including the country's Exclusive Economic Zone (over a million km² of ocean)
+        in the calculation. This was corrected by restricting the metric to a 10km coastal buffer
+        around each island, producing interpretable, comparable ratios.
+        """)
+with rgb:
+    st.markdown("<div style='margin-top: 0.5rem;'></div>", unsafe_allow_html=True)
+    proof_popover("06_wdpa_coastal_buffer_vscode.png", "wdpa_coastal_buffer.py open in VS Code — the fix for the Seychelles 1,005.69 EEZ bug, restricting WDPA area to a 10km coastal buffer per island.")
 
 with st.expander("**Filling a Data Gap: Lakshadweep's Population, Revisited**"):
     st.markdown("""
