@@ -168,6 +168,7 @@ st.markdown("### Explore the Analysis")
 
 nav_items = [
     ("🏝️", "Study Design", "Islands, methodology, and hypotheses"),
+    ("🌊", "Theoretical Foundations", "The physical and ecological theory behind the risk-reversal finding"),
     ("🌡️", "Ecological Findings", "Coral thermal stress vs. mangrove stability"),
     ("📉", "Physical Exposure", "Settlement-level sea-level-rise risk"),
     ("⚠️", "Compound Vulnerability", "The signature cross-island ranking"),
@@ -208,12 +209,12 @@ with doc1:
             st.download_button(
                 label="📘 Research Paper (PDF)",
                 data=f,
-                file_name="DJ_Research_Paper.pdf",
+                file_name="DOUBLE_JEOPARDY_Research_Paper.pdf",
                 mime="application/pdf",
                 use_container_width=True,
             )
     except FileNotFoundError:
-        st.warning("Research_Paper.pdf not found.")
+        st.warning("DJ_Research_Paper.pdf not found.")
 
 with doc2:
     pdf_path = os.path.join(ROOT_DIR, "DJ_Project_Report.pdf")
@@ -222,12 +223,12 @@ with doc2:
             st.download_button(
                 label="📗 Project Report (PDF)",
                 data=f,
-                file_name="DJ_Project_Report.pdf",
+                file_name="DOUBLE_JEOPARDY_Project_Report.pdf",
                 mime="application/pdf",
                 use_container_width=True,
             )
     except FileNotFoundError:
-        st.warning("Project_Journal.pdf not found.")
+        st.warning("DJ_Project_Report.pdf not found.")
 
 with doc3:
     pdf_path = os.path.join(ROOT_DIR, "DJ_Development_Log.pdf")
@@ -236,12 +237,12 @@ with doc3:
             st.download_button(
                 label="📙 Development Log (PDF)",
                 data=f,
-                file_name="DJ_Development_Log.pdf",
+                file_name="DOUBLE_JEOPARDY_Development_Log.pdf",
                 mime="application/pdf",
                 use_container_width=True,
             )
     except FileNotFoundError:
-        st.warning("Development_Log.pdf not found.")
+        st.warning("DJ_Development_Log.pdf not found.")
 
 st.markdown("---")
 
