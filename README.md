@@ -12,15 +12,16 @@
 
 | Document | What's Inside |
 |---|---|
-| 📘 [`Project_Journal.md`](./Project_Journal.md) | Polished project summary — methodology, findings, conclusions (start here) |
-| 📗 [`Research_Paper.md`](./Research_Paper.md) | Formal academic paper — literature review, statistical methodology, results, discussion |
-| 📙 [`Devlopment_Log.md`](./Devlopment_Log.md) | Full technical development log — every bug, debugging session, and methodology iteration |
+| ⚡ [`DJ_Executive_Summary.pdf`](./DJ_Executive_Summary.pdf) | One-page snapshot — question, method, headline finding, robustness checklist, and links (fastest overview) |
+| 📘 [`DJ_Project_Report.md`](./DJ_Project_Report.md) | Polished project summary — methodology, findings, conclusions (start here) |
+| 📗 [`DJ_Research_Paper.md`](./DJ_Research_Paper.md) | Formal academic paper — literature review, statistical methodology, results, discussion |
+| 📙 [`DJ_Development_Log.md`](./DJ_Development_Log.md) | Full technical development log — every bug, debugging session, and methodology iteration |
 
 ---
 
 DOUBLE JEOPARDY is a geospatial framework that independently tests physical sea-level-rise exposure and ecosystem buffer degradation across five island nations spanning three ocean basins. Rather than assuming mangroves and coral reefs degrade together, each ecosystem is tested independently — revealing that climate vulnerability is not the uniform story it is often assumed to be.
 
-Built on the same **"Trust, But Verify"** philosophy as its companion project, GPIE — every hypothesis in this project is tested rigorously, and every finding is reported honestly, including where the original hypothesis was not supported.
+Built on a **"Trust, But Verify"** philosophy — every hypothesis in this project is tested rigorously, and every finding is reported honestly, including where the original hypothesis was not supported.
 
 ---
 

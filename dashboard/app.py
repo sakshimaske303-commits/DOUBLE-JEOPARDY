@@ -19,8 +19,8 @@ GITHUB_URL = "https://github.com/sakshimaske303-commits/DOUBLE-JEOPARDY"
 # ------------------------------------------------------------------
 # Robust path resolution: works both locally (running from inside
 # dashboard/) and on Streamlit Cloud (which runs from the repo root
-# without cd'ing into dashboard/ first). Same fix applied to
-# STOLEN_STRATA after its PDFs 404'd only in the cloud deployment.
+# without cd'ing into dashboard/ first) — the same class of fix
+# needed after PDFs 404'd only in a prior cloud deployment.
 # ------------------------------------------------------------------
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))   # .../dashboard
 ROOT_DIR = os.path.dirname(BASE_DIR)                      # repo root
@@ -79,6 +79,27 @@ with col4:
     st.metric("HIGHEST RISK", "Seychelles", "Score: 0.880")
 
 st.markdown("---")
+
+st.markdown(
+    f"""
+    <div style="padding: 20px 26px; margin: 4px 0 20px 0; background: rgba(34, 211, 238, 0.06);
+                border: 1px solid rgba(34, 211, 238, 0.3); border-left: 4px solid {PALETTE['navy']};
+                border-radius: 10px;">
+        <p style="color:{PALETTE['navy']}; text-transform:uppercase; letter-spacing:1.5px;
+                  font-weight:700; font-size:0.85rem; margin-bottom:8px;">⚡ Why This Matters</p>
+        <p style="color:{PALETTE['text_dark']}; font-size:1rem; line-height:1.6; margin:0;">
+            Climate adaptation funding for small island nations is often allocated using
+            single-indicator exposure metrics like sea-level-rise risk alone. This project shows that
+            can be actively misleading: the Maldives has the highest physical exposure of any island
+            tested — yet Seychelles is the highest overall-risk island once ecosystem-buffer
+            degradation is factored in. Treating "ecosystem degradation" as one uniform trend would be
+            another mistake: coral reefs are genuinely declining, but mangroves, tested with equal
+            rigor, are not — a finding that only survives because it wasn't assumed away from the start.
+        </p>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
 
 col_left, col_right = st.columns([1.1, 1])
 
@@ -200,7 +221,21 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-doc1, doc2, doc3 = st.columns(3)
+doc0, doc1, doc2, doc3 = st.columns(4)
+
+with doc0:
+    pdf_path = os.path.join(ROOT_DIR, "DJ_Executive_Summary.pdf")
+    try:
+        with open(pdf_path, "rb") as f:
+            st.download_button(
+                label="⚡ Executive Summary (PDF)",
+                data=f,
+                file_name="DOUBLE_JEOPARDY_Executive_Summary.pdf",
+                mime="application/pdf",
+                use_container_width=True,
+            )
+    except FileNotFoundError:
+        st.warning("DJ_Executive_Summary.pdf not found.")
 
 with doc1:
     pdf_path = os.path.join(ROOT_DIR, "DJ_Research_Paper.pdf")
