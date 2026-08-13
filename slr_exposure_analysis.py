@@ -1,4 +1,5 @@
 import geopandas as gpd
+import numpy as np
 import rasterio
 from rasterio.sample import sample_gen
 import pandas as pd
@@ -6,6 +7,14 @@ import pandas as pd
 ISLANDS = ["maldives", "seychelles", "fiji", "canary", "lakshadweep"]
 
 SLR_THRESHOLD_M = 1.0  # standard 1-meter sea-level-rise scenario
+SENSITIVITY_THRESHOLDS_M = [0.5, 1.0, 1.5]  # robustness check across a range of thresholds
+
+# Canary's DEM returns a literal 0.0 at a cluster of settlement points that
+# don't correspond to real near-sea-level terrain (Canary is volcanic and
+# mountainous — verified independently against QGIS's own raster sampling,
+# see data/canary_python_elevations_check.csv). Every other island's exact-zero
+# readings are genuine low-lying/coastal elevation and are kept as real data.
+ZERO_IS_NODATA = {"canary"}
 
 
 def analyze_island(island):
@@ -20,16 +29,28 @@ def analyze_island(island):
 
     gdf["elevation_m"] = elevations
 
+    if island in ZERO_IS_NODATA:
+        gdf = gdf[gdf["elevation_m"] != 0.0].copy()
+
     total = len(gdf)
     at_risk = (gdf["elevation_m"] <= SLR_THRESHOLD_M).sum()
     pct_at_risk = (at_risk / total * 100) if total > 0 else 0
 
+    sensitivity = {}
+    for t in SENSITIVITY_THRESHOLDS_M:
+        n_risk = (gdf["elevation_m"] <= t).sum()
+        sensitivity[f"pct_at_risk_{t}m"] = (n_risk / total * 100) if total > 0 else 0
+
     print(f"{island.upper()}:")
     print(f"  Total settlements: {total}")
     print(f"  At risk (<= {SLR_THRESHOLD_M}m elevation): {at_risk} ({pct_at_risk:.1f}%)")
+    for t in SENSITIVITY_THRESHOLDS_M:
+        print(f"    @ {t}m threshold: {sensitivity[f'pct_at_risk_{t}m']:.2f}%")
     print()
 
-    return {"island": island, "total": total, "at_risk": at_risk, "pct_at_risk": pct_at_risk}
+    result = {"island": island, "total": total, "at_risk": at_risk, "pct_at_risk": pct_at_risk}
+    result.update(sensitivity)
+    return result
 
 
 def main():

@@ -29,7 +29,7 @@ SLR_DATA = {
     "Fiji": {"folder": "fiji_slr_exposure_webmap",
              "observation": "Only 32.0% of settlements are at risk — Fiji's volcanic terrain provides substantially more elevation buffer."},
     "Canary Islands": {"folder": "canary_slr_exposure_webmap",
-                        "observation": "Just 12.1% of settlements are at risk — the lowest of all five islands."},
+                        "observation": "Just 0.3% of settlements are at risk — the lowest of all five islands."},
 }
 
 st.markdown("### 📉 Sea-Level-Rise Exposure Maps")
@@ -124,6 +124,55 @@ st.markdown(f"""
     <p style="color: {PALETTE['text_dark']}; margin: 0; font-size: 0.95rem;">{info2['observation']}</p>
 </div>
 """, unsafe_allow_html=True)
+
+st.markdown("---")
+
+# ============ SETTLEMENT ENCROACHMENT ============
+ENCROACH_DATA = {
+    "Seychelles": {
+        "folder": "seychelles_settlement_encroachment_webmap",
+        "observation": "Seychelles shows the strongest encroachment signal of the three islands tested — consistent with its status as the highest compound-vulnerability island.",
+    },
+    "Maldives": {
+        "folder": "maldives_settlement_encroachment_webmap",
+        "observation": "A clear, if more modest, increase in built-up density between 2016 and 2024 around the Malé urban cluster.",
+    },
+    "Fiji": {
+        "folder": "fiji_settlement_encroachment_webmap",
+        "observation": "Effectively no change — consistent with Fiji's stability across every other measure tested in this project.",
+    },
+}
+
+st.markdown("### 🏗️ Settlement Encroachment Maps (2016 → 2024)")
+st.markdown(f"""
+<div style="background: {PALETTE['card_bg']}; border-radius: 10px; padding: 14px; margin-bottom: 14px;">
+    <p style="color: {PALETTE['navy']}; font-weight: 700; font-size: 0.85rem; margin-bottom: 8px;">MAP LEGEND</p>
+    <p style="color: {PALETTE['text_dark']}; font-size: 0.9rem; margin: 0;">
+        🟥 Red — strongest relative NDBI increase (top 15% of that island's own pixels) &nbsp;|&nbsp;
+        🟦 Blue — strongest relative decrease
+    </p>
+    <p style="color: {PALETTE['text_muted']}; font-size: 0.8rem; margin: 8px 0 0 0; font-style: italic;">
+        Exploratory — shows where the built-up signal shifted most, not a precise area total.
+        The validated, quantified change figure is the bar chart on the Governance & Encroachment page.
+    </p>
+</div>
+""", unsafe_allow_html=True)
+
+selected_island_encroach = st.selectbox("🌍 Select Island", list(ENCROACH_DATA.keys()), key="encroach_select")
+info3 = ENCROACH_DATA[selected_island_encroach]
+components.iframe(
+    src=f"{MAP_SERVER_BASE}/{info3['folder']}/index.html",
+    height=550,
+    scrolling=True,
+)
+st.markdown(f"""
+<div style="background: {PALETTE['card_bg']}; border-left: 5px solid {PALETTE['risk']};
+            border-radius: 10px; padding: 14px; margin-top: 12px;">
+    <p style="color: {PALETTE['navy']}; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 6px;">Key Observation</p>
+    <p style="color: {PALETTE['text_dark']}; margin: 0; font-size: 0.95rem;">{info3['observation']}</p>
+</div>
+""", unsafe_allow_html=True)
+st.caption("Built from per-pixel Sentinel-2 NDBI rasters (2016 vs. 2024), clipped to this project's own validated island boundaries. A visual companion to the bar chart on the Governance & Encroachment page, not a replacement for its quantified figure.")
 
 st.markdown("---")
 

@@ -68,7 +68,9 @@ As a robustness check, a Mann-Kendall trend test (non-parametric, standard for e
 ### 3.6 Compound Vulnerability Score
 
 Physical exposure and coral thermal-stress trend were normalized to a common 0–1 scale using min-max normalization and combined with equal weighting into a single Compound Vulnerability Score per island. Mangrove trend was not included as a weighted input, given the absence of any measurable decline to weight.
-To test sensitivity to this equal-weighting choice, the composite ranking was recomputed across the full 0–100% weighting range between the two input variables. Seychelles remained the highest-ranked island for the large majority of that range — from 0% up to approximately 74.5% physical-exposure weighting — with Maldives overtaking it only beyond that point, i.e. only if physical exposure were weighted at roughly three-quarters or more of the composite score. At the equal 50/50 weighting actually used in this study, Seychelles is unambiguously highest-ranked, and the crossover point is far enough from 50/50 that the central finding is not an artifact of the specific weighting chosen — but it is not accurate to say Seychelles leads across the entire range. Equal weighting was adopted as a conservative baseline, since no established literature provides a robust empirical basis for differential weighting between physical exposure and coral thermal stress in this specific cross-national context; the sensitivity analysis in Section 4.6 gives the exact range over which this choice holds.
+To test sensitivity to this equal-weighting choice, the composite ranking was recomputed across the full 0–100% weighting range between the two input variables. Seychelles remained the highest-ranked island for the large majority of that range — from 0% up to approximately 76.8% physical-exposure weighting — with Maldives overtaking it only beyond that point, i.e. only if physical exposure were weighted at roughly three-quarters or more of the composite score. At the equal 50/50 weighting actually used in this study, Seychelles is unambiguously highest-ranked, and the crossover point is far enough from 50/50 that the central finding is not an artifact of the specific weighting chosen — but it is not accurate to say Seychelles leads across the entire range. Equal weighting was adopted as a conservative baseline, since no established literature provides a robust empirical basis for differential weighting between physical exposure and coral thermal stress in this specific cross-national context; the sensitivity analysis in Section 4.6 gives the exact range over which this choice holds.
+
+The one-meter sea-level-rise threshold used throughout this study is itself a modeling choice rather than an exact prediction, so settlement-level exposure was also recomputed at 0.5m and 1.5m thresholds, spanning the practical range of near-term projections. Section 4.6 reports this check in full.
 
 ### 3.7 Governance Alignment
 
@@ -78,7 +80,7 @@ Protected-area coverage was quantified within a ten-kilometer coastal buffer aro
 
 ### 4.1 Physical Exposure
 
-Settlement-level exposure to a one-meter sea-level-rise threshold ranged widely: 99.1% (Maldives), 78.3% (Seychelles), 77.8% (Lakshadweep), 32.0% (Fiji), and 12.1% (Canary Islands) — directly reflecting the underlying geological distinction between low-lying coral atoll nations and volcanic, mountainous terrain.
+Settlement-level exposure to a one-meter sea-level-rise threshold ranged widely: 99.1% (Maldives), 78.3% (Seychelles), 77.8% (Lakshadweep), 32.0% (Fiji), and 0.3% (Canary Islands) — directly reflecting the underlying geological distinction between low-lying coral atoll nations and volcanic, mountainous terrain. (A small cluster of literal-zero-elevation DEM readings at Canary Islands settlement points was excluded as a verified NoData artifact rather than genuine near-sea-level terrain — Canary Islands has no coastline low enough to plausibly produce this many settlements at exactly 0m on a mountainous, volcanic island; see Section 6.)
 
 <p align="center">
   <img src="outputs/plots/fig2_physical_exposure_by_island.png" width="700">
@@ -92,7 +94,7 @@ Settlement-level exposure to a one-meter sea-level-rise threshold ranged widely:
 | Seychelles | 78.3% | 17.6% |
 | Lakshadweep | 77.8% | 87.5% |
 | Fiji | 32.0% | 2.1%* |
-| Canary Islands | 12.1% | 1.6% |
+| Canary Islands | 0.3% | 1.6% |
 
 *covers ~97.6% of Fiji's population; see Limitations.
 
@@ -128,7 +130,7 @@ When tested using a Mann-Kendall trend test on the complete 24-year time series,
 
 ### 4.4 Compound Vulnerability: Exposure Alone Is Insufficient
 
-The composite score ranked Seychelles highest (0.880), followed by Maldives (0.651), Lakshadweep (0.467), Fiji (0.217), and Canary Islands (0.000). This directly demonstrates that physical exposure alone would misidentify the highest-risk island: Maldives has substantially higher exposure alone (99.1% versus 78.3%), yet Seychelles produces the higher composite score once its more severe coral degradation trend is incorporated.
+The composite score ranked Seychelles highest (0.895), followed by Maldives (0.651), Lakshadweep (0.481), Fiji (0.263), and Canary Islands (0.000). This directly demonstrates that physical exposure alone would misidentify the highest-risk island: Maldives has substantially higher exposure alone (99.1% versus 78.3%), yet Seychelles produces the higher composite score once its more severe coral degradation trend is incorporated.
 
 <p align="center">
   <img src="outputs/plots/compound_vulnerability_score.png" width="700">
@@ -138,35 +140,45 @@ The composite score ranked Seychelles highest (0.880), followed by Maldives (0.6
 
 ### 4.5 Governance Alignment: Suggestive, Not Confirmatory
 
-The correlation between compound vulnerability and coastal protected-area coverage was moderately positive (r=0.727) but did not reach conventional statistical significance (p=0.164), a result attributable to the study's necessarily small five-island sample rather than to an absence of any underlying relationship.
+The correlation between compound vulnerability and coastal protected-area coverage was moderately positive (r=0.718) but did not reach conventional statistical significance (p=0.172), a result attributable to the study's necessarily small five-island sample rather than to an absence of any underlying relationship.
 
-The 95% confidence interval for this correlation, computed via Fisher's z-transformation, spans from r = -0.43 to r = 0.98 — illustrating that with only five data points, the point estimate of r = 0.727 carries very little precision, and the true underlying relationship could plausibly range from weakly negative to nearly perfect positive.
+The 95% confidence interval for this correlation, computed via Fisher's z-transformation, spans from r = -0.45 to r = 0.98 — illustrating that with only five data points, the point estimate of r = 0.718 carries very little precision, and the true underlying relationship could plausibly range from weakly negative to nearly perfect positive.
 
 <p align="center">
   <img src="outputs/plots/fig6_governance_alignment.png" width="700">
 </p>
 
-**Figure 6.** Compound Vulnerability Score plotted against the coastal WDPA protected-area ratio for each island, with a fitted OLS reference line. r = 0.727, p = 0.164, 95% CI [-0.43, 0.98] (n=5) — a positive but statistically inconclusive relationship, driven by the small sample size rather than a null result.
+**Figure 6.** Compound Vulnerability Score plotted against the coastal WDPA protected-area ratio for each island, with a fitted OLS reference line. r = 0.718, p = 0.172, 95% CI [-0.45, 0.98] (n=5) — a positive but statistically inconclusive relationship, driven by the small sample size rather than a null result.
 
 ### 4.6 Robustness and Sensitivity Checks
 
 Several additional checks were run to test the sensitivity of this study's central findings to specific methodological choices:
 
-— Compound Vulnerability Score weighting (Section 4.4): recomputed across the full 0–100% weighting range between physical exposure and coral thermal stress; Seychelles remained the highest-ranked island from 0% up to ~74.5% physical-exposure weighting, with Maldives overtaking it only beyond that point (a later verification pass corrected this from an earlier, less precise claim that Seychelles led across the entire range — see Devlopment_Log.md).
+— Compound Vulnerability Score weighting (Section 4.4): recomputed across the full 0–100% weighting range between physical exposure and coral thermal stress; Seychelles remained the highest-ranked island from 0% up to ~76.8% physical-exposure weighting, with Maldives overtaking it only beyond that point (a later verification pass corrected this from an earlier, less precise claim that Seychelles led across the entire range — see DJ_Development_Log.md).
 
 — Coral thermal-stress trend (Section 4.3): tested using a Mann-Kendall trend test on the complete 24-year time series in addition to the period-comparison method; the increasing trend reached statistical significance for Maldives (p=0.011) and Seychelles (p=0.025) — the two islands central to the compound vulnerability ranking.
 
 — Physical exposure measurement (Section 4.1): recomputed on a population-weighted basis in addition to the settlement-count basis, using WorldPop 2020 data for all five islands.
 
-— Governance-alignment correlation (Section 4.5): the 95% confidence interval (Fisher's z-transformation) for r=0.727 was computed explicitly ([-0.43, 0.98]), making the small-sample limitation quantitatively concrete rather than only qualitatively noted.
+— Physical exposure threshold (Section 4.1): the 1-meter sea-level-rise threshold used throughout this study was recomputed at 0.5m and 1.5m to test whether the specific threshold choice was doing hidden work in the result. Across this range, each island's exposure percentage moves by at most half a percentage point, and the island ranking never changes at any of the three thresholds tested:
+
+| Island | 0.5m | 1.0m (used in this study) | 1.5m |
+|---|---|---|---|
+| Maldives | 99.0% | 99.1% | 99.1% |
+| Seychelles | 78.3% | 78.3% | 78.3% |
+| Lakshadweep | 77.8% | 77.8% | 77.8% |
+| Fiji | 31.4% | 32.0% | 32.0% |
+| Canary Islands | 0.1% | 0.3% | 0.3% |
+
+— Governance-alignment correlation (Section 4.5): the 95% confidence interval (Fisher's z-transformation) for r=0.718 was computed explicitly ([-0.45, 0.98]), making the small-sample limitation quantitatively concrete rather than only qualitatively noted.
 
 <p align="center">
   <img src="outputs/plots/fig7_weighting_sensitivity_curve.png" width="700">
 </p>
 
-**Figure 7.** Compound Vulnerability Score for each island as the weighting between physical exposure and coral thermal stress is swept continuously from 0% to 100%. Seychelles remains the highest-ranked island across roughly the first three-quarters of the range (up to ~74.5% physical-exposure weighting); Maldives overtakes it only beyond that point. Since the crossover point is well away from the 50/50 weighting actually used in this study, the central finding is not an artifact of the specific weighting chosen.
+**Figure 7.** Compound Vulnerability Score for each island as the weighting between physical exposure and coral thermal stress is swept continuously from 0% to 100%. Seychelles remains the highest-ranked island across roughly the first three-quarters of the range (up to ~76.8% physical-exposure weighting); Maldives overtakes it only beyond that point. Since the crossover point is well away from the 50/50 weighting actually used in this study, the central finding is not an artifact of the specific weighting chosen.
 
-Together, these checks indicate that the study's central finding — that Seychelles carries the highest compound vulnerability despite lower physical exposure than the Maldives — is robust to the specific weighting choice and supported by a statistically significant trend test, while more exploratory components of the analysis (governance alignment, the smaller coral trends in Fiji and Lakshadweep) are appropriately reported with their associated uncertainty rather than overstated.
+Together, these checks indicate that the study's central finding — that Seychelles carries the highest compound vulnerability despite lower physical exposure than the Maldives — is robust to the specific weighting choice, insensitive to the exact sea-level-rise threshold used, and supported by a statistically significant trend test, while more exploratory components of the analysis (governance alignment, the smaller coral trends in Fiji and Lakshadweep) are appropriately reported with their associated uncertainty rather than overstated.
 
 ## 5. Discussion
 
@@ -177,6 +189,8 @@ The governance-alignment finding, while not statistically significant, is direct
 ## 6. Limitations
 
 The governance-alignment test is limited by a necessarily small five-island sample, providing insufficient statistical power to confirm a relationship that is nonetheless directionally positive. Population-weighted exposure for Fiji reflects approximately 97.6% of the island's population; elevation data did not cover Fiji's easternmost territory (the Lau Islands, beyond the antimeridian), and this excluded population is reported explicitly rather than assumed negligible. This gap does not affect any other analysis in this study, which relies on settlement point locations rather than the population raster.
+
+Canary Islands' settlement-based exposure figure required a specific data-quality correction: 649 of 5,483 settlement points returned a literal 0m elevation reading from the DEM, which — given Canary Islands' volcanic, mountainous terrain, where genuine sea-level settlements are not expected — was verified as a NoData artifact rather than real terrain, and excluded from the exposure calculation. This does not affect the study's central finding, since Canary Islands was already the lowest-exposure, lowest-vulnerability island in the sample before this correction, but it does move its reported exposure figure from an earlier, artifact-inflated 12.1% down to the corrected 0.3%.
 
 Physical exposure was estimated using Copernicus DEM GLO-30, a 30-meter-resolution, radar-derived global elevation model that captures surface elevation — including vegetation canopy and built structures — rather than true bare-earth elevation. This introduces non-trivial vertical uncertainty relative to the fine, one-meter threshold used to classify settlement exposure, a limitation well documented in prior assessments of global elevation models applied to low-elevation coastal zones. Accordingly, the reported exposure percentages should be interpreted as directionally reliable — supporting the relative ranking of islands that drives this study's central finding — rather than as precise absolute counts.
 

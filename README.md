@@ -41,6 +41,11 @@ Interactive geospatial maps are hosted separately via GitHub Pages. Sample links
 - [Canary Islands — SLR Exposure](https://sakshimaske303-commits.github.io/DOUBLE-JEOPARDY/dashboard/static/canary_slr_exposure_webmap/index.html)
 - [Lakshadweep — SLR Exposure](https://sakshimaske303-commits.github.io/DOUBLE-JEOPARDY/dashboard/static/lakshadweep_slr_exposure_webmap/index.html)
 
+**Settlement Encroachment (NDBI change, 2016→2024)**
+- [Maldives — Settlement Encroachment](https://sakshimaske303-commits.github.io/DOUBLE-JEOPARDY/dashboard/static/maldives_settlement_encroachment_webmap/index.html)
+- [Seychelles — Settlement Encroachment](https://sakshimaske303-commits.github.io/DOUBLE-JEOPARDY/dashboard/static/seychelles_settlement_encroachment_webmap/index.html)
+- [Fiji — Settlement Encroachment](https://sakshimaske303-commits.github.io/DOUBLE-JEOPARDY/dashboard/static/fiji_settlement_encroachment_webmap/index.html)
+
 *(For the full interactive experience with dynamic legends and key observations, visit the [live dashboard](https://double-jeopardy-6ev9trz3dwafsb7panbnxg.streamlit.app/) → Interactive Maps page)*
 
 ---
@@ -60,11 +65,11 @@ Interactive geospatial maps are hosted separately via GitHub Pages. Sample links
 
 **Physical exposure alone is misleading.** The Maldives has the highest sea-level-rise exposure of any island tested (99.1% of settlements at risk) — yet Seychelles emerges as the highest overall-risk island once ecosystem degradation is factored in, driven by the most severe coral thermal-stress trend recorded across the sample.
 
-**Governance alignment is suggestive, not confirmed.** A moderately strong positive correlation (r=0.727) exists between protected-area coverage and verified vulnerability, but does not reach statistical significance at this sample size (p=0.164) — reported honestly as a limitation of scale, not glossed over.
+**Governance alignment is suggestive, not confirmed.** A moderately strong positive correlation (r=0.718) exists between protected-area coverage and verified vulnerability, but does not reach statistical significance at this sample size (p=0.172) — reported honestly as a limitation of scale, not glossed over.
 
 **Findings hold up under robustness checks.** The coral thermal-stress trend is confirmed statistically significant via a Mann-Kendall test for Maldives (p=0.011) and Seychelles (p=0.025); the Compound Vulnerability ranking is stable across the full 0–100% weighting-sensitivity range; and physical exposure recomputed on a population-weighted basis confirms that single-indicator exposure measures alone can misrepresent true risk.
 
-Full methodology, including two hypotheses tested and one not supported, is documented in the dashboard's Methodology page and in `Project_Journal.md`.
+Full methodology, including two hypotheses tested and one not supported, is documented in the dashboard's Methodology page and in `DJ_Project_Report.md`.
 
 ## 🗂️ Repository Structure
 
@@ -82,9 +87,9 @@ DOUBLE_JEOPARDY/
 │                                     #  comparison, mangrove extent, coral trends, governance alignment,
 │                                     #  weighting-sensitivity curve)
 ├── qgis_processing/                 # Original QGIS2Web webmap exports
-├── Project_Journal.md               # Polished project summary and methodology
-├── Research_Paper.md                # Formal academic research paper
-├── Devlopment_Log.md                # Full technical development log
+├── DJ_Project_Report.md             # Polished project summary and methodology
+├── DJ_Research_Paper.md             # Formal academic research paper
+├── DJ_Development_Log.md            # Full technical development log
 ├── download_*.py                    # Dataset acquisition scripts
 ├── clean_*.py / filter_*.py         # Data cleaning and filtering scripts
 ├── map*.py                          # Static visualization scripts
@@ -134,4 +139,4 @@ This project is licensed under [CC BY 4.0](./LICENSE) — free to share and adap
 
 ---
 
-*This project's full development process — including every debugging session, methodology iteration, and technical decision — is documented in `Devlopment_Log.md` for full transparency and reproducibility.*
+*This project's full development process — including every debugging session, methodology iteration, and technical decision — is documented in `DJ_Development_Log.md` for full transparency and reproducibility.*

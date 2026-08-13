@@ -35,7 +35,7 @@ with tab1:
     st.markdown("### Protected Area Coverage vs. Compound Vulnerability")
 
     islands = ["Lakshadweep", "Fiji", "Canary Islands", "Maldives", "Seychelles"]
-    vuln_scores = [0.467, 0.217, 0.000, 0.651, 0.880]
+    vuln_scores = [0.481, 0.263, 0.000, 0.651, 0.895]
     wdpa_ratios = [0.00, 0.42, 2.32, 3.90, 11.32]
 
     fig = go.Figure()
@@ -63,15 +63,15 @@ with tab1:
 
     col1, col2 = st.columns(2)
     with col1:
-        st.metric("CORRELATION (r)", "0.727", "Moderately strong, positive")
+        st.metric("CORRELATION (r)", "0.718", "Moderately strong, positive")
     with col2:
-        st.metric("P-VALUE", "0.164", "Not statistically significant")
+        st.metric("P-VALUE", "0.172", "Not statistically significant")
 
     st.warning("""
     **A suggestive, not confirmatory, finding.** The direction of the relationship is consistent
     with risk-responsive governance — Seychelles, the highest-vulnerability island, also has the
     highest coastal protection ratio. But with only five islands in the sample — and a 95%
-    confidence interval spanning from r = -0.43 to r = 0.98 — there isn't sufficient statistical
+    confidence interval spanning from r = -0.45 to r = 0.98 — there isn't sufficient statistical
     power to confirm this relationship with confidence. Reported honestly as suggestive evidence,
     not proof.
     """)

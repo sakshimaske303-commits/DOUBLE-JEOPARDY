@@ -297,7 +297,7 @@ def fig6_governance_alignment():
 # ------------------------------------------------------------------
 def fig7_weighting_sensitivity():
     # Same raw inputs and normalize() logic as compound_vulnerability_score.py
-    slr_data = {"Maldives": 99.1, "Seychelles": 78.3, "Fiji": 32.0, "Canary Islands": 12.1, "Lakshadweep": 77.8}
+    slr_data = {"Maldives": 99.1, "Seychelles": 78.3, "Fiji": 32.0, "Canary Islands": 0.3, "Lakshadweep": 77.8}
     coral_decline = {"Maldives": 0.17, "Seychelles": 0.68, "Fiji": 0.10, "Canary Islands": -0.05, "Lakshadweep": 0.08}
 
     def normalize(d):
@@ -322,7 +322,7 @@ def fig7_weighting_sensitivity():
     ax.set_ylabel("Compound Vulnerability Score (normalized, 0–1)", fontsize=11)
     ax.set_title(
         "Compound Vulnerability Score — Weighting Sensitivity\n"
-        "Seychelles leads up to ~74.5% physical-exposure weighting; Maldives overtakes beyond that",
+        "Seychelles leads up to ~76.8% physical-exposure weighting; Maldives overtakes beyond that",
         fontsize=13, fontweight="bold", pad=15
     )
     ax.set_xlim(0, 100)

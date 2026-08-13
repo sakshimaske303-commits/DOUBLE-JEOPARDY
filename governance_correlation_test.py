@@ -2,10 +2,10 @@ import pandas as pd
 from scipy import stats
 
 vulnerability = {
-    "seychelles": 0.880,
+    "seychelles": 0.895,
     "maldives": 0.651,
-    "lakshadweep": 0.467,
-    "fiji": 0.217,
+    "lakshadweep": 0.481,
+    "fiji": 0.263,
     "canary": 0.000,
 }
 

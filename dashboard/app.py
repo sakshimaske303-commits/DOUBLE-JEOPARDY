@@ -76,7 +76,7 @@ with col2:
 with col3:
     st.metric("TIME SPAN", "1996–2024", "28 years")
 with col4:
-    st.metric("HIGHEST RISK", "Seychelles", "Score: 0.880")
+    st.metric("HIGHEST RISK", "Seychelles", "Score: 0.895")
 
 st.markdown("---")
 
@@ -177,8 +177,8 @@ with h3:
         <p style="color: {PALETTE['cyan']}; font-weight: 800; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 8px;">⚠️ H3 — Suggestive</p>
         <p style="color: {PALETTE['navy']}; font-weight: 700; font-size: 1rem; margin-bottom: 8px;">Governance Is Partially Aligned</p>
         <p style="color: {PALETTE['text_dark']}; font-size: 0.85rem; margin: 0;">
-            Moderate positive correlation (r=0.727) between risk and protection — but not
-            statistically significant at this sample size (p=0.164, 95% CI: -0.43 to 0.98).
+            Moderate positive correlation (r=0.718) between risk and protection — but not
+            statistically significant at this sample size (p=0.172, 95% CI: -0.45 to 0.98).
         </p>
     </div>
     """, unsafe_allow_html=True)
