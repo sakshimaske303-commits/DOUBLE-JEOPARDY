@@ -78,6 +78,16 @@ def load_land_mask(island, transform, shape):
 # replaced a fixed absolute NDBI threshold.
 HOTSPOT_PERCENTILE = 15
 
+# Display-only upscale: the raw 1024x1024 raster grid means each selected
+# hotspot pixel covers only a handful of screen pixels once rendered over an
+# island-sized area, on a light basemap — at normal browser zoom levels this
+# reads as near-invisible flecks rather than a legible pattern, even though
+# the underlying data (which pixels are colored) is unchanged. This repeats
+# each pixel as a small block (nearest-neighbor, no interpolation) purely so
+# the same selected pixels are actually visible on screen; it does not add,
+# remove, or blur any pixel's classification.
+DISPLAY_UPSCALE = 4
+
 ISLANDS = ["maldives", "seychelles", "fiji"]
 ISLAND_LABEL = {"maldives": "Maldives", "seychelles": "Seychelles", "fiji": "Fiji"}
 
@@ -86,9 +96,17 @@ def diff_to_rgba(diff, vmax):
     norm = mcolors.TwoSlopeNorm(vmin=-vmax, vcenter=0, vmax=vmax)
     cmap = plt.get_cmap("RdBu_r")
     rgba = cmap(norm(np.nan_to_num(diff, nan=0.0)))
-    alpha = np.where(np.isnan(diff), 0.0, 0.75)
+    alpha = np.where(np.isnan(diff), 0.0, 0.9)
     rgba[..., 3] = alpha
     return rgba
+
+
+def upscale_nearest(arr, factor):
+    """Repeat each pixel into a factor x factor block — display-only, see
+    DISPLAY_UPSCALE above. Works on the raw diff array (still has NaN for
+    unselected/non-land pixels) so the percentile selection itself never
+    changes, only how big each selected pixel is drawn."""
+    return np.repeat(np.repeat(arr, factor, axis=0), factor, axis=1)
 
 
 def build_island_map(island):
@@ -122,15 +140,54 @@ def build_island_map(island):
 
     hi_cut = np.percentile(valid_values, 100 - HOTSPOT_PERCENTILE)
     lo_cut = np.percentile(valid_values, HOTSPOT_PERCENTILE)
-    vmax = float(np.nanmax(np.abs(valid_values))) or 0.01
 
     # Only render the top/bottom HOTSPOT_PERCENTILE — the noisy middle band
     # is left fully transparent rather than shown in a pale, misleading color.
     display = np.where((diff >= hi_cut) | (diff <= lo_cut), diff, np.nan)
+
+    # Color scale range: a linear scale from 0 to the single most extreme
+    # pixel's value makes almost everything look pale, because the displayed
+    # set's own max is always its most extreme outlier by construction (the
+    # top/bottom HOTSPOT_PERCENTILE always includes the true max/min) while
+    # its median is much smaller — e.g. on Seychelles the displayed pixels'
+    # median magnitude was ~0.11 against a max of ~1.30, so a linear 0-1.30
+    # scale rendered the typical "hot" pixel at under 10% color intensity,
+    # visually indistinguishable from background. Scaling instead to a high
+    # percentile of the displayed magnitudes (and clipping the handful of
+    # more extreme pixels to full saturation, standard practice for
+    # outlier-robust color scaling) means a typical selected pixel actually
+    # reads as clearly red/blue rather than near-white.
+    displayed_values = display[~np.isnan(display)]
+    vmax = float(np.percentile(np.abs(displayed_values), 90)) or 0.01
+    display = np.clip(display, -vmax, vmax)
+
+    display = upscale_nearest(display, DISPLAY_UPSCALE)
     rgba = diff_to_rgba(display, vmax=vmax)
 
+    # Frame the initial view on where there's actually valid data to show,
+    # not the raw request bbox's geometric center and not even the full
+    # island boundary polygon — for Maldives especially, the national
+    # boundary itself runs almost the full length of the request bbox (it's
+    # a long north-south archipelago), but cloud-free Sentinel-2 coverage in
+    # this particular pull only produced valid pixels for one small cluster
+    # (Malé) within it, so fitting to the boundary's extent would have
+    # opened just as zoomed-out and empty-looking as fitting to the raw
+    # bbox did. Using `valid` (land AND actually has data) instead means the
+    # view opens already framed on the pixels that will actually be drawn.
+    land_rows, land_cols = np.where(valid)
+    row_margin = max(1, int(0.08 * valid.shape[0]))
+    col_margin = max(1, int(0.08 * valid.shape[1]))
+    r0 = max(0, land_rows.min() - row_margin)
+    r1 = min(valid.shape[0] - 1, land_rows.max() + row_margin)
+    c0 = max(0, land_cols.min() - col_margin)
+    c1 = min(valid.shape[1] - 1, land_cols.max() + col_margin)
+    lon0, lat0 = transform * (c0, r1)
+    lon1, lat1 = transform * (c1, r0)
+    fit_bounds = [[min(lat0, lat1), min(lon0, lon1)], [max(lat0, lat1), max(lon0, lon1)]]
+
     center = [lat_center, (bounds.left + bounds.right) / 2]
-    m = folium.Map(location=center, zoom_start=12, tiles="CartoDB positron")
+    m = folium.Map(location=center, tiles="CartoDB positron")
+    m.fit_bounds(fit_bounds)
 
     folium.raster_layers.ImageOverlay(
         image=rgba,
@@ -147,8 +204,9 @@ def build_island_map(island):
       <span style="color:#b2182b;">■</span> Relative increase &nbsp;
       <span style="color:#2166ac;">■</span> Relative decrease<br><br>
       Exploratory visualization of where the built-up signal shifted most
-      within {ISLAND_LABEL[island]} — not a precise area total. See the
-      Governance &amp; Encroachment page for this study's validated,
+      within {ISLAND_LABEL[island]} — not a precise area total. Pixels are
+      drawn enlarged for visibility; the underlying selection is unchanged.
+      See the Governance &amp; Encroachment page for this study's validated,
       quantified built-up change figure.
     </div>
     """
