@@ -9,9 +9,9 @@ from styles import apply_custom_style, PALETTE
 
 apply_custom_style()
 
-st.markdown("<h1 style='text-align: center;'>🗺️ INTERACTIVE MAPS</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center;'>🗺️ INTERACTIVE MAPS &amp; PLOTS</h1>", unsafe_allow_html=True)
 st.markdown(
-    "<h3 style='text-align: center; color: #1b4332; font-weight: 400;'>Explore the Geospatial Data Live</h3>",
+    "<h3 style='text-align: center; color: #1b4332; font-weight: 400;'>Explore the Geospatial Data and Headline Charts Live</h3>",
     unsafe_allow_html=True,
 )
 st.markdown("---")
@@ -193,13 +193,41 @@ st.markdown(f"""
 <div style="background: {PALETTE['card_bg']}; border-left: 5px solid {PALETTE['mint']};
             border-radius: 10px; padding: 10px 14px; margin-top: 10px;">
     <p style="color: {PALETTE['text_muted']}; margin: 0; font-size: 0.82rem; font-style: italic;">
-        Note: This map is shown as a static image rather than an interactive layer due to a QGIS2Web export limitation with historical polygon datasets.
+        Note: historical polygon datasets render here as a static image; the trend itself is fully
+        explorable as an interactive chart in the Interactive Plots section below.
     </p>
 </div>
 """, unsafe_allow_html=True)
 
 st.markdown("---")
+
+# ============ INTERACTIVE PLOTS ============
+st.markdown("### 📈 Interactive Plots")
+st.markdown(f"""
+<div style="background: {PALETTE['card_bg']}; border-radius: 10px; padding: 14px; margin-bottom: 14px;">
+    <p style="color: {PALETTE['text_dark']}; font-size: 0.9rem; margin: 0;">
+        The three headline statistical charts, hoverable and toggleable instead of locked into a flat image.
+    </p>
+</div>
+""", unsafe_allow_html=True)
+
+PLOTS = {
+    "Compound Vulnerability Score": "compound_vulnerability_score.html",
+    "Coral Thermal Stress Trends": "coral_thermal_stress_trends.html",
+    "Weighting Sensitivity Curve": "weighting_sensitivity_curve.html",
+}
+
+plot_choice = st.selectbox("Select a chart", list(PLOTS.keys()), key="plot_select")
+plot_path = os.path.join(PROJECT_ROOT, "outputs", "plots", "interactive", PLOTS[plot_choice])
+if os.path.exists(plot_path):
+    with open(plot_path, "r", encoding="utf-8") as f:
+        plot_html = f.read()
+    components.html(plot_html, height=600, scrolling=True)
+else:
+    st.warning("Chart file not found.")
+
+st.markdown("---")
 st.markdown(
-    "<p class='caption-text' style='text-align:center;'>DOUBLE JEOPARDY — Maps built in QGIS, exported via QGIS2Web</p>",
+    "<p class='caption-text' style='text-align:center;'>DOUBLE JEOPARDY — Maps built in QGIS, exported via QGIS2Web; plots built with Plotly</p>",
     unsafe_allow_html=True,
 )

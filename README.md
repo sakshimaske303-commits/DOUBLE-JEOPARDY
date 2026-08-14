@@ -46,7 +46,12 @@ Interactive geospatial maps are hosted separately via GitHub Pages. Sample links
 - [Seychelles — Settlement Encroachment](https://sakshimaske303-commits.github.io/DOUBLE-JEOPARDY/dashboard/static/seychelles_settlement_encroachment_webmap/index.html)
 - [Fiji — Settlement Encroachment](https://sakshimaske303-commits.github.io/DOUBLE-JEOPARDY/dashboard/static/fiji_settlement_encroachment_webmap/index.html)
 
-*(For the full interactive experience with dynamic legends and key observations, visit the [live dashboard](https://double-jeopardy-6ev9trz3dwafsb7panbnxg.streamlit.app/) → Interactive Maps page)*
+*(For the full interactive experience with dynamic legends and key observations, visit the [live dashboard](https://double-jeopardy-6ev9trz3dwafsb7panbnxg.streamlit.app/) → Interactive Maps & Plots page)*
+
+**Interactive Plots**
+- [Compound Vulnerability Score](https://sakshimaske303-commits.github.io/DOUBLE-JEOPARDY/outputs/plots/interactive/compound_vulnerability_score.html)
+- [Coral Thermal Stress Trends](https://sakshimaske303-commits.github.io/DOUBLE-JEOPARDY/outputs/plots/interactive/coral_thermal_stress_trends.html)
+- [Weighting Sensitivity Curve](https://sakshimaske303-commits.github.io/DOUBLE-JEOPARDY/outputs/plots/interactive/weighting_sensitivity_curve.html)
 
 ---
 
@@ -57,7 +62,7 @@ Interactive geospatial maps are hosted separately via GitHub Pages. Sample links
 - Combines physical exposure and ecosystem degradation into a single **Compound Vulnerability Score**, revealing that the island with the highest physical exposure is *not* the island with the highest overall risk
 - Tests whether formal protected-area governance is statistically aligned with verified vulnerability, or represents a "paper park" gap between policy and evidence
 - Tests whether settlement expansion is concentrated near degrading ecosystem buffer zones, using satellite-derived built-up area change (2016–2024)
-- Presents all findings through an interactive Streamlit dashboard with live-recalculating features and QGIS-based interactive maps
+- Presents all findings through an interactive Streamlit dashboard with live-recalculating features, QGIS-based interactive maps, and Plotly interactive plots
 
 ## 🔬 Key Findings
 
@@ -81,8 +86,10 @@ DOUBLE_JEOPARDY/
 │   ├── settlements/, ecosystem_buffers/, terrain/, population/
 │   ├── cyclone_tracks/, boundaries/, mangroves/, coral_bleaching/
 │   └── settlement_encroachment/
+├── build_interactive_plots.py       # Plotly interactive chart generation
 ├── outputs/
 │   └── plots/                       # Publication-quality static figures for the Research Paper
+│       └── interactive/             # Plotly interactive HTML charts
 │                                     # (compound vulnerability, physical exposure, population-weighted
 │                                     #  comparison, mangrove extent, coral trends, governance alignment,
 │                                     #  weighting-sensitivity curve)

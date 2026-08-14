@@ -194,7 +194,7 @@ nav_items = [
     ("📉", "Physical Exposure", "Settlement-level sea-level-rise risk"),
     ("⚠️", "Compound Vulnerability", "The signature cross-island ranking"),
     ("🏛️", "Governance & Encroachment", "Protection alignment and settlement pressure"),
-    ("🗺️", "Interactive Maps", "Live geospatial exploration"),
+    ("🗺️", "Interactive Maps & Plots", "Live geospatial exploration plus the three headline charts"),
 ]
 
 cols = st.columns(3)
