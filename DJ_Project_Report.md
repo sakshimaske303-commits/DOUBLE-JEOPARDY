@@ -82,7 +82,7 @@ Physical exposure alone is shown, directly and quantitatively, to be an insuffic
 
 ## Deliverables
 
-A fully reproducible, cross-national geospatial data-acquisition and analysis pipeline spanning ten datasets and five island nations; a validated multi-temporal mangrove and coral dataset; a composite Compound Vulnerability Score with full cross-island ranking; a governance-alignment analysis; a settlement-encroachment analysis; a multi-page interactive Streamlit dashboard combining live-recalculating features, interactive maps built directly in Python (folium) and in QGIS, and static visualizations; and a complete open-source codebase.
+A fully reproducible, cross-national geospatial data-acquisition and analysis pipeline spanning ten datasets and five island nations; a validated multi-temporal mangrove and coral dataset; a composite Compound Vulnerability Score with full cross-island ranking; a governance-alignment analysis; a settlement-encroachment analysis; a multi-page interactive Streamlit dashboard combining live-recalculating features, interactive maps built directly in Python (folium), and static visualizations; and a complete open-source codebase.
 
 ## Limitations
 

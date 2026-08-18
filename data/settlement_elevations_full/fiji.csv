@@ -1,0 +1,1324 @@
+name,place,lon,lat,elevation_m,at_risk
+Kadavu,island,178.2187806,-19.0479943,0.0,True
+Hatana,archipelago,176.9618748,-12.4776025,0.0,True
+Lomaiviti Group,archipelago,179.0559715,-17.6798639,0.0,True
+Lau Group,archipelago,0.7494494,-19.1958246,0.0,True
+Vanua Levu Group,archipelago,-0.5937593,-16.5701826,0.0,True
+Yasawa Islands,archipelago,177.2518948,-17.0167833,0.0,True
+Vorovoro,island,179.3146674,-16.3428748,27.0,False
+Taveuni,island,0.0305418,-16.8487784,0.0,True
+Natuvu,hamlet,179.1531607,-16.7446324,4.0,False
+Unnamed settlement,hamlet,179.0101489,-16.799215,13.0,False
+Unnamed settlement,hamlet,179.2692144,-16.6570476,15.0,False
+Daku,village,178.7716136,-17.7781595,3.0,False
+Moturiki,island,178.7428651,-17.7490967,67.0,False
+Nasauvuki,village,178.7567184,-17.7652117,6.0,False
+Nasesara,village,178.7490387,-17.755975,6.0,False
+Niubasaga,hamlet,178.7417303,-17.7771155,4.0,False
+Ovalau,island,178.7874923,-17.6838774,76.0,False
+Nawowo,hamlet,178.8089271,-17.6249632,7.0,False
+Toki,village,178.8230893,-17.6470768,8.0,False
+Naigani,island,178.6756839,-17.5805644,103.0,False
+Naigani Village,village,178.6707718,-17.5842252,8.0,False
+Koro Island,island,179.3950659,-17.3202785,493.0,False
+Unnamed settlement,hamlet,179.3643461,-17.2760786,5.0,False
+Unnamed settlement,hamlet,179.3903217,-17.2642181,125.0,False
+Vatulele,village,179.3939169,-17.2488579,15.0,False
+Gau,island,179.300677,-18.0279744,246.0,False
+Batiki,island,179.1565394,-17.7865041,32.0,False
+Unnamed settlement,hamlet,179.1736754,-17.792895,3.0,False
+Unnamed settlement,hamlet,179.1476369,-17.7867148,4.0,False
+Unnamed settlement,village,179.3419506,-18.0089507,8.0,False
+Unnamed settlement,hamlet,179.3028001,-18.0561849,7.0,False
+Unnamed settlement,village,179.2602588,-17.9572615,2.0,False
+Unnamed settlement,hamlet,179.2531769,-17.9807722,3.0,False
+Unnamed settlement,village,179.2526517,-17.9869718,4.0,False
+Moala,island,179.8901957,-18.6107078,0.0,True
+Vadra,village,179.8355012,-18.6020435,17.0,False
+Ogea Levu,island,-178.4127358,-19.1465008,0.0,True
+Makadru,village,179.7356267,-19.1733706,0.0,True
+Matuku,island,179.7594984,-19.1552457,0.0,True
+Beqa,island,178.1294355,-18.39119,78.0,False
+Dakuni,village,178.1453482,-18.4040812,0.0,True
+Raviravi,village,178.1075501,-18.3763545,11.0,False
+Unnamed settlement,hamlet,178.1038568,-18.4080563,6.0,False
+Kabara Island,island,-178.9556786,-18.954551,0.0,True
+Udu,village,-178.9444194,-18.9861184,0.0,True
+Namuka,village,-178.6336407,-18.8522423,0.0,True
+Moce,island,-178.5059288,-18.6523907,0.0,True
+Unnamed settlement,island,-178.522644,-18.9235367,0.0,True
+Namuka-i-Lau,island,-178.6342836,-18.8523149,0.0,True
+Oneata Island,island,-178.4749607,-18.4381554,0.0,True
+Vanua Vatu,island,-179.2710722,-18.371787,0.0,True
+Waiqori,village,-178.4870844,-18.4453777,0.0,True
+Unnamed settlement,village,-178.620365,-18.68401,0.0,True
+Komo,island,-178.6299049,-18.6827716,0.0,True
+Mabula,village,-179.3264006,-17.7689564,0.0,True
+Tuvuca,island,-178.8194721,-17.6759884,0.0,True
+Kanacea Island,island,-179.1499436,-17.2651171,0.0,True
+Namalata Island,island,-178.9841432,-17.3368766,0.0,True
+Lakeba Island,island,-178.787667,-18.2158582,0.0,True
+Waitabu,village,-178.7728955,-18.2358555,0.0,True
+Yadrana,village,-178.7748513,-18.1905966,0.0,True
+Fulaga,island,-178.5737034,-19.1366624,0.0,True
+Ogea Driki,island,-178.4164007,-19.2053563,0.0,True
+Aiwa Island,island,-178.6849157,-18.3312825,0.0,True
+Totoya Island,island,-179.8370492,-18.9590451,0.0,True
+Unnamed settlement,island,-178.7008766,-18.324944,0.0,True
+Vatoa,island,-178.2437311,-19.8173564,0.0,True
+Kaibu,island,-179.4868108,-17.2561617,0.0,True
+Ono-i-Lau,island,-178.7277219,-20.6496293,0.0,True
+Tovu,village,-179.8188009,-18.9573002,0.0,True
+Yacata,island,-179.5256361,-17.2572829,0.0,True
+Unnamed settlement,hamlet,-178.5072239,-18.6693149,0.0,True
+Tuvana-i-Colo,island,-178.7505137,-21.0122797,0.0,True
+Naitaba,island,-179.2774554,-17.0146291,0.0,True
+Wailagi Lala,island,-179.1018486,-16.7481019,0.0,True
+Yagasa Levu,island,-178.44873,-18.9435382,0.0,True
+Katafanga,island,-178.7148797,-17.5219825,0.0,True
+Tuvana-i-Ra,island,-178.8467708,-21.0367932,0.0,True
+Unnamed settlement,island,-178.5082916,-18.944111,0.0,True
+Olorua,islet,-178.7542661,-18.6054132,0.0,True
+Unnamed settlement,islet,-179.1995874,-17.1168496,0.0,True
+Unnamed settlement,islet,-179.1990632,-17.1179827,0.0,True
+Malima,islet,-179.1924485,-17.1222608,0.0,True
+Unnamed settlement,islet,-178.8226975,-17.6547945,0.0,True
+Unnamed settlement,islet,-179.0250216,-17.0557022,0.0,True
+Unnamed settlement,islet,-179.0351378,-17.0468866,0.0,True
+Unnamed settlement,islet,-179.7007242,-16.5437101,0.0,True
+Yanuca Island,island,-179.6957934,-16.5000917,0.0,True
+Unnamed settlement,islet,-179.7031112,-16.5475497,0.0,True
+Unnamed settlement,island,-179.6706959,-16.4622632,0.0,True
+Unnamed settlement,island,-179.6831399,-16.4985636,0.0,True
+Unnamed settlement,islet,-179.6748217,-16.5080249,0.0,True
+Namena,island,179.1009578,-17.1108183,21.0,False
+Nayau Island,island,-179.053583,-17.9778065,0.0,True
+Vanua Levu,island,-0.7379481,-16.5701826,0.0,True
+Viti Levu,island,177.9694196,-17.7933669,503.0,False
+Vatulele,island,177.6301237,-18.5448108,21.0,False
+Viwa,island,176.9236635,-17.1371738,6.0,False
+Nailaulaunikuthuve Islets,archipelago,176.9029986,-17.1500492,4.0,False
+Rotuma,island,177.0730852,-12.5020726,0.0,True
+Unnamed settlement,hamlet,-178.944434,-17.2549866,0.0,True
+Lomaloma,village,-178.9876852,-17.2925515,0.0,True
+Unnamed settlement,village,-179.0029009,-17.3033962,0.0,True
+Unnamed settlement,island,-179.053583,-17.9778065,0.0,True
+Unnamed settlement,village,-178.7451056,-20.6638977,0.0,True
+Unnamed settlement,island,-178.9776034,-17.2434502,0.0,True
+Beachcomber Island,island,177.2548256,-17.6542447,9.0,False
+Nauciwai,village,178.3065876,-18.9531162,7.0,False
+Cikobia,island,-179.9360642,-15.7341274,0.0,True
+Korolevu Island,islet,8.37e-05,-16.7694429,0.0,True
+Naisoso Island,islet,177.4298402,-17.741644,6.0,False
+Vedralalevu,island,178.7088222,-16.6057909,0.0,True
+Naviti Island,island,177.2424378,-17.11639,222.0,False
+Unnamed settlement,islet,179.8353669,-18.5870635,0.0,True
+Rabi,island,0.0296491,-16.4895838,0.0,True
+Jiliva,islet,176.9323394,-17.1150787,5.0,False
+Laucala Island,island,-179.6834464,-16.7622862,0.0,True
+Ceva-i-Ra,island,174.6318742,-21.7347795,0.0,True
+Monuriki,island,177.0347359,-17.6094027,125.0,False
+Unnamed settlement,islet,-178.4155732,-18.003736,0.0,True
+Unnamed settlement,islet,-178.4487922,-18.0118425,0.0,True
+Unnamed settlement,islet,-178.806054,-17.6993959,0.0,True
+Unnamed settlement,islet,-178.6552531,-17.73429,0.0,True
+Cicia Island,island,-179.312878,-17.7495052,0.0,True
+Unnamed settlement,islet,-178.8321777,-17.7609823,0.0,True
+Unnamed settlement,islet,-178.2859651,-17.9294835,0.0,True
+Unnamed settlement,islet,-178.3063352,-17.8854977,0.0,True
+Unnamed settlement,islet,-179.0305427,-17.9948816,0.0,True
+Qamea,island,-179.7537219,-16.7709885,0.0,True
+Unnamed settlement,islet,-178.6491465,-18.6818211,0.0,True
+Micah Island,islet,-179.0911054,-18.7233228,0.0,True
+Karoni,islet,-178.4779091,-18.7017513,0.0,True
+Unnamed settlement,islet,-178.4435338,-18.4302373,0.0,True
+Unnamed settlement,islet,-179.4079061,-15.9525084,0.0,True
+Vuaqava Island,island,-178.9011392,-18.8660054,0.0,True
+Unnamed settlement,islet,-178.9204309,-18.8848707,0.0,True
+Unnamed settlement,islet,-178.9225419,-18.8847125,0.0,True
+Nukumbalati Island,islet,-179.2692697,-16.3106051,0.0,True
+Nukumbasanga Island,islet,-179.2530269,-16.3024022,0.0,True
+Unnamed settlement,islet,-179.4178322,-16.3345231,0.0,True
+Unnamed settlement,islet,-179.869453,-16.6825908,0.0,True
+Viubani Island,islet,-179.8552425,-16.7003196,0.0,True
+Unnamed settlement,islet,-179.449864,-16.7098078,0.0,True
+Matagi,islet,-179.7437843,-16.7304075,0.0,True
+Nanuku Island,islet,-179.4539904,-16.7192932,0.0,True
+Marabo island,island,-178.8278934,-18.9878191,0.0,True
+Unnamed settlement,islet,-178.457746,-18.9491588,0.0,True
+Navutu-I-Loma Island,island,-178.4846083,-18.9665893,0.0,True
+Unnamed settlement,island,-179.0409306,-17.1672009,0.0,True
+Unnamed settlement,islet,-179.0213897,-17.0592133,0.0,True
+Unnamed settlement,islet,-178.8136257,-17.1598924,0.0,True
+Unnamed settlement,islet,-178.8162001,-17.1608655,0.0,True
+Unnamed settlement,islet,-178.8278613,-17.1622921,0.0,True
+Unnamed settlement,islet,-178.9434364,-16.8433056,0.0,True
+Unnamed settlement,islet,-179.5272398,-17.2426194,0.0,True
+Unnamed settlement,islet,-179.5339891,-17.2422641,0.0,True
+Unnamed settlement,islet,-179.5271851,-17.2411493,0.0,True
+Unnamed settlement,island,-179.0073466,-17.2000853,0.0,True
+Avea Island,island,-178.9029168,-17.1870016,0.0,True
+Unnamed settlement,islet,-178.4189294,-19.1959371,0.0,True
+Unnamed settlement,islet,-178.4251327,-19.1954037,0.0,True
+Cikobia-i-Lau,island,-178.7874671,-17.281348,0.0,True
+Unnamed settlement,islet,-179.648649,-17.285514,0.0,True
+Unnamed settlement,islet,-179.6159462,-17.2764786,0.0,True
+Unnamed settlement,islet,-179.6325652,-17.2798107,0.0,True
+Unnamed settlement,islet,-178.6857195,-20.6062337,0.0,True
+Unnamed settlement,islet,-179.5008296,-17.2512363,0.0,True
+Unnamed settlement,islet,-179.531615,-17.2427353,0.0,True
+Unnamed settlement,islet,-179.49919,-17.2456377,0.0,True
+Unnamed settlement,islet,-179.5373072,-17.2450915,0.0,True
+Unnamed settlement,islet,-178.8136765,-17.5608603,0.0,True
+Mago Island,island,-179.1583008,-17.447138,0.0,True
+Edward Island,island,-179.1805786,-17.4704787,0.0,True
+Vatu Vara,island,-179.5296914,-17.429586,0.0,True
+Munia Island,island,-178.8804875,-17.3650783,0.0,True
+Tivua Island,islet,177.3470168,-17.6140877,4.0,False
+Unnamed settlement,islet,179.7884783,-19.1756477,0.0,True
+Unnamed settlement,island,179.5508261,-16.766515,0.0,True
+Yanuca Lailai,island,178.7808314,-17.7526269,0.0,True
+Kamba Island,islet,177.4083786,-18.1368237,15.0,False
+Unnamed settlement,islet,177.289463,-17.1045346,19.0,False
+Unnamed settlement,islet,179.4373123,-16.8146742,18.0,False
+Matanuku Island,island,178.1040343,-19.1680165,0.0,True
+Tavua Island,island,177.0915587,-17.616697,99.0,False
+Leleuvia,islet,178.7216998,-17.8082332,13.0,False
+Unnamed settlement,islet,178.5823782,-17.636272,5.0,False
+Varokavani,island,176.8889947,-17.1524589,0.0,True
+Wakaya Island,island,179.0032926,-17.6219156,0.0,True
+Unnamed settlement,islet,178.94973,-17.4244713,0.0,True
+Unnamed settlement,islet,178.2531933,-19.0228006,0.0,True
+Unnamed settlement,islet,178.5693118,-18.0772442,5.0,False
+Unnamed settlement,islet,179.0810848,-16.4147536,20.0,False
+Unnamed settlement,islet,178.560916,-18.0833852,4.0,False
+Druadrua Island,island,179.6131398,-16.1969521,0.0,True
+Unnamed settlement,islet,179.8356013,-16.1992836,0.0,True
+Kioa,island,179.9088827,-16.6429795,95.0,False
+Mociu Island,islet,177.1478168,-17.7181971,23.0,False
+Drawaqa Island,island,177.1919032,-17.1719584,75.0,False
+Unnamed settlement,islet,179.9012861,-16.7561045,24.0,False
+Nukuvatu,islet,176.8798889,-17.1960499,0.0,True
+Laucala Island,island,178.5187409,-18.141962,5.0,False
+Unnamed settlement,islet,179.9170745,-16.6696986,25.0,False
+Kubulau Island,islet,177.3555136,-16.9793685,20.0,False
+Ono Island,island,178.4866557,-18.9021726,190.0,False
+Matacawa Levu,island,177.342293,-16.96075,9.0,False
+Unnamed settlement,islet,178.3351718,-18.1492338,10.0,False
+Makongai,island,178.9644137,-17.447681,0.0,True
+Unnamed settlement,island,177.0582195,-17.5936107,41.0,False
+Hofliua,island,176.9357469,-12.4970326,0.0,True
+Nanuya-i-Yata,islet,177.5924083,-16.666695,12.0,False
+Unnamed settlement,islet,179.7788599,-16.1881543,8.0,False
+Nanuya Island,island,177.3736556,-16.9564271,0.0,True
+Uea,island,176.9911316,-12.4656139,0.0,True
+Unnamed settlement,islet,178.8891556,-16.5711778,5.0,False
+Unnamed settlement,islet,179.5758924,-16.1904302,10.0,False
+Unnamed settlement,island,178.5528999,-18.1272388,13.0,False
+Yalewa Kalou,island,177.7550723,-16.6616889,64.0,False
+Mathuata-i-Wai Island,island,179.0637062,-16.4265433,123.0,False
+Nananu i Ra,island,178.2130435,-17.2929746,0.0,True
+Unnamed settlement,island,177.4336727,-17.6051741,3.0,False
+Unnamed settlement,islet,179.3534803,-16.8129141,0.0,True
+Mambualau,islet,178.7564344,-17.9732513,11.0,False
+Unnamed settlement,islet,179.7410857,-19.1467341,0.0,True
+Bau,islet,178.6153711,-17.9722782,11.0,False
+Unnamed settlement,islet,179.0995646,-16.2246383,0.0,True
+Ndelainamara,islet,178.4965072,-18.78851,19.0,False
+Unnamed settlement,islet,178.1523811,-18.3909158,8.0,False
+Bird Island,islet,178.0005951,-18.3457911,0.0,True
+Nacula Island,island,177.414372,-16.892869,16.0,False
+Malake Island,island,178.142722,-17.3205753,18.0,False
+Yanuca,island,177.9940354,-18.3804208,45.0,False
+Yaqeta,island,177.3288229,-17.0108505,1.0,True
+Mabua,islet,178.2397984,-17.3302555,0.0,True
+Caqalai Island,islet,178.7305205,-17.7880457,15.0,False
+Unnamed settlement,islet,177.9241593,-18.2756745,6.0,False
+Unnamed settlement,islet,179.8410512,-16.2211854,15.0,False
+Makuluva,islet,178.5183611,-18.1879079,7.0,False
+Malolo Lailai Island,island,177.1960429,-17.7735433,7.0,False
+Mana Island,island,177.1059394,-17.6760985,0.0,True
+Naqara Island,island,178.2689036,-18.1777633,22.0,False
+Nukulau,islet,178.5158587,-18.1737591,11.0,False
+Yaukuvelevu,island,178.5276712,-18.8017951,38.0,False
+Nananu-i-Cake,island,178.2295446,-17.3183381,11.0,False
+Nairai,island,179.4158946,-17.8109092,309.0,False
+Yambu,island,178.501572,-18.8460921,29.0,False
+Buliya,island,178.5325466,-18.8389176,113.0,False
+Snake Island,islet,178.3961209,-18.1119668,29.0,False
+Tavarua Island,islet,177.2023674,-17.8576915,8.0,False
+Mosquito Island,islet,178.3972956,-18.1144112,10.0,False
+Nanuya-i-Ra,islet,177.5721175,-16.6548369,24.0,False
+Galoa Island,island,178.1863146,-19.0782691,0.0,True
+Vawa Island,islet,177.4547553,-16.7981732,13.0,False
+Yanuca Levu,island,178.7765687,-17.763708,20.0,False
+Malolo Island,island,177.1689073,-17.7494851,135.0,False
+Tavewa,island,177.3593555,-16.9254752,59.0,False
+Unnamed settlement,island,178.684882,-16.6176642,22.0,False
+Yadua Taba,island,178.2782969,-16.8336098,88.0,False
+Unnamed settlement,islet,178.7273361,-16.6251716,5.0,False
+Akuilau Island,islet,177.3626064,-17.7598528,6.0,False
+Unnamed settlement,islet,179.3293364,-16.3562219,0.0,True
+Unnamed settlement,islet,179.0994048,-16.230383,0.0,True
+Steward Island,islet,178.073797,-18.4336271,23.0,False
+Unnamed settlement,islet,179.1043835,-16.2289341,0.0,True
+Vanuakula,island,178.5067261,-18.7365448,60.0,False
+Unnamed settlement,islet,178.3974988,-19.0512799,0.0,True
+Unnamed settlement,islet,178.1533939,-18.4081474,66.0,False
+Yasawa Island,island,177.5144705,-16.7702536,0.0,True
+Yadua,island,178.2993937,-16.8137779,102.0,False
+Dravuni,island,178.5218658,-18.7622851,37.0,False
+Kia Island,island,179.0945375,-16.2300236,58.0,False
+Robinson Crusoe Island,islet,177.2871933,-18.0559396,8.0,False
+Yaqaga Island,island,178.5927937,-16.5893383,44.0,False
+Nukuira Island,island,178.7156672,-16.5622799,0.0,True
+Unnamed settlement,islet,177.6954718,-18.2043823,0.0,True
+Unnamed settlement,islet,-178.6807685,-20.6069735,0.0,True
+Qelelevu Island,island,-179.1618874,-16.0900394,0.0,True
+Lami,town,178.4007546,-18.106804,56.0,False
+Unnamed settlement,islet,178.521228,-18.0076234,8.0,False
+Unnamed settlement,islet,178.5724522,-18.072799,1.0,True
+Unnamed settlement,islet,178.5595545,-18.0806112,2.0,False
+Unnamed settlement,islet,179.3381481,-16.7755069,6.0,False
+Unnamed settlement,islet,179.340954,-16.7734632,0.0,True
+Nawi Island,islet,179.3334703,-16.7742864,7.0,False
+Unnamed settlement,islet,177.2186093,-17.209597,0.0,True
+Kuata Island,island,177.1383474,-17.3700495,165.0,False
+Kuata Island,islet,177.1340475,-17.359815,0.0,True
+Waya Island,island,177.1245239,-17.2909816,322.0,False
+Unnamed settlement,islet,177.1497318,-17.254241,0.0,True
+Yawini,islet,177.5613694,-16.6874455,18.0,False
+Hatana,island,176.9616369,-12.4785702,0.0,True
+Magolailai Island,island,-179.1697655,-17.4735354,0.0,True
+Unnamed settlement,islet,-179.2644419,-18.3811867,0.0,True
+Kid Island,island,-179.1669613,-17.4756594,0.0,True
+White Rock,islet,177.2420618,-17.3760272,0.0,True
+Unnamed settlement,islet,178.3442133,-17.4667712,0.0,True
+Unnamed settlement,islet,178.1406953,-18.2599234,6.0,False
+Unnamed settlement,islet,178.1442251,-18.2602559,5.0,False
+Unnamed settlement,islet,178.1424442,-18.2595503,6.0,False
+Unnamed settlement,islet,178.1404458,-18.2590358,9.0,False
+Unnamed settlement,islet,178.1404378,-18.2582079,9.0,False
+Unnamed settlement,islet,178.1371038,-18.2590511,6.0,False
+Unnamed settlement,islet,178.1118017,-17.3527611,0.0,True
+Unnamed settlement,islet,178.1015898,-17.3516581,0.0,True
+Unnamed settlement,islet,178.1165397,-17.3620421,0.0,True
+Unnamed settlement,islet,178.1126905,-17.3522868,0.0,True
+Unnamed settlement,village,179.3369689,-16.8024745,7.0,False
+Unnamed settlement,islet,179.3804617,-16.8054544,20.0,False
+Savasi Island,islet,179.3822301,-16.8042421,25.0,False
+Unnamed settlement,hamlet,179.068967,-16.7645649,21.0,False
+Unnamed settlement,hamlet,179.0955687,-16.7654555,16.0,False
+Unnamed settlement,hamlet,179.0947498,-16.7677668,11.0,False
+Unnamed settlement,hamlet,179.2584874,-16.6653399,15.0,False
+Yaravudi,village,178.7746977,-17.6235841,9.0,False
+Taviya,village,178.7671267,-17.6289277,5.0,False
+Rukuruku,town,178.7552135,-17.6425984,4.0,False
+Vatukalo,village,178.8210457,-17.6434342,5.0,False
+Naqaidamu,village,179.4347588,-17.3211392,5.0,False
+Unnamed settlement,village,179.433252,-17.3338021,10.0,False
+Matei,town,-179.8799501,-16.6934156,0.0,True
+Nuku,village,179.8291971,-18.5921182,6.0,False
+Yaroi,village,179.7421923,-19.1333475,0.0,True
+Raviravi,hamlet,179.7410907,-19.1703903,0.0,True
+Levukaidaku,village,179.7614526,-19.1895892,0.0,True
+Qalikarua,village,179.7848096,-19.1682054,0.0,True
+Nawaisomo,village,178.131054,-18.3600747,8.0,False
+Lalati,hamlet,178.1482837,-18.3762372,9.0,False
+Dakuibeqa,village,178.132739,-18.4105452,11.0,False
+Unnamed settlement,village,-178.7225373,-20.662419,0.0,True
+Nukuni,village,-178.7214169,-20.6360048,0.0,True
+Unnamed settlement,hamlet,-178.5975974,-19.1217055,0.0,True
+Lami,town,178.4067448,-18.1132946,9.0,False
+Suvavou Village,village,178.4144206,-18.1144373,17.0,False
+Dakuiloa,village,-178.4685896,-18.4405753,0.0,True
+Camel Rock,islet,177.0367385,-17.4765633,0.0,True
+Tarakau,village,-179.3287012,-17.7253375,0.0,True
+Lautoka,city,177.4482766,-17.6046057,8.0,False
+Sigatoka,town,177.5077794,-18.1381611,16.0,False
+Nausori,town,178.5289994,-18.0287189,11.0,False
+Nasinu,town,178.4807568,-18.0964402,65.0,False
+Unnamed settlement,village,-178.7962536,-17.2865743,0.0,True
+Susui Island,island,-178.9553052,-17.3458788,0.0,True
+Tubou,town,-178.810653,-18.2349213,0.0,True
+Waciwaci,village,-178.7841383,-18.2399289,0.0,True
+Vakano,village,-178.7920493,-18.1791388,0.0,True
+Levuka,town,178.8333993,-17.6806903,3.0,False
+Ba,town,177.6840732,-17.5457103,9.0,False
+Navua,town,178.1644067,-18.2265812,8.0,False
+Vaqatalaca,hamlet,-178.8347303,-18.2124882,0.0,True
+Levuka,hamlet,-178.802514,-18.2429732,0.0,True
+Unnamed settlement,islet,-179.4991303,-17.244037,0.0,True
+Ketei,village,-179.819541,-18.9515952,0.0,True
+Unnamed settlement,islet,-179.4971694,-17.246998,0.0,True
+Unnamed settlement,islet,-179.4982519,-17.2440046,0.0,True
+Muanikau,suburb,178.4393254,-18.1567551,20.0,False
+Nasese,suburb,178.4271113,-18.1578567,6.0,False
+The Domain,suburb,178.431429,-18.1514538,33.0,False
+Laucala Bay,suburb,178.4439173,-18.1499449,22.0,False
+Toorak,suburb,178.4331027,-18.1393826,45.0,False
+Raiwai,suburb,178.4477797,-18.1412178,12.0,False
+Flagstaff,suburb,178.4380808,-18.1428898,39.0,False
+Raiwaqa,suburb,178.4492571,-18.1346459,12.0,False
+Vatuwaqa,suburb,178.4616597,-18.1309754,6.0,False
+Tamavua,suburb,178.4412491,-18.110378,94.0,False
+Wailoku,suburb,178.436065,-18.0948937,96.0,False
+Namadi Heights,suburb,178.4505618,-18.1075717,40.0,False
+Samabula North,suburb,178.443146,-18.1207055,74.0,False
+Samabula South,suburb,178.4426138,-18.127631,56.0,False
+Raiwasa,suburb,178.4539607,-18.1253389,20.0,False
+Bayview Heights,suburb,178.4507849,-18.1188212,35.0,False
+Nabua,suburb,178.459471,-18.1184541,13.0,False
+Tamavua Heights,suburb,178.4464166,-18.0975737,124.0,False
+Unnamed settlement,village,178.620013,-18.0198569,10.0,False
+Unnamed settlement,hamlet,178.6084537,-18.103343,3.0,False
+Unnamed settlement,hamlet,178.6097154,-18.0982523,6.0,False
+Vanuadina,village,178.5893392,-18.0799928,5.0,False
+Unnamed settlement,village,178.5704389,-18.0807785,6.0,False
+Unnamed settlement,village,178.6250063,-18.0404266,3.0,False
+Unnamed settlement,hamlet,178.6184316,-18.0507827,3.0,False
+Labasa,town,179.3664854,-16.4332753,5.0,False
+Unnamed settlement,island,177.0912247,-12.5263636,0.0,True
+Unnamed settlement,islet,177.1396417,-12.5171765,0.0,True
+Unnamed settlement,village,-179.0638449,-17.9886546,0.0,True
+Unnamed settlement,islet,177.6973863,-18.204654,7.0,False
+Unnamed settlement,islet,177.3668,-17.8069919,7.0,False
+Unnamed settlement,islet,178.6922141,-18.0095654,9.0,False
+Unnamed settlement,islet,178.6613639,-18.0985156,0.0,True
+Unnamed settlement,islet,178.6224475,-17.9439698,0.0,True
+Unnamed settlement,islet,178.6962658,-17.9965533,0.0,True
+Unnamed settlement,islet,178.6933828,-18.0021516,3.0,False
+Unnamed settlement,islet,178.6955895,-17.9982011,3.0,False
+Yawalo Island,island,177.4676346,-17.5455335,3.0,False
+Unnamed settlement,islet,178.9998514,-16.6036705,6.0,False
+Unnamed settlement,islet,179.0006819,-16.6047536,4.0,False
+Unnamed settlement,island,179.0156581,-16.6030479,5.0,False
+Unnamed settlement,islet,178.9990481,-16.5933977,8.0,False
+Unnamed settlement,islet,178.9985612,-16.5935622,8.0,False
+Vitogo Village,village,177.4952695,-17.5921137,4.0,False
+Matawalu,village,177.515556,-17.564444,7.0,False
+Natawarau Village,village,177.555556,-17.511667,12.0,False
+Votua Lalai,village,177.691798,-18.2034203,6.0,False
+Maui Bay,village,177.6764983,-18.2033453,11.0,False
+Tagaqe,village,177.6571828,-18.1960413,10.0,False
+Mali Island,island,179.352262,-16.3443733,131.0,False
+Unnamed settlement,islet,177.6564075,-18.5985439,4.0,False
+Unnamed settlement,islet,177.6569051,-18.5973644,0.0,True
+Unnamed settlement,village,178.3230465,-17.9768757,42.0,False
+Unnamed settlement,hamlet,-178.9886376,-17.3033286,0.0,True
+Unnamed settlement,islet,-178.6898627,-20.6016411,0.0,True
+Unnamed settlement,islet,-178.6837092,-20.6109039,0.0,True
+Unnamed settlement,islet,-178.6981034,-20.6056178,0.0,True
+Unnamed settlement,islet,-178.6839006,-20.6089572,0.0,True
+Unnamed settlement,islet,-178.6836766,-20.6096656,0.0,True
+Malamala Island,islet,177.27509,-17.7237721,6.0,False
+Unnamed settlement,islet,178.1327354,-17.3557394,8.0,False
+Unnamed settlement,village,-178.977957,-17.2482913,0.0,True
+Susui,village,-178.9500352,-17.3434745,0.0,True
+Naviyago Village,village,177.4975291,-17.5890993,4.0,False
+Kadavu (Village),village,178.3801337,-19.0373072,0.0,True
+Kavala,village,178.4135743,-18.9698992,3.0,False
+Nakoro,village,178.375245,-18.9541791,7.0,False
+Nubuyanitu,village,177.8838043,-17.8997468,123.0,False
+Vatubalavu,village,177.8075685,-17.8738879,57.0,False
+Numuamua,village,178.0607935,-18.0938846,40.0,False
+Barotu Village,village,178.2385561,-17.4883622,5.0,False
+Unnamed settlement,islet,-178.4742984,-18.4315516,0.0,True
+Unnamed settlement,islet,-178.4765733,-18.4326301,0.0,True
+Unnamed settlement,islet,-178.4763982,-18.432819,0.0,True
+Unnamed settlement,islet,-179.5289445,-17.241969,0.0,True
+Unnamed settlement,islet,-178.465436,-18.4402206,0.0,True
+Unnamed settlement,island,178.7415655,-17.6941455,0.0,True
+Unnamed settlement,island,179.0201546,-16.895455,14.0,False
+Unnamed settlement,islet,179.098281,-16.771156,6.0,False
+Unnamed settlement,islet,179.0991218,-16.7714737,4.0,False
+Unnamed settlement,islet,179.0989113,-16.7713645,5.0,False
+Unnamed settlement,islet,178.9370134,-16.8900008,0.0,True
+Unnamed settlement,islet,179.5886647,-16.8063803,0.0,True
+Unnamed settlement,islet,179.5637292,-16.8054854,0.0,True
+Sasa,village,179.1672883,-16.4267393,7.0,False
+Unnamed settlement,islet,179.314084,-16.4047894,0.0,True
+Unnamed settlement,islet,179.3152857,-16.4087156,0.0,True
+Unnamed settlement,islet,179.313663,-16.4080733,0.0,True
+Unnamed settlement,islet,179.377346,-16.4652772,4.0,False
+Unnamed settlement,islet,179.728447,-16.4662907,3.0,False
+Unnamed settlement,hamlet,179.6409752,-16.5035986,6.0,False
+Unnamed settlement,islet,179.5961497,-16.2377192,3.0,False
+Unnamed settlement,islet,179.5919172,-16.2346419,4.0,False
+Unnamed settlement,island,179.8490828,-16.2141206,13.0,False
+Unnamed settlement,island,179.8564803,-16.2145089,9.0,False
+Unnamed settlement,islet,179.8515363,-16.2081273,0.0,True
+Unnamed settlement,islet,179.8656178,-16.2064692,0.0,True
+Fiji,country,179.0122737,-18.1239696,0.0,True
+Drekeniwai Village,village,179.6782443,-16.6735994,10.0,False
+Sawakasa Vou Village,village,178.5298115,-17.7678651,17.0,False
+Burerua Village,village,178.5335827,-17.7672496,10.0,False
+Oneva,suburb,179.3883633,-16.799033,48.0,False
+Maravu,suburb,179.4438703,-16.8059873,99.0,False
+Wavi Island,island,179.4116306,-16.8023226,17.0,False
+JMC Resort,suburb,179.2867956,-16.8140905,7.0,False
+Sekawa,suburb,179.2908124,-16.6987668,64.0,False
+Lomalagi Resort,hamlet,179.5077399,-16.7624422,38.0,False
+Muana Village,village,178.536682,-18.0416911,10.0,False
+Nausori Village,village,178.5339105,-18.0290715,8.0,False
+Nausori Village,village,178.5330151,-18.0302454,8.0,False
+Tamavua-i-wai,hamlet,178.4332882,-18.1144881,4.0,False
+Unnamed settlement,island,177.9685293,-18.263178,0.0,True
+Savusavu,town,179.3328955,-16.7802184,12.0,False
+Nukumbalavu Village,village,179.3149965,-16.814181,11.0,False
+Koro Sun Resort,suburb,179.4240373,-16.7979822,10.0,False
+Tropic Splendor,hamlet,179.2842152,-16.7009618,2.0,False
+Vuadomo,village,179.3088698,-16.7121666,11.0,False
+Namale,suburb,179.3727249,-16.801498,10.0,False
+Dravuwalu,hamlet,-179.8602422,-18.9400192,0.0,True
+Unnamed settlement,islet,-178.6926003,-18.3259761,0.0,True
+Jerusalami Village,village,179.3618425,-16.7351228,36.0,False
+Nagigi Village,village,179.479715,-16.7999605,9.0,False
+Yaroi Village,village,179.3441376,-16.7776126,10.0,False
+Lavukalili,village,179.5984716,-16.7844929,4.0,False
+Urata Village,village,179.3386014,-16.7288711,5.0,False
+Vivili Village,village,179.3754278,-16.7966073,28.0,False
+Naqesa,hamlet,178.0543972,-18.0937762,48.0,False
+Cagilaba,hamlet,178.1213026,-18.1946793,20.0,False
+Muanaira,village,178.5372418,-18.1295354,9.0,False
+Nadave,hamlet,178.6033582,-17.9834155,5.0,False
+Navitabua,hamlet,178.5879157,-17.8384494,17.0,False
+Rewasau,village,178.0696717,-17.7131643,386.0,False
+Nalotawa,village,177.6072057,-17.6403542,389.0,False
+Nakaugasele,village,178.3782294,-18.9526157,9.0,False
+Sogosevou,hamlet,178.4429755,-19.0126684,0.0,True
+Naqarani,village,178.5936822,-18.0942865,6.0,False
+Nukutubu,village,178.5578223,-18.1003847,4.0,False
+Tavuya,village,178.5561517,-18.1300319,8.0,False
+Waibogi,village,178.0092563,-18.1167741,64.0,False
+Waitabu,village,-179.8594786,-16.8133942,0.0,True
+Ciri,hamlet,177.3518429,-18.0814168,12.0,False
+Naqeledamu,village,178.5469455,-17.9955776,20.0,False
+Wainivula,hamlet,179.4799856,-16.7469084,20.0,False
+Waivula,hamlet,178.493963,-17.6279485,19.0,False
+Nasautoka Village,village,178.380144,-17.7273461,31.0,False
+Nakuruwai Village,village,178.6020501,-18.0967684,5.0,False
+Waidra Settlement,hamlet,178.8016634,-17.7244236,13.0,False
+Naivuruvuru Vilage,village,178.6099556,-17.8727437,15.0,False
+Qelemumu,village,179.4712942,-16.404514,15.0,False
+Naqati settlement,hamlet,178.5555748,-17.9215786,30.0,False
+Unnamed settlement,hamlet,178.4865119,-17.6421398,35.0,False
+Unnamed settlement,hamlet,178.487104,-17.635609,28.0,False
+Unnamed settlement,village,178.4857684,-17.6256437,25.0,False
+Waivula,hamlet,179.6409752,-16.5035986,6.0,False
+Rakiraki,town,178.1531001,-17.3780743,11.0,False
+Wailea Raiwaqa #2,neighbourhood,178.4535073,-18.1320513,3.0,False
+Unnamed settlement,islet,177.735061,-18.2207379,0.0,True
+Biausevu,village,177.7327796,-18.194192,15.0,False
+Vunisei Village,village,178.5544707,-18.0535831,5.0,False
+Unnamed settlement,island,177.5354825,-17.4847463,0.0,True
+Unnamed settlement,islet,179.4413378,-17.3120809,4.0,False
+Unnamed settlement,village,178.8049625,-17.7269877,7.0,False
+Unnamed settlement,village,178.8036753,-17.7236664,8.0,False
+Unnamed settlement,island,179.2759087,-17.6485431,0.0,True
+Tavuca Island,island,177.7370095,-17.3949007,5.0,False
+Unnamed settlement,islet,177.1904079,-17.7747222,0.0,True
+Unnamed settlement,islet,179.1294194,-16.4207467,4.0,False
+Unnamed settlement,islet,179.1419609,-16.4198775,2.0,False
+Unnamed settlement,islet,179.1449698,-16.4071061,3.0,False
+Unnamed settlement,island,179.1609863,-16.3956269,12.0,False
+Unnamed settlement,islet,179.1671338,-16.4121149,0.0,True
+Unnamed settlement,hamlet,179.3494622,-18.0730651,29.0,False
+Unnamed settlement,islet,179.8960287,-18.6174311,0.0,True
+Unnamed settlement,islet,179.8570782,-18.62938,0.0,True
+Unnamed settlement,islet,179.8635013,-18.6282228,0.0,True
+Unnamed settlement,islet,179.8343523,-18.5872896,2.0,False
+Unnamed settlement,islet,179.8351533,-18.5876931,2.0,False
+Mua,hamlet,179.1475587,-17.7917064,5.0,False
+Uciwai Informal Settlement,village,178.4220765,-18.1051906,27.0,False
+Unnamed settlement,islet,179.3452893,-16.3746341,0.0,True
+Unnamed settlement,island,177.3823026,-17.5810959,0.0,True
+Yasawairara,village,177.5783069,-16.7050986,7.0,False
+Unnamed settlement,islet,178.21526,-19.0592326,0.0,True
+Unnamed settlement,island,178.2491519,-19.024084,0.0,True
+Unnamed settlement,island,178.2576766,-19.024574,0.0,True
+Unnamed settlement,islet,178.7304127,-16.5313121,0.0,True
+Unnamed settlement,islet,179.0981434,-16.3931101,3.0,False
+Unnamed settlement,islet,179.1951862,-16.3711433,3.0,False
+Unnamed settlement,islet,179.2067801,-16.368937,1.0,True
+Unnamed settlement,islet,179.2291823,-16.3649299,3.0,False
+Unnamed settlement,islet,179.214433,-16.3714927,2.0,False
+Unnamed settlement,islet,179.221971,-16.3701852,1.0,True
+Unnamed settlement,islet,178.5661228,-16.5835062,0.0,True
+Unnamed settlement,islet,178.6894264,-16.5722082,8.0,False
+Unnamed settlement,islet,178.7764525,-16.5710771,5.0,False
+Unnamed settlement,islet,178.7095027,-16.6081904,12.0,False
+Unnamed settlement,islet,178.535296,-16.7048344,0.0,True
+Unnamed settlement,islet,179.4361062,-16.2709864,7.0,False
+Unnamed settlement,islet,179.5509929,-16.2218246,11.0,False
+Unnamed settlement,village,178.5890433,-18.0801212,5.0,False
+Naduri Village,village,179.145497,-16.4425305,7.0,False
+Unnamed settlement,village,178.5985797,-17.9882824,8.0,False
+Namama,village,179.1377863,-16.440468,8.0,False
+Unnamed settlement,islet,177.2597296,-17.930862,0.0,True
+Tokalau,village,-179.2816498,-17.7431477,0.0,True
+Naceva,village,-179.2946036,-17.7723388,0.0,True
+Tuvuca,village,-178.8228795,-17.6863933,0.0,True
+Unnamed settlement,village,179.1475587,-17.7917064,5.0,False
+Unnamed settlement,village,179.1531607,-16.7447194,4.0,False
+Matainananu,village,178.4371745,-17.5655652,21.0,False
+Nadogoloa,village,178.4337233,-17.5626686,7.0,False
+Navatuyaba Village,village,178.5542756,-18.066815,7.0,False
+Beqa Levu,island,179.7566215,-16.5718375,0.0,True
+Unnamed settlement,islet,178.6167504,-17.9697073,0.0,True
+Navuniivi,village,178.2620945,-17.4580514,20.0,False
+Unnamed settlement,islet,174.6326098,-21.7360944,0.0,True
+Unnamed settlement,village,178.3366327,-17.4821928,40.0,False
+Verevere,village,178.3770649,-17.5481772,5.0,False
+Namarai,village,178.3653103,-17.5216785,19.0,False
+Unnamed settlement,islet,-179.870315,-16.6843351,0.0,True
+Togobula,village,177.3264168,-18.051417,21.0,False
+Basiri,village,177.3208399,-18.0736581,10.0,False
+Vuhama,village,177.3148664,-18.0806438,18.0,False
+Navihabahaba,village,177.3291266,-18.0842547,6.0,False
+Unnamed settlement,islet,-179.8645762,-16.6766579,0.0,True
+Unnamed settlement,islet,-179.8611691,-16.6726437,0.0,True
+Unnamed settlement,islet,-179.7836842,-16.8166927,0.0,True
+Unnamed settlement,islet,178.6441735,-18.0951984,0.0,True
+Unnamed settlement,islet,178.6431963,-18.0955937,0.0,True
+Unnamed settlement,islet,178.647921,-18.0939734,16.0,False
+Unnamed settlement,islet,178.6475205,-18.0943045,13.0,False
+Unnamed settlement,islet,178.6428632,-18.0956493,0.0,True
+Unnamed settlement,islet,178.6488508,-18.0937293,9.0,False
+Unnamed settlement,island,178.7929308,-16.5134207,0.0,True
+Unnamed settlement,islet,178.6637956,-16.6140769,3.0,False
+Unnamed settlement,island,179.1286256,-16.384904,-1.0,True
+Unnamed settlement,islet,179.0949073,-16.4201138,5.0,False
+Unnamed settlement,islet,179.3336802,-16.776536,0.0,True
+Korovesa,islet,179.3338358,-16.7758323,14.0,False
+Unnamed settlement,village,178.6242881,-17.8501934,13.0,False
+Vunisea,village,178.139206,-17.4901627,115.0,False
+Rokovuaka,village,178.260307,-17.6381207,44.0,False
+Nalalawa,village,178.2601745,-17.6316212,45.0,False
+Unnamed settlement,island,178.7741736,-16.5426681,2.0,False
+Unnamed settlement,islet,178.7726187,-16.542971,0.0,True
+Unnamed settlement,islet,178.7978774,-16.5468676,0.0,True
+Natokamu Subdivision,plot,179.3991889,-16.4338162,4.0,False
+Denimanu,village,178.3213215,-16.804758,2.0,False
+Unnamed settlement,square,177.992192,-18.3824646,32.0,False
+Wayalailai,island,177.1388181,-17.3397799,214.0,False
+Naukacuvu Island,island,177.1723982,-17.1950645,37.0,False
+Narara Island,island,177.1737607,-17.2073935,66.0,False
+Nanuya Balavu Island,island,177.1801975,-17.1887098,73.0,False
+Unnamed settlement,plot,178.4464789,-18.0981294,118.0,False
+Staff Village,village,177.2664204,-17.492125,11.0,False
+Rukua,village,178.0997785,-18.3899755,7.0,False
+Were Kanunu,farm,179.4944653,-16.7931292,59.0,False
+Vuinaqalutu Village,village,178.9791297,-16.6384545,46.0,False
+Namatadogo Settlement,village,178.9834158,-16.6245919,21.0,False
+Nadrano Settlement,village,178.9910065,-16.6429621,30.0,False
+Natoaika Village,village,178.4538083,-17.950505,16.0,False
+Deladamanu Village,village,178.4525852,-17.9468408,14.0,False
+Sawakasa Vou Village,village,178.5318713,-17.7669314,14.0,False
+Burerua Village,village,178.5332124,-17.7670233,13.0,False
+Unnamed settlement,village,178.9891005,-16.653239,47.0,False
+Nadi,city,177.4178549,-17.7992725,9.0,False
+Unnamed settlement,village,178.1670216,-17.7637837,69.0,False
+Unnamed settlement,village,178.2943291,-17.9732318,30.0,False
+Unnamed settlement,village,178.1809845,-17.805281,166.0,False
+Unnamed settlement,village,177.5336652,-17.9842139,26.0,False
+Nalebaleba,village,177.6720564,-17.9537096,55.0,False
+Nasaucoko Village,village,177.6958586,-17.8735452,77.0,False
+Wauosi Village,village,177.7138989,-17.8407704,68.0,False
+Unnamed settlement,village,177.7201809,-17.8220433,68.0,False
+Tonuve,village,177.7139904,-17.9639558,39.0,False
+Tuvu,village,177.7009706,-17.9496882,37.0,False
+Bemana,village,177.7029319,-17.9540941,36.0,False
+Sovi Settlement,village,177.6222534,-18.0733996,84.0,False
+Unnamed settlement,village,177.5688409,-18.1051777,9.0,False
+Vatukarasa,village,177.6049598,-18.182571,8.0,False
+Unnamed settlement,village,177.6671484,-17.7724777,168.0,False
+Unnamed settlement,hamlet,177.7728917,-17.7505408,182.0,False
+Unnamed settlement,village,177.7611007,-17.7509447,231.0,False
+Unnamed settlement,village,179.3265037,-16.3445769,10.0,False
+Unnamed settlement,village,179.3494095,-16.3397319,8.0,False
+Unnamed settlement,village,179.3103356,-16.3418798,14.0,False
+Nabouwalu,town,178.6890703,-16.9951685,5.0,False
+Unnamed settlement,village,178.658081,-16.9037308,23.0,False
+Douma,village,178.6724866,-16.878094,27.0,False
+Nakorotiki,village,178.8860241,-16.8593366,25.0,False
+Unnamed settlement,hamlet,179.1180025,-16.7491125,3.0,False
+Unnamed settlement,hamlet,179.0956442,-16.7654659,16.0,False
+Unnamed settlement,hamlet,179.1604788,-16.7355045,5.0,False
+Bua,village,178.6152813,-16.7979838,7.0,False
+Lovoni,town,178.7918753,-17.6891301,51.0,False
+Rukuruku,town,178.7559892,-17.6425056,4.0,False
+Taviya,village,178.7675883,-17.6290747,5.0,False
+Viro,village,178.7426558,-17.6669413,6.0,False
+Naicabecabe,village,178.7659691,-17.7682911,1.0,True
+Uluibau,village,178.7616966,-17.7858094,3.0,False
+Nasesara,village,178.7490387,-17.755975,6.0,False
+Nasauvuki,village,178.7567184,-17.7652117,6.0,False
+Daku,village,178.7720307,-17.777854,5.0,False
+Wawa,hamlet,178.7360527,-17.7639905,10.0,False
+Niubasaga,hamlet,178.7417303,-17.7771155,4.0,False
+Naigani Village,village,178.6709751,-17.5842459,6.0,False
+Vatoa,village,-178.2510868,-19.8222475,0.0,True
+Matukana,village,-178.7454536,-20.663665,0.0,True
+Lovoni,village,-178.720732,-20.6606215,0.0,True
+Doi,village,-178.7222979,-20.6355513,0.0,True
+Dravuwalu,hamlet,-179.8617009,-18.9414429,0.0,True
+Tovu,village,-179.8201538,-18.9570462,0.0,True
+Raviravi,hamlet,179.7412668,-19.1711271,0.0,True
+Qalikarua,village,179.7845206,-19.168332,0.0,True
+Levukaidaku,village,179.7618956,-19.1899339,0.0,True
+Makadru,village,179.7353601,-19.1727342,0.0,True
+Yaroi,village,179.7415931,-19.1320079,0.0,True
+Lomati,village,179.754056,-19.1640953,0.0,True
+Natokalau,village,179.7620535,-19.119646,0.0,True
+Tubou,town,-178.8105369,-18.2365527,0.0,True
+Waciwaci,village,-178.7838938,-18.2404155,0.0,True
+Nasaqalau,village,-178.8092217,-18.1786233,0.0,True
+Vakano,village,-178.7924869,-18.1795885,0.0,True
+Nukunuku,village,-178.750682,-18.2021208,0.0,True
+Yadrana,village,-178.774273,-18.1903746,0.0,True
+Waitabu,village,-178.7729153,-18.2355357,0.0,True
+Tarakau,village,-179.3288406,-17.7249665,0.0,True
+Mabula,village,-179.3273471,-17.769113,0.0,True
+Lomati,village,-179.2932209,-17.7317112,0.0,True
+Unnamed settlement,village,-179.2786251,-18.3623349,0.0,True
+Unnamed settlement,village,178.6794723,-18.0549258,4.0,False
+Unnamed settlement,village,178.6540669,-18.0829557,6.0,False
+Unnamed settlement,village,178.6393282,-18.0214852,4.0,False
+Unnamed settlement,village,178.633084,-18.0009791,12.0,False
+Unnamed settlement,village,178.6912882,-18.0032032,17.0,False
+Unnamed settlement,town,178.6245868,-17.9975302,24.0,False
+Unnamed settlement,village,178.6339999,-18.0493274,2.0,False
+Namuka Village,village,178.595414,-17.9785903,3.0,False
+Bau,village,178.6154911,-17.9723087,13.0,False
+Unnamed settlement,village,178.6077446,-17.8462257,8.0,False
+Unnamed settlement,village,178.4942303,-17.6010454,12.0,False
+Dravuni,village,178.57729,-17.9119814,8.0,False
+Unnamed settlement,village,178.5819678,-17.9235987,20.0,False
+Unnamed settlement,village,178.599842,-17.8881106,6.0,False
+Unnamed settlement,village,178.566411,-17.8934198,9.0,False
+Unnamed settlement,hamlet,178.5985664,-17.8744698,27.0,False
+Unnamed settlement,village,178.5830423,-17.8619962,14.0,False
+Unnamed settlement,village,178.5596851,-17.7441813,5.0,False
+Unnamed settlement,village,178.5526636,-17.7407675,7.0,False
+Lawaki,village,178.5776832,-17.6494207,4.0,False
+Unnamed settlement,village,178.5851721,-17.6669868,6.0,False
+Unnamed settlement,village,178.5637761,-17.7176184,4.0,False
+Unnamed settlement,village,178.549418,-17.6280157,9.0,False
+Unnamed settlement,village,178.3625335,-17.6943474,39.0,False
+Unnamed settlement,village,178.3777382,-17.8084713,103.0,False
+Nakorovatu,village,178.3240312,-17.8279152,26.0,False
+Unnamed settlement,village,178.3317899,-17.8096532,55.0,False
+Unnamed settlement,village,178.3586549,-17.7923586,26.0,False
+Unnamed settlement,village,178.3694559,-17.7777676,28.0,False
+Unnamed settlement,village,178.3279439,-17.8352131,38.0,False
+Namatakula,village,177.7837773,-18.2291883,6.0,False
+Nambukelevu Village,village,177.8660569,-18.1286311,160.0,False
+Vunaniu,village,177.8642458,-18.2490363,6.0,False
+Balenabelo,village,177.6214764,-18.1637796,19.0,False
+Saru (Naivibuli) Village,village,177.6454974,-18.1254094,50.0,False
+Vunayawa Settlement,hamlet,177.638363,-18.1255979,45.0,False
+Naboutini,village,177.8238181,-18.2370542,6.0,False
+Veivatuloa,village,178.215276,-18.1974303,10.0,False
+Wainiyabia Village,village,178.0331566,-18.2621808,7.0,False
+Unnamed settlement,village,178.0548297,-18.2572128,8.0,False
+Namelimeli,village,178.2423555,-18.1737011,23.0,False
+Mau,village,178.2338175,-18.1838266,10.0,False
+Unnamed settlement,village,179.4696088,-16.800155,22.0,False
+Viani,village,179.5807813,-16.7422284,4.0,False
+Unnamed settlement,village,179.5573913,-16.7931183,7.0,False
+Unnamed settlement,village,179.5756088,-16.7996096,7.0,False
+Unnamed settlement,village,179.6181599,-16.7713732,5.0,False
+Unnamed settlement,village,179.755768,-16.7283899,20.0,False
+Unnamed settlement,village,179.8219327,-16.6735861,2.0,False
+Unnamed settlement,village,179.8473385,-16.74492,10.0,False
+Nawi,village,179.8734477,-16.6981272,4.0,False
+Buca,village,179.8431495,-16.6519191,3.0,False
+Tukavesi,suburb,179.8440662,-16.6426483,9.0,False
+Unnamed settlement,village,179.8611928,-16.6112594,2.0,False
+Vunidogoloa (old village),village,179.5028894,-16.6699275,5.0,False
+Tabia Village,village,179.4868498,-16.6687764,9.0,False
+Unnamed settlement,village,179.5314338,-16.6330827,7.0,False
+Unnamed settlement,village,179.5489151,-16.607922,8.0,False
+Unnamed settlement,town,179.5623221,-16.5733317,5.0,False
+Unnamed settlement,hamlet,179.5227153,-16.5931977,23.0,False
+Unnamed settlement,hamlet,179.560643,-16.5839436,10.0,False
+Unnamed settlement,town,179.5490666,-16.5936912,16.0,False
+Unnamed settlement,village,179.5288803,-16.4610381,44.0,False
+Unnamed settlement,village,179.6366689,-16.5060567,6.0,False
+Unnamed settlement,town,179.7110394,-16.4740126,7.0,False
+Unnamed settlement,village,179.7409299,-16.4430312,7.0,False
+Unnamed settlement,village,179.7489336,-16.4272359,8.0,False
+Unnamed settlement,village,179.7654636,-16.407232,10.0,False
+Unnamed settlement,village,179.8121361,-16.3310959,8.0,False
+Unnamed settlement,village,179.8603494,-16.2571157,10.0,False
+Unnamed settlement,hamlet,179.8183921,-16.3189508,11.0,False
+Lagi,village,179.8379615,-16.2427459,13.0,False
+Unnamed settlement,village,179.8492804,-16.2251311,12.0,False
+Unnamed settlement,village,179.851512,-16.2200008,20.0,False
+Unnamed settlement,hamlet,179.8259196,-16.2206906,13.0,False
+Unnamed settlement,village,179.3619054,-16.5689736,70.0,False
+Unnamed settlement,village,179.3528799,-16.5693564,85.0,False
+Unnamed settlement,village,179.2968968,-16.6642429,12.0,False
+Unnamed settlement,village,179.3520913,-16.6625007,25.0,False
+Unnamed settlement,village,179.3435713,-16.6622707,26.0,False
+Unnamed settlement,village,179.3152328,-16.7198812,7.0,False
+Unnamed settlement,village,179.3020414,-16.7106795,12.0,False
+Unnamed settlement,village,179.444612,-16.7152055,12.0,False
+Unnamed settlement,village,179.4842278,-16.7718924,10.0,False
+Unnamed settlement,village,179.4056873,-16.788076,19.0,False
+Unnamed settlement,village,179.4477001,-16.3657385,10.0,False
+Unnamed settlement,village,179.4891563,-16.4888673,67.0,False
+Unnamed settlement,village,179.8171907,-16.5257563,8.0,False
+Unnamed settlement,hamlet,179.7195746,-16.6042967,10.0,False
+Unnamed settlement,village,179.8094691,-16.526805,7.0,False
+Unnamed settlement,village,179.781716,-16.553659,10.0,False
+Unnamed settlement,village,179.7981985,-16.5350358,7.0,False
+Unnamed settlement,village,179.7615061,-16.5715027,7.0,False
+Naceva,village,-179.2942029,-17.7727021,0.0,True
+Tokalau,village,-179.2811206,-17.7421883,0.0,True
+Tavua Town,town,177.8635733,-17.4415042,12.0,False
+Yamata,village,177.1349508,-17.3254688,14.0,False
+Nabukeru,village,177.4675454,-16.8418224,4.0,False
+Somosomo,village,177.2609616,-17.1020869,4.0,False
+Nacula,village,177.3979474,-16.8919376,4.0,False
+Port Denarau,locality,177.3786531,-17.7733415,6.0,False
+Wairiki,village,179.990617,-16.8048744,9.0,False
+Unnamed settlement,village,178.4319266,-17.7795508,192.0,False
+Unnamed settlement,village,178.440088,-17.7975147,103.0,False
+Pacific Harbour,village,178.0763283,-18.238151,6.0,False
+Unnamed settlement,village,178.5303907,-18.8445956,6.0,False
+Unnamed settlement,village,178.0724651,-19.0709115,0.0,True
+Unnamed settlement,village,178.0501431,-19.0714515,0.0,True
+Unnamed settlement,village,178.044264,-19.072486,0.0,True
+Unnamed settlement,village,178.0402957,-19.0740594,0.0,True
+Unnamed settlement,hamlet,178.067495,-19.0755335,0.0,True
+Unnamed settlement,hamlet,178.0626167,-19.0757307,0.0,True
+Unnamed settlement,hamlet,178.072016,-19.076692,0.0,True
+Unnamed settlement,village,178.1074238,-19.0774133,0.0,True
+Unnamed settlement,hamlet,178.0322763,-19.0783923,0.0,True
+Unnamed settlement,hamlet,178.0917468,-19.0812061,0.0,True
+Unnamed settlement,hamlet,178.0235528,-19.0941156,0.0,True
+Unnamed settlement,hamlet,178.0206103,-19.0984,0.0,True
+Unnamed settlement,hamlet,178.0148753,-19.1034078,0.0,True
+Unnamed settlement,hamlet,178.0058986,-19.1075321,0.0,True
+Unnamed settlement,hamlet,177.9996418,-19.1085407,0.0,True
+Unnamed settlement,village,177.9555972,-19.1277244,0.0,True
+Unnamed settlement,hamlet,177.9470463,-19.1282239,0.0,True
+Unnamed settlement,village,177.9986302,-19.1406086,0.0,True
+Matanuku,hamlet,178.100396,-19.1661482,0.0,True
+Dravuni Village,village,178.5232765,-18.7576869,9.0,False
+Unnamed settlement,village,178.4935399,-18.8797109,11.0,False
+Unnamed settlement,hamlet,178.5101808,-18.8864232,7.0,False
+Unnamed settlement,hamlet,178.4692174,-18.8911692,7.0,False
+Unnamed settlement,hamlet,178.5177151,-18.9029667,2.0,False
+Narikoso Village,village,178.5069594,-18.9174115,2.0,False
+Unnamed settlement,village,178.4760246,-18.9228499,8.0,False
+Nauluvatu,suburb,178.4376132,-18.1261993,63.0,False
+Samabula,suburb,178.4426504,-18.1173104,78.0,False
+Wailoku,suburb,178.4410143,-18.0969867,129.0,False
+Wailoku,suburb,178.4388202,-18.0970836,120.0,False
+Tamavua Village,village,178.4425968,-18.1002348,148.0,False
+Unnamed settlement,village,178.3006774,-17.8495701,29.0,False
+Nawaisomo,village,178.1311995,-18.3601346,8.0,False
+Lalati,hamlet,178.1489424,-18.3758373,7.0,False
+Raviravi,hamlet,178.1071483,-18.3765934,13.0,False
+Soliyaga,hamlet,178.1662498,-18.3840856,10.0,False
+Dakuni,village,178.1457588,-18.4027911,13.0,False
+Unnamed settlement,hamlet,178.1036634,-18.4079823,6.0,False
+Naceva,hamlet,178.1075245,-18.4194425,8.0,False
+Suva,city,178.4421662,-18.1415884,58.0,False
+Unnamed settlement,village,178.4012123,-17.9615686,28.0,False
+Naqali Village,village,178.3826182,-17.9543728,28.0,False
+Unnamed settlement,village,177.7571363,-17.7735966,440.0,False
+Unnamed settlement,village,177.9075653,-17.708479,179.0,False
+Draiba,village,177.7691134,-17.868873,46.0,False
+Nanoko Village,village,177.842151,-17.7566454,573.0,False
+Keiyasi,village,177.7518682,-17.8859107,45.0,False
+Unnamed settlement,village,179.4550443,-16.7222756,15.0,False
+Unnamed settlement,village,177.7452917,-17.7108751,333.0,False
+Unnamed settlement,village,177.7391602,-17.628235,20.0,False
+Lekutu,village,178.7193852,-16.6690162,13.0,False
+Naduri,town,179.1462116,-16.4436158,6.0,False
+Unnamed settlement,hamlet,179.1432414,-16.7447331,21.0,False
+Natuvu,village,179.1531649,-16.7447429,4.0,False
+Unnamed settlement,hamlet,179.069114,-16.7645964,19.0,False
+Unnamed settlement,hamlet,179.0122398,-16.7941343,13.0,False
+Unnamed settlement,hamlet,179.0264789,-16.8165982,21.0,False
+Unnamed settlement,hamlet,179.0262274,-16.8283214,18.0,False
+Unnamed settlement,hamlet,179.0186229,-16.8762328,19.0,False
+Unnamed settlement,hamlet,179.0194173,-16.8876859,9.0,False
+Unnamed settlement,hamlet,179.0684654,-16.8936061,10.0,False
+Unnamed settlement,hamlet,179.0423799,-16.9062632,16.0,False
+Unnamed settlement,hamlet,179.0573344,-16.906632,4.0,False
+Unnamed settlement,hamlet,179.0169897,-16.9098284,15.0,False
+Unnamed settlement,hamlet,178.9890554,-16.9103693,13.0,False
+Unnamed settlement,hamlet,179.0249508,-16.916679,6.0,False
+Unnamed settlement,hamlet,179.2689048,-16.6565914,14.0,False
+Unnamed settlement,hamlet,179.2549427,-16.6636955,38.0,False
+Nabalebale village,hamlet,179.2590398,-16.6655606,20.0,False
+Vakativa Village,hamlet,179.2577578,-16.6751936,32.0,False
+Unnamed settlement,hamlet,179.2604763,-16.6817042,12.0,False
+Unnamed settlement,hamlet,179.2367866,-16.6906376,17.0,False
+Dreketi,village,179.2580851,-16.696038,5.0,False
+Codreudreu,hamlet,179.2311729,-16.6989947,3.0,False
+Unnamed settlement,hamlet,178.7801619,-16.9599263,20.0,False
+Savuna,hamlet,178.7261275,-17.7295912,19.0,False
+Navuti,village,178.7560945,-17.7628585,1.0,True
+Nasaga,town,178.7653449,-17.7097389,5.0,False
+Nawowo,hamlet,178.8092298,-17.6248451,6.0,False
+Toki,village,178.8229118,-17.6472199,11.0,False
+Vatukalo,village,178.8209049,-17.6428357,3.0,False
+Yaravudi,village,178.7746655,-17.6232608,9.0,False
+Unnamed settlement,hamlet,178.7775324,-17.6229708,11.0,False
+Unnamed settlement,hamlet,178.7707654,-17.626933,17.0,False
+Navuloa,village,178.7619351,-17.7019391,14.0,False
+Nathamaki,village,179.4298658,-17.244947,4.0,False
+Vatulele,village,179.3944274,-17.2488587,19.0,False
+Nabuna,village,179.3838636,-17.250473,6.0,False
+Unnamed settlement,hamlet,179.3892989,-17.251278,33.0,False
+Unnamed settlement,hamlet,179.3847063,-17.253795,18.0,False
+Unnamed settlement,hamlet,179.3902038,-17.2642371,125.0,False
+Unnamed settlement,hamlet,179.3960874,-17.2730043,256.0,False
+Unnamed settlement,hamlet,179.3931902,-17.2764037,281.0,False
+Nabasovi,village,179.3620764,-17.2888685,8.0,False
+Tuatua,village,179.4382658,-17.2936608,3.0,False
+Tavua,village,179.3629551,-17.2960847,8.0,False
+Navaga,village,179.3668194,-17.3063788,10.0,False
+Nasau,village,179.4384815,-17.3076881,31.0,False
+Naqaidamu,village,179.4345862,-17.3212969,5.0,False
+Unnamed settlement,hamlet,179.433912,-17.3270707,9.0,False
+Unnamed settlement,hamlet,179.4343392,-17.3296667,6.0,False
+Sinuvaca,village,179.4329644,-17.3340123,8.0,False
+Namacu,village,179.4240724,-17.3512264,9.0,False
+Kade,village,179.3769086,-17.3555192,0.0,True
+Nakodu,village,179.4172524,-17.3698166,3.0,False
+Mudu,village,179.4094648,-17.3768898,4.0,False
+Unnamed settlement,hamlet,179.3780766,-17.3961746,11.0,False
+Unnamed settlement,village,179.4044244,-17.7824356,7.0,False
+Unnamed settlement,hamlet,179.4233178,-17.8001372,6.0,False
+Tovulailai,village,179.3991447,-17.8099552,6.0,False
+Unnamed settlement,hamlet,179.4255913,-17.8121158,6.0,False
+Unnamed settlement,hamlet,179.4097247,-17.8352681,7.0,False
+Naigani,hamlet,179.1665272,-17.7801089,8.0,False
+Yavu,hamlet,179.1479774,-17.7869116,7.0,False
+Manuku,hamlet,179.1736241,-17.7928289,3.0,False
+Lomaviti village,village,179.3292243,-17.9862085,5.0,False
+Malawai,village,179.3399772,-18.002874,18.0,False
+Lamiti,village,179.3419506,-18.0089507,8.0,False
+Nawaikama,village,179.2656558,-18.0219628,3.0,False
+Unnamed settlement,hamlet,179.2744529,-18.0292852,8.0,False
+Somosomo,village,179.2409467,-18.011255,3.0,False
+Nukuloa,village,179.3002489,-18.0540498,5.0,False
+Unnamed settlement,hamlet,179.3028001,-18.0561849,7.0,False
+Nukuloa,village,179.3071343,-18.0628543,3.0,False
+Lovo,village,179.3268349,-18.1135065,3.0,False
+Vione,village,179.2937573,-17.9413618,7.0,False
+Qarani,village,179.2704206,-17.9466672,0.0,True
+Unnamed settlement,hamlet,179.2660389,-17.9504187,8.0,False
+Lekanai Village,hamlet,179.3092735,-17.9512157,-3.0,True
+Navukailagi,village,179.2602588,-17.9572615,2.0,False
+Vanuaso,village,179.3131135,-17.9669121,6.0,False
+Unnamed settlement,hamlet,179.2531769,-17.9807722,3.0,False
+Sawaieke,village,179.2526517,-17.9869718,4.0,False
+Nuku,village,179.8289766,-18.5920832,7.0,False
+Vadra,village,179.8349667,-18.6026999,6.0,False
+Dakuibeqa,village,178.1325197,-18.4101668,12.0,False
+Unnamed settlement,village,-178.5007357,-18.670371,0.0,True
+Namuka,village,-178.6345397,-18.8514485,0.0,True
+Unnamed settlement,village,-178.9498558,-18.917253,0.0,True
+Unnamed settlement,village,-178.9735265,-18.9318873,0.0,True
+Unnamed settlement,hamlet,-178.9793412,-18.9439032,0.0,True
+Udu,village,-178.9441987,-18.9859644,0.0,True
+Unnamed settlement,hamlet,-178.5978642,-19.1219977,0.0,True
+Unnamed settlement,hamlet,-179.2756137,-18.3653055,0.0,True
+Dakuiloa,village,-178.4686672,-18.4407212,0.0,True
+Waiqori,village,-178.4877496,-18.4453966,0.0,True
+Unnamed settlement,hamlet,-178.6223735,-18.6811726,0.0,True
+Unnamed settlement,village,-178.6207201,-18.6836874,0.0,True
+Unnamed settlement,hamlet,-179.3346423,-17.727638,0.0,True
+Tuvuca,village,-178.8233576,-17.6856027,0.0,True
+Unnamed settlement,hamlet,-179.1439422,-17.2502907,0.0,True
+Unnamed settlement,village,-178.9908126,-17.3278666,0.0,True
+Unnamed settlement,hamlet,-178.7788564,-18.192109,0.0,True
+Levuka,hamlet,-178.8025357,-18.2430651,0.0,True
+Vaqatalaca,hamlet,-178.8348742,-18.2123378,0.0,True
+Ketei,village,-179.8196932,-18.9519241,0.0,True
+Unnamed settlement,hamlet,-178.5066279,-18.6704704,0.0,True
+Kese,village,177.2404684,-17.1290456,8.0,False
+Muaira,village,177.238705,-17.132396,5.0,False
+Soso,village,177.2233358,-17.1276441,9.0,False
+Vuvui Island,island,177.199323,-17.1907964,0.0,True
+Unnamed settlement,village,-179.2942125,-17.0148958,0.0,True
+Unnamed settlement,village,-179.2933339,-17.0197876,0.0,True
+Unnamed settlement,hamlet,-179.69653,-16.4975554,0.0,True
+Unnamed settlement,village,-179.6916984,-16.5031023,0.0,True
+Unnamed settlement,village,178.1191304,-19.0752974,0.0,True
+Unnamed settlement,village,178.1182988,-19.0814071,0.0,True
+Unnamed settlement,village,178.1151345,-19.0831589,0.0,True
+Baidamudamu,village,178.1083752,-19.0858662,0.0,True
+Unnamed settlement,village,178.1417922,-19.1177425,0.0,True
+Unnamed settlement,village,178.1291789,-19.133247,0.0,True
+Unnamed settlement,village,178.1176201,-19.1341935,0.0,True
+Kabariki Village,village,178.0288392,-19.1434281,0.0,True
+Unnamed settlement,village,178.0350883,-19.1443287,0.0,True
+Unnamed settlement,hamlet,178.0140901,-19.144929,0.0,True
+Nasegai,village,178.074658,-19.1506332,0.0,True
+Unnamed settlement,village,178.0456537,-19.1526085,0.0,True
+Unnamed settlement,village,178.089375,-19.1545598,0.0,True
+Unnamed settlement,village,178.0699396,-19.1606441,0.0,True
+Narocivo,village,-179.042257,-17.9645647,0.0,True
+Salia,village,-179.0323372,-17.9800911,0.0,True
+Liku,village,-179.0642446,-17.9886963,0.0,True
+Unnamed settlement,hamlet,178.407248,-19.0173829,0.0,True
+Unnamed settlement,hamlet,178.411443,-19.0178749,0.0,True
+Solotavui,village,178.4243229,-18.978875,8.0,False
+Wainikaculoa,village,178.4299055,-18.9776464,15.0,False
+Nukutubu settlement,village,178.4342345,-18.9837844,32.0,False
+Naleca,village,178.4281927,-18.9704149,11.0,False
+Unnamed settlement,village,178.4139448,-18.9699254,3.0,False
+Unnamed settlement,village,178.3755828,-18.9531453,5.0,False
+Levuka,village,178.3539291,-18.937518,10.0,False
+Naioti,village,178.3438161,-18.9386272,58.0,False
+Rakiraki,village,178.3364732,-18.9387865,5.0,False
+Nauciwai,village,178.3063708,-18.9529272,6.0,False
+Gasele,village,178.3026933,-18.9531256,3.0,False
+Waiyavulailai,village,178.4009924,-18.9479093,7.0,False
+Unnamed settlement,hamlet,178.4515414,-18.9634355,9.0,False
+Unnamed settlement,village,178.4524801,-18.9674789,3.0,False
+Unnamed settlement,village,178.4755028,-18.9859517,9.0,False
+Unnamed settlement,hamlet,178.4612295,-19.0206471,0.0,True
+Unnamed settlement,village,178.3798579,-19.037646,0.0,True
+Unnamed settlement,village,178.3494592,-19.0492582,0.0,True
+Unnamed settlement,hamlet,178.1308862,-19.1253411,0.0,True
+Unnamed settlement,hamlet,178.1007157,-19.078884,0.0,True
+Naivakarauniniu,village,178.2550176,-18.9666256,17.0,False
+Vunisei,village,178.2756051,-18.981681,8.0,False
+Dravuwalu,village,178.2964808,-18.9979382,6.0,False
+Vukavu Village,village,178.3256525,-19.0217354,0.0,True
+Jioma,village,178.3378619,-19.0247478,0.0,True
+Unnamed settlement,village,-178.4102906,-19.1597179,0.0,True
+Viria Village,village,178.4064683,-17.9170443,21.0,False
+Rukurukulevu,village,177.4241282,-18.1377203,6.0,False
+Voua,village,177.4223875,-18.1311945,6.0,False
+Unnamed settlement,village,179.3731213,-16.3398841,7.0,False
+Mualevu,village,-178.9375861,-17.2414237,0.0,True
+Unnamed settlement,hamlet,-178.94368,-17.2550308,0.0,True
+Lomaloma,village,-178.9872807,-17.2902186,0.0,True
+Unnamed settlement,village,-179.0028021,-17.3035398,0.0,True
+Unnamed settlement,village,-178.9910613,-17.3103772,0.0,True
+Namuaimada,village,178.2560899,-17.4054801,8.0,False
+Nayavuira,hamlet,178.2980795,-17.4401311,4.0,False
+Vaidoko,hamlet,178.2446105,-17.4102642,8.0,False
+Natunuku,village,177.7423867,-17.4527156,15.0,False
+Levukana,village,-178.9735503,-17.2682223,0.0,True
+Mavana,village,-178.9321825,-17.2126343,0.0,True
+Daliconi,village,-178.9629484,-17.2221343,0.0,True
+Uruone,village,-178.9795993,-17.2766031,0.0,True
+Muamua,village,-178.9780593,-17.2485022,0.0,True
+Unnamed settlement,village,178.3329225,-17.4725981,22.0,False
+Navolau,village,178.2471443,-17.3783158,7.0,False
+Valevuni,hamlet,179.3230804,-16.7874787,110.0,False
+Unnamed settlement,village,178.5947076,-16.5955144,4.0,False
+Unnamed settlement,village,178.8884578,-16.5384438,44.0,False
+Unnamed settlement,village,178.9096602,-16.5240288,8.0,False
+Nabukadra,village,178.3919567,-17.5431144,5.0,False
+Naocobau,village,178.3564791,-17.5137038,72.0,False
+Nayavutoka,village,178.4003654,-17.545654,5.0,False
+Nanukuloa,village,178.2294524,-17.4533179,29.0,False
+Naiserelagi,village,178.2270679,-17.4573875,17.0,False
+Nanokonoko,village,178.2160333,-17.4123187,21.0,False
+Nakorokula,village,178.2290931,-17.3529233,15.0,False
+Narewa,village,178.1006327,-17.3722705,5.0,False
+Navuavuni,village,178.0908051,-17.3753423,8.0,False
+Rewasa,village,178.1803265,-17.3960244,25.0,False
+Vitawa,village,178.1117746,-17.3717227,16.0,False
+Votua,village,177.6652333,-17.4902881,7.0,False
+Korovou,village,177.8934477,-17.4427351,8.0,False
+Namosau,village,177.671106,-17.5343056,10.0,False
+Nasolo,village,177.6771711,-17.5631011,12.0,False
+Semo,village,177.3746781,-18.0824336,13.0,False
+Nabau,village,177.3757115,-18.0789247,27.0,False
+Malevu,village,177.2483313,-17.1253996,5.0,False
+Yawesa,village,177.2606664,-17.1153331,8.0,False
+Marou,village,177.2562927,-17.1205596,5.0,False
+Nasoqo,village,177.2476499,-17.0929435,7.0,False
+FARM,farm,177.4328537,-17.7935663,15.0,False
+Lomawai,village,177.2964804,-18.0298048,6.0,False
+Unnamed settlement,farm,177.4058149,-17.79956,11.0,False
+Unnamed settlement,farm,177.4046144,-17.8003041,9.0,False
+TBC,farm,177.4267292,-17.7952763,12.0,False
+Unnamed settlement,farm,177.5228623,-17.6363114,101.0,False
+Emuri,village,177.3766469,-18.0605659,19.0,False
+Navutu,village,177.3262569,-18.0106938,15.0,False
+Bavu,village,177.3310456,-17.9322521,91.0,False
+Yadua,village,177.4645093,-18.168148,6.0,False
+Korokula,village,177.2728799,-17.9803067,18.0,False
+Tau,village,177.2802374,-17.9697126,36.0,False
+Navala,village,177.8127988,-17.6594461,85.0,False
+Abaca,village,177.5347473,-17.6664801,414.0,False
+Vunitogoloa,village,178.0586815,-17.3701816,7.0,False
+Togovere,village,178.0111192,-17.4045987,18.0,False
+Rabulu,village,177.941029,-17.4333488,10.0,False
+Drauniivi,village,177.9973501,-17.4164483,9.0,False
+Vadravadra,village,177.6956982,-17.5124841,15.0,False
+Sasa,village,177.7078432,-17.4863917,8.0,False
+Sorokoba,village,177.704174,-17.4903621,20.0,False
+Talecake,village,177.7050993,-17.4993565,14.0,False
+Volivoli Village,village,177.4892893,-18.1581887,9.0,False
+Jan ali Chicken Farm,farm,178.5529846,-18.0375067,8.0,False
+Popo Chicken Farm,farm,178.5348688,-18.0215055,5.0,False
+Nadonumai,village,178.4265827,-18.1107479,11.0,False
+Koro Sea,sea,179.8333333,-17.6666667,0.0,True
+Namotomoto Village,village,177.4166354,-17.7968332,12.0,False
+Saunaka Village,village,177.4303526,-17.7924627,11.0,False
+Nawaka Village,village,177.4332907,-17.800655,11.0,False
+Navutulevu,village,177.8063405,-18.2373595,7.0,False
+Namaqumaqua,village,177.831607,-18.2528293,10.0,False
+Deuba,village,177.8860931,-18.2483344,12.0,False
+Nakorovou,village,177.972576,-18.2429547,9.0,False
+Culanuku,village,177.9868432,-18.267518,7.0,False
+Galoa,village,178.0024423,-18.2587952,8.0,False
+Nakavu,village,178.1046626,-18.1915144,23.0,False
+Nabukavesi,village,178.2386109,-18.161058,12.0,False
+Kalokolevu,village,178.3137078,-18.1334015,8.0,False
+Togalevu,village,178.3189816,-18.1245672,6.0,False
+Muaivuso,village,178.3600649,-18.1405127,11.0,False
+Nabaka,village,178.3641319,-18.1370929,14.0,False
+Waiqanake,village,178.3689569,-18.1338077,15.0,False
+Matanimoli,village,178.6030789,-18.0847559,4.0,False
+Navaka,village,178.6022421,-18.0846743,6.0,False
+Nabudrau,village,178.5988303,-18.1006118,5.0,False
+Nadali,village,178.5470905,-18.0364464,4.0,False
+Bukama,village,177.5530746,-16.7594586,2.0,False
+Dalomo,village,177.5242355,-16.7827361,4.0,False
+Tokoriki,island,177.0918067,-17.5760206,35.0,False
+Talenaua,village,177.916995,-18.2559303,9.0,False
+Delainavesi,suburb,178.4252754,-18.1034023,30.0,False
+Nabua Village,hamlet,178.5613715,-18.1076431,6.0,False
+Dalice Settlement,village,179.3958656,-17.8006085,6.0,False
+Namulomulo,hamlet,178.5573451,-17.9257116,38.0,False
+Sadro Village,village,178.1345837,-18.2478692,6.0,False
+Lutu Village,village,178.1136492,-17.803473,124.0,False
+Waikisi Settlement,locality,179.4054027,-16.5251206,20.0,False
+Niudua Village,village,178.337959,-19.0167231,0.0,True
+Naduru Village,village,178.5710615,-18.0297931,7.0,False
+Namolituva Village,village,178.5685221,-18.028567,9.0,False
+Waibogi,village,178.0096242,-18.1176631,78.0,False
+Toga,village,177.6068853,-17.9775149,30.0,False
+Nahou,village,177.5958195,-17.9761122,28.0,False
+Koronisagana,village,177.627988,-17.9715643,36.0,False
+Nahautabu,village,177.6338012,-17.9684656,45.0,False
+Namalawai,village,177.6359124,-17.9705704,28.0,False
+Vunaqoru,village,177.6454738,-17.9745482,28.0,False
+Naveyago,village,177.6487305,-17.9651772,36.0,False
+Matacaucau Village,village,178.5777496,-17.7877074,13.0,False
+Nadrau,village,178.5285155,-17.813085,20.0,False
+Vatuni Settlement,village,179.426157,-17.8179739,4.0,False
+Vunimale Settlement,hamlet,178.9850338,-16.6441349,157.0,False
+Nakaulau,village,178.5580255,-18.1218501,9.0,False
+Taci,village,178.6007925,-18.1119755,8.0,False
+Naselesele,village,-179.8678479,-16.6976949,0.0,True
+Naimasimasi,village,178.5596258,-17.9157519,9.0,False
+Waikete,village,178.6072414,-18.0487451,5.0,False
+Tubalevu,village,178.5747657,-17.9422918,5.0,False
+Korovou,town,178.5395524,-17.8079115,10.0,False
+Naibalebale,hamlet,179.1596361,-17.7927049,12.0,False
+Tabuya Village,village,178.0545508,-19.1544845,0.0,True
+Navacau Settlement,village,177.8705681,-18.2495056,41.0,False
+Navaga,village,177.8872709,-17.8106617,550.0,False
+Drala,village,177.9149817,-17.6926214,267.0,False
+Buyabuya,village,177.9185369,-17.6765475,383.0,False
+Naivikasara,village,178.5839149,-18.0953639,3.0,False
+Naselai Village,neighbourhood,178.5663504,-18.0539135,11.0,False
+Davetalevu Settlement,hamlet,178.5251965,-17.8387408,89.0,False
+Korowiri Village,village,179.3913205,-16.4779909,14.0,False
+Waibasaga Village,village,178.1079941,-17.8068858,141.0,False
+Nadevo Village,village,177.7755768,-17.8327,56.0,False
+Mamanuca Islands,locality,177.0551025,-17.5887774,52.0,False
+Nadaro Village,village,178.5575795,-17.9391373,7.0,False
+Draiba,village,178.8357962,-17.6954016,6.0,False
+Draubuta Village,village,177.9000519,-17.9232871,162.0,False
+Unnamed settlement,village,177.8836932,-17.9003466,120.0,False
+Unnamed settlement,village,177.8651752,-17.8981209,88.0,False
+Unnamed settlement,village,178.3602745,-17.8408794,29.0,False
+Vunidogoloa (new village),village,179.4972644,-16.6625366,25.0,False
+Lami Village,village,178.4148369,-18.1057087,46.0,False
+Naroi,village,179.9348212,-18.5603583,19.0,False
+Keteira,village,179.8932742,-18.6205261,9.0,False
+Nasoki,village,179.9018851,-18.631882,7.0,False
+Cakova,village,179.8724956,-18.6281631,11.0,False
+Naloku,village,179.8693943,-18.5705363,6.0,False
+Vunuku,village,179.9178377,-18.5819984,4.0,False
+Navasa,hamlet,179.8986371,-18.6032154,6.0,False
+Sailoama,hamlet,179.8894146,-18.6071973,7.0,False
+Togoru,hamlet,178.19666,-18.21618,6.0,False
+Unnamed settlement,village,178.1281046,-17.7536313,80.0,False
+Unnamed settlement,village,178.1169391,-17.7890685,122.0,False
+Tubarua,village,178.0603982,-17.8922676,332.0,False
+Nasava,village,178.0809138,-17.8850301,282.0,False
+Unnamed settlement,village,178.0877908,-17.8634478,237.0,False
+Nakorovou,village,178.104157,-17.8505213,193.0,False
+Unnamed settlement,village,178.1142472,-17.8359876,163.0,False
+Unnamed settlement,village,178.1148886,-17.8257879,167.0,False
+Botenaulu,village,178.1076822,-17.8157748,160.0,False
+Vurolevo,island,178.5187042,-18.862639,26.0,False
+Qasibale,island,178.4980315,-18.7995183,6.0,False
+Elsio,village,177.077001,-12.4805345,0.0,True
+Oinafa,village,177.1240166,-12.4889591,0.0,True
+Noa'tau,village,177.1370135,-12.5131982,0.0,True
+Uanheta,village,177.1028279,-12.5207783,0.0,True
+Pepjei,village,177.0939337,-12.5227997,0.0,True
+Juju,village,177.0812379,-12.5216266,0.0,True
+Itu'ti'u,village,177.0595764,-12.5177723,0.0,True
+Motusa,village,177.0382997,-12.5078408,0.0,True
+Ahau,village,177.0478913,-12.5010421,0.0,True
+Itu'muta,village,177.0299205,-12.4975656,0.0,True
+Haua,islet,177.1250994,-12.4789611,0.0,True
+Nanuku,neighbourhood,178.4607803,-18.1319814,6.0,False
+Varavu,village,177.7173494,-17.4843279,23.0,False
+Nukuyaweni,hamlet,179.2368319,-18.0255691,16.0,False
+Vadravadra,village,179.3558319,-18.1089085,0.0,True
+Yadua,hamlet,179.3608709,-18.0767102,5.0,False
+Waisomo,hamlet,179.3530568,-18.0569951,11.0,False
+Laucala,locality,178.5151178,-18.1467541,10.0,False
+Naevuevu,village,177.4433139,-18.1526307,4.0,False
+Tore,village,177.436759,-18.1545728,4.0,False
+Sila,village,177.4396773,-18.1544199,5.0,False
+Cuvu,village,177.4298496,-18.1453871,7.0,False
+Malomalo,village,177.3579384,-18.1240637,6.0,False
+Sanasana,village,177.3268923,-18.1133227,7.0,False
+Malaqere,village,177.4524734,-18.1568415,35.0,False
+Mataqe,village,177.4714859,-18.1644551,9.0,False
+Kulukulu,village,177.4960055,-18.164482,9.0,False
+Nasama,village,177.5014558,-18.1556846,9.0,False
+Yavulo,village,177.5068779,-18.1442635,7.0,False
+Olosara,village,177.5239651,-18.1596125,8.0,False
+Korotogo,village,177.5414346,-18.1684231,7.0,False
+Naivimagimagi,village,178.4046044,-19.0349163,0.0,True
+suva,village,178.9547351,-17.443591,0.0,True
+levuka,village,179.30786,-18.0624016,3.0,False
+Wailevu Village,village,179.3284637,-16.434111,6.0,False
+Nasekula Village,village,179.3617051,-16.437137,12.0,False
+Navesidrua Village,village,179.1327875,-16.558527,73.0,False
+Naivaka Village,village,178.5236767,-16.6479791,14.0,False
+Ruarua,island,178.3302806,-16.8088479,0.0,True
+Vuo Village,village,179.3755394,-16.3675377,8.0,False
+Nacula Village,village,179.3729288,-16.4357908,6.0,False
+Tabia,village,179.2449987,-16.4583132,14.0,False
+Galoa Village,village,178.6805766,-16.6155247,5.0,False
+Tavea Island,island,178.7229699,-16.6268092,3.0,False
+Tavea Village,village,178.7263656,-16.6254847,3.0,False
+Naviqiri Village,village,178.5941683,-16.6627228,18.0,False
+Nasau Village,village,178.5801388,-16.6714264,5.0,False
+Vatudova,village,179.2819359,-16.4304759,11.0,False
+Uma Village,village,179.9884619,-16.5002761,6.0,False
+Buakonikai Village,village,179.9752255,-16.5363251,6.0,False
+Salia Village,village,179.9015934,-16.6685143,7.0,False
+Koroivonu Village,village,179.8856103,-16.5711869,7.0,False
+Karoko Village,village,179.9153734,-16.5105348,7.0,False
+Nailou Village,village,179.8938889,-16.4850614,10.0,False
+Salia Village,village,179.8493568,-16.5130414,3.0,False
+Natewa Village,village,179.7343343,-16.5920986,6.0,False
+Dawa Village,village,179.7193585,-16.6044908,10.0,False
+Drekeniwai Village,village,179.677792,-16.6723956,5.0,False
+Vuna Village,village,179.8943761,-16.970664,19.0,False
+Nanenivuda Village,village,179.1634763,-16.5231689,102.0,False
+Naravuka Village,village,179.0991261,-16.6109597,49.0,False
+Batiri Village,village,179.0350489,-16.6056468,14.0,False
+Welagi Village,village,-179.9411131,-16.7349032,0.0,True
+Momi,village,177.2852248,-17.9131231,6.0,False
+Korolevu,village,177.7305987,-18.2140676,6.0,False
+Natadola,locality,177.3218775,-18.1029786,6.0,False
+Narata Village,village,177.5463094,-17.9687246,29.0,False
+Rarabahaga,village,177.6432575,-17.9614428,34.0,False
+Navula,village,177.7260099,-17.9273111,40.0,False
+Nakorosule,village,178.2510757,-17.7745562,45.0,False
+Taulevu,village,178.2934439,-17.8268117,138.0,False
+Nairukuruku,village,178.2853924,-17.8140081,36.0,False
+Waibalavu,village,178.2349192,-17.7662572,51.0,False
+Nawaisomo,village,178.20844,-17.7290372,60.0,False
+Nabena,village,178.3161753,-17.8215671,47.0,False
+Navuniyasi,village,178.2643889,-17.7953726,48.0,False
+Matailobau,village,178.3095638,-17.8187983,31.0,False
+Delaitoga,village,178.3128585,-17.827082,28.0,False
+Nakida,village,178.239375,-17.7033556,94.0,False
+Lokia,village,178.5526781,-18.0903382,3.0,False
+Yaro,village,177.1756238,-17.7351668,5.0,False
+Solevu,village,177.1829532,-17.7453594,5.0,False
+Cuvu Top,village,177.4046142,-18.1111505,86.0,False
+Togovere,village,177.4178516,-18.1044726,28.0,False
+Tulasewa,village,177.4301331,-18.0443643,46.0,False
+Vavinaqiri,village,177.3679935,-18.0373832,76.0,False
+Kabisi,village,177.3703817,-18.0582131,23.0,False
+Nalele,village,177.3812389,-18.0538878,29.0,False
+Dayala,village,177.3747583,-18.063095,18.0,False
+Togobula,village,177.3264203,-18.0515382,19.0,False
+Basiri,village,177.3213723,-18.0735383,12.0,False
+Vuhama,village,177.3149588,-18.0799701,18.0,False
+Navihabahaba,village,177.3290239,-18.084211,6.0,False
+Nalele,village,177.3456649,-18.0869724,6.0,False
+Nahoho,village,177.3599273,-18.12544,6.0,False
+Vunatovau,village,177.4837515,-18.0959909,124.0,False
+Silivalevu,village,177.4856735,-18.0736512,233.0,False
+Naduri,village,177.5611493,-18.0813378,17.0,False
+Unnamed settlement,islet,-179.865288,-16.6775573,0.0,True
+Gunu,village,177.2443869,-17.08819,4.0,False
+Oasis Farm,farm,177.4945181,-17.7389745,31.0,False
+Dreketi,village,178.274565,-17.5606828,78.0,False
+Dobuilevu Agricultural Station,village,178.2463392,-17.5611212,54.0,False
+Rokovuaka,village,178.2600509,-17.6376597,45.0,False
+Barotu,village,178.2391598,-17.4874493,8.0,False
+Vunisea,village,178.1396573,-17.490597,115.0,False
+Nadavacia,village,178.3612187,-17.5399714,124.0,False
+Saioko,village,178.3733333,-17.5412421,13.0,False
+Vitadra Village,village,179.3992154,-16.436668,6.0,False
+Motibhai & Company Pte Ltd,plot,179.355253,-16.4337505,11.0,False
+Namalata,neighbourhood,178.1552623,-19.0577488,0.0,True
+Namuana,neighbourhood,178.1508107,-19.0540277,0.0,True
+Nuku,village,178.1595497,-19.0722129,0.0,True
+Naikorokoro,village,178.1994011,-18.9796924,10.0,False
+Naqavetini,hamlet,178.2064475,-18.9782403,14.0,False
+Daku,village,178.2778167,-18.9622841,7.0,False
+Nasososo,hamlet,178.3702163,-18.9419753,12.0,False
+Yaro,hamlet,178.3727546,-18.9435238,10.0,False
+Nakaunakoro,neighbourhood,178.3738163,-18.9538425,14.0,False
+Lomanikoro,neighbourhood,178.3749189,-18.9545281,7.0,False
+Nakoronawa,neighbourhood,178.3760833,-18.9540061,6.0,False
+Qaraloa,hamlet,178.3754334,-18.9499516,14.0,False
+Ucuinaisausau,hamlet,178.3800166,-18.9486752,9.0,False
+Lawaki,village,178.4076937,-18.9841411,5.0,False
+Vunivaivai,village,178.4215111,-18.9836133,8.0,False
+Namuanaira,village,178.4304104,-18.9728177,10.0,False
+Naidiri,hamlet,178.4266885,-18.9683931,26.0,False
+Solotina,village,178.4408397,-18.9614913,5.0,False
+Soso,village,178.3204882,-19.0122774,0.0,True
+Yavitu,village,178.3159424,-19.0078986,0.0,True
+Wabole,hamlet,178.7724075,-17.7146873,35.0,False
+Tai,hamlet,178.7667296,-17.7135729,13.0,False
+Naiviteitei,village,178.7636505,-17.7101205,12.0,False
+Vatu,hamlet,178.7711943,-17.7050071,21.0,False
+Wainiveli,hamlet,178.7747949,-17.7064371,20.0,False
+Unnamed settlement,hamlet,178.7758761,-17.7029207,22.0,False
+Unnamed settlement,hamlet,178.7810216,-17.7001534,21.0,False
+Unnamed settlement,hamlet,178.7868021,-17.6982674,27.0,False
+Vuniivasavu,village,178.7935583,-17.6902983,33.0,False
+Nasaumatua,village,178.791241,-17.6893698,29.0,False
+Wainaloka,village,178.7742336,-17.7329714,4.0,False
+Visoto,village,178.8051005,-17.726861,7.0,False
+Nacobo,village,178.803918,-17.7235908,9.0,False
+Nukutocia,village,178.7923026,-17.7279194,2.0,False
+Buresala,hamlet,178.7464009,-17.6803664,12.0,False
+Waidau,hamlet,178.7479633,-17.6909424,19.0,False
+Nasinu,village,178.8320283,-17.713541,6.0,False
+Naikorokoro,village,178.8337195,-17.7011914,9.0,False
+Nasova,hamlet,178.8331197,-17.6995588,18.0,False
+Naqeledamudamu,hamlet,178.775217,-17.7435396,16.0,False
+Ladotagane,islet,178.7582644,-17.7419973,0.0,True
+Ladoyalewa,islet,178.7646678,-17.7418389,0.0,True
+Yanuca,village,178.7811776,-17.7653044,1.0,True
+Nukuni,village,-178.721554,-20.6635977,0.0,True
+Doi,island,-178.7157478,-20.6363436,0.0,True
+Ono Levu,island,-178.7370514,-20.6629455,0.0,True
+Udui,island,-178.7494572,-20.6315172,0.0,True
+Davura,island,-178.7046021,-20.6533161,0.0,True

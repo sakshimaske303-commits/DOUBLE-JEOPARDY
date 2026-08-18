@@ -1,0 +1,37 @@
+name,place,lon,lat,elevation_m,at_risk
+Tinnikara Island,island,72.3192231,10.9479008,0.0,True
+Androth Island,island,73.6814015,10.8131401,0.0,True
+Minicoy Island,island,73.048275,8.295365,0.0,True
+North Islet,islet,71.8988509,12.3978752,0.0,True
+Sand Cay,islet,71.9178504,12.3289651,0.0,True
+Sand Cay,islet,72.0882833,11.1507296,0.0,True
+Sand Cay,islet,72.1775779,11.5251047,0.0,True
+Laccadive Islands,archipelago,72.9339258,10.4921173,0.0,True
+Amindivi Islands,archipelago,72.3741618,11.7532759,0.0,True
+Valiyakara,islet,72.3287835,10.1303141,0.0,True
+Cheriyakara,islet,72.2869036,10.0436923,0.0,True
+Pitti Island,islet,72.5342443,10.7751037,0.0,True
+Viringili Island,islet,73.0117483,8.2780893,0.0,True
+Kalputhi Island,islet,72.167375,10.81361,0.0,True
+Agatti Island,island,72.188721,10.8475448,10.0,False
+Bangaram Island,island,72.2876458,10.9405882,0.0,True
+Kiltān Island,island,73.004225,11.482785,0.0,True
+Bitra,islet,72.186865,11.598315,0.0,True
+Kavaratti Island,island,72.6326207,10.5591022,17.0,False
+Amini Island,island,72.724655,11.12393,0.0,True
+Kadmat Island,island,72.7749763,11.219493,10.0,False
+Chetlat Island,island,72.71043,11.6934307,7.0,False
+Cheriyam Island,island,73.66141,10.1411662,0.0,True
+Kalpeni Island,island,73.6436604,10.0812713,0.0,True
+Suheli Par,archipelago,72.284481,10.073502,0.0,True
+Agatti,village,72.1952547,10.8691122,11.0,False
+Kadmat,village,72.7743439,11.2166729,15.0,False
+Minicoy,town,73.0618573,8.2892876,0.0,True
+Agatti Village Center,neighbourhood,72.1952009,10.8657333,14.0,False
+Kavaratti,town,72.6394636,10.5672203,0.0,True
+Andrott,town,73.6770629,10.8159395,0.0,True
+Kalpeni,village,73.6436319,10.07259,0.0,True
+Bitra,village,72.1857601,11.5981899,0.0,True
+Amini,village,72.7177066,11.1239547,0.0,True
+Kiltān,village,73.003335,11.488336,0.0,True
+Chetlat,village,72.7107435,11.6932976,8.0,False

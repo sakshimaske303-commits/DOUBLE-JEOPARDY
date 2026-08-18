@@ -1,77 +1,1016 @@
-<!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
-        <meta name="mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <link rel="stylesheet" href="./resources/ol.css">
-        <link rel="stylesheet" href="resources/fontawesome-all.min.css">
-        <link href="resources/photon-geocoder-autocomplete.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="./resources/ol-layerswitcher.css">
-        <link rel="stylesheet" href="./resources/qgis2web.css">
-        <style>
-        html, body {
-            background-color: #ffffff;
-        }
-        .ol-control > * {
-            background-color: #f8f8f8!important;
-            color: #444444!important;
-            border-radius: 0px;
-        }
-        .ol-attribution a, .gcd-gl-input::placeholder, .search-layer-input-search::placeholder {
-            color: #444444!important;
-        }
-        .search-layer-input-search {
-            background-color: #f8f8f8!important;
-        }
-        .ol-control > *:focus, .ol-control >*:hover {
-            background-color: rgba(248, 248, 248, 0.7)!important;
-        } 
-        .ol-control {
-            background-color: rgba(255,255,255,.4) !important;
-            padding: 2px !important;
-        } 
-        </style>
-
-        <style>
-        html, body, #map {
-            width: 100%;
-            height: 100%;
-            padding: 0;
-            margin: 0;
-        }
-        </style>
-        <title></title>
-    </head>
-    <body>
-        <div id="map">
-            <div id="popup" class="ol-popup">
-                <a href="#" id="popup-closer" class="ol-popup-closer"></a>
-                <div id="popup-content"></div>
-            </div>
-        </div>
-        <script src="resources/qgis2web_expressions.js"></script>
-        <script src="./resources/functions.js"></script>
-        <script src="./resources/ol.js"></script>
-        <script src="./resources/ol-layerswitcher.js"></script>
-        <script src="resources/photon-geocoder-autocomplete.min.js"></script>
-        <script src="resources/olms.js"></script>
-        <script src="layers/lakshadweep_islands_1.js"></script><script src="layers/Sampled2_2.js"></script>
-        <script src="styles/lakshadweep_islands_1_style.js"></script><script src="styles/Sampled2_2_style.js"></script>
-        <script src="./layers/layers.js" type="text/javascript"></script> 
-        <script src="./resources/Autolinker.min.js"></script>
-        <script src="./resources/qgis2web.js"></script>        
+<!DOCTYPE html>
+<html>
+<head>
     
-<script>
-window.addEventListener('load', function() {
-    setTimeout(function() {
-        if (typeof map !== 'undefined' && map.updateSize) {
-            map.updateSize();
-        }
-    }, 300);
-});
-</script>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_ab10d82ae63355bacb79bb615d11cd7d {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+    <div style="position: fixed; bottom: 30px; left: 30px; z-index: 9999;
+                background: white; padding: 12px 16px; border-radius: 8px;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.3); font-family: sans-serif; font-size: 13px; max-width: 300px;">
+      <b>Lakshadweep — Sea-Level-Rise Exposure</b><br>
+      77.8% of 36 settlements at or below 1m elevation<br><br>
+      <span style="color:#e63232;">●</span> At/below 1m elevation (SLR risk) &nbsp;
+      <span style="color:#f4d03f;">●</span> Above 1m elevation (safe)
+    </div>
+    
+    
+            <div class="folium-map" id="map_ab10d82ae63355bacb79bb615d11cd7d" ></div>
+        
 </body>
+<script>
+    
+    
+            var map_ab10d82ae63355bacb79bb615d11cd7d = L.map(
+                "map_ab10d82ae63355bacb79bb615d11cd7d",
+                {
+                    center: [9.97182851800008, 72.92851810000008],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 10,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_0b9b83c2637139db3233c3a21123da70 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_0b9b83c2637139db3233c3a21123da70.addTo(map_ab10d82ae63355bacb79bb615d11cd7d);
+        
+    
+            map_ab10d82ae63355bacb79bb615d11cd7d.fitBounds(
+                [[8.249497789000088, 72.17261803500008], [11.694159247000073, 73.68441816500007]],
+                {}
+            );
+        
+    
+        function geo_json_189fd29e5e556a45d6bd4e11ae63e601_styler(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "#2d7a3e", "fillOpacity": 0.03, "weight": 1.2};
+            }
+        }
+
+        function geo_json_189fd29e5e556a45d6bd4e11ae63e601_onEachFeature(feature, layer) {
+
+            layer.on({
+            });
+        };
+        var geo_json_189fd29e5e556a45d6bd4e11ae63e601 = L.geoJson(null, {
+                onEachFeature: geo_json_189fd29e5e556a45d6bd4e11ae63e601_onEachFeature,
+            
+                style: geo_json_189fd29e5e556a45d6bd4e11ae63e601_styler,
+            ...{
+}
+        });
+
+        function geo_json_189fd29e5e556a45d6bd4e11ae63e601_add (data) {
+            geo_json_189fd29e5e556a45d6bd4e11ae63e601
+                .addData(data);
+        }
+            geo_json_189fd29e5e556a45d6bd4e11ae63e601_add({"bbox": [72.17261803500008, 8.249497789000088, 73.68441816500007, 11.694159247000073], "features": [{"bbox": [72.17261803500008, 10.80923086100006, 72.20004316500007, 10.878078518000052], "geometry": {"coordinates": [[[72.17269941500007, 10.80923086100006], [72.17261803500008, 10.82998281500005], [72.17904707100007, 10.84870026200008], [72.18515058700007, 10.858303127000056], [72.18930097700007, 10.864935614000046], [72.19564863400007, 10.872707424000055], [72.20004316500007, 10.878078518000052], [72.20004316500007, 10.864447333000044], [72.18816165500004, 10.836127020000049], [72.17269941500007, 10.80923086100006]]], "type": "Polygon"}, "id": "0", "properties": {"ABBREV": "India", "ABBREV_LEN": 5, "ADM0_A3": "IND", "ADM0_A3_AR": "IND", "ADM0_A3_BD": "IND", "ADM0_A3_BR": "IND", "ADM0_A3_CN": "IND", "ADM0_A3_DE": "IND", "ADM0_A3_EG": "IND", "ADM0_A3_ES": "IND", "ADM0_A3_FR": "IND", "ADM0_A3_GB": "IND", "ADM0_A3_GR": "IND", "ADM0_A3_ID": "IND", "ADM0_A3_IL": "IND", "ADM0_A3_IN": "IND", "ADM0_A3_IT": "IND", "ADM0_A3_JP": "IND", "ADM0_A3_KO": "IND", "ADM0_A3_MA": "IND", "ADM0_A3_NL": "IND", "ADM0_A3_NP": "IND", "ADM0_A3_PK": "IND", "ADM0_A3_PL": "IND", "ADM0_A3_PS": "IND", "ADM0_A3_PT": "IND", "ADM0_A3_RU": "IND", "ADM0_A3_SA": "IND", "ADM0_A3_SE": "IND", "ADM0_A3_TR": "IND", "ADM0_A3_TW": "IND", "ADM0_A3_UA": "IND", "ADM0_A3_UN": -99, "ADM0_A3_US": "IND", "ADM0_A3_VN": "IND", "ADM0_A3_WB": -99, "ADM0_DIF": 0, "ADM0_DIFF": null, "ADM0_ISO": "IND", "ADM0_TLC": "IND", "ADMIN": "India", "BRK_A3": "IND", "BRK_DIFF": 0, "BRK_GROUP": null, "BRK_NAME": "India", "CONTINENT": "Asia", "Country": "Lakshadweep", "ECONOMY": "3. Emerging region: BRIC", "FCLASS_AR": null, "FCLASS_BD": null, "FCLASS_BR": null, "FCLASS_CN": null, "FCLASS_DE": null, "FCLASS_EG": null, "FCLASS_ES": null, "FCLASS_FR": null, "FCLASS_GB": null, "FCLASS_GR": null, "FCLASS_ID": null, "FCLASS_IL": null, "FCLASS_IN": null, "FCLASS_ISO": "Admin-0 country", "FCLASS_IT": null, "FCLASS_JP": null, "FCLASS_KO": null, "FCLASS_MA": null, "FCLASS_NL": null, "FCLASS_NP": null, "FCLASS_PK": null, "FCLASS_PL": null, "FCLASS_PS": null, "FCLASS_PT": null, "FCLASS_RU": null, "FCLASS_SA": null, "FCLASS_SE": null, "FCLASS_TLC": "Admin-0 country", "FCLASS_TR": null, "FCLASS_TW": null, "FCLASS_UA": null, "FCLASS_US": null, "FCLASS_VN": null, "FIPS_10": "IN", "FORMAL_EN": "Republic of India", "FORMAL_FR": null, "GDP_MD": 2868929, "GDP_YEAR": 2019, "GEOUNIT": "India", "GEOU_DIF": 0, "GU_A3": "IND", "HOMEPART": 1, "INCOME_GRP": "4. Lower middle income", "ISO_A2": "IN", "ISO_A2_EH": "IN", "ISO_A3": "IND", "ISO_A3_EH": "IND", "ISO_N3": "356", "ISO_N3_EH": "356", "Island_ID": 1, "Island_Name": "Lakshadweep_1", "LABELRANK": 2, "LABEL_X": 79.358105, "LABEL_Y": 22.686852, "LEVEL": 2, "LONG_LEN": 5, "MAPCOLOR13": 2, "MAPCOLOR7": 1, "MAPCOLOR8": 3, "MAPCOLOR9": 2, "MAX_LABEL": 6.7, "MIN_LABEL": 1.7, "MIN_ZOOM": 0.0, "NAME": "India", "NAME_ALT": null, "NAME_AR": "\u0627\u0644\u0647\u0646\u062f", "NAME_BN": "\u09ad\u09be\u09b0\u09a4", "NAME_CIAWF": "India", "NAME_DE": "Indien", "NAME_EL": "\u0399\u03bd\u03b4\u03af\u03b1", "NAME_EN": "India", "NAME_ES": "India", "NAME_FA": "\u0647\u0646\u062f", "NAME_FR": "Inde", "NAME_HE": "\u05d4\u05d5\u05d3\u05d5", "NAME_HI": "\u092d\u093e\u0930\u0924", "NAME_HU": "India", "NAME_ID": "India", "NAME_IT": "India", "NAME_JA": "\u30a4\u30f3\u30c9", "NAME_KO": "\uc778\ub3c4", "NAME_LEN": 5, "NAME_LONG": "India", "NAME_NL": "India", "NAME_PL": "Indie", "NAME_PT": "\u00cdndia", "NAME_RU": "\u0418\u043d\u0434\u0438\u044f", "NAME_SORT": "India", "NAME_SV": "Indien", "NAME_TR": "Hindistan", "NAME_UK": "\u0406\u043d\u0434\u0456\u044f", "NAME_UR": "\u0628\u06be\u0627\u0631\u062a", "NAME_VI": "\u1ea4n \u0110\u1ed9", "NAME_ZH": "\u5370\u5ea6", "NAME_ZHT": "\u5370\u5ea6", "NE_ID": 1159320847, "NOTE_ADM0": null, "NOTE_BRK": null, "POP_EST": 1366417754.0, "POP_RANK": 18, "POP_YEAR": 2019, "POSTAL": "IND", "REGION_UN": "Asia", "REGION_WB": "South Asia", "Risk_Score": 50, "SLR_2050": 0.5, "SOVEREIGNT": "India", "SOV_A3": "IND", "SUBREGION": "Southern Asia", "SUBUNIT": "India", "SU_A3": "IND", "SU_DIF": 0, "TINY": -99, "TLC": "1", "TLC_DIFF": null, "TYPE": "Sovereign country", "UN_A3": "356", "WB_A2": "IN", "WB_A3": "IND", "WIKIDATAID": "Q668", "WOE_ID": 23424848, "WOE_ID_EH": 23424848, "WOE_NOTE": "Exact WOE match as country", "featurecla": "Admin-0 country", "scalerank": 0}, "type": "Feature"}, {"bbox": [72.70093834700003, 11.686428127000056, 72.71615644600007, 11.694159247000073], "geometry": {"coordinates": [[[72.71615644600007, 11.694159247000073], [72.71607506600003, 11.69407786700009], [72.70866946700005, 11.689154364000046], [72.70525149800005, 11.687323309000078], [72.70110110800005, 11.686428127000056], [72.70093834700003, 11.686428127000056], [72.70508873800003, 11.692328192000048], [72.70923912900008, 11.694159247000073], [72.71615644600007, 11.694159247000073]]], "type": "Polygon"}, "id": "1", "properties": {"ABBREV": "India", "ABBREV_LEN": 5, "ADM0_A3": "IND", "ADM0_A3_AR": "IND", "ADM0_A3_BD": "IND", "ADM0_A3_BR": "IND", "ADM0_A3_CN": "IND", "ADM0_A3_DE": "IND", "ADM0_A3_EG": "IND", "ADM0_A3_ES": "IND", "ADM0_A3_FR": "IND", "ADM0_A3_GB": "IND", "ADM0_A3_GR": "IND", "ADM0_A3_ID": "IND", "ADM0_A3_IL": "IND", "ADM0_A3_IN": "IND", "ADM0_A3_IT": "IND", "ADM0_A3_JP": "IND", "ADM0_A3_KO": "IND", "ADM0_A3_MA": "IND", "ADM0_A3_NL": "IND", "ADM0_A3_NP": "IND", "ADM0_A3_PK": "IND", "ADM0_A3_PL": "IND", "ADM0_A3_PS": "IND", "ADM0_A3_PT": "IND", "ADM0_A3_RU": "IND", "ADM0_A3_SA": "IND", "ADM0_A3_SE": "IND", "ADM0_A3_TR": "IND", "ADM0_A3_TW": "IND", "ADM0_A3_UA": "IND", "ADM0_A3_UN": -99, "ADM0_A3_US": "IND", "ADM0_A3_VN": "IND", "ADM0_A3_WB": -99, "ADM0_DIF": 0, "ADM0_DIFF": null, "ADM0_ISO": "IND", "ADM0_TLC": "IND", "ADMIN": "India", "BRK_A3": "IND", "BRK_DIFF": 0, "BRK_GROUP": null, "BRK_NAME": "India", "CONTINENT": "Asia", "Country": "Lakshadweep", "ECONOMY": "3. Emerging region: BRIC", "FCLASS_AR": null, "FCLASS_BD": null, "FCLASS_BR": null, "FCLASS_CN": null, "FCLASS_DE": null, "FCLASS_EG": null, "FCLASS_ES": null, "FCLASS_FR": null, "FCLASS_GB": null, "FCLASS_GR": null, "FCLASS_ID": null, "FCLASS_IL": null, "FCLASS_IN": null, "FCLASS_ISO": "Admin-0 country", "FCLASS_IT": null, "FCLASS_JP": null, "FCLASS_KO": null, "FCLASS_MA": null, "FCLASS_NL": null, "FCLASS_NP": null, "FCLASS_PK": null, "FCLASS_PL": null, "FCLASS_PS": null, "FCLASS_PT": null, "FCLASS_RU": null, "FCLASS_SA": null, "FCLASS_SE": null, "FCLASS_TLC": "Admin-0 country", "FCLASS_TR": null, "FCLASS_TW": null, "FCLASS_UA": null, "FCLASS_US": null, "FCLASS_VN": null, "FIPS_10": "IN", "FORMAL_EN": "Republic of India", "FORMAL_FR": null, "GDP_MD": 2868929, "GDP_YEAR": 2019, "GEOUNIT": "India", "GEOU_DIF": 0, "GU_A3": "IND", "HOMEPART": 1, "INCOME_GRP": "4. Lower middle income", "ISO_A2": "IN", "ISO_A2_EH": "IN", "ISO_A3": "IND", "ISO_A3_EH": "IND", "ISO_N3": "356", "ISO_N3_EH": "356", "Island_ID": 2, "Island_Name": "Lakshadweep_2", "LABELRANK": 2, "LABEL_X": 79.358105, "LABEL_Y": 22.686852, "LEVEL": 2, "LONG_LEN": 5, "MAPCOLOR13": 2, "MAPCOLOR7": 1, "MAPCOLOR8": 3, "MAPCOLOR9": 2, "MAX_LABEL": 6.7, "MIN_LABEL": 1.7, "MIN_ZOOM": 0.0, "NAME": "India", "NAME_ALT": null, "NAME_AR": "\u0627\u0644\u0647\u0646\u062f", "NAME_BN": "\u09ad\u09be\u09b0\u09a4", "NAME_CIAWF": "India", "NAME_DE": "Indien", "NAME_EL": "\u0399\u03bd\u03b4\u03af\u03b1", "NAME_EN": "India", "NAME_ES": "India", "NAME_FA": "\u0647\u0646\u062f", "NAME_FR": "Inde", "NAME_HE": "\u05d4\u05d5\u05d3\u05d5", "NAME_HI": "\u092d\u093e\u0930\u0924", "NAME_HU": "India", "NAME_ID": "India", "NAME_IT": "India", "NAME_JA": "\u30a4\u30f3\u30c9", "NAME_KO": "\uc778\ub3c4", "NAME_LEN": 5, "NAME_LONG": "India", "NAME_NL": "India", "NAME_PL": "Indie", "NAME_PT": "\u00cdndia", "NAME_RU": "\u0418\u043d\u0434\u0438\u044f", "NAME_SORT": "India", "NAME_SV": "Indien", "NAME_TR": "Hindistan", "NAME_UK": "\u0406\u043d\u0434\u0456\u044f", "NAME_UR": "\u0628\u06be\u0627\u0631\u062a", "NAME_VI": "\u1ea4n \u0110\u1ed9", "NAME_ZH": "\u5370\u5ea6", "NAME_ZHT": "\u5370\u5ea6", "NE_ID": 1159320847, "NOTE_ADM0": null, "NOTE_BRK": null, "POP_EST": 1366417754.0, "POP_RANK": 18, "POP_YEAR": 2019, "POSTAL": "IND", "REGION_UN": "Asia", "REGION_WB": "South Asia", "Risk_Score": 50, "SLR_2050": 0.5, "SOVEREIGNT": "India", "SOV_A3": "IND", "SUBREGION": "Southern Asia", "SUBUNIT": "India", "SU_A3": "IND", "SU_DIF": 0, "TINY": -99, "TLC": "1", "TLC_DIFF": null, "TYPE": "Sovereign country", "UN_A3": "356", "WB_A2": "IN", "WB_A3": "IND", "WIKIDATAID": "Q668", "WOE_ID": 23424848, "WOE_ID_EH": 23424848, "WOE_NOTE": "Exact WOE match as country", "featurecla": "Admin-0 country", "scalerank": 0}, "type": "Feature"}, {"bbox": [73.67139733200008, 10.824367580000057, 73.68441816500007, 10.829738674000055], "geometry": {"coordinates": [[[73.67139733200008, 10.829738674000055], [73.68124433700007, 10.828070380000042], [73.68441816500007, 10.827541408000059], [73.67628014400003, 10.824367580000057], [73.67286217500003, 10.824693101000037], [73.67188561300003, 10.827093817000048], [73.67139733200008, 10.829657294000071], [73.67139733200008, 10.829738674000055]]], "type": "Polygon"}, "id": "2", "properties": {"ABBREV": "India", "ABBREV_LEN": 5, "ADM0_A3": "IND", "ADM0_A3_AR": "IND", "ADM0_A3_BD": "IND", "ADM0_A3_BR": "IND", "ADM0_A3_CN": "IND", "ADM0_A3_DE": "IND", "ADM0_A3_EG": "IND", "ADM0_A3_ES": "IND", "ADM0_A3_FR": "IND", "ADM0_A3_GB": "IND", "ADM0_A3_GR": "IND", "ADM0_A3_ID": "IND", "ADM0_A3_IL": "IND", "ADM0_A3_IN": "IND", "ADM0_A3_IT": "IND", "ADM0_A3_JP": "IND", "ADM0_A3_KO": "IND", "ADM0_A3_MA": "IND", "ADM0_A3_NL": "IND", "ADM0_A3_NP": "IND", "ADM0_A3_PK": "IND", "ADM0_A3_PL": "IND", "ADM0_A3_PS": "IND", "ADM0_A3_PT": "IND", "ADM0_A3_RU": "IND", "ADM0_A3_SA": "IND", "ADM0_A3_SE": "IND", "ADM0_A3_TR": "IND", "ADM0_A3_TW": "IND", "ADM0_A3_UA": "IND", "ADM0_A3_UN": -99, "ADM0_A3_US": "IND", "ADM0_A3_VN": "IND", "ADM0_A3_WB": -99, "ADM0_DIF": 0, "ADM0_DIFF": null, "ADM0_ISO": "IND", "ADM0_TLC": "IND", "ADMIN": "India", "BRK_A3": "IND", "BRK_DIFF": 0, "BRK_GROUP": null, "BRK_NAME": "India", "CONTINENT": "Asia", "Country": "Lakshadweep", "ECONOMY": "3. Emerging region: BRIC", "FCLASS_AR": null, "FCLASS_BD": null, "FCLASS_BR": null, "FCLASS_CN": null, "FCLASS_DE": null, "FCLASS_EG": null, "FCLASS_ES": null, "FCLASS_FR": null, "FCLASS_GB": null, "FCLASS_GR": null, "FCLASS_ID": null, "FCLASS_IL": null, "FCLASS_IN": null, "FCLASS_ISO": "Admin-0 country", "FCLASS_IT": null, "FCLASS_JP": null, "FCLASS_KO": null, "FCLASS_MA": null, "FCLASS_NL": null, "FCLASS_NP": null, "FCLASS_PK": null, "FCLASS_PL": null, "FCLASS_PS": null, "FCLASS_PT": null, "FCLASS_RU": null, "FCLASS_SA": null, "FCLASS_SE": null, "FCLASS_TLC": "Admin-0 country", "FCLASS_TR": null, "FCLASS_TW": null, "FCLASS_UA": null, "FCLASS_US": null, "FCLASS_VN": null, "FIPS_10": "IN", "FORMAL_EN": "Republic of India", "FORMAL_FR": null, "GDP_MD": 2868929, "GDP_YEAR": 2019, "GEOUNIT": "India", "GEOU_DIF": 0, "GU_A3": "IND", "HOMEPART": 1, "INCOME_GRP": "4. Lower middle income", "ISO_A2": "IN", "ISO_A2_EH": "IN", "ISO_A3": "IND", "ISO_A3_EH": "IND", "ISO_N3": "356", "ISO_N3_EH": "356", "Island_ID": 3, "Island_Name": "Lakshadweep_3", "LABELRANK": 2, "LABEL_X": 79.358105, "LABEL_Y": 22.686852, "LEVEL": 2, "LONG_LEN": 5, "MAPCOLOR13": 2, "MAPCOLOR7": 1, "MAPCOLOR8": 3, "MAPCOLOR9": 2, "MAX_LABEL": 6.7, "MIN_LABEL": 1.7, "MIN_ZOOM": 0.0, "NAME": "India", "NAME_ALT": null, "NAME_AR": "\u0627\u0644\u0647\u0646\u062f", "NAME_BN": "\u09ad\u09be\u09b0\u09a4", "NAME_CIAWF": "India", "NAME_DE": "Indien", "NAME_EL": "\u0399\u03bd\u03b4\u03af\u03b1", "NAME_EN": "India", "NAME_ES": "India", "NAME_FA": "\u0647\u0646\u062f", "NAME_FR": "Inde", "NAME_HE": "\u05d4\u05d5\u05d3\u05d5", "NAME_HI": "\u092d\u093e\u0930\u0924", "NAME_HU": "India", "NAME_ID": "India", "NAME_IT": "India", "NAME_JA": "\u30a4\u30f3\u30c9", "NAME_KO": "\uc778\ub3c4", "NAME_LEN": 5, "NAME_LONG": "India", "NAME_NL": "India", "NAME_PL": "Indie", "NAME_PT": "\u00cdndia", "NAME_RU": "\u0418\u043d\u0434\u0438\u044f", "NAME_SORT": "India", "NAME_SV": "Indien", "NAME_TR": "Hindistan", "NAME_UK": "\u0406\u043d\u0434\u0456\u044f", "NAME_UR": "\u0628\u06be\u0627\u0631\u062a", "NAME_VI": "\u1ea4n \u0110\u1ed9", "NAME_ZH": "\u5370\u5ea6", "NAME_ZHT": "\u5370\u5ea6", "NE_ID": 1159320847, "NOTE_ADM0": null, "NOTE_BRK": null, "POP_EST": 1366417754.0, "POP_RANK": 18, "POP_YEAR": 2019, "POSTAL": "IND", "REGION_UN": "Asia", "REGION_WB": "South Asia", "Risk_Score": 50, "SLR_2050": 0.5, "SOVEREIGNT": "India", "SOV_A3": "IND", "SUBREGION": "Southern Asia", "SUBUNIT": "India", "SU_A3": "IND", "SU_DIF": 0, "TINY": -99, "TLC": "1", "TLC_DIFF": null, "TYPE": "Sovereign country", "UN_A3": "356", "WB_A2": "IN", "WB_A3": "IND", "WIKIDATAID": "Q668", "WOE_ID": 23424848, "WOE_ID_EH": 23424848, "WOE_NOTE": "Exact WOE match as country", "featurecla": "Admin-0 country", "scalerank": 0}, "type": "Feature"}, {"bbox": [73.00440514400003, 11.479641018000052, 73.01319420700008, 11.50218333500004], "geometry": {"coordinates": [[[73.01319420700008, 11.50218333500004], [73.01091556100005, 11.49013906500005], [73.00879967500003, 11.48468659100007], [73.00562584700003, 11.479641018000052], [73.00440514400003, 11.488836981000077], [73.00440514400003, 11.496486721000053], [73.00709069100003, 11.501288153000075], [73.01319420700008, 11.50218333500004]]], "type": "Polygon"}, "id": "3", "properties": {"ABBREV": "India", "ABBREV_LEN": 5, "ADM0_A3": "IND", "ADM0_A3_AR": "IND", "ADM0_A3_BD": "IND", "ADM0_A3_BR": "IND", "ADM0_A3_CN": "IND", "ADM0_A3_DE": "IND", "ADM0_A3_EG": "IND", "ADM0_A3_ES": "IND", "ADM0_A3_FR": "IND", "ADM0_A3_GB": "IND", "ADM0_A3_GR": "IND", "ADM0_A3_ID": "IND", "ADM0_A3_IL": "IND", "ADM0_A3_IN": "IND", "ADM0_A3_IT": "IND", "ADM0_A3_JP": "IND", "ADM0_A3_KO": "IND", "ADM0_A3_MA": "IND", "ADM0_A3_NL": "IND", "ADM0_A3_NP": "IND", "ADM0_A3_PK": "IND", "ADM0_A3_PL": "IND", "ADM0_A3_PS": "IND", "ADM0_A3_PT": "IND", "ADM0_A3_RU": "IND", "ADM0_A3_SA": "IND", "ADM0_A3_SE": "IND", "ADM0_A3_TR": "IND", "ADM0_A3_TW": "IND", "ADM0_A3_UA": "IND", "ADM0_A3_UN": -99, "ADM0_A3_US": "IND", "ADM0_A3_VN": "IND", "ADM0_A3_WB": -99, "ADM0_DIF": 0, "ADM0_DIFF": null, "ADM0_ISO": "IND", "ADM0_TLC": "IND", "ADMIN": "India", "BRK_A3": "IND", "BRK_DIFF": 0, "BRK_GROUP": null, "BRK_NAME": "India", "CONTINENT": "Asia", "Country": "Lakshadweep", "ECONOMY": "3. Emerging region: BRIC", "FCLASS_AR": null, "FCLASS_BD": null, "FCLASS_BR": null, "FCLASS_CN": null, "FCLASS_DE": null, "FCLASS_EG": null, "FCLASS_ES": null, "FCLASS_FR": null, "FCLASS_GB": null, "FCLASS_GR": null, "FCLASS_ID": null, "FCLASS_IL": null, "FCLASS_IN": null, "FCLASS_ISO": "Admin-0 country", "FCLASS_IT": null, "FCLASS_JP": null, "FCLASS_KO": null, "FCLASS_MA": null, "FCLASS_NL": null, "FCLASS_NP": null, "FCLASS_PK": null, "FCLASS_PL": null, "FCLASS_PS": null, "FCLASS_PT": null, "FCLASS_RU": null, "FCLASS_SA": null, "FCLASS_SE": null, "FCLASS_TLC": "Admin-0 country", "FCLASS_TR": null, "FCLASS_TW": null, "FCLASS_UA": null, "FCLASS_US": null, "FCLASS_VN": null, "FIPS_10": "IN", "FORMAL_EN": "Republic of India", "FORMAL_FR": null, "GDP_MD": 2868929, "GDP_YEAR": 2019, "GEOUNIT": "India", "GEOU_DIF": 0, "GU_A3": "IND", "HOMEPART": 1, "INCOME_GRP": "4. Lower middle income", "ISO_A2": "IN", "ISO_A2_EH": "IN", "ISO_A3": "IND", "ISO_A3_EH": "IND", "ISO_N3": "356", "ISO_N3_EH": "356", "Island_ID": 4, "Island_Name": "Lakshadweep_4", "LABELRANK": 2, "LABEL_X": 79.358105, "LABEL_Y": 22.686852, "LEVEL": 2, "LONG_LEN": 5, "MAPCOLOR13": 2, "MAPCOLOR7": 1, "MAPCOLOR8": 3, "MAPCOLOR9": 2, "MAX_LABEL": 6.7, "MIN_LABEL": 1.7, "MIN_ZOOM": 0.0, "NAME": "India", "NAME_ALT": null, "NAME_AR": "\u0627\u0644\u0647\u0646\u062f", "NAME_BN": "\u09ad\u09be\u09b0\u09a4", "NAME_CIAWF": "India", "NAME_DE": "Indien", "NAME_EL": "\u0399\u03bd\u03b4\u03af\u03b1", "NAME_EN": "India", "NAME_ES": "India", "NAME_FA": "\u0647\u0646\u062f", "NAME_FR": "Inde", "NAME_HE": "\u05d4\u05d5\u05d3\u05d5", "NAME_HI": "\u092d\u093e\u0930\u0924", "NAME_HU": "India", "NAME_ID": "India", "NAME_IT": "India", "NAME_JA": "\u30a4\u30f3\u30c9", "NAME_KO": "\uc778\ub3c4", "NAME_LEN": 5, "NAME_LONG": "India", "NAME_NL": "India", "NAME_PL": "Indie", "NAME_PT": "\u00cdndia", "NAME_RU": "\u0418\u043d\u0434\u0438\u044f", "NAME_SORT": "India", "NAME_SV": "Indien", "NAME_TR": "Hindistan", "NAME_UK": "\u0406\u043d\u0434\u0456\u044f", "NAME_UR": "\u0628\u06be\u0627\u0631\u062a", "NAME_VI": "\u1ea4n \u0110\u1ed9", "NAME_ZH": "\u5370\u5ea6", "NAME_ZHT": "\u5370\u5ea6", "NE_ID": 1159320847, "NOTE_ADM0": null, "NOTE_BRK": null, "POP_EST": 1366417754.0, "POP_RANK": 18, "POP_YEAR": 2019, "POSTAL": "IND", "REGION_UN": "Asia", "REGION_WB": "South Asia", "Risk_Score": 50, "SLR_2050": 0.5, "SOVEREIGNT": "India", "SOV_A3": "IND", "SUBREGION": "Southern Asia", "SUBUNIT": "India", "SU_A3": "IND", "SU_DIF": 0, "TINY": -99, "TLC": "1", "TLC_DIFF": null, "TYPE": "Sovereign country", "UN_A3": "356", "WB_A2": "IN", "WB_A3": "IND", "WIKIDATAID": "Q668", "WOE_ID": 23424848, "WOE_ID_EH": 23424848, "WOE_NOTE": "Exact WOE match as country", "featurecla": "Admin-0 country", "scalerank": 0}, "type": "Feature"}, {"bbox": [72.62745201900003, 10.554754950000074, 72.65056399800005, 10.573960679000038], "geometry": {"coordinates": [[[72.64975019600007, 10.566839911000045], [72.63851972700007, 10.559393622000073], [72.63306725400008, 10.55654531500005], [72.62753339900007, 10.554795640000066], [72.62745201900003, 10.554754950000074], [72.63209069100003, 10.56000397300005], [72.64861087300005, 10.573960679000038], [72.64869225400008, 10.573919989000046], [72.65056399800005, 10.57257721600007], [72.65040123800003, 10.571193752000056], [72.64958743600005, 10.56932200700004], [72.64975019600007, 10.566839911000045]]], "type": "Polygon"}, "id": "4", "properties": {"ABBREV": "India", "ABBREV_LEN": 5, "ADM0_A3": "IND", "ADM0_A3_AR": "IND", "ADM0_A3_BD": "IND", "ADM0_A3_BR": "IND", "ADM0_A3_CN": "IND", "ADM0_A3_DE": "IND", "ADM0_A3_EG": "IND", "ADM0_A3_ES": "IND", "ADM0_A3_FR": "IND", "ADM0_A3_GB": "IND", "ADM0_A3_GR": "IND", "ADM0_A3_ID": "IND", "ADM0_A3_IL": "IND", "ADM0_A3_IN": "IND", "ADM0_A3_IT": "IND", "ADM0_A3_JP": "IND", "ADM0_A3_KO": "IND", "ADM0_A3_MA": "IND", "ADM0_A3_NL": "IND", "ADM0_A3_NP": "IND", "ADM0_A3_PK": "IND", "ADM0_A3_PL": "IND", "ADM0_A3_PS": "IND", "ADM0_A3_PT": "IND", "ADM0_A3_RU": "IND", "ADM0_A3_SA": "IND", "ADM0_A3_SE": "IND", "ADM0_A3_TR": "IND", "ADM0_A3_TW": "IND", "ADM0_A3_UA": "IND", "ADM0_A3_UN": -99, "ADM0_A3_US": "IND", "ADM0_A3_VN": "IND", "ADM0_A3_WB": -99, "ADM0_DIF": 0, "ADM0_DIFF": null, "ADM0_ISO": "IND", "ADM0_TLC": "IND", "ADMIN": "India", "BRK_A3": "IND", "BRK_DIFF": 0, "BRK_GROUP": null, "BRK_NAME": "India", "CONTINENT": "Asia", "Country": "Lakshadweep", "ECONOMY": "3. Emerging region: BRIC", "FCLASS_AR": null, "FCLASS_BD": null, "FCLASS_BR": null, "FCLASS_CN": null, "FCLASS_DE": null, "FCLASS_EG": null, "FCLASS_ES": null, "FCLASS_FR": null, "FCLASS_GB": null, "FCLASS_GR": null, "FCLASS_ID": null, "FCLASS_IL": null, "FCLASS_IN": null, "FCLASS_ISO": "Admin-0 country", "FCLASS_IT": null, "FCLASS_JP": null, "FCLASS_KO": null, "FCLASS_MA": null, "FCLASS_NL": null, "FCLASS_NP": null, "FCLASS_PK": null, "FCLASS_PL": null, "FCLASS_PS": null, "FCLASS_PT": null, "FCLASS_RU": null, "FCLASS_SA": null, "FCLASS_SE": null, "FCLASS_TLC": "Admin-0 country", "FCLASS_TR": null, "FCLASS_TW": null, "FCLASS_UA": null, "FCLASS_US": null, "FCLASS_VN": null, "FIPS_10": "IN", "FORMAL_EN": "Republic of India", "FORMAL_FR": null, "GDP_MD": 2868929, "GDP_YEAR": 2019, "GEOUNIT": "India", "GEOU_DIF": 0, "GU_A3": "IND", "HOMEPART": 1, "INCOME_GRP": "4. Lower middle income", "ISO_A2": "IN", "ISO_A2_EH": "IN", "ISO_A3": "IND", "ISO_A3_EH": "IND", "ISO_N3": "356", "ISO_N3_EH": "356", "Island_ID": 5, "Island_Name": "Lakshadweep_5", "LABELRANK": 2, "LABEL_X": 79.358105, "LABEL_Y": 22.686852, "LEVEL": 2, "LONG_LEN": 5, "MAPCOLOR13": 2, "MAPCOLOR7": 1, "MAPCOLOR8": 3, "MAPCOLOR9": 2, "MAX_LABEL": 6.7, "MIN_LABEL": 1.7, "MIN_ZOOM": 0.0, "NAME": "India", "NAME_ALT": null, "NAME_AR": "\u0627\u0644\u0647\u0646\u062f", "NAME_BN": "\u09ad\u09be\u09b0\u09a4", "NAME_CIAWF": "India", "NAME_DE": "Indien", "NAME_EL": "\u0399\u03bd\u03b4\u03af\u03b1", "NAME_EN": "India", "NAME_ES": "India", "NAME_FA": "\u0647\u0646\u062f", "NAME_FR": "Inde", "NAME_HE": "\u05d4\u05d5\u05d3\u05d5", "NAME_HI": "\u092d\u093e\u0930\u0924", "NAME_HU": "India", "NAME_ID": "India", "NAME_IT": "India", "NAME_JA": "\u30a4\u30f3\u30c9", "NAME_KO": "\uc778\ub3c4", "NAME_LEN": 5, "NAME_LONG": "India", "NAME_NL": "India", "NAME_PL": "Indie", "NAME_PT": "\u00cdndia", "NAME_RU": "\u0418\u043d\u0434\u0438\u044f", "NAME_SORT": "India", "NAME_SV": "Indien", "NAME_TR": "Hindistan", "NAME_UK": "\u0406\u043d\u0434\u0456\u044f", "NAME_UR": "\u0628\u06be\u0627\u0631\u062a", "NAME_VI": "\u1ea4n \u0110\u1ed9", "NAME_ZH": "\u5370\u5ea6", "NAME_ZHT": "\u5370\u5ea6", "NE_ID": 1159320847, "NOTE_ADM0": null, "NOTE_BRK": null, "POP_EST": 1366417754.0, "POP_RANK": 18, "POP_YEAR": 2019, "POSTAL": "IND", "REGION_UN": "Asia", "REGION_WB": "South Asia", "Risk_Score": 50, "SLR_2050": 0.5, "SOVEREIGNT": "India", "SOV_A3": "IND", "SUBREGION": "Southern Asia", "SUBUNIT": "India", "SU_A3": "IND", "SU_DIF": 0, "TINY": -99, "TLC": "1", "TLC_DIFF": null, "TYPE": "Sovereign country", "UN_A3": "356", "WB_A2": "IN", "WB_A3": "IND", "WIKIDATAID": "Q668", "WOE_ID": 23424848, "WOE_ID_EH": 23424848, "WOE_NOTE": "Exact WOE match as country", "featurecla": "Admin-0 country", "scalerank": 0}, "type": "Feature"}, {"bbox": [73.02247155000003, 8.249497789000088, 73.08399498800003, 8.315822658000059], "geometry": {"coordinates": [[[73.07715905000003, 8.315252997000073], [73.08179772200003, 8.315822658000059], [73.08301842500003, 8.31435781500005], [73.08301842500003, 8.311672268000052], [73.08399498800003, 8.30849844000005], [73.06609134200005, 8.270453192000048], [73.05665123800003, 8.25999583500004], [73.04468834700003, 8.252427476000037], [73.03272545700008, 8.249497789000088], [73.02409915500004, 8.255438544000071], [73.02247155000003, 8.274359442000048], [73.02930748800003, 8.274318752000056], [73.02930748800003, 8.274115302000041], [73.02898196700005, 8.263413804000038], [73.02930748800003, 8.25999583500004], [73.04835045700008, 8.26756419500009], [73.06316165500004, 8.279486395000049], [73.07300866000008, 8.295396226000037], [73.07715905000003, 8.315252997000073]]], "type": "Polygon"}, "id": "5", "properties": {"ABBREV": "India", "ABBREV_LEN": 5, "ADM0_A3": "IND", "ADM0_A3_AR": "IND", "ADM0_A3_BD": "IND", "ADM0_A3_BR": "IND", "ADM0_A3_CN": "IND", "ADM0_A3_DE": "IND", "ADM0_A3_EG": "IND", "ADM0_A3_ES": "IND", "ADM0_A3_FR": "IND", "ADM0_A3_GB": "IND", "ADM0_A3_GR": "IND", "ADM0_A3_ID": "IND", "ADM0_A3_IL": "IND", "ADM0_A3_IN": "IND", "ADM0_A3_IT": "IND", "ADM0_A3_JP": "IND", "ADM0_A3_KO": "IND", "ADM0_A3_MA": "IND", "ADM0_A3_NL": "IND", "ADM0_A3_NP": "IND", "ADM0_A3_PK": "IND", "ADM0_A3_PL": "IND", "ADM0_A3_PS": "IND", "ADM0_A3_PT": "IND", "ADM0_A3_RU": "IND", "ADM0_A3_SA": "IND", "ADM0_A3_SE": "IND", "ADM0_A3_TR": "IND", "ADM0_A3_TW": "IND", "ADM0_A3_UA": "IND", "ADM0_A3_UN": -99, "ADM0_A3_US": "IND", "ADM0_A3_VN": "IND", "ADM0_A3_WB": -99, "ADM0_DIF": 0, "ADM0_DIFF": null, "ADM0_ISO": "IND", "ADM0_TLC": "IND", "ADMIN": "India", "BRK_A3": "IND", "BRK_DIFF": 0, "BRK_GROUP": null, "BRK_NAME": "India", "CONTINENT": "Asia", "Country": "Lakshadweep", "ECONOMY": "3. Emerging region: BRIC", "FCLASS_AR": null, "FCLASS_BD": null, "FCLASS_BR": null, "FCLASS_CN": null, "FCLASS_DE": null, "FCLASS_EG": null, "FCLASS_ES": null, "FCLASS_FR": null, "FCLASS_GB": null, "FCLASS_GR": null, "FCLASS_ID": null, "FCLASS_IL": null, "FCLASS_IN": null, "FCLASS_ISO": "Admin-0 country", "FCLASS_IT": null, "FCLASS_JP": null, "FCLASS_KO": null, "FCLASS_MA": null, "FCLASS_NL": null, "FCLASS_NP": null, "FCLASS_PK": null, "FCLASS_PL": null, "FCLASS_PS": null, "FCLASS_PT": null, "FCLASS_RU": null, "FCLASS_SA": null, "FCLASS_SE": null, "FCLASS_TLC": "Admin-0 country", "FCLASS_TR": null, "FCLASS_TW": null, "FCLASS_UA": null, "FCLASS_US": null, "FCLASS_VN": null, "FIPS_10": "IN", "FORMAL_EN": "Republic of India", "FORMAL_FR": null, "GDP_MD": 2868929, "GDP_YEAR": 2019, "GEOUNIT": "India", "GEOU_DIF": 0, "GU_A3": "IND", "HOMEPART": 1, "INCOME_GRP": "4. Lower middle income", "ISO_A2": "IN", "ISO_A2_EH": "IN", "ISO_A3": "IND", "ISO_A3_EH": "IND", "ISO_N3": "356", "ISO_N3_EH": "356", "Island_ID": 6, "Island_Name": "Lakshadweep_6", "LABELRANK": 2, "LABEL_X": 79.358105, "LABEL_Y": 22.686852, "LEVEL": 2, "LONG_LEN": 5, "MAPCOLOR13": 2, "MAPCOLOR7": 1, "MAPCOLOR8": 3, "MAPCOLOR9": 2, "MAX_LABEL": 6.7, "MIN_LABEL": 1.7, "MIN_ZOOM": 0.0, "NAME": "India", "NAME_ALT": null, "NAME_AR": "\u0627\u0644\u0647\u0646\u062f", "NAME_BN": "\u09ad\u09be\u09b0\u09a4", "NAME_CIAWF": "India", "NAME_DE": "Indien", "NAME_EL": "\u0399\u03bd\u03b4\u03af\u03b1", "NAME_EN": "India", "NAME_ES": "India", "NAME_FA": "\u0647\u0646\u062f", "NAME_FR": "Inde", "NAME_HE": "\u05d4\u05d5\u05d3\u05d5", "NAME_HI": "\u092d\u093e\u0930\u0924", "NAME_HU": "India", "NAME_ID": "India", "NAME_IT": "India", "NAME_JA": "\u30a4\u30f3\u30c9", "NAME_KO": "\uc778\ub3c4", "NAME_LEN": 5, "NAME_LONG": "India", "NAME_NL": "India", "NAME_PL": "Indie", "NAME_PT": "\u00cdndia", "NAME_RU": "\u0418\u043d\u0434\u0438\u044f", "NAME_SORT": "India", "NAME_SV": "Indien", "NAME_TR": "Hindistan", "NAME_UK": "\u0406\u043d\u0434\u0456\u044f", "NAME_UR": "\u0628\u06be\u0627\u0631\u062a", "NAME_VI": "\u1ea4n \u0110\u1ed9", "NAME_ZH": "\u5370\u5ea6", "NAME_ZHT": "\u5370\u5ea6", "NE_ID": 1159320847, "NOTE_ADM0": null, "NOTE_BRK": null, "POP_EST": 1366417754.0, "POP_RANK": 18, "POP_YEAR": 2019, "POSTAL": "IND", "REGION_UN": "Asia", "REGION_WB": "South Asia", "Risk_Score": 50, "SLR_2050": 0.5, "SOVEREIGNT": "India", "SOV_A3": "IND", "SUBREGION": "Southern Asia", "SUBUNIT": "India", "SU_A3": "IND", "SU_DIF": 0, "TINY": -99, "TLC": "1", "TLC_DIFF": null, "TYPE": "Sovereign country", "UN_A3": "356", "WB_A2": "IN", "WB_A3": "IND", "WIKIDATAID": "Q668", "WOE_ID": 23424848, "WOE_ID_EH": 23424848, "WOE_NOTE": "Exact WOE match as country", "featurecla": "Admin-0 country", "scalerank": 0}, "type": "Feature"}, {"bbox": [72.54086347700007, 10.77289459800005, 72.54883873800003, 10.779445705000057], "geometry": {"coordinates": [[[72.54883873800003, 10.779445705000057], [72.54875735800005, 10.779323635000083], [72.54118899800005, 10.77289459800005], [72.54086347700007, 10.776516018000052], [72.54249108200008, 10.777899481000077], [72.54542076900003, 10.77830638200004], [72.54883873800003, 10.779445705000057]]], "type": "Polygon"}, "id": "6", "properties": {"ABBREV": "India", "ABBREV_LEN": 5, "ADM0_A3": "IND", "ADM0_A3_AR": "IND", "ADM0_A3_BD": "IND", "ADM0_A3_BR": "IND", "ADM0_A3_CN": "IND", "ADM0_A3_DE": "IND", "ADM0_A3_EG": "IND", "ADM0_A3_ES": "IND", "ADM0_A3_FR": "IND", "ADM0_A3_GB": "IND", "ADM0_A3_GR": "IND", "ADM0_A3_ID": "IND", "ADM0_A3_IL": "IND", "ADM0_A3_IN": "IND", "ADM0_A3_IT": "IND", "ADM0_A3_JP": "IND", "ADM0_A3_KO": "IND", "ADM0_A3_MA": "IND", "ADM0_A3_NL": "IND", "ADM0_A3_NP": "IND", "ADM0_A3_PK": "IND", "ADM0_A3_PL": "IND", "ADM0_A3_PS": "IND", "ADM0_A3_PT": "IND", "ADM0_A3_RU": "IND", "ADM0_A3_SA": "IND", "ADM0_A3_SE": "IND", "ADM0_A3_TR": "IND", "ADM0_A3_TW": "IND", "ADM0_A3_UA": "IND", "ADM0_A3_UN": -99, "ADM0_A3_US": "IND", "ADM0_A3_VN": "IND", "ADM0_A3_WB": -99, "ADM0_DIF": 0, "ADM0_DIFF": null, "ADM0_ISO": "IND", "ADM0_TLC": "IND", "ADMIN": "India", "BRK_A3": "IND", "BRK_DIFF": 0, "BRK_GROUP": null, "BRK_NAME": "India", "CONTINENT": "Asia", "Country": "Lakshadweep", "ECONOMY": "3. Emerging region: BRIC", "FCLASS_AR": null, "FCLASS_BD": null, "FCLASS_BR": null, "FCLASS_CN": null, "FCLASS_DE": null, "FCLASS_EG": null, "FCLASS_ES": null, "FCLASS_FR": null, "FCLASS_GB": null, "FCLASS_GR": null, "FCLASS_ID": null, "FCLASS_IL": null, "FCLASS_IN": null, "FCLASS_ISO": "Admin-0 country", "FCLASS_IT": null, "FCLASS_JP": null, "FCLASS_KO": null, "FCLASS_MA": null, "FCLASS_NL": null, "FCLASS_NP": null, "FCLASS_PK": null, "FCLASS_PL": null, "FCLASS_PS": null, "FCLASS_PT": null, "FCLASS_RU": null, "FCLASS_SA": null, "FCLASS_SE": null, "FCLASS_TLC": "Admin-0 country", "FCLASS_TR": null, "FCLASS_TW": null, "FCLASS_UA": null, "FCLASS_US": null, "FCLASS_VN": null, "FIPS_10": "IN", "FORMAL_EN": "Republic of India", "FORMAL_FR": null, "GDP_MD": 2868929, "GDP_YEAR": 2019, "GEOUNIT": "India", "GEOU_DIF": 0, "GU_A3": "IND", "HOMEPART": 1, "INCOME_GRP": "4. Lower middle income", "ISO_A2": "IN", "ISO_A2_EH": "IN", "ISO_A3": "IND", "ISO_A3_EH": "IND", "ISO_N3": "356", "ISO_N3_EH": "356", "Island_ID": 7, "Island_Name": "Lakshadweep_7", "LABELRANK": 2, "LABEL_X": 79.358105, "LABEL_Y": 22.686852, "LEVEL": 2, "LONG_LEN": 5, "MAPCOLOR13": 2, "MAPCOLOR7": 1, "MAPCOLOR8": 3, "MAPCOLOR9": 2, "MAX_LABEL": 6.7, "MIN_LABEL": 1.7, "MIN_ZOOM": 0.0, "NAME": "India", "NAME_ALT": null, "NAME_AR": "\u0627\u0644\u0647\u0646\u062f", "NAME_BN": "\u09ad\u09be\u09b0\u09a4", "NAME_CIAWF": "India", "NAME_DE": "Indien", "NAME_EL": "\u0399\u03bd\u03b4\u03af\u03b1", "NAME_EN": "India", "NAME_ES": "India", "NAME_FA": "\u0647\u0646\u062f", "NAME_FR": "Inde", "NAME_HE": "\u05d4\u05d5\u05d3\u05d5", "NAME_HI": "\u092d\u093e\u0930\u0924", "NAME_HU": "India", "NAME_ID": "India", "NAME_IT": "India", "NAME_JA": "\u30a4\u30f3\u30c9", "NAME_KO": "\uc778\ub3c4", "NAME_LEN": 5, "NAME_LONG": "India", "NAME_NL": "India", "NAME_PL": "Indie", "NAME_PT": "\u00cdndia", "NAME_RU": "\u0418\u043d\u0434\u0438\u044f", "NAME_SORT": "India", "NAME_SV": "Indien", "NAME_TR": "Hindistan", "NAME_UK": "\u0406\u043d\u0434\u0456\u044f", "NAME_UR": "\u0628\u06be\u0627\u0631\u062a", "NAME_VI": "\u1ea4n \u0110\u1ed9", "NAME_ZH": "\u5370\u5ea6", "NAME_ZHT": "\u5370\u5ea6", "NE_ID": 1159320847, "NOTE_ADM0": null, "NOTE_BRK": null, "POP_EST": 1366417754.0, "POP_RANK": 18, "POP_YEAR": 2019, "POSTAL": "IND", "REGION_UN": "Asia", "REGION_WB": "South Asia", "Risk_Score": 50, "SLR_2050": 0.5, "SOVEREIGNT": "India", "SOV_A3": "IND", "SUBREGION": "Southern Asia", "SUBUNIT": "India", "SU_A3": "IND", "SU_DIF": 0, "TINY": -99, "TLC": "1", "TLC_DIFF": null, "TYPE": "Sovereign country", "UN_A3": "356", "WB_A2": "IN", "WB_A3": "IND", "WIKIDATAID": "Q668", "WOE_ID": 23424848, "WOE_ID_EH": 23424848, "WOE_NOTE": "Exact WOE match as country", "featurecla": "Admin-0 country", "scalerank": 0}, "type": "Feature"}, {"bbox": [73.63168379000007, 10.05727773600006, 73.64633222700007, 10.094549872000073], "geometry": {"coordinates": [[[73.64633222700007, 10.08470286700009], [73.64405358200008, 10.076971747000073], [73.64096113400007, 10.06932200700004], [73.63705488400007, 10.062567450000074], [73.63257897200003, 10.05727773600006], [73.63168379000007, 10.067775783000059], [73.63331139400003, 10.077866929000038], [73.63746178500008, 10.087062893000052], [73.64389082100007, 10.094549872000073], [73.64397220100005, 10.09446849200009], [73.64519290500004, 10.092189846000053], [73.64633222700007, 10.08470286700009]]], "type": "Polygon"}, "id": "7", "properties": {"ABBREV": "India", "ABBREV_LEN": 5, "ADM0_A3": "IND", "ADM0_A3_AR": "IND", "ADM0_A3_BD": "IND", "ADM0_A3_BR": "IND", "ADM0_A3_CN": "IND", "ADM0_A3_DE": "IND", "ADM0_A3_EG": "IND", "ADM0_A3_ES": "IND", "ADM0_A3_FR": "IND", "ADM0_A3_GB": "IND", "ADM0_A3_GR": "IND", "ADM0_A3_ID": "IND", "ADM0_A3_IL": "IND", "ADM0_A3_IN": "IND", "ADM0_A3_IT": "IND", "ADM0_A3_JP": "IND", "ADM0_A3_KO": "IND", "ADM0_A3_MA": "IND", "ADM0_A3_NL": "IND", "ADM0_A3_NP": "IND", "ADM0_A3_PK": "IND", "ADM0_A3_PL": "IND", "ADM0_A3_PS": "IND", "ADM0_A3_PT": "IND", "ADM0_A3_RU": "IND", "ADM0_A3_SA": "IND", "ADM0_A3_SE": "IND", "ADM0_A3_TR": "IND", "ADM0_A3_TW": "IND", "ADM0_A3_UA": "IND", "ADM0_A3_UN": -99, "ADM0_A3_US": "IND", "ADM0_A3_VN": "IND", "ADM0_A3_WB": -99, "ADM0_DIF": 0, "ADM0_DIFF": null, "ADM0_ISO": "IND", "ADM0_TLC": "IND", "ADMIN": "India", "BRK_A3": "IND", "BRK_DIFF": 0, "BRK_GROUP": null, "BRK_NAME": "India", "CONTINENT": "Asia", "Country": "Lakshadweep", "ECONOMY": "3. Emerging region: BRIC", "FCLASS_AR": null, "FCLASS_BD": null, "FCLASS_BR": null, "FCLASS_CN": null, "FCLASS_DE": null, "FCLASS_EG": null, "FCLASS_ES": null, "FCLASS_FR": null, "FCLASS_GB": null, "FCLASS_GR": null, "FCLASS_ID": null, "FCLASS_IL": null, "FCLASS_IN": null, "FCLASS_ISO": "Admin-0 country", "FCLASS_IT": null, "FCLASS_JP": null, "FCLASS_KO": null, "FCLASS_MA": null, "FCLASS_NL": null, "FCLASS_NP": null, "FCLASS_PK": null, "FCLASS_PL": null, "FCLASS_PS": null, "FCLASS_PT": null, "FCLASS_RU": null, "FCLASS_SA": null, "FCLASS_SE": null, "FCLASS_TLC": "Admin-0 country", "FCLASS_TR": null, "FCLASS_TW": null, "FCLASS_UA": null, "FCLASS_US": null, "FCLASS_VN": null, "FIPS_10": "IN", "FORMAL_EN": "Republic of India", "FORMAL_FR": null, "GDP_MD": 2868929, "GDP_YEAR": 2019, "GEOUNIT": "India", "GEOU_DIF": 0, "GU_A3": "IND", "HOMEPART": 1, "INCOME_GRP": "4. Lower middle income", "ISO_A2": "IN", "ISO_A2_EH": "IN", "ISO_A3": "IND", "ISO_A3_EH": "IND", "ISO_N3": "356", "ISO_N3_EH": "356", "Island_ID": 8, "Island_Name": "Lakshadweep_8", "LABELRANK": 2, "LABEL_X": 79.358105, "LABEL_Y": 22.686852, "LEVEL": 2, "LONG_LEN": 5, "MAPCOLOR13": 2, "MAPCOLOR7": 1, "MAPCOLOR8": 3, "MAPCOLOR9": 2, "MAX_LABEL": 6.7, "MIN_LABEL": 1.7, "MIN_ZOOM": 0.0, "NAME": "India", "NAME_ALT": null, "NAME_AR": "\u0627\u0644\u0647\u0646\u062f", "NAME_BN": "\u09ad\u09be\u09b0\u09a4", "NAME_CIAWF": "India", "NAME_DE": "Indien", "NAME_EL": "\u0399\u03bd\u03b4\u03af\u03b1", "NAME_EN": "India", "NAME_ES": "India", "NAME_FA": "\u0647\u0646\u062f", "NAME_FR": "Inde", "NAME_HE": "\u05d4\u05d5\u05d3\u05d5", "NAME_HI": "\u092d\u093e\u0930\u0924", "NAME_HU": "India", "NAME_ID": "India", "NAME_IT": "India", "NAME_JA": "\u30a4\u30f3\u30c9", "NAME_KO": "\uc778\ub3c4", "NAME_LEN": 5, "NAME_LONG": "India", "NAME_NL": "India", "NAME_PL": "Indie", "NAME_PT": "\u00cdndia", "NAME_RU": "\u0418\u043d\u0434\u0438\u044f", "NAME_SORT": "India", "NAME_SV": "Indien", "NAME_TR": "Hindistan", "NAME_UK": "\u0406\u043d\u0434\u0456\u044f", "NAME_UR": "\u0628\u06be\u0627\u0631\u062a", "NAME_VI": "\u1ea4n \u0110\u1ed9", "NAME_ZH": "\u5370\u5ea6", "NAME_ZHT": "\u5370\u5ea6", "NE_ID": 1159320847, "NOTE_ADM0": null, "NOTE_BRK": null, "POP_EST": 1366417754.0, "POP_RANK": 18, "POP_YEAR": 2019, "POSTAL": "IND", "REGION_UN": "Asia", "REGION_WB": "South Asia", "Risk_Score": 50, "SLR_2050": 0.5, "SOVEREIGNT": "India", "SOV_A3": "IND", "SUBREGION": "Southern Asia", "SUBUNIT": "India", "SU_A3": "IND", "SU_DIF": 0, "TINY": -99, "TLC": "1", "TLC_DIFF": null, "TYPE": "Sovereign country", "UN_A3": "356", "WB_A2": "IN", "WB_A3": "IND", "WIKIDATAID": "Q668", "WOE_ID": 23424848, "WOE_ID_EH": 23424848, "WOE_NOTE": "Exact WOE match as country", "featurecla": "Admin-0 country", "scalerank": 0}, "type": "Feature"}, {"bbox": [72.73951256600003, 11.10883209800005, 72.75001061300003, 11.119086005000042], "geometry": {"coordinates": [[[72.75001061300003, 11.119086005000042], [72.74756920700008, 11.115423895000049], [72.74675540500004, 11.11196523600006], [72.74496504000007, 11.109523830000057], [72.73951256600003, 11.10883209800005], [72.73951256600003, 11.113959052000041], [72.74203535200007, 11.11595286700009], [72.74577884200005, 11.116888739000046], [72.75001061300003, 11.119086005000042]]], "type": "Polygon"}, "id": "8", "properties": {"ABBREV": "India", "ABBREV_LEN": 5, "ADM0_A3": "IND", "ADM0_A3_AR": "IND", "ADM0_A3_BD": "IND", "ADM0_A3_BR": "IND", "ADM0_A3_CN": "IND", "ADM0_A3_DE": "IND", "ADM0_A3_EG": "IND", "ADM0_A3_ES": "IND", "ADM0_A3_FR": "IND", "ADM0_A3_GB": "IND", "ADM0_A3_GR": "IND", "ADM0_A3_ID": "IND", "ADM0_A3_IL": "IND", "ADM0_A3_IN": "IND", "ADM0_A3_IT": "IND", "ADM0_A3_JP": "IND", "ADM0_A3_KO": "IND", "ADM0_A3_MA": "IND", "ADM0_A3_NL": "IND", "ADM0_A3_NP": "IND", "ADM0_A3_PK": "IND", "ADM0_A3_PL": "IND", "ADM0_A3_PS": "IND", "ADM0_A3_PT": "IND", "ADM0_A3_RU": "IND", "ADM0_A3_SA": "IND", "ADM0_A3_SE": "IND", "ADM0_A3_TR": "IND", "ADM0_A3_TW": "IND", "ADM0_A3_UA": "IND", "ADM0_A3_UN": -99, "ADM0_A3_US": "IND", "ADM0_A3_VN": "IND", "ADM0_A3_WB": -99, "ADM0_DIF": 0, "ADM0_DIFF": null, "ADM0_ISO": "IND", "ADM0_TLC": "IND", "ADMIN": "India", "BRK_A3": "IND", "BRK_DIFF": 0, "BRK_GROUP": null, "BRK_NAME": "India", "CONTINENT": "Asia", "Country": "Lakshadweep", "ECONOMY": "3. Emerging region: BRIC", "FCLASS_AR": null, "FCLASS_BD": null, "FCLASS_BR": null, "FCLASS_CN": null, "FCLASS_DE": null, "FCLASS_EG": null, "FCLASS_ES": null, "FCLASS_FR": null, "FCLASS_GB": null, "FCLASS_GR": null, "FCLASS_ID": null, "FCLASS_IL": null, "FCLASS_IN": null, "FCLASS_ISO": "Admin-0 country", "FCLASS_IT": null, "FCLASS_JP": null, "FCLASS_KO": null, "FCLASS_MA": null, "FCLASS_NL": null, "FCLASS_NP": null, "FCLASS_PK": null, "FCLASS_PL": null, "FCLASS_PS": null, "FCLASS_PT": null, "FCLASS_RU": null, "FCLASS_SA": null, "FCLASS_SE": null, "FCLASS_TLC": "Admin-0 country", "FCLASS_TR": null, "FCLASS_TW": null, "FCLASS_UA": null, "FCLASS_US": null, "FCLASS_VN": null, "FIPS_10": "IN", "FORMAL_EN": "Republic of India", "FORMAL_FR": null, "GDP_MD": 2868929, "GDP_YEAR": 2019, "GEOUNIT": "India", "GEOU_DIF": 0, "GU_A3": "IND", "HOMEPART": 1, "INCOME_GRP": "4. Lower middle income", "ISO_A2": "IN", "ISO_A2_EH": "IN", "ISO_A3": "IND", "ISO_A3_EH": "IND", "ISO_N3": "356", "ISO_N3_EH": "356", "Island_ID": 9, "Island_Name": "Lakshadweep_9", "LABELRANK": 2, "LABEL_X": 79.358105, "LABEL_Y": 22.686852, "LEVEL": 2, "LONG_LEN": 5, "MAPCOLOR13": 2, "MAPCOLOR7": 1, "MAPCOLOR8": 3, "MAPCOLOR9": 2, "MAX_LABEL": 6.7, "MIN_LABEL": 1.7, "MIN_ZOOM": 0.0, "NAME": "India", "NAME_ALT": null, "NAME_AR": "\u0627\u0644\u0647\u0646\u062f", "NAME_BN": "\u09ad\u09be\u09b0\u09a4", "NAME_CIAWF": "India", "NAME_DE": "Indien", "NAME_EL": "\u0399\u03bd\u03b4\u03af\u03b1", "NAME_EN": "India", "NAME_ES": "India", "NAME_FA": "\u0647\u0646\u062f", "NAME_FR": "Inde", "NAME_HE": "\u05d4\u05d5\u05d3\u05d5", "NAME_HI": "\u092d\u093e\u0930\u0924", "NAME_HU": "India", "NAME_ID": "India", "NAME_IT": "India", "NAME_JA": "\u30a4\u30f3\u30c9", "NAME_KO": "\uc778\ub3c4", "NAME_LEN": 5, "NAME_LONG": "India", "NAME_NL": "India", "NAME_PL": "Indie", "NAME_PT": "\u00cdndia", "NAME_RU": "\u0418\u043d\u0434\u0438\u044f", "NAME_SORT": "India", "NAME_SV": "Indien", "NAME_TR": "Hindistan", "NAME_UK": "\u0406\u043d\u0434\u0456\u044f", "NAME_UR": "\u0628\u06be\u0627\u0631\u062a", "NAME_VI": "\u1ea4n \u0110\u1ed9", "NAME_ZH": "\u5370\u5ea6", "NAME_ZHT": "\u5370\u5ea6", "NE_ID": 1159320847, "NOTE_ADM0": null, "NOTE_BRK": null, "POP_EST": 1366417754.0, "POP_RANK": 18, "POP_YEAR": 2019, "POSTAL": "IND", "REGION_UN": "Asia", "REGION_WB": "South Asia", "Risk_Score": 50, "SLR_2050": 0.5, "SOVEREIGNT": "India", "SOV_A3": "IND", "SUBREGION": "Southern Asia", "SUBUNIT": "India", "SU_A3": "IND", "SU_DIF": 0, "TINY": -99, "TLC": "1", "TLC_DIFF": null, "TYPE": "Sovereign country", "UN_A3": "356", "WB_A2": "IN", "WB_A3": "IND", "WIKIDATAID": "Q668", "WOE_ID": 23424848, "WOE_ID_EH": 23424848, "WOE_NOTE": "Exact WOE match as country", "featurecla": "Admin-0 country", "scalerank": 0}, "type": "Feature"}, {"bbox": [72.77035566500007, 11.18659088700008, 72.79590905000003, 11.261664130000042], "geometry": {"coordinates": [[[72.78907311300003, 11.261664130000042], [72.78923587300005, 11.261664130000042], [72.79590905000003, 11.261664130000042], [72.79558353000004, 11.257228908000059], [72.79395592500003, 11.254299221000053], [72.79151451900003, 11.251654364000046], [72.78907311300003, 11.24803294500009], [72.78793379000007, 11.232245184000078], [72.78492272200003, 11.216376044000071], [72.77548261800007, 11.186753648000092], [72.77540123800003, 11.18659088700008], [72.77116946700005, 11.201117255000042], [72.77035566500007, 11.203640041000085], [72.77418053500008, 11.22288646000004], [72.78907311300003, 11.261664130000042]]], "type": "Polygon"}, "id": "9", "properties": {"ABBREV": "India", "ABBREV_LEN": 5, "ADM0_A3": "IND", "ADM0_A3_AR": "IND", "ADM0_A3_BD": "IND", "ADM0_A3_BR": "IND", "ADM0_A3_CN": "IND", "ADM0_A3_DE": "IND", "ADM0_A3_EG": "IND", "ADM0_A3_ES": "IND", "ADM0_A3_FR": "IND", "ADM0_A3_GB": "IND", "ADM0_A3_GR": "IND", "ADM0_A3_ID": "IND", "ADM0_A3_IL": "IND", "ADM0_A3_IN": "IND", "ADM0_A3_IT": "IND", "ADM0_A3_JP": "IND", "ADM0_A3_KO": "IND", "ADM0_A3_MA": "IND", "ADM0_A3_NL": "IND", "ADM0_A3_NP": "IND", "ADM0_A3_PK": "IND", "ADM0_A3_PL": "IND", "ADM0_A3_PS": "IND", "ADM0_A3_PT": "IND", "ADM0_A3_RU": "IND", "ADM0_A3_SA": "IND", "ADM0_A3_SE": "IND", "ADM0_A3_TR": "IND", "ADM0_A3_TW": "IND", "ADM0_A3_UA": "IND", "ADM0_A3_UN": -99, "ADM0_A3_US": "IND", "ADM0_A3_VN": "IND", "ADM0_A3_WB": -99, "ADM0_DIF": 0, "ADM0_DIFF": null, "ADM0_ISO": "IND", "ADM0_TLC": "IND", "ADMIN": "India", "BRK_A3": "IND", "BRK_DIFF": 0, "BRK_GROUP": null, "BRK_NAME": "India", "CONTINENT": "Asia", "Country": "Lakshadweep", "ECONOMY": "3. Emerging region: BRIC", "FCLASS_AR": null, "FCLASS_BD": null, "FCLASS_BR": null, "FCLASS_CN": null, "FCLASS_DE": null, "FCLASS_EG": null, "FCLASS_ES": null, "FCLASS_FR": null, "FCLASS_GB": null, "FCLASS_GR": null, "FCLASS_ID": null, "FCLASS_IL": null, "FCLASS_IN": null, "FCLASS_ISO": "Admin-0 country", "FCLASS_IT": null, "FCLASS_JP": null, "FCLASS_KO": null, "FCLASS_MA": null, "FCLASS_NL": null, "FCLASS_NP": null, "FCLASS_PK": null, "FCLASS_PL": null, "FCLASS_PS": null, "FCLASS_PT": null, "FCLASS_RU": null, "FCLASS_SA": null, "FCLASS_SE": null, "FCLASS_TLC": "Admin-0 country", "FCLASS_TR": null, "FCLASS_TW": null, "FCLASS_UA": null, "FCLASS_US": null, "FCLASS_VN": null, "FIPS_10": "IN", "FORMAL_EN": "Republic of India", "FORMAL_FR": null, "GDP_MD": 2868929, "GDP_YEAR": 2019, "GEOUNIT": "India", "GEOU_DIF": 0, "GU_A3": "IND", "HOMEPART": 1, "INCOME_GRP": "4. Lower middle income", "ISO_A2": "IN", "ISO_A2_EH": "IN", "ISO_A3": "IND", "ISO_A3_EH": "IND", "ISO_N3": "356", "ISO_N3_EH": "356", "Island_ID": 10, "Island_Name": "Lakshadweep_10", "LABELRANK": 2, "LABEL_X": 79.358105, "LABEL_Y": 22.686852, "LEVEL": 2, "LONG_LEN": 5, "MAPCOLOR13": 2, "MAPCOLOR7": 1, "MAPCOLOR8": 3, "MAPCOLOR9": 2, "MAX_LABEL": 6.7, "MIN_LABEL": 1.7, "MIN_ZOOM": 0.0, "NAME": "India", "NAME_ALT": null, "NAME_AR": "\u0627\u0644\u0647\u0646\u062f", "NAME_BN": "\u09ad\u09be\u09b0\u09a4", "NAME_CIAWF": "India", "NAME_DE": "Indien", "NAME_EL": "\u0399\u03bd\u03b4\u03af\u03b1", "NAME_EN": "India", "NAME_ES": "India", "NAME_FA": "\u0647\u0646\u062f", "NAME_FR": "Inde", "NAME_HE": "\u05d4\u05d5\u05d3\u05d5", "NAME_HI": "\u092d\u093e\u0930\u0924", "NAME_HU": "India", "NAME_ID": "India", "NAME_IT": "India", "NAME_JA": "\u30a4\u30f3\u30c9", "NAME_KO": "\uc778\ub3c4", "NAME_LEN": 5, "NAME_LONG": "India", "NAME_NL": "India", "NAME_PL": "Indie", "NAME_PT": "\u00cdndia", "NAME_RU": "\u0418\u043d\u0434\u0438\u044f", "NAME_SORT": "India", "NAME_SV": "Indien", "NAME_TR": "Hindistan", "NAME_UK": "\u0406\u043d\u0434\u0456\u044f", "NAME_UR": "\u0628\u06be\u0627\u0631\u062a", "NAME_VI": "\u1ea4n \u0110\u1ed9", "NAME_ZH": "\u5370\u5ea6", "NAME_ZHT": "\u5370\u5ea6", "NE_ID": 1159320847, "NOTE_ADM0": null, "NOTE_BRK": null, "POP_EST": 1366417754.0, "POP_RANK": 18, "POP_YEAR": 2019, "POSTAL": "IND", "REGION_UN": "Asia", "REGION_WB": "South Asia", "Risk_Score": 50, "SLR_2050": 0.5, "SOVEREIGNT": "India", "SOV_A3": "IND", "SUBREGION": "Southern Asia", "SUBUNIT": "India", "SU_A3": "IND", "SU_DIF": 0, "TINY": -99, "TLC": "1", "TLC_DIFF": null, "TYPE": "Sovereign country", "UN_A3": "356", "WB_A2": "IN", "WB_A3": "IND", "WIKIDATAID": "Q668", "WOE_ID": 23424848, "WOE_ID_EH": 23424848, "WOE_NOTE": "Exact WOE match as country", "featurecla": "Admin-0 country", "scalerank": 0}, "type": "Feature"}, {"bbox": [73.65463300900007, 10.139064846000053, 73.66228274800005, 10.145086981000077], "geometry": {"coordinates": [[[73.66228274800005, 10.144598700000074], [73.66220136800007, 10.14451732000009], [73.66032962300005, 10.142523505000042], [73.65935306100005, 10.139960028000075], [73.65788821700005, 10.139064846000053], [73.65463300900007, 10.141506252000056], [73.65560957100007, 10.14476146000004], [73.65748131600003, 10.145086981000077], [73.65967858200008, 10.144354559000078], [73.66228274800005, 10.144598700000074]]], "type": "Polygon"}, "id": "10", "properties": {"ABBREV": "India", "ABBREV_LEN": 5, "ADM0_A3": "IND", "ADM0_A3_AR": "IND", "ADM0_A3_BD": "IND", "ADM0_A3_BR": "IND", "ADM0_A3_CN": "IND", "ADM0_A3_DE": "IND", "ADM0_A3_EG": "IND", "ADM0_A3_ES": "IND", "ADM0_A3_FR": "IND", "ADM0_A3_GB": "IND", "ADM0_A3_GR": "IND", "ADM0_A3_ID": "IND", "ADM0_A3_IL": "IND", "ADM0_A3_IN": "IND", "ADM0_A3_IT": "IND", "ADM0_A3_JP": "IND", "ADM0_A3_KO": "IND", "ADM0_A3_MA": "IND", "ADM0_A3_NL": "IND", "ADM0_A3_NP": "IND", "ADM0_A3_PK": "IND", "ADM0_A3_PL": "IND", "ADM0_A3_PS": "IND", "ADM0_A3_PT": "IND", "ADM0_A3_RU": "IND", "ADM0_A3_SA": "IND", "ADM0_A3_SE": "IND", "ADM0_A3_TR": "IND", "ADM0_A3_TW": "IND", "ADM0_A3_UA": "IND", "ADM0_A3_UN": -99, "ADM0_A3_US": "IND", "ADM0_A3_VN": "IND", "ADM0_A3_WB": -99, "ADM0_DIF": 0, "ADM0_DIFF": null, "ADM0_ISO": "IND", "ADM0_TLC": "IND", "ADMIN": "India", "BRK_A3": "IND", "BRK_DIFF": 0, "BRK_GROUP": null, "BRK_NAME": "India", "CONTINENT": "Asia", "Country": "Lakshadweep", "ECONOMY": "3. Emerging region: BRIC", "FCLASS_AR": null, "FCLASS_BD": null, "FCLASS_BR": null, "FCLASS_CN": null, "FCLASS_DE": null, "FCLASS_EG": null, "FCLASS_ES": null, "FCLASS_FR": null, "FCLASS_GB": null, "FCLASS_GR": null, "FCLASS_ID": null, "FCLASS_IL": null, "FCLASS_IN": null, "FCLASS_ISO": "Admin-0 country", "FCLASS_IT": null, "FCLASS_JP": null, "FCLASS_KO": null, "FCLASS_MA": null, "FCLASS_NL": null, "FCLASS_NP": null, "FCLASS_PK": null, "FCLASS_PL": null, "FCLASS_PS": null, "FCLASS_PT": null, "FCLASS_RU": null, "FCLASS_SA": null, "FCLASS_SE": null, "FCLASS_TLC": "Admin-0 country", "FCLASS_TR": null, "FCLASS_TW": null, "FCLASS_UA": null, "FCLASS_US": null, "FCLASS_VN": null, "FIPS_10": "IN", "FORMAL_EN": "Republic of India", "FORMAL_FR": null, "GDP_MD": 2868929, "GDP_YEAR": 2019, "GEOUNIT": "India", "GEOU_DIF": 0, "GU_A3": "IND", "HOMEPART": 1, "INCOME_GRP": "4. Lower middle income", "ISO_A2": "IN", "ISO_A2_EH": "IN", "ISO_A3": "IND", "ISO_A3_EH": "IND", "ISO_N3": "356", "ISO_N3_EH": "356", "Island_ID": 11, "Island_Name": "Lakshadweep_11", "LABELRANK": 2, "LABEL_X": 79.358105, "LABEL_Y": 22.686852, "LEVEL": 2, "LONG_LEN": 5, "MAPCOLOR13": 2, "MAPCOLOR7": 1, "MAPCOLOR8": 3, "MAPCOLOR9": 2, "MAX_LABEL": 6.7, "MIN_LABEL": 1.7, "MIN_ZOOM": 0.0, "NAME": "India", "NAME_ALT": null, "NAME_AR": "\u0627\u0644\u0647\u0646\u062f", "NAME_BN": "\u09ad\u09be\u09b0\u09a4", "NAME_CIAWF": "India", "NAME_DE": "Indien", "NAME_EL": "\u0399\u03bd\u03b4\u03af\u03b1", "NAME_EN": "India", "NAME_ES": "India", "NAME_FA": "\u0647\u0646\u062f", "NAME_FR": "Inde", "NAME_HE": "\u05d4\u05d5\u05d3\u05d5", "NAME_HI": "\u092d\u093e\u0930\u0924", "NAME_HU": "India", "NAME_ID": "India", "NAME_IT": "India", "NAME_JA": "\u30a4\u30f3\u30c9", "NAME_KO": "\uc778\ub3c4", "NAME_LEN": 5, "NAME_LONG": "India", "NAME_NL": "India", "NAME_PL": "Indie", "NAME_PT": "\u00cdndia", "NAME_RU": "\u0418\u043d\u0434\u0438\u044f", "NAME_SORT": "India", "NAME_SV": "Indien", "NAME_TR": "Hindistan", "NAME_UK": "\u0406\u043d\u0434\u0456\u044f", "NAME_UR": "\u0628\u06be\u0627\u0631\u062a", "NAME_VI": "\u1ea4n \u0110\u1ed9", "NAME_ZH": "\u5370\u5ea6", "NAME_ZHT": "\u5370\u5ea6", "NE_ID": 1159320847, "NOTE_ADM0": null, "NOTE_BRK": null, "POP_EST": 1366417754.0, "POP_RANK": 18, "POP_YEAR": 2019, "POSTAL": "IND", "REGION_UN": "Asia", "REGION_WB": "South Asia", "Risk_Score": 50, "SLR_2050": 0.5, "SOVEREIGNT": "India", "SOV_A3": "IND", "SUBREGION": "Southern Asia", "SUBUNIT": "India", "SU_A3": "IND", "SU_DIF": 0, "TINY": -99, "TLC": "1", "TLC_DIFF": null, "TYPE": "Sovereign country", "UN_A3": "356", "WB_A2": "IN", "WB_A3": "IND", "WIKIDATAID": "Q668", "WOE_ID": 23424848, "WOE_ID_EH": 23424848, "WOE_NOTE": "Exact WOE match as country", "featurecla": "Admin-0 country", "scalerank": 0}, "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+            geo_json_189fd29e5e556a45d6bd4e11ae63e601.addTo(map_ab10d82ae63355bacb79bb615d11cd7d);
+        
+    
+            var feature_group_9cb9fb8b5cfcec4d1bdeb41da9e7244a = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_08bf7d7c7c2a6a36f58f30f51f95b794 = L.circleMarker(
+                [10.8475448, 72.188721],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f4d03f", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 0.4}
+            ).addTo(feature_group_9cb9fb8b5cfcec4d1bdeb41da9e7244a);
+        
+    
+        var popup_41214b6af4ed8bf579d9442820a7705a = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_3a0edc8ffe4ad851b41b1297a17d81dd = $(`<div id="html_3a0edc8ffe4ad851b41b1297a17d81dd" style="width: 100.0%; height: 100.0%;"><b>Agatti Island</b><br>Elevation: 10.0 m<br>✓ Above 1m — safe</div>`)[0];
+                popup_41214b6af4ed8bf579d9442820a7705a.setContent(html_3a0edc8ffe4ad851b41b1297a17d81dd);
+            
+        
+
+        circle_marker_08bf7d7c7c2a6a36f58f30f51f95b794.bindPopup(popup_41214b6af4ed8bf579d9442820a7705a)
+        ;
+
+        
+    
+    
+            var circle_marker_557837e5dbfee40088a4c7ee877278c6 = L.circleMarker(
+                [10.5591022, 72.6326207],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f4d03f", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 0.4}
+            ).addTo(feature_group_9cb9fb8b5cfcec4d1bdeb41da9e7244a);
+        
+    
+        var popup_cf827ebe86c3524d06f8f96a6cc8aa74 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_979aa818afeeff2c1f82ed186ac82ee4 = $(`<div id="html_979aa818afeeff2c1f82ed186ac82ee4" style="width: 100.0%; height: 100.0%;"><b>Kavaratti Island</b><br>Elevation: 17.0 m<br>✓ Above 1m — safe</div>`)[0];
+                popup_cf827ebe86c3524d06f8f96a6cc8aa74.setContent(html_979aa818afeeff2c1f82ed186ac82ee4);
+            
+        
+
+        circle_marker_557837e5dbfee40088a4c7ee877278c6.bindPopup(popup_cf827ebe86c3524d06f8f96a6cc8aa74)
+        ;
+
+        
+    
+    
+            var circle_marker_62bb2790880c396d517a4e3c9e11ca65 = L.circleMarker(
+                [11.219493, 72.7749763],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f4d03f", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 0.4}
+            ).addTo(feature_group_9cb9fb8b5cfcec4d1bdeb41da9e7244a);
+        
+    
+        var popup_1fd7c7330259fef701246b25eb38b0a2 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_b0bdd5feb1bec75446667946835e4d8b = $(`<div id="html_b0bdd5feb1bec75446667946835e4d8b" style="width: 100.0%; height: 100.0%;"><b>Kadmat Island</b><br>Elevation: 10.0 m<br>✓ Above 1m — safe</div>`)[0];
+                popup_1fd7c7330259fef701246b25eb38b0a2.setContent(html_b0bdd5feb1bec75446667946835e4d8b);
+            
+        
+
+        circle_marker_62bb2790880c396d517a4e3c9e11ca65.bindPopup(popup_1fd7c7330259fef701246b25eb38b0a2)
+        ;
+
+        
+    
+    
+            var circle_marker_18fc33286e649081f07850b504a25242 = L.circleMarker(
+                [11.6934307, 72.71043],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f4d03f", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 0.4}
+            ).addTo(feature_group_9cb9fb8b5cfcec4d1bdeb41da9e7244a);
+        
+    
+        var popup_01f1ef56a5b0dbebd6edd330f92f56e8 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_e15aa61cdb9c21c5ad33b2b775b767f9 = $(`<div id="html_e15aa61cdb9c21c5ad33b2b775b767f9" style="width: 100.0%; height: 100.0%;"><b>Chetlat Island</b><br>Elevation: 7.0 m<br>✓ Above 1m — safe</div>`)[0];
+                popup_01f1ef56a5b0dbebd6edd330f92f56e8.setContent(html_e15aa61cdb9c21c5ad33b2b775b767f9);
+            
+        
+
+        circle_marker_18fc33286e649081f07850b504a25242.bindPopup(popup_01f1ef56a5b0dbebd6edd330f92f56e8)
+        ;
+
+        
+    
+    
+            var circle_marker_775801ca50d9c3d7f1982209bac4ae18 = L.circleMarker(
+                [10.8691122, 72.1952547],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f4d03f", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 0.4}
+            ).addTo(feature_group_9cb9fb8b5cfcec4d1bdeb41da9e7244a);
+        
+    
+        var popup_709cf0b6b8674a5684a40ec350c51959 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_958226e20870653bb3d52c3c977d692c = $(`<div id="html_958226e20870653bb3d52c3c977d692c" style="width: 100.0%; height: 100.0%;"><b>Agatti</b><br>Elevation: 11.0 m<br>✓ Above 1m — safe</div>`)[0];
+                popup_709cf0b6b8674a5684a40ec350c51959.setContent(html_958226e20870653bb3d52c3c977d692c);
+            
+        
+
+        circle_marker_775801ca50d9c3d7f1982209bac4ae18.bindPopup(popup_709cf0b6b8674a5684a40ec350c51959)
+        ;
+
+        
+    
+    
+            var circle_marker_f3d7a84979d62cd489e45a3875979bbf = L.circleMarker(
+                [11.2166729, 72.7743439],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f4d03f", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 0.4}
+            ).addTo(feature_group_9cb9fb8b5cfcec4d1bdeb41da9e7244a);
+        
+    
+        var popup_89fca75d7e7412d347732161fb60c939 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_9bbdd9bab71c53d0a20dceed2a2fba49 = $(`<div id="html_9bbdd9bab71c53d0a20dceed2a2fba49" style="width: 100.0%; height: 100.0%;"><b>Kadmat</b><br>Elevation: 15.0 m<br>✓ Above 1m — safe</div>`)[0];
+                popup_89fca75d7e7412d347732161fb60c939.setContent(html_9bbdd9bab71c53d0a20dceed2a2fba49);
+            
+        
+
+        circle_marker_f3d7a84979d62cd489e45a3875979bbf.bindPopup(popup_89fca75d7e7412d347732161fb60c939)
+        ;
+
+        
+    
+    
+            var circle_marker_c5ee0b1042fd4cd59e92031257a6e120 = L.circleMarker(
+                [10.8657333, 72.1952009],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f4d03f", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 0.4}
+            ).addTo(feature_group_9cb9fb8b5cfcec4d1bdeb41da9e7244a);
+        
+    
+        var popup_48d22bfa290e709e3e8b89e803d49b4c = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_adfd34c1346516d299cf3dd096750f8f = $(`<div id="html_adfd34c1346516d299cf3dd096750f8f" style="width: 100.0%; height: 100.0%;"><b>Agatti Village Center</b><br>Elevation: 14.0 m<br>✓ Above 1m — safe</div>`)[0];
+                popup_48d22bfa290e709e3e8b89e803d49b4c.setContent(html_adfd34c1346516d299cf3dd096750f8f);
+            
+        
+
+        circle_marker_c5ee0b1042fd4cd59e92031257a6e120.bindPopup(popup_48d22bfa290e709e3e8b89e803d49b4c)
+        ;
+
+        
+    
+    
+            var circle_marker_b7683d226f05e1d3922dc58e1305c3ae = L.circleMarker(
+                [11.6932976, 72.7107435],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f4d03f", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 0.4}
+            ).addTo(feature_group_9cb9fb8b5cfcec4d1bdeb41da9e7244a);
+        
+    
+        var popup_15320eab53b7d591621025a2c92090e5 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_c8656fad5c09026195eeaaf2851bc019 = $(`<div id="html_c8656fad5c09026195eeaaf2851bc019" style="width: 100.0%; height: 100.0%;"><b>Chetlat</b><br>Elevation: 8.0 m<br>✓ Above 1m — safe</div>`)[0];
+                popup_15320eab53b7d591621025a2c92090e5.setContent(html_c8656fad5c09026195eeaaf2851bc019);
+            
+        
+
+        circle_marker_b7683d226f05e1d3922dc58e1305c3ae.bindPopup(popup_15320eab53b7d591621025a2c92090e5)
+        ;
+
+        
+    
+    
+            feature_group_9cb9fb8b5cfcec4d1bdeb41da9e7244a.addTo(map_ab10d82ae63355bacb79bb615d11cd7d);
+        
+    
+            var feature_group_e5c8429cf38df85f3026aed6434ce7e1 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_755a0d113837d54732e4412dd792185b = L.circleMarker(
+                [10.9479008, 72.3192231],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63232", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 0.4}
+            ).addTo(feature_group_e5c8429cf38df85f3026aed6434ce7e1);
+        
+    
+        var popup_ba23bc48de87545fd6ffc56ab2d2be5e = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_9330ca12966467c1a0292de5f825e849 = $(`<div id="html_9330ca12966467c1a0292de5f825e849" style="width: 100.0%; height: 100.0%;"><b>Tinnikara Island</b><br>Elevation: 0.0 m<br>⚠️ At/below 1m — SLR risk</div>`)[0];
+                popup_ba23bc48de87545fd6ffc56ab2d2be5e.setContent(html_9330ca12966467c1a0292de5f825e849);
+            
+        
+
+        circle_marker_755a0d113837d54732e4412dd792185b.bindPopup(popup_ba23bc48de87545fd6ffc56ab2d2be5e)
+        ;
+
+        
+    
+    
+            var circle_marker_4eacad64491aacfab55428adbbdcaa13 = L.circleMarker(
+                [10.8131401, 73.6814015],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63232", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 0.4}
+            ).addTo(feature_group_e5c8429cf38df85f3026aed6434ce7e1);
+        
+    
+        var popup_8b48a9d1f229248303aa49a0e4f6aea5 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_c1fb6ca76e6426c74be9a5dbcd60ba5f = $(`<div id="html_c1fb6ca76e6426c74be9a5dbcd60ba5f" style="width: 100.0%; height: 100.0%;"><b>Androth Island</b><br>Elevation: 0.0 m<br>⚠️ At/below 1m — SLR risk</div>`)[0];
+                popup_8b48a9d1f229248303aa49a0e4f6aea5.setContent(html_c1fb6ca76e6426c74be9a5dbcd60ba5f);
+            
+        
+
+        circle_marker_4eacad64491aacfab55428adbbdcaa13.bindPopup(popup_8b48a9d1f229248303aa49a0e4f6aea5)
+        ;
+
+        
+    
+    
+            var circle_marker_716c06bfb805a108b6cedb97318e0002 = L.circleMarker(
+                [8.295365, 73.048275],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63232", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 0.4}
+            ).addTo(feature_group_e5c8429cf38df85f3026aed6434ce7e1);
+        
+    
+        var popup_376f6a85891ceb7c5ae52fed470256e4 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_2fa98b4432d648ab7152038ed541a5e3 = $(`<div id="html_2fa98b4432d648ab7152038ed541a5e3" style="width: 100.0%; height: 100.0%;"><b>Minicoy Island</b><br>Elevation: 0.0 m<br>⚠️ At/below 1m — SLR risk</div>`)[0];
+                popup_376f6a85891ceb7c5ae52fed470256e4.setContent(html_2fa98b4432d648ab7152038ed541a5e3);
+            
+        
+
+        circle_marker_716c06bfb805a108b6cedb97318e0002.bindPopup(popup_376f6a85891ceb7c5ae52fed470256e4)
+        ;
+
+        
+    
+    
+            var circle_marker_ef82ce1ee6208c18099827eb01d11273 = L.circleMarker(
+                [12.3978752, 71.8988509],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63232", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 0.4}
+            ).addTo(feature_group_e5c8429cf38df85f3026aed6434ce7e1);
+        
+    
+        var popup_2cacc1623650b37bfb39f8a680f6b6f5 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_96ff60c933416d1b639d2d68e2409851 = $(`<div id="html_96ff60c933416d1b639d2d68e2409851" style="width: 100.0%; height: 100.0%;"><b>North Islet</b><br>Elevation: 0.0 m<br>⚠️ At/below 1m — SLR risk</div>`)[0];
+                popup_2cacc1623650b37bfb39f8a680f6b6f5.setContent(html_96ff60c933416d1b639d2d68e2409851);
+            
+        
+
+        circle_marker_ef82ce1ee6208c18099827eb01d11273.bindPopup(popup_2cacc1623650b37bfb39f8a680f6b6f5)
+        ;
+
+        
+    
+    
+            var circle_marker_7b2814d3676b3839153939abad986134 = L.circleMarker(
+                [12.3289651, 71.9178504],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63232", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 0.4}
+            ).addTo(feature_group_e5c8429cf38df85f3026aed6434ce7e1);
+        
+    
+        var popup_abe49dac44442a3b3f881ae09f6928da = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_0b090fe614843f9f8c1fdd3745758c0f = $(`<div id="html_0b090fe614843f9f8c1fdd3745758c0f" style="width: 100.0%; height: 100.0%;"><b>Sand Cay</b><br>Elevation: 0.0 m<br>⚠️ At/below 1m — SLR risk</div>`)[0];
+                popup_abe49dac44442a3b3f881ae09f6928da.setContent(html_0b090fe614843f9f8c1fdd3745758c0f);
+            
+        
+
+        circle_marker_7b2814d3676b3839153939abad986134.bindPopup(popup_abe49dac44442a3b3f881ae09f6928da)
+        ;
+
+        
+    
+    
+            var circle_marker_51f93a61c2661ee0cda550defd19ddcf = L.circleMarker(
+                [11.1507296, 72.0882833],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63232", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 0.4}
+            ).addTo(feature_group_e5c8429cf38df85f3026aed6434ce7e1);
+        
+    
+        var popup_7f81f899f15c434ba6ff1bd901e1bb54 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_404630fa96f8a5ab254e353e2aefa01e = $(`<div id="html_404630fa96f8a5ab254e353e2aefa01e" style="width: 100.0%; height: 100.0%;"><b>Sand Cay</b><br>Elevation: 0.0 m<br>⚠️ At/below 1m — SLR risk</div>`)[0];
+                popup_7f81f899f15c434ba6ff1bd901e1bb54.setContent(html_404630fa96f8a5ab254e353e2aefa01e);
+            
+        
+
+        circle_marker_51f93a61c2661ee0cda550defd19ddcf.bindPopup(popup_7f81f899f15c434ba6ff1bd901e1bb54)
+        ;
+
+        
+    
+    
+            var circle_marker_b6814e0b01e973188e714d1113b5d604 = L.circleMarker(
+                [11.5251047, 72.1775779],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63232", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 0.4}
+            ).addTo(feature_group_e5c8429cf38df85f3026aed6434ce7e1);
+        
+    
+        var popup_53c9cccb3e0aaa018720dd164b97b925 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_e972d247ebd0b245366b6e509bfdd086 = $(`<div id="html_e972d247ebd0b245366b6e509bfdd086" style="width: 100.0%; height: 100.0%;"><b>Sand Cay</b><br>Elevation: 0.0 m<br>⚠️ At/below 1m — SLR risk</div>`)[0];
+                popup_53c9cccb3e0aaa018720dd164b97b925.setContent(html_e972d247ebd0b245366b6e509bfdd086);
+            
+        
+
+        circle_marker_b6814e0b01e973188e714d1113b5d604.bindPopup(popup_53c9cccb3e0aaa018720dd164b97b925)
+        ;
+
+        
+    
+    
+            var circle_marker_261e7005188d1bb2a0c94b2a60d6d2ca = L.circleMarker(
+                [10.4921173, 72.9339258],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63232", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 0.4}
+            ).addTo(feature_group_e5c8429cf38df85f3026aed6434ce7e1);
+        
+    
+        var popup_c3bde1b2a850044f786186dd414df459 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_b1ff3b1fac14a64198bc9fb1d49903dd = $(`<div id="html_b1ff3b1fac14a64198bc9fb1d49903dd" style="width: 100.0%; height: 100.0%;"><b>Laccadive Islands</b><br>Elevation: 0.0 m<br>⚠️ At/below 1m — SLR risk</div>`)[0];
+                popup_c3bde1b2a850044f786186dd414df459.setContent(html_b1ff3b1fac14a64198bc9fb1d49903dd);
+            
+        
+
+        circle_marker_261e7005188d1bb2a0c94b2a60d6d2ca.bindPopup(popup_c3bde1b2a850044f786186dd414df459)
+        ;
+
+        
+    
+    
+            var circle_marker_d066aab62db747f4485b24a6a4b17d0e = L.circleMarker(
+                [11.7532759, 72.3741618],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63232", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 0.4}
+            ).addTo(feature_group_e5c8429cf38df85f3026aed6434ce7e1);
+        
+    
+        var popup_c35c885ee4af0a0b99b75e515749f1a1 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_c41584ede5556d98f286674fd315db10 = $(`<div id="html_c41584ede5556d98f286674fd315db10" style="width: 100.0%; height: 100.0%;"><b>Amindivi Islands</b><br>Elevation: 0.0 m<br>⚠️ At/below 1m — SLR risk</div>`)[0];
+                popup_c35c885ee4af0a0b99b75e515749f1a1.setContent(html_c41584ede5556d98f286674fd315db10);
+            
+        
+
+        circle_marker_d066aab62db747f4485b24a6a4b17d0e.bindPopup(popup_c35c885ee4af0a0b99b75e515749f1a1)
+        ;
+
+        
+    
+    
+            var circle_marker_93ab577cfea70c9fb23fb91de84b716d = L.circleMarker(
+                [10.1303141, 72.3287835],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63232", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 0.4}
+            ).addTo(feature_group_e5c8429cf38df85f3026aed6434ce7e1);
+        
+    
+        var popup_19a70c013224eb1fcd2a5b6b42c66bcb = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_bda769cc4f3d6b04d9aa29f87e8a32fb = $(`<div id="html_bda769cc4f3d6b04d9aa29f87e8a32fb" style="width: 100.0%; height: 100.0%;"><b>Valiyakara</b><br>Elevation: 0.0 m<br>⚠️ At/below 1m — SLR risk</div>`)[0];
+                popup_19a70c013224eb1fcd2a5b6b42c66bcb.setContent(html_bda769cc4f3d6b04d9aa29f87e8a32fb);
+            
+        
+
+        circle_marker_93ab577cfea70c9fb23fb91de84b716d.bindPopup(popup_19a70c013224eb1fcd2a5b6b42c66bcb)
+        ;
+
+        
+    
+    
+            var circle_marker_13bae133284c59ed415c95f1ed5e6278 = L.circleMarker(
+                [10.0436923, 72.2869036],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63232", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 0.4}
+            ).addTo(feature_group_e5c8429cf38df85f3026aed6434ce7e1);
+        
+    
+        var popup_e62fa5f0b5396d1f8aea001b401e68e2 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_759b0f8c5adeafb9f23ef1fea1552f25 = $(`<div id="html_759b0f8c5adeafb9f23ef1fea1552f25" style="width: 100.0%; height: 100.0%;"><b>Cheriyakara</b><br>Elevation: 0.0 m<br>⚠️ At/below 1m — SLR risk</div>`)[0];
+                popup_e62fa5f0b5396d1f8aea001b401e68e2.setContent(html_759b0f8c5adeafb9f23ef1fea1552f25);
+            
+        
+
+        circle_marker_13bae133284c59ed415c95f1ed5e6278.bindPopup(popup_e62fa5f0b5396d1f8aea001b401e68e2)
+        ;
+
+        
+    
+    
+            var circle_marker_394e57ed59a09a6c2f1ffbe76360d508 = L.circleMarker(
+                [10.7751037, 72.5342443],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63232", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 0.4}
+            ).addTo(feature_group_e5c8429cf38df85f3026aed6434ce7e1);
+        
+    
+        var popup_a47dc95d4340c7f9558453b018c4d469 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_1dc01c079e12fee0eab8d3d64756cf2e = $(`<div id="html_1dc01c079e12fee0eab8d3d64756cf2e" style="width: 100.0%; height: 100.0%;"><b>Pitti Island</b><br>Elevation: 0.0 m<br>⚠️ At/below 1m — SLR risk</div>`)[0];
+                popup_a47dc95d4340c7f9558453b018c4d469.setContent(html_1dc01c079e12fee0eab8d3d64756cf2e);
+            
+        
+
+        circle_marker_394e57ed59a09a6c2f1ffbe76360d508.bindPopup(popup_a47dc95d4340c7f9558453b018c4d469)
+        ;
+
+        
+    
+    
+            var circle_marker_0198ecab2d7f803dc1daa3f36380379b = L.circleMarker(
+                [8.2780893, 73.0117483],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63232", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 0.4}
+            ).addTo(feature_group_e5c8429cf38df85f3026aed6434ce7e1);
+        
+    
+        var popup_1402d10ac1f74b902557526e513a2b22 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_2b1c012af728887857b20d673a5995ef = $(`<div id="html_2b1c012af728887857b20d673a5995ef" style="width: 100.0%; height: 100.0%;"><b>Viringili Island</b><br>Elevation: 0.0 m<br>⚠️ At/below 1m — SLR risk</div>`)[0];
+                popup_1402d10ac1f74b902557526e513a2b22.setContent(html_2b1c012af728887857b20d673a5995ef);
+            
+        
+
+        circle_marker_0198ecab2d7f803dc1daa3f36380379b.bindPopup(popup_1402d10ac1f74b902557526e513a2b22)
+        ;
+
+        
+    
+    
+            var circle_marker_79ccdf36aadb94fd1248b22ed9682de6 = L.circleMarker(
+                [10.81361, 72.167375],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63232", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 0.4}
+            ).addTo(feature_group_e5c8429cf38df85f3026aed6434ce7e1);
+        
+    
+        var popup_7e60e34ab3c4a4543a66eb5595282c93 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_96234acdccf02aede5fbeddc5b68cd64 = $(`<div id="html_96234acdccf02aede5fbeddc5b68cd64" style="width: 100.0%; height: 100.0%;"><b>Kalputhi Island</b><br>Elevation: 0.0 m<br>⚠️ At/below 1m — SLR risk</div>`)[0];
+                popup_7e60e34ab3c4a4543a66eb5595282c93.setContent(html_96234acdccf02aede5fbeddc5b68cd64);
+            
+        
+
+        circle_marker_79ccdf36aadb94fd1248b22ed9682de6.bindPopup(popup_7e60e34ab3c4a4543a66eb5595282c93)
+        ;
+
+        
+    
+    
+            var circle_marker_356ffa4c6b52046fa11d17e7f2e11104 = L.circleMarker(
+                [10.9405882, 72.2876458],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63232", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 0.4}
+            ).addTo(feature_group_e5c8429cf38df85f3026aed6434ce7e1);
+        
+    
+        var popup_f8e5bcfdf8a6c4b2f2584fbef5efcda5 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_8be03ae04eb54c30f1f0986235b3e7a6 = $(`<div id="html_8be03ae04eb54c30f1f0986235b3e7a6" style="width: 100.0%; height: 100.0%;"><b>Bangaram Island</b><br>Elevation: 0.0 m<br>⚠️ At/below 1m — SLR risk</div>`)[0];
+                popup_f8e5bcfdf8a6c4b2f2584fbef5efcda5.setContent(html_8be03ae04eb54c30f1f0986235b3e7a6);
+            
+        
+
+        circle_marker_356ffa4c6b52046fa11d17e7f2e11104.bindPopup(popup_f8e5bcfdf8a6c4b2f2584fbef5efcda5)
+        ;
+
+        
+    
+    
+            var circle_marker_9739d7ba283f4dacbd092a10d9b862bb = L.circleMarker(
+                [11.482785, 73.004225],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63232", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 0.4}
+            ).addTo(feature_group_e5c8429cf38df85f3026aed6434ce7e1);
+        
+    
+        var popup_45da09c699d28e0aad9cb384b43745ee = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_7d7f1cb129dcdb431a6fbbc320f80dd9 = $(`<div id="html_7d7f1cb129dcdb431a6fbbc320f80dd9" style="width: 100.0%; height: 100.0%;"><b>Kiltān Island</b><br>Elevation: 0.0 m<br>⚠️ At/below 1m — SLR risk</div>`)[0];
+                popup_45da09c699d28e0aad9cb384b43745ee.setContent(html_7d7f1cb129dcdb431a6fbbc320f80dd9);
+            
+        
+
+        circle_marker_9739d7ba283f4dacbd092a10d9b862bb.bindPopup(popup_45da09c699d28e0aad9cb384b43745ee)
+        ;
+
+        
+    
+    
+            var circle_marker_a77955e216dd9f0335b2d65b4c2c6264 = L.circleMarker(
+                [11.598315, 72.186865],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63232", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 0.4}
+            ).addTo(feature_group_e5c8429cf38df85f3026aed6434ce7e1);
+        
+    
+        var popup_bbfba698f7ef15fe494479a238f743d9 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_4ee7d005747f6707ad6c98f63cb48cb9 = $(`<div id="html_4ee7d005747f6707ad6c98f63cb48cb9" style="width: 100.0%; height: 100.0%;"><b>Bitra</b><br>Elevation: 0.0 m<br>⚠️ At/below 1m — SLR risk</div>`)[0];
+                popup_bbfba698f7ef15fe494479a238f743d9.setContent(html_4ee7d005747f6707ad6c98f63cb48cb9);
+            
+        
+
+        circle_marker_a77955e216dd9f0335b2d65b4c2c6264.bindPopup(popup_bbfba698f7ef15fe494479a238f743d9)
+        ;
+
+        
+    
+    
+            var circle_marker_93197cada16af45d03b5e491aa0abad2 = L.circleMarker(
+                [11.12393, 72.724655],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63232", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 0.4}
+            ).addTo(feature_group_e5c8429cf38df85f3026aed6434ce7e1);
+        
+    
+        var popup_c6b31db3593ff5c31aab3a88a29122c2 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_f7ca97342680c5813fa1c1e62e65b1f7 = $(`<div id="html_f7ca97342680c5813fa1c1e62e65b1f7" style="width: 100.0%; height: 100.0%;"><b>Amini Island</b><br>Elevation: 0.0 m<br>⚠️ At/below 1m — SLR risk</div>`)[0];
+                popup_c6b31db3593ff5c31aab3a88a29122c2.setContent(html_f7ca97342680c5813fa1c1e62e65b1f7);
+            
+        
+
+        circle_marker_93197cada16af45d03b5e491aa0abad2.bindPopup(popup_c6b31db3593ff5c31aab3a88a29122c2)
+        ;
+
+        
+    
+    
+            var circle_marker_c8638d55038773597b4a24152578ea55 = L.circleMarker(
+                [10.1411662, 73.66141],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63232", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 0.4}
+            ).addTo(feature_group_e5c8429cf38df85f3026aed6434ce7e1);
+        
+    
+        var popup_29fad73078a51bc3222db4c558acf191 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_4013bce3671b86b43dc93e5bb1e636b6 = $(`<div id="html_4013bce3671b86b43dc93e5bb1e636b6" style="width: 100.0%; height: 100.0%;"><b>Cheriyam Island</b><br>Elevation: 0.0 m<br>⚠️ At/below 1m — SLR risk</div>`)[0];
+                popup_29fad73078a51bc3222db4c558acf191.setContent(html_4013bce3671b86b43dc93e5bb1e636b6);
+            
+        
+
+        circle_marker_c8638d55038773597b4a24152578ea55.bindPopup(popup_29fad73078a51bc3222db4c558acf191)
+        ;
+
+        
+    
+    
+            var circle_marker_36519a9669adef0017597e046904b3ef = L.circleMarker(
+                [10.0812713, 73.6436604],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63232", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 0.4}
+            ).addTo(feature_group_e5c8429cf38df85f3026aed6434ce7e1);
+        
+    
+        var popup_fbf4dbfe921c87efbfac7959a39f9770 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_89211ced0a6c363200df1be2443e73d5 = $(`<div id="html_89211ced0a6c363200df1be2443e73d5" style="width: 100.0%; height: 100.0%;"><b>Kalpeni Island</b><br>Elevation: 0.0 m<br>⚠️ At/below 1m — SLR risk</div>`)[0];
+                popup_fbf4dbfe921c87efbfac7959a39f9770.setContent(html_89211ced0a6c363200df1be2443e73d5);
+            
+        
+
+        circle_marker_36519a9669adef0017597e046904b3ef.bindPopup(popup_fbf4dbfe921c87efbfac7959a39f9770)
+        ;
+
+        
+    
+    
+            var circle_marker_82f89492e04378b4c2ae6acf29054785 = L.circleMarker(
+                [10.073502, 72.284481],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63232", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 0.4}
+            ).addTo(feature_group_e5c8429cf38df85f3026aed6434ce7e1);
+        
+    
+        var popup_7e1c065de43c7f4584830866f816f4fb = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_ac09c0715937e037362e71f7abee1920 = $(`<div id="html_ac09c0715937e037362e71f7abee1920" style="width: 100.0%; height: 100.0%;"><b>Suheli Par</b><br>Elevation: 0.0 m<br>⚠️ At/below 1m — SLR risk</div>`)[0];
+                popup_7e1c065de43c7f4584830866f816f4fb.setContent(html_ac09c0715937e037362e71f7abee1920);
+            
+        
+
+        circle_marker_82f89492e04378b4c2ae6acf29054785.bindPopup(popup_7e1c065de43c7f4584830866f816f4fb)
+        ;
+
+        
+    
+    
+            var circle_marker_6848e1340cb9a4ddfc8cdd117ac0cb02 = L.circleMarker(
+                [8.2892876, 73.0618573],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63232", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 0.4}
+            ).addTo(feature_group_e5c8429cf38df85f3026aed6434ce7e1);
+        
+    
+        var popup_ca49ed8f0b8596f3b560b5c5d83e6075 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_47b96e1f47db1fd69aa9fac264908edb = $(`<div id="html_47b96e1f47db1fd69aa9fac264908edb" style="width: 100.0%; height: 100.0%;"><b>Minicoy</b><br>Elevation: 0.0 m<br>⚠️ At/below 1m — SLR risk</div>`)[0];
+                popup_ca49ed8f0b8596f3b560b5c5d83e6075.setContent(html_47b96e1f47db1fd69aa9fac264908edb);
+            
+        
+
+        circle_marker_6848e1340cb9a4ddfc8cdd117ac0cb02.bindPopup(popup_ca49ed8f0b8596f3b560b5c5d83e6075)
+        ;
+
+        
+    
+    
+            var circle_marker_8f333998b10268fbd0a9a7fd3683e8a3 = L.circleMarker(
+                [10.5672203, 72.6394636],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63232", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 0.4}
+            ).addTo(feature_group_e5c8429cf38df85f3026aed6434ce7e1);
+        
+    
+        var popup_c3e376c8d0a6714a14b30daca8ce42b9 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_b2044ec5f6b1f2f1f7a330e090c4d59f = $(`<div id="html_b2044ec5f6b1f2f1f7a330e090c4d59f" style="width: 100.0%; height: 100.0%;"><b>Kavaratti</b><br>Elevation: 0.0 m<br>⚠️ At/below 1m — SLR risk</div>`)[0];
+                popup_c3e376c8d0a6714a14b30daca8ce42b9.setContent(html_b2044ec5f6b1f2f1f7a330e090c4d59f);
+            
+        
+
+        circle_marker_8f333998b10268fbd0a9a7fd3683e8a3.bindPopup(popup_c3e376c8d0a6714a14b30daca8ce42b9)
+        ;
+
+        
+    
+    
+            var circle_marker_4cee9e0c16e6720875260462c03dbd35 = L.circleMarker(
+                [10.8159395, 73.6770629],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63232", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 0.4}
+            ).addTo(feature_group_e5c8429cf38df85f3026aed6434ce7e1);
+        
+    
+        var popup_f397b1868cb2b740ce38c6402679521e = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_6e51eef33ac9eac0135b1a32c9edf817 = $(`<div id="html_6e51eef33ac9eac0135b1a32c9edf817" style="width: 100.0%; height: 100.0%;"><b>Andrott</b><br>Elevation: 0.0 m<br>⚠️ At/below 1m — SLR risk</div>`)[0];
+                popup_f397b1868cb2b740ce38c6402679521e.setContent(html_6e51eef33ac9eac0135b1a32c9edf817);
+            
+        
+
+        circle_marker_4cee9e0c16e6720875260462c03dbd35.bindPopup(popup_f397b1868cb2b740ce38c6402679521e)
+        ;
+
+        
+    
+    
+            var circle_marker_582396e2d69e2a518e4e5751411d869b = L.circleMarker(
+                [10.07259, 73.6436319],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63232", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 0.4}
+            ).addTo(feature_group_e5c8429cf38df85f3026aed6434ce7e1);
+        
+    
+        var popup_7c77c9867ebfbcc0e6ed66e8002814bb = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_0adb1e435ec99d5a0fa046d495fda68c = $(`<div id="html_0adb1e435ec99d5a0fa046d495fda68c" style="width: 100.0%; height: 100.0%;"><b>Kalpeni</b><br>Elevation: 0.0 m<br>⚠️ At/below 1m — SLR risk</div>`)[0];
+                popup_7c77c9867ebfbcc0e6ed66e8002814bb.setContent(html_0adb1e435ec99d5a0fa046d495fda68c);
+            
+        
+
+        circle_marker_582396e2d69e2a518e4e5751411d869b.bindPopup(popup_7c77c9867ebfbcc0e6ed66e8002814bb)
+        ;
+
+        
+    
+    
+            var circle_marker_48c066a12879aa253538ca0ffe2df4e1 = L.circleMarker(
+                [11.5981899, 72.1857601],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63232", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 0.4}
+            ).addTo(feature_group_e5c8429cf38df85f3026aed6434ce7e1);
+        
+    
+        var popup_8ff7868f139688f373bd738750924ef0 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_c3965c98f51bd68a8ed0d9e949a189c7 = $(`<div id="html_c3965c98f51bd68a8ed0d9e949a189c7" style="width: 100.0%; height: 100.0%;"><b>Bitra</b><br>Elevation: 0.0 m<br>⚠️ At/below 1m — SLR risk</div>`)[0];
+                popup_8ff7868f139688f373bd738750924ef0.setContent(html_c3965c98f51bd68a8ed0d9e949a189c7);
+            
+        
+
+        circle_marker_48c066a12879aa253538ca0ffe2df4e1.bindPopup(popup_8ff7868f139688f373bd738750924ef0)
+        ;
+
+        
+    
+    
+            var circle_marker_37c5f285dd4920957e981fa0c1b9edbc = L.circleMarker(
+                [11.1239547, 72.7177066],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63232", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 0.4}
+            ).addTo(feature_group_e5c8429cf38df85f3026aed6434ce7e1);
+        
+    
+        var popup_b0eeb18b105d17dc750dc5f3dfab0738 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_1bbec02323a688a8c24220cd766313fd = $(`<div id="html_1bbec02323a688a8c24220cd766313fd" style="width: 100.0%; height: 100.0%;"><b>Amini</b><br>Elevation: 0.0 m<br>⚠️ At/below 1m — SLR risk</div>`)[0];
+                popup_b0eeb18b105d17dc750dc5f3dfab0738.setContent(html_1bbec02323a688a8c24220cd766313fd);
+            
+        
+
+        circle_marker_37c5f285dd4920957e981fa0c1b9edbc.bindPopup(popup_b0eeb18b105d17dc750dc5f3dfab0738)
+        ;
+
+        
+    
+    
+            var circle_marker_d0b075b8dfac3596bb988b4caa975792 = L.circleMarker(
+                [11.488336, 73.003335],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63232", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 0.4}
+            ).addTo(feature_group_e5c8429cf38df85f3026aed6434ce7e1);
+        
+    
+        var popup_acbe5f03a5c5f4f29722b1a7c959a156 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_b3d647fc4098010288e36a0f25393dcd = $(`<div id="html_b3d647fc4098010288e36a0f25393dcd" style="width: 100.0%; height: 100.0%;"><b>Kiltān</b><br>Elevation: 0.0 m<br>⚠️ At/below 1m — SLR risk</div>`)[0];
+                popup_acbe5f03a5c5f4f29722b1a7c959a156.setContent(html_b3d647fc4098010288e36a0f25393dcd);
+            
+        
+
+        circle_marker_d0b075b8dfac3596bb988b4caa975792.bindPopup(popup_acbe5f03a5c5f4f29722b1a7c959a156)
+        ;
+
+        
+    
+    
+            feature_group_e5c8429cf38df85f3026aed6434ce7e1.addTo(map_ab10d82ae63355bacb79bb615d11cd7d);
+        
+    
+            var layer_control_1cbaaca6666d95ebd6c81a923edb1e95_layers = {
+                base_layers : {
+                    "cartodbpositron" : tile_layer_0b9b83c2637139db3233c3a21123da70,
+                },
+                overlays :  {
+                    "Island Boundary" : geo_json_189fd29e5e556a45d6bd4e11ae63e601,
+                    "Above 1m elevation (safe)" : feature_group_9cb9fb8b5cfcec4d1bdeb41da9e7244a,
+                    "At/below 1m elevation (SLR risk)" : feature_group_e5c8429cf38df85f3026aed6434ce7e1,
+                },
+            };
+            let layer_control_1cbaaca6666d95ebd6c81a923edb1e95 = L.control.layers(
+                layer_control_1cbaaca6666d95ebd6c81a923edb1e95_layers.base_layers,
+                layer_control_1cbaaca6666d95ebd6c81a923edb1e95_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": false,
+  "autoZIndex": true,
+}
+            ).addTo(map_ab10d82ae63355bacb79bb615d11cd7d);
+
+        
+</script>
 </html>

@@ -1,0 +1,245 @@
+name,place,lon,lat,elevation_m,at_risk
+Groupe d'Aldabra,archipelago,46.9822705,-9.738605,-32767,True
+L'Islette,islet,55.4093483,-4.6629789,-32767,True
+Île Picard,island,46.2242052,-9.3875361,-32767,True
+Farquhar Atoll,locality,51.1138311,-10.1669807,-32767,True
+Poivre Islands,archipelago,53.3064459,-5.7616274,-32767,True
+Mahé,island,55.4521201,-4.6838076,-32767,True
+Alphonse Group,archipelago,52.7483378,-7.0822085,-32767,True
+Assomption,island,46.508401,-9.7250674,-32767,True
+Malabar,island,46.3587716,-9.3780066,-32767,True
+Grand Terre,island,46.3661824,-9.4341054,-32767,True
+Ile Aux Vaches,islet,55.4337998,-4.6859108,-32767,True
+Eden Island,islet,55.4782952,-4.6399735,-32767,True
+Ile Cerf,islet,50.9887787,-9.526476,-32767,True
+Praslin,island,55.7338547,-4.3251043,278,False
+Île de la Persévérance,island,55.4652306,-4.6059912,-32767,True
+Recif Island,island,55.7646165,-4.5847657,-32767,True
+Unnamed settlement,islet,55.6732501,-4.2586682,-32767,True
+Unnamed settlement,islet,55.7499262,-4.3025099,-32767,True
+Unnamed settlement,islet,55.7457837,-4.3104911,-32767,True
+Île Curieuse,island,55.7283681,-4.2842385,3,False
+Providence Island,island,51.0308544,-9.2256959,-32767,True
+Île de Coëtivy,island,56.2760218,-7.1354453,-32767,True
+Alphonse Island,island,52.7282654,-7.0071623,-32767,True
+Bijoutier Island,island,52.7347313,-7.0677131,-32767,True
+Île Saint-François,island,52.7398917,-7.1527982,-32767,True
+Île Marie-Louise,island,53.1436828,-6.1792636,-32767,True
+Île Desnœufs,island,53.043467,-6.2345919,-32767,True
+Desroches Island,island,53.670863,-5.6891532,-32767,True
+Remire,islet,53.3122966,-5.1165962,-32767,True
+Île d'Arros,island,53.2980229,-5.4156035,-32767,True
+Île Ressource,island,53.3268214,-5.4102964,-32767,True
+Île Fouquet,islet,53.3414702,-5.4234193,-32767,True
+Île Saint-Joseph,island,53.3564946,-5.4361366,-32767,True
+Île Silhouette,island,55.2304331,-4.4888634,375,False
+Île du Nord,island,55.2459417,-4.3920487,-32767,True
+Île Félicité,island,55.8748307,-4.3278471,179,False
+La Digue,island,55.8404249,-4.3601044,-32767,True
+Cousin,islet,55.6615962,-4.3314118,33,False
+Petite Sœur,islet,55.8552197,-4.28775,-32767,True
+Île Marianne,island,55.9210512,-4.3425994,48,False
+Grande Sœur,island,55.8692683,-4.2900147,60,False
+Unnamed settlement,islet,55.5396902,-4.4841466,-32767,True
+Unnamed settlement,islet,55.907447,-4.6018204,-32767,True
+Île d'Aride,island,55.6667104,-4.212426,60,False
+Unnamed settlement,islet,55.6476417,-4.3507606,20,False
+Unnamed settlement,islet,55.3667123,-4.6634084,122,False
+Unnamed settlement,islet,55.4013224,-4.6744836,127,False
+Île au Cerf,island,55.4987179,-4.634051,-32767,True
+Île Sainte-Anne,island,55.5045414,-4.6059439,-32767,True
+Île de Romainville,islet,55.4708131,-4.6250643,-32767,True
+Unnamed settlement,islet,55.7905346,-4.3416723,-32767,True
+Unnamed settlement,islet,55.8680325,-4.3166051,-32767,True
+Île Coco,islet,55.8655551,-4.3118981,-32767,True
+Unnamed settlement,islet,55.8638834,-4.3089954,-32767,True
+Unnamed settlement,islet,55.8167062,-4.3174981,-32767,True
+Île Michel,islet,46.4467628,-9.4067447,-32767,True
+Unnamed settlement,islet,46.4580823,-9.3939701,-32767,True
+Unnamed settlement,islet,46.4630284,-9.4036043,-32767,True
+Île Esprit,islet,46.2507288,-9.4279422,-32767,True
+Unnamed settlement,islet,46.2379253,-9.4388792,-32767,True
+Polymnie,island,46.2618721,-9.3743531,-32767,True
+Grande Île,island,47.6457068,-9.7486618,-32767,True
+Astove,island,47.7405283,-10.0830861,-32767,True
+Bird Island,island,55.2060412,-3.7188852,-32767,True
+Long Island,islet,55.5084037,-4.6266634,-32767,True
+Île Moyenne,islet,55.5089453,-4.6195826,-32767,True
+Unnamed settlement,island,55.4621219,-4.5923845,-32767,True
+Unnamed settlement,island,55.4614657,-4.6140486,-32767,True
+Île Ronde,islet,55.503579,-4.6219501,-32767,True
+Atoll Saint-Joseph,atoll,53.3431835,-5.4292338,-32767,True
+St. François Atoll,atoll,52.7527609,-7.1151845,-32767,True
+Île Platte,islet,55.3844826,-5.864091,-32767,True
+Manaha Nord,islet,51.176084,-10.1547646,-32767,True
+Bancs de sable (Grande Caye),islet,51.0417887,-10.1716038,-32767,True
+Ile du Nord,island,51.1733842,-10.1300626,-32767,True
+Manaha Milieu,islet,51.1760122,-10.1565209,-32767,True
+Manaha Sud,islet,51.1755428,-10.158913,-32767,True
+Ile du Sud,island,51.1643922,-10.1825413,-32767,True
+Goëlette,islet,51.1300405,-10.224559,-32767,True
+Unnamed settlement,islet,50.9865021,-9.5464088,-32767,True
+Ile Saint Pierre,island,50.7276617,-9.3314679,-32767,True
+Caye Boudeuse,islet,52.8324052,-6.0889301,-32767,True
+Île Denis,island,55.665731,-3.8067952,-32767,True
+Ile des Déposés,islet,51.0713674,-10.1509348,-32767,True
+Ile du Milieu,islet,51.0779642,-10.1499988,-32767,True
+Ile Lapin,islet,51.0888329,-10.149287,-32767,True
+Unnamed settlement,islet,55.827967,-4.3478803,-32767,True
+Unnamed settlement,islet,55.827667,-4.3465566,-32767,True
+Unnamed settlement,islet,55.4647938,-4.7390872,-32767,True
+Unnamed settlement,islet,55.4640965,-4.7388896,-32767,True
+Unnamed settlement,islet,55.4570331,-4.624236,-5,True
+Île Frégate,island,55.9416231,-4.5858781,54,False
+Île Cachée,islet,55.5050823,-4.6406432,-32767,True
+Rat Island,islet,55.5352324,-4.669072,-32767,True
+Île Anonyme,islet,55.5234212,-4.6650903,-32767,True
+Unnamed settlement,islet,55.6857725,-4.2899056,-32767,True
+Picard,hamlet,46.2061607,-9.4014624,-32767,True
+Grand Polyte,islet,47.6558932,-9.7193008,-32767,True
+Petit Polyte,islet,47.6569862,-9.7293779,-32767,True
+Île Sud Ouest,islet,47.5822491,-9.7696248,-32767,True
+Pagode,islet,47.6068678,-9.7629958,-32767,True
+Île Goelette,islet,47.6451919,-9.7005234,-32767,True
+Île du Trou,islet,47.6295564,-9.6883668,-32767,True
+Île Nord-Est,islet,47.5863351,-9.6638674,-32767,True
+Île du Nord,islet,47.5716471,-9.660873,-32767,True
+Île Menai,island,47.5168367,-9.7153451,-32767,True
+Île Moustique,islet,47.5104582,-9.7323544,-32767,True
+Île Baleine,islet,47.510903,-9.7242543,-32767,True
+Îlot Lacroix,islet,47.5286243,-9.7050696,-32767,True
+Île des Rats,islet,47.5273259,-9.7062113,-32767,True
+Île Macaque,islet,47.5373894,-9.7027676,-32767,True
+Seychelles,country,55.4540146,-4.6574977,413,False
+African Banks,island,53.3873719,-4.8807051,-32767,True
+Unnamed settlement,village,55.4288241,-4.6135556,10,False
+Anse Boileau,village,55.4836699,-4.7110788,5,False
+Anse Royale,village,55.5176065,-4.7376121,22,False
+Port Launay,village,55.4009292,-4.6508556,30,False
+Unnamed settlement,islet,55.5254791,-4.7378279,-32767,True
+Unnamed settlement,farm,55.2076834,-3.7187569,-32767,True
+Tam Tam Surf,locality,52.7308016,-7.1057021,-32767,True
+Tam Tam Flat,locality,52.7334998,-7.1084632,-32767,True
+Wayne's Bay,locality,52.7267029,-7.1374486,-32767,True
+Donals's Bay,locality,52.7296672,-7.1381349,-32767,True
+Rattrays,locality,52.7274296,-7.1492241,-32767,True
+Beirut,locality,52.7261944,-7.1560462,-32767,True
+Baghdad,locality,52.7537791,-7.1649107,-32767,True
+Back Of The Moon,locality,52.7373502,-7.1613518,-32767,True
+Prawn Beds,locality,52.7396689,-7.1557047,-32767,True
+Cosmic Lagoon,locality,52.7429626,-7.15594,-32767,True
+Nursery,locality,52.7458611,-7.1534563,-32767,True
+Morning Traffic,locality,52.7420186,-7.1442464,-32767,True
+Pompano Channel,locality,52.7482766,-7.142024,-32767,True
+East Knoll,locality,52.7572355,-7.1416319,-32767,True
+Invisible Wreck,locality,52.7748259,-7.1514791,-32767,True
+Gauntanemo Bay,locality,52.7560614,-7.1227009,-32767,True
+Top Sticks,locality,52.7524074,-7.1291353,-32767,True
+Delta,locality,52.7580273,-7.1269864,-32767,True
+Andrew's Train,locality,52.7583237,-7.1298625,-32767,True
+Gravy Train,locality,52.7575991,-7.1323463,-32767,True
+West Edge,locality,52.7374417,-7.1277708,-32767,True
+Milky Way,locality,52.7448393,-7.1280388,-32767,True
+Invisible Flat,locality,52.7422887,-7.1315319,-32767,True
+Betsy's Bay,locality,52.7418882,-7.1339582,-32767,True
+One Palm Island,locality,52.7373415,-7.1410436,-32767,True
+Lollipops Wreck,locality,52.7780208,-7.1400407,-32767,True
+Small Wreck,locality,52.7775749,-7.120161,-32767,True
+Crossroads,locality,52.7496912,-7.1016448,-32767,True
+Badlands,locality,52.7625498,-7.1024292,-32767,True
+Dragons Back,locality,52.7469772,-7.1086261,-32767,True
+Ignoblis Channel,locality,52.7425241,-7.1066912,-32767,True
+Moorings,locality,52.7384663,-7.1098289,-32767,True
+Tam Tam Channel,locality,52.7413414,-7.1153399,-32767,True
+Nirvana Channel,locality,52.7427116,-7.1148169,-32767,True
+East Edage,locality,52.7613967,-7.1170476,-32767,True
+Judes,locality,52.7630963,-7.1087116,-32767,True
+Highway,locality,52.7722355,-7.1190758,-32767,True
+Coral Garden,locality,52.7365806,-7.0798139,-32767,True
+Gods Aquarium,locality,52.7380646,-7.0775547,-32767,True
+Arno's Flat,locality,52.7361306,-7.0907555,-32767,True
+Petit La Passe,locality,52.7425599,-7.090311,-32767,True
+La Passe,locality,52.7470393,-7.084846,-32767,True
+Tiger Flat,locality,52.7569731,-7.0823619,-32767,True
+Helmut Knoll,locality,52.7535213,-7.0776028,-32767,True
+St Josephs,locality,52.7758827,-7.0924669,-32767,True
+Fields Of Gold,locality,52.7605736,-7.0944542,-32767,True
+Mullet Bay,locality,52.7612324,-7.0912641,-32767,True
+Invisible Lagoon,locality,52.754645,-7.0961276,-32767,True
+Pancake Flat,locality,52.7526951,-7.0931206,-32767,True
+Île Poivre,island,53.3064459,-5.7483149,-32767,True
+Île Florentin,islet,53.3018098,-5.7613301,-32767,True
+Île du Sud,islet,53.3055702,-5.7688443,-32767,True
+Étoile Cay,islet,53.0264347,-5.8842209,-32767,True
+Unnamed settlement,village,55.7177343,-4.3269702,5,False
+Unnamed settlement,village,55.7564233,-4.3411172,30,False
+Anse Kerlan,village,55.6874433,-4.3123248,-2,True
+Sans Souci,village,55.4522357,-4.6409975,236,False
+Unnamed settlement,village,55.4177606,-4.66406,5,False
+Quatre Bornes,village,55.5115693,-4.7790776,90,False
+Unnamed settlement,village,55.4811946,-4.7526077,34,False
+Unnamed settlement,village,55.4112979,-4.6193716,23,False
+Ile Soleil,islet,55.5302195,-4.6876489,-32767,True
+Unnamed settlement,islet,55.8769063,-4.3212355,-32767,True
+Unnamed settlement,islet,55.8713682,-4.3329156,-32767,True
+Unnamed settlement,islet,55.8724179,-4.3336959,-32767,True
+Unnamed settlement,islet,55.87231,-4.3337849,-32767,True
+Unnamed settlement,islet,55.878747,-4.3396444,-32767,True
+Unnamed settlement,islet,55.8805541,-4.3392045,-32767,True
+Unnamed settlement,islet,55.8889903,-4.3385038,-32767,True
+Unnamed settlement,islet,55.8642724,-4.3134885,-32767,True
+Unnamed settlement,islet,55.8650087,-4.3132632,-32767,True
+Unnamed settlement,islet,55.8632472,-4.3104796,-32767,True
+Unnamed settlement,islet,55.8629299,-4.3103131,-32767,True
+Unnamed settlement,islet,55.864485,-4.3091135,-32767,True
+Unnamed settlement,islet,55.8644313,-4.3092667,-32767,True
+Unnamed settlement,islet,55.864324,-4.3092793,-32767,True
+Anse Mondon village,locality,55.2212052,-4.4671201,-32767,True
+Sand Cay,island,53.2380277,-5.6506707,-32767,True
+Unnamed settlement,neighbourhood,55.8312095,-4.3431821,17,False
+Unnamed settlement,islet,53.3578981,-5.4477938,-32767,True
+Unnamed settlement,islet,47.7378438,-10.0989552,-32767,True
+Unnamed settlement,islet,47.5104416,-9.7251409,-32767,True
+Unnamed settlement,islet,47.7345439,-10.094246,-32767,True
+Anse Boudin,village,55.7091652,-4.2989646,34,False
+Anse des Genets,village,55.5114647,-4.6735851,45,False
+Pointe Au Sel,village,55.5227825,-4.7264693,36,False
+Anse Louis,village,55.4839207,-4.7184256,19,False
+Barbarons,village,55.4566575,-4.6799576,39,False
+Bon Espoir,village,55.4996386,-4.7072335,242,False
+Capucins,village,55.5200725,-4.6904678,54,False
+Unnamed settlement,village,55.4972693,-4.6691243,26,False
+Unnamed settlement,village,55.4505286,-4.6750171,21,False
+La Béolière,village,55.435331,-4.670083,116,False
+La Plaine St. Andre,village,55.5215697,-4.7205684,18,False
+Pascal Village,village,55.4351586,-4.620927,94,False
+Talbot,village,55.5011429,-4.6702758,40,False
+Unnamed settlement,village,55.4851734,-4.6584014,21,False
+Unnamed settlement,village,55.455248,-4.5932954,30,False
+Unnamed settlement,village,55.4345526,-4.583654,72,False
+La Retraite,village,55.4608205,-4.5840828,10,False
+Ma Constance,village,55.455935,-4.5975253,28,False
+Mare Anglaise,village,55.4334831,-4.6066837,26,False
+Vista do Mar,village,55.4348924,-4.5757792,36,False
+Unnamed settlement,village,55.450062,-4.5653565,52,False
+La Misère,village,55.4704516,-4.6677028,436,False
+Unnamed settlement,islet,55.7621333,-4.3428898,0,True
+Unnamed settlement,islet,55.4650315,-4.7059554,-32767,True
+Unnamed settlement,islet,55.8229764,-4.36289,-32767,True
+Unnamed settlement,islet,46.2574578,-9.4268971,-32767,True
+Unnamed settlement,islet,46.2565526,-9.4272312,-32767,True
+Bois Verse,locality,55.6848602,-4.3195654,-32767,True
+Point Ste Marie,locality,55.677547,-4.3002604,-32767,True
+Hodoul Point,locality,46.5200745,-9.4008563,-32767,True
+Platte,village,55.3834915,-5.8641583,-32767,True
+Victoria,city,55.452359,-4.6232085,3,False
+Roche Tortue,islet,55.5418216,-4.6688439,-32767,True
+Pointe Machabee,locality,55.2182283,-4.4654836,-32767,True
+Poivre,village,53.311817,-5.7467898,-32767,True
+Coëtivy,village,56.271161,-7.1450058,-32767,True
+Hist. Marine Park,locality,55.3812916,-4.6418699,5,False
+Grande Poste,hamlet,51.1620808,-10.1229324,-32767,True
+L'Union,village,55.8334898,-4.3633241,16,False
+Unnamed settlement,town,55.8306895,-4.356222,7,False
+La Réunion,village,55.8319162,-4.3523294,14,False
+La Passe,village,55.8322653,-4.349538,4,False

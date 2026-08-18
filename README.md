@@ -34,7 +34,7 @@ Interactive geospatial maps are hosted separately via GitHub Pages. Sample links
 - [Canary Islands — Ecosystem Buffer](https://sakshimaske303-commits.github.io/DOUBLE-JEOPARDY/dashboard/static/canary_ecosystem_buffer_webmap/index.html)
 - [Lakshadweep — Ecosystem Buffer](https://sakshimaske303-commits.github.io/DOUBLE-JEOPARDY/dashboard/static/lakshadweep_ecosystem_buffer_webmap/index.html)
 
-**Sea-Level-Rise Exposure** (Canary Islands: Python/folium; Maldives, Seychelles, Fiji, Lakshadweep: QGIS/QGIS2Web)
+**Sea-Level-Rise Exposure** (Python/folium)
 - [Maldives — SLR Exposure](https://sakshimaske303-commits.github.io/DOUBLE-JEOPARDY/dashboard/static/maldives_slr_exposure_webmap/index.html)
 - [Seychelles — SLR Exposure](https://sakshimaske303-commits.github.io/DOUBLE-JEOPARDY/dashboard/static/seychelles_slr_exposure_webmap/index.html)
 - [Fiji — SLR Exposure](https://sakshimaske303-commits.github.io/DOUBLE-JEOPARDY/dashboard/static/fiji_slr_exposure_webmap/index.html)
@@ -62,7 +62,7 @@ Interactive geospatial maps are hosted separately via GitHub Pages. Sample links
 - Combines physical exposure and ecosystem degradation into a single **Compound Vulnerability Score**, revealing that the island with the highest physical exposure is *not* the island with the highest overall risk
 - Tests whether formal protected-area governance is statistically aligned with verified vulnerability, or represents a "paper park" gap between policy and evidence
 - Tests whether settlement expansion is concentrated near degrading ecosystem buffer zones, using satellite-derived built-up area change (2016–2024)
-- Presents all findings through an interactive Streamlit dashboard with live-recalculating features, Python (folium) and QGIS-based interactive maps, and Plotly interactive plots
+- Presents all findings through an interactive Streamlit dashboard with live-recalculating features, Python (folium) interactive maps, and Plotly interactive plots
 
 ## 🔬 Key Findings
 
@@ -81,7 +81,7 @@ Full methodology, including two hypotheses tested and one not supported, is docu
 ```text
 DOUBLE_JEOPARDY/
 ├── dashboard/                       # Streamlit dashboard (9 pages)
-│   └── static/                      # Interactive map exports — Python (folium) and QGIS2Web (served via GitHub Pages)
+│   └── static/                      # Interactive map exports, built in Python (folium) (served via GitHub Pages)
 ├── data/                            # Processed datasets across 5 islands, 10 categories
 │   ├── settlements/, ecosystem_buffers/, terrain/, population/
 │   ├── cyclone_tracks/, boundaries/, mangroves/, coral_bleaching/
@@ -106,7 +106,7 @@ DOUBLE_JEOPARDY/
 
 ## 🛠️ Tech Stack
 
-Python · GeoPandas · Rasterio · Folium · SciPy · PyMannKendall · Statsmodels · Plotly · Streamlit · QGIS · QGIS2Web · GitHub Pages · Sentinel Hub API · NOAA Coral Reef Watch API · Global Mangrove Watch
+Python · GeoPandas · Rasterio · Folium · SciPy · PyMannKendall · Statsmodels · Plotly · Streamlit · GitHub Pages · Sentinel Hub API · NOAA Coral Reef Watch API · Global Mangrove Watch
 
 ## 📚 Data Sources
 
