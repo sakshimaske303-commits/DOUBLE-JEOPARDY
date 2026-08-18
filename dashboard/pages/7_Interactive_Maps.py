@@ -41,6 +41,10 @@ st.markdown(f"""
         🟥 Red — At/Below 1m Elevation (SLR Risk) &nbsp;|&nbsp;
         🟨 Yellow — Above 1m Elevation (Safe)
     </p>
+    <p style="color: {PALETTE['text_muted']}; font-size: 0.78rem; margin: 8px 0 0 0; font-style: italic;">
+        Canary Islands is built directly in Python (folium); Maldives, Lakshadweep, Seychelles, and Fiji
+        are built in QGIS (QGIS2Web).
+    </p>
 </div>
 """, unsafe_allow_html=True)
 
@@ -228,6 +232,8 @@ else:
 
 st.markdown("---")
 st.markdown(
-    "<p class='caption-text' style='text-align:center;'>DOUBLE JEOPARDY — Maps built in QGIS, exported via QGIS2Web; plots built with Plotly</p>",
+    "<p class='caption-text' style='text-align:center;'>DOUBLE JEOPARDY — Ecosystem buffer maps and the Canary Islands "
+    "SLR map built directly in Python (folium); the remaining sea-level-rise exposure maps in QGIS (QGIS2Web); "
+    "plots built with Plotly</p>",
     unsafe_allow_html=True,
 )
