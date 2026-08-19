@@ -29,7 +29,7 @@ actually align with where empirically verified vulnerability is highest?
 
 st.markdown("---")
 
-tab1, tab2 = st.tabs(["🏛️ Governance Alignment (H3)", "🏗️ Settlement Encroachment"])
+tab1, tab2 = st.tabs(["Governance Alignment (H3)", "Settlement Encroachment"])
 
 with tab1:
     st.markdown("### Protected Area Coverage vs. Compound Vulnerability")
@@ -77,7 +77,7 @@ with tab1:
     """)
 
     st.markdown("")
-    st.markdown("##### 📄 Figure 6 — As it appears in the Research Paper")
+    st.markdown("##### Figure 6 — As it appears in the Research Paper")
     fig6_path = os.path.join(FIGURES_DIR, "fig6_governance_alignment.png")
     if os.path.exists(fig6_path):
         st.image(fig6_path, use_container_width=True)

@@ -27,7 +27,7 @@ measurable decline; the other shows remarkable stability across nearly three dec
 
 st.markdown("---")
 
-tab1, tab2 = st.tabs(["🌿 Coral Reefs — H1 (Supported)", "🌳 Mangroves — H2 (Not Supported)"])
+tab1, tab2 = st.tabs(["Coral Reefs — H1 (Supported)", "Mangroves — H2 (Not Supported)"])
 
 with tab1:
     st.markdown("### Coral Thermal Stress: 1996–2020")
@@ -83,7 +83,7 @@ with tab1:
     """)
 
     st.markdown("")
-    st.markdown("##### 📄 Figure 4 — As it appears in the Research Paper")
+    st.markdown("##### Figure 4 — As it appears in the Research Paper")
     fig4_path = os.path.join(FIGURES_DIR, "fig4_coral_thermal_stress_trends.png")
     if os.path.exists(fig4_path):
         st.image(fig4_path, use_container_width=True)
@@ -138,7 +138,7 @@ with tab2:
     """)
 
     st.markdown("")
-    st.markdown("##### 📄 Figure 5 — As it appears in the Research Paper")
+    st.markdown("##### Figure 5 — As it appears in the Research Paper")
     fig5_path = os.path.join(FIGURES_DIR, "fig5_mangrove_extent_over_time.png")
     if os.path.exists(fig5_path):
         st.image(fig5_path, use_container_width=True)

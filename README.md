@@ -1,21 +1,21 @@
-# 🌊 DOUBLE JEOPARDY — The Vulnerability Spiral
+# DOUBLE JEOPARDY — The Vulnerability Spiral
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21739961.svg)](https://doi.org/10.5281/zenodo.21739961)
 
 **Testing whether compound coastal climate vulnerability is real — and whether it affects every ecosystem equally.**
 
-## 🔗 Live Dashboard
+## Live Dashboard
 
 **[View the interactive dashboard →](https://double-jeopardy-6ev9trz3dwafsb7panbnxg.streamlit.app/)**
 
-## 📄 Project Documentation
+## Project Documentation
 
 | Document | What's Inside |
 |---|---|
-| ⚡ [`DJ_Executive_Summary.pdf`](./DJ_Executive_Summary.pdf) | One-page snapshot — question, method, headline finding, robustness checklist, and links (fastest overview) |
-| 📘 [`DJ_Project_Report.md`](./DJ_Project_Report.md) | Polished project summary — methodology, findings, conclusions (start here) |
-| 📗 [`DJ_Research_Paper.md`](./DJ_Research_Paper.md) | Formal academic paper — literature review, statistical methodology, results, discussion |
-| 📙 [`DJ_Development_Log.md`](./DJ_Development_Log.md) | Full technical development log — every bug, debugging session, and methodology iteration |
+| [`DJ_Executive_Summary.pdf`](./DJ_Executive_Summary.pdf) | One-page snapshot — question, method, headline finding, robustness checklist, and links (fastest overview) |
+| [`DJ_Project_Report.md`](./DJ_Project_Report.md) | Polished project summary — methodology, findings, conclusions (start here) |
+| [`DJ_Research_Paper.md`](./DJ_Research_Paper.md) | Formal academic paper — literature review, statistical methodology, results, discussion |
+| [`DJ_Development_Log.md`](./DJ_Development_Log.md) | Full technical development log — every bug, debugging session, and methodology iteration |
 
 ---
 
@@ -55,7 +55,7 @@ Interactive geospatial maps are hosted separately via GitHub Pages. Sample links
 
 ---
 
-## 📊 What This Project Does
+## What This Project Does
 
 - Tests physical sea-level-rise exposure at the settlement level across all five islands, using elevation data intersected with over 6,000 individual settlement points — complemented by a population-weighted recomputation using WorldPop 2020 data
 - Independently tracks **mangrove extent** across three time points (1996, 2010, 2020) and **coral reef thermal stress** across a continuous 24-year satellite record — treating them as two separate hypotheses, not one combined assumption
@@ -64,7 +64,7 @@ Interactive geospatial maps are hosted separately via GitHub Pages. Sample links
 - Tests whether settlement expansion is concentrated near degrading ecosystem buffer zones, using satellite-derived built-up area change (2016–2024)
 - Presents all findings through an interactive Streamlit dashboard with live-recalculating features, Python (folium) interactive maps, and Plotly interactive plots
 
-## 🔬 Key Findings
+## Key Findings
 
 **Coral reefs are degrading; mangroves are not.** Four of five islands show a measurable, rising coral thermal-stress trend over 24 years — most severely in Seychelles. Mangrove extent, tested with equal rigor across three independent time points, shows no measurable decline in any tested island. This asymmetry — rather than a uniform "ecosystems are collapsing" narrative — is the project's central empirical contribution.
 
@@ -76,7 +76,7 @@ Interactive geospatial maps are hosted separately via GitHub Pages. Sample links
 
 Full methodology, including two hypotheses tested and one not supported, is documented in the dashboard's Methodology page and in `DJ_Project_Report.md`.
 
-## 🗂️ Repository Structure
+## Repository Structure
 
 ```text
 DOUBLE_JEOPARDY/
@@ -104,11 +104,11 @@ DOUBLE_JEOPARDY/
 └── requirements.txt
 ```
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 Python · GeoPandas · Rasterio · Folium · SciPy · PyMannKendall · Statsmodels · Plotly · Streamlit · GitHub Pages · Sentinel Hub API · NOAA Coral Reef Watch API · Global Mangrove Watch
 
-## 📚 Data Sources
+## Data Sources
 
 | Dataset | Provider |
 |---|---|
@@ -122,7 +122,7 @@ Python · GeoPandas · Rasterio · Folium · SciPy · PyMannKendall · Statsmode
 | Cyclone Tracks | IBTrACS v04r01 |
 | Settlement Encroachment | Sentinel-2 (NDBI) |
 
-## ▶️ Running Locally
+## Running Locally
 
 ```bash
 git clone https://github.com/sakshimaske303-commits/DOUBLE-JEOPARDY.git
@@ -134,13 +134,13 @@ streamlit run app.py
 
 Note: The dashboard runs directly on the processed data already included in data/ — no API keys required. The raw data-acquisition scripts (e.g. download_coral_bleaching_stress.py, auth_sentinelhub.py) require a free Sentinel Hub account; credentials should be placed in a local .env file (see .gitignore — this file is not committed)
 
-## 👤 Author
+## Author
 
 **Sakshi D. Maske**
 
 Independent Geospatial Researcher
 
-## 📜 License
+## License
 
 This project is licensed under [CC BY 4.0](./LICENSE) — free to share and adapt, with attribution. See `CITATION.cff` for citation metadata.
 

@@ -30,20 +30,7 @@ with col_b:
         st.warning("Diagram not found at outputs/plots/imgg1.png")
     st.markdown(
         f"<p style='text-align:center; color:{PALETTE['text_muted']}; font-size:0.85rem; margin-top:6px;'>"
-        "🖼️ Conceptual diagram — visual aid only</p>",
-        unsafe_allow_html=True,
-    )
-    st.markdown(
-        f"""
-        <div style="background: {PALETTE['card_bg']}; border: 1px solid rgba(34,211,238,0.25);
-                    border-radius: 10px; padding: 14px 20px; margin-top: 6px;">
-            <p style="color:{PALETTE['text_muted']}; font-size:0.85rem; font-style:italic; margin:0; text-align:center;">
-                A visual aid I put together from my own fully-specified brief — every process, label, and
-                physical relationship shown reflects my own understanding of coastal oceanography and
-                reef ecology.
-            </p>
-        </div>
-        """,
+        "AI was used to help generate this image, but the concept and every detail in it are mine.</p>",
         unsafe_allow_html=True,
     )
 

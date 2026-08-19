@@ -71,7 +71,7 @@ def add_threshold_line(fig, y, label, color, anchor_x, ay_offset):
     )
 
 
-st.markdown("### 🌡️ Coral Thermal Stress Over Time (1996–2020)")
+st.markdown("### Coral Thermal Stress Over Time (1996–2020)")
 
 selected_islands = st.multiselect(
     "Select islands to compare",
@@ -153,7 +153,7 @@ else:
 
 st.markdown("---")
 
-st.markdown("### 🌳 Mangrove Extent Over Time (1996, 2010, 2020)")
+st.markdown("### Mangrove Extent Over Time (1996, 2010, 2020)")
 
 mangrove_data = {
     "Maldives": [0.97, 0.97, 0.97],

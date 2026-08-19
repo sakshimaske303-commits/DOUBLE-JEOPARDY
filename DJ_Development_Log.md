@@ -2,50 +2,44 @@
 
 ## Index
 
-1. [Project Overview](#project-overview)
-2. [Problem Statement](#problem-statement)
-3. [Aim](#aim)
-4. [Research Questions](#research-questions)
-5. [Hypotheses](#hypotheses)
-6. [Objectives](#objectives)
-7. [Methodology Summary](#methodology-summary)
-8. [Study Area](#study-area)
-9. [Expected Outputs](#expected-outputs)
-10. [Relevance](#relevance)
-11. [Current Status](#current-status)
-12. [Part 1: Project Setup and Data Architecture Design](#development-log-part-1-project-setup-and-data-architecture-design)
-13. [Part 2: Core Dataset Acquisition and Cleanup (Settlements, Tourism, Infrastructure)](#development-log-part-2-core-dataset-acquisition-and-cleanup-settlements-tourism-infrastructure)
-14. [Part 3: Ecosystem Data (Mangroves, Coral Reefs, Protected Areas)](#development-log-part-3-ecosystem-data-mangroves-coral-reefs-protected-areas)
-15. [Part 4: Terrain, Population, and Cyclone Track Data](#development-log-part-4-terrain-population-and-cyclone-track-data)
-16. [Part 5: Multi-Temporal Analysis Core (Mangrove Time Series, Coral Bleaching Stress, Physical Exposure, Compound Vulnerability Score)](#development-log-part-5-multi-temporal-analysis-core-mangrove-time-series-coral-bleaching-stress-physical-exposure-compound-vulnerability-score)
-17. [Part 6: Governance Alignment Test, Settlement Encroachment Analysis, and Final Synthesis](#development-log-part-6-governance-alignment-test-settlement-encroachment-analysis-and-final-synthesis)
-18. [Addendum: Cyclone Damage Proxy as Supporting Evidence](#development-log-addendum-cyclone-damage-proxy-as-supporting-evidence)
-19. [Part 7: Dashboard Development, Interactive Maps, and Live-Data Features](#development-log-part-7-dashboard-development-interactive-maps-and-live-data-features)
-20. [Deep Verify: Independent Recomputation of Every Reported Statistic (2026-08-03)](#development-log-deep-verify-independent-recomputation-of-every-reported-statistic-2026-08-03)
+1. [Entry 1](#entry-1)
+2. [Entry 2](#entry-2)
+3. [Entry 3](#entry-3)
+4. [Entry 4](#entry-4)
+5. [Entry 5](#entry-5)
+6. [Entry 6](#entry-6)
+7. [Entry 7](#entry-7)
+8. [Entry 8](#entry-8)
+9. [Entry 9](#entry-9)
+10. [Entry 10](#entry-10)
+11. [Entry 11](#entry-11)
+12. [Entry 12](#entry-12)
 
-## Project Overview
+## Entry 1
+
+### Project Overview
 
 DOUBLE JEOPARDY tests whether small island nations face a compounding vulnerability to sea-level rise: high physical exposure combined with degrading natural coastal defenses. Instead of assuming all coastal ecosystems degrade the same way, the project tests each ecosystem type independently — mangroves and coral reefs — across five island nations spanning three ocean basins: Maldives, Lakshadweep, Seychelles, Fiji, and the Canary Islands. Mangrove and coral trajectories are tracked separately rather than lumped into one "ecosystem buffer" score, then combined with physical exposure into a composite vulnerability assessment.
 
 Beyond the ecological and physical risk numbers, the project also asks a governance question: does formal protected-area designation — the main tool island governments and international bodies point to when they say coastal ecosystem risk is being managed — actually line up with where the verified risk is highest? That turns this from a purely environmental-science project into something closer to a policy-evaluation exercise, testing whether governance response tracks the evidence or is spatially disconnected from it. That's directly relevant to environmental economics, adaptation-finance prioritization, and marine spatial governance.
 
-## Problem Statement
+### Problem Statement
 
 Climate adaptation policy and nature-based-solutions financing tend to treat coastal ecosystems as one protective category, assuming mangroves and coral reefs degrade together and jointly determine a settlement's sea-level-rise exposure. That assumption doesn't get tested very often against independent, multi-temporal evidence at a systematic, cross-national scale. If ecosystems are actually degrading at different rates — or in different directions entirely — then adaptation planning that treats the buffer as one category risks misallocating resources and misjudging which coastal zones are genuinely at risk.
 
 There's a second problem layered on top of the first: formal protected-area status gets treated, in national policy and in international financing frameworks, as a stand-in for effective ecosystem management. But protected-area boundaries are often drawn based on historical, political, or administrative reasons rather than continuously updated risk data. Whether protection status in these five islands actually corresponds to the places with the highest verified ecological and physical vulnerability — or is a "paper park" situation, spatially disconnected from where the risk actually sits — hadn't been tested using independent, satellite-derived evidence before this project.
 
-## Aim
+### Aim
 
 Build a reproducible geospatial framework that (1) independently quantifies physical sea-level-rise exposure and multi-temporal ecosystem trajectory — tracked separately for mangroves and coral reefs — across five island nations, producing a composite, evidence-based vulnerability assessment; and (2) tests whether existing protected-area governance is statistically aligned with that verified vulnerability, or represents a measurable governance-evidence gap.
 
-## Research Questions
+### Research Questions
 
 **RQ1 (Ecological/Physical)**: Does physical sea-level-rise exposure combine with ecosystem buffer degradation to produce compounding settlement-level vulnerability across five island nations — and does this operate the same way across ecosystem types, or does it depend on which ecosystem is actually degrading in a given location?
 
 **RQ2 (Governance)**: Does the spatial distribution of formal protected-area designation (WDPA) correlate with empirically verified compound vulnerability — pointing to evidence-responsive governance — or is protection status statistically independent of, or even inversely related to, actual satellite-derived ecosystem risk?
 
-## Hypotheses
+### Hypotheses
 
 **H1 (Coral Pathway)**: Coral reef ecosystems will show a statistically detectable increase in thermal bleaching stress over a multi-decadal period, more pronounced in islands with higher physical sea-level-rise exposure.
 
@@ -53,7 +47,7 @@ Build a reproducible geospatial framework that (1) independently quantifies phys
 
 **H3 (Governance-Evidence Alignment)**: Islands and coastal zones with higher composite vulnerability scores will show correspondingly higher protected-area coverage, consistent with risk-responsive governance. No relationship, or an inverse one, would itself be a real finding — that protection in this sample isn't empirically risk-driven — and gets reported either way.
 
-## Objectives
+### Objectives
 
 - Build a settlement-level physical exposure dataset across five island nations using elevation and slope data, identifying the share of settlements below a one-meter sea-level-rise threshold.
 - Build a multi-temporal mangrove extent dataset using the Global Mangrove Watch archive, testing for genuine area-based decline across multiple independent time points rather than one before/after snapshot.
@@ -64,7 +58,7 @@ Build a reproducible geospatial framework that (1) independently quantifies phys
 - Check every ecosystem-trend finding against multiple independent time points instead of one comparison.
 - Package all of this into a reproducible geospatial framework and interactive dashboard that communicates both the vulnerability findings and the governance-alignment analysis in a way that's directly useful for adaptation policy and conservation-finance decisions.
 
-## Methodology Summary
+### Methodology Summary
 
 Physical exposure comes from intersecting elevation and slope data with settlement locations across all five islands, then calculating the share of settlements at or below a one-meter elevation threshold. Ecosystem degradation is tracked separately for the two ecosystem types: mangrove extent, using multiple independent time points from the Global Mangrove Watch archive to test for genuine multi-decadal area change; and coral reef condition, using a continuous multi-decadal satellite thermal-stress time series, comparing early-period and recent-period averages. Physical exposure and the two ecosystem signals are then combined into a normalized Compound Vulnerability Score per island.
 
@@ -72,11 +66,11 @@ The governance piece quantifies the extent and density of formally designated pr
 
 A later phase tests whether settlement and infrastructure expansion, from satellite-based built-up area change detection, is disproportionately concentrated within or near ecosystem buffer zones — testing whether human response to environmental pressure ends up reinforcing the same vulnerability it's responding to, and whether that encroachment is more common inside or outside formally protected boundaries.
 
-## Study Area
+### Study Area
 
 Five island nations spanning three ocean basins: Maldives and Lakshadweep (Indian Ocean), Seychelles (western Indian Ocean), Fiji (South Pacific), and the Canary Islands (eastern Atlantic) — chosen for consistent multi-source data availability plus geographic, geological, and climatic diversity, so the compound vulnerability and governance-alignment framework gets tested across genuinely different island contexts, protection regimes, and administrative systems rather than a single case.
 
-## Expected Outputs
+### Expected Outputs
 
 - A settlement-level physical exposure dataset across five island nations.
 - A validated multi-temporal mangrove extent dataset.
@@ -86,29 +80,29 @@ Five island nations spanning three ocean basins: Maldives and Lakshadweep (India
 - A settlement/infrastructure encroachment analysis testing the ecosystem-buffer feedback hypothesis, broken down by protection status.
 - An interactive geospatial dashboard and open-source codebase, extensible to more islands and ecosystem types.
 
-## Relevance
+### Relevance
 
 This project speaks directly to climate adaptation policy, nature-based-solutions financing, ecosystem-services valuation, and marine spatial governance. Its contribution is really two things: first, showing that treating coastal ecosystem protection as one undifferentiated category can hide materially different risk profiles, which means rigorous, ecosystem-specific, multi-temporal verification matters more than an assumed uniform-decline narrative; and second, actually testing — instead of assuming — whether existing conservation governance instruments line up with verified risk, which gives a transferable method for evaluating adaptation-finance and protected-area prioritization decisions in any coastal or island context facing compound climate vulnerability.
 
-## Current Status
+### Current Status
 
 Project Concept Finalized
 Version 1.0
 
 ---
 
-# Development Log — Part 1: Project Setup and Data Architecture Design
+## Entry 2
 
-## Status
+### Status
 Complete. Covers the initial project structure decisions made once the research question and five-island study area were locked in, before any data acquisition started.
 
 ---
 
-## Starting Point
+### Starting Point
 
 With the research question set — does physical sea-level-rise exposure compound with ecosystem buffer degradation across five islands, and does that differ by ecosystem type — the first real decision was how to structure the project folder in a way that actually fit this study's needs, instead of just reusing a generic template.
 
-## Folder Structure: Category-Based, Not Island-Based
+### Folder Structure: Category-Based, Not Island-Based
 
 Two options were on the table before writing any acquisition code: organize by island (a Maldives folder, a Seychelles folder, each holding all its own data types), or organize by data category (a settlements folder, a mangroves folder, each holding all five islands' files).
 
@@ -130,62 +124,58 @@ DOUBLE_JEOPARDY/
 │   └── settlement_encroachment/  (satellite-derived built-up change data)
 ├── outputs/
 │   └── plots/
-├── Project_Journal.md
-└── Devlopment_Log.md
+├── DJ_Project_Report.md
+└── DJ_Development_Log.md
 ```
 
-## One Deliberate Inconsistency
+### One Deliberate Inconsistency
 
 Worth flagging one departure from the category-based rule: the raw multi-temporal Global Mangrove Watch archives (1996, 2010, 2020 snapshots) live in their own `mangroves/` folder, separate from the cleaned per-island files inside `ecosystem_buffers/`. That's practical, not sloppy — the raw GMW shapefiles are enormous (roughly 900–950MB per year, covering the whole globe) and get processed once into much smaller per-island, per-year extracts. Keeping the giant source archives physically apart from the small final files made it easy to later exclude the bulky raw archives from version control while still tracking the lightweight outputs, without scattering folder-level exceptions everywhere.
 
-## Environment Setup
+### Environment Setup
 
 Reused the `gpie2` conda environment already set up and tested in prior work, instead of starting fresh. That environment had already been fixed for a nasty numerical-computing issue (a corrupted Intel MKL backend, resolved by installing NumPy and SciPy with the `nomkl` OpenBLAS backend instead), and reusing it meant not risking that same failure mode showing up again in a clean environment. Two files carried straight over: `auth_sentinelhub.py` (the Sentinel Hub OAuth module) and the `.env` file with Copernicus Data Space credentials, since the API access patterns and credentials were identical to what this project would also need for its own Sentinel-2 work.
 
-## Why This Mattered Later
+### Why This Mattered Later
 
 This upfront structure paid off once multi-temporal analysis started: because every mangrove-year file, every coral time series file, and every island's settlement file sat in a predictable, category-consistent spot, later scripts looping across all five islands (elevation exposure, mangrove area comparison, coral stress trends) could be written generically, with the island name as the only thing changing between iterations, instead of five near-duplicate scripts hardcoded to five different folder layouts.
 
 ---
 
-*Continued in Part 2: Core Dataset Acquisition and Cleanup (Settlements, Tourism, Infrastructure).*
+## Entry 3
 
----
-
-# Development Log — Part 2: Core Dataset Acquisition and Cleanup (Settlements, Tourism, Infrastructure)
-
-## Status
+### Status
 Complete. Covers acquisition and cleaning of the three OpenStreetMap-derived datasets that form the human-activity baseline: settlements, tourism infrastructure, and general infrastructure.
 
 ---
 
-## Source and Acquisition
+### Source and Acquisition
 
 All three datasets came from OpenStreetMap via Overpass Turbo queries filtered to each island's extent, producing one raw GeoJSON export per island per category — fifteen files total. OSM was the practical choice for consistency and free access across all five islands, which span five different national administrative systems (Maldives, India, Seychelles, Fiji, Spain) where no single government dataset covers all five the same way.
 
-## The Column-Bloat Problem
+### The Column-Bloat Problem
 
 Every raw OSM export came in with an absurd number of columns — commonly 200 to 240 — most of it irrelevant: place-name translations into dozens of languages (`name:ta`, `name:zh-Latn-pinyin`, `wikipedia:ur`, and so on), Wikidata cross-references, contact info, and other OSM tagging noise that has nothing to do with a settlement's identity, population, or location. Keeping all of that meant carrying dead weight in every file for no analytical benefit, and made manual inspection during development a pain.
 
 The same cleaning pattern got applied to all fifteen files: read with `geopandas`, trimmed down to the columns that actually mattered (settlements: name, place type, population, geometry; tourism: name, tourism type, amenity type, geometry; infrastructure: name, man-made feature type, amenity type, power infrastructure type, geometry), and saved as a new `_clean.gpkg`, leaving the raw GeoJSON untouched. Settlement files went from up to 240 columns down to 4 or 5, without losing a single row or any field that was actually needed.
 
-## Bug: Sea Features Mislabeled as Settlements
+### Bug: Sea Features Mislabeled as Settlements
 
 While validating the cleaned settlement files, the Maldives and Lakshadweep bounding boxes both looked implausibly large — way outside the expected island extent. Two rows turned out to be the culprit in both files: "Arabian Sea" and "Laccadive Sea." Not settlements at all — OSM features for named bodies of water that got swept up by the Overpass Turbo place-type query, since OSM's `place` tagging is applied inconsistently across contributors and occasionally includes large water-body labels alongside genuine settlements.
 
 Found this by computing each settlement's centroid coordinates, sorting by longitude, and checking the extreme values at both ends — the two sea-name entries stuck out immediately, sitting far outside the real settlement cluster. Removed both rows directly from the cleaned `.gpkg` files (Maldives: 998 → 996 rows; Lakshadweep: 38 → 36 rows) without needing to re-pull from OpenStreetMap.
 
-## Bug: Invalid Geometry in Tourism Data
+### Bug: Invalid Geometry in Tourism Data
 
 Cleaning the Canary Islands tourism dataset, `geopandas.read_file()` threw `GEOSException: Invalid number of points in LinearRing found 2 - must be 0 or >= 4` — a hard crash meaning at least one polygon had fewer than the four coordinate pairs needed for a valid ring. Known defect pattern in crowd-sourced OSM polygon data.
 
 Fixed by passing `on_invalid="ignore"` to `geopandas.read_file()`, which drops unreadable geometries instead of raising, followed by an explicit check for any null geometries after the read. That confirmed exactly two invalid rows in the Canary tourism file (10,877 → 10,875 valid rows after dropping them). The same `on_invalid="ignore"` + null-geometry check became a standard step in every later vector-cleaning script, since this class of malformed-polygon defect could plausibly show up in any OSM file.
 
-## Duplicate and Naming Cleanup
+### Duplicate and Naming Cleanup
 
 A few naming inconsistencies showed up here, part of a pattern that recurred throughout the project of manually re-run exports producing near-duplicate files under slightly different names. Fiji's protected-area-adjacent file existed twice, as `FIJI_INFRAA_SLR.gpkg` (typo, extra "A") and `FIJI_INFRA_SLR.gpkg`, identical in size — deleted the typo'd copy. Same handling pattern used every time this came up elsewhere in the project: check file sizes or row counts to confirm whether the copies actually differ, then delete confirmed duplicates rather than leaving ambiguous near-identical files sitting around.
 
-## Final Status of This Phase
+### Final Status of This Phase
 
 | Dataset | Islands Covered | Typical Column Reduction |
 |---|---|---|
@@ -197,30 +187,26 @@ All fifteen files confirmed clean, correctly bounded, and free of invalid geomet
 
 ---
 
-*Continued in Part 3: Ecosystem Data (Mangroves, Coral Reefs, Protected Areas).*
+## Entry 4
 
----
-
-# Development Log — Part 3: Ecosystem Data (Mangroves, Coral Reefs, Protected Areas)
-
-## Status
+### Status
 Complete. Covers the three ecosystem-buffer datasets central to the project's core hypothesis testing: mangrove extent, coral reef extent, and protected areas.
 
 ---
 
-## Two Different Source Types
+### Two Different Source Types
 
 Unlike settlements/tourism/infrastructure (uniformly from OSM across all five islands), the ecosystem-buffer data came from two structurally different sources depending on the island, which meant two separate cleaning pipelines instead of one shared script.
 
 Fiji, Lakshadweep, and Seychelles mangrove/coral data came from WCMC's Global Mangrove Watch and coral reef atlases — identifiable right away from the uppercase column convention: `LAYER_NAME`, `METADATA_I`, `NAME`, `FAMILY`, `GENUS`, `SPECIES`, `DATA_TYPE`, `GIS_AREA_K`, `REP_AREA_K`. Maldives and Canary Islands data for the same two categories came from OSM instead, same lowercase `place`/`natural`/`tourism` schema as the settlements data. So every mangrove/coral cleaning script needed to know (or detect) which source format a given island used and apply the right column-selection logic — a `WCMC_KEEP_COLUMNS` list versus an OSM-style one, not one universal set.
 
-## Bug: The Maldives "Coral" File Wasn't Coral Data
+### Bug: The Maldives "Coral" File Wasn't Coral Data
 
 The biggest data-quality problem in this phase: `coral_maldives.gpkg` had 4,230 rows and 79 columns on first inspection. Looking at the column list, a bunch had nothing to do with coral reefs — `cuisine`, `spa`, `restaurant`, `rooms`, `payment:visa`, `payment:mastercard`, `opening_hours`, `parking`. This wasn't a filtered coral-reef dataset — it was basically an unfiltered general OSM export for the Maldives region that happened to be named like it was coral-specific.
 
 Filtered it down using OSM's reef tagging convention (`natural == "reef"`), which correctly picked out 2,921 of the 4,230 rows as genuine coral reef polygons — the other 1,309 were unrelated tourism/hospitality/amenity points that had gotten mixed into the same export. A `reef` attribute column with a single consistent value (`"coral"`) across the correctly-tagged rows confirmed the filter had isolated the right feature type. Doing this filtering step before any column cleanup meant downstream analysis wasn't quietly diluted by thousands of irrelevant tourism records.
 
-## Real Ecological Absences, Not Data Gaps
+### Real Ecological Absences, Not Data Gaps
 
 Two islands came back with zero results for specific ecosystem categories, and both got investigated and confirmed as genuine absences rather than acquisition failures — the standard applied throughout the project: any zero result is a hypothesis to check, not an error to silently paper over.
 
@@ -228,7 +214,7 @@ Lakshadweep returned zero mangrove features across every source checked. That fi
 
 The Canary Islands returned zero coral reef features, which fits its subtropical, volcanic, cooler-water Atlantic setting — outside the warm tropical shallow-water range coral needs. This got reinforced later when a Global Mangrove Watch bounding-box query for an unrelated multi-temporal analysis also came back empty for the Canary Islands even after deliberately widening the search box, giving independent cross-confirmation that this island's coastal ecology genuinely differs from the tropical islands rather than pointing to a systematic acquisition problem specific to one dataset.
 
-## Protected Areas: Swapping Out a Weak Source
+### Protected Areas: Swapping Out a Weak Source
 
 The protected-area dataset originally used for four islands (Maldives, Canary Islands, Seychelles, Fiji) came from OpenStreetMap via the QuickOSM plugin, and on inspection had an implausibly small number of features per island — as few as one protected area for Fiji, four for Maldives. That looked like incomplete coverage rather than genuinely sparse protection, since these regions are known to have plenty of formally gazetted marine and terrestrial protected areas.
 
@@ -238,7 +224,7 @@ Feature counts jumped substantially: Maldives 4 → 93, Fiji 1 → 126 (after co
 
 Raw WDPA features carried 34 columns each, covering the full range of standard metadata (governance type, ownership type, management authority, IUCN category, verification status, and more). Trimmed to nine columns actually relevant here: name, designation, designation type, IUCN category, legal status, status year, and both reported and GIS-calculated area — enough to assess protection type and extent without carrying administrative metadata nothing in this project actually uses.
 
-## Final Status of This Phase
+### Final Status of This Phase
 
 | Dataset | Islands With Data | Confirmed Genuine Absences |
 |---|---|---|
@@ -246,22 +232,18 @@ Raw WDPA features carried 34 columns each, covering the full range of standard m
 | Coral Reefs | Maldives, Fiji, Lakshadweep, Seychelles | Canary Islands |
 | Protected Areas (WDPA) | Maldives, Seychelles, Fiji, Canary Islands | Lakshadweep |
 
-This phase set the ecosystem-buffer baseline used both for the project's static ecosystem context and, later, as the foundation for the full multi-temporal analysis in Part 5.
+This phase set the ecosystem-buffer baseline used both for the project's static ecosystem context and, later, as the foundation for the full multi-temporal analysis in Entry 6.
 
 ---
 
-*Continued in Part 4: Terrain, Population, and Cyclone Track Data.*
+## Entry 5
 
----
-
-# Development Log — Part 4: Terrain, Population, and Cyclone Track Data
-
-## Status
+### Status
 Complete. Covers the remaining baseline datasets: elevation and slope (terrain), population density, and historical cyclone tracks.
 
 ---
 
-## Terrain: Elevation and Slope
+### Terrain: Elevation and Slope
 
 Elevation data (Copernicus DEM) came in for all five islands already in the correct EPSG:4326 coordinate system — no reprojection needed there.
 
@@ -269,7 +251,7 @@ Slope data needed fixing for three of the five islands (Canary, Fiji, Lakshadwee
 
 Checked elevation values against known geography as a sanity check rather than just trusting the numbers. Canary Islands topped out around 3,696m, which lines up with Mount Teide (Spain's highest peak, about 3,715m). Seychelles topped out around 904m, matching its granite mountain terrain (Morne Seychellois). Maldives and Lakshadweep both stayed in a roughly 0–20m range throughout, consistent with being low-lying coral atoll nations. This cross-check gave confidence the elevation data was processed correctly and hadn't gotten silently corrupted or misaligned somewhere along the way.
 
-## Population: Checked Against Real Numbers
+### Population: Checked Against Real Numbers
 
 Population density rasters (WorldPop, 2020) were acquired for four of five islands (Fiji, Seychelles, Maldives, and Canary Islands — the last one clipped from Spain's national population raster). Lakshadweep didn't get population data in this phase; the only access method found at the time meant downloading a raster covering the whole of India, which felt impractical for the small area actually needed, so it got deferred as lower priority.
 
@@ -277,7 +259,7 @@ Each acquired raster was validated by summing all pixel values to get a total es
 
 One large raster (Fiji's population file) initially failed with `rasterio.errors.RasterioIOError: cannot allocate 884736000 bytes` on a standard full-array read. Fixed by reading in tiled blocks via `rasterio`'s `block_windows` iterator instead of loading the whole array at once, accumulating sum/min/max incrementally across blocks — same memory-efficient pattern needed elsewhere in this project for other unusually large files.
 
-## Cyclone Tracks: IBTrACS and a Wind-Speed Consolidation Problem
+### Cyclone Tracks: IBTrACS and a Wind-Speed Consolidation Problem
 
 Historical cyclone track data came from IBTrACS (International Best Track Archive for Climate Stewardship), NOAA's standard global cyclone dataset combining reports from over a dozen meteorological agencies. Filtered the full global shapefile per island using the same bounding-box `geopandas.read_file(bbox=...)` approach used for WDPA.
 
@@ -287,7 +269,7 @@ Found a data-quality issue here too: the intended wind-speed field, `WMO_WIND` (
 
 The consolidated wind-speed field, plus a reduced column set (storm ID, season, name, timestamp, nature, position, consolidated wind speed, distance-to-land), got saved as a new `_final.gpkg` per island, replacing the much wider raw IBTrACS export (over 150 columns, most of them per-agency fields with no data for most storms) as the working dataset for everything downstream.
 
-## Final Status of This Phase
+### Final Status of This Phase
 
 | Dataset | Islands With Full Coverage | Notes |
 |---|---|---|
@@ -300,66 +282,62 @@ This phase closed out the full baseline dataset inventory needed before starting
 
 ---
 
-*Continued in Part 5: Multi-Temporal Analysis Core (Mangrove Time Series, Coral Bleaching Stress, Physical Exposure, Compound Vulnerability Score).*
+## Entry 6
 
----
-
-# Development Log — Part 5: Multi-Temporal Analysis Core (Mangrove Time Series, Coral Bleaching Stress, Physical Exposure, Compound Vulnerability Score)
-
-## Status
+### Status
 Complete. The project's central analytical work: building genuinely multi-temporal ecosystem trend data instead of relying on single before/after snapshots, quantifying physical exposure, and combining both into a composite vulnerability measure.
 
 ---
 
-## Why Multi-Temporal
+### Why Multi-Temporal
 
-The ecosystem-buffer data from Part 3 was only a single point in time. Testing whether mangroves or coral reefs were actually degrading needed data at multiple, well-separated points — a single before/after comparison is too easy to have been driven by noise or an unusual reference period, where a finding that holds across multiple independent time points is a lot more convincing.
+The ecosystem-buffer data from Entry 4 was only a single point in time. Testing whether mangroves or coral reefs were actually degrading needed data at multiple, well-separated points — a single before/after comparison is too easy to have been driven by noise or an unusual reference period, where a finding that holds across multiple independent time points is a lot more convincing.
 
-## Mangrove Time Series: Three Points
+### Mangrove Time Series: Three Points
 
 The Global Mangrove Watch (GMW) archive provides pre-processed, ready-to-use annual mangrove extent snapshots, so extent didn't need to be derived from raw imagery by hand. Three time points: 1996 (earliest available baseline), 2010 (midpoint), and 2020 (most recent single-year snapshot available at the time) — a 24-year span with a check in the middle rather than one big 24-year jump that could hide whether change was gradual or concentrated in a shorter window.
 
 Worth noting the GMW archive provides files both as single-year snapshots (e.g. `gmw_v3_2020_vec.zip`) and as change-detection products spanning a date range (e.g. `gmw_v3_f1996_t2020_vec.zip`, "f" for "from," "t" for "to"). Since the plan here was to independently derive area change from three separately-verified snapshots rather than lean on GMW's own change-detection algorithm, the three single-year files got used, not the pre-computed change file.
 
-Each global GMW shapefile (roughly 894–948MB) was filtered per island using the same `bbox`-based approach already used for WDPA and IBTrACS, avoiding a full global-dataset load. That produced per-island, per-year mangrove extent files for the four islands where mangroves are present (Lakshadweep confirmed absent in Part 3).
+Each global GMW shapefile (roughly 894–948MB) was filtered per island using the same `bbox`-based approach already used for WDPA and IBTrACS, avoiding a full global-dataset load. That produced per-island, per-year mangrove extent files for the four islands where mangroves are present (Lakshadweep confirmed absent in Entry 4).
 
-### Bug: Feature Count Isn't a Valid Area Proxy
+#### Bug: Feature Count Isn't a Valid Area Proxy
 
 An early comparison across the three time points used raw polygon feature counts as a quick change indicator, and it looked like a real decline for Fiji — 5,608 features in 1996 versus 4,810 in 2020, an apparent 14.2% drop. Didn't take that at face value, since feature count and actual mapped area aren't the same thing: one large contiguous mangrove area can be represented as a single polygon in one year's data and as several smaller adjacent polygons in another year, purely from differences in how the satellite classification algorithm segments that year's imagery — no actual area change involved.
 
 Tested this directly by reprojecting all three years for each of the three mangrove-present islands into an equal-area CRS (EPSG:6933 — appropriate for area calculation, unlike geographic coordinates, which distort area depending on latitude) and summing total area in km² instead of feature counts. Got a materially different, more reliable result: Fiji's mangrove area was essentially stable across all three points (485.72 km² in 1996, 487.97 in 2010, 488.41 in 2020 — a net increase of 0.6%), and Maldives and Seychelles both showed less than 0.01 km² of change across the full 24-year span. So the apparent decline from feature counts was a segmentation artifact between different years' source imagery, not a real reduction in mangrove extent — mangrove extent held essentially stable across all three tested islands over nearly a quarter-century, which directly shaped how the project later framed its hypothesis testing.
 
-## Coral Reef Condition: A Thermal Stress Time Series
+### Coral Reef Condition: A Thermal Stress Time Series
 
 Coral degradation shows up mainly as bleaching — a health/condition change from thermal stress — rather than a measurable drop in mapped physical extent, so this needed a different data source and metric than the mangrove analysis. The Allen Coral Atlas, considered first, turned out to be only a single-snapshot composite (built from 2018–2020 imagery), not a genuine multi-year time series, so it didn't fit the temporal-trend requirement here.
 
 NOAA Coral Reef Watch's Degree Heating Week (DHW) product was the right fit instead: a continuous daily satellite-derived measure of accumulated thermal stress, available from 1985 to the present, where values above 4°C-weeks are linked to significant coral bleaching and above 8°C-weeks to severe bleaching and coral mortality. This measures the physiological stress driver directly rather than trying to detect area loss, which makes sense given coral reef structures can physically persist for years after a bleaching event even after the living coral itself has died.
 
-### Bug: Access Denied, Then the Wrong Variable Name
+#### Bug: Access Denied, Then the Wrong Variable Name
 
 Access went through NOAA's ERDDAP server, queried via constructed URL requests rather than manual download, matching the API-based pattern used everywhere else in this project. First attempt failed with HTTP 403 Forbidden — the server was rejecting Python's default `requests` user-agent string as a bot request. Fixed by explicitly setting a browser-style `User-Agent` header (`"Mozilla/5.0 (Windows NT 10.0; Win64; x64)"`), after which the server started accepting requests (returning a 500 instead of a 403 — access granted, different problem remaining).
 
 The 500 error (`destinationVariableName=CRW_DHW wasn't found in datasetID=noaacrwdhwDaily`) meant the wrong variable name had been requested. Checked the dataset's actual metadata page directly and found the correct name, `degree_heating_week`, which fixed the request once swapped in.
 
-### Bug: A Coordinate That Landed on Solid Ground
+#### Bug: A Coordinate That Landed on Solid Ground
 
 Four of five islands returned valid, non-null DHW series right away using representative offshore coordinates. The Canary Islands point initially chosen came back entirely empty (305 of 305 values null) — traced to the coordinate falling on or too close to land, or otherwise on an invalid pixel in the 5km-resolution grid, plausible given how small the Canary Islands' landmass is relative to that grid resolution. Tested three alternative offshore coordinates with a quick single-month request each rather than repeating a full 24-year download for every candidate; one south of Gran Canaria returned a valid value, and got used to re-pull the full Canary Islands series successfully.
 
-### DHW Trend Result
+#### DHW Trend Result
 
 Comparing an early reference period (1996–2000 average) against a recent one (2016–2020), four islands showed rising thermal stress: Maldives (+0.17°C-weeks), Fiji (+0.10), Lakshadweep (+0.08), and most significantly Seychelles (+0.68, with a single maximum recorded reading of 10.47°C-weeks — in the range for severe bleaching and mortality). Canary Islands showed a slight decrease (−0.05), the only island of the five not trending upward, in line with its distinct Atlantic climate regime relative to the four Indian Ocean and Pacific islands.
 
-## Physical Exposure: Settlement-Level Sea-Level-Rise Risk
+### Physical Exposure: Settlement-Level Sea-Level-Rise Risk
 
-Physical exposure came from sampling the elevation raster at each settlement's centroid (via `rasterio`'s `sample` method) across all five islands, then calculating the share of settlements at or below a one-meter sea-level-rise threshold. Wide, geographically consistent spread: 99.1% of Maldives settlements at risk, 78.3% Seychelles, 77.8% Lakshadweep, 32.0% Fiji, 12.1% Canary Islands — directly reflecting the low-atoll-versus-volcanic-terrain distinction already established through the elevation cross-check in Part 4.
+Physical exposure came from sampling the elevation raster at each settlement's centroid (via `rasterio`'s `sample` method) across all five islands, then calculating the share of settlements at or below a one-meter sea-level-rise threshold. Wide, geographically consistent spread: 99.1% of Maldives settlements at risk, 78.3% Seychelles, 77.8% Lakshadweep, 32.0% Fiji, 12.1% Canary Islands — directly reflecting the low-atoll-versus-volcanic-terrain distinction already established through the elevation cross-check in Entry 5.
 
-## Compound Vulnerability Score
+### Compound Vulnerability Score
 
 Combined the two independently validated risk signals — physical SLR exposure and coral thermal-stress trend — normalizing each to a common 0–1 scale (min-max across the five islands) and averaging with equal weighting. Mangrove trend wasn't included as a weighted input here, since the multi-temporal analysis hadn't found any measurable decline to weight in.
 
 Resulting ranking: Seychelles highest (0.880), then Maldives (0.651), Lakshadweep (0.467), Fiji (0.217), Canary Islands (0.000, the reference minimum by construction). This is exactly the project's central methodological point made concrete: Maldives has substantially higher physical exposure alone (99.1% versus Seychelles' 78.3%), yet Seychelles comes out with the higher overall score once ecosystem degradation gets folded in — exposure alone would have picked the wrong island as highest-risk.
 
-## Final Status of This Phase
+### Final Status of This Phase
 
 | Analysis | Result |
 |---|---|
@@ -370,52 +348,48 @@ Resulting ranking: Seychelles highest (0.880), then Maldives (0.651), Lakshadwee
 
 ---
 
-*Continued in Part 6: Governance Alignment Test, Settlement Encroachment Analysis, and Final Synthesis.*
+## Entry 7
 
----
-
-# Development Log — Part 6: Governance Alignment Test, Settlement Encroachment Analysis, and Final Synthesis
-
-## Status
+### Status
 Complete. The two final analytical pieces — testing whether protected-area governance lines up with verified risk, and whether settlement is encroaching into ecosystem buffer zones over time — plus a synthesis of the full project.
 
 ---
 
-## Adding a Governance Dimension
+### Adding a Governance Dimension
 
-After the core ecological and physical vulnerability analysis wrapped up, a deliberate extension got added to connect the project more directly to policy evaluation rather than leaving it as a purely natural-science exercise. Instead of treating protected-area designation as background context, a specific testable hypothesis got formulated: that formal protection status (WDPA coverage) should, if governance is genuinely risk-responsive, correlate positively with the Compound Vulnerability Score from Part 5.
+After the core ecological and physical vulnerability analysis wrapped up, a deliberate extension got added to connect the project more directly to policy evaluation rather than leaving it as a purely natural-science exercise. Instead of treating protected-area designation as background context, a specific testable hypothesis got formulated: that formal protection status (WDPA coverage) should, if governance is genuinely risk-responsive, correlate positively with the Compound Vulnerability Score from Entry 6.
 
-## Bug: Comparing Land Area to Marine EEZs
+### Bug: Comparing Land Area to Marine EEZs
 
-A first attempt at a simple protected-area-to-land-area ratio gave a nonsense result for Seychelles — 1005.69, meaning the calculated protected area exceeded island land area by over a thousand-fold. Traced this to the WDPA dataset including Seychelles' Exclusive Economic Zone (one of the largest in the world relative to national landmass, over a million km² of ocean), which the bounding-box filtering from Part 3 had swept up along with the land-based protected areas. Comparing that vast marine figure against a tiny land-area denominator was never going to produce anything interpretable.
+A first attempt at a simple protected-area-to-land-area ratio gave a nonsense result for Seychelles — 1005.69, meaning the calculated protected area exceeded island land area by over a thousand-fold. Traced this to the WDPA dataset including Seychelles' Exclusive Economic Zone (one of the largest in the world relative to national landmass, over a million km² of ocean), which the bounding-box filtering from Entry 4 had swept up along with the land-based protected areas. Comparing that vast marine figure against a tiny land-area denominator was never going to produce anything interpretable.
 
-Fixed by restricting the protected-area calculation to a 10km coastal buffer around each island's boundary, instead of the full captured WDPA extent — the reasoning being that a settlement's actual exposure to nearby ecosystem protection is meaningfully tied to nearby coastal protection, not to an offshore marine protected area potentially hundreds of kilometers away. Implemented by buffering each island's boundary geometry by 10km (after reprojecting to an equal-area CRS) and intersecting that buffer with each island's WDPA polygons before summing area. Much more interpretable ratios came out of this — Seychelles dropped from 1005.69 to 11.32, still the highest of the five but no longer absurd, with Maldives at 3.90, Canary Islands at 2.32, Fiji at 0.42, and Lakshadweep at 0.00 (matching its confirmed zero WDPA coverage from Part 3).
+Fixed by restricting the protected-area calculation to a 10km coastal buffer around each island's boundary, instead of the full captured WDPA extent — the reasoning being that a settlement's actual exposure to nearby ecosystem protection is meaningfully tied to nearby coastal protection, not to an offshore marine protected area potentially hundreds of kilometers away. Implemented by buffering each island's boundary geometry by 10km (after reprojecting to an equal-area CRS) and intersecting that buffer with each island's WDPA polygons before summing area. Much more interpretable ratios came out of this — Seychelles dropped from 1005.69 to 11.32, still the highest of the five but no longer absurd, with Maldives at 3.90, Canary Islands at 2.32, Fiji at 0.42, and Lakshadweep at 0.00 (matching its confirmed zero WDPA coverage from Entry 4).
 
-## Governance-Alignment Result
+### Governance-Alignment Result
 
 Ran a Pearson correlation between each island's Compound Vulnerability Score and its coastal-buffer WDPA ratio (`scipy.stats.pearsonr`). Came out to r=0.727 — a moderately strong positive relationship, with Seychelles (highest vulnerability) also showing the highest protection ratio — but a p-value of 0.164, missing the conventional 0.05 threshold. Reported this honestly as suggestive, not confirmatory: the direction fits risk-responsive governance, but five islands just isn't enough statistical power to be confident about it — the same small-sample-size limitation that showed up in a comparably small country-sample earlier in this line of work.
 
-## Settlement Encroachment: Satellite-Derived Built-Up Area Change
+### Settlement Encroachment: Satellite-Derived Built-Up Area Change
 
 The last analytical piece tested whether settlement and infrastructure expansion was concentrated within or near ecosystem buffer zones over time, using the Normalized Difference Built-up Index (NDBI) — built the same way as NDVI but tuned to detect built-up/urban surface instead of vegetation, calculated from Sentinel-2 shortwave-infrared and near-infrared bands. Applied to the three mangrove-present islands (Maldives, Seychelles, Fiji), comparing a 2016 baseline against a 2024 recent period.
 
-### Bug: Empty Results, No Error
+#### Bug: Empty Results, No Error
 
 The first attempt, using a full calendar-year aggregation window (`P1Y`) per island, returned HTTP 200 success but an empty data array (`"data": []`) with `"geometryPixelCount": null` for every request across all three islands and both periods — a silent failure, not an obvious error, which needed direct inspection of the raw JSON to catch rather than trusting the request's success status alone.
 
 Two changes together fixed it: switched the aggregation window from a full year (`P1Y`) to six months (`P6M`), based on the same lesson from this project's earlier NO₂/NDVI acquisition work that certain Sentinel Hub interval lengths behave inconsistently depending on data type; and added an explicit `maxCloudCoverage: 30` filter, since persistently empty results across a full year for tropical island locations also fit cloud cover blocking any usable clear-sky observation. After both changes, all six requests (three islands × two periods) came back populated.
 
-### Encroachment Result
+#### Encroachment Result
 
 Comparing average NDBI between the two periods: both Maldives (+0.0461) and Seychelles (+0.1135) showed a clear increase, matching genuine settlement/infrastructure expansion near ecosystem buffer zones between 2016 and 2024. Seychelles' change was the bigger of the two, and notably crossed from a negative average (vegetation-dominated) in 2016 to a positive one (built-up-dominated) in 2024. Fiji showed effectively no change (−0.0008), consistent with the stability already seen in its mangrove extent data.
 
-## Final Synthesis
+### Final Synthesis
 
 Across every analytical piece, Seychelles kept coming up as the island with the strongest evidence of a compounding, self-reinforcing vulnerability pattern: highest Compound Vulnerability Score (driven largely by the most severe coral thermal-stress trend of any island tested), highest coastal protected-area ratio (a governance response that, while not statistically confirmed given the small sample, points the right direction), and the most pronounced encroachment signal of the three islands tested for that. Fiji, by contrast, stayed consistently stable across every temporal measure — stable mangrove extent, the smallest coral thermal-stress increase among the four islands showing any increase at all, and effectively no encroachment — a genuinely low-change comparison case against Seychelles' consistently high-change profile.
 
 The mangrove-decline hypothesis (H2), tested with the same rigor and multi-point validation as everything else here, wasn't supported by the evidence in any of the three islands where it could be tested. Reporting that honestly rather than adjusting or downplaying it feels like a real contribution in its own right — it shows ecosystem buffer degradation isn't uniform across ecosystem types, and coral reefs in this five-island sample are measurably more vulnerable to ongoing environmental pressure than mangroves over the same multi-decadal period, which matters for how conservation and adaptation resources get prioritized.
 
-## Complete Project Data Inventory
+### Complete Project Data Inventory
 
 | Category | Coverage |
 |---|---|
@@ -433,34 +407,34 @@ Every zero-result or unexpected finding along the way — Lakshadweep's absent m
 
 ---
 
-# Development Log — Addendum: Cyclone Damage Proxy as Supporting Evidence
+## Entry 8
 
-## Status
+### Status
 Complete. Added after the six core parts above were already written. Covers cyclone-driven satellite damage detection as supporting evidence, plus a data-availability constraint that turned up while working on it.
 
 ---
 
-## Context and Why It Got Added
+### Context and Why It Got Added
 
 The core analysis centers on sea-level rise and ecosystem buffer degradation, with cyclone activity treated as background rather than a primary pillar — a scope call made after data from an earlier, differently-framed version of this island-nations project (originally built around cyclone impact specifically) showed meaningful cyclone-intensity variation only for Fiji, with the other four islands' historical storm records too weak and low-intensity to detect a genuine damage signal.
 
 Rather than throwing that earlier cyclone-related work away once the project's framing shifted toward sea-level rise and ecosystem degradation, kept it as a smaller, clearly-scoped supporting addition instead of re-expanding the core analytical structure. Two Sentinel-2 NDVI before/after comparisons from that earlier project phase — Fiji's two strongest historically recorded cyclones, Winston (2016) and Yasa (2020) — were still sitting in the data folder, unaffected by the later project rename.
 
-## Trying to Extend This to the Other Four Islands
+### Trying to Extend This to the Other Four Islands
 
-Before settling on Fiji as the only island with cyclone damage evidence, tried extending the same satellite damage-detection approach to Maldives, Seychelles, and Lakshadweep, using each island's single strongest recorded cyclone from the IBTrACS data already established in Part 4. That meant first pinning down each island's peak-intensity event and its date, since the before/after imagery window depends on knowing when the event actually happened.
+Before settling on Fiji as the only island with cyclone damage evidence, tried extending the same satellite damage-detection approach to Maldives, Seychelles, and Lakshadweep, using each island's single strongest recorded cyclone from the IBTrACS data already established in Entry 5. That meant first pinning down each island's peak-intensity event and its date, since the before/after imagery window depends on knowing when the event actually happened.
 
-## Ran Into a Satellite-Record Start-Date Wall
+### Ran Into a Satellite-Record Start-Date Wall
 
 Building the acquisition script surfaced something that hadn't come up explicitly before this: Sentinel-2, the satellite used for all NDVI analysis in this project, launched in 2015 — no imagery exists before that. Checking each of the three candidate islands' strongest recorded cyclone against this cutoff showed all three predated Sentinel-2 entirely: Maldives' strongest recorded cyclone was in 2006, Seychelles' in 1996, Lakshadweep's in 1997. No valid "before" imagery could exist for any of them no matter how the request was built, since the satellite simply didn't exist yet.
 
 Built this check directly into the acquisition script as an explicit pre-condition (checking the cyclone year against a 2016 cutoff before attempting any request), instead of letting the script run and return an uninformative empty response that would need separate diagnosis — same pattern used elsewhere in this project of building known constraints into the acquisition logic up front. Running it confirmed all three islands got skipped immediately, each with an explicit printed reason.
 
-## How This Got Reported
+### How This Got Reported
 
 Didn't treat this as a gap to paper over — for example, by swapping in a weaker, later cyclone for one of the affected islands just to produce some result. It's a genuine structural limit of satellite-based verification: any remote-sensing method is bounded by when its satellite platform actually started operating, and events before that can't be verified by that method no matter how the request is configured. Documented transparently as a scope limit on this one supplementary analysis specifically — it doesn't touch the project's core sea-level-rise or ecosystem-degradation findings, which don't depend on Sentinel-2's coverage window the same way.
 
-## Final Cyclone Damage Proxy Status
+### Final Cyclone Damage Proxy Status
 
 | Island | Cyclone Damage Evidence | Reason |
 |---|---|---|
@@ -468,7 +442,7 @@ Didn't treat this as a gap to paper over — for example, by swapping in a weake
 | Maldives | Not available | Strongest recorded cyclone (2006) predates Sentinel-2 |
 | Seychelles | Not available | Strongest recorded cyclone (1996) predates Sentinel-2 |
 | Lakshadweep | Not available | Strongest recorded cyclone (1997) predates Sentinel-2 |
-| Canary Islands | Not applicable | No cyclone events recorded in this region (Part 4) |
+| Canary Islands | Not applicable | No cyclone events recorded in this region (Entry 5) |
 
 The two Fiji results — a clear NDVI decline (−0.0246) after Cyclone Winston (150 knots, Category 5-equivalent) versus no clear decline (+0.0049) after Cyclone Yasa (115 knots) — stand as supporting evidence that satellite-detectable vegetation damage in this sample only shows up at extreme storm intensity, which fits the broader ecosystem stability already seen in Fiji's mangrove data. Kept it framed that way — as one island's result — rather than extrapolated to the other four.
 
@@ -476,42 +450,42 @@ This case was a bit different from the rest of the project's debugging pattern: 
 
 ---
 
-# Development Log — Part 7: Dashboard Development, Interactive Maps, and Live-Data Features
+## Entry 9
 
-## Status
+### Status
 Complete (more additions possible later). Covers the move from finished data analysis to a public-facing Streamlit dashboard: page architecture, styling, QGIS-based interactive map integration, and several debugging efforts specific to embedding QGIS2Web exports inside Streamlit.
 
 ---
 
-## Dashboard Architecture
+### Dashboard Architecture
 
 Built a multi-page Streamlit dashboard with a category-based page structure mirroring the project's analytical structure rather than its data-acquisition structure: Study Design, Ecological Findings, Physical Exposure, Compound Vulnerability, Governance & Encroachment, Explore Trends, Interactive Maps, and Methodology & Data. Set up a shared `styles.py` module early — all CSS and a color palette dictionary (`PALETTE`) imported by every page — so a single visual change (adjusting saturation, say) could propagate across the whole dashboard without touching each page individually. That decision paid off directly when the palette got revised twice later for more contrast.
 
-## Styling: From Muted to Bold
+### Styling: From Muted to Bold
 
 The first color palette (soft blues and greens, moderate font weights) ended up looking faint and lacking presence for a dashboard meant to make a strong impression. Revised it to darker, higher-contrast tones (navy `#072a4d`, cyan `#0096c7`, forest green `#1b4332`) with heavier font weights across headers, metrics, and card labels (700–900, versus 400–600 before). Implemented as one change to `styles.py` rather than page-by-page edits — directly validating the earlier call to centralize styling.
 
 Also caught a recurring visibility bug with `st.expander()`: the expander headers and disclosure-triangle icons were rendering too close to the background color to actually see, which is a real problem since an invisible expand/collapse icon gives no hint the section is interactive. Fixed with a targeted CSS rule forcing the expander icon's `fill`, `stroke`, and `color` to explicit black across several possible DOM selectors (`svg`, `path`, `::marker`), since Streamlit's internal expander markup wasn't fully predictable and needed covering a few selector variants to make sure the fix stuck regardless of the exact rendering path.
 
-## Plotly Text-Color Bug
+### Plotly Text-Color Bug
 
 Several Plotly charts (Compound Vulnerability Score bar chart, governance-alignment scatter, NDBI encroachment bar chart) initially rendered with axis labels and legend text almost invisible against the dashboard background, even though the chart's top-level `font` color looked set. Turned out Plotly's `layout.font` doesn't automatically cascade to axis tick labels — those need their own `tickfont` color per axis — and legend text needs its own `legend.font` color too, rather than inheriting from the general layout font. Fixed every affected chart by setting `xaxis=dict(tickfont=dict(color="#000000"))`, `yaxis=dict(tickfont=dict(color="#000000"))`, and `legend=dict(font=dict(color="#000000"))` individually instead of relying on one top-level color to propagate.
 
-## Building the Interactive Maps Page
+### Building the Interactive Maps Page
 
 The Interactive Maps page needed to embed QGIS2Web-exported interactive maps (built in QGIS, exported as standalone HTML/JavaScript/OpenLayers apps) inside the Streamlit dashboard. This was, hands down, the most debugging-intensive part of building the dashboard.
 
-### Bug 1: Local File Protocol Blocked by the Browser
+#### Bug 1: Local File Protocol Blocked by the Browser
 
 First attempt read each exported map's `index.html` directly off disk in Python and injected it into Streamlit via `components.html()`, with a `<base href="file:///...">` tag meant to let the browser resolve relative asset paths (JS libraries, layer data) against their actual disk location. Rendered as a blank map area, no error message. Modern browsers block `file://`-protocol loading from inside an embedded iframe as a security measure, regardless of how the base path is set — that's what was happening.
 
-### Bug 2: Static-Serving Config in the Wrong Place
+#### Bug 2: Static-Serving Config in the Wrong Place
 
 Fixed by serving the exported map files over real HTTP instead of the file system, using Streamlit's built-in static-file-serving feature (`.streamlit/config.toml` with `enableStaticServing = true`, serving files from a `static/` folder at `/app/static/`). Took two rounds of path confusion to get right: first the config file got created in the outer project root instead of the `dashboard/` subfolder Streamlit actually treats as its working directory when launched via `streamlit run app.py` from inside it, so it was silently ignored; second, pinning down the correct location meant explicitly checking `pwd` before each file-creation step, since a couple of terminal navigation mistakes (running `cd` from an already-nested directory, producing a doubled path that didn't exist) kept happening and needed directory-listing commands to diagnose rather than just assuming the path was right.
 
 *A note on where this ended up: the final deployed dashboard actually serves these maps through GitHub Pages rather than through Streamlit's own static-file serving described above. That local-dev fix genuinely worked at the time; exactly why the switch to GitHub Pages happened later isn't something I have a clean note on — it's possible Streamlit's static serving didn't carry over cleanly once the app moved to Streamlit Community Cloud, which is a known rough edge on that platform, but I can't say that with certainty. Flagging it here as the honest current state rather than guessing at a tidy explanation.*
 
-### Bug 3: Zoom Level Not Preserving Across Islands
+#### Bug 3: Zoom Level Not Preserving Across Islands
 
 Once static serving was working and maps were loading, a separate and genuinely confusing issue showed up: only the first-loaded island's map (Maldives) displayed at its correctly exported zoom level; every other island loaded showing the entire world at minimum zoom, needing a manual zoom-in to see any actual data.
 
@@ -523,35 +497,35 @@ Cross-checked this diagnosis against the OpenLayers documentation and a couple o
 
 Also added a secondary resize safeguard (`window.addEventListener('load', ...)` triggering `map.updateSize()` after a short delay) across all the exported map HTML files via a small automation script, though the `st.tabs()` → `st.selectbox()` swap was what actually fixed it.
 
-## Ecosystem Buffer Maps: Legends That Match What's Actually There
+### Ecosystem Buffer Maps: Legends That Match What's Actually There
 
-The Ecosystem Buffer Overview maps needed a legend explaining the color scheme (mangroves, coral reefs, protected areas, island boundary), but three of the five islands are missing one or more of those layers entirely (Lakshadweep has no mangroves or protected areas; Canary Islands has no mangroves or coral reefs — both confirmed genuine ecological absences in Part 3). Instead of one static legend listing all four layer types for every island regardless of what's actually there — which would misleadingly imply all four are present everywhere — built the legend to generate itself per island based on which layers are genuinely present, so Lakshadweep's legend shows only "Coral Reefs" and "Island Boundary," and Canary Islands' shows only "Protected Areas" and "Island Boundary."
+The Ecosystem Buffer Overview maps needed a legend explaining the color scheme (mangroves, coral reefs, protected areas, island boundary), but three of the five islands are missing one or more of those layers entirely (Lakshadweep has no mangroves or protected areas; Canary Islands has no mangroves or coral reefs — both confirmed genuine ecological absences in Entry 4). Instead of one static legend listing all four layer types for every island regardless of what's actually there — which would misleadingly imply all four are present everywhere — built the legend to generate itself per island based on which layers are genuinely present, so Lakshadweep's legend shows only "Coral Reefs" and "Island Boundary," and Canary Islands' shows only "Protected Areas" and "Island Boundary."
 
-## Mangrove Trend Maps: A qgis2web Export Failure
+### Mangrove Trend Maps: A qgis2web Export Failure
 
 Trying to build interactive QGIS2Web exports for the Mangrove Extent Trend maps (three overlapping year-layers per island, 1996/2010/2020) hit a persistent `KeyError: 'size_unit'` inside qgis2web's internal `olStyleScripts.py` styling module — affecting the 1996 and 2010 layers specifically, while the 2020 layer for the same islands exported fine. Dug into the qgis2web source directly to trace this, given how specific to its internals the error was; the diagnosis pointed to an incomplete symbol-layer property dictionary on the historical layers (likely carried over from an older QGIS session that never populated a `size_unit` key qgis2web's exporter expects, versus the 2020 layer's more recently-touched, complete symbol definition) — consistent with the exporter reading style properties via direct dictionary access instead of a defensive `.get()` with a fallback.
 
 A practical fix existed (copy the 2020 layer's working style onto the 1996 and 2010 layers via QGIS's Copy Style / Paste Style), but given the extra time that would take across three affected islands, decided to drop the interactive QGIS2Web approach for this specific map category and produce static PNG exports from QGIS's Print Layout instead, embedded via `st.image()` rather than `components.iframe()`. Documented the swap directly in the dashboard with a short, honest note explaining it ("shown as a static image ... due to a QGIS2Web export limitation with historical polygon datasets") rather than making the change silently.
 
-## Live-Recalculating Features
+### Live-Recalculating Features
 
 Two dashboard sections recalculate results live from the underlying data instead of just showing fixed, pre-computed numbers.
 
-### Compound Vulnerability "What-If" Weighting Slider
+#### Compound Vulnerability "What-If" Weighting Slider
 
 The Compound Vulnerability Score, as originally computed, weighs physical SLR exposure and coral thermal-stress trend equally (50/50). Added a slider letting a dashboard user adjust that weighting themselves (0–100% SLR exposure, remainder to coral stress) and watch the island ranking recompute and re-sort live, using the same underlying normalized 0–1 values from the original analysis. Double-checked the exact min-max normalized values for both inputs with a short verification script before finalizing this, rather than just trusting values already sitting in the slider code — confirmed Seychelles stays the highest-ranked island across a wide range of weighting choices, giving a dashboard visitor hands-on evidence the finding isn't just an artifact of the specific 50/50 split used in the main analysis.
 
-### Physical Exposure Live SLR-Threshold Slider
+#### Physical Exposure Live SLR-Threshold Slider
 
 Similarly, the Physical Exposure page's headline numbers (percent of settlements at or below 1m elevation, per island) were originally static. Built a live version by first exporting every individual settlement's sampled elevation value (not just the final aggregate percentage) to a CSV covering all five islands, then adding a slider between 0.5 and 5.0 meters, with the per-island at-risk percentage recomputing directly from the underlying 6,000+ row elevation dataset on every slider move.
 
 Building this elevation-export script surfaced a data-consistency issue that needed a specific fix: the earlier decision (from the Compound Vulnerability work) to treat exactly-zero elevation values as invalid/NoData had been verified and justified specifically for the Canary Islands DEM, where spot-checking confirmed genuine NoData artifacts there. Applying that same zero-as-NoData rule to all five islands in the elevation-export script's first run gave an implausible result — Maldives dropped from an expected 996 settlements with elevation data down to just 10 — because Maldives, being a genuine low-lying atoll nation, has plenty of settlements with legitimately near-zero elevation that a blanket NoData rule wrongly threw out. Corrected the script to apply zero-as-NoData only to the Canary Islands specifically (the one island where it was actually verified), leaving zero-elevation values as valid everywhere else; re-running it matched the previously established, validated settlement counts across all five islands (996 Maldives, 244 Seychelles, 1,323 Fiji, 36 Lakshadweep, and a slightly reduced 4,834 for Canary Islands reflecting its genuinely excluded NoData points).
 
-## Home Page: Hypothesis-Outcome Summary Cards
+### Home Page: Hypothesis-Outcome Summary Cards
 
 Extended the home page with a "Three Hypotheses, Three Outcomes" section — H1, H2, and H3 as individually color-coded outcome cards (supported / not supported / suggestive-but-inconclusive) right below the page's core-finding summary. Gives a first-time visitor an at-a-glance view of the project's three central results before they navigate into any individual page, which felt like it was missing before — the individual pages were each substantively complete, but there wasn't a strong top-level orientation summarizing the project's overall shape before someone commits to digging into any one page.
 
-## Status of Interactive Map Categories
+### Status of Interactive Map Categories
 
 | Category | Format | Status |
 |---|---|---|
@@ -563,6 +537,8 @@ Extended the home page with a "Three Hypotheses, Three Outcomes" section — H1,
 Two things kept showing up in this phase that are worth naming directly. First, an unexpected or silently-failing result (the blank map from the `file://` block, the world-zoom default from the hidden-container issue) got investigated to an actual root cause instead of patched with an untested guess — in the zoom case, that meant deliberately using a minimal, protocol-independent HTTP server as an isolated check before touching any code. Second, when a real tooling limitation turned up (the qgis2web historical-layer export bug) and a proper fix would've cost more time than it was worth, the decision to fall back to something simpler and reliable (static PNG export) got made deliberately and documented openly in the dashboard, instead of either quietly dropping that map category or burning disproportionate time forcing the original approach to work.
 
 ---
+
+## Entry 10
 
 Went back through the Research Paper and Project Journal today specifically hunting for anything that could get challenged if someone actually checked it, starting with every reference in the bibliography. Four of the eight citations had real problems, not just typos: the "Pieraccini, M., et al. (2017)" entry had the wrong title attached entirely, matching a different 2022 conference paper by different authors — found the actual 2017 Pieraccini paper (Aquatic Conservation: Marine and Freshwater Ecosystems, 27(1), 177–196) and swapped it in. The mangrove dataset paper was credited to "Duncan, C." when the real lead author is Bunting, P. — checked the MDPI listing directly to confirm. Ferrario et al. was dated 2016 in the reference list but the paper is actually from 2014. Fixed all three, plus added the missing author name (Beth Pike) to the Marine Conservation Institute citation, which was otherwise already correct.
 
@@ -580,56 +556,56 @@ Once all of that was in the paper, went through the dashboard page by page to ma
 
 ---
 
-# Development Log — Deep Verify: Independent Recomputation of Every Reported Statistic (2026-08-03)
+## Entry 11
 
-## Status
+### Status
 
 Complete, one real discrepancy found and fixed.
 
-## Method
+### Method
 
-Rather than reading the paper for plausibility, every quantitative claim in `Research_Paper.md` that could be independently re-derived from data small enough to work with directly was actually recomputed from scratch — by running this project's own scripts (`coral_trend_test.py`, `mangrove_3point_comparison.py`, `compound_vulnerability_score.py`, `compute_wdpa_area.py`, `normalize_wdpa.py`, `wdpa_coastal_buffer.py`, `governance_correlation_test.py`, plus the Fisher's z-transformation CI logic embedded in `research_paper_figures.py`) directly against their source data, not just inspecting the code.
+Rather than reading the paper for plausibility, every quantitative claim in `DJ_Research_Paper.md` that could be independently re-derived from data small enough to work with directly was actually recomputed from scratch — by running this project's own scripts (`coral_trend_test.py`, `mangrove_3point_comparison.py`, `compound_vulnerability_score.py`, `compute_wdpa_area.py`, `normalize_wdpa.py`, `wdpa_coastal_buffer.py`, `governance_correlation_test.py`, plus the Fisher's z-transformation CI logic embedded in `research_paper_figures.py`) directly against their source data, not just inspecting the code.
 
-## What was independently reproduced and confirmed exact
+### What was independently reproduced and confirmed exact
 
 - **§4.2 Mangrove Extent (3-point):** re-ran `mangrove_3point_comparison.py` against the raw GMW gpkg files. Maldives 0.97 km² flat across all three time points; Seychelles 3.83→3.84→3.83 km²; Fiji 485.72 km² (1996) → 487.97 km² (2010) → 488.41 km² (2020), net +2.69 km² (+0.6%). Matches the paper exactly.
 - **§4.3 Coral Thermal Stress:** re-ran the period-comparison logic (1996–2000 vs. 2016–2020 averages) against all five islands' raw DHW time series. Changes: Maldives +0.17, Seychelles +0.68 (max single value 10.47), Fiji +0.10, Lakshadweep +0.08, Canary −0.05 — all match exactly. Re-ran the Mann-Kendall trend test (`pymannkendall`) on the full 24-year series: p-values Maldives 0.011, Seychelles 0.025 (both significant, "increasing"), Fiji 0.184, Lakshadweep 0.386, Canary 0.641 (all "no trend") — matches the paper exactly.
 - **§4.4 Compound Vulnerability Score:** re-ran `compound_vulnerability_score.py`'s hardcoded inputs and min-max normalization. Seychelles 0.880, Maldives 0.651, Lakshadweep 0.467, Fiji 0.217, Canary 0.000 — matches exactly.
 - **§4.5 Governance Alignment:** re-ran `compute_wdpa_area.py` → `normalize_wdpa.py` → `wdpa_coastal_buffer.py` → `governance_correlation_test.py` end-to-end against the raw boundary and WDPA gpkg files (10km coastal buffer, EPSG:6933). WDPA-coastal ratios matched the existing `wdpa_coastal_normalized.csv` exactly (Maldives 3.90, Seychelles 11.32, Fiji 0.42, Canary 2.32, Lakshadweep 0.00), and the resulting Pearson correlation reproduced r=0.727, p=0.164 exactly. Independently recomputed the Fisher's z-transformation 95% CI (not itself contained in `governance_correlation_test.py` — it's calculated inline inside `research_paper_figures.py`'s `fig6_governance_alignment()`): [-0.43, 0.98], n=5 — matches the paper exactly.
 
-## What could not be independently re-derived, and why
+### What could not be independently re-derived, and why
 
 §4.1's physical-exposure percentages (settlement-based and population-weighted) both depend on per-island elevation/slope DEM rasters in `data/terrain/` — up to 3.1GB per island — plus, for the population-weighted version, WorldPop population rasters that must be paired with those same DEMs. These are too large to practically stage and reprocess in this verification session. Instead, both `slr_exposure_analysis.py` and `population_weighted_exposure.py` were read in full for logic review: neither shows an obvious bug. The settlement-based script does a straightforward per-point elevation sample against a 1m threshold; the population-weighted script (documented in its own header as "FIX v4 (final)," after an earlier bug that silently undercounted Maldives by about a third) uses explicit, boundary-derived bounding-box windows and bilinear-resampled reprojection rather than the earlier buggy raster auto-scan. The existing `data/slr_exposure_summary.csv` output (996/244/1323/5483/36 settlements, 99.1%/78.3%/32.0%/12.1%/77.8% at risk) matches the paper's §4.1 table exactly, but this is confirming internal consistency between the CSV and the paper, not an independent re-derivation from the raw rasters — flagged explicitly rather than silently treated as verified, consistent with this portfolio's practice on other Deep Verify passes (e.g. GPIE's citation spot-check).
 
-## The one real discrepancy found: the weighting-sensitivity sweep does not support "entire range"
+### The one real discrepancy found: the weighting-sensitivity sweep does not support "entire range"
 
-§3.6, §4.4, and §4.6 of `Research_Paper.md` — plus `dashboard/pages/4_Compound_Vulnerability.py`'s static caption text and `research_paper_figures.py`'s Figure 7 title — all stated or implied that Seychelles remains the highest-ranked island across the **entire** 0–100% physical-exposure-weighting sensitivity sweep. Independently reimplementing the exact sweep logic (`slr_norm[island]*w + coral_norm[island]*(1-w)` for `w` from 0 to 1) shows this is not correct: Seychelles leads from 0% up to a crossover at **w ≈ 0.745 (74.5% physical-exposure weighting)**, computed algebraically from the two islands' normalized input values (`slr_norm`: Maldives 1.000, Seychelles 0.761; `coral_norm`: Maldives 0.301, Seychelles 1.000 → crossover solves to w = 0.698630.../0.937711... = 0.7450). Beyond that point — the top ~25.5 percentage points of the weighting range — Maldives overtakes Seychelles as highest-ranked.
+§3.6, §4.4, and §4.6 of `DJ_Research_Paper.md` — plus `dashboard/pages/4_Compound_Vulnerability.py`'s static caption text and `research_paper_figures.py`'s Figure 7 title — all stated or implied that Seychelles remains the highest-ranked island across the **entire** 0–100% physical-exposure-weighting sensitivity sweep. Independently reimplementing the exact sweep logic (`slr_norm[island]*w + coral_norm[island]*(1-w)` for `w` from 0 to 1) shows this is not correct: Seychelles leads from 0% up to a crossover at **w ≈ 0.745 (74.5% physical-exposure weighting)**, computed algebraically from the two islands' normalized input values (`slr_norm`: Maldives 1.000, Seychelles 0.761; `coral_norm`: Maldives 0.301, Seychelles 1.000 → crossover solves to w = 0.698630.../0.937711... = 0.7450). Beyond that point — the top ~25.5 percentage points of the weighting range — Maldives overtakes Seychelles as highest-ranked.
 
-This does **not** change the study's central finding: the actual weighting used throughout the study is 50/50, well inside the range where Seychelles leads, and the crossover point (74.5%) is far enough from 50/50 that the finding is not fragile to the specific weighting choice. But "Seychelles remains highest-ranked across the entire range" is a factually incorrect overstatement of an otherwise-solid robustness result, and the actual crossover point is a more precise, more defensible claim than the vaguer original one. Traced the origin: an earlier Devlopment_Log entry (Part 7, "Compound Vulnerability 'What-If' Weighting Slider") had correctly and carefully written "Seychelles stays the highest-ranked island across **a wide range** of weighting choices" — accurate — but the review pass that followed it (the untitled entry above this one, in the references/limitations cleanup) restated this as "the dashboard's own what-if slider already tests the full weighting range and confirms Seychelles stays top-ranked **regardless**," which is where the overstatement was introduced into the paper. That historical log entry is left as-is (this file is a chronological record, not something to retroactively rewrite), but the actual paper, dashboard caption, and Figure 7 title/image have all been corrected here.
+This does **not** change the study's central finding: the actual weighting used throughout the study is 50/50, well inside the range where Seychelles leads, and the crossover point (74.5%) is far enough from 50/50 that the finding is not fragile to the specific weighting choice. But "Seychelles remains highest-ranked across the entire range" is a factually incorrect overstatement of an otherwise-solid robustness result, and the actual crossover point is a more precise, more defensible claim than the vaguer original one. Traced the origin: an earlier entry (Entry 9, "Compound Vulnerability 'What-If' Weighting Slider") had correctly and carefully written "Seychelles stays the highest-ranked island across **a wide range** of weighting choices" — accurate — but the review pass that followed it (Entry 10, in the references/limitations cleanup) restated this as "the dashboard's own what-if slider already tests the full weighting range and confirms Seychelles stays top-ranked **regardless**," which is where the overstatement was introduced into the paper. That historical log entry is left as-is (this file is a chronological record, not something to retroactively rewrite), but the actual paper, dashboard caption, and Figure 7 title/image have all been corrected here.
 
 **Fixed:**
-- `Research_Paper.md` §3.6 (composite-ranking sentence), §4.4/Figure 7 caption, and §4.6 (robustness-checks bullet) — all rewritten to state the actual ~74.5% crossover point instead of "entire range."
+- `DJ_Research_Paper.md` §3.6 (composite-ranking sentence), §4.4/Figure 7 caption, and §4.6 (robustness-checks bullet) — all rewritten to state the actual ~74.5% crossover point instead of "entire range."
 - `dashboard/pages/4_Compound_Vulnerability.py` — the static caption above the embedded Figure 7 image rewritten to match.
 - `research_paper_figures.py`'s `fig7_weighting_sensitivity()` — title text corrected, and a crossover marker line/annotation added at w=74.5% for clarity; `outputs/plots/fig7_weighting_sensitivity_curve.png` regenerated from the corrected script so the actual image matches the corrected claim.
 - The dashboard's own live "what-if" slider (same page) was already correct — it recomputes the real ranking on every drag and already displays a warning when a non-Seychelles island takes the top spot, so no logic fix was needed there, only the surrounding static prose.
 
-## Citation spot-check
+### Citation spot-check
 
 Spot-checked 3 of the paper's 8 references via web search (matching the depth used in GPIE's Deep Verify pass): Bunting et al. (2022), *Global Mangrove Extent Change 1996–2020: Global Mangrove Watch Version 3.0*, Remote Sensing 14(15), 3657 — confirmed real and correctly cited. Heron, Maynard, van Hooidonk & Eakin (2016), *Warming Trends and Bleaching Stress of the World's Coral Reefs 1985–2012*, Scientific Reports — confirmed real and correctly cited. Pike, B. (2026), *10% Protected. 3% Effective. The Widening Gap We Can't Ignore*, Marine Conservation Institute — confirmed real (a genuinely 2026-dated publication) and correctly cited. No problems found in the 3 spot-checked; the other 5 references were not independently re-verified this pass.
 
 ---
 
-# Development Log — Part 8: Physical Exposure Correction, Threshold Sensitivity, and Settlement Encroachment Extension (2026-08-13)
+## Entry 12
 
-## Status
+### Status
 
 Complete. One real bug found and fixed in the Canary Islands physical-exposure figure; a new threshold-sensitivity robustness check added; settlement-encroachment mapping extended (see below).
 
-## The Canary Islands exposure bug
+### The Canary Islands exposure bug
 
 Going back through the physical-exposure pipeline while adding the threshold-sensitivity check below, I noticed something that should have been caught earlier: `dashboard/static/settlement_elevations.csv` — the per-settlement elevation export built for the dashboard's live SLR-threshold slider — has 4,834 Canary Islands settlements with zero of them at exactly 0.0m elevation, while `data/slr_exposure_summary.csv` — the file the actual Research Paper and Project Report numbers are drawn from — has 5,483 Canary Islands settlements with 662 of them at 0.0m elevation, driving the reported 12.1% exposure figure.
 
-These two files disagree because only one of them ever applied the zero-elevation-is-NoData correction that Part 5 originally investigated and validated specifically for Canary Islands (a volcanic, mountainous island where a literal 0m DEM reading at a settlement point isn't real terrain — it's a data void). The correction made it into the elevation-export script that feeds the dashboard's live slider, but was never carried back into `slr_exposure_analysis.py`, the script that actually produces the numbers written into the static Research Paper and Project Report. `data/canary_python_elevations_check.csv`, an old direct cross-check file from that same earlier phase, confirms this directly — all 662 of its `at_risk=True` rows are exactly `elevation_m=0.0`.
+These two files disagree because only one of them ever applied the zero-elevation-is-NoData correction that Entry 6 originally investigated and validated specifically for Canary Islands (a volcanic, mountainous island where a literal 0m DEM reading at a settlement point isn't real terrain — it's a data void). The correction made it into the elevation-export script that feeds the dashboard's live slider, but was never carried back into `slr_exposure_analysis.py`, the script that actually produces the numbers written into the static Research Paper and Project Report. `data/canary_python_elevations_check.csv`, an old direct cross-check file from that same earlier phase, confirms this directly — all 662 of its `at_risk=True` rows are exactly `elevation_m=0.0`.
 
 Recomputed Canary Islands' exposure using the same NoData-corrected methodology already used elsewhere in this project: 13 of 4,834 settlements at or below 1m, i.e. **0.3%**, not 12.1%. Propagated this through everything downstream that depends on it:
 
@@ -641,7 +617,7 @@ Fixed `slr_exposure_analysis.py` to apply the Canary-specific NoData exclusion d
 
 This does not change this project's central finding in any way — Canary Islands was already, correctly, the lowest-exposure and lowest-vulnerability island in the sample both before and after the fix. It only affects how confidently that specific number can be cited.
 
-## Threshold sensitivity: is 1m the right choice?
+### Threshold sensitivity: is 1m the right choice?
 
 The 1-meter sea-level-rise threshold used throughout this study was never itself tested for sensitivity — a reviewer could reasonably ask whether the results are an artifact of that specific cutoff. Recomputed settlement-based exposure at 0.5m and 1.5m for all five islands using the same corrected `settlement_elevations.csv` data:
 
@@ -655,7 +631,7 @@ The 1-meter sea-level-rise threshold used throughout this study was never itself
 
 Every island moves by well under one percentage point across the full range, and the ranking never changes. Added this as a formal robustness subsection to `DJ_Research_Paper.md` Section 4.6 and `slr_exposure_analysis.py` (now computes all three thresholds in one run), and added a corresponding static note to the dashboard's Physical Exposure page next to the existing live slider (which already let a visitor explore this interactively, but never stated the result as a written finding).
 
-## Settlement Encroachment map: what worked, what didn't, and where I drew the line
+### Settlement Encroachment map: what worked, what didn't, and where I drew the line
 
 The Settlement Encroachment page previously had only a bar chart (aggregate NDBI stats from the Statistical API, three islands, one number each) — no spatial view of *where* built-up area was actually changing. Building an actual per-pixel map turned out to take four attempts, and it's worth recording why, since two of the failures were genuine bugs and the third wasn't fixable at all with this data source — that distinction matters for anyone extending this later.
 
@@ -667,7 +643,7 @@ The Settlement Encroachment page previously had only a bar chart (aggregate NDBI
 
 **The actual limit, and the decision:** at Sentinel-2's resolution and the amount of cloud-free coverage available for these specific small islands, the per-pixel NDBI signal isn't precise enough to support a defensible "X km² of new built-up area" claim — the noise floor and the signal are too close together to separate with a fixed threshold. Rather than keep tuning a cutoff until it produced a number that merely *looked* plausible, `build_encroachment_map.py` was rewritten to stop making that claim at all: it now colors only the strongest 15% increase and strongest 15% decrease pixels *relative to that island's own distribution* (a standard percentile-based approach for exploratory change detection), explicitly as a where-does-it-concentrate visual, and the map's own on-page legend says so directly. The bar chart's aggregate, already-validated NDBI figures remain this project's one quantified encroachment number — the new map is a spatial companion to it, not a second source of truth that happens to disagree with the first.
 
-## Retiring QGIS2Web for the Ecosystem Buffer and SLR Exposure maps
+### Retiring QGIS2Web for the Ecosystem Buffer and SLR Exposure maps
 
 Wanted every interactive map in this project built the same way I now build Bochum and Essen over in GHOST_INFRASTRUCTURE — directly in Python (folium) rather than round-tripping through QGIS's own project file and the QGIS2Web plugin export. The Settlement Encroachment maps already worked this way; Ecosystem Buffer Overview and SLR Exposure were the two categories still QGIS2Web-only.
 
@@ -675,4 +651,3 @@ Wanted every interactive map in this project built the same way I now build Boch
 
 **SLR Exposure — all five islands done.** Same settlement-elevation logic as `slr_exposure_analysis.py` (1m threshold, Canary's exact-zero-elevation NoData exclusion applied only to Canary), but the workflow split into two runs. Canary's map came first because `data/canary_python_elevations_check.csv` already had full per-point lon/lat/elevation sitting from the earlier QGIS-cross-check work — just needed to join it back to `canary_settlements_clean.gpkg` for names (verified row-for-row positional match on coordinates first) and rebuild in folium. The other four islands' elevation rasters (`data/terrain/{island}_elevation.tif`) are 260MB–1.5GB each, too large to move off this machine for a supplementary visualization, so `export_settlement_elevations_full.py` ran locally here instead to produce the four missing per-island CSVs, then `build_slr_exposure_map.py` picked them up same as Canary. All five now match the validated summary exactly: Maldives 987/996 (99.1%), Seychelles 191/244 (78.3%), Fiji 423/1,323 (32.0%), Lakshadweep 28/36 (77.8%), Canary 13/4,834 (0.3%). No underlying elevation data or threshold logic changed anywhere in this pass — every number here already existed in `data/slr_exposure_summary.csv`, this only changed how the points get drawn on a map.
 
-**Follow-up fix — the published map was nearly invisible.** Once live, the map turned out to render almost entirely blank on the light basemap. Root cause: the color scale ran linearly from 0 to the single most extreme pixel's value, but that extreme pixel is, by construction, always part of the displayed top/bottom 15% — so a *typical* displayed pixel (much closer to the 15th/85th-percentile cutoff than to that one outlier) landed at well under 10% color intensity, effectively invisible against the page. Fixed by scaling the color range to the 90th percentile of the *displayed* pixels' own magnitude instead, clipping the handful of more extreme pixels to full saturation rather than letting them stretch the whole scale — standard practice for outlier-robust color scaling. Separately upscaled each displayed pixel into a small block purely for on-screen legibility (a single raw raster pixel covers only a few screen pixels at normal browser zoom), and switched the map's opening view from the raw request bounding box (mostly open ocean for a spread-out archipelago like Maldives) to fitting on the extent that actually has data. None of this changes which pixels are classified as top/bottom 15% — it's a rendering fix, not a reanalysis, verified by extracting and inspecting the rendered overlay image directly before and after.

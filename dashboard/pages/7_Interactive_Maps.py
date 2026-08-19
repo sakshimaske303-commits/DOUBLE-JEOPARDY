@@ -32,19 +32,19 @@ SLR_DATA = {
                         "observation": "Just 0.3% of settlements are at risk — the lowest of all five islands."},
 }
 
-st.markdown("### 📉 Sea-Level-Rise Exposure Maps")
+st.markdown("### Sea-Level-Rise Exposure Maps")
 
 st.markdown(f"""
 <div style="background: {PALETTE['card_bg']}; border-radius: 10px; padding: 14px; margin-bottom: 14px;">
     <p style="color: {PALETTE['navy']}; font-weight: 700; font-size: 0.85rem; margin-bottom: 8px;">MAP LEGEND</p>
     <p style="color: {PALETTE['text_dark']}; font-size: 0.9rem; margin: 0;">
-        🟥 Red — At/Below 1m Elevation (SLR Risk) &nbsp;|&nbsp;
-        🟨 Yellow — Above 1m Elevation (Safe)
+        Red — At/Below 1m Elevation (SLR Risk) &nbsp;|&nbsp;
+        Yellow — Above 1m Elevation (Safe)
     </p>
 </div>
 """, unsafe_allow_html=True)
 
-selected_island_slr = st.selectbox("🌍 Select Island", list(SLR_DATA.keys()), key="slr_select")
+selected_island_slr = st.selectbox("Select Island", list(SLR_DATA.keys()), key="slr_select")
 info = SLR_DATA[selected_island_slr]
 components.iframe(src=f"{MAP_SERVER_BASE}/{info['folder']}/index.html", height=550, scrolling=True)
 st.markdown(f"""
@@ -87,20 +87,20 @@ ECO_DATA = {
 }
 
 LEGEND_ITEMS = {
-    "mangroves": ("🩷", "Pink", "Mangrove Forests (2020)"),
-    "coral": ("🟨", "Bright Yellow", "Coral Reefs"),
-    "wdpa": ("🩵", "Sky Blue Outline", "Protected Areas (WDPA)"),
-    "boundary": ("🟩", "Green Outline", "Island Boundary"),
+    "mangroves": ("Pink", "Mangrove Forests (2020)"),
+    "coral": ("Bright Yellow", "Coral Reefs"),
+    "wdpa": ("Sky Blue Outline", "Protected Areas (WDPA)"),
+    "boundary": ("Green Outline", "Island Boundary"),
 }
 
-st.markdown("### 🌿 Ecosystem Buffer Overview Maps")
+st.markdown("### Ecosystem Buffer Overview Maps")
 
-selected_island_eco = st.selectbox("🌍 Select Island", list(ECO_DATA.keys()), key="eco_select")
+selected_island_eco = st.selectbox("Select Island", list(ECO_DATA.keys()), key="eco_select")
 info2 = ECO_DATA[selected_island_eco]
 
 present_layers = info2["layers"]
 legend_html = " &nbsp;|&nbsp; ".join(
-    f"{LEGEND_ITEMS[layer][0]} {LEGEND_ITEMS[layer][1]} — {LEGEND_ITEMS[layer][2]}"
+    f"{LEGEND_ITEMS[layer][0]} — {LEGEND_ITEMS[layer][1]}"
     for layer in present_layers
 )
 
@@ -143,13 +143,13 @@ ENCROACH_DATA = {
     },
 }
 
-st.markdown("### 🏗️ Settlement Encroachment Maps (2016 → 2024)")
+st.markdown("### Settlement Encroachment Maps (2016 → 2024)")
 st.markdown(f"""
 <div style="background: {PALETTE['card_bg']}; border-radius: 10px; padding: 14px; margin-bottom: 14px;">
     <p style="color: {PALETTE['navy']}; font-weight: 700; font-size: 0.85rem; margin-bottom: 8px;">MAP LEGEND</p>
     <p style="color: {PALETTE['text_dark']}; font-size: 0.9rem; margin: 0;">
-        🟥 Red — strongest relative NDBI increase (top 15% of that island's own pixels) &nbsp;|&nbsp;
-        🟦 Blue — strongest relative decrease
+        Red — strongest relative NDBI increase (top 15% of that island's own pixels) &nbsp;|&nbsp;
+        Blue — strongest relative decrease
     </p>
     <p style="color: {PALETTE['text_muted']}; font-size: 0.8rem; margin: 8px 0 0 0; font-style: italic;">
         Exploratory — shows where the built-up signal shifted most, not a precise area total.
@@ -158,7 +158,7 @@ st.markdown(f"""
 </div>
 """, unsafe_allow_html=True)
 
-selected_island_encroach = st.selectbox("🌍 Select Island", list(ENCROACH_DATA.keys()), key="encroach_select")
+selected_island_encroach = st.selectbox("Select Island", list(ENCROACH_DATA.keys()), key="encroach_select")
 info3 = ENCROACH_DATA[selected_island_encroach]
 components.iframe(
     src=f"{MAP_SERVER_BASE}/{info3['folder']}/index.html",
@@ -183,9 +183,9 @@ MANGROVE_TREND_IMAGES = {
     "Maldives": "maldives_mangrove_trend.png",
 }
 
-st.markdown("### 🌳 Mangrove Extent Trend Maps (1996 / 2010 / 2020)")
+st.markdown("### Mangrove Extent Trend Maps (1996 / 2010 / 2020)")
 
-selected_island_mangrove = st.selectbox("🌍 Select Island", list(MANGROVE_TREND_IMAGES.keys()), key="mangrove_select")
+selected_island_mangrove = st.selectbox("Select Island", list(MANGROVE_TREND_IMAGES.keys()), key="mangrove_select")
 image_path = os.path.join(PROJECT_ROOT, "dashboard", "static", MANGROVE_TREND_IMAGES[selected_island_mangrove])
 st.image(image_path, use_container_width=True)
 
@@ -202,7 +202,7 @@ st.markdown(f"""
 st.markdown("---")
 
 # ============ INTERACTIVE PLOTS ============
-st.markdown("### 📈 Interactive Plots")
+st.markdown("### Interactive Plots")
 st.markdown(f"""
 <div style="background: {PALETTE['card_bg']}; border-radius: 10px; padding: 14px; margin-bottom: 14px;">
     <p style="color: {PALETTE['text_dark']}; font-size: 0.9rem; margin: 0;">

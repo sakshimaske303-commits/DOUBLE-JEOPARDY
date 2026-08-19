@@ -68,7 +68,7 @@ def build_island_map(island):
         popup_html = (
             f"<b>{row['name']}</b><br>"
             f"Elevation: {row['elevation_m']:.1f} m<br>"
-            f"{'⚠️ At/below 1m — SLR risk' if row['at_risk'] else '✓ Above 1m — safe'}"
+            f"{'At/below 1m — SLR risk' if row['at_risk'] else '✓ Above 1m — safe'}"
         )
         folium.CircleMarker(
             location=[row["lat"], row["lon"]],

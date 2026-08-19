@@ -17,7 +17,7 @@ st.markdown(
 st.markdown("---")
 
 # ============================================================
-# PROOF-OF-WORK POPOVERS — tiny, pulsing "📸" buttons next to the
+# PROOF-OF-WORK POPOVERS — tiny, pulsing buttons next to the
 # exact data source / script they back up. Click to reveal the
 # screenshot inline; nothing pushes the page layout around. Drop
 # the PNGs into outputs/proof_screenshots/ (see filenames below)
@@ -55,7 +55,7 @@ PROOF_DIR = os.path.join(PROJECT_ROOT, "outputs", "proof_screenshots")
 
 def proof_popover(filename, caption):
     path = os.path.join(PROOF_DIR, filename)
-    with st.popover("📸"):
+    with st.popover("Proof"):
         if os.path.exists(path):
             st.image(path, caption=caption, use_container_width=True)
         else:
@@ -190,7 +190,7 @@ try:
     df = pd.read_csv(os.path.join(PROJECT_ROOT, "data", "compound_vulnerability_scores.csv"))
     st.dataframe(df, use_container_width=True)
     csv = df.to_csv(index=False).encode("utf-8")
-    st.download_button("⬇️ Download Compound Vulnerability Scores (CSV)", csv,
+    st.download_button("Download Compound Vulnerability Scores (CSV)", csv,
                         "double_jeopardy_vulnerability_scores.csv", "text/csv")
 except FileNotFoundError:
     st.markdown("*(Data file not found — check path)*")

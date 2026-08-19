@@ -57,7 +57,7 @@ for col, (island, pct, total) in zip(cols, exposure_data):
         """, unsafe_allow_html=True)
 
 st.markdown("")
-st.markdown("##### 📄 Figure 2 — As it appears in the Research Paper")
+st.markdown("##### Figure 2 — As it appears in the Research Paper")
 fig2_path = os.path.join(FIGURES_DIR, "fig2_physical_exposure_by_island.png")
 if os.path.exists(fig2_path):
     st.image(fig2_path, use_container_width=True)
@@ -130,7 +130,7 @@ population is reported explicitly rather than assumed negligible.*
 """)
 
 st.markdown("")
-st.markdown("##### 📄 Figure 3 — As it appears in the Research Paper")
+st.markdown("##### Figure 3 — As it appears in the Research Paper")
 fig3_path = os.path.join(FIGURES_DIR, "fig3_settlement_vs_population_weighted.png")
 if os.path.exists(fig3_path):
     st.image(fig3_path, use_container_width=True)
@@ -139,7 +139,7 @@ else:
 
 st.markdown("---")
 
-st.markdown("### 🎛️ Try a Different SLR Threshold")
+st.markdown("### Try a Different SLR Threshold")
 st.markdown("""
 The 1-meter threshold is a standard benchmark, but sea-level-rise projections vary. Use the
 slider below to recalculate settlement-based exposure at a different threshold using the actual
