@@ -1,37 +1,6 @@
-"""
-DOUBLE_JEOPARDY — Settlement Encroachment interactive map, step 1 of 2.
-
-The existing settlement-encroachment analysis (download_ndbi_encroachment.py)
-only pulled aggregate NDBI statistics (mean/stdev over the whole bounding box)
-via Sentinel Hub's Statistical API — enough for the bar chart on the
-Governance & Encroachment dashboard page, but not enough to actually draw a
-map of *where* built-up area is expanding. This script pulls the same NDBI
-index as an actual per-pixel raster (via the Process API instead) for 2016
-and 2024, for the three islands with a mangrove ecosystem present, then saves
-the difference raster (2024 minus 2016) as a GeoTIFF.
-
-Each pixel is the MEAN NDBI across every cloud-free Sentinel-2 observation
-available in that year (not a single snapshot), which suppresses day-specific
-noise. Water is NOT excluded here — telling water from land scene-by-scene
-turned out to be unreliable for these narrow atoll islands (sand/built-up
-areas near the shoreline kept getting misclassified, and the classification
-wasn't even consistent between 2016 and 2024 for the same physical spot,
-which created its own spurious "change" signal at every coastline). Instead,
-build_encroachment_map.py clips the result to this project's own already-
-validated island boundary polygons (data/boundaries/*.gpkg) — a single, fixed
-land mask applied identically to both years, rather than a different guess
-each time.
-
-Run from the DOUBLE_JEOPARDY folder (same place as download_ndbi_encroachment.py),
-after `pip install rasterio numpy requests python-dotenv` if not already installed.
-Needs the same .env (SH_CLIENT_ID / SH_CLIENT_SECRET) already used by
-download_ndbi_encroachment.py.
-
-Produces (one pair + one diff per island):
-  data/settlement_encroachment/maldives_ndbi_2016.tif
-  data/settlement_encroachment/maldives_ndbi_2024.tif
-  data/settlement_encroachment/maldives_ndbi_diff.tif
-  (same for seychelles, fiji)
+"""Per-pixel NDBI raster (2016 vs 2024) for the 3 mangrove islands; water
+isn't masked here since it's unreliable per-scene on atolls -- done later
+via the boundary polygons instead.
 """
 import os
 import time

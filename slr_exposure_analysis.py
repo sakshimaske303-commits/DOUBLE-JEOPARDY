@@ -9,11 +9,10 @@ ISLANDS = ["maldives", "seychelles", "fiji", "canary", "lakshadweep"]
 SLR_THRESHOLD_M = 1.0  # standard 1-meter sea-level-rise scenario
 SENSITIVITY_THRESHOLDS_M = [0.5, 1.0, 1.5]  # robustness check across a range of thresholds
 
-# Canary's DEM returns a literal 0.0 at a cluster of settlement points that
-# don't correspond to real near-sea-level terrain (Canary is volcanic and
-# mountainous — verified independently against QGIS's own raster sampling,
-# see data/canary_python_elevations_check.csv). Every other island's exact-zero
-# readings are genuine low-lying/coastal elevation and are kept as real data.
+# Canary's DEM returns literal 0.0 at some settlement points that aren't real
+# near-sea-level terrain (volcanic, mountainous -- verified against QGIS, see
+# data/canary_python_elevations_check.csv). Every other island's zero readings
+# are genuine low-lying elevation, kept as real data.
 ZERO_IS_NODATA = {"canary"}
 
 

@@ -1,23 +1,6 @@
-"""
-Population-weighted physical exposure
-
-Computes what % of each island's population (not just settlement count)
-sits at or below the 1m SLR elevation threshold, across all 5 islands.
-
-v4: dropped the earlier raster auto-scan approach — it was slow for Fiji
-and, worse, quietly wrong for Maldives and Seychelles (the nearest-neighbor
-preview scan missed real population that didn't land on a sampled pixel,
-undercounting Maldives' population by about a third).
-
-Uses each island's actual bounding box instead, pulled from the
-data/boundaries/*.gpkg files already used elsewhere in this project. Fiji
-gets two boxes since it straddles the antimeridian — same two-sub-query
-approach used for its WDPA data. Slower to write but the totals are
-checkable directly against the population figures confirmed earlier
-(Dev Log, Part 4).
-
-Run: python population_weighted_exposure.py
-Needs: rasterio, numpy
+"""Population-weighted physical exposure at/below 1m SLR threshold; v4 uses
+bbox windows instead of raster auto-scan (which undercounted Maldives by
+~1/3). Needs rasterio, numpy.
 """
 
 import numpy as np

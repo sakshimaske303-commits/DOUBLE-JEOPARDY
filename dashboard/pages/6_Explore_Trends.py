@@ -34,12 +34,8 @@ TREND_INFO = {
     "Canary Islands": {"intercept": 0.4762, "slope_per_year": 0.01905, "significant": False, "p": 0.641},
 }
 
-# Fixed, clearly-distinguishable color per island (not pulled from PALETTE,
-# since several PALETTE entries read as near-identical shades of blue/cyan
-# on the dark theme and made the lines impossible to tell apart). Canary
-# Islands is deliberately NOT yellow — the chart's axis/legend font is
-# already a gold-yellow (#FFD60A), so a yellow data line would blend into
-# the text and become hard to read.
+# Fixed per-island colors (not PALETTE -- several entries look near-identical
+# on the dark theme). Canary isn't yellow since the axis/legend font already is.
 ISLAND_COLOR = {
     "Maldives": "#ef4444",        # red
     "Seychelles": "#22c55e",      # green
@@ -55,11 +51,8 @@ SEVERE_COLOR = "#dc2626"          # deep red — 8°C-wk severe bleaching/mortal
 
 
 def add_threshold_line(fig, y, label, color, anchor_x, ay_offset):
-    """Draws a horizontal reference line plus a clearly separated, boxed
-    annotation with a small arrow pointing back to the line. Placing the
-    label in a fixed spot with its own background box (rather than letting
-    Plotly auto-place inline text on the line) keeps it legible no matter
-    which island lines happen to cross that region."""
+    """Horizontal reference line with a boxed, arrow-anchored label (fixed
+    position reads better than Plotly's auto-placed inline text)."""
     fig.add_hline(y=y, line_dash="dot", line_color=color)
     fig.add_annotation(
         x=anchor_x, y=y, xref="x", yref="y",
@@ -117,9 +110,7 @@ if selected_islands:
         except FileNotFoundError:
             st.warning(f"Data not found for {island_name}")
 
-    # Reference threshold lines — labels boxed and arrow-anchored, spread
-    # apart on the x-axis and offset upward, so they never sit on top of a
-    # data spike the way a default inline annotation would.
+    # Threshold labels spread apart on the x-axis so they don't sit on a data spike.
     add_threshold_line(fig, y=4, label="Bleaching threshold (4°C-wk)",
                         color=THRESHOLD_COLOR, anchor_x="1997-03-01", ay_offset=-38)
     add_threshold_line(fig, y=8, label="Severe bleaching / mortality (8°C-wk)",

@@ -16,12 +16,8 @@ apply_custom_style()
 
 GITHUB_URL = "https://github.com/sakshimaske303-commits/DOUBLE-JEOPARDY"
 
-# ------------------------------------------------------------------
-# Robust path resolution: works both locally (running from inside
-# dashboard/) and on Streamlit Cloud (which runs from the repo root
-# without cd'ing into dashboard/ first) — the same class of fix
-# needed after PDFs 404'd only in a prior cloud deployment.
-# ------------------------------------------------------------------
+# Path resolution that works both locally and on Streamlit Cloud (runs from
+# repo root, doesn't cd into dashboard/ first) -- PDFs 404'd there before.
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))   # .../dashboard
 ROOT_DIR = os.path.dirname(BASE_DIR)                      # repo root
 

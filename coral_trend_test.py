@@ -1,19 +1,5 @@
-"""
-Coral thermal stress trend test — Mann-Kendall + OLS
-
-The paper originally compared just two period averages (1996-2000 vs
-2016-2020) for the coral DHW trend. Adding a proper trend test over the
-full 24-year series here as a robustness check, since a two-window
-comparison alone doesn't really hold up to "why not just fit a trend
-line" scrutiny.
-
-Runs two tests per island:
-  1. Mann-Kendall (non-parametric, standard for climate/ecological time
-     series) -> trend direction, p-value, Sen's slope (DHW/year)
-  2. OLS linear regression slope + p-value as a simpler reference point
-
-Run: python coral_trend_test.py
-Needs: pymannkendall, pandas, scipy
+"""Coral DHW trend test (Mann-Kendall + OLS), a robustness check on the
+two-period comparison, over the full 24-year series per island.
 """
 
 import pandas as pd

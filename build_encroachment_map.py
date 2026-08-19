@@ -1,43 +1,6 @@
-"""
-DOUBLE_JEOPARDY — Settlement Encroachment interactive map, step 2 of 2.
-
-Takes the NDBI difference rasters produced by download_ndbi_encroachment_raster.py
-and turns them into an interactive folium map per island: a continuous red/blue
-overlay showing where the NDBI signal moved most between 2016 and 2024.
-
-IMPORTANT — what this map does and doesn't claim: after cloud-masking, a full
-year of averaging, and clipping to this project's own validated land boundary,
-the remaining NDBI difference on all three islands still had no genuine
-absolute scale to it — a fixed threshold like "+/-0.05 = built-up change"
-flagged roughly HALF the land area on every island, split close to evenly
-between "increase" and "decrease". That even split is the signature of
-measurement noise, not real construction (real 8-year urbanization should
-skew toward increase, not land 50/50). Rather than keep tuning a threshold
-against noise until it produces a number that looks plausible, this map
-switches to a percentile-based, relative visualization: it colors the
-strongest ~15% of increase and ~15% of decrease pixels *within that island's
-own distribution*, and does NOT report a "X km² new built-up" figure, because
-that precision isn't supported by this dataset at this resolution. It's a
-where-does-change-concentrate visual, not a quantified area estimate. The
-validated, already-published built-up change number for this project remains
-the bar chart on the Governance & Encroachment dashboard page (built from a
-different, aggregate Statistical-API measurement, not this per-pixel one).
-
-Run from the DOUBLE_JEOPARDY folder, after download_ndbi_encroachment_raster.py
-has produced data/settlement_encroachment/{island}_ndbi_diff.tif for each island.
-Needs: rasterio, geopandas, numpy, matplotlib, folium (pip install if not
-already installed). Uses this project's own data/boundaries/*.gpkg island
-outlines (already present) to mask the raster to land — see the note at the
-top of download_ndbi_encroachment_raster.py for why.
-
-Saves each map as index.html inside its own folder under dashboard/static/,
-matching how every other interactive map in this project is already served
-via GitHub Pages (see the "Interactive geospatial maps" links in README.md).
-
-Produces:
-  dashboard/static/maldives_settlement_encroachment_webmap/index.html
-  dashboard/static/seychelles_settlement_encroachment_webmap/index.html
-  dashboard/static/fiji_settlement_encroachment_webmap/index.html
+"""Turns the NDBI diff rasters into a percentile-based hotspot folium map
+per island (a fixed +/-0.05 threshold flagged noise, not real
+construction). Needs rasterio, geopandas, folium.
 """
 import os
 import numpy as np
@@ -52,10 +15,7 @@ DATA_DIR = "data/settlement_encroachment"
 BOUNDARY_DIR = "data/boundaries"
 OUT_DIR = "dashboard/static"
 
-# This project's own already-validated island boundary polygons — used here
-# to mask the NDBI raster to actual land, the same fixed mask applied to both
-# years, rather than a per-scene water/land guess that isn't even consistent
-# between the two years being compared.
+# Boundary polygons used to mask the raster to land -- same fixed mask both years.
 BOUNDARY_FILE = {
     "maldives": "maldives_islands.gpkg",
     "seychelles": "seychelles_islands.gpkg",
@@ -73,19 +33,11 @@ def load_land_mask(island, transform, shape):
     )
     return mask.astype(bool)
 
-# Percentile cut used to call out the strongest change pixels, relative to
-# that island's own distribution — see the module docstring for why this
-# replaced a fixed absolute NDBI threshold.
+# Percentile cut for hotspot pixels, relative to each island's own distribution.
 HOTSPOT_PERCENTILE = 15
 
-# Display-only upscale: the raw 1024x1024 raster grid means each selected
-# hotspot pixel covers only a handful of screen pixels once rendered over an
-# island-sized area, on a light basemap — at normal browser zoom levels this
-# reads as near-invisible flecks rather than a legible pattern, even though
-# the underlying data (which pixels are colored) is unchanged. This repeats
-# each pixel as a small block (nearest-neighbor, no interpolation) purely so
-# the same selected pixels are actually visible on screen; it does not add,
-# remove, or blur any pixel's classification.
+# Display-only upscale (nearest-neighbor) so hotspot pixels are actually
+# visible at island scale -- doesn't change which pixels are selected.
 DISPLAY_UPSCALE = 4
 
 ISLANDS = ["maldives", "seychelles", "fiji"]
@@ -102,10 +54,8 @@ def diff_to_rgba(diff, vmax):
 
 
 def upscale_nearest(arr, factor):
-    """Repeat each pixel into a factor x factor block — display-only, see
-    DISPLAY_UPSCALE above. Works on the raw diff array (still has NaN for
-    unselected/non-land pixels) so the percentile selection itself never
-    changes, only how big each selected pixel is drawn."""
+    """Repeat each pixel into a factor x factor block for display; doesn't
+    change the underlying percentile selection."""
     return np.repeat(np.repeat(arr, factor, axis=0), factor, axis=1)
 
 
@@ -145,18 +95,9 @@ def build_island_map(island):
     # is left fully transparent rather than shown in a pale, misleading color.
     display = np.where((diff >= hi_cut) | (diff <= lo_cut), diff, np.nan)
 
-    # Color scale range: a linear scale from 0 to the single most extreme
-    # pixel's value makes almost everything look pale, because the displayed
-    # set's own max is always its most extreme outlier by construction (the
-    # top/bottom HOTSPOT_PERCENTILE always includes the true max/min) while
-    # its median is much smaller — e.g. on Seychelles the displayed pixels'
-    # median magnitude was ~0.11 against a max of ~1.30, so a linear 0-1.30
-    # scale rendered the typical "hot" pixel at under 10% color intensity,
-    # visually indistinguishable from background. Scaling instead to a high
-    # percentile of the displayed magnitudes (and clipping the handful of
-    # more extreme pixels to full saturation, standard practice for
-    # outlier-robust color scaling) means a typical selected pixel actually
-    # reads as clearly red/blue rather than near-white.
+    # Scale to the 90th percentile of displayed magnitudes (clip the rest to
+    # full saturation) instead of the single max -- linear-to-max washed out
+    # typical hotspot pixels (Seychelles: median ~0.11 vs max ~1.30).
     displayed_values = display[~np.isnan(display)]
     vmax = float(np.percentile(np.abs(displayed_values), 90)) or 0.01
     display = np.clip(display, -vmax, vmax)
@@ -164,16 +105,9 @@ def build_island_map(island):
     display = upscale_nearest(display, DISPLAY_UPSCALE)
     rgba = diff_to_rgba(display, vmax=vmax)
 
-    # Frame the initial view on where there's actually valid data to show,
-    # not the raw request bbox's geometric center and not even the full
-    # island boundary polygon — for Maldives especially, the national
-    # boundary itself runs almost the full length of the request bbox (it's
-    # a long north-south archipelago), but cloud-free Sentinel-2 coverage in
-    # this particular pull only produced valid pixels for one small cluster
-    # (Malé) within it, so fitting to the boundary's extent would have
-    # opened just as zoomed-out and empty-looking as fitting to the raw
-    # bbox did. Using `valid` (land AND actually has data) instead means the
-    # view opens already framed on the pixels that will actually be drawn.
+    # Frame the initial view on `valid` (land AND has data), not the raw bbox
+    # or full boundary -- Maldives' cloud-free coverage only landed on one
+    # small cluster (Malé), so fitting to the boundary opens empty-looking.
     land_rows, land_cols = np.where(valid)
     row_margin = max(1, int(0.08 * valid.shape[0]))
     col_margin = max(1, int(0.08 * valid.shape[1]))

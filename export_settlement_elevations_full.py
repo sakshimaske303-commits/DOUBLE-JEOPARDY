@@ -1,24 +1,5 @@
-"""One-time export: per-settlement lon/lat/elevation for the SLR exposure maps.
-
-Companion to build_slr_exposure_map.py — that script only needs a small CSV
-per island, but sampling the elevation rasters themselves needs the actual
-data/terrain/*.tif files, which are too large to move off this machine. Run
-this here once per island (or all at once, it's quick — rasterio only reads
-the pixels under each settlement point, not the full raster into memory).
-
-Same sampling logic as precompute_elevations.py / slr_exposure_analysis.py:
-exact 0.0 elevation is only treated as a bad DEM read for Canary (verified
-against QGIS's own raster sampling, see data/canary_python_elevations_check.csv);
-every other island's 0m readings are genuine low-lying/coastal elevation and
-are kept.
-
-Run from the DOUBLE_JEOPARDY folder:
-    python export_settlement_elevations_full.py
-
-Writes data/settlement_elevations_full/{island}.csv for maldives, fiji,
-seychelles, lakshadweep (canary.csv already exists, built from the earlier
-QGIS-comparison CSV). build_slr_exposure_map.py picks these up automatically
-next run — just push the new CSVs to the repo, no other step needed.
+"""Per-settlement lon/lat/elevation export feeding build_slr_exposure_map.py;
+same Canary-only 0.0-as-bad-DEM-read logic as precompute_elevations.py.
 """
 import geopandas as gpd
 import rasterio

@@ -1,33 +1,6 @@
-"""
-DOUBLE JEOPARDY - Additional Research Paper Figures
-==========================================================
-This project's analysis produced only one static figure (Figure 1,
-compound_vulnerability_score.png). This script generates six more,
-covering results that are currently only described in text/tables in
-the paper but were never actually plotted.
-
-Matches the visual style already established in map1_vulnerability_score.py
-(matplotlib, blue/red risk coding, bold two-line titles, source caption,
-saved at 200 dpi into outputs/plots/).
-
-Every number plotted here is read directly from your own data/ CSVs where
-a CSV exists (slr_exposure_summary.csv, governance_alignment_test.csv,
-coral_bleaching/*.csv), or uses the same hardcoded values already verified
-and used elsewhere in this project (population-weighted exposure %,
-mangrove areas, Mann-Kendall trend results) where no CSV was saved. No new
-data is downloaded or recomputed differently from what you already validated.
-
-HOW TO USE:
-Just run: python research_paper_figures.py
-Requires: matplotlib, pandas, numpy, scipy (all already used in this project)
-
-Output files (in outputs/plots/):
-  fig2_physical_exposure_by_island.png
-  fig3_settlement_vs_population_weighted.png
-  fig4_coral_thermal_stress_trends.png
-  fig5_mangrove_extent_over_time.png
-  fig6_governance_alignment.png
-  fig7_weighting_sensitivity_curve.png
+"""Figures 2-7 for the research paper, matching
+map1_vulnerability_score.py's style; pulls from data/ CSVs where
+available. Needs matplotlib, pandas, numpy, scipy.
 """
 
 import os

@@ -25,10 +25,8 @@ def apply_custom_style():
             background-color: #0A0A0A !important;
             height: 3rem !important;
         }
-        /* Hide only the Deploy button and the "..." app menu inside the
-        toolbar — NOT the whole toolbar — so whatever else Streamlit
-        renders there (including the sidebar collapse/expand control,
-        wherever it lives in this version) stays intact and clickable. */
+        /* Hide only the Deploy button + app menu, keep the rest of the
+        toolbar (sidebar collapse control) clickable. */
         [data-testid="stAppDeployButton"] {
             display: none !important;
         }
@@ -245,13 +243,9 @@ section[data-testid="stSidebar"] a[aria-current="page"] {
             color: #22D3EE !important;
         }
 
-        /* Sidebar collapse/expand control — safety net covering every
-        naming variant Streamlit has used across versions for this
-        button, since it's normally invisible-by-default on a dark theme
-        (it inherits a light-mode icon color) and its exact internal name
-        isn't the same in every Streamlit release. Forcing all of these
-        to be visible/opaque/on-top means whichever one actually exists
-        in your deployed version will show up. */
+        /* Sidebar collapse control -- covers every testid variant Streamlit
+        has used across versions (name isn't stable, and it's invisible by
+        default on a dark theme). */
         [data-testid="collapsedControl"],
         [data-testid="stSidebarCollapsedControl"],
         [data-testid="stSidebarCollapseButton"],

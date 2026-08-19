@@ -13,11 +13,8 @@ MAPS_DIR = os.path.join(PROJECT_ROOT, "outputs", "plots")
 
 
 def find_map_image(maps_dir, slug):
-    """Looks for the locator map under several possible filename patterns.
-    Images saved from a browser/Google don't always keep a clean extension —
-    e.g. a file can be named 'maldives.png' but actually be a JPEG, or get
-    saved as 'maldives.png.jpeg'. This checks the common variants so the map
-    still shows up regardless of exactly how it was saved."""
+    """Checks common filename/extension variants for the locator map (some
+    got saved with a mismatched or doubled extension)."""
     candidates = [
         f"{slug}.png", f"{slug}.jpg", f"{slug}.jpeg",
         f"{slug}.png.jpeg", f"{slug}.png.jpg",
@@ -72,13 +69,8 @@ for col, name, basin, desc, slug in islands_info:
 
 st.markdown("---")
 
-# ============================================================
-# ISLAND LOCATOR MAPS — shown one below another, each at a large,
-# uncropped size (native aspect ratio preserved). A uniform side-by-side
-# thumbnail grid was tried first but forced every map to the same box,
-# cropping content out of several of them — this stacked layout avoids
-# that entirely.
-# ============================================================
+# Stacked layout, native aspect ratio -- a side-by-side thumbnail grid
+# cropped several of these maps.
 st.markdown("### Island Locator Maps")
 
 for i, (col, name, basin, desc, slug) in enumerate(islands_info):

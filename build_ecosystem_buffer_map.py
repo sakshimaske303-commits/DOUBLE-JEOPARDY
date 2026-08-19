@@ -1,25 +1,6 @@
-"""build_ecosystem_buffer_map.py — folium rebuild of the ecosystem buffer
-overview maps, replacing the old QGIS2Web exports. One map per island,
-layering whichever of mangroves / coral / WDPA-protected-areas / island
-boundary actually exist for that island — same layer set the dashboard
-already documents per island (Lakshadweep: coral + boundary only; Canary:
-WDPA + boundary only — mangroves and coral are genuinely absent for both,
-not a data gap, see dashboard/pages/7_Interactive_Maps.py's per-island notes).
-
-Each layer is a single combined GeoJson call (not one per feature) with a
-hover tooltip — the WDPA source polygons in particular carry far more
-vertices than a browser needs at this zoom level (Canary's alone is ~1.8M
-raw points), so geometries are simplified before rendering. This is a
-display-only simplification (shape only, at a tolerance well below anything
-visible on screen) — it doesn't touch feature counts, attributes, or any
-analysis result, all of which come from the original unsimplified files.
-
-Run from the DOUBLE_JEOPARDY folder:
-    python build_ecosystem_buffer_map.py
-
-Produces dashboard/static/{island}_ecosystem_buffer_webmap/index.html for
-all five islands — same output path every other interactive map in this
-project already uses, so the dashboard and GitHub Pages links don't change.
+"""Folium rebuild of the ecosystem buffer maps, one per island, layering
+whichever of mangroves/coral/WDPA/boundary each island actually has.
+Geometries simplified for display only.
 """
 import os
 import geopandas as gpd
@@ -34,13 +15,10 @@ CORAL_COLOR = "#f5e400"      # bright yellow
 WDPA_COLOR = "#38b6e6"       # sky blue outline
 BOUNDARY_COLOR = "#2d8a3e"   # green outline
 
-# Simplify tolerance in degrees, per layer — WDPA source polygons are far
-# more detailed than anything visible at island scale, mangrove/coral less
-# so. See module docstring: display-only, doesn't touch the underlying data.
+# Simplify tolerance in degrees per layer -- display-only, doesn't touch data.
 SIMPLIFY_TOLERANCE = {"mangroves": 0.0001, "coral": 0.0001, "wdpa": 0.0005, "boundary": 0.0003}
 
-# island -> which layers it genuinely has (matches the dashboard's own
-# per-island legend already in dashboard/pages/7_Interactive_Maps.py)
+# island -> which layers it actually has (matches dashboard/pages/7_Interactive_Maps.py)
 ISLAND_LAYERS = {
     "maldives": ["mangroves", "coral", "wdpa"],
     "fiji": ["mangroves", "coral", "wdpa"],

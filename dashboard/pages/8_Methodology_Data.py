@@ -16,14 +16,8 @@ st.markdown(
 )
 st.markdown("---")
 
-# ============================================================
-# PROOF-OF-WORK POPOVERS — tiny, pulsing buttons next to the
-# exact data source / script they back up. Click to reveal the
-# screenshot inline; nothing pushes the page layout around. Drop
-# the PNGs into outputs/proof_screenshots/ (see filenames below)
-# and these activate automatically — until then each falls back to
-# a quiet "not added yet" note instead of breaking the page.
-# ============================================================
+# Proof-of-work popovers: pulsing buttons that reveal a screenshot inline.
+# Falls back to a quiet note if the PNG isn't in outputs/proof_screenshots/ yet.
 st.markdown(f"""
 <style>
     div[data-testid="stPopover"] button {{

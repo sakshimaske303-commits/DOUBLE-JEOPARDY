@@ -1,21 +1,6 @@
-"""
-Download + clip Lakshadweep population data
-
-Lakshadweep population was skipped originally because the only version
-found meant downloading a population raster for the whole of India. Found
-a smaller option since — WorldPop's constrained, UN-adjusted 2020 India
-raster is ~466MB instead of multiple GB. This downloads it once, clips it
-straight down to the Lakshadweep bounding box (from
-data/boundaries/lakshadweep_islands.gpkg, same as the rest of the
-pipeline), saves the small clipped file, then deletes the large source so
-it isn't sitting around taking up space.
-
-Run from the project root: python download_lakshadweep_population.py
-Downloads ~466MB, then writes data/population/lakshadweep_population_clean.tif.
-Re-run population_weighted_exposure.py after — Lakshadweep gets picked up
-automatically.
-
-Needs: requests, rasterio, geopandas
+"""Downloads WorldPop's constrained 2020 India raster, clips to the
+Lakshadweep bbox, deletes the India-wide source. Needs requests,
+rasterio, geopandas.
 """
 
 import os

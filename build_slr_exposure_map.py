@@ -1,19 +1,5 @@
-"""build_slr_exposure_map.py — folium rebuild of the sea-level-rise exposure
-maps, replacing the old QGIS2Web exports. One map per island: each settlement
-plotted red (at/below 1m elevation, SLR risk) or yellow (above 1m, safe).
-
-Reads data/settlement_elevations_full/{island}.csv (see
-export_settlement_elevations_full.py for how that's built — the elevation
-rasters themselves are too large to move off the original machine, so that
-export step runs there and just hands this script a small per-point CSV).
-
-Run from the DOUBLE_JEOPARDY folder:
-    python build_slr_exposure_map.py
-
-Produces dashboard/static/{island}_slr_exposure_webmap/index.html for every
-island that has a CSV ready — same output path every other interactive map
-in this project already uses, so the dashboard and GitHub Pages links don't
-need to change, just what builds them.
+"""Folium rebuild of the SLR exposure maps: settlements plotted red (at/below
+1m) or yellow (safe), from export_settlement_elevations_full.py's CSVs.
 """
 import os
 import pandas as pd
