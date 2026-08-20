@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_b9e75b892e31cc50fdb2f0463fc7621f {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_b9e75b892e31cc50fdb2f0463fc7621f" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_b9e75b892e31cc50fdb2f0463fc7621f = L.map(
+                "map_b9e75b892e31cc50fdb2f0463fc7621f",
+                {
+                    center: [-4.5, 55.6],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 7,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+            L.control.scale().addTo(map_b9e75b892e31cc50fdb2f0463fc7621f);
+
+            
+
+        
+    
+            var tile_layer_8d9ac4aca3c840d20f353a238de3a090 = L.tileLayer(
+                "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "Esri, Maxar, Earthstar Geographics, and the GIS User Community",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_8d9ac4aca3c840d20f353a238de3a090.addTo(map_b9e75b892e31cc50fdb2f0463fc7621f);
+        
+    
+            var circle_marker_43e6901d2b40e7a433c1e2c26f8a7902 = L.circleMarker(
+                [-4.5, 55.6],
+                {"bubblingMouseEvents": true, "color": "#FFEB3B", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFEB3B", "fillOpacity": 0.35, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(map_b9e75b892e31cc50fdb2f0463fc7621f);
+        
+    
+        var popup_9074c23be93934f8525dc46ac307999e = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_2bfa914109af7d47501e41bf4e1f379f = $(`<div id="html_2bfa914109af7d47501e41bf4e1f379f" style="width: 100.0%; height: 100.0%;"><b>Seychelles</b></div>`)[0];
+                popup_9074c23be93934f8525dc46ac307999e.setContent(html_2bfa914109af7d47501e41bf4e1f379f);
+            
+        
+
+        circle_marker_43e6901d2b40e7a433c1e2c26f8a7902.bindPopup(popup_9074c23be93934f8525dc46ac307999e)
+        ;
+
+        
+    
+    
+            var marker_c083002a9429e9cf485796823b535e1f = L.marker(
+                [-4.5, 55.6],
+                {
+}
+            ).addTo(map_b9e75b892e31cc50fdb2f0463fc7621f);
+        
+    
+            var icon_0c1d506ed1678993a6ff09643e00c873 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_c083002a9429e9cf485796823b535e1f.bindTooltip(
+                `<div>
+                     Seychelles
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c083002a9429e9cf485796823b535e1f.setIcon(icon_0c1d506ed1678993a6ff09643e00c873);
+            
+</script>
+</html>

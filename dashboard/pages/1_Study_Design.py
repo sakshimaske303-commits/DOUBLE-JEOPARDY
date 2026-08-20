@@ -1,4 +1,5 @@
 import streamlit as st
+import streamlit.components.v1 as components
 import sys
 import os
 
@@ -9,22 +10,12 @@ from styles import apply_custom_style, PALETTE
 apply_custom_style()
 
 # Folder where the 5 island locator maps live.
-MAPS_DIR = os.path.join(PROJECT_ROOT, "outputs", "plots")
+MAPS_DIR = os.path.join(PROJECT_ROOT, "outputs", "plots", "locator_maps")
 
 
-def find_map_image(maps_dir, slug):
-    """Checks common filename/extension variants for the locator map (some
-    got saved with a mismatched or doubled extension)."""
-    candidates = [
-        f"{slug}.png", f"{slug}.jpg", f"{slug}.jpeg",
-        f"{slug}.png.jpeg", f"{slug}.png.jpg",
-        f"{slug}.PNG", f"{slug}.JPG", f"{slug}.JPEG",
-    ]
-    for name in candidates:
-        path = os.path.join(maps_dir, name)
-        if os.path.exists(path):
-            return path
-    return None
+def find_locator_map(maps_dir, slug):
+    path = os.path.join(maps_dir, f"{slug}.html")
+    return path if os.path.exists(path) else None
 
 
 st.markdown("<h1 style='text-align: center;'>🏝️ STUDY DESIGN</h1>", unsafe_allow_html=True)
@@ -74,12 +65,14 @@ st.markdown("---")
 st.markdown("### Island Locator Maps")
 
 for i, (col, name, basin, desc, slug) in enumerate(islands_info):
-    image_path = find_map_image(MAPS_DIR, slug)
+    map_path = find_locator_map(MAPS_DIR, slug)
     st.markdown(f"<p style='text-align:center; color:{PALETTE['navy']}; font-weight:700; font-size:1.05rem; margin-bottom:10px;'>{name}</p>", unsafe_allow_html=True)
-    if image_path:
+    if map_path:
+        with open(map_path, "r", encoding="utf-8") as f:
+            map_html = f.read()
         left, center, right = st.columns([1, 3, 1])
         with center:
-            st.image(image_path, use_container_width=True)
+            components.html(map_html, height=420)
     else:
         st.markdown(f"""
         <div style="background: {PALETTE['card_bg']}; border: 2px dashed rgba(150,150,150,0.4);
@@ -87,7 +80,7 @@ for i, (col, name, basin, desc, slug) in enumerate(islands_info):
                     min-height: 200px; display: flex; flex-direction: column;
                     align-items: center; justify-content: center;">
             <p style="color: {PALETTE['text_muted']}; font-size: 0.9rem; margin: 0;">
-                Image will be displayed here
+                Map will be displayed here
             </p>
         </div>
         """, unsafe_allow_html=True)

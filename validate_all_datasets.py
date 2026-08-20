@@ -32,10 +32,10 @@ def check_vector(filepath, island):
             minx, miny, maxx, maxy = bounds
             in_range = (exp[0] - 2 <= minx <= exp[2] + 2) or (exp[0] - 2 <= maxx <= exp[2] + 2)
             if not in_range:
-                print(f"  ⚠️ WARNING: bounds don't look like they match {island}!")
+                print(f"  WARNING: bounds don't look like they match {island}!")
 
     except Exception as e:
-        print(f"  ❌ ERROR reading file: {e}")
+        print(f"  ERROR reading file: {e}")
 
 
 def check_raster(filepath, island):
@@ -48,7 +48,7 @@ def check_raster(filepath, island):
             print(f"  Bounds: {bounds}")
             print(f"  Min: {data.min():.2f} | Max: {data.max():.2f} | Mean: {data.mean():.2f} | NoData%: {(data.mask.sum()/data.size)*100:.1f}%")
     except Exception as e:
-        print(f"  ❌ ERROR reading file: {e}")
+        print(f"  ERROR reading file: {e}")
 
 
 def scan_folder(folder_path, is_raster=False):
@@ -60,7 +60,7 @@ def scan_folder(folder_path, is_raster=False):
         filepath = os.path.join(folder_path, fname)
         island = next((i for i in ISLAND_BOUNDS if i in fname.lower()), "unknown")
 
-        print(f"\n📂 {fname} (island: {island})")
+        print(f"\n{fname} (island: {island})")
         if fname.endswith(".tif"):
             check_raster(filepath, island)
         elif fname.endswith(".gpkg"):
