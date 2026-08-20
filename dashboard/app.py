@@ -4,6 +4,7 @@ import os
 
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 from styles import apply_custom_style, PALETTE
+from doc_viewer import render_doc_viewer
 
 st.set_page_config(
     page_title="DOUBLE JEOPARDY",
@@ -211,67 +212,32 @@ st.markdown("---")
 st.markdown("### Full Project Documentation")
 st.markdown(
     f"<p style='color:{PALETTE['text_muted']}; font-weight:600;'>"
-    "Download the complete research paper, project journal, and development log.</p>",
+    "The complete research paper, project journal, and development log open directly below, no download needed.</p>",
     unsafe_allow_html=True,
 )
 
-doc0, doc1, doc2, doc3 = st.columns(4)
+_all_docs = [
+    {"label": "Executive Summary", "filename": "DJ_Executive_Summary.pdf"},
+    {"label": "Research Paper", "filename": "DJ_Research_Paper.pdf"},
+    {"label": "Project Report", "filename": "DJ_Project_Report.pdf"},
+    {"label": "Development Log", "filename": "DJ_Development_Log.pdf"},
+]
+_docs = [d for d in _all_docs if os.path.exists(os.path.join(BASE_DIR, "static", d["filename"]))]
+_missing = [d for d in _all_docs if d not in _docs]
 
-with doc0:
-    pdf_path = os.path.join(ROOT_DIR, "DJ_Executive_Summary.pdf")
-    try:
-        with open(pdf_path, "rb") as f:
-            st.download_button(
-                label="Executive Summary (PDF)",
-                data=f,
-                file_name="DOUBLE_JEOPARDY_Executive_Summary.pdf",
-                mime="application/pdf",
-                use_container_width=True,
-            )
-    except FileNotFoundError:
-        st.warning("DJ_Executive_Summary.pdf not found.")
-
-with doc1:
-    pdf_path = os.path.join(ROOT_DIR, "DJ_Research_Paper.pdf")
-    try:
-        with open(pdf_path, "rb") as f:
-            st.download_button(
-                label="Research Paper (PDF)",
-                data=f,
-                file_name="DOUBLE_JEOPARDY_Research_Paper.pdf",
-                mime="application/pdf",
-                use_container_width=True,
-            )
-    except FileNotFoundError:
-        st.warning("DJ_Research_Paper.pdf not found.")
-
-with doc2:
-    pdf_path = os.path.join(ROOT_DIR, "DJ_Project_Report.pdf")
-    try:
-        with open(pdf_path, "rb") as f:
-            st.download_button(
-                label="Project Report (PDF)",
-                data=f,
-                file_name="DOUBLE_JEOPARDY_Project_Report.pdf",
-                mime="application/pdf",
-                use_container_width=True,
-            )
-    except FileNotFoundError:
-        st.warning("DJ_Project_Report.pdf not found.")
-
-with doc3:
-    pdf_path = os.path.join(ROOT_DIR, "DJ_Development_Log.pdf")
-    try:
-        with open(pdf_path, "rb") as f:
-            st.download_button(
-                label="Development Log (PDF)",
-                data=f,
-                file_name="DOUBLE_JEOPARDY_Development_Log.pdf",
-                mime="application/pdf",
-                use_container_width=True,
-            )
-    except FileNotFoundError:
-        st.warning("DJ_Development_Log.pdf not found.")
+if _docs:
+    render_doc_viewer(
+        docs=_docs,
+        colors={
+            "navy_dark": "#141414",
+            "navy_med": "#272727",
+            "magenta": PALETTE["green"],
+            "teal": PALETTE["navy"],
+            "text_light": PALETTE["text_dark"],
+        },
+    )
+for d in _missing:
+    st.warning(f"{d['filename']} not found.")
 
 st.markdown("---")
 
