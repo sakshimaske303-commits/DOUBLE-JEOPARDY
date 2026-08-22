@@ -4,3 +4,9 @@ geopandas
 plotly
 rasterio
 numpy
+scipy
+folium
+pymannkendall
+python-dotenv
+matplotlib
+requests

@@ -18,6 +18,11 @@ MAP_FOLDERS = [
     "seychelles_slr_exposure_webmap",
     "fiji_slr_exposure_webmap",
     "canary_slr_exposure_webmap",
+    "maldives_ecosystem_buffer_webmap",
+    "fiji_ecosystem_buffer_webmap",
+    "seychelles_ecosystem_buffer_webmap",
+    "lakshadweep_ecosystem_buffer_webmap",
+    "canary_ecosystem_buffer_webmap",
 ]
 
 STATIC_DIR = "static"

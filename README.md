@@ -74,7 +74,7 @@ Interactive geospatial maps are hosted separately via GitHub Pages. Sample links
 
 **Findings hold up under robustness checks.** The coral thermal-stress trend is confirmed statistically significant via a Mann-Kendall test for Maldives (p=0.011) and Seychelles (p=0.025); the Compound Vulnerability ranking is stable across the full 0–100% weighting-sensitivity range; and physical exposure recomputed on a population-weighted basis confirms that single-indicator exposure measures alone can misrepresent true risk.
 
-Full methodology, including two hypotheses tested and one not supported, is documented in the dashboard's Methodology page and in `DJ_Project_Report.md`.
+Full methodology, including three hypotheses tested — one supported, one not supported, and one suggestive but statistically inconclusive — is documented in the dashboard's Methodology page and in `DJ_Project_Report.md`.
 
 ## Repository Structure
 
@@ -106,7 +106,7 @@ DOUBLE_JEOPARDY/
 
 ## Tech Stack
 
-Python · GeoPandas · Rasterio · Folium · SciPy · PyMannKendall · Statsmodels · Plotly · Streamlit · GitHub Pages · Sentinel Hub API · NOAA Coral Reef Watch API · Global Mangrove Watch
+Python · GeoPandas · Rasterio · Folium · SciPy · PyMannKendall · Plotly · Streamlit · GitHub Pages · Sentinel Hub API · NOAA Coral Reef Watch API · Global Mangrove Watch
 
 ## Data Sources
 

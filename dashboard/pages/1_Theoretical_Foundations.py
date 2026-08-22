@@ -30,7 +30,7 @@ with col_b:
         st.warning("Diagram not found at outputs/plots/imgg1.png")
     st.markdown(
         f"<p style='text-align:center; color:{PALETTE['text_muted']}; font-size:0.85rem; margin-top:6px;'>"
-        "AI was used to help generate this image, but the concept and every detail in it are mine.</p>",
+        "Sea-level-rise physics schematic — thermal expansion and land-ice melt pathways.</p>",
         unsafe_allow_html=True,
     )
 

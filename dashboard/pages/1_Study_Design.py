@@ -89,9 +89,9 @@ for i, (col, name, basin, desc, slug) in enumerate(islands_info):
 
 st.markdown("---")
 
-st.markdown("### Two Hypotheses, Tested Independently")
+st.markdown("### Three Hypotheses, Tested Independently")
 
-col1, col2 = st.columns(2)
+col1, col2, col3 = st.columns(3)
 with col1:
     st.info("""
     **H1 — Coral Pathway**
@@ -107,6 +107,14 @@ with col2:
     Mangrove ecosystems will show a statistically detectable decline in spatial
     extent over the same period, contributing an independent compounding pathway
     alongside coral degradation.
+    """)
+with col3:
+    st.info("""
+    **H3 — Governance Alignment**
+
+    Islands with higher compound vulnerability scores will show correspondingly
+    higher formal protected-area coverage, consistent with risk-responsive
+    governance.
     """)
 
 st.markdown("---")
