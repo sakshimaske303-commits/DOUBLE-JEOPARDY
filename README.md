@@ -12,8 +12,7 @@
 
 | Document | What's Inside |
 |---|---|
-| [`DJ_Executive_Summary.pdf`](./DJ_Executive_Summary.pdf) | One-page snapshot — question, method, headline finding, robustness checklist, and links (fastest overview) |
-| [`DJ_Project_Report.md`](./DJ_Project_Report.md) | Polished project summary — methodology, findings, conclusions (start here) |
+| [`DJ_Executive_Summary.pdf`](./DJ_Executive_Summary.pdf) / [`.md`](./DJ_Executive_Summary.md) | One-page snapshot — project overview, question, method, headline finding, robustness checklist, and links (fastest overview; start here) |
 | [`DJ_Research_Paper.md`](./DJ_Research_Paper.md) | Formal academic paper — literature review, statistical methodology, results, discussion |
 | [`DJ_Development_Log.md`](./DJ_Development_Log.md) | Full technical development log — every bug, debugging session, and methodology iteration |
 
@@ -72,17 +71,17 @@ Interactive geospatial maps are hosted separately via GitHub Pages. Sample links
 
 **Governance alignment is suggestive, not confirmed.** A moderately strong positive correlation (r=0.718) exists between protected-area coverage and verified vulnerability, but does not reach statistical significance at this sample size (p=0.172) — reported honestly as a limitation of scale, not glossed over.
 
-**Findings hold up under robustness checks.** The coral thermal-stress trend is confirmed statistically significant via a Mann-Kendall test for Maldives (p=0.011) and Seychelles (p=0.025); the Compound Vulnerability ranking is stable across the full 0–100% weighting-sensitivity range; and physical exposure recomputed on a population-weighted basis confirms that single-indicator exposure measures alone can misrepresent true risk.
+**Findings hold up under robustness checks.** The coral thermal-stress trend is confirmed statistically significant via a Mann-Kendall test for Maldives (p=0.011) and Seychelles (p=0.025); the Compound Vulnerability ranking holds from 0% up to ~76.8% physical-exposure weighting, well past the 50/50 weighting actually used; and physical exposure recomputed on a population-weighted basis confirms that single-indicator exposure measures alone can misrepresent true risk.
 
-Full methodology, including three hypotheses tested — one supported, one not supported, and one suggestive but statistically inconclusive — is documented in the dashboard's Methodology page and in `DJ_Project_Report.md`.
+Full methodology, including three hypotheses tested — one supported, one not supported, and one suggestive but statistically inconclusive — is documented in the dashboard's Methodology page and in `DJ_Research_Paper.md`.
 
 ## Repository Structure
 
 ```text
 DOUBLE_JEOPARDY/
-├── dashboard/                       # Streamlit dashboard (9 pages)
+├── dashboard/                       # Streamlit dashboard (10 pages)
 │   └── static/                      # Interactive map exports, built in Python (folium) (served via GitHub Pages)
-├── data/                            # Processed datasets across 5 islands, 10 categories
+├── data/                            # Processed datasets across 5 islands, 11 categories
 │   ├── settlements/, ecosystem_buffers/, terrain/, population/
 │   ├── cyclone_tracks/, boundaries/, mangroves/, coral_bleaching/
 │   └── settlement_encroachment/
@@ -94,7 +93,6 @@ DOUBLE_JEOPARDY/
 │                                     #  comparison, mangrove extent, coral trends, governance alignment,
 │                                     #  weighting-sensitivity curve)
 ├── qgis_processing/                 # Original QGIS2Web webmap exports
-├── DJ_Project_Report.md             # Polished project summary and methodology
 ├── DJ_Research_Paper.md             # Formal academic research paper
 ├── DJ_Development_Log.md            # Full technical development log
 ├── download_*.py                    # Dataset acquisition scripts
