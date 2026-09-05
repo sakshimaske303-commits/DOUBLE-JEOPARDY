@@ -18,7 +18,7 @@
 
 ---
 
-DOUBLE JEOPARDY is a geospatial framework that independently tests physical sea-level-rise exposure and ecosystem buffer degradation across five island nations spanning three ocean basins. Rather than assuming mangroves and coral reefs degrade together, each ecosystem is tested independently — revealing that climate vulnerability is not the uniform story it is often assumed to be.
+DOUBLE JEOPARDY is a geospatial framework that independently tests physical sea-level-rise exposure and ecosystem buffer degradation across five islands spanning three ocean basins. Rather than assuming mangroves and coral reefs degrade together, each ecosystem is tested independently — revealing that climate vulnerability is not the uniform story it is often assumed to be.
 
 Built on a **"Trust, But Verify"** philosophy — every hypothesis in this project is tested rigorously, and every finding is reported honestly, including where the original hypothesis was not supported.
 

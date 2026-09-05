@@ -84,7 +84,7 @@ st.markdown(
         <p style="color:{PALETTE['navy']}; text-transform:uppercase; letter-spacing:1.5px;
                   font-weight:700; font-size:0.85rem; margin-bottom:8px;">Why This Matters</p>
         <p style="color:{PALETTE['text_dark']}; font-size:1rem; line-height:1.6; margin:0;">
-            Climate adaptation funding for small island nations is often allocated using
+            Climate adaptation funding for small islands is often allocated using
             single-indicator exposure metrics like sea-level-rise risk alone. This project shows that
             can be actively misleading: the Maldives has the highest physical exposure of any island
             tested — yet Seychelles is the highest overall-risk island once ecosystem-buffer
@@ -103,14 +103,14 @@ with col_left:
     st.markdown("""
     ### What Is Double Jeopardy?
 
-    Small island nations face a **compounding vulnerability** to climate change — high
+    Small islands face a **compounding vulnerability** to climate change — high
     physical exposure to sea-level rise, layered with **degrading natural coastal defenses**:
     mangroves and coral reefs that have historically buffered these islands from erosion
     and storm damage.
 
     This project independently tests whether that compounding risk is real, and whether
     it affects every ecosystem type equally. Rather than assuming mangroves and coral reefs
-    degrade together, each is tested independently across five island nations spanning
+    degrade together, each is tested independently across five islands spanning
     three ocean basins.
     """)
 

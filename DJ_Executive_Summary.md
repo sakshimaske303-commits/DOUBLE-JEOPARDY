@@ -1,13 +1,13 @@
 # DOUBLE JEOPARDY — The Vulnerability Spiral
-### Compound Climate Risk Across Five Island Nations
+### Compound Climate Risk Across Five Islands
 
 Executive Summary · DOI: 10.5281/zenodo.21739961 · Sakshi D. Maske
 
 ## Project Overview
 
-I built DOUBLE JEOPARDY to pressure-test an assumption climate adaptation policy makes almost by default: that physical exposure to sea-level rise is enough on its own to describe a small island nation's climate risk. It isn't, and I wanted numbers that could show that rather than just argue it.
+I built DOUBLE JEOPARDY to pressure-test an assumption climate adaptation policy makes almost by default: that physical exposure to sea-level rise is enough on its own to describe a small island's climate risk. It isn't, and I wanted numbers that could show that rather than just argue it.
 
-Working across five island nations spanning three ocean basins — Maldives, Lakshadweep, Seychelles, Fiji, and the Canary Islands — I refused to lump mangroves and coral reefs together under one "ecosystem buffer" label. Mangrove decline and coral degradation went in as two independent hypotheses, tested separately, then combined with verified physical exposure into a single Compound Vulnerability Score per island.
+Working across five islands spanning three ocean basins — Maldives, Lakshadweep, Seychelles, Fiji, and the Canary Islands — I refused to lump mangroves and coral reefs together under one "ecosystem buffer" label. Mangrove decline and coral degradation went in as two independent hypotheses, tested separately, then combined with verified physical exposure into a single Compound Vulnerability Score per island.
 
 That framing is what produced the project's central result: Seychelles, not the higher-exposure Maldives, comes out as the highest-overall-risk island once ecosystem degradation is properly weighted in. It's a finding that only shows up once you model compound risk — look at exposure alone and you'd miss it entirely.
 
@@ -19,11 +19,11 @@ Together, the compound-score result and the governance test are this project's t
 
 ## The Question
 
-Small island nations face a compounding climate vulnerability — high physical exposure to sea-level rise, layered with degrading natural coastal defenses (mangroves and coral reefs). Climate adaptation funding is often allocated using single-indicator exposure metrics alone. Is that reliable, or does it systematically misrepresent true risk? And do all ecosystem buffers degrade uniformly, or does that assumption itself need testing?
+Small islands face a compounding climate vulnerability — high physical exposure to sea-level rise, layered with degrading natural coastal defenses (mangroves and coral reefs). Climate adaptation funding is often allocated using single-indicator exposure metrics alone. Is that reliable, or does it systematically misrepresent true risk? And do all ecosystem buffers degrade uniformly, or does that assumption itself need testing?
 
 ## The Method
 
-Five island nations, three ocean basins — Canary Islands, Fiji, Lakshadweep, Maldives, Seychelles — tested against 10+ independently-sourced datasets spanning 1996–2024. Physical exposure (settlement-level sea-level-rise risk) and coral thermal-stress trend (NOAA Coral Reef Watch Degree Heating Week) were normalized and combined into a single Compound Vulnerability Score. Mangrove extent I tracked separately, across three independent time points (1996, 2010, 2020) using Global Mangrove Watch — a distinct hypothesis, not assumed to move in step with coral reefs.
+Five islands, three ocean basins — Canary Islands, Fiji, Lakshadweep, Maldives, Seychelles — tested against 10+ independently-sourced datasets spanning 1996–2024. Physical exposure (settlement-level sea-level-rise risk) and coral thermal-stress trend (NOAA Coral Reef Watch Degree Heating Week) were normalized and combined into a single Compound Vulnerability Score. Mangrove extent I tracked separately, across three independent time points (1996, 2010, 2020) using Global Mangrove Watch — a distinct hypothesis, not assumed to move in step with coral reefs.
 
 ## The Finding
 
@@ -49,12 +49,14 @@ The Compound Vulnerability ranking holds robustly across most of the 0–100% we
 - ✓ SLR-threshold sensitivity check across 0.5m / 1.0m / 1.5m thresholds
 - ✓ Honest null result reported — H2 (mangrove decline) not supported
 - ! Governance correlation flagged as not statistically significant (suggestive only)
+- ! Coral thermal-stress series sampled from a single representative coordinate per island, not a reef-area spatial average
+- ! Lakshadweep's coastal WDPA coverage is reported as zero because no protected-area layer was available for it, not because zero coverage was measured
 
-**Honest Limitation:** The governance-alignment test (protected-area coverage vs. verified vulnerability) shows a moderately strong positive correlation (r=0.718) but doesn't reach statistical significance at this sample size (p=0.172, 95% CI: -0.45 to 0.98) — a genuine limitation of testing only five islands, which I'm reporting as suggestive rather than confirmed. The Compound Vulnerability Score also uses min-max normalization, so scores are relative within this five-island sample rather than absolute — Canary Islands' score of 0.000 reflects the lowest raw values in this sample, not the absence of risk. I also corrected Canary Islands' physical-exposure figure (0.3% of settlements at risk) during data-quality review, to exclude DEM NoData artifacts I'd initially misread as sea-level settlements — see the Research Paper's Limitations section for the full explanation.
+**Honest Limitation:** The governance-alignment test (protected-area coverage vs. verified vulnerability) shows a moderately strong positive correlation (r=0.718) but doesn't reach statistical significance at this sample size (p=0.172, 95% CI: -0.45 to 0.98) — a genuine limitation of testing only five islands, which I'm reporting as suggestive rather than confirmed. Lakshadweep's coastal WDPA figure in that test is a reported zero because I had no protected-area dataset for it, not a measured, confirmed absence of protection — this should be read as missing data, not a governance finding. The Compound Vulnerability Score also uses min-max normalization, so scores are relative within this five-island sample rather than absolute — Canary Islands' score of 0.000 reflects the lowest raw values in this sample, not the absence of risk. The coral thermal-stress series itself comes from a single representative coordinate per island rather than a spatial average across the full reef area — a coarser sampling choice than area-weighted aggregation would give, kept for consistency with how the DHW product is queried. I also corrected Canary Islands' physical-exposure figure (0.3% of settlements at risk) during data-quality review, to exclude DEM NoData artifacts I'd initially misread as sea-level settlements — see the Research Paper's Limitations section for the full explanation.
 
 ## Real-World Relevance
 
-Climate adaptation funding for small island nations is frequently allocated using single-indicator exposure metrics. This project's central methodological argument — that exposure and true compound risk are not the same thing, and that ecosystem buffers do not degrade uniformly — has direct implications for how conservation and adaptation resources should be prioritized across islands and ecosystem types.
+Climate adaptation funding for small islands is frequently allocated using single-indicator exposure metrics. This project's central methodological argument — that exposure and true compound risk are not the same thing, and that ecosystem buffers do not degrade uniformly — has direct implications for how conservation and adaptation resources should be prioritized across islands and ecosystem types.
 
 ---
 

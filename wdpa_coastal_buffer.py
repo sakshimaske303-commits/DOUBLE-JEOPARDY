@@ -12,6 +12,9 @@ for island in ISLANDS:
     island_area_km2 = boundary.geometry.area.sum() / 1_000_000
 
     if island == "lakshadweep":
+        # No WDPA protected-area layer was available for Lakshadweep to clip
+        # against this buffer, so coverage is reported as 0 here as a missing-
+        # data placeholder, NOT a measured, confirmed absence of protection.
         wdpa_in_buffer_km2 = 0.0
     else:
         wdpa = gpd.read_file(f"data/ecosystem_buffers/{island}_wdpa.gpkg").to_crs("EPSG:6933")

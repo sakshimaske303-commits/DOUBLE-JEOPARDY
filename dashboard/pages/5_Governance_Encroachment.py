@@ -73,7 +73,9 @@ with tab1:
     highest coastal protection ratio. But with only five islands in the sample — and a 95%
     confidence interval spanning from r = -0.45 to r = 0.98 — there isn't sufficient statistical
     power to confirm this relationship with confidence. Reported honestly as suggestive evidence,
-    not proof.
+    not proof. **Lakshadweep's 0.00 WDPA ratio is also a missing-data placeholder** — no
+    protected-area dataset was available for it, so this is not a measured, confirmed absence
+    of protection.
     """)
 
     st.markdown("")

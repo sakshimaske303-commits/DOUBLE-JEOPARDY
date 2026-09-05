@@ -4,7 +4,10 @@ import os
 
 OUTPUT_DIR = "data/coral_bleaching"
 
-# Approximate coordinate (single representative point) per island for DHW time series
+# Approximate coordinate (single representative point) per island for DHW time series.
+# NOTE: this is a single-point sample, not a spatial average over the full reef extent
+# (a coarser sampling choice than area-weighted aggregation would give) — disclosed as
+# a limitation in DJ_Research_Paper.md Section 6.
 ISLAND_POINTS = {
     "maldives": (73.5, 3.5),
     "seychelles": (55.5, -4.5),

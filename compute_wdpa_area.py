@@ -1,7 +1,7 @@
 import geopandas as gpd
 import pandas as pd
 
-ISLANDS = ["maldives", "seychelles", "fiji", "canary"]  # lakshadweep excluded, WDPA=0
+ISLANDS = ["maldives", "seychelles", "fiji", "canary"]  # lakshadweep excluded, no WDPA dataset available
 
 
 def compute_wdpa_area(island):
@@ -25,9 +25,11 @@ def main():
         except Exception as e:
             print(f"{island.upper()}: ERROR - {e}")
 
-    # Lakshadweep has zero WDPA coverage (confirmed earlier)
+    # No WDPA protected-area dataset was available for Lakshadweep, so it is
+    # reported here as 0.0 km2 as a missing-data placeholder, NOT a measured,
+    # confirmed absence of protection.
     results.append({"island": "lakshadweep", "wdpa_area_km2": 0.0})
-    print("LAKSHADWEEP: 0.00 km2 protected (confirmed no WDPA coverage)")
+    print("LAKSHADWEEP: 0.00 km2 protected (no WDPA dataset available, not a confirmed zero)")
 
     df = pd.DataFrame(results)
     df.to_csv("data/wdpa_area_by_island.csv", index=False)
