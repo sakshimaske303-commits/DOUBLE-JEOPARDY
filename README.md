@@ -57,7 +57,7 @@ Interactive geospatial maps are hosted separately via GitHub Pages. Sample links
 ## What This Project Does
 
 - Tests physical sea-level-rise exposure at the settlement level across all five islands, using elevation data intersected with over 6,000 individual settlement points — complemented by a population-weighted recomputation using WorldPop 2020 data
-- Independently tracks **mangrove extent** across three time points (1996, 2010, 2020) and **coral reef thermal stress** across a continuous 24-year satellite record — treating them as two separate hypotheses, not one combined assumption
+- Independently tracks **mangrove extent** across three time points (1996, 2010, 2020) and **coral reef thermal stress** across a 24-year, monthly-sampled satellite record (1996–2020) — treating them as two separate hypotheses, not one combined assumption
 - Combines physical exposure and ecosystem degradation into a single **Compound Vulnerability Score**, revealing that the island with the highest physical exposure is *not* the island with the highest overall risk
 - Tests whether formal protected-area governance is statistically aligned with verified vulnerability, or represents a "paper park" gap between policy and evidence
 - Tests whether settlement expansion is concentrated near degrading ecosystem buffer zones, using satellite-derived built-up area change (2016–2024)
