@@ -1,5 +1,5 @@
 """Per-settlement lon/lat/elevation export feeding build_slr_exposure_map.py;
-same Canary-only 0.0-as-bad-DEM-read logic as precompute_elevations.py.
+same 0.0-as-bad-DEM-read logic as precompute_elevations.py (Canary + Fiji).
 """
 import geopandas as gpd
 import rasterio
@@ -9,7 +9,7 @@ import os
 
 ISLANDS = ["maldives", "seychelles", "fiji", "lakshadweep"]  # canary already done
 SLR_THRESHOLD_M = 1.0
-ZERO_IS_NODATA = {"canary"}  # kept here for parity, doesn't affect this list
+ZERO_IS_NODATA = {"canary", "fiji"}  # fiji: same zero-spike signature as canary, see precompute_elevations.py
 OUT_DIR = "data/settlement_elevations_full"
 
 

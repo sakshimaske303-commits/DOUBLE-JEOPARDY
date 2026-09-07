@@ -1,3 +1,11 @@
+"""SUPERSEDED — not used by any current analysis. Divides compute_wdpa_area.py's
+marine+terrestrial-mixed WDPA area by land-only island area, which is what
+produced the impossible 1005.69 ratio for Seychelles (see compute_wdpa_area.py
+and DJ_Development_Log.md). Replaced by wdpa_coastal_buffer.py's 10km-buffer
+approach; data/wdpa_normalized.csv below is kept only as a record of the bug,
+not read by governance_correlation_test.py or anything else downstream.
+"""
+
 import geopandas as gpd
 import pandas as pd
 

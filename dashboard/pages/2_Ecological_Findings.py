@@ -74,9 +74,9 @@ with tab1:
     **Seychelles shows the most severe thermal stress increase** — a maximum recorded value of
     10.47°C-weeks falls within the range associated with severe bleaching and coral mortality.
     Four of five islands show a nominal rise in thermal-stress trend using a reference-period
-    comparison (1996–2000 vs. 2016–2020 averages); a Mann-Kendall trend test on the complete
-    24-year series confirms this increase as **statistically significant for Maldives (p=0.011)
-    and Seychelles (p=0.025)** — the two islands driving this project's compound vulnerability
+    comparison (1996–2000 vs. 2016–2020 averages); a seasonal Mann-Kendall trend test on the complete
+    24-year series confirms this increase as **statistically significant for Maldives (p=0.0046)
+    and Seychelles (p=0.0069)** — the two islands driving this project's compound vulnerability
     ranking. The smaller increases in Fiji and Lakshadweep do not reach significance over the
     full series, and the Canary Islands, with a distinct Atlantic climate regime, shows no
     significant trend at all, consistent with its slight period-comparison decline.

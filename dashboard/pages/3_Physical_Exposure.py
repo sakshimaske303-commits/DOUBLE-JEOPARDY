@@ -35,7 +35,7 @@ exposure_data = [
     ("Maldives", 99.1, 996),
     ("Seychelles", 78.3, 244),
     ("Lakshadweep", 77.8, 36),
-    ("Fiji", 32.0, 1323),
+    ("Fiji", 1.0, 909),
     ("Canary Islands", 0.3, 4834),
 ]
 
@@ -82,7 +82,7 @@ comparison_data = [
     ("Maldives", 99.1, 64.5),
     ("Seychelles", 78.3, 17.6),
     ("Lakshadweep", 77.8, 87.5),
-    ("Fiji", 32.0, 2.1),
+    ("Fiji", 1.0, 2.1),
     ("Canary Islands", 0.3, 1.6),
 ]
 names_c = [d[0] for d in comparison_data]
@@ -192,10 +192,10 @@ st.caption(f"Recalculated live from {sum(custom_totals):,} settlement-level elev
 st.info("""
 **Robustness check — is 1m the right threshold?** Re-running the same analysis at 0.5m and 1.5m
 (the practical range of near-term sea-level-rise scenarios) shifts each island's exposure by at
-most half a percentage point, and never changes the island ranking. Maldives (≈99%) and Seychelles
-(≈78%) stay the two most exposed islands, Canary Islands stays the least exposed (well under 1%) at
-every threshold tested. The 1m benchmark used throughout this study is not doing hidden work in the
-result.
+most about eight-tenths of a percentage point, and never changes the island ranking. Maldives (≈99%) and Seychelles
+(≈78%) stay the two most exposed islands, Canary Islands and Fiji stay the two least exposed (both
+well under 2%) at every threshold tested. The 1m benchmark used throughout this study is not doing
+hidden work in the result.
 """)
 
 st.markdown("---")

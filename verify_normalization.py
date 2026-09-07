@@ -1,4 +1,4 @@
-slr = [0.3, 32.0, 77.8, 99.1, 78.3]
+slr = [0.3, 0.99, 77.8, 99.1, 78.3]  # canary, fiji, lakshadweep, maldives, seychelles
 coral = [-0.05, 0.10, 0.08, 0.17, 0.68]
 
 slr_norm = [(v - min(slr))/(max(slr)-min(slr)) for v in slr]

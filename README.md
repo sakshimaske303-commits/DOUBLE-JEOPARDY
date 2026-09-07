@@ -60,7 +60,7 @@ Interactive geospatial maps are hosted separately via GitHub Pages. Sample links
 - Independently tracks **mangrove extent** across three time points (1996, 2010, 2020) and **coral reef thermal stress** across a 24-year, monthly-sampled satellite record (1996–2020) — treating them as two separate hypotheses, not one combined assumption
 - Combines physical exposure and ecosystem degradation into a single **Compound Vulnerability Score**, revealing that the island with the highest physical exposure is *not* the island with the highest overall risk
 - Tests whether formal protected-area governance is statistically aligned with verified vulnerability, or represents a "paper park" gap between policy and evidence
-- Tests whether settlement expansion is concentrated near degrading ecosystem buffer zones, using satellite-derived built-up area change (2016–2024)
+- Tests whether settlement expansion is rising in the same broad coastal area as each island's ecosystem buffers, using satellite-derived built-up area change (2016–2024)
 - Presents all findings through an interactive Streamlit dashboard with live-recalculating features, Python (folium) interactive maps, and Plotly interactive plots
 
 ## Key Findings
@@ -69,9 +69,9 @@ Interactive geospatial maps are hosted separately via GitHub Pages. Sample links
 
 **Physical exposure alone is misleading.** The Maldives has the highest sea-level-rise exposure of any island tested (99.1% of settlements at risk) — yet Seychelles emerges as the highest overall-risk island once ecosystem degradation is factored in, driven by the most severe coral thermal-stress trend recorded across the sample.
 
-**Governance alignment is suggestive, not confirmed.** A moderately strong positive correlation (r=0.718) exists between protected-area coverage and verified vulnerability, but does not reach statistical significance at this sample size (p=0.172) — reported honestly as a limitation of scale, not glossed over.
+**Governance alignment is suggestive, not confirmed.** A strong positive correlation (r=0.862, n=4 — Lakshadweep excluded, no WDPA measurement available for it) exists between protected-area coverage and verified vulnerability, but does not reach statistical significance at this sample size (p=0.138) — reported honestly as a limitation of scale, not glossed over.
 
-**Findings hold up under robustness checks.** The coral thermal-stress trend is confirmed statistically significant via a Mann-Kendall test for Maldives (p=0.011) and Seychelles (p=0.025); the Compound Vulnerability ranking holds from 0% up to ~76.8% physical-exposure weighting, well past the 50/50 weighting actually used; and physical exposure recomputed on a population-weighted basis confirms that single-indicator exposure measures alone can misrepresent true risk.
+**Findings hold up under robustness checks.** The coral thermal-stress trend is confirmed statistically significant via a seasonal Mann-Kendall test for Maldives (p=0.0046) and Seychelles (p=0.0069); the Compound Vulnerability ranking holds from 0% up to ~76.8% physical-exposure weighting, well past the 50/50 weighting actually used; and physical exposure recomputed on a population-weighted basis confirms that single-indicator exposure measures alone can misrepresent true risk.
 
 Full methodology, including three hypotheses tested — one supported, one not supported, and one suggestive but statistically inconclusive — is documented in the dashboard's Methodology page and in `DJ_Research_Paper.md`.
 

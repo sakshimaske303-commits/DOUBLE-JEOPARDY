@@ -30,8 +30,14 @@ def run_trend_test(csv_path):
 
     values = df["degree_heating_week"].to_numpy()
 
-    # Mann-Kendall trend test (non-parametric, standard for climate time series)
-    mk_result = mk.original_test(values)
+    # Seasonal Mann-Kendall (non-parametric, standard for climate time series
+    # WITH a seasonal cycle). DHW is structurally seasonal -- near-zero most
+    # months, spiking during the warm season -- so the plain/original MK
+    # test's independence assumption is violated by within-year
+    # autocorrelation, which can distort the significance of the trend.
+    # seasonal_test(period=12) compares same-calendar-month values across
+    # years instead, which is the correct test for this data shape.
+    mk_result = mk.seasonal_test(values, period=12)
 
     # Simple OLS regression on time (in years since first observation) as a
     # more familiar secondary reference point

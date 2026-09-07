@@ -1,17 +1,31 @@
-"""Population-weighted physical exposure at/below 1m SLR threshold; v4 uses
+"""Population-weighted physical exposure at/below 1m SLR threshold. v4 used
 bbox windows instead of raster auto-scan (which undercounted Maldives by
-~1/3). Needs rasterio, numpy.
+~1/3); v5 masks to each island's actual boundary polygon (data/boundaries/)
+instead of a rectangular bbox, since a bbox window pulls in ocean/adjacent-
+land pixels a real island boundary wouldn't -- particularly relevant for
+irregular archipelagos like Fiji and Seychelles, where a lot of a bbox's
+area is open water. The bbox windows below are still used to pick the
+raster region to read (fast) and as the population_in_bbox() fallback when
+a boundary polygon isn't available; the polygon mask is what actually
+decides which pixels count. Needs rasterio, geopandas, numpy.
+
+NOTE: needs an actual rerun against the real population/elevation rasters
+to get corrected percentages -- those rasters aren't in this checkout, so
+the numbers currently in the paper are still the v4 (bbox-only) ones. See
+Dev Log.
 """
 
+import geopandas as gpd
 import numpy as np
 import rasterio
+from rasterio.features import geometry_mask
 from rasterio.windows import Window, from_bounds
-from rasterio.warp import reproject, Resampling, transform_bounds
+from rasterio.warp import reproject, Resampling, transform_bounds, transform_geom
 
 ELEVATION_THRESHOLD_M = 1.0
 BUFFER_DEGREES = 0.1  # small buffer around each island's real known extent
 
-# Each island: elevation/population file paths, plus a list of
+# Each island: elevation/population/boundary file paths, plus a list of
 # (minx, miny, maxx, maxy) windows in EPSG:4326. Normally one window per
 # island; Fiji gets two (west-of-dateline, east-of-dateline) since its
 # territory straddles the antimeridian.
@@ -19,6 +33,7 @@ ISLANDS = {
     "Maldives": {
         "elevation": "data/terrain/maldives_elevation.tif",
         "population": "data/population/maldives_population_clean.tif",
+        "boundary": "data/boundaries/maldives_islands.gpkg",
         # from data/boundaries/maldives_islands.gpkg total_bounds
         "windows": [(72.68 - BUFFER_DEGREES, -0.69 - BUFFER_DEGREES,
                      73.76 + BUFFER_DEGREES, 7.11 + BUFFER_DEGREES)],
@@ -26,6 +41,7 @@ ISLANDS = {
     "Seychelles": {
         "elevation": "data/terrain/seychelles_elevation.tif",
         "population": "data/population/seychelles_population_clean.tif",
+        "boundary": "data/boundaries/seychelles_islands.gpkg",
         # from data/boundaries/seychelles_islands.gpkg total_bounds
         "windows": [(46.21 - BUFFER_DEGREES, -9.76 - BUFFER_DEGREES,
                      56.29 + BUFFER_DEGREES, -3.79 + BUFFER_DEGREES)],
@@ -33,6 +49,7 @@ ISLANDS = {
     "Fiji": {
         "elevation": "data/terrain/fiji_elevation.tif",
         "population": "data/population/fiji_population_clean.tif",
+        "boundary": "data/boundaries/fiji_islands.gpkg",
         # two windows straddling the antimeridian — mirrors the "two
         # sub-queries" approach already used for Fiji's WDPA data
         "windows": [
@@ -43,6 +60,7 @@ ISLANDS = {
     "Canary Islands": {
         "elevation": "data/terrain/canary_elevation.tif",
         "population": "data/population/canary_population_clean.tif",
+        "boundary": "data/boundaries/canary_islands.gpkg",
         # from data/boundaries/canary_islands.gpkg total_bounds
         "windows": [(-18.17 - BUFFER_DEGREES, 27.64 - BUFFER_DEGREES,
                      -13.42 + BUFFER_DEGREES, 29.24 + BUFFER_DEGREES)],
@@ -50,6 +68,7 @@ ISLANDS = {
     "Lakshadweep": {
         "elevation": "data/terrain/lakshadweep_elevation.tif",
         "population": "data/population/lakshadweep_population_clean.tif",
+        "boundary": "data/boundaries/lakshadweep_islands.gpkg",
         # from data/boundaries/lakshadweep_islands.gpkg total_bounds
         "windows": [(72.17 - BUFFER_DEGREES, 8.25 - BUFFER_DEGREES,
                      73.68 + BUFFER_DEGREES, 11.69 + BUFFER_DEGREES)],
@@ -57,7 +76,17 @@ ISLANDS = {
 }
 
 
-def process_bbox(pop_src, elev_src, bbox, threshold):
+def load_boundary_geoms(boundary_path, dst_crs):
+    """All island polygons for this boundary file, reprojected to dst_crs
+    (the population raster's CRS) as a list of __geo_interface__ mappings —
+    what rasterio.features.geometry_mask expects."""
+    gdf = gpd.read_file(boundary_path)
+    if gdf.crs is not None and str(gdf.crs) != str(dst_crs):
+        gdf = gdf.to_crs(dst_crs)
+    return [geom.__geo_interface__ for geom in gdf.geometry if geom is not None and not geom.is_empty]
+
+
+def process_bbox(pop_src, elev_src, bbox, boundary_geoms, threshold):
     minx, miny, maxx, maxy = bbox
 
     pop_window = from_bounds(minx, miny, maxx, maxy, transform=pop_src.transform)
@@ -75,6 +104,17 @@ def process_bbox(pop_src, elev_src, bbox, threshold):
     if pop_nodata is not None:
         pop_array = np.where(pop_array == pop_nodata, 0, pop_array)
     pop_array = np.where(pop_array < 0, 0, pop_array)
+
+    # Polygon mask: zero out any population pixel whose center falls
+    # outside the island's actual boundary polygon, so a bbox window that
+    # spans a lot of open water (Fiji, Seychelles) doesn't count ocean
+    # pixels as "population at risk" or "population not at risk" — they
+    # should count as neither, since no one lives there.
+    if boundary_geoms:
+        land_mask = geometry_mask(
+            boundary_geoms, out_shape=pop_shape, transform=pop_transform, invert=True,
+        )
+        pop_array = np.where(land_mask, pop_array, 0)
 
     if elev_src.crs != pop_crs:
         e_minx, e_miny, e_maxx, e_maxy = transform_bounds(pop_crs, elev_src.crs, minx, miny, maxx, maxy)
@@ -105,9 +145,10 @@ def process_bbox(pop_src, elev_src, bbox, threshold):
     return pop_array[at_risk_mask].sum(), pop_array.sum()
 
 
-def population_in_bbox(pop_src, bbox):
-    """Just the population total in a bbox, with no elevation requirement —
-    used to report how many people fall in a window we had to skip."""
+def population_in_bbox(pop_src, bbox, boundary_geoms=None):
+    """Just the population total in a bbox (optionally polygon-masked), with
+    no elevation requirement — used to report how many people fall in a
+    window we had to skip."""
     minx, miny, maxx, maxy = bbox
     window = from_bounds(minx, miny, maxx, maxy, transform=pop_src.transform)
     window = window.round_offsets().round_lengths()
@@ -119,22 +160,35 @@ def population_in_bbox(pop_src, bbox):
     if nodata is not None:
         arr = np.where(arr == nodata, 0, arr)
     arr = np.where(arr < 0, 0, arr)
+    if boundary_geoms:
+        land_mask = geometry_mask(
+            boundary_geoms, out_shape=arr.shape,
+            transform=pop_src.window_transform(window), invert=True,
+        )
+        arr = np.where(land_mask, arr, 0)
     return float(arr.sum())
 
 
-def population_weighted_exposure(elevation_path, population_path, windows, threshold=1.0):
+def population_weighted_exposure(elevation_path, population_path, boundary_path, windows, threshold=1.0):
     total_at_risk = 0.0
     total_pop = 0.0
     skipped_pop = 0.0
     with rasterio.open(population_path) as pop_src, rasterio.open(elevation_path) as elev_src:
+        try:
+            boundary_geoms = load_boundary_geoms(boundary_path, pop_src.crs)
+        except Exception as e:
+            print(f"    WARNING: couldn't load boundary polygon ({e}) — falling back to bbox-only, unmasked",
+                  flush=True)
+            boundary_geoms = None
+
         for i, bbox in enumerate(windows, start=1):
             print(f"    window {i}/{len(windows)}: {bbox}", flush=True)
             try:
-                at_risk, total = process_bbox(pop_src, elev_src, bbox, threshold)
+                at_risk, total = process_bbox(pop_src, elev_src, bbox, boundary_geoms, threshold)
                 total_at_risk += at_risk
                 total_pop += total
             except Exception as e:
-                cluster_pop = population_in_bbox(pop_src, bbox)
+                cluster_pop = population_in_bbox(pop_src, bbox, boundary_geoms)
                 skipped_pop += cluster_pop
                 print(f"    SKIPPED window {i} — elevation file doesn't cover this area "
                       f"({cluster_pop:,.0f} people in this window excluded). Reason: {e}",
@@ -153,7 +207,7 @@ if __name__ == "__main__":
         print(f"  -> {island}...", flush=True)
         try:
             at_risk, total, pct = population_weighted_exposure(
-                cfg["elevation"], cfg["population"], cfg["windows"], ELEVATION_THRESHOLD_M
+                cfg["elevation"], cfg["population"], cfg["boundary"], cfg["windows"], ELEVATION_THRESHOLD_M
             )
             print(f"{island:<16} {at_risk:>15,.0f} {total:>15,.0f} {pct:>11.1f}%")
         except Exception as e:

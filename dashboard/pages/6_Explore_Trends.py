@@ -24,14 +24,16 @@ ISLAND_FILE_MAP = {
 }
 
 # Precomputed OLS trend line (intercept + slope/year, in years since 1996-01-01)
-# and Mann-Kendall significance, from the robustness-check trend test run
-# on the complete 24-year series for each island.
+# and SEASONAL Mann-Kendall significance (period=12 -- DHW is structurally
+# seasonal, so the plain MK test's independence assumption doesn't hold),
+# from the robustness-check trend test run on the complete 24-year series
+# for each island.
 TREND_INFO = {
-    "Maldives": {"intercept": 0.0895, "slope_per_year": 0.00450, "significant": True, "p": 0.011},
-    "Seychelles": {"intercept": -0.0668, "slope_per_year": 0.02532, "significant": True, "p": 0.025},
-    "Fiji": {"intercept": 0.3250, "slope_per_year": 0.00151, "significant": False, "p": 0.184},
-    "Lakshadweep": {"intercept": 0.1072, "slope_per_year": 0.00254, "significant": False, "p": 0.386},
-    "Canary Islands": {"intercept": 0.4762, "slope_per_year": 0.01905, "significant": False, "p": 0.641},
+    "Maldives": {"intercept": 0.0895, "slope_per_year": 0.00450, "significant": True, "p": 0.0046},
+    "Seychelles": {"intercept": -0.0668, "slope_per_year": 0.02532, "significant": True, "p": 0.0069},
+    "Fiji": {"intercept": 0.3250, "slope_per_year": 0.00151, "significant": False, "p": 0.2437},
+    "Lakshadweep": {"intercept": 0.1072, "slope_per_year": 0.00254, "significant": False, "p": 0.3725},
+    "Canary Islands": {"intercept": 0.4762, "slope_per_year": 0.01905, "significant": False, "p": 0.6196},
 }
 
 # Fixed per-island colors (not PALETTE -- several entries look near-identical

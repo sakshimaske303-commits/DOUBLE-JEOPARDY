@@ -125,12 +125,15 @@ def fig3_settlement_vs_population():
 def fig4_coral_trends():
     # Precomputed OLS trend (intercept + slope/year, years since series start)
     # and Mann-Kendall significance, from the robustness-check trend test.
+    # p-values are from the SEASONAL Mann-Kendall test (period=12), not the
+    # plain/original test -- DHW is structurally seasonal, so the plain
+    # test's independence assumption doesn't hold here. See coral_trend_test.py.
     trend_info = {
-        "Maldives": {"intercept": 0.0895, "slope_per_year": 0.00450, "significant": True, "p": 0.011},
-        "Seychelles": {"intercept": -0.0668, "slope_per_year": 0.02532, "significant": True, "p": 0.025},
-        "Fiji": {"intercept": 0.3250, "slope_per_year": 0.00151, "significant": False, "p": 0.184},
-        "Lakshadweep": {"intercept": 0.1072, "slope_per_year": 0.00254, "significant": False, "p": 0.386},
-        "Canary Islands": {"intercept": 0.4762, "slope_per_year": 0.01905, "significant": False, "p": 0.641},
+        "Maldives": {"intercept": 0.0895, "slope_per_year": 0.00450, "significant": True, "p": 0.0046},
+        "Seychelles": {"intercept": -0.0668, "slope_per_year": 0.02532, "significant": True, "p": 0.0069},
+        "Fiji": {"intercept": 0.3250, "slope_per_year": 0.00151, "significant": False, "p": 0.2437},
+        "Lakshadweep": {"intercept": 0.1072, "slope_per_year": 0.00254, "significant": False, "p": 0.3725},
+        "Canary Islands": {"intercept": 0.4762, "slope_per_year": 0.01905, "significant": False, "p": 0.6196},
     }
 
     fig, ax = plt.subplots(figsize=(13, 7.5))
@@ -225,8 +228,14 @@ def fig5_mangrove_extent():
 def fig6_governance_alignment():
     df = pd.read_csv("data/governance_alignment_test.csv")
 
-    r, p = stats.pearsonr(df["vulnerability_score"], df["wdpa_ratio"])
-    n = len(df)
+    # Lakshadweep's WDPA figure is a missing-data placeholder (0.0, not a
+    # measured value -- see wdpa_coastal_buffer.py), so it's excluded from
+    # the correlation itself even though it's still plotted below for
+    # context. See governance_correlation_test.py.
+    corr_df = df[~df.get("excluded_from_correlation", False)] if "excluded_from_correlation" in df.columns else df
+
+    r, p = stats.pearsonr(corr_df["vulnerability_score"], corr_df["wdpa_ratio"])
+    n = len(corr_df)
     z = np.arctanh(r)
     se = 1 / np.sqrt(n - 3)
     ci_low, ci_high = np.tanh(z - 1.96 * se), np.tanh(z + 1.96 * se)
@@ -241,9 +250,10 @@ def fig6_governance_alignment():
         ax.annotate(label, (row["vulnerability_score"], row["wdpa_ratio"]),
                     textcoords="offset points", xytext=(8, 6), fontsize=10, fontweight="bold")
 
-    # OLS best-fit line for visual reference
-    slope, intercept, *_ = stats.linregress(df["vulnerability_score"], df["wdpa_ratio"])
-    xs = np.linspace(df["vulnerability_score"].min(), df["vulnerability_score"].max(), 50)
+    # OLS best-fit line for visual reference — fit on the same n=4 used for
+    # the reported correlation, so the line matches the r/p in the title
+    slope, intercept, *_ = stats.linregress(corr_df["vulnerability_score"], corr_df["wdpa_ratio"])
+    xs = np.linspace(corr_df["vulnerability_score"].min(), corr_df["vulnerability_score"].max(), 50)
     ax.plot(xs, intercept + slope * xs, color=EDGE, linestyle="--", linewidth=1.3, alpha=0.7, zorder=2)
 
     ax.set_xlabel("Compound Vulnerability Score", fontsize=11)
@@ -269,8 +279,12 @@ def fig6_governance_alignment():
 # Figure 7 — Compound Vulnerability Score: Weighting Sensitivity Curve
 # ------------------------------------------------------------------
 def fig7_weighting_sensitivity():
-    # Same raw inputs and normalize() logic as compound_vulnerability_score.py
-    slr_data = {"Maldives": 99.1, "Seychelles": 78.3, "Fiji": 32.0, "Canary Islands": 0.3, "Lakshadweep": 77.8}
+    # Same normalize() logic as compound_vulnerability_score.py. slr_data is
+    # read from the same CSV Figures 1/2 use rather than hardcoded here, so
+    # a corrected exposure figure (e.g. the Fiji NoData fix) can't silently
+    # drift out of sync between this figure and the others.
+    _slr_df = pd.read_csv("data/slr_exposure_summary.csv").set_index("island")
+    slr_data = {label: _slr_df.loc[key, "pct_at_risk"] for label, key in ISLAND_FILE_MAP.items()}
     coral_decline = {"Maldives": 0.17, "Seychelles": 0.68, "Fiji": 0.10, "Canary Islands": -0.05, "Lakshadweep": 0.08}
 
     def normalize(d):

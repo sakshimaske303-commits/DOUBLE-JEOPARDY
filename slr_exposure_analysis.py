@@ -11,9 +11,14 @@ SENSITIVITY_THRESHOLDS_M = [0.5, 1.0, 1.5]  # robustness check across a range of
 
 # Canary's DEM returns literal 0.0 at some settlement points that aren't real
 # near-sea-level terrain (volcanic, mountainous -- verified against QGIS, see
-# data/canary_python_elevations_check.csv). Every other island's zero readings
-# are genuine low-lying elevation, kept as real data.
-ZERO_IS_NODATA = {"canary"}
+# data/canary_python_elevations_check.csv). Fiji shows the same signature
+# (31.3% of points exactly 0.0m on volcanic/mountainous terrain -- an
+# implausible spike, not real near-sea-level readings) and is now excluded
+# the same way; see map1_slr_fiji.py, which already treated Fiji's zeros
+# as NoData independently of this script. Maldives and Lakshadweep also
+# show a zero-heavy distribution but are genuine low-lying atolls, so
+# their zero readings are kept as real data pending a separate check.
+ZERO_IS_NODATA = {"canary", "fiji"}
 
 
 def analyze_island(island):

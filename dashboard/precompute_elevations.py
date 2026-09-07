@@ -5,11 +5,19 @@ import pandas as pd
 
 ISLANDS = ["maldives", "seychelles", "fiji", "canary", "lakshadweep"]
 
-# Only Canary Islands' DEM was verified to have 0.0 as a NoData artifact
+# Canary Islands' DEM was verified to have 0.0 as a NoData artifact
 # (confirmed via QGIS transparency settings and pixel inspection).
-# For other islands, 0.0 may represent genuine near-sea-level elevation
-# and should NOT be treated as missing data.
-ISLANDS_WITH_ZERO_AS_NODATA = {"canary"}
+# Fiji added after a distributional check found the same signature: 31.3%
+# of Fiji settlement points read exactly 0.0m -- a spike, not a gradient,
+# on volcanic/mountainous terrain where near-sea-level readings aren't
+# geologically expected. map1_slr_fiji.py already excluded Fiji's zeros
+# independently; this brings the main pipeline in line with that.
+# Maldives (99.0% zero) and Lakshadweep (77.8% zero) show a similar
+# zero-spike but are NOT added here: both are low-lying coral atolls where
+# genuine near-sea-level terrain across most settlements is expected
+# geology, not an anomaly. Flagged as an open item for a future QGIS-level
+# check, not treated as confirmed either way.
+ISLANDS_WITH_ZERO_AS_NODATA = {"canary", "fiji"}
 
 all_data = []
 

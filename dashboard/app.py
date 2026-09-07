@@ -193,8 +193,8 @@ with h3:
         <p style="color: {PALETTE['cyan']}; font-weight: 800; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 8px;">H3 — Suggestive</p>
         <p style="color: {PALETTE['navy']}; font-weight: 700; font-size: 1rem; margin-bottom: 8px;">Governance Is Partially Aligned</p>
         <p style="color: {PALETTE['text_dark']}; font-size: 0.85rem; margin: 0;">
-            Moderate positive correlation (r=0.718) between risk and protection — but not
-            statistically significant at this sample size (p=0.172, 95% CI: -0.45 to 0.98).
+            Strong positive correlation (r=0.862, n=4 — Lakshadweep excluded, no WDPA data) between risk and
+            protection — but not statistically significant at this sample size (p=0.138, 95% CI: -0.58 to 1.00).
         </p>
     </div>
     """, unsafe_allow_html=True)

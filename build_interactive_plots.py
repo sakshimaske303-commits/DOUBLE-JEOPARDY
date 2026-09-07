@@ -35,7 +35,7 @@ DARK_LAYOUT = dict(
 def build_compound_vulnerability_score():
     data = {
         "island": ["Seychelles", "Maldives", "Lakshadweep", "Fiji", "Canary Islands"],
-        "score": [0.895, 0.651, 0.481, 0.263, 0.000],
+        "score": [0.895, 0.651, 0.481, 0.106, 0.000],
     }
     df = pd.DataFrame(data).sort_values("score", ascending=True)
     colors = ["#2c7fb8" if s < 0.5 else "#e34a33" for s in df["score"]]
@@ -62,11 +62,11 @@ def build_compound_vulnerability_score():
 # ============================================================
 def build_coral_thermal_stress_trends():
     trend_info = {
-        "Maldives": {"intercept": 0.0895, "slope_per_year": 0.00450, "significant": True, "p": 0.011},
-        "Seychelles": {"intercept": -0.0668, "slope_per_year": 0.02532, "significant": True, "p": 0.025},
-        "Fiji": {"intercept": 0.3250, "slope_per_year": 0.00151, "significant": False, "p": 0.184},
-        "Lakshadweep": {"intercept": 0.1072, "slope_per_year": 0.00254, "significant": False, "p": 0.386},
-        "Canary Islands": {"intercept": 0.4762, "slope_per_year": 0.01905, "significant": False, "p": 0.641},
+        "Maldives": {"intercept": 0.0895, "slope_per_year": 0.00450, "significant": True, "p": 0.0046},
+        "Seychelles": {"intercept": -0.0668, "slope_per_year": 0.02532, "significant": True, "p": 0.0069},
+        "Fiji": {"intercept": 0.3250, "slope_per_year": 0.00151, "significant": False, "p": 0.2437},
+        "Lakshadweep": {"intercept": 0.1072, "slope_per_year": 0.00254, "significant": False, "p": 0.3725},
+        "Canary Islands": {"intercept": 0.4762, "slope_per_year": 0.01905, "significant": False, "p": 0.6196},
     }
 
     fig = go.Figure()
@@ -114,7 +114,7 @@ def build_coral_thermal_stress_trends():
 # 3. WEIGHTING SENSITIVITY CURVE
 # ============================================================
 def build_weighting_sensitivity():
-    slr_data = {"Maldives": 99.1, "Seychelles": 78.3, "Fiji": 32.0, "Canary Islands": 0.3, "Lakshadweep": 77.8}
+    slr_data = {"Maldives": 99.1, "Seychelles": 78.3, "Fiji": 0.99, "Canary Islands": 0.3, "Lakshadweep": 77.8}
     coral_decline = {"Maldives": 0.17, "Seychelles": 0.68, "Fiji": 0.10, "Canary Islands": -0.05, "Lakshadweep": 0.08}
 
     def normalize(d):

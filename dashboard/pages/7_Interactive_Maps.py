@@ -27,7 +27,7 @@ SLR_DATA = {
     "Seychelles": {"folder": "seychelles_slr_exposure_webmap",
                     "observation": "78.3% of settlements are at risk — yet Seychelles emerges as the highest overall-risk island once ecosystem degradation is factored in."},
     "Fiji": {"folder": "fiji_slr_exposure_webmap",
-             "observation": "Only 32.0% of settlements are at risk — Fiji's volcanic terrain provides substantially more elevation buffer."},
+             "observation": "Only 1.0% of settlements are at risk — Fiji's volcanic terrain provides substantially more elevation buffer."},
     "Canary Islands": {"folder": "canary_slr_exposure_webmap",
                         "observation": "Just 0.3% of settlements are at risk — the lowest of all five islands."},
 }

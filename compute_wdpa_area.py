@@ -1,3 +1,16 @@
+"""SUPERSEDED — not used by any current analysis. This sums each island's
+*entire* WDPA extent (marine + terrestrial mixed, no MARINE filtering),
+which is why data/wdpa_area_by_island.csv -> normalize_wdpa.py's
+wdpa_normalized.csv produced Seychelles' impossible 1005.69 ratio (WDPA
+"protected area" >1000x the island's land area, because it swept in the
+whole Seychelles EEZ marine zone). Replaced by wdpa_coastal_buffer.py,
+which intersects WDPA polygons with a 10km coastal buffer instead of using
+raw total extent — see DJ_Development_Log.md for the full story. Kept
+here only as a historical record of that bug, not as a live pipeline
+step; governance_correlation_test.py reads data/wdpa_coastal_normalized.csv,
+not data/wdpa_normalized.csv.
+"""
+
 import geopandas as gpd
 import pandas as pd
 

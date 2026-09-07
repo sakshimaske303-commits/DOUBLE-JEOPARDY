@@ -1,4 +1,4 @@
-# DOUBLE JEOPARDY: The Vulnerability Spiral — Quantifying Compound Coastal Risk nd Governance Evidence Alignment Across Five Island Nations
+# DOUBLE JEOPARDY: The Vulnerability Spiral — Quantifying Compound Coastal Risk nd Governance Evidence Alignment Across Five Islands
 
 ## Index
 
@@ -19,7 +19,7 @@
 
 ### Project Overview
 
-I Am running the DOUBLE JEOPARDY project to check a big danger. (See, the main issue is tht rising sea levels hit small islands badly because their natural walls like trees and rocks are dying). I did not want to put all coastal green stuff into jst one big group. So, I chose to track mangroves nd coral reefs completely separately. My data comes from five different island nations across three big ocean basins: Maldives, Lakshadweep, Seychelles, Fiji, nd the Canary Islands. Calculated the health paths for corals n mangroves as two different things instead of mixing them into one single score. Finally, I mixed these separate numbers with the real physical danger data to make one big final score.
+I Am running the DOUBLE JEOPARDY project to check a big danger. (See, the main issue is tht rising sea levels hit small islands badly because their natural walls like trees and rocks are dying). I did not want to put all coastal green stuff into jst one big group. So, I chose to track mangroves nd coral reefs completely separately. My data comes from five different islands across three big ocean basins: Maldives, Lakshadweep, Seychelles, Fiji, nd the Canary Islands. Calculated the health paths for corals n mangroves as two different things instead of mixing them into one single score. Finally, I mixed these separate numbers with the real physical danger data to make one big final score.
 
 I am also looking at governance. (Basically, I want to see if officially making a place a protected area—which is wht big global groups nd island leaders always say they are doing to control the danger to the beach—actually matches up with the spots where my numbers show the highest real danger). Chose to check this because it moves my work away from jst basic science. Am testing if government rules actually follow the real field proof or if they are jst totally disconnected from each other. My findings will matter a lot for things like adaptation finance, environmental economics, and marine spatial governance.
 
@@ -31,11 +31,11 @@ Then there is a 2nd major issue on top of tht. Global cash frameworks n national
 
 ### Aim
 
-I am building a reproducible geospatial framework. (My main goal here is to separately count the actual physical danger from sea level rise nd track how mangroves nd coral reefs are changing over multiple time periods across five different island nations so I can finally create a real, evidence based composite vulnerability assessment). Then I will do a 2nd step. I will run stats to check if the current protected area governance lines actually match up with the real danger spots I found, or if there is a massive governance evidence gap happening on the ground.
+I am building a reproducible geospatial framework. (My main goal here is to separately count the actual physical danger from sea level rise nd track how mangroves nd coral reefs are changing over multiple time periods across five different islands so I can finally create a real, evidence based composite vulnerability assessment). Then I will do a 2nd step. I will run stats to check if the current protected area governance lines actually match up with the real danger spots I found, or if there is a massive governance evidence gap happening on the ground.
 
 ### Research Questions
 
-My 1st question is about nature............ (Basically, I am trying to find out if the real physical danger of sea level rise mixes up with dying natural borders to create a much worse total danger for villages across five island nations, nd if this whole process looks exactly identical for every ecosystem type or if it actually depends on whether mangroves or corals are the ones rotting away in that specific spot). So I need to solve this doubt 1st. 
+My 1st question is about nature............ (Basically, I am trying to find out if the real physical danger of sea level rise mixes up with dying natural borders to create a much worse total danger for villages across five islands, nd if this whole process looks exactly identical for every ecosystem type or if it actually depends on whether mangroves or corals are the ones rotting away in that specific spot). So I need to solve this doubt 1st. 
 
 Then I have my 2nd question. Want to check if the actual places where governments put official WDPA protected area tags match my field data on high danger, or if these official marks are jst completely independent of—or maybe even opposite to—the real ecosystem risks I found using satellite maps.
 
@@ -49,7 +49,7 @@ Finally, I hve a governance guess. Expect tht islands n coastlines with high tot
 
 ### Objectives
 
-1st, I will build a physical exposure dataset for villages across five island nations. (Am using basic height nd slope map data to calculate exactly how many houses n local settlements sit below the dangerous one meter sea level rise mark). This is my starting point. 
+1st, I will build a physical exposure dataset for villages across five islands. (Am using basic height nd slope map data to calculate exactly how many houses n local settlements sit below the dangerous one meter sea level rise mark). This is my starting point. 
 
 Then I will download the full Global Mangrove Watch archive. I chose to track real area changes across several separate years instead of jst doing a lazy before n after comparison. Next, I need to check the coral reefs. (I am using satellite Degree Heating Week data to map out if bleaching heat stress is actually rising over time). 
 
@@ -71,11 +71,11 @@ So I will do a later phase. (For this part, I plan to use satellite based built 
 
 ### Study Area
 
-I picked five island nations. (My list spreads across three ocean basins: Maldives n Lakshadweep in the Indian Ocean, Seychelles in the western Indian Ocean, Fiji in the South Pacific, n the Canary Islands over in the eastern Atlantic). So I had to choose these specific places because they hve good, matching data from multiple sources. It helps my study. (Wanted massive geographic, geological, and climatic differences so my compound vulnerability score nd governance alignment framework get tested across totally different island styles, law systems, nd administration types instead of jst checking one single boring case). This makes my data look solid.
+I picked five islands. (My list spreads across three ocean basins: Maldives n Lakshadweep in the Indian Ocean, Seychelles in the western Indian Ocean, Fiji in the South Pacific, n the Canary Islands over in the eastern Atlantic). So I had to choose these specific places because they hve good, matching data from multiple sources. It helps my study. (Wanted massive geographic, geological, and climatic differences so my compound vulnerability score nd governance alignment framework get tested across totally different island styles, law systems, nd administration types instead of jst checking one single boring case). This makes my data look solid.
 
 ### Expected Outputs
 
-So I hve specific expected outputs. (1st, I built a settlement level physical exposure dataset for villages across all five island nations). I also created a validated multi temporal mangrove extent dataset. Then I coded a validated multi decadal coral reef thermal stress dataset using satellite histories. (After that, I mixed these parts to generate a single composite Compound Vulnerability Score nd risk ranking across all five islands). This is the core data. 
+So I hve specific expected outputs. (1st, I built a settlement level physical exposure dataset for villages across all five islands). I also created a validated multi temporal mangrove extent dataset. Then I coded a validated multi decadal coral reef thermal stress dataset using satellite histories. (After that, I mixed these parts to generate a single composite Compound Vulnerability Score nd risk ranking across all five islands). This is the core data. 
 
 Next comes my political data. So I ran a governance alignment analysis to test the statistical relationship between protected area coverage and verified vulnerability...... (So I am specifically searching for "governance evidence gap" zones where my maps show high verified risk but the governments gave low or no formal protection). So I want to see the gaps. 
 
@@ -401,7 +401,7 @@ My mangrove decline hypothesis completely failed. (I tested H2 with the exact sa
 | Category | Coverage |
 |---|---|
 | Settlements, Tourism, Infrastructure | 5 islands each |
-| Mangroves (multi temporal, 3 time points) | 4 islands (Lakshadweep genuinely absent) |
+| Mangroves (multi temporal, 3 time points) | 3 islands (Lakshadweep and Canary Islands genuinely absent) |
 | Coral Reefs (extent) | 4 islands (Canary Islands genuinely absent) |
 | Coral Thermal Stress (24-year time series) | 5 islands |
 | Protected Areas (WDPA) | 4 islands (Lakshadweep genuinely absent) |
@@ -454,3 +454,45 @@ I did not treat this as a gap to paper over. (For example, I refused to swap in 
 Analyzed the two Fiji results nxt....... (My numbers showed a clear NDVI decline of −0.0246 after Cyclone Winston which hit at 150 knots as a Category 5-equivalent storm). For Yasa I originally reported zero clear decline, +0.0049 — but on a later check I realised tht number came from pairing the earliest pre-cyclone reading I had (September, three-plus months before Yasa even made landfall) with the earliest post reading, instead of the pre/post windows actually closest to Yasa's 17 Dec date. Redone with the closest pre-window (late Oct–Nov) nd closest post-window (Jan), Yasa actually shows a decline of about −0.0275 — bigger than Winston's, not smaller. So the "satellite-detectable vegetation damage only shows up at extreme storm intensity" line doesn't hold up nd I'm dropping it. (Also doesn't match the broader ecosystem stability I saw in Fiji's mangrove dataset the way I originally thought it did — tht mangrove finding still stands on its own, it just isn't corroborated by this cyclone comparison anymore). Keeping both numbers here as supplementary Fiji-only evidence same as before, still not extrapolating to the other four islands — just correcting wht the comparison itself actually shows.
 
 This specific case was a bit different. (Most of my earlier debugging work was abt verifying data was correct once it had already been acquired by checking bounding boxes, validating population totals, or confirming real ecological absences). This time I faced a unique challenge...... I needed to catch a structural limit of the data acquisition method itself. (I had to check the satellite's fixed launch date before even attempting the acquisition loop instead of only finding out through an empty result after running the script). This quick trick saved my processing time. 
+
+---
+
+## Entry 9
+
+### Status
+Went back through my own data-quality checklist one more time after a fresh review pass, nd found tht the Canary Islands zero-elevation fix from Entry 7 wasn't actually the full story — Fiji had the exact same problem, jst nobody had checked it yet.
+
+### Fiji's Physical Exposure Number Was Never Actually Checked the Same Way Canary Was
+
+So back in Entry 7 I caught tht Canary's zero-elevation DEM readings were a NoData artifact nd not real terrain, nd fixed it (12.1% → 0.3%). Wht I didn't do at the time was ask whether any OTHER island had the same signature. Went back nd actually counted it this time: 649 of Canary's 5,483 points read exactly 0.0m (11.8%) — thts wht I caught before. Fiji has 414 of 1,323 points reading exactly 0.0m — thts 31.3%, an even bigger spike, nd on the exact same kind of volcanic, mountainous terrain where genuine sea-level settlements aren't geologically expected. I hadn't touched Fiji's number at all before this, so its reported exposure (32.0%) was carrying this artifact the whole time.
+
+Went nd checked wht kind of settlement points these actually were before assuming anything (islet, village, hamlet, archipelago — a real mix, not jst big place-label centroids sitting over water), so it's not an easy "the label point fell in the ocean" explanation. A real DEM shouldn't return a literal, bit-exact 0.0 for 31% of points on a mountainous island — a genuine elevation distribution near sea level would show a gradient (0.3m, 0.8m, 1.4m...), not a spike sitting exactly on zero. Also found tht map1_slr_fiji.py — the script tht makes the standalone Fiji map figure — was ALREADY excluding Fiji's zero readings on its own, completely independently of the main pipeline, which never did. So two parts of my own project quietly disagreed with each other on this the whole time nd I never noticed.
+
+Fixed it by adding fiji to the same nodata-exclusion set used for canary, across precompute_elevations.py, dashboard/precompute_elevations.py, slr_exposure_analysis.py, nd export_settlement_elevations_full.py. Corrected Fiji's settlement-based exposure from 32.0% down to 1.0% (909 valid points after dropping the 414 NoData ones, 9 genuinely at risk). This is a much bigger correction than Canary's was, proportionally, but Fiji was already my second-lowest-exposure island before the fix, so it doesn't flip anything in the ranking — jst makes the "volcanic islands have way less exposure than atolls" story even more lopsided than I'd reported.
+
+One thing I want to flag honestly rather than quietly extend past wht I actually checked: Maldives (99.0% of points exactly 0.0m) nd Lakshadweep (77.8%) show this SAME zero-heavy pattern. I did NOT apply the same fix to them. The difference is tht Maldives nd Lakshadweep are genuine low-lying coral atolls — near-sea-level elevation across most of the landmass is the expected geology there, not an anomaly the way it is on a volcanic island. So the same statistical flag doesn't carry the same weight for those two. But I also can't say for certain none of their zero readings are DEM artifacts either — I haven't done a pixel-level QGIS check on either of them the way I originally did for Canary. Leaving this as an open item for future work rather than pretending I've verified it either way.
+
+### This Cascaded Into the Compound Score nd Governance Test
+
+Since Fiji's exposure number feeds directly into the Compound Vulnerability Score, had to rerun that too. Fiji's score dropped from 0.263 to 0.106. Ranking order didn't change (Seychelles still highest, Canary still the reference minimum at 0.000) — Fiji jst moved further down within where it already was. Reran the weighting-sensitivity sweep too nd confirmed the Seychelles-vs-Maldives crossover point (~76.8% physical-exposure weighting) is completely unaffected, since Fiji was never the min or max input either the physical-exposure or coral normalization was scaled against.
+
+### Fixed the Lakshadweep Zero Sitting Inside My Governance Correlation
+
+While I was back in tht part of the pipeline anyway, caught another thing tht'd been bugging me: Lakshadweep's WDPA coastal ratio is reported as 0.00 because I genuinely have no protected-area dataset for it — I documented tht correctly as missing data back in Entry 6. But I was still feeding tht placeholder zero into the Pearson correlation as if it were a real fifth data point. Tht's not "reporting a caveat," tht's letting a made-up number bias an already-tiny five-point correlation. Fixed governance_correlation_test.py to exclude Lakshadweep from the correlation itself (n=4) nd report its vulnerability score separately, unpaired with a WDPA number. New result: r=0.862, p=0.138 (up from r=0.718, p=0.172 with the old n=5-including-a-fake-zero version) — still not statistically significant at this sample size, still the same honest "suggestive, not confirmed" story, jst computed the right way this time.
+
+### Switched the Coral Trend Test to the Seasonal Mann-Kendall Variant
+
+Also realized my Mann-Kendall trend test on the 24-year DHW series was using the plain/original version, applied directly to raw monthly values. DHW is structurally seasonal — near zero most months, spiking during the warm season — so the plain test's independence assumption doesn't actually hold for data shaped like tht. Switched coral_trend_test.py to pymannkendall's seasonal_test(period=12), which compares same-calendar-month values across years instead. New p-values: Maldives 0.0046 (was 0.011), Seychelles 0.0069 (was 0.025), Fiji 0.2437 (was 0.184), Lakshadweep 0.3725 (was 0.386), Canary 0.6196 (was 0.641). Nothing flips — Maldives nd Seychelles are still the only two significant, everything else still isn't — nd if anything the seasonal test makes the two real trends look MORE solid, not less, so this was a pure rigor upgrade, not a result that got weaker under scrutiny.
+
+### Cleaned Up Some Wording nd Dead Code
+
+- The NDBI "settlement encroachment" section (paper §3.8/4.7, dashboard) was worded like it measured change specifically near mangrove/reef buffer zones. It doesn't — it's a single mean NDBI value over a broad bounding box around each island's main settled area. Reworded throughout to describe wht it actually measures rather than wht it sounds like it measures. The numbers themselves (Fiji −0.0008, Maldives +0.0461, Seychelles +0.1135) didn't change, jst the framing around them.
+- normalize_wdpa.py nd compute_wdpa_area.py — these are the OLD, pre-Entry-6 WDPA scripts tht divide marine+terrestrial WDPA extent by land area (the ones tht produced Seychelles' impossible 1005.69 ratio). They're already unused — governance_correlation_test.py reads wdpa_coastal_normalized.csv, not wdpa_normalized.csv — but I'd left them sitting in the repo with no indication they were superseded, which just reads as confusing dead code to anyone going through the project folder. Added a clear header to both explaining they're kept only as a record of that bug, not part of the live analysis.
+- Fixed the mangrove row in my own data-inventory table above (Entry 8's summary section) — it said "4 islands (Lakshadweep genuinely absent)" for mangroves, copy-pasted from the WDPA row right above it nd never actually corrected. Mangroves were only ever tested for 3 islands (Maldives, Seychelles, Fiji) — Canary Islands genuinely has none either, same as Lakshadweep. The paper nd the actual code (mangrove_3point_comparison.py) were always correct on this, it was jst this one summary row in my own log tht had the leftover typo.
+- Also went through nd fixed "five island nations" → "five islands" everywhere in this log (including my own title above). Lakshadweep is a Union Territory of India nd the Canary Islands are an autonomous community of Spain — neither is a nation. The paper, README, nd executive summary already said "five islands" correctly; this log was the only place still calling them nations.
+- fix_map_resize.py (both the root copy nd the dashboard copy) was injecting a JS snippet checking `typeof map !== 'undefined' && map.updateSize()` into the folium webmap HTML files. Neither half of that check was ever going to work — folium names its map variable with a random hash (e.g. `map_bbe0fe6c...`), not literally `map`, nd Leaflet's resize method is `invalidateSize()`, not `updateSize()` (thts an OpenLayers method). So this "fix" from wherever I originally wrote it was dead code the whole time, never actually resizing anything. Rewrote it to scan `window` for any Leaflet `L.Map` instance nd call `invalidateSize()` on whichever ones it finds, regardless of variable name, nd re-ran it against all 10 committed webmap files to actually apply the corrected version.
+- Also fixed population_weighted_exposure.py to mask against each island's real boundary polygon instead of jst a rectangular bounding box — a bbox can pull in open-water pixels for an irregular archipelago (Fiji, Seychelles) tht a real island boundary wouldn't. Haven't re-run this one against the actual population/elevation rasters yet though (they're not something I can regenerate without redownloading the source data), so the population-weighted percentages in the paper are still the old bbox-only version for now — flagged tht clearly in the Limitations section rather than changing numbers I haven't actually recomputed.
+
+### Where This Leaves Things
+
+Central finding is completely unchanged: Seychelles still comes out as the highest compound-risk island despite Maldives having higher raw physical exposure, nd tht's still robust across the full weighting sweep. Wht changed is Fiji's specific exposure nd compound-score numbers (more accurate now, not less favorable to any conclusion I was trying to protect), the governance correlation is now computed the honest way instead of quietly including a placeholder zero, nd the coral significance test is running the statistically correct variant for seasonal data. None of this was caught by rerunning any acquisition scripts against new data — it all came out of actually re-reading my own code against wht it claimed to do, the same way the Winston/Yasa correction in Entry 8 did.

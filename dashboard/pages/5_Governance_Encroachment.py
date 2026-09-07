@@ -34,8 +34,11 @@ tab1, tab2 = st.tabs(["Governance Alignment (H3)", "Settlement Encroachment"])
 with tab1:
     st.markdown("### Protected Area Coverage vs. Compound Vulnerability")
 
+    # Lakshadweep is plotted for context but excluded from the correlation
+    # itself (see the r/p metrics and warning box below) — its 0.00 WDPA
+    # ratio is a missing-data placeholder, not a measured value.
     islands = ["Lakshadweep", "Fiji", "Canary Islands", "Maldives", "Seychelles"]
-    vuln_scores = [0.481, 0.263, 0.000, 0.651, 0.895]
+    vuln_scores = [0.481, 0.106, 0.000, 0.651, 0.895]
     wdpa_ratios = [0.00, 0.42, 2.32, 3.90, 11.32]
 
     fig = go.Figure()
@@ -63,19 +66,20 @@ with tab1:
 
     col1, col2 = st.columns(2)
     with col1:
-        st.metric("CORRELATION (r)", "0.718", "Moderately strong, positive")
+        st.metric("CORRELATION (r)", "0.862", "Strong, positive (n=4)")
     with col2:
-        st.metric("P-VALUE", "0.172", "Not statistically significant")
+        st.metric("P-VALUE", "0.138", "Not statistically significant")
 
     st.warning("""
     **A suggestive, not confirmatory, finding.** The direction of the relationship is consistent
     with risk-responsive governance — Seychelles, the highest-vulnerability island, also has the
-    highest coastal protection ratio. But with only five islands in the sample — and a 95%
-    confidence interval spanning from r = -0.45 to r = 0.98 — there isn't sufficient statistical
+    highest coastal protection ratio. But with only four islands in the correlation (n=4) — and a
+    95% confidence interval spanning from r = -0.58 to r = 1.00 — there isn't sufficient statistical
     power to confirm this relationship with confidence. Reported honestly as suggestive evidence,
-    not proof. **Lakshadweep's 0.00 WDPA ratio is also a missing-data placeholder** — no
-    protected-area dataset was available for it, so this is not a measured, confirmed absence
-    of protection.
+    not proof. **Lakshadweep is excluded from the correlation itself** (plotted above for context
+    only) — no protected-area dataset was available for it, and rather than substitute a
+    placeholder zero and let it bias an already-tiny sample, it's left out of the r/p calculation
+    entirely; its Compound Vulnerability Score (0.481) is reported unpaired with a WDPA measurement.
     """)
 
     st.markdown("")
@@ -90,8 +94,12 @@ with tab2:
     st.markdown("### Built-Up Area Change: 2016 vs. 2024")
     st.markdown("""
     Using Sentinel-2 satellite imagery, the Normalized Difference Built-up Index (NDBI) was compared
-    between 2016 and 2024 for the three islands with mangrove ecosystems, testing whether settlement
-    expansion is concentrated near degrading ecosystem buffer zones.
+    between 2016 and 2024 for the three islands with mangrove ecosystems, as a directional check on
+    whether settlement pressure is rising in the same broad coastal area as each island's ecosystem
+    buffers. Each value below is a single mean NDBI change over a broad bounding region around the
+    island's main settled area, not a measurement localized to mangrove or reef buffer boundaries
+    specifically — read it as descriptive corroborating context, not a spatially targeted
+    buffer-zone measurement.
     """)
 
     encroach_islands = ["Fiji", "Maldives", "Seychelles"]

@@ -129,6 +129,25 @@
     
             <div class="folium-map" id="map_614cf6af6b1073e9f8867fbfe21a0ca5" ></div>
         
+
+<script>
+window.addEventListener('load', function() {
+    setTimeout(function() {
+        // Folium names each map's global variable with a random hash
+        // (e.g. map_bbe0fe6...), so there's no fixed "map" variable to
+        // check for -- and Leaflet's resize call is invalidateSize(), not
+        // updateSize() (that's OpenLayers). Scan window for whatever
+        // Leaflet map instances actually exist and resize each of them.
+        for (var key in window) {
+            try {
+                if (window[key] instanceof L.Map) {
+                    window[key].invalidateSize();
+                }
+            } catch (e) {}
+        }
+    }, 300);
+});
+</script>
 </body>
 <script>
     
