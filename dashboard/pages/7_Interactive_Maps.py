@@ -76,7 +76,7 @@ ECO_DATA = {
     },
     "Lakshadweep": {
         "folder": "lakshadweep_ecosystem_buffer_webmap",
-        "observation": "Only coral reefs are mapped here — mangroves and formal WDPA protection are both genuinely absent, a finding independently confirmed across multiple data sources.",
+        "observation": "Only coral reefs are mapped here — mangroves are genuinely absent (confirmed across multiple data sources), while formal WDPA protected-area data was simply unavailable for Lakshadweep, not confirmed as absent.",
         "layers": ["coral", "boundary"],
     },
     "Canary Islands": {

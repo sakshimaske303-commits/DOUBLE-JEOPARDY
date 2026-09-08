@@ -76,7 +76,11 @@ def fig3_settlement_vs_population():
     settlement_pct = dict(zip(settlement_df["island"], settlement_df["pct_at_risk"]))
 
     # Population-weighted exposure %, from population_weighted_exposure.py's
-    # validated final run (windowed, geography-based, antimeridian-aware).
+    # bbox-window v4 run (windowed, geography-based, antimeridian-aware).
+    # NOTE: these are still the bbox-only v4 numbers, not yet re-run against
+    # the real rasters with the v5 boundary-polygon mask -- see
+    # population_weighted_exposure.py's module docstring and the paper's
+    # own Section 4.1 / Limitations disclosure.
     population_pct = {
         "Maldives": 64.5, "Seychelles": 17.6, "Lakshadweep": 87.5,
         "Fiji": 2.1, "Canary Islands": 1.6,
