@@ -1,0 +1,224 @@
+# DOUBLE JEOPARDY: The Vulnerability Spiral — Compound Climate Risk Across Five Islands
+
+Sakshi D. Maske
+
+*Independent Geospatial Researcher*
+
+## Abstract
+
+Small islands are widely assumed to face compounding climate risk: high physical exposure to sea-level rise, layered on degrading coastal ecosystems. This assumption is rarely tested against independent, multi-temporal evidence, or broken down by ecosystem type, so this study tests it across five islands spanning three ocean basins: Maldives, Lakshadweep, Seychelles, Fiji, and the Canary Islands. Mangrove and coral reef degradation are treated as independent pathways rather than one category. Physical exposure is derived from settlement-level elevation data; mangrove extent is tracked at three time points (1996, 2010, 2020); coral condition is derived from a 24-year, monthly-sampled satellite thermal-stress record (1996-2020). Coral reef systems show a measurable, rising bleaching-stress trend in four of five islands, most severely in Seychelles. Mangroves, tested with equal rigor, show no measurable decline in any of the three islands where present, indicating ecosystem decline is not uniform. Combining physical exposure with coral degradation into a composite score shows the island with highest exposure (Maldives) is not the island with highest compound risk (Seychelles), demonstrating exposure alone is an incomplete vulnerability measure. A supplementary test of whether protected-area coverage aligns with this risk finds a positive but not statistically significant relationship, consistent with a small-sample limitation rather than an absence of governance responsiveness. A descriptive comparison of settlement expansion (2016-2024) adds a corroborating signal: Seychelles shows the clearest built-up increase in its settled area, while Fiji shows none. Coastal ecosystem degradation is not uniform across ecosystem types, with direct implications for adaptation and conservation resource prioritization.
+
+**Keywords**: sea-level rise, mangroves, coral bleaching, compound vulnerability, small island states, protected-area effectiveness, remote sensing
+
+---
+
+## 1. Introduction
+
+International climate adaptation policy increasingly treats coastal ecosystems — mangroves, coral reefs, seagrass beds — as a single protective category, financed and managed under the umbrella term "nature-based solutions." A substantial body of research documents that these ecosystems genuinely do provide measurable coastal protection: reef structures dissipate wave energy before it reaches shore [2], and dense mangrove stands can reduce wave heights by well over half and, where wide enough, storm-surge peak water levels as well [8]. Small island developing states are frequently identified as the setting where this protective value is proportionally greatest relative to national economic output.
+
+What's less frequently tested is whether the ecosystems providing that protection are themselves degrading uniformly — or whether adaptation planning that treats them as one undifferentiated buffer risks obscuring genuinely different underlying trajectories. I address that gap directly here, testing mangrove extent and coral reef condition as two independent pathways rather than assuming they move together, across a genuinely cross-national, multi-ocean-basin sample.
+
+## 2. Literature Review
+
+### 2.1 Nature-Based Coastal Protection and Its Assumed Uniformity
+
+Coastal ecosystems are established in the literature as effective, measurable protective infrastructure. Reef structures have been shown to reduce incoming wave energy substantially [2], while mangrove belts of sufficient width can reduce wave heights and storm-surge peak levels meaningfully per kilometer of forest [8]. Comparative work assessing corals, seagrasses, and mangroves together finds that combining multiple habitat types delivers more protection than any single habitat alone, and specifically cautions against the common practice of evaluating nature-based protection through a single-habitat lens rather than a whole-system approach [3]. That's the caution behind my own decision below to test mangrove and coral trajectories independently rather than folding them into one combined signal.
+
+### 2.2 Global Mangrove Trends: A More Stable Picture Than Often Assumed
+
+My own result of no measurable mangrove decline across the three tested islands isn't an anomalous or surprising finding once set against the wider record. While mangrove loss driven by aquaculture and agricultural conversion is well documented across the twentieth century, the most comprehensive recent multi-decadal remote-sensing assessment — the Global Mangrove Watch archive's own change-detection analysis spanning 1996 to 2020, the same dataset this study draws from — found a global net loss of only approximately 3.4% [1]. That's a considerably more modest figure than earlier deforestation-era estimates might suggest, and it points the same direction as my own islands: mangrove loss has slowed substantially in the more recent multi-decade record relative to the mid-twentieth-century period.
+
+### 2.3 Coral Bleaching as a Distinct, Escalating Pathway
+
+Coral doesn't get the comparatively stable picture mangroves do. Bleaching driven by thermal stress is documented as increasing in both frequency and severity across recent decades, a trend attributed directly to rising ocean temperatures [4]. NOAA Coral Reef Watch's satellite-derived Degree Heating Week product — the same metric used in this study — is established in the literature as a validated predictor of bleaching intensity [4], with values above 4°C-weeks associated with significant bleaching risk and values above 8°C-weeks associated with reef-wide bleaching and heat-sensitive coral mortality. The global coral reef system is, at the time of this study, in the midst of a fourth documented global bleaching event beginning in 2023, with bleaching confirmed across dozens of countries and all three major ocean basins [5]. My own finding of a rising thermal-stress trend in four of the five tested islands sits inside that real-world context, not apart from it.
+
+### 2.4 Protected-Area Effectiveness and the "Paper Park" Problem
+
+A separate, substantial body of literature documents that formal protected-area designation frequently fails to translate into effective on-the-ground management, a phenomenon widely termed the "paper park" problem — protected areas that exist in legal or administrative terms without correspondingly effective enforcement, monitoring, or ecological outcomes [6]. Recent global assessments estimate that while roughly ten percent of the ocean carries some form of formal protected status, only a small fraction of that area meets rigorous effectiveness standards [7]. Identified drivers of this implementation gap include inadequate enforcement capacity, insufficient stakeholder engagement, and a persistent disconnect between protected-area evaluation findings and actual management action [6]. It's what motivates my governance-alignment test, run in the same spirit: rather than treat formal protection status as inherently meaningful, I test whether protected-area coverage empirically tracks independently verified ecological and physical risk.
+
+## 3. Data and Methodology
+
+### 3.1 Study Design
+
+Five islands, three ocean basins, two ecosystem pathways tested independently rather than lumped into one assumed-uniform "ecosystem buffer" variable — that's the shape of this study. I chose Maldives, Lakshadweep, Seychelles, Fiji, and the Canary Islands specifically for their geological diversity, from low-lying coral atolls to volcanic, mountainous terrain, spanning three distinct ocean basins.
+
+### 3.2 Data Sources
+
+| Variable | Source | Temporal Coverage |
+|---|---|---|
+| Settlements, elevation | OpenStreetMap; Copernicus DEM GLO-30 | Current |
+| Mangrove extent | Global Mangrove Watch [1] | 1996, 2010, 2020 |
+| Coral thermal stress | NOAA Coral Reef Watch (Degree Heating Week) [4] | 1996–2020, monthly-sampled |
+| Protected areas | World Database on Protected Areas | Current |
+| Settlement/infrastructure change | Sentinel-2 (NDBI) | 2016 vs. 2024 |
+
+### 3.3 Physical Exposure
+
+Elevation, sampled at every settlement location across all five islands, gave me the proportion of settlements sitting at or below a standard one-meter sea-level-rise threshold per island.
+
+As a complementary metric, I also computed physical exposure on a population-weighted basis: WorldPop 2020 population raster cells were classified as at-risk where their corresponding elevation (resampled to the population grid) fell at or below the one-meter threshold, and I calculated the proportion of total population at risk directly from population counts rather than settlement counts. I ran this for all five islands; Lakshadweep's population raster — previously unavailable because of the impractical file size of India's national dataset — I obtained via a subset clipped from a smaller regional file instead. For Fiji, elevation coverage didn't extend to the easternmost Lau Islands (beyond the antimeridian), so Fiji's population-weighted exposure reflects approximately 97.6% of its national population — I've reported the excluded portion explicitly rather than assuming it's negligible. The population-weighted figures reported below classify pixels within a rectangular bounding box around each island rather than clipping to the island's actual boundary polygon; a small amount of open water can fall inside that box for irregular archipelagos (Fiji, Seychelles). I've since corrected the underlying script to mask against each island's real boundary polygon instead (see Section 6), but haven't yet re-run it against the source rasters, so the numbers below are still the bounding-box version.
+
+### 3.4 Mangrove Extent
+
+Rather than relying on a single before/after comparison, I measured mangrove area independently at three time points (1996, 2010, 2020) in an equal-area projection, avoiding the distortion a raw polygon count would introduce — polygon counts can shift with satellite classification segmentation behavior independent of any genuine change in underlying area.
+
+### 3.5 Coral Thermal Stress
+
+Coral degradation manifests primarily as thermally driven bleaching rather than area loss, so I measured condition using the Degree Heating Week time series rather than mapped physical extent — comparing, for each island, an early reference period (1996–2000) against a recent one (2016–2020). The underlying series is a monthly-sampled subset (approximately 30-day stride) of the daily DHW product, spanning 1996–2020, not a continuous daily record. Each island's DHW series is also queried from a single representative coordinate near its reef area, not a spatial average across the full reef extent — a coarser sampling choice than area-weighted aggregation would give (see Section 6).
+
+As a robustness check, I also ran a Mann-Kendall trend test (non-parametric, standard for environmental time-series analysis) on the complete 24-year DHW series for each island, on top of the reference-period comparison above.
+
+### 3.6 Compound Vulnerability Score
+
+Physical exposure and coral thermal-stress trend, normalized to a common 0–1 scale via min-max normalization and then combined with equal weighting — that's how the single Compound Vulnerability Score per island comes together. Mangrove trend doesn't enter as a weighted input at all; there's no measurable decline to weight in the first place.
+
+To test sensitivity to that equal-weighting choice, I recomputed the composite ranking across the full 0–100% weighting range between the two input variables. Seychelles stayed the highest-ranked island for the large majority of that range — from 0% up to approximately 76.8% physical-exposure weighting — with Maldives overtaking it only beyond that point, meaning only if physical exposure were weighted at roughly three-quarters or more of the composite score. At the equal 50/50 weighting I actually used, Seychelles is unambiguously highest-ranked, and that crossover point sits far enough from 50/50 that the central finding isn't an artifact of the specific weighting chosen — though it wouldn't be accurate to say Seychelles leads across the entire range. I adopted equal weighting as a conservative baseline, since no established literature gives a robust empirical basis for weighting physical exposure against coral thermal stress differently in this specific cross-national context; Section 4.6 gives the exact range over which this choice holds.
+
+The one-meter sea-level-rise threshold I use throughout is itself a modeling choice, not an exact prediction, so I also recomputed settlement-level exposure at 0.5m and 1.5m thresholds, spanning the practical range of near-term projections — reported in full in Section 4.6.
+
+### 3.7 Governance Alignment
+
+A ten-kilometer coastal buffer around each island, not total captured protected-area extent, is what I used to quantify coverage — total extent would pull in large offshore marine zones only loosely relevant to settlement-level risk for some islands. (An earlier version of this calculation divided each island's *entire* WDPA extent — marine and terrestrial together — by land area alone, which produced an impossible Seychelles ratio of over 1000x; the 10km coastal-buffer approach is the corrected version, and the earlier scripts are kept in the repository only as a record of that bug, not as a live analysis step. See Section 6.) I tested that buffer-based figure against the Compound Vulnerability Score using a Pearson correlation. Lakshadweep had no available WDPA protected-area layer to clip against this buffer; rather than substitute a zero for the missing value, I excluded Lakshadweep from the correlation itself (n=4) and report its vulnerability score separately, since a fabricated zero would bias an already-small five-point correlation (see Section 6).
+
+### 3.8 Settlement Encroachment
+
+As a third, independent line of evidence, I compared the Normalized Difference Built-up Index (NDBI) between 2016 and 2024, using Sentinel-2 imagery, for the three islands where mangroves are present — Maldives, Seychelles, and Fiji — as a directional check on whether settlement pressure is rising in the same broad coastal area as each island's ecosystem buffers. This is a single mean NDBI value per island over a broad bounding region around its main settled area, not a spatially resolved measurement of change specifically at mangrove or reef buffer boundaries, so I read it as descriptive corroborating context rather than a direct test of buffer-zone encroachment. This is a descriptive comparison rather than a formally tested hypothesis: I report the direction and magnitude of change per island, not a significance test.
+
+## 4. Results
+
+### 4.1 Physical Exposure
+
+99.1% in the Maldives. 78.3% in Seychelles. 77.8% in Lakshadweep. Then a steep drop: 1.0% in Fiji, 0.3% in the Canary Islands. Settlement-level exposure to a one-meter sea-level-rise threshold ranges this widely because it's tracking a real geological split — low-lying coral atoll nations against volcanic, mountainous terrain. (I excluded a cluster of literal-zero-elevation DEM readings at both Canary Islands and Fiji settlement points as a NoData artifact rather than genuine near-sea-level terrain — neither island has a coastline low enough to plausibly produce this many settlements sitting at exactly 0m on mountainous, volcanic terrain; see Section 6. Maldives and Lakshadweep show a similarly zero-heavy distribution but aren't corrected the same way, since near-sea-level elevation across most of a low-lying coral atoll is the geologically expected result, not an anomaly — that distinction is discussed further in Section 6.)
+
+![Figure 1](outputs/plots/fig2_physical_exposure_by_island.png)
+
+**Figure 1.** Physical exposure by island, measured as the share of settlement locations at or below the 1-meter sea-level-rise threshold. Low-lying coral atoll nations (Maldives, Seychelles, Lakshadweep) show substantially higher exposure than volcanic, mountainous islands (Fiji, Canary Islands).
+
+| Island | Settlement-based exposure | Population-weighted exposure |
+|---|---|---|
+| Maldives | 99.1% | 64.5% |
+| Seychelles | 78.3% | 17.6% |
+| Lakshadweep | 77.8% | 87.5% |
+| Fiji | 1.0% | 2.1%* |
+| Canary Islands | 0.3% | 1.6% |
+
+*covers ~97.6% of Fiji's population; see Limitations. Population-weighted figures use bounding-box rather than boundary-polygon clipping — see Limitations.
+
+The population-weighted ranking diverges materially from the settlement-based one: Lakshadweep, third by settlement-based exposure, becomes the highest population-weighted exposure island, while Fiji and the Canary Islands drop even lower once weighted by population. Where people actually concentrate within an island's settlement pattern matters independently of how many settlement locations fall below the threshold — which reinforces my broader point that single-indicator exposure measures can misrepresent true risk.
+
+![Figure 2](outputs/plots/fig3_settlement_vs_population_weighted.png)
+
+**Figure 2.** Settlement-based versus population-weighted physical exposure by island. Lakshadweep becomes the highest-exposure island once weighted by where population is actually concentrated, while the Maldives' exposure drops from 99.1% to 64.5% — demonstrating that settlement-count exposure alone can misrepresent the population actually at risk.
+
+### 4.2 Mangrove Extent: No Measurable Decline
+
+Maldives: 0.97 km² at all three time points. Seychelles: 3.83–3.84 km². Fiji: 485.7 km² in 1996, 488.4 km² in 2020 — a net increase of 0.6%. Across all three independent time points and all three islands with mangroves present, area stayed essentially stable. This doesn't support the hypothesis that mangrove ecosystems in this sample are measurably declining, and is directionally consistent with the modest global net loss reported over the same period [1].
+
+![Figure 3](outputs/plots/fig5_mangrove_extent_over_time.png)
+
+**Figure 3.** Mangrove extent (km², log scale) at three independent time points (1996, 2010, 2020) for the three islands where mangroves are present. Extent remains essentially flat for all three islands, with no measurable decline detected.
+
+### 4.3 Coral Thermal Stress: A Rising Trend
+
+Comparing early-period and recent-period averages, four of five islands show increasing thermal stress: Maldives (+0.17°C-weeks), Fiji (+0.10), Lakshadweep (+0.08), and Seychelles (+0.68 — with a single recorded value as high as 10.47°C-weeks, within the range associated with severe bleaching and multi-species mortality [4]). Only the Canary Islands shows a slight decline (−0.05), consistent with its distinct Atlantic climate regime relative to the four Indian Ocean and Pacific islands.
+
+Run through a Mann-Kendall trend test on the complete 24-year time series, and the increasing trend holds up as statistically significant for two islands — Maldives (p=0.0046) and Seychelles (p=0.0069), the two islands central to my compound vulnerability ranking — while the more modest increases in Fiji and Lakshadweep don't reach statistical significance over the full series (p=0.244 and p=0.373, respectively). The Canary Islands shows no significant trend at all (p=0.620; Sen's slope ≈ 0), which actually contradicts the slight decline the simpler period-comparison method suggested above — its coral thermal stress has no reliable directional trend over the full 24-year record. I use the seasonal variant of the Mann-Kendall test here (comparing same-calendar-month values across years) rather than the plain version, since the underlying DHW series is structurally seasonal — near-zero most months, spiking during the warm season — and the plain test's independence assumption doesn't hold for data shaped like that.
+
+![Figure 4](outputs/plots/fig4_coral_thermal_stress_trends.png)
+
+**Figure 4.** Coral thermal stress (Degree Heating Week) over the full 1996–2020 record for all five islands, with OLS trend lines. The seasonal Mann-Kendall trend test finds a statistically significant increasing trend for Maldives (p=0.0046) and Seychelles (p=0.0069) only.
+
+### 4.4 Compound Vulnerability: Exposure Alone Is Insufficient
+
+Seychelles 0.895. Maldives 0.651. Lakshadweep 0.481. Fiji 0.106. Canary Islands 0.000. That's the composite score ranking, and it directly demonstrates that physical exposure alone would misidentify the highest-risk island: Maldives has substantially higher exposure on its own (99.1% versus 78.3%), yet Seychelles produces the higher composite score once its more severe coral degradation trend is factored in.
+
+![Figure 5](outputs/plots/compound_vulnerability_score.png)
+
+**Figure 5.** Compound Vulnerability Score across the five study islands, combining normalized physical sea-level-rise exposure and long-term coral thermal-stress trend using equal weighting. Seychelles emerges as the most vulnerable island despite Maldives having the highest physical exposure alone, demonstrating that exposure by itself is an incomplete measure of climate vulnerability and reinforcing the need for a multi-indicator assessment framework.
+
+### 4.5 Governance Alignment: Suggestive, Not Confirmatory
+
+The correlation between compound vulnerability and coastal protected-area coverage, computed over the four islands with an actual WDPA measurement (Lakshadweep excluded — see Section 3.7), came out strongly positive (r=0.862) but didn't reach conventional statistical significance (p=0.138) — a result I attribute to the necessarily small sample, not to an absence of any underlying relationship. This is broadly consistent with the wider "paper park" literature documenting a frequent disconnect between formal protection status and genuine ecological risk [6, 7].
+
+I computed the 95% confidence interval for this correlation via Fisher's z-transformation: it spans from r = -0.58 to r = 1.00 — which shows that with only four data points, the point estimate of r = 0.862 carries very little precision. The true underlying relationship could plausibly sit anywhere from weakly negative to essentially perfect positive.
+
+![Figure 6](outputs/plots/fig6_governance_alignment.png)
+
+**Figure 6.** Compound Vulnerability Score plotted against the coastal WDPA protected-area ratio for each island, with a fitted OLS reference line. r = 0.862, p = 0.138, 95% CI [-0.58, 1.00] (n=4, Lakshadweep excluded — no WDPA measurement available) — a positive but statistically inconclusive relationship, driven by the small sample size rather than a null result.
+
+### 4.6 Robustness and Sensitivity Checks
+
+I ran several additional checks to test how sensitive these central findings are to specific methodological choices:
+
+— Compound Vulnerability Score weighting (Section 4.4): I recomputed this across the full 0–100% weighting range between physical exposure and coral thermal stress; Seychelles remained the highest-ranked island from 0% up to ~76.8% physical-exposure weighting, with Maldives overtaking it only beyond that point — a range wide enough that the central finding isn't an artifact of the 50/50 weighting actually chosen.
+
+— Coral thermal-stress trend (Section 4.3): I tested this using a seasonal Mann-Kendall trend test on the complete 24-year time series alongside the period-comparison method; the increasing trend reached statistical significance for Maldives (p=0.0046) and Seychelles (p=0.0069) — the two islands central to the compound vulnerability ranking.
+
+— Physical exposure measurement (Section 4.1): I recomputed this on a population-weighted basis alongside the settlement-count basis, using WorldPop 2020 data for all five islands.
+
+— Physical exposure threshold (Section 4.1): I recomputed the 1-meter sea-level-rise threshold used throughout at 0.5m and 1.5m, to check whether that specific choice was doing hidden work in the result. Across this range, each island's exposure percentage moves by at most eight-tenths of a percentage point (Fiji, between the 0.5m and 1.0m thresholds), and the island ranking never changes at any of the three thresholds tested:
+
+| Island | 0.5m | 1.0m (used in this study) | 1.5m |
+|---|---|---|---|
+| Maldives | 99.0% | 99.1% | 99.1% |
+| Seychelles | 78.3% | 78.3% | 78.3% |
+| Lakshadweep | 77.8% | 77.8% | 77.8% |
+| Fiji | 0.2% | 1.0% | 1.0% |
+| Canary Islands | 0.1% | 0.3% | 0.3% |
+
+— Governance-alignment correlation (Section 4.5): I computed the 95% confidence interval (Fisher's z-transformation) for r=0.862 explicitly ([-0.58, 1.00], n=4), to make the small-sample limitation quantitatively concrete rather than only qualitatively noted.
+
+![Figure 7](outputs/plots/fig7_weighting_sensitivity_curve.png)
+
+**Figure 7.** Compound Vulnerability Score for each island as the weighting between physical exposure and coral thermal stress is swept continuously from 0% to 100%. Seychelles remains the highest-ranked island across roughly the first three-quarters of the range (up to ~76.8% physical-exposure weighting); Maldives overtakes it only beyond that point. Since the crossover point is well away from the 50/50 weighting actually used in this study, the central finding is not an artifact of the specific weighting chosen.
+
+Together, these checks tell me the central finding — that Seychelles carries the highest compound vulnerability despite lower physical exposure than the Maldives — is robust to the specific weighting choice, insensitive to the exact sea-level-rise threshold used, and backed by a statistically significant trend test. The more exploratory pieces (governance alignment, the smaller coral trends in Fiji and Lakshadweep) I've reported with their actual uncertainty attached, rather than overstating them.
+
+### 4.7 Settlement Encroachment: A Third, Independent Signal
+
+Fiji: essentially no change (−0.0008). Maldives: a clear increase (+0.0461). Seychelles: the strongest signal by far (+0.1135) — and the only one of the three that crosses from a vegetation-dominated to a built-up-dominated average over the eight-year window. Each of these is a single mean NDBI value over a broad bounding region around the island's main settled area, not a measurement localized to mangrove or reef buffer zones specifically — a spatially-resolved version of this comparison, isolating just the area immediately around each island's ecosystem buffers, is future work (see Section 6).
+
+The pattern tracks the compound vulnerability ranking closely. Seychelles, already the highest-risk island once exposure and coral degradation are combined, also shows the clearest evidence of rising built-up signal in its broader settled area. Fiji — stable across every other measure tested in this study, from mangrove extent to coral thermal stress — shows no such signal either. I read this as corroborating rather than independent proof: it's a two-data-point descriptive contrast (Seychelles vs. Fiji, with Maldives in between), not a statistically tested claim, but it points in the same direction as the rest of the evidence.
+
+## 5. Discussion
+
+The central finding — that ecosystem degradation isn't uniform across type — lines up directly with the divergent literature trajectories reviewed above: recent global mangrove assessments describe a comparatively modest net loss over the same multi-decade period I examine here [1], while coral bleaching literature describes an escalating, currently ongoing global event [4, 5]. My island-level findings track these global patterns closely rather than diverging from them, which lends the results some external credibility.
+
+Governance is a different story.
+
+The governance-alignment finding, though not statistically significant, points in the same direction as a growing literature documenting that protected-area coverage frequently fails to track genuine ecological risk — the "paper park" phenomenon [6, 7]. That Seychelles, the highest-vulnerability island in this sample, also carries the highest coastal protection ratio is a modestly encouraging signal against that broader pattern — though with a sample this small, I can't treat it as confirmed evidence of risk-responsive governance.
+
+The settlement-encroachment comparison adds a third angle on the same island, for what it's worth as descriptive rather than statistical evidence: Seychelles shows both the highest compound vulnerability and the clearest rise in built-up signal in its broader settled area, while Fiji shows neither. It's a small, two-island contrast, not a test of a general mechanism — but it's consistent with, rather than contradicting, the rest of the picture.
+
+## 6. Limitations
+
+- The governance-alignment test is limited by a necessarily small sample (n=4, after excluding Lakshadweep — see below), giving me insufficient statistical power to confirm a relationship that's nonetheless directionally positive and, with the corrected sample, considerably stronger in magnitude than my initial estimate.
+- Population-weighted exposure for Fiji reflects approximately 97.6% of the island's population; elevation data didn't cover Fiji's easternmost territory (the Lau Islands, beyond the antimeridian), and I've reported this excluded population explicitly rather than assuming it's negligible. Separately, the population-weighted figures in Section 4.1 classify pixels using a rectangular bounding box around each island rather than a mask of the island's actual boundary polygon, which can pull in adjacent open-water pixels for irregular archipelagos (Fiji, Seychelles) — I've corrected the underlying script to mask against the real boundary polygon instead, but haven't yet re-run it against the source population/elevation rasters, so the population-weighted numbers reported here are still the bounding-box version and should be read with that caveat. This gap doesn't affect the settlement-based exposure figures in this study, which rely on settlement point locations rather than the population raster.
+- Both Canary Islands' and Fiji's settlement-based exposure figures needed the same data-quality correction: for Canary Islands, 649 of 5,483 settlement points, and for Fiji, 414 of 1,323, returned a literal 0m elevation reading from the DEM — a spike, not a gradient, that given both islands' volcanic, mountainous terrain (where genuine sea-level settlements aren't geologically expected) I read as a NoData artifact rather than real terrain, and excluded from the exposure calculation. This doesn't affect the study's central finding, since both were already low-exposure, low-vulnerability islands in the sample before this correction, but it does move Canary Islands' reported exposure figure from an earlier, artifact-inflated 12.1% down to the corrected 0.3%, and Fiji's from an artifact-inflated 32.0% down to the corrected 1.0% (compound vulnerability score: 0.263 → 0.106; the island ranking is unchanged). I flag this as an open item rather than a fully closed one: Maldives (99.0% of points exactly 0.0m) and Lakshadweep (77.8%) show the same zero-heavy signature, but I have NOT applied the same correction to them, since both are genuine low-lying coral atolls where near-sea-level elevation across most settlements is the expected geology rather than an anomaly — unlike Canary Islands and Fiji's mountainous terrain, where it plainly isn't. A pixel-level QGIS check of Maldives' and Lakshadweep's DEM, comparable to what was originally done for Canary Islands, is future work I haven't completed, so I can't rule out that some fraction of their zero readings are the same DEM artifact rather than genuine terrain.
+- The settlement-encroachment comparison (Section 4.7) covers only the three mangrove-present islands and is descriptive rather than statistically tested — I report the direction and size of the NDBI change per island, not a significance test, so it should be read as corroborating context for the central finding rather than independent proof of it. It's also a single mean NDBI value over a broad bounding region around each island's main settled area, not a spatially resolved measurement isolated to the immediate area around mangrove or reef buffers specifically, so "encroachment near ecosystem buffer zones" is a looser description of what this measures than a spatially targeted buffer analysis would give; a version of this analysis restricted to a fixed distance around each island's actual mapped mangrove/reef extent is future work.
+- Lakshadweep's coastal WDPA figure is unavailable — no protected-area dataset existed for it to clip against the coastal buffer. Rather than substitute a zero and include it as a fifth point in the governance-alignment correlation (Section 4.5), which would have biased an already-small correlation toward whatever direction that placeholder happened to point, I exclude Lakshadweep from the correlation itself and report its Compound Vulnerability Score (0.481) separately, unpaired with a WDPA measurement. This should be read as a missing-data gap, not a governance finding.
+- An earlier version of the governance-alignment calculation divided each island's total WDPA extent (marine and terrestrial combined) by its land area, which produced a Seychelles ratio of over 1000x — WDPA marine protected areas can extend across an entire exclusive economic zone, far beyond any coastal buffer relevant to settlement-level risk. The 10km coastal-buffer approach used throughout this paper is the corrected version of that calculation; the earlier, uncorrected scripts remain in the project repository only as a record of that bug, not as part of the analysis this paper reports.
+- The coral thermal-stress series (Section 3.5, 4.3) is built from a single representative coordinate per island rather than a spatial average over the full reef extent. This is a coarser sampling approach than area-weighted aggregation over reef geometry would give, and a more spatially representative version of this analysis is future work.
+- Physical exposure was estimated using Copernicus DEM GLO-30, a 30-meter-resolution, radar-derived global elevation model that captures surface elevation — including vegetation canopy and built structures — rather than true bare-earth elevation. This introduces non-trivial vertical uncertainty relative to the fine, one-meter threshold I use to classify settlement exposure, a limitation well documented in prior assessments of global elevation models applied to low-elevation coastal zones. I'd read the reported exposure percentages as directionally reliable — supporting the relative island ranking that drives the central finding — rather than as precise absolute counts.
+
+## 7. Conclusion
+
+Small islands do face a compounding vulnerability to climate change — but that compounding is neither uniform across ecosystem type nor adequately captured by physical exposure alone. Coral reef degradation is measurable and increasing across most of the sample; mangrove extent, tested with the same rigor across multiple independent time points, shows no comparable decline. The implication for adaptation and conservation policy follows directly: resources allocated under an assumption of uniform ecosystem risk may be systematically misallocated relative to where degradation is actually happening.
+
+## References
+
+[1] P. Bunting, A. Rosenqvist, L. Hilarides, R. M. Lucas, N. Thomas, T. Tadono, T. A. Worthington, M. Spalding, N. J. Murray, and L. M. Rebelo. 2022. Global Mangrove Extent Change 1996–2020: Global Mangrove Watch Version 3.0. *Remote Sensing* 14, 15 (2022), 3657. https://doi.org/10.3390/rs14153657
+
+[2] F. Ferrario, M. W. Beck, C. D. Storlazzi, F. Micheli, C. C. Shepard, and L. Airoldi. 2014. The effectiveness of coral reefs for coastal hazard risk reduction and adaptation. *Nature Communications* 5 (2014), 3794. https://doi.org/10.1038/ncomms4794
+
+[3] G. Guannel, K. Arkema, P. Ruggiero, and G. Verutes. 2016. The Power of Three: Coral Reefs, Seagrasses and Mangroves Protect Coastal Regions and Increase Their Resilience. *PLOS ONE* 11, 7 (2016), e0158094. https://doi.org/10.1371/journal.pone.0158094
+
+[4] S. F. Heron, J. A. Maynard, R. van Hooidonk, and C. M. Eakin. 2016. Warming Trends and Bleaching Stress of the World's Coral Reefs 1985–2012. *Scientific Reports* 6 (2016), 38402. https://doi.org/10.1038/srep38402
+
+[5] National Oceanic and Atmospheric Administration. 2024. NOAA Confirms 4th Global Coral Bleaching Event. https://www.noaa.gov/news-release/noaa-confirms-4th-global-coral-bleaching-event
+
+[6] M. Pieraccini, S. Coppa, and G. A. De Lucia. 2017. Beyond marine paper parks? Regulation theory to assess and address environmental non-compliance. *Aquatic Conservation: Marine and Freshwater Ecosystems* 27, 1 (2017), 177–196. https://doi.org/10.1002/aqc.2632
+
+[7] B. Pike. 2026. 10% Protected. 3% Effective. The Widening Gap We Can't Ignore. Marine Conservation Institute. https://marine-conservation.org/on-the-tide/ten-percent-protected-three-percent-effective/
+
+[8] The Nature Conservancy, Mapping Ocean Wealth. Coastal Protection: The Role of Mangroves and Coral Reefs. https://oceanwealth.org/ecosystem-services/coastal-protection/

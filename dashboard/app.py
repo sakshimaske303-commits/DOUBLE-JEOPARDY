@@ -164,7 +164,7 @@ with h1:
     <div style="background: {PALETTE['card_bg']}; border-radius: 14px;
                 padding: 20px; border: 2px solid {PALETTE['risk']}; min-height: 200px;">
         <p style="color: {PALETTE['risk']}; font-weight: 800; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 8px;">H1 — Supported</p>
-        <p style="color: {PALETTE['navy']}; font-weight: 700; font-size: 1rem; margin-bottom: 8px;">Coral Reefs Are Degrading</p>
+        <p style="color: {PALETTE['navy']}; font-weight: 700; font-size: 1rem; margin-bottom: 8px;">Coral Thermal Stress Is Rising</p>
         <p style="color: {PALETTE['text_dark']}; font-size: 0.85rem; margin: 0;">
             4 of 5 islands show a nominal rise in thermal-bleaching stress over 24 years; a
             formal trend test confirms this as statistically significant for Maldives and
@@ -181,7 +181,7 @@ with h2:
         <p style="color: {PALETTE['navy']}; font-weight: 700; font-size: 1rem; margin-bottom: 8px;">Mangroves Are Stable</p>
         <p style="color: {PALETTE['text_dark']}; font-size: 0.85rem; margin: 0;">
             Zero net decline across 3 tested islands and 3 independent time points
-            (1996–2020) — a genuine, robustness-checked finding.
+            (1996–2020) — based on a three-point snapshot comparison, not a continuous trend test.
         </p>
     </div>
     """, unsafe_allow_html=True)

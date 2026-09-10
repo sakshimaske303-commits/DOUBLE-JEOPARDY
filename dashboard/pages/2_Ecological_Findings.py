@@ -133,7 +133,8 @@ with tab2:
     **No net decline detected in any tested island.** Mangrove extent remained essentially stable
     across all three time points and all three islands where mangroves are present — Fiji even
     shows a marginal net increase. This does not support Hypothesis H2 as originally framed, and
-    is reported transparently as a genuine, robustness-checked finding rather than adjusted to
+    is reported transparently as the observed result of this three-point snapshot comparison —
+    not a continuous trend test comparable to the coral analysis — rather than adjusted to
     fit the original hypothesis.
     """)
 

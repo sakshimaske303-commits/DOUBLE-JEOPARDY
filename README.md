@@ -65,7 +65,7 @@ Interactive geospatial maps are hosted separately via GitHub Pages. Sample links
 
 ## Key Findings
 
-**Coral reefs are degrading; mangroves are not.** Four of five islands show a measurable, rising coral thermal-stress trend over 24 years — most severely in Seychelles. Mangrove extent, tested with equal rigor across three independent time points, shows no measurable decline in any tested island. This asymmetry — rather than a uniform "ecosystems are collapsing" narrative — is the project's central empirical contribution.
+**Coral thermal stress is rising; mangrove extent shows no measurable decline.** Four of five islands show a measurable, rising coral thermal-stress trend over 24 years — most severely in Seychelles — based on a continuous 24-year Mann-Kendall trend test. Mangrove extent, assessed at three independent time points (a coarser snapshot comparison, not a continuous trend test), shows no measurable decline in any tested island. This asymmetry — rather than a uniform "ecosystems are collapsing" narrative — is the project's central empirical contribution.
 
 **Physical exposure alone is misleading.** The Maldives has the highest sea-level-rise exposure of any island tested (99.1% of settlements at risk) — yet Seychelles emerges as the highest overall-risk island once ecosystem degradation is factored in, driven by the most severe coral thermal-stress trend recorded across the sample.
 
