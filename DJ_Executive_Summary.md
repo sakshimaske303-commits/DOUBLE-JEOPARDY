@@ -31,7 +31,7 @@ Physical exposure alone is misleading. The Maldives has the highest sea-level-ri
 
 | Hypothesis | Result |
 |---|---|
-| H1 — Coral reefs are degrading | Supported — significant for Maldives (p=0.0046) & Seychelles (p=0.0069) |
+| H1 — Coral thermal stress is rising | Supported — significant for Maldives (p=0.0046) & Seychelles (p=0.0069) |
 | H2 — Mangroves are degrading | Not supported — zero net decline across 3 islands, 3 time points |
 | H3 — Governance tracks vulnerability | Suggestive only — r=0.862, p=0.138, n=4 (not significant) |
 
@@ -51,7 +51,7 @@ The Compound Vulnerability ranking holds robustly across most of the 0–100% we
 - ! Governance correlation flagged as not statistically significant (suggestive only)
 - ! Coral thermal-stress series sampled from a single representative coordinate per island, not a reef-area spatial average
 - ! Lakshadweep has no coastal WDPA measurement available, so it's excluded from the governance-alignment correlation (n=4) rather than assigned a placeholder value
-- ! Population-weighted exposure figures use bounding-box rather than boundary-polygon clipping; a corrected version of the script exists but hasn't been re-run against the source rasters yet
+- ! Population-weighted exposure figures still use a simple bounding box, not each island's real boundary shape. A fixed script was tested against the real rasters, but the island boundary files it needs turned out to be incomplete (missing islands, undersized shapes), so this fix is not ready yet
 
 **Honest Limitation:** The governance-alignment test (protected-area coverage vs. verified vulnerability) shows a strong positive correlation (r=0.862, n=4) but doesn't reach statistical significance at this sample size (p=0.138, 95% CI: -0.58 to 1.00) — a genuine limitation of testing so few islands, which I'm reporting as suggestive rather than confirmed. Lakshadweep is excluded from that correlation entirely rather than assigned a placeholder value, since I had no protected-area dataset for it and a fabricated zero would bias an already-tiny sample; its Compound Vulnerability Score (0.481) is reported separately, unpaired with a WDPA measurement. The Compound Vulnerability Score also uses min-max normalization, so scores are relative within this five-island sample rather than absolute — Canary Islands' score of 0.000 reflects the lowest raw values in this sample, not the absence of risk. The coral thermal-stress series itself comes from a single representative coordinate per island rather than a spatial average across the full reef area — a coarser sampling choice than area-weighted aggregation would give, kept for consistency with how the DHW product is queried. I also corrected both Canary Islands' and Fiji's physical-exposure figures (0.3% and 1.0% of settlements at risk, respectively) during data-quality review, to exclude DEM NoData artifacts I'd initially misread as sea-level settlements — Maldives and Lakshadweep show a similar zero-heavy elevation pattern but weren't corrected the same way, since near-sea-level terrain is the geologically expected result for a coral atoll rather than an anomaly; see the Research Paper's Limitations section for the full explanation.
 

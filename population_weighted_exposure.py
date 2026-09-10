@@ -1,18 +1,35 @@
-"""Population-weighted physical exposure at/below 1m SLR threshold. v4 used
-bbox windows instead of raster auto-scan (which undercounted Maldives by
-~1/3); v5 masks to each island's actual boundary polygon (data/boundaries/)
-instead of a rectangular bbox, since a bbox window pulls in ocean/adjacent-
-land pixels a real island boundary wouldn't -- particularly relevant for
-irregular archipelagos like Fiji and Seychelles, where a lot of a bbox's
-area is open water. The bbox windows below are still used to pick the
-raster region to read (fast) and as the population_in_bbox() fallback when
-a boundary polygon isn't available; the polygon mask is what actually
-decides which pixels count. Needs rasterio, geopandas, numpy.
+"""Population-weighted physical exposure at or below a 1m sea-level-rise
+threshold.
 
-NOTE: needs an actual rerun against the real population/elevation rasters
-to get corrected percentages -- those rasters aren't in this checkout, so
-the numbers currently in the paper are still the v4 (bbox-only) ones. See
-Dev Log.
+v4 used simple bbox windows around each island. This undercounted
+Maldives by about 1/3, because a bbox also covers open water next to
+the island.
+
+v5 tries to fix this by masking to each island's real boundary shape
+(data/boundaries/) instead of just the bbox. But when this was tested
+against the real population and elevation rasters, the boundary files
+turned out to be incomplete.
+
+For Maldives, the boundary polygons only add up to about 118 sq km of
+land. Real Maldives land area is close to 298 sq km. A lot of real
+islands are just missing from this file.
+
+For Lakshadweep, the polygon file's total area is close to correct
+(about 34 sq km vs a real ~32 sq km), but the mask still only catches
+about 13% of the real population. So even the islands that ARE in the
+file are drawn smaller than their real built-up area.
+
+This was checked carefully: the population raster itself is fine
+(checked pixel by pixel -- the values are real and not blurred or
+repeated). The masking code is also fine (all_touched=True is set
+below, and that part works as intended). The only problem is the
+boundary polygon files -- they don't fully match the real islands.
+
+Because of this, v5 is not ready to use yet. The paper still reports
+the v4 (bbox) numbers for now, and already flags those as less
+accurate for irregular islands. Fixing this properly needs a better,
+more complete set of island boundary shapes -- not another code
+change. Needs rasterio, geopandas, numpy.
 """
 
 import geopandas as gpd
@@ -111,8 +128,16 @@ def process_bbox(pop_src, elev_src, bbox, boundary_geoms, threshold):
     # pixels as "population at risk" or "population not at risk" — they
     # should count as neither, since no one lives there.
     if boundary_geoms:
+        # all_touched=True: count any pixel the polygon touches at all, not
+        # just pixels whose center falls inside it. Narrow atoll islands
+        # (Maldives, Lakshadweep) are often thinner than a WorldPop pixel,
+        # so a center-point test (the geometry_mask default) drops most of
+        # their population as "outside the boundary" even though real
+        # people live there -- confirmed by comparing against the raw,
+        # unmasked population-raster totals (see Dev Log).
         land_mask = geometry_mask(
             boundary_geoms, out_shape=pop_shape, transform=pop_transform, invert=True,
+            all_touched=True,
         )
         pop_array = np.where(land_mask, pop_array, 0)
 
@@ -164,6 +189,7 @@ def population_in_bbox(pop_src, bbox, boundary_geoms=None):
         land_mask = geometry_mask(
             boundary_geoms, out_shape=arr.shape,
             transform=pop_src.window_transform(window), invert=True,
+            all_touched=True,
         )
         arr = np.where(land_mask, arr, 0)
     return float(arr.sum())

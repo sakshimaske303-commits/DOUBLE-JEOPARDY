@@ -506,3 +506,46 @@ Had an external review pass done against the current `main` branch, and it flagg
 **`research_paper_figures.py`**, the comment above the population-weighted exposure figure called those numbers "population_weighted_exposure.py's validated final run." They aren't — `population_weighted_exposure.py`'s own module docstring, and the paper's Section 4.1 / Limitations text, both already say these are still the old bbox-only v4 numbers, not yet re-run against the real rasters with the v5 boundary-polygon mask. The paper text itself has always been honest about this; it was just this one code comment that was still describing the numbers as finished and validated. Reworded the comment to match what the docstring and the paper actually say.
 
 Neither fix touches a single reported number, a figure, or a conclusion — both were internal-consistency wording gaps, now closed.
+
+## Entry 11
+
+### Status
+Finally got my hands on the real population nd elevation rasters for all five islands (they were sitting on my own laptop the whole time, I jst hadnt copied them into this checkout). So I reran population_weighted_exposure.py's v5 boundary-polygon version properly for the 1st time. The numbers tht came out were wrong in a new way, nd it took a full afternoon of step by step checking to find out why. Writing it all down here since this is exactly wht Entry 9 said was still pending.
+
+---
+
+### 1st Run Looked Very Wrong
+
+So I ran the script nd got numbers tht were way too low compared to real world population figures I already know. Maldives came out at only 6.5% captured, Lakshadweep at 7.3%. Real Maldives population is around 520,000 to 540,000 people, so tht 6.5% is nowhere close to right. Knew immediately this was a new bug, not a real correction, nd I did NOT want to jst push these numbers into the paper without checking further.
+
+### Ruled Out the Easy Explanations 1st
+
+Checked the boring stuff 1st because tht's usually where the actual bug hides. CRS on the population raster nd the boundary files matched (EPSG:4326 both sides), so it wasnt a reprojection mixup. Then checked whether geometry_mask()'s default behaviour (it only counts a pixel if its exact center point falls inside the polygon) was dropping population off narrow atoll islands tht are thinner than one pixel — added all_touched=True so it counts any pixel the polygon touches at all instead of jst the center. This helped a tiny bit (Maldives went from 6.5% to 6.8%, Lakshadweep from 7.3% to 6.3% — actually got slightly worse for Lakshadweep) but nowhere close to fixing the real problem.
+
+Then checked if the boundary files were jst missing the big population centers entirely. Tested Male, Hulhumale, nd Kavaratti (the 3 biggest population centers across these islands) directly against the polygon geometries using a simple point-in-polygon check. All three came back True, sitting right inside a polygon with basically zero distance to the boundary. So the boundary files do contain these specific islands. Tht theory was wrong too.
+
+### Bug: Isolating Exactly Where the Population Was Disappearing
+
+Ran a clean diagnostic split into three separate numbers: the raw total population in the whole raster (540,542 for Maldives, matches real world figures fine), the bbox-only total with no polygon mask at all (also 540,542, the exact same number — so the bbox window by itself is not losing anything), nd the bbox+polygon-mask total (206,037). So the loss was happening 100% at the polygon mask step nd nowhere else in the pipeline. Only 16,516 out of 12,625,431 pixels in the whole window were even getting marked as land by the mask — tht's 0.13%, way too small for an island tht's supposed to have around 298 sq km of real land.
+
+### Tested Whether the Boundary Polygons Were Jst Slightly Off Position
+
+Next thought: maybe the polygons are basically right but shifted a little, so buffering them outward by a small amount should recover most of the missing population fast. Tried buffering by 200m, 500m, 1000m, 2000m, nd 5000m nd watched how much population got captured at each step. If this was a small positioning bug, I expected population capture to jump up fast at a small buffer nd then flatten out. Instead it climbed slowly nd steadily all the way out to 5km (Maldives went 38% → 40% → 42% → 50% → 68% → 93%), never jumping anywhere. Tht kind of slow, steady climb doesnt look like a simple offset bug — it looks more like the polygons are genuinely too small or missing pieces, nd buffering just keeps bumping into more real (but unmapped) island area the further out u go.
+
+### Checked If the Population Raster Itself Was Coarse nd Blurry
+
+Had one more theory before blaming the boundary files completely: wht if the population raster itself was originally coarser (like the common 1km WorldPop resolution) nd got resampled up to this 100m grid without proper handling, so the numbers technically sit on a 100m grid but really represent blurry ~1km blocks tht spill onto water. Zoomed into the actual pixel values right around Male nd Kavaratti to check this. Turned out to be completely wrong — the values change smoothly nd realistically from pixel to pixel (110, 376, 498, 707, 689...), with zero pixels matching their neighbour 10 pixels away. This is real, fine grain data, not blurred blocks. So the population raster itself is fine nd this theory is dead too.
+
+### Root Cause: The Boundary Polygon Files Themselves Are Incomplete
+
+Finally jst measured the actual land area covered by the boundary polygon files nd compared it against real world island area figures, nd tht's wht settled it. Maldives' boundary file only adds up to abt 118 sq km of total polygon area. Real Maldives land area is close to 298 sq km. So more than half of Maldives' real islands are jst not in this file at all.
+
+Lakshadweep was a more confusing case at 1st — its polygon file's total area (34.14 sq km) is actually close to the real number (abt 32 sq km), so I expected it to capture population fine. But it still only captured 13% of the real population even with all_touched=True on. Tht tells me the individual islands tht ARE in the file are drawn smaller or older than their real current built up extent (probably an old or generalised coastline, not matching wht's actually built nd populated today), rather than whole islands being missing the way Maldives is missing them.
+
+Either way, both islands come back to the same root cause: the boundary shape files I have are not a reliable, complete map of where people actually live. The masking code is doing exactly wht it's supposed to do with wht it's given — it's the input data tht isnt good enough yet.
+
+### Decision: Not Swapping v4 for v5 Numbers Yet
+
+Given all this, pushing the current v5 output into the paper would replace a disclosed, honest limitation (v4's bbox numbers, which slightly over-count because a box can include some open water) with a WORSE nd undisclosed problem (v5 badly under-counting real people, by around 60% for Maldives). Tht's a step backward, not a fix, even though the code itself is working correctly now.
+
+So I'm keeping the v4 (bbox) numbers in the paper exactly as they are — nothing in the actual reported table changed. Wht I did change is the wording in three places (population_weighted_exposure.py's own top note, the paper's Limitations section, nd the executive summary checklist) so all three now explain the real reason clearly: the boundary polygon files are incomplete, tht's been checked nd confirmed, nd fixing it properly needs a better set of island boundary shapes, not another round of code changes. This closes out wht Entry 9 left as an open item, jst not with the ending I was hoping for — the honest answer this time is "found the real reason, still cant use it yet."
