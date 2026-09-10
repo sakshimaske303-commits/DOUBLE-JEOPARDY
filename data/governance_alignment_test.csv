@@ -1,6 +1,6 @@
 island,vulnerability_score,wdpa_ratio,excluded_from_correlation
-seychelles,0.895,11.32,False
-maldives,0.651,3.9,False
-lakshadweep,0.481,0.0,True
-fiji,0.106,0.42,False
+seychelles,1.0,11.32,False
+maldives,0.242,3.9,False
+lakshadweep,0.133,0.0,True
+fiji,0.107,0.42,False
 canary,0.0,2.32,False

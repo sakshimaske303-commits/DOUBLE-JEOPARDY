@@ -88,13 +88,14 @@ def fig3_settlement_vs_population():
     settlement_pct = dict(zip(settlement_df["island"], settlement_df["pct_at_risk"]))
 
     # Population-weighted exposure %, from population_weighted_exposure.py's
-    # bbox-window v4 run (windowed, geography-based, antimeridian-aware).
-    # NOTE: these are still the bbox-only v4 numbers, not yet re-run against
-    # the real rasters with the v5 boundary-polygon mask -- see
-    # population_weighted_exposure.py's module docstring and the paper's
-    # own Section 4.1 / Limitations disclosure.
+    # bbox-window v4 run (windowed, geography-based, antimeridian-aware; the
+    # v5 boundary-polygon mask is known incomplete and is explicitly kept
+    # off -- see APPLY_BOUNDARY_MASK in that script). Maldives and
+    # Lakshadweep also use the corrected _elevation_v2.tif and the
+    # raster-level void-exclusion check -- see that script's docstring and
+    # the paper's Section 6 for the full DEM coverage-gap fix.
     population_pct = {
-        "Maldives": 64.5, "Seychelles": 17.6, "Lakshadweep": 87.5,
+        "Maldives": 16.9, "Seychelles": 17.6, "Lakshadweep": 2.2,
         "Fiji": 2.1, "Canary Islands": 1.6,
     }
 
@@ -120,7 +121,7 @@ def fig3_settlement_vs_population():
     ax.set_ylim(0, 112)
     ax.set_title(
         "Settlement-Based vs. Population-Weighted Physical Exposure\n"
-        "Lakshadweep becomes the highest-exposure island once weighted by where people actually live",
+        "Both measures agree on the same island ranking; Seychelles and Maldives diverge most in magnitude",
         fontsize=13, fontweight="bold", pad=15
     )
     ax.legend(loc="upper right", fontsize=10, frameon=True)
@@ -326,7 +327,7 @@ def fig7_weighting_sensitivity():
     ax.set_ylabel("Compound Vulnerability Score (normalized, 0–1)", fontsize=11)
     ax.set_title(
         "Compound Vulnerability Score — Weighting Sensitivity\n"
-        "Seychelles leads up to ~76.8% physical-exposure weighting; Maldives overtakes beyond that",
+        "Seychelles leads across the entire 0-100% weighting range",
         fontsize=13, fontweight="bold", pad=15
     )
     ax.set_xlim(0, 100)

@@ -1,11 +1,14 @@
 import pandas as pd
 from scipy import stats
 
+# Updated after fixing the Maldives/Lakshadweep DEM coverage gap (see
+# slr_exposure_analysis.py, compound_vulnerability_score.py, Section 6 of
+# the paper). Original values here were 0.895 / 0.651 / 0.481 / 0.106 / 0.000.
 vulnerability = {
-    "seychelles": 0.895,
-    "maldives": 0.651,
-    "lakshadweep": 0.481,
-    "fiji": 0.106,
+    "seychelles": 1.000,
+    "maldives": 0.242,
+    "lakshadweep": 0.133,
+    "fiji": 0.107,
     "canary": 0.000,
 }
 

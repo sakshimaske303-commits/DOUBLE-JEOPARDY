@@ -35,7 +35,7 @@ DARK_LAYOUT = dict(
 def build_compound_vulnerability_score():
     data = {
         "island": ["Seychelles", "Maldives", "Lakshadweep", "Fiji", "Canary Islands"],
-        "score": [0.895, 0.651, 0.481, 0.106, 0.000],
+        "score": [1.000, 0.242, 0.133, 0.107, 0.000],
     }
     df = pd.DataFrame(data).sort_values("score", ascending=True)
     colors = ["#2c7fb8" if s < 0.5 else "#e34a33" for s in df["score"]]
@@ -114,7 +114,7 @@ def build_coral_thermal_stress_trends():
 # 3. WEIGHTING SENSITIVITY CURVE
 # ============================================================
 def build_weighting_sensitivity():
-    slr_data = {"Maldives": 99.1, "Seychelles": 78.3, "Fiji": 0.99, "Canary Islands": 0.3, "Lakshadweep": 77.8}
+    slr_data = {"Maldives": 14.5, "Seychelles": 78.3, "Fiji": 0.99, "Canary Islands": 0.3, "Lakshadweep": 7.1}
     coral_decline = {"Maldives": 0.17, "Seychelles": 0.68, "Fiji": 0.10, "Canary Islands": -0.05, "Lakshadweep": 0.08}
 
     def normalize(d):
@@ -138,7 +138,7 @@ def build_weighting_sensitivity():
     fig.add_vline(x=50, line_dash="dot", line_color="#333333", annotation_text="Weighting used in this study (50/50)")
     fig.update_layout(
         title="Compound Vulnerability Score — Weighting Sensitivity<br>"
-              "<sub>Seychelles leads up to ~76.8% physical-exposure weighting; Maldives overtakes beyond that</sub>",
+              "<sub>Seychelles leads across the entire 0-100% weighting range — no crossover</sub>",
         xaxis_title="Physical Exposure Weight (%) — remainder assigned to coral ecosystem decline",
         yaxis_title="Compound Vulnerability Score (normalized, 0-1)",
         xaxis=dict(range=[0, 100]), yaxis=dict(range=[-0.05, 1.05]),
