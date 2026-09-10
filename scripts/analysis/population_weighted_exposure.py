@@ -1,0 +1,359 @@
+"""Population-weighted physical exposure at or below a 1m sea-level-rise
+threshold.
+
+v4 used simple bbox windows around each island. This undercounted
+Maldives by about 1/3, because a bbox also covers open water next to
+the island.
+
+v5 tries to fix this by masking to each island's real boundary shape
+(data/boundaries/) instead of just the bbox. But when this was tested
+against the real population and elevation rasters, the boundary files
+turned out to be incomplete.
+
+For Maldives, the boundary polygons only add up to about 118 sq km of
+land. Real Maldives land area is close to 298 sq km. A lot of real
+islands are just missing from this file.
+
+For Lakshadweep, the polygon file's total area is close to correct
+(about 34 sq km vs a real ~32 sq km), but the mask still only catches
+about 13% of the real population. So even the islands that ARE in the
+file are drawn smaller than their real built-up area.
+
+This was checked carefully: the population raster itself is fine
+(checked pixel by pixel -- the values are real and not blurred or
+repeated). The masking code is also fine (all_touched=True is set
+below, and that part works as intended). The only problem is the
+boundary polygon files -- they don't fully match the real islands.
+
+Because of this, v5 was not usable at the time. The paper reported
+the v4 (bbox) numbers for a while, and flagged those as less accurate
+for irregular islands. See the "boundary polygon rebuild (v2)" update
+below for how this was eventually fixed. Needs rasterio, geopandas,
+numpy.
+
+--- Update (DEM coverage-gap fix) ---
+Maldives' and Lakshadweep's original elevation.tif files turned out to
+have the same problem discovered and fixed in slr_exposure_analysis.py:
+they were almost entirely a raster coverage gap (elevation reading a flat
+0.0 across ~99.99% of the file), not real terrain. This script now points
+those two islands at the re-downloaded elevation_v2.tif files instead.
+
+That coverage-gap fix matters here in a different way than it did for the
+settlement-point version. There, each settlement was a single point that
+could just be kept or excluded. Here, the whole elevation raster gets
+resampled onto the population grid, so a leftover coverage-gap patch (the
+tiles that came back 404 from Copernicus even after the re-download -- see
+Section 6 of the paper) would silently get counted as "0m, at risk" for
+every population pixel that falls on it, which would bias this
+population-weighted figure upward for exactly the same reason the original
+bug did. So VOID_CHECK_ISLANDS below applies the same flat-neighborhood
+void test used in slr_exposure_analysis.py, but at the raster level: any
+elevation pixel reading exactly 0.0 whose surrounding 5x5 window is also
+entirely 0.0 is treated as a coverage gap, not real terrain, and the
+population living on that patch is excluded from both the numerator and
+the denominator -- reported separately as "excluded (DEM coverage gap)",
+the same way Fiji's Lau Islands population is already reported as
+"skipped" rather than silently dropped.
+
+--- Update (boundary polygon rebuild, v2) ---
+The v5 boundary files above (data/boundaries/) were incomplete because
+they came from a naive Overpass coastline download that only kept ways
+already closed into a single loop -- most real coastlines are built from
+several connected segments, not one. That's now fixed in
+rebuild_boundary_polygons_osm.py, which joins every coastline way (open
+or closed) with shapely.ops.polygonize() instead, and, for Fiji
+specifically, in rebuild_fiji_boundary_landpolygons.py, which uses OSM's
+official pre gap-closed "land polygons" dataset instead of raw Overpass
+data (Fiji's 2 largest islands span more than 1 download tile, and a
+genuine small gap in the raw coastline topology kept their ring from
+closing even after pooling ways across tiles).
+
+The rebuilt files (data/boundaries_v2/{island}_islands_v2.gpkg) were
+validated against an independently sourced land area figure per island
+before use here (Maldives 317.57 vs 298 km2, World Bank 2023; Seychelles
+449.55 vs 460 km2, World Bank 2023; Fiji 18,820.57 vs 18,270 km2, World
+Bank 2023; Canary Islands 7,432.61 vs ~7,446 km2, Instituto Canario de
+Estadistica; Lakshadweep 30.84 vs 32 km2, the Lakshadweep government's
+official site), all within about 7% of a citable reference. ISLANDS
+below now points at these v2 files and APPLY_BOUNDARY_MASK is back on.
+Population weighted exposure
+moved down for every island as a result (all 5 figures fell, consistent
+with the mask now correctly excluding open water the old bbox-only run
+had been counting as populated land), and Maldives (14.9%) came out
+marginally ahead of Seychelles (14.2%) on this measure specifically --
+close enough to read as a near tie, not a clean reversal. See the
+paper's Section 6 for the full rebuild, validation, and independent
+verification of the Maldives/Seychelles figures.
+"""
+
+import geopandas as gpd
+import numpy as np
+import rasterio
+from rasterio.features import geometry_mask
+from rasterio.windows import Window, from_bounds
+from rasterio.warp import reproject, Resampling, transform_bounds, transform_geom
+from scipy.ndimage import minimum_filter, maximum_filter
+
+ELEVATION_THRESHOLD_M = 1.0
+BUFFER_DEGREES = 0.1  # small buffer around each island's real known extent
+
+# Islands whose elevation file needs the flat-neighborhood void check
+# (see module docstring) rather than being trusted as-is.
+VOID_CHECK_ISLANDS = {"Maldives", "Lakshadweep"}
+VOID_HALF_WINDOW = 2  # 2 -> 5x5 window, matching slr_exposure_analysis.py
+
+# Re-enabled now that the boundary polygon files have been rebuilt from
+# OpenStreetMap coastline data and validated against independently sourced
+# land area figures for every island (see the "boundary polygon rebuild
+# (v2)" update in the module docstring above). Earlier, this used to
+# silently always apply the mask whenever the boundary file loaded without
+# raising an exception -- which it did, for every island, even though the
+# v5 polygons themselves were known incomplete (Maldives' boundary file
+# only covered ~118 of ~298 real sq km; Lakshadweep's mask caught only
+# ~13% of the real population). That's what forced this flag off for a
+# while, restoring the v4 bbox-only behavior instead. With the v2 files in
+# ISLANDS below, this can safely stay on.
+APPLY_BOUNDARY_MASK = True
+
+
+def build_void_mask(elev_array, half_window=VOID_HALF_WINDOW):
+    """True where a pixel reads exactly 0.0 AND its (2*half_window+1)^2
+    neighborhood is also entirely 0.0 -- the flat-void signature no real
+    terrain produces. Same logic as slr_exposure_analysis.py's settlement-
+    point check, applied here across the whole raster at once."""
+    size = 2 * half_window + 1
+    local_min = minimum_filter(elev_array, size=size, mode="nearest")
+    local_max = maximum_filter(elev_array, size=size, mode="nearest")
+    return (elev_array == 0.0) & (local_min == 0.0) & (local_max == 0.0)
+
+# Each island: elevation/population/boundary file paths, plus a list of
+# (minx, miny, maxx, maxy) windows in EPSG:4326. Normally one window per
+# island; Fiji gets two (west-of-dateline, east-of-dateline) since its
+# territory straddles the antimeridian.
+ISLANDS = {
+    "Maldives": {
+        "elevation": "data/terrain/maldives_elevation_v2.tif",
+        "population": "data/population/maldives_population_clean.tif",
+        "boundary": "data/boundaries_v2/maldives_islands_v2.gpkg",
+        # from data/boundaries/maldives_islands.gpkg total_bounds
+        "windows": [(72.68 - BUFFER_DEGREES, -0.69 - BUFFER_DEGREES,
+                     73.76 + BUFFER_DEGREES, 7.11 + BUFFER_DEGREES)],
+    },
+    "Seychelles": {
+        "elevation": "data/terrain/seychelles_elevation.tif",
+        "population": "data/population/seychelles_population_clean.tif",
+        "boundary": "data/boundaries_v2/seychelles_islands_v2.gpkg",
+        # from data/boundaries/seychelles_islands.gpkg total_bounds
+        "windows": [(46.21 - BUFFER_DEGREES, -9.76 - BUFFER_DEGREES,
+                     56.29 + BUFFER_DEGREES, -3.79 + BUFFER_DEGREES)],
+    },
+    "Fiji": {
+        "elevation": "data/terrain/fiji_elevation.tif",
+        "population": "data/population/fiji_population_clean.tif",
+        "boundary": "data/boundaries_v2/fiji_islands_v2.gpkg",
+        # two windows straddling the antimeridian — mirrors the "two
+        # sub-queries" approach already used for Fiji's WDPA data
+        "windows": [
+            (176.5, -20.7, 180.0, -12.4),    # west-of-dateline half
+            (-180.0, -20.7, -178.0, -12.4),  # east-of-dateline half
+        ],
+    },
+    "Canary Islands": {
+        "elevation": "data/terrain/canary_elevation.tif",
+        "population": "data/population/canary_population_clean.tif",
+        "boundary": "data/boundaries_v2/canary_islands_v2.gpkg",
+        # from data/boundaries/canary_islands.gpkg total_bounds
+        "windows": [(-18.17 - BUFFER_DEGREES, 27.64 - BUFFER_DEGREES,
+                     -13.42 + BUFFER_DEGREES, 29.24 + BUFFER_DEGREES)],
+    },
+    "Lakshadweep": {
+        "elevation": "data/terrain/lakshadweep_elevation_v2.tif",
+        "population": "data/population/lakshadweep_population_clean.tif",
+        "boundary": "data/boundaries_v2/lakshadweep_islands_v2.gpkg",
+        # from data/boundaries/lakshadweep_islands.gpkg total_bounds
+        "windows": [(72.17 - BUFFER_DEGREES, 8.25 - BUFFER_DEGREES,
+                     73.68 + BUFFER_DEGREES, 11.69 + BUFFER_DEGREES)],
+    },
+}
+
+
+def load_boundary_geoms(boundary_path, dst_crs):
+    """All island polygons for this boundary file, reprojected to dst_crs
+    (the population raster's CRS) as a list of __geo_interface__ mappings —
+    what rasterio.features.geometry_mask expects."""
+    gdf = gpd.read_file(boundary_path)
+    if gdf.crs is not None and str(gdf.crs) != str(dst_crs):
+        gdf = gdf.to_crs(dst_crs)
+    return [geom.__geo_interface__ for geom in gdf.geometry if geom is not None and not geom.is_empty]
+
+
+def process_bbox(pop_src, elev_src, bbox, boundary_geoms, threshold, void_check=False):
+    minx, miny, maxx, maxy = bbox
+
+    pop_window = from_bounds(minx, miny, maxx, maxy, transform=pop_src.transform)
+    pop_window = pop_window.round_offsets().round_lengths()
+    pop_window = pop_window.intersection(Window(0, 0, pop_src.width, pop_src.height))
+    if pop_window.width <= 0 or pop_window.height <= 0:
+        raise ValueError("bbox does not overlap the population raster at all")
+
+    pop_array = pop_src.read(1, window=pop_window).astype("float32")
+    pop_nodata = pop_src.nodata
+    pop_transform = pop_src.window_transform(pop_window)
+    pop_crs = pop_src.crs
+    pop_shape = pop_array.shape
+
+    if pop_nodata is not None:
+        pop_array = np.where(pop_array == pop_nodata, 0, pop_array)
+    pop_array = np.where(pop_array < 0, 0, pop_array)
+
+    # Polygon mask: zero out any population pixel whose center falls
+    # outside the island's actual boundary polygon, so a bbox window that
+    # spans a lot of open water (Fiji, Seychelles) doesn't count ocean
+    # pixels as "population at risk" or "population not at risk" — they
+    # should count as neither, since no one lives there.
+    if boundary_geoms:
+        # all_touched=True: count any pixel the polygon touches at all, not
+        # just pixels whose center falls inside it. Narrow atoll islands
+        # (Maldives, Lakshadweep) are often thinner than a WorldPop pixel,
+        # so a center-point test (the geometry_mask default) drops most of
+        # their population as "outside the boundary" even though real
+        # people live there -- confirmed by comparing against the raw,
+        # unmasked population-raster totals (see Dev Log).
+        land_mask = geometry_mask(
+            boundary_geoms, out_shape=pop_shape, transform=pop_transform, invert=True,
+            all_touched=True,
+        )
+        pop_array = np.where(land_mask, pop_array, 0)
+
+    if elev_src.crs != pop_crs:
+        e_minx, e_miny, e_maxx, e_maxy = transform_bounds(pop_crs, elev_src.crs, minx, miny, maxx, maxy)
+    else:
+        e_minx, e_miny, e_maxx, e_maxy = minx, miny, maxx, maxy
+
+    elev_window = from_bounds(e_minx, e_miny, e_maxx, e_maxy, transform=elev_src.transform)
+    elev_window = elev_window.round_offsets().round_lengths()
+    elev_window = elev_window.intersection(Window(0, 0, elev_src.width, elev_src.height))
+    if elev_window.width <= 0 or elev_window.height <= 0:
+        raise ValueError("bbox does not overlap the elevation raster at all")
+
+    elev_window_data = elev_src.read(1, window=elev_window)
+    elev_window_transform = elev_src.window_transform(elev_window)
+
+    elev_on_pop_grid = np.empty(pop_shape, dtype="float32")
+    reproject(
+        source=elev_window_data,
+        destination=elev_on_pop_grid,
+        src_transform=elev_window_transform,
+        src_crs=elev_src.crs,
+        dst_transform=pop_transform,
+        dst_crs=pop_crs,
+        resampling=Resampling.bilinear,
+    )
+
+    excluded_pop = 0.0
+    if void_check:
+        # Flag any population-grid cell that resamples from a DEM coverage
+        # gap (see module docstring / build_void_mask) and pull it out of
+        # both the numerator and denominator, rather than letting it count
+        # as "0m, at risk" just because the source raster was empty there.
+        # Nearest-neighbor resampling here (not bilinear) because this is a
+        # 0/1 categorical flag, not a continuous quantity.
+        void_mask_native = build_void_mask(elev_window_data.astype("float64"))
+        void_on_pop_grid = np.zeros(pop_shape, dtype="float32")
+        reproject(
+            source=void_mask_native.astype("float32"),
+            destination=void_on_pop_grid,
+            src_transform=elev_window_transform,
+            src_crs=elev_src.crs,
+            dst_transform=pop_transform,
+            dst_crs=pop_crs,
+            resampling=Resampling.nearest,
+        )
+        coverage_gap_mask = void_on_pop_grid > 0.5
+        excluded_pop = float(pop_array[coverage_gap_mask].sum())
+        pop_array = np.where(coverage_gap_mask, 0, pop_array)
+
+    at_risk_mask = elev_on_pop_grid <= threshold
+    return pop_array[at_risk_mask].sum(), pop_array.sum(), excluded_pop
+
+
+def population_in_bbox(pop_src, bbox, boundary_geoms=None):
+    """Just the population total in a bbox (optionally polygon-masked), with
+    no elevation requirement — used to report how many people fall in a
+    window we had to skip."""
+    minx, miny, maxx, maxy = bbox
+    window = from_bounds(minx, miny, maxx, maxy, transform=pop_src.transform)
+    window = window.round_offsets().round_lengths()
+    window = window.intersection(Window(0, 0, pop_src.width, pop_src.height))
+    if window.width <= 0 or window.height <= 0:
+        return 0.0
+    arr = pop_src.read(1, window=window).astype("float32")
+    nodata = pop_src.nodata
+    if nodata is not None:
+        arr = np.where(arr == nodata, 0, arr)
+    arr = np.where(arr < 0, 0, arr)
+    if boundary_geoms:
+        land_mask = geometry_mask(
+            boundary_geoms, out_shape=arr.shape,
+            transform=pop_src.window_transform(window), invert=True,
+            all_touched=True,
+        )
+        arr = np.where(land_mask, arr, 0)
+    return float(arr.sum())
+
+
+def population_weighted_exposure(elevation_path, population_path, boundary_path, windows, threshold=1.0,
+                                    void_check=False):
+    total_at_risk = 0.0
+    total_pop = 0.0
+    skipped_pop = 0.0
+    excluded_gap_pop = 0.0
+    with rasterio.open(population_path) as pop_src, rasterio.open(elevation_path) as elev_src:
+        if not APPLY_BOUNDARY_MASK:
+            boundary_geoms = None
+        else:
+            try:
+                boundary_geoms = load_boundary_geoms(boundary_path, pop_src.crs)
+            except Exception as e:
+                print(f"    WARNING: couldn't load boundary polygon ({e}) — falling back to bbox-only, unmasked",
+                      flush=True)
+                boundary_geoms = None
+
+        for i, bbox in enumerate(windows, start=1):
+            print(f"    window {i}/{len(windows)}: {bbox}", flush=True)
+            try:
+                at_risk, total, excluded = process_bbox(pop_src, elev_src, bbox, boundary_geoms, threshold,
+                                                          void_check=void_check)
+                total_at_risk += at_risk
+                total_pop += total
+                excluded_gap_pop += excluded
+            except Exception as e:
+                cluster_pop = population_in_bbox(pop_src, bbox, boundary_geoms)
+                skipped_pop += cluster_pop
+                print(f"    SKIPPED window {i} — elevation file doesn't cover this area "
+                      f"({cluster_pop:,.0f} people in this window excluded). Reason: {e}",
+                      flush=True)
+    if skipped_pop > 0:
+        print(f"    NOTE: {skipped_pop:,.0f} people were in areas with no elevation "
+              f"coverage and were excluded from this island's percentage.", flush=True)
+    if excluded_gap_pop > 0:
+        print(f"    NOTE: {excluded_gap_pop:,.0f} people sit on a DEM coverage-gap patch "
+              f"(flat-void signature) and were excluded from both the numerator and "
+              f"denominator, rather than counted as at-risk.", flush=True)
+    percent_at_risk = (total_at_risk / total_pop * 100) if total_pop > 0 else float("nan")
+    return total_at_risk, total_pop, percent_at_risk, excluded_gap_pop
+
+
+if __name__ == "__main__":
+    print(f"{'Island':<16} {'Pop. at risk':>15} {'Total pop.':>15} {'% at risk':>12} {'Excl. (gap)':>14}")
+    print("-" * 78)
+    for island, cfg in ISLANDS.items():
+        print(f"  -> {island}...", flush=True)
+        try:
+            at_risk, total, pct, excluded = population_weighted_exposure(
+                cfg["elevation"], cfg["population"], cfg["boundary"], cfg["windows"], ELEVATION_THRESHOLD_M,
+                void_check=(island in VOID_CHECK_ISLANDS),
+            )
+            print(f"{island:<16} {at_risk:>15,.0f} {total:>15,.0f} {pct:>11.1f}% {excluded:>13,.0f}")
+        except Exception as e:
+            print(f"{island:<16}  ERROR: {e}")

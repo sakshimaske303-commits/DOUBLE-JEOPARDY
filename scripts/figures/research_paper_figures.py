@@ -88,15 +88,18 @@ def fig3_settlement_vs_population():
     settlement_pct = dict(zip(settlement_df["island"], settlement_df["pct_at_risk"]))
 
     # Population-weighted exposure %, from population_weighted_exposure.py's
-    # bbox-window v4 run (windowed, geography-based, antimeridian-aware; the
-    # v5 boundary-polygon mask is known incomplete and is explicitly kept
-    # off -- see APPLY_BOUNDARY_MASK in that script). Maldives and
-    # Lakshadweep also use the corrected _elevation_v2.tif and the
-    # raster-level void-exclusion check -- see that script's docstring and
-    # the paper's Section 6 for the full DEM coverage-gap fix.
+    # boundary-polygon-masked run (APPLY_BOUNDARY_MASK = True, boundaries
+    # rebuilt from OpenStreetMap coastline data via shapely.ops.polygonize()
+    # / OSM's land-polygons dataset for Fiji, and validated against
+    # independently sourced land area figures -- see the paper's Section 6
+    # for the full boundary rebuild and validation, and the numerator/
+    # denominator verification behind the Maldives/Seychelles order flip).
+    # Maldives and Lakshadweep also use the corrected _elevation_v2.tif and
+    # the raster-level void-exclusion check -- see the paper's Section 6 for
+    # the full DEM coverage-gap fix.
     population_pct = {
-        "Maldives": 16.9, "Seychelles": 17.6, "Lakshadweep": 2.2,
-        "Fiji": 2.1, "Canary Islands": 1.6,
+        "Maldives": 14.9, "Seychelles": 14.2, "Lakshadweep": 2.1,
+        "Fiji": 1.6, "Canary Islands": 1.4,
     }
 
     islands = ISLAND_ORDER
@@ -121,7 +124,7 @@ def fig3_settlement_vs_population():
     ax.set_ylim(0, 112)
     ax.set_title(
         "Settlement-Based vs. Population-Weighted Physical Exposure\n"
-        "Both measures agree on the same island ranking; Seychelles and Maldives diverge most in magnitude",
+        "Measures mostly agree on ranking, but Maldives narrowly leads Seychelles on population weighting",
         fontsize=13, fontweight="bold", pad=15
     )
     ax.legend(loc="upper right", fontsize=10, frameon=True)

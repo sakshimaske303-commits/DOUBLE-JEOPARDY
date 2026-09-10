@@ -79,11 +79,11 @@ than counting settlement points alone.
 """)
 
 comparison_data = [
-    ("Seychelles", 78.3, 17.6),
-    ("Maldives", 14.5, 16.9),
-    ("Lakshadweep", 7.1, 2.2),
-    ("Fiji", 1.0, 2.1),
-    ("Canary Islands", 0.3, 1.6),
+    ("Seychelles", 78.3, 14.2),
+    ("Maldives", 14.5, 14.9),
+    ("Lakshadweep", 7.1, 2.1),
+    ("Fiji", 1.0, 1.6),
+    ("Canary Islands", 0.3, 1.4),
 ]
 names_c = [d[0] for d in comparison_data]
 settlement_pct = [d[1] for d in comparison_data]
@@ -118,13 +118,17 @@ fig_compare.update_layout(
 st.plotly_chart(fig_compare, use_container_width=True)
 
 st.warning("""
-**Both measures now agree on the same island ranking, though not in magnitude.** Seychelles is
-highest by both settlement-based (78.3%) and population-weighted (17.6%) exposure, with Maldives
-close behind on the population-weighted measure (16.9%) despite a much lower settlement-based
-figure (14.5%). An earlier version of this analysis showed Lakshadweep as the highest
-population-weighted-exposure island (87.5%) — that turned out to be a DEM data-quality artifact in
-Maldives' and Lakshadweep's original elevation files, not a real finding, and disappeared once the
-underlying data was corrected (see the Research Paper's Limitations section).
+**The two measures mostly agree on island ranking, but not at the very top.** Seychelles is
+highest on settlement-based exposure (78.3%), but on population-weighted exposure, **Maldives (14.9%)
+now narrowly edges out Seychelles (14.2%)** — a reversal from an earlier bounding-box version of this
+figure that had shown Seychelles ahead here too, since corrected by rebuilding each island's boundary
+polygon from OpenStreetMap coastline data and re-clipping the population raster against it (see the
+Research Paper's Limitations section). The 0.7-percentage-point gap between Maldives and Seychelles
+reads as a near-tie rather than a clean reversal. Lakshadweep, Fiji, and Canary Islands keep the same
+relative order on both measures. An earlier version of this analysis also showed Lakshadweep as the
+highest population-weighted-exposure island (87.5%) — that turned out to be a DEM data-quality artifact
+in Maldives' and Lakshadweep's original elevation files, not a real finding, and disappeared once the
+underlying data was corrected.
 
 *Fiji's population-weighted figure reflects approximately 97.6% of its national population —
 elevation data did not cover the easternmost Lau Islands, beyond the antimeridian, and this excluded
@@ -242,12 +246,14 @@ st.markdown("---")
 
 st.markdown("### An Important Caveat")
 st.info("""
-**Every exposure measure here now agrees — which is itself worth noting.** Seychelles has the
-highest settlement-based exposure (78.3%), the highest population-weighted exposure (17.6%), and
-the highest overall Compound Vulnerability Score once coral thermal-stress trend is factored in.
+**Exposure measures mostly agree, but not perfectly — which is itself worth noting.** Seychelles has the
+highest settlement-based exposure (78.3%) and the highest overall Compound Vulnerability Score once
+coral thermal-stress trend is factored in. Population-weighted exposure alone now shows **Maldives
+(14.9%) marginally ahead of Seychelles (14.2%)**, after a boundary-polygon correction to the underlying
+mask (see Limitations, Research Paper) — close enough to read as a near-tie, not a clean disagreement.
 An earlier version of this analysis showed Maldives and Lakshadweep as far more exposed on both
 measures, which created an appearance of disagreement between indicators — that turned out to be a
-DEM data-quality artifact rather than a real finding (see Limitations, Research Paper). The
+DEM data-quality artifact rather than a real finding. The
 broader methodological point still holds: exposure, however it's measured, is a necessary but
 insufficient measure of true climate vulnerability on its own, since it leaves out ecosystem
 condition entirely.

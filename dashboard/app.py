@@ -107,10 +107,11 @@ st.markdown(
             Climate adaptation funding for small islands is often allocated using
             single-indicator exposure metrics like sea-level-rise risk alone. This project tested
             whether that single indicator would agree with a composite that also accounts for
-            ecosystem condition — and here it does: Seychelles comes out highest on physical exposure,
-            population-weighted exposure, and the overall Compound Vulnerability Score alike, a
-            convergence across independent measures that is itself a more robust finding than a single
-            indicator pointing one way and a composite pointing another. Treating "ecosystem
+            ecosystem condition — and mostly it does: Seychelles comes out highest on settlement-based
+            physical exposure and the overall Compound Vulnerability Score alike, while population-weighted
+            exposure specifically now shows Maldives marginally ahead after a boundary-polygon correction
+            (see Physical Exposure), close enough to read as a near-tie between the two rather than a
+            clean disagreement. Treating "ecosystem
             degradation" as one uniform trend would be a separate mistake: coral reefs are genuinely
             declining, but mangroves, tested with equal rigor, are not — a finding that only survives
             because it wasn't assumed away from the start.
@@ -146,10 +147,12 @@ with col_right:
             <p style="color:{PALETTE['navy']}; text-transform:uppercase; font-size:0.75rem;
                       letter-spacing:1.5px; font-weight:700; margin-bottom:10px;">Core Finding</p>
             <p style="color:{PALETTE['text_dark']}; font-size:0.95rem; line-height:1.6; margin:0;">
-                <b>Seychelles</b> is the highest-risk island on every measure tested — settlement-based
-                exposure (78.3% of settlements at risk), population-weighted exposure (17.6% of
-                population), and the overall Compound Vulnerability Score once coral thermal-stress
-                trend is factored in on top of exposure. An earlier version of this analysis showed the
+                <b>Seychelles</b> is the highest-risk island on settlement-based
+                exposure (78.3% of settlements at risk) and the overall Compound Vulnerability Score once
+                coral thermal-stress trend is factored in on top of exposure. Population-weighted exposure
+                is closer: after a boundary-polygon fix, <b>Maldives</b> (14.9% of population) now
+                narrowly edges out Seychelles (14.2%) on this one measure specifically — a near-tie, not a
+                clean reversal. An earlier version of this analysis showed the
                 Maldives and Lakshadweep as far more exposed, which turned out to be a DEM
                 data-quality artifact rather than a real finding — see the Research Paper's
                 Limitations section for the full correction.

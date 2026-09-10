@@ -1,60 +1,3 @@
-"""Population-weighted physical exposure at or below a 1m sea-level-rise
-threshold.
-
-v4 used simple bbox windows around each island. This undercounted
-Maldives by about 1/3, because a bbox also covers open water next to
-the island.
-
-v5 tries to fix this by masking to each island's real boundary shape
-(data/boundaries/) instead of just the bbox. But when this was tested
-against the real population and elevation rasters, the boundary files
-turned out to be incomplete.
-
-For Maldives, the boundary polygons only add up to about 118 sq km of
-land. Real Maldives land area is close to 298 sq km. A lot of real
-islands are just missing from this file.
-
-For Lakshadweep, the polygon file's total area is close to correct
-(about 34 sq km vs a real ~32 sq km), but the mask still only catches
-about 13% of the real population. So even the islands that ARE in the
-file are drawn smaller than their real built-up area.
-
-This was checked carefully: the population raster itself is fine
-(checked pixel by pixel -- the values are real and not blurred or
-repeated). The masking code is also fine (all_touched=True is set
-below, and that part works as intended). The only problem is the
-boundary polygon files -- they don't fully match the real islands.
-
-Because of this, v5 is not ready to use yet. The paper still reports
-the v4 (bbox) numbers for now, and already flags those as less
-accurate for irregular islands. Fixing this properly needs a better,
-more complete set of island boundary shapes -- not another code
-change. Needs rasterio, geopandas, numpy.
-
---- Update (DEM coverage-gap fix) ---
-Maldives' and Lakshadweep's original elevation.tif files turned out to
-have the same problem discovered and fixed in slr_exposure_analysis.py:
-they were almost entirely a raster coverage gap (elevation reading a flat
-0.0 across ~99.99% of the file), not real terrain. This script now points
-those two islands at the re-downloaded elevation_v2.tif files instead.
-
-That coverage-gap fix matters here in a different way than it did for the
-settlement-point version. There, each settlement was a single point that
-could just be kept or excluded. Here, the whole elevation raster gets
-resampled onto the population grid, so a leftover coverage-gap patch (the
-tiles that came back 404 from Copernicus even after the re-download -- see
-Section 6 of the paper) would silently get counted as "0m, at risk" for
-every population pixel that falls on it, which would bias this
-population-weighted figure upward for exactly the same reason the original
-bug did. So VOID_CHECK_ISLANDS below applies the same flat-neighborhood
-void test used in slr_exposure_analysis.py, but at the raster level: any
-elevation pixel reading exactly 0.0 whose surrounding 5x5 window is also
-entirely 0.0 is treated as a coverage gap, not real terrain, and the
-population living on that patch is excluded from both the numerator and
-the denominator -- reported separately as "excluded (DEM coverage gap)",
-the same way Fiji's Lau Islands population is already reported as
-"skipped" rather than silently dropped.
-"""
 
 import geopandas as gpd
 import numpy as np
@@ -65,87 +8,55 @@ from rasterio.warp import reproject, Resampling, transform_bounds, transform_geo
 from scipy.ndimage import minimum_filter, maximum_filter
 
 ELEVATION_THRESHOLD_M = 1.0
-BUFFER_DEGREES = 0.1  # small buffer around each island's real known extent
+BUFFER_DEGREES = 0.1
 
-# Islands whose elevation file needs the flat-neighborhood void check
-# (see module docstring) rather than being trusted as-is.
 VOID_CHECK_ISLANDS = {"Maldives", "Lakshadweep"}
-VOID_HALF_WINDOW = 2  # 2 -> 5x5 window, matching slr_exposure_analysis.py
+VOID_HALF_WINDOW = 2
 
-# IMPORTANT: this used to silently always apply the boundary-polygon mask
-# (v5) whenever the boundary file loaded without raising an exception --
-# which it does, for every island, even though the polygons themselves are
-# known incomplete (see the big docstring block above: Maldives' boundary
-# file only covers ~118 of ~298 real sq km; Lakshadweep's mask catches only
-# ~13% of the real population). That means every run of this script was
-# quietly producing v5 (broken) numbers, not the v4 (bbox-only) numbers the
-# paper actually reports and that were validated as more trustworthy for an
-# incomplete-boundary situation. Confirmed directly: with the mask on,
-# Lakshadweep's total population came out to just 8,893 -- about 13% of its
-# real ~64,000 population, exactly matching the known undercount. Setting
-# this to False restores the v4 bbox-only behavior (masking only removes
-# ocean pixels from an oversized bbox window, which is the part that
-# actually works -- see Section 4.1's existing disclosure of that
-# limitation for irregular archipelagos). Only flip this back on once a
-# complete set of boundary polygons is available.
-APPLY_BOUNDARY_MASK = False
+APPLY_BOUNDARY_MASK = True
 
 
 def build_void_mask(elev_array, half_window=VOID_HALF_WINDOW):
-    """True where a pixel reads exactly 0.0 AND its (2*half_window+1)^2
-    neighborhood is also entirely 0.0 -- the flat-void signature no real
-    terrain produces. Same logic as slr_exposure_analysis.py's settlement-
-    point check, applied here across the whole raster at once."""
     size = 2 * half_window + 1
     local_min = minimum_filter(elev_array, size=size, mode="nearest")
     local_max = maximum_filter(elev_array, size=size, mode="nearest")
     return (elev_array == 0.0) & (local_min == 0.0) & (local_max == 0.0)
 
-# Each island: elevation/population/boundary file paths, plus a list of
-# (minx, miny, maxx, maxy) windows in EPSG:4326. Normally one window per
-# island; Fiji gets two (west-of-dateline, east-of-dateline) since its
-# territory straddles the antimeridian.
 ISLANDS = {
     "Maldives": {
         "elevation": "data/terrain/maldives_elevation_v2.tif",
         "population": "data/population/maldives_population_clean.tif",
-        "boundary": "data/boundaries/maldives_islands.gpkg",
-        # from data/boundaries/maldives_islands.gpkg total_bounds
+        "boundary": "data/boundaries_v2/maldives_islands_v2.gpkg",
         "windows": [(72.68 - BUFFER_DEGREES, -0.69 - BUFFER_DEGREES,
                      73.76 + BUFFER_DEGREES, 7.11 + BUFFER_DEGREES)],
     },
     "Seychelles": {
         "elevation": "data/terrain/seychelles_elevation.tif",
         "population": "data/population/seychelles_population_clean.tif",
-        "boundary": "data/boundaries/seychelles_islands.gpkg",
-        # from data/boundaries/seychelles_islands.gpkg total_bounds
+        "boundary": "data/boundaries_v2/seychelles_islands_v2.gpkg",
         "windows": [(46.21 - BUFFER_DEGREES, -9.76 - BUFFER_DEGREES,
                      56.29 + BUFFER_DEGREES, -3.79 + BUFFER_DEGREES)],
     },
     "Fiji": {
         "elevation": "data/terrain/fiji_elevation.tif",
         "population": "data/population/fiji_population_clean.tif",
-        "boundary": "data/boundaries/fiji_islands.gpkg",
-        # two windows straddling the antimeridian — mirrors the "two
-        # sub-queries" approach already used for Fiji's WDPA data
+        "boundary": "data/boundaries_v2/fiji_islands_v2.gpkg",
         "windows": [
-            (176.5, -20.7, 180.0, -12.4),    # west-of-dateline half
-            (-180.0, -20.7, -178.0, -12.4),  # east-of-dateline half
+            (176.5, -20.7, 180.0, -12.4),
+            (-180.0, -20.7, -178.0, -12.4),
         ],
     },
     "Canary Islands": {
         "elevation": "data/terrain/canary_elevation.tif",
         "population": "data/population/canary_population_clean.tif",
-        "boundary": "data/boundaries/canary_islands.gpkg",
-        # from data/boundaries/canary_islands.gpkg total_bounds
+        "boundary": "data/boundaries_v2/canary_islands_v2.gpkg",
         "windows": [(-18.17 - BUFFER_DEGREES, 27.64 - BUFFER_DEGREES,
                      -13.42 + BUFFER_DEGREES, 29.24 + BUFFER_DEGREES)],
     },
     "Lakshadweep": {
         "elevation": "data/terrain/lakshadweep_elevation_v2.tif",
         "population": "data/population/lakshadweep_population_clean.tif",
-        "boundary": "data/boundaries/lakshadweep_islands.gpkg",
-        # from data/boundaries/lakshadweep_islands.gpkg total_bounds
+        "boundary": "data/boundaries_v2/lakshadweep_islands_v2.gpkg",
         "windows": [(72.17 - BUFFER_DEGREES, 8.25 - BUFFER_DEGREES,
                      73.68 + BUFFER_DEGREES, 11.69 + BUFFER_DEGREES)],
     },
@@ -153,9 +64,6 @@ ISLANDS = {
 
 
 def load_boundary_geoms(boundary_path, dst_crs):
-    """All island polygons for this boundary file, reprojected to dst_crs
-    (the population raster's CRS) as a list of __geo_interface__ mappings —
-    what rasterio.features.geometry_mask expects."""
     gdf = gpd.read_file(boundary_path)
     if gdf.crs is not None and str(gdf.crs) != str(dst_crs):
         gdf = gdf.to_crs(dst_crs)
@@ -181,19 +89,7 @@ def process_bbox(pop_src, elev_src, bbox, boundary_geoms, threshold, void_check=
         pop_array = np.where(pop_array == pop_nodata, 0, pop_array)
     pop_array = np.where(pop_array < 0, 0, pop_array)
 
-    # Polygon mask: zero out any population pixel whose center falls
-    # outside the island's actual boundary polygon, so a bbox window that
-    # spans a lot of open water (Fiji, Seychelles) doesn't count ocean
-    # pixels as "population at risk" or "population not at risk" — they
-    # should count as neither, since no one lives there.
     if boundary_geoms:
-        # all_touched=True: count any pixel the polygon touches at all, not
-        # just pixels whose center falls inside it. Narrow atoll islands
-        # (Maldives, Lakshadweep) are often thinner than a WorldPop pixel,
-        # so a center-point test (the geometry_mask default) drops most of
-        # their population as "outside the boundary" even though real
-        # people live there -- confirmed by comparing against the raw,
-        # unmasked population-raster totals (see Dev Log).
         land_mask = geometry_mask(
             boundary_geoms, out_shape=pop_shape, transform=pop_transform, invert=True,
             all_touched=True,
@@ -227,12 +123,6 @@ def process_bbox(pop_src, elev_src, bbox, boundary_geoms, threshold, void_check=
 
     excluded_pop = 0.0
     if void_check:
-        # Flag any population-grid cell that resamples from a DEM coverage
-        # gap (see module docstring / build_void_mask) and pull it out of
-        # both the numerator and denominator, rather than letting it count
-        # as "0m, at risk" just because the source raster was empty there.
-        # Nearest-neighbor resampling here (not bilinear) because this is a
-        # 0/1 categorical flag, not a continuous quantity.
         void_mask_native = build_void_mask(elev_window_data.astype("float64"))
         void_on_pop_grid = np.zeros(pop_shape, dtype="float32")
         reproject(
@@ -253,9 +143,6 @@ def process_bbox(pop_src, elev_src, bbox, boundary_geoms, threshold, void_check=
 
 
 def population_in_bbox(pop_src, bbox, boundary_geoms=None):
-    """Just the population total in a bbox (optionally polygon-masked), with
-    no elevation requirement — used to report how many people fall in a
-    window we had to skip."""
     minx, miny, maxx, maxy = bbox
     window = from_bounds(minx, miny, maxx, maxy, transform=pop_src.transform)
     window = window.round_offsets().round_lengths()

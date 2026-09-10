@@ -577,3 +577,91 @@ With both fixes in, all 3 independent measures (settlement based exposure, popul
 Recomputed the downstream stuff tht depends on the compound score too. The governance correlation (H3) came out at r=0.965, p=0.035 (up from r=0.862, p=0.138), which crosses into conventional statistical significance for the 1st time. Still only n=4 though, so I'm not letting myself read "significant" as "settled." A single data point could still move both numbers a lot at this sample size, nd said so directly everywhere this result gets reported. The weighting sensitivity sweep also changed. The ~76.8% Maldives overtakes Seychelles crossover point from Entry 9 is gone entirely. Seychelles now leads across the full 0–100% range, no crossover anywhere, which is a cleaner robustness result than before.
 
 Fixed every place carrying the old numbers tht I could find: `slr_exposure_analysis.py`, `population_weighted_exposure.py`, `compound_vulnerability_score.py`, `governance_correlation_test.py`, `research_paper_figures.py`, `precompute_elevations.py`, `export_settlement_elevations_full.py`, `build_interactive_plots.py`, the paper, the executive summary, the README, nd every dashboard page (`app.py` nd the numbered pages under `dashboard/pages/`) tht had the old Maldives/Seychelles ranking baked into its prose or chart data. None of this came from new data collection. Same as Entry 9, it all came from going back over my own code nd checking it actually did wht I assumed it did. This time starting from a QGIS pixel check I should've done back in Entry 9 instead of leaving it as an open item.
+
+## Entry 13
+
+### Someone Ran ChatGPT On My Repo nd Sent Me the Review
+
+Got handed a big list of "errors" a ChatGPT review found in the project, saying the results werent synced properly, old numbers still sitting in the paper, governance r=0.862 vs r=0.965 mismatch, hardcoded stale numbers in governance_correlation_test.py nd build_interactive_plots.py, weighting sensitivity crossover still showing the old ~76.8% number. It even named a specific commit, 50f0d8b, as the latest one.
+
+Didnt jst trust it. Cloned the repo fresh nd checked git log 1st. Tht commit is 5 commits behind wht's actually on main right now. The commit right after it, d6280da ("Sync corrected findings"), is literally the exact fix for everything the review complained abt. So I went thru every single claim by hand, actually running governance_correlation_test.py nd reading build_interactive_plots.py's actual code instead of taking the review's word for it. Every claim came back false against wht's actually in the repo now. r=0.965 is the primary number everywhere, r=0.862 only shows up once nd its clearly labeled as the old pre correction estimate. The weighting sweep chart already says "no crossover" in its own subtitle. So the review wasnt wrong abt wht it saw, it jst saw an old snapshot of the repo, not wht's actually here now.
+
+### Softened the Governance Significance Wording
+
+Asked myself the harder question after tht. Not "is the repo synced" but "is this actually good enough for a real journal." The n=4 governance correlation is the weak spot a reviewer would flag fastest. r=0.965, p=0.035 is technically under 0.05, but calling it "reaches statistical significance" the way I had it worded sounds more confident than 4 data points can really back up. Went thru the paper, executive summary, nd README nd changed every instance of tht phrasing to "crosses the conventional 0.05 threshold" instead. Didnt touch a single number, jst the framing around it, so a reader doesnt walk away thinking this is settled when it isnt.
+
+### Spatial Averaging the Coral DHW Series Instead of 1 Pixel
+
+The coral thermal stress series was always sampled from a single representative coordinate per island, which I'd already disclosed as a limitation but never actually tested against a spatial average. Built a small box (±0.15°) around the same coordinate nd pulled the average across every valid pixel in tht box instead of jst 1 pixel, then reran the seasonal Mann-Kendall trend test on the new series.
+
+Nd the answer held up. Maldives p=0.0011 (was 0.0046), Seychelles p=0.0194 (was 0.0069), both still significant. Fiji, Lakshadweep, nd Canary Islands all still come back not significant, same as before. Canary's actual mean value shifted a lot (0.714 down to 0.478, since the box around it only had 46% valid ocean pixels), but the trend conclusion didnt move at all. So this is a real, tested robustness check now instead of jst an acknowledged gap sitting in the limitations section.
+
+### The Boundary Polygon Problem From Entry 11, Finally Actually Fixed
+
+Entry 11 diagnosed this nd gave up on it. The boundary files were jst incomplete, nd fixing it properly needed better island shapes, not more code. Went back nd actually tried to get better shapes this time.
+
+1st attempt only kept coastline ways tht were already closed loops on their own. Worked great for Maldives (304 sq km, real figure is abt 298), but came back WORSE than the old broken file for Seychelles, Fiji, Canary, nd Lakshadweep, all of them smaller than before. Turns out most real coastlines arent 1 closed way, theyre several segments joined end to end, nd only tiny simple atoll islets happen to be 1 closed way each.
+
+2nd attempt tried also pulling in multipolygon relations, thinking bigger islands might be tagged tht way instead. Came back with 0 results every single time. Not tht kind of data here.
+
+Realized the actual fix nd redid it properly. Fed every coastline way, open or closed, into shapely's polygonize() function, which stitches together anything sharing an endpoint into whatever closed loops it can find. Tht fixed Maldives nd Seychelles right away, both landed close to real figures. Fiji stayed broken tho, because I'd split it into 8 smaller download tiles to avoid server timeouts, nd Fiji's 2 biggest islands are bigger than any single tile, so their coastline ring got cut in half across 2 separate downloads nd never closed. Fixed tht by combining ways from every tile 1st, then running polygonize() once across the whole combined set instead of tile by tile. Canary nd Lakshadweep also needed a small padding buffer added around each search box so a ring jst barely touching the edge didnt get cut off. Tht padding accidentally pushed 1 of Fiji's tiles past 180 degrees longitude (invalid), which took another fix to clamp properly.
+
+Even after all tht, Fiji stayed stuck at abt 13,000 sq km against a real figure near 18,274. Reran it with longer delays between requests thinking it was a rate limit issue, nd got the EXACT same number again, down to the decimal. Tht told me it wasnt a network problem, it was a real gap in the raw coastline data itself, small spots where 2 mapped segments jst dont technically touch. Switched to OSM's official pre built "land polygons" dataset for Fiji specifically, which already has this exact kind of gap cleaned up before its published. Tht got Fiji to 18,820 sq km, finally close to the real number.
+
+Checked every island's final number against an actual cited source afterward instead of jst eyeballing it. Maldives 317.57 vs 300.00 (World Bank), Seychelles 449.55 vs 460.00 (World Bank), Fiji 18,820.57 vs 18,272 (Wikipedia geography page), Canary Islands 7,432.61 vs 7,447 (Wikipedia), Lakshadweep 30.84 vs 32 (the official Lakshadweep government site). All 5 within abt 6% of a real, citable number. Entry 11's "not fixed yet, needs better shapes" is finally closed out for real this time.
+
+### Rerunning Population Weighted Exposure With the New Shapes
+
+Swapped population_weighted_exposure.py over to point at the new boundary files nd flipped APPLY_BOUNDARY_MASK back to True (Entry 11 hd this forced off, for a very good reason back then). Running it now to see the actual new numbers. If it worked, Lakshadweep's total population shouldnt come out anywhere near the ~8,893 it did last time when the mask was silently broken, it should land somewhere close to the real ~64,000. Waiting on tht result before touching anything in the actual paper.
+
+## Entry 14
+
+### The Result Came Back... nd It Wasnt Wht I Expected
+
+Ran the v2 population weighted script (the 1 pointed at the new, actually validated boundary shapes) nd waited. Lakshadweep 1st, since tht was the number I was most worried abt. It came back close to the real population, not tht broken ~8,893 anymore. So the mask itself is working now, tht part I was confident abt.
+
+Then I looked at the full table properly nd my stomach kind of dropped a lil. Seychelles nd Maldives, on population weighted exposure specifically, had flipped. Maldives came out at abt 14.9%, Seychelles at abt 14.2%. Jst barely, but Maldives was ahead. Every single version of this paper, since the very start, has said Seychelles is the highest exposure island on every measure. Nd now 1 of those measures didnt agree anymore.
+
+1st reaction was jst "did I break something." So I didnt jst update the paper. Got asked whether to update the paper straight away or verify 1st, nd picked verify 1st, obviously. This is exactly the kind of thing where jst trusting a new number bc it came out of a "fixed" script would be the wrong move.
+
+### Checking It Myself Before Touching a Single Word of the Paper
+
+Went back to raw basics. Pulled the actual population raster nd the new boundary file for jst Seychelles nd Maldives, wrote a tiny separate script tht redid the exact same masking logic by hand (geometry_mask, all_touched=True, same as the real script), nd summed up the population by hand.
+
+Seychelles matched exactly. 94,175 people inside the mask, same number the real script reported, down to the digit. Maldives came out close too, abt 498,819, matching within a small margin. So the population side of this isnt some fluke or rounding bug, its reproducible from scratch.
+
+Cldnt fully check the elevation/at risk half the same way tho, bc those raster files (nearly 1GB nd 1.5GB) were too big to pull across for this kind of quick check. So tht part stays a small real gap in how far the verification went, nd I said so plainly instead of pretending it was fully checked.
+
+But the mechanism made sense too, not jst the numbers. The whole point of fixing the boundary mask was to stop counting open water next to an island as if it were populated land. Maldives is a spread out archipelago with a lot of water between its islands inside the old bounding box. So a tighter, more accurate boundary would naturally pull the Maldives number down less than expected, or in this case just enough for it to land ahead of Seychelles once Seychelles' own number also came down for the same reason. Not a bug. Jst the fix doing exactly wht it was supposed to do.
+
+### Krde
+
+Once I explained all tht, got the go ahead. Actual go ahead word was jst "krde", which at this point in the project I basically read as "yeah okay I trust the work now, go update it."
+
+So updated the paper, the executive summary, nd the README. Not jst swapping numbers in a table either. Had to go thru every sentence tht said "Seychelles is highest on every measure" or "all measures agree" nd actually rewrite the claim to be accurate. Settlement based exposure nd the compound score still say Seychelles, tht part didnt change. Population weighted exposure specifically now says Maldives, narrowly, like a near tie (abt 0.7 percentage points apart) rather than some clean win. Kept the same style this whole project has used for every correction so far, old number, new number, why it changed, never jst silently swap a number nd move on.
+
+Table ended up like this in the end: Seychelles 14.2%, Maldives 14.9%, Lakshadweep 2.1%, Fiji 1.6%, Canary Islands 1.4%. All 5 numbers moved down from wht the paper hd before, which makes sense since the old bounding box version was always going to be counting some extra water as land.
+
+### Dashboard Too
+
+Realized halfway thru tht the Streamlit dashboard hd the exact same old numbers baked into it in a bunch of spots, the homepage, the physical exposure page, the compound vulnerability page. Even 1 of the actual chart images (fig3, settlement vs population weighted) was generated from a script tht still hd the old hardcoded 17.6/16.9/etc values in it. So fixed the dict in tht script too nd regenerated the chart image itself, not jst the text around it. Wouldve been a bit embarrassing to fix the paper nd leave the live dashboard showing the opposite ranking.
+
+### Cleaned Up the Local Fix Scripts
+
+Got asked to strip all the explanatory comments nd docstrings out of the 4 scripts I'd written this session for local runs (the coral area avg 1, the 2 boundary rebuild 1s, nd the population weighted v2ready 1). Fair enough, those docstrings were mostly me explaining stuff to myself/her mid debugging, not really needed once the script jst works. Wrote a small script using Python's own tokenize nd ast modules to strip every # comment nd every real docstring cleanly without breaking the actual code, ran it, double checked each file still parses nd still does exactly wht it did before. Confirmed 0 leftover comments anywhere after.
+
+### Then Got Asked the Big Question Again: Is This Actually Ready
+
+Went thru the whole project again, this time specifically looking for anything still out of sync now tht the population weighted numbers hd changed. Found 1 real problem this time, not jst a wording thing. The actual population_weighted_exposure.py sitting at the root of the repo, the real 1, not the local_fix_scripts copy, still hd APPLY_BOUNDARY_MASK set to False nd was still pointing at the old boundary files. So if anyone actually ran the canonical script in this repo right now, theyd get the old numbers, not wht the paper says. Exactly the kind of stale code vs paper mismatch tht got flagged by tht ChatGPT review way back. Fixed it myself, flipped the flag, updated all 5 paths to the new boundary files, nd rewrote the docstring to explain the full history instead of jst deleting it.
+
+Also did some actual research on the journal itself this time, not jst guessing. Ocean and Coastal Research turns out to not be restricted to Brazil or South America like I half assumed, its actually international in scope, Scopus nd DOAJ indexed, single blind peer review, no charge to publish. No official Web of Science listing tho, so its a solid mid tier journal, not a flagship 1. Also found out they specifically want AI use disclosed in the Methods section, nd this paper currently has it as its own separate section near the end instead, which is a formatting thing for later, not blocking anything now.
+
+Found 2 more real gaps while scanning. 1st, the coral DHW spatial averaging robustness check I actually did nd tested earlier this session was never written into the paper. The paper still said "this is future work" in 3 different places, which was jst flat out wrong, I hd already done it nd it hd already held up. 2nd, the land area numbers I used to validate the boundary shapes, World Bank nd Wikipedia nd the Lakshadweep gov site, were named in the text but never actually added as real references in the References list.
+
+### Closing Both of Those Out Right Now
+
+For the coral 1, went nd reran the actual numbers myself 1 more time to be sure before writing anything down, since I didnt want to just copy from memory nd get a digit wrong. Confirmed Maldives p=0.0011, Seychelles p=0.0194, both still significant under the spatial average, nd Fiji/Lakshadweep/Canary all still not significant (p=0.517, 0.810, nd 0.382). Every 1 of them matched the original single point conclusion exactly. Rewrote the 3 spots in the paper nd 2 spots in the executive summary tht said "future work" to instead say wht actually happened nd wht the result was.
+
+For the references, swapped out the informal "Wikipedia" mentions for real sources. Fiji nd Canary Islands land area now cite the World Bank nd Instituto Canario de Estadística instead, since Wikipedia isnt really something u cite in an actual paper. Added all 5 as proper entries in the References section, nd updated the numbers in the text itself to match the real, slightly more precise figures from those sources (298 for Maldives instead of 300, 18,270 for Fiji instead of 18,272, tht kind of small correction).
+
+Still left to do after all this: the actual journal formatting pass, which is still deliberately sitting at the very end of the list where it belongs, same as always.
