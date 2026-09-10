@@ -249,8 +249,11 @@ def fig6_governance_alignment():
     # Lakshadweep's WDPA figure is a missing-data placeholder (0.0, not a
     # measured value -- see wdpa_coastal_buffer.py), so it's excluded from
     # the correlation itself even though it's still plotted below for
-    # context. See governance_correlation_test.py.
-    corr_df = df[~df.get("excluded_from_correlation", False)] if "excluded_from_correlation" in df.columns else df
+    # context. See governance_correlation_test.py. It's given a visually
+    # distinct (hollow, greyed-out) marker below specifically so a reader
+    # can't mistake it for one of the n=4 points the r/p is computed from.
+    is_excluded = df.get("excluded_from_correlation", pd.Series([False] * len(df))).astype(bool)
+    corr_df = df[~is_excluded]
 
     r, p = stats.pearsonr(corr_df["vulnerability_score"], corr_df["wdpa_ratio"])
     n = len(corr_df)
@@ -259,28 +262,44 @@ def fig6_governance_alignment():
     ci_low, ci_high = np.tanh(z - 1.96 * se), np.tanh(z + 1.96 * se)
 
     fig, ax = plt.subplots(figsize=(10, 7))
-    colors = [ISLAND_COLOR[i.title().replace("Canary", "Canary Islands")] for i in df["island"]]
-    ax.scatter(df["vulnerability_score"], df["wdpa_ratio"], s=140, c=colors,
-               edgecolor=EDGE, linewidth=1, zorder=3)
+
+    included = df[~is_excluded]
+    excluded = df[is_excluded]
+
+    included_colors = [ISLAND_COLOR[i.title().replace("Canary", "Canary Islands")] for i in included["island"]]
+    ax.scatter(included["vulnerability_score"], included["wdpa_ratio"], s=140, c=included_colors,
+               edgecolor=EDGE, linewidth=1, zorder=3, label=f"Included in correlation (n={n})")
+
+    if len(excluded):
+        ax.scatter(excluded["vulnerability_score"], excluded["wdpa_ratio"], s=140,
+                   facecolor="none", edgecolor="#888888", linewidth=2, linestyle="--",
+                   hatch="//", zorder=3, label="Excluded — no WDPA data (context only)")
 
     for _, row in df.iterrows():
         label = row["island"].title().replace("Canary", "Canary Islands")
+        excl = is_excluded[row.name]
+        if excl:
+            label += "\n(excluded — no WDPA data)"
         ax.annotate(label, (row["vulnerability_score"], row["wdpa_ratio"]),
-                    textcoords="offset points", xytext=(8, 6), fontsize=10, fontweight="bold")
+                    textcoords="offset points", xytext=(10, -22) if excl else (8, 6),
+                    fontsize=10, fontweight="bold" if not excl else "normal",
+                    color=EDGE if not excl else "#888888")
 
     # OLS best-fit line for visual reference — fit on the same n=4 used for
     # the reported correlation, so the line matches the r/p in the title
     slope, intercept, *_ = stats.linregress(corr_df["vulnerability_score"], corr_df["wdpa_ratio"])
     xs = np.linspace(corr_df["vulnerability_score"].min(), corr_df["vulnerability_score"].max(), 50)
-    ax.plot(xs, intercept + slope * xs, color=EDGE, linestyle="--", linewidth=1.3, alpha=0.7, zorder=2)
+    ax.plot(xs, intercept + slope * xs, color=EDGE, linestyle="--", linewidth=1.3, alpha=0.7, zorder=2,
+            label=f"OLS fit (n={n} points only)")
 
     ax.set_xlabel("Compound Vulnerability Score", fontsize=11)
     ax.set_ylabel("WDPA Coastal Protected-Area Ratio", fontsize=11)
     ax.set_title(
         "Governance Alignment: Risk vs. Protected-Area Coverage\n"
-        f"r = {r:.3f}, p = {p:.3f}, 95% CI [{ci_low:.2f}, {ci_high:.2f}] (n={n})",
+        f"r = {r:.3f}, p = {p:.3f}, 95% CI [{ci_low:.2f}, {ci_high:.2f}] (n={n} — hollow point excluded)",
         fontsize=13, fontweight="bold", pad=15
     )
+    ax.legend(loc="upper left", fontsize=9, framealpha=0.9)
     ax.grid(alpha=0.3)
 
     source_caption(fig, "DOUBLE JEOPARDY — Source: World Database on Protected Areas (WDPA), "
@@ -290,7 +309,7 @@ def fig6_governance_alignment():
     plt.savefig(out, dpi=200)
     plt.close(fig)
     print(f"Saved: {out}")
-    print(f"  Governance correlation: r={r:.3f}, p={p:.3f}, 95% CI=[{ci_low:.2f}, {ci_high:.2f}]")
+    print(f"  Governance correlation: r={r:.3f}, p={p:.3f}, 95% CI=[{ci_low:.2f}, {ci_high:.2f}] (n={n})")
 
 
 # ------------------------------------------------------------------

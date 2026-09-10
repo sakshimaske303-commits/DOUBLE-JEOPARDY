@@ -160,7 +160,7 @@ I computed the 95% confidence interval for this correlation via Fisher's z-trans
   <img src="outputs/plots/fig6_governance_alignment.png" width="700">
 </p>
 
-**Figure 6.** Compound Vulnerability Score plotted against the coastal WDPA protected-area ratio for each island, with a fitted OLS reference line. r = 0.965, p = 0.035, 95% CI [0.05, 1.00] (n=4, Lakshadweep excluded — no WDPA measurement available) — a positive relationship that now reaches statistical significance, though the four-point sample is still too small to treat this as confirmatory on its own.
+**Figure 6.** Compound Vulnerability Score plotted against the coastal WDPA protected-area ratio for each island, with a fitted OLS reference line. Lakshadweep is shown as a hollow, hatched marker rather than a filled one — it has no WDPA measurement available and is plotted for visual context only, not included in the regression or the correlation below it. r = 0.965, p = 0.035, 95% CI [0.05, 1.00] (n=4, Lakshadweep excluded) — a positive relationship that now reaches statistical significance, though the four-point sample is still too small to treat this as confirmatory on its own.
 
 ### 4.6 Robustness and Sensitivity Checks
 
