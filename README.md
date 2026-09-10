@@ -12,9 +12,9 @@
 
 | Document | What's Inside |
 |---|---|
-| [`DJ_Executive_Summary.pdf`](./DJ_Executive_Summary.pdf) / [`.md`](./DJ_Executive_Summary.md) | One page snapshot: project overview, question, method, headline finding, robustness checklist, and links (fastest overview; start here) |
-| [`DJ_Research_Paper.md`](./DJ_Research_Paper.md) | Formal academic paper: literature review, statistical methodology, results, discussion |
-| [`DJ_Development_Log.md`](./DJ_Development_Log.md) | Full technical development log: every bug, debugging session, and methodology iteration |
+| [`DJ_Executive_Summary.pdf`](./paper/DJ_Executive_Summary.pdf) / [`.md`](./paper/DJ_Executive_Summary.md) | One page snapshot: project overview, question, method, headline finding, robustness checklist, and links (fastest overview; start here) |
+| [`DJ_Research_Paper.md`](./paper/DJ_Research_Paper.md) | Formal academic paper: literature review, statistical methodology, results, discussion |
+| [`DJ_Development_Log.md`](./paper/DJ_Development_Log.md) | Full technical development log: every bug, debugging session, and methodology iteration |
 
 ---
 
@@ -65,7 +65,7 @@ Interactive geospatial maps are hosted separately via GitHub Pages. Sample links
 
 ## Key Findings
 
-**Coral thermal stress is rising; mangrove extent shows no measurable decline.** 4 of 5 islands show a measurable, rising coral thermal stress trend over 24 years, most severely in Seychelles, based on a continuous 24-year Mann-Kendall trend test. Mangrove extent, assessed at 3 independent time points (a coarser snapshot comparison, short of a continuous trend test), shows no measurable decline in any tested island. This split between the 2 ecosystems, instead of a uniform "ecosystems are collapsing" narrative, is the project's central empirical contribution.
+**Coral thermal stress is rising; mangrove extent shows no measurable decline.** Comparing early period and recent period averages, 4 of 5 islands show increasing coral thermal stress over 24 years, most severely in Seychelles. Run through a seasonal Mann-Kendall trend test on the complete 24-year series, that increase reaches statistical significance for 2 of the 5, Maldives and Seychelles; the more modest increases in Fiji and Lakshadweep don't reach significance, and the Canary Islands shows no significant trend at all. Mangrove extent, assessed at 3 independent time points (a coarser snapshot comparison, short of a continuous trend test), shows no measurable decline in any tested island. This split between the 2 ecosystems, instead of a uniform "ecosystems are collapsing" narrative, is the project's central empirical contribution.
 
 **Seychelles is the highest risk island on settlement based exposure and the overall compound score; population weighted exposure is close to a tie with Maldives.** Settlement based exposure (78.3% of settlements at risk) and the overall Compound Vulnerability Score both point to Seychelles. Population weighted exposure, after a boundary polygon fix corrected a bounding box that had been letting open water leak into the calculation, now shows Maldives (14.9% of population) marginally ahead of Seychelles (14.2%), close enough that it reads as a near tie rather than a clean reversal. This is a correction from an earlier version of this project, where a DEM data quality problem in the Maldives and Lakshadweep elevation files made those 2 islands look far more exposed than they actually are, creating an appearance of disagreement between indicators that turned out not to be real once the underlying data was fixed.
 
@@ -73,7 +73,7 @@ Interactive geospatial maps are hosted separately via GitHub Pages. Sample links
 
 **Findings hold up under robustness checks.** The coral thermal stress trend is confirmed statistically significant via a seasonal Mann-Kendall test for Maldives (p=0.0046) and Seychelles (p=0.0069); the Compound Vulnerability ranking holds across the entire 0–100% physical exposure weighting range, not just the 50/50 weighting actually used; and physical exposure recomputed on a population weighted basis, against boundary polygon files rebuilt from OpenStreetMap coastline data and validated against independently sourced land area figures, mostly agrees with the settlement based ranking, with Maldives and Seychelles in a near tie at the top on this 1 measure specifically.
 
-Full methodology, including 3 hypotheses tested (one supported, one not supported, and one suggestive but statistically inconclusive), is documented in the dashboard's Methodology page and in `DJ_Research_Paper.md`.
+Full methodology, including 3 hypotheses tested (one supported, one not supported, and one supported marginally, crossing the conventional significance threshold on a very small sample), is documented in the dashboard's Methodology page and in `paper/DJ_Research_Paper.md`.
 
 ## Repository Structure
 
@@ -158,4 +158,4 @@ This project is licensed under [CC BY 4.0](./LICENSE), free to share and adapt, 
 
 ---
 
-*This project's full development process, including every debugging session, methodology iteration, and technical decision, is documented in `DJ_Development_Log.md` for full transparency and reproducibility.*
+*This project's full development process, including every debugging session, methodology iteration, and technical decision, is documented in `paper/DJ_Development_Log.md` for full transparency and reproducibility.*
