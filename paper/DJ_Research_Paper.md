@@ -18,6 +18,8 @@ International climate adaptation policy increasingly treats coastal ecosystems (
 
 What's less frequently tested is whether the ecosystems providing that protection are themselves degrading uniformly, or whether adaptation planning that treats them as 1 undifferentiated buffer risks obscuring truly different underlying trajectories. I address that gap directly here, testing mangrove extent and coral reef condition as 2 independent pathways instead of assuming they move together, across a properly cross national, multi ocean basin sample.
 
+A note on the title: "vulnerability spiral" is used here descriptively, for the compounding effect of high physical exposure layered on top of ecosystem buffer degradation, not as a claim that this study models a causal feedback loop between the 2. The data and methodology below are a cross sectional, multi indicator comparison, not a dynamic or time stepped model of exposure and ecosystem condition reinforcing each other over time.
+
 ## 2. Literature Review
 
 ### 2.1 Nature Based Coastal Protection and Its Assumed Uniformity
@@ -70,7 +72,7 @@ As a robustness check, I also ran a Mann-Kendall trend test (nonparametric, stan
 
 ### 3.6 Compound Vulnerability Score
 
-Physical exposure and coral thermal stress trend, normalized to a common 0–1 scale via min max normalization and then combined with equal weighting to form the single Compound Vulnerability Score per island. Mangrove trend doesn't enter as a weighted input at all; there's no measurable decline to weight in the first place.
+Physical exposure and coral thermal stress trend, normalized to a common 0–1 scale via min max normalization and then combined with equal weighting to form the single Compound Vulnerability Score per island. To be specific about which coral figure feeds this score: it's the early-vs-recent DHW period comparison from Section 3.5 (the magnitude of change, e.g. Seychelles' +0.68°C-weeks), not the Mann-Kendall test statistic or p-value from Section 4.3. The seasonal Mann-Kendall test is a separate statistical robustness check on whether that change is a real trend, run on top of the period comparison rather than feeding into the score itself. Mangrove trend doesn't enter as a weighted input at all; there's no measurable decline to weight in the first place.
 
 A note on what this score does and doesn't measure: the standard vulnerability framework in climate science (Turner et al., 2003; also used throughout IPCC assessment reports) breaks vulnerability down into 3 parts: exposure, sensitivity, and adaptive capacity. What I'm calling the Compound Vulnerability Score here only covers the first 2, and only in a physical or ecological sense: how exposed an island's settlements are to sea level rise, and how much thermal stress its coral reefs are showing. It does not include adaptive capacity at all. Things like a community's income level, its access to relocation options, insurance, early warning systems, or government disaster response capacity are not part of this score. Think of this as a physical exposure and ecosystem condition composite, nowhere close to a full socioeconomic vulnerability index. I use the word "vulnerability" here because that's the term this line of research uses for combining exposure with ecosystem buffer condition, not because this score claims to capture the social half of the concept.
 
@@ -84,7 +86,7 @@ A 10 kilometer coastal buffer around each island, not total captured protected a
 
 ### 3.8 Settlement Encroachment
 
-As a 3rd, independent line of evidence, I compared the Normalized Difference Built-up Index (NDBI) between 2016 and 2024, using Sentinel-2 imagery, for the 3 islands where mangroves are present (Maldives, Seychelles, and Fiji), as a directional check on whether settlement pressure is rising in the same broad coastal area as each island's ecosystem buffers. This is a single mean NDBI value per island over a broad bounding region around its main settled area, and it isn't a spatially resolved measurement of change specifically at mangrove or reef buffer boundaries. Take it as descriptive, corroborating context: it doesn't directly test buffer zone encroachment. This is a descriptive comparison. I haven't run it as a formally tested hypothesis: I report the direction and magnitude of change per island, without a significance test.
+As a 3rd, corroborating line of evidence, I compared the Normalized Difference Built-up Index (NDBI) between 2016 and 2024, using Sentinel-2 imagery, for the 3 islands where mangroves are present (Maldives, Seychelles, and Fiji), as a directional check on whether settlement pressure is rising in the same broad coastal area as each island's ecosystem buffers. This is a single mean NDBI value per island over a broad bounding region around its main settled area, and it isn't a spatially resolved measurement of change specifically at mangrove or reef buffer boundaries. Take it as descriptive, corroborating context: it doesn't directly test buffer zone encroachment. This is a descriptive comparison. I haven't run it as a formally tested hypothesis: I report the direction and magnitude of change per island, without a significance test.
 
 ## 4. Results
 
@@ -192,7 +194,7 @@ I ran several additional checks to test how sensitive these central findings are
 
 Together, these checks tell me the central finding, that Seychelles carries the highest compound vulnerability, is robust to the specific weighting choice across its entire range, insensitive to the exact sea level rise threshold used, and backed by a statistically significant coral thermal stress trend test under both single coordinate and spatially averaged sampling. The more exploratory pieces (governance alignment, the smaller coral trends in Fiji and Lakshadweep) I've reported with their actual uncertainty attached. I haven't overstated them, including the governance correlation now crossing the conventional significance threshold on an n=4 sample: a stronger signal, but a fragile one all the same, nowhere near anything confirmed.
 
-### 4.7 Settlement Encroachment: A 3rd, Independent Signal
+### 4.7 Settlement Encroachment: A 3rd, Corroborating Signal
 
 Fiji: essentially no change (−0.0008). Maldives: a clear increase (+0.0461). Seychelles: the strongest signal by far (+0.1135), and the only one of the 3 that crosses from a vegetation dominated to a built up dominated average over the 8 year window. Each of these is a single mean NDBI value over a broad bounding region around the island's main settled area. None of it is localized to mangrove or reef buffer zones specifically. A spatially resolved version of this comparison, isolating just the area immediately around each island's ecosystem buffers, is future work (see Section 6).
 
