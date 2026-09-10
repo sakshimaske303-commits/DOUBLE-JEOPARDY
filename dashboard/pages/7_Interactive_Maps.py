@@ -21,11 +21,11 @@ MAP_SERVER_BASE = "https://sakshimaske303-commits.github.io/DOUBLE-JEOPARDY/dash
 # ============ SLR EXPOSURE ============
 SLR_DATA = {
     "Maldives": {"folder": "maldives_slr_exposure_webmap",
-                 "observation": "99.1% of settlements are at or below 1m elevation — the highest exposure of any island in this study."},
+                 "observation": "14.5% of settlements are at or below 1m elevation. An earlier, DEM-error-driven version of this map showed 99.1%; the corrected Copernicus DEM data brings this down substantially."},
     "Lakshadweep": {"folder": "lakshadweep_slr_exposure_webmap",
-                     "observation": "77.8% of settlements are at risk, despite the smallest sample size (36 settlements)."},
+                     "observation": "7.1% of settlements are at risk, out of the smallest sample size (28 settlements). An earlier, DEM-error-driven version of this map showed 77.8%."},
     "Seychelles": {"folder": "seychelles_slr_exposure_webmap",
-                    "observation": "78.3% of settlements are at risk — yet Seychelles emerges as the highest overall-risk island once ecosystem degradation is factored in."},
+                    "observation": "78.3% of settlements are at risk — the highest of any island tested, and Seychelles also comes out highest on the overall compound vulnerability score once ecosystem degradation is factored in."},
     "Fiji": {"folder": "fiji_slr_exposure_webmap",
              "observation": "Only 1.0% of settlements are at risk — Fiji's volcanic terrain provides substantially more elevation buffer."},
     "Canary Islands": {"folder": "canary_slr_exposure_webmap",

@@ -149,8 +149,9 @@ hl1, hl2 = st.columns([0.94, 0.06])
 with hl1:
     st.warning("""
     **Small sample size.** With only five islands — and only four with a usable governance
-    correlation (H3), whose 95% confidence interval spans from r = -0.58 to r = 1.00 — several
-    findings are statistically suggestive rather than confirmatory. This is a genuine constraint of
+    correlation (H3), whose 95% confidence interval spans from r = 0.05 to r = 1.00 — a single data
+    point could still move the coefficient and p-value substantially, even now that the correlation
+    (r=0.965, p=0.035) has crossed into statistical significance. This is a genuine constraint of
     cross-national island research, not glossed over in this project's conclusions.
     """)
 with hl2:

@@ -41,7 +41,7 @@ st.markdown("### The Five Islands")
 col1, col2, col3, col4, col5 = st.columns(5)
 
 islands_info = [
-    (col1, "Maldives", "Indian Ocean", "Low-lying coral atolls, extreme SLR exposure", "maldives"),
+    (col1, "Maldives", "Indian Ocean", "Low-lying coral atolls, moderate SLR exposure", "maldives"),
     (col2, "Lakshadweep", "Indian Ocean", "Small coral archipelago, India", "lakshadweep"),
     (col3, "Seychelles", "Western Indian Ocean", "Granite islands, highest compound risk", "seychelles"),
     (col4, "Fiji", "South Pacific", "Volcanic islands, largest cyclone record", "fiji"),

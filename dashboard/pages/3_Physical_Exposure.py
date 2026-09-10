@@ -32,9 +32,9 @@ st.markdown("---")
 st.markdown("### Exposure by Island")
 
 exposure_data = [
-    ("Maldives", 99.1, 996),
     ("Seychelles", 78.3, 244),
-    ("Lakshadweep", 77.8, 36),
+    ("Maldives", 14.5, 819),
+    ("Lakshadweep", 7.1, 28),
     ("Fiji", 1.0, 909),
     ("Canary Islands", 0.3, 4834),
 ]
@@ -79,9 +79,9 @@ than counting settlement points alone.
 """)
 
 comparison_data = [
-    ("Maldives", 99.1, 64.5),
     ("Seychelles", 78.3, 17.6),
-    ("Lakshadweep", 77.8, 87.5),
+    ("Maldives", 14.5, 16.9),
+    ("Lakshadweep", 7.1, 2.2),
     ("Fiji", 1.0, 2.1),
     ("Canary Islands", 0.3, 1.6),
 ]
@@ -118,11 +118,13 @@ fig_compare.update_layout(
 st.plotly_chart(fig_compare, use_container_width=True)
 
 st.warning("""
-**The ranking changes materially once weighted by population.** Lakshadweep — third by
-settlement-based exposure — becomes the **highest** population-weighted exposure island (87.5%),
-while the Maldives drops from 99.1% (settlement-based) to 64.5% (population-weighted). This indicates
-that *where* people are concentrated within an island's settlement pattern matters independently of
-how many settlement locations fall below the threshold.
+**Both measures now agree on the same island ranking, though not in magnitude.** Seychelles is
+highest by both settlement-based (78.3%) and population-weighted (17.6%) exposure, with Maldives
+close behind on the population-weighted measure (16.9%) despite a much lower settlement-based
+figure (14.5%). An earlier version of this analysis showed Lakshadweep as the highest
+population-weighted-exposure island (87.5%) — that turned out to be a DEM data-quality artifact in
+Maldives' and Lakshadweep's original elevation files, not a real finding, and disappeared once the
+underlying data was corrected (see the Research Paper's Limitations section).
 
 *Fiji's population-weighted figure reflects approximately 97.6% of its national population —
 elevation data did not cover the easternmost Lau Islands, beyond the antimeridian, and this excluded
@@ -191,9 +193,10 @@ st.caption(f"Recalculated live from {sum(custom_totals):,} settlement-level elev
 
 st.info("""
 **Robustness check — is 1m the right threshold?** Re-running the same analysis at 0.5m and 1.5m
-(the practical range of near-term sea-level-rise scenarios) shifts each island's exposure by at
-most about eight-tenths of a percentage point, and never changes the island ranking. Maldives (≈99%) and Seychelles
-(≈78%) stay the two most exposed islands, Canary Islands and Fiji stay the two least exposed (both
+(the practical range of near-term sea-level-rise scenarios) moves most islands by very little; the
+largest swing is Maldives, at up to 3.8 percentage points between the two extremes — still small in
+absolute terms, and not enough to change the ranking at any threshold tested. Seychelles (≈78%)
+stays the most exposed island throughout, Canary Islands and Fiji stay the two least exposed (both
 well under 2%) at every threshold tested. The 1m benchmark used throughout this study is not doing
 hidden work in the result.
 """)
@@ -206,14 +209,18 @@ col1, col2 = st.columns(2)
 with col1:
     st.error("""
     **Low-lying coral atolls** — Maldives and Lakshadweep sit almost entirely within a 0–20 meter
-    elevation range, a direct consequence of their coral-atoll geology. This makes near-total
-    settlement exposure to sea-level rise a structural, not incidental, feature of these nations.
+    elevation range, a direct consequence of their coral-atoll geology. That still leaves a
+    meaningful minority of settlements (14.5% and 7.1% respectively) at or below the 1-meter
+    threshold — moderate exposure, not the near-total exposure an earlier, DEM-error-driven version
+    of this analysis suggested.
     """)
 with col2:
     st.success("""
     **Volcanic, mountainous terrain** — The Canary Islands rise to nearly 3,700 meters at Mount
-    Teide, and Seychelles' granite islands reach over 900 meters, giving settlements considerably
-    more elevation buffer even where coastal development is dense.
+    Teide, giving settlements considerably more elevation buffer even where coastal development is
+    dense. Seychelles is the exception among the higher-elevation islands: despite granite peaks
+    over 900 meters, its settlement pattern concentrates disproportionately in low-lying coastal
+    areas, which is what drives its 78.3% exposure figure — the highest in this sample.
     """)
 
 st.markdown("---")
@@ -235,11 +242,15 @@ st.markdown("---")
 
 st.markdown("### An Important Caveat")
 st.info("""
-**Physical exposure alone can be misleading.** The Maldives shows the highest settlement-based
-exposure of any island in this sample (99.1%) — a figure that drops to 64.5% once weighted by
-population — yet even so, it is **not** the highest-overall-risk island once ecosystem degradation
-is factored in, as the Compound Vulnerability analysis shows. Elevation-based exposure, however it
-is measured, is a necessary but insufficient measure of true climate vulnerability.
+**Every exposure measure here now agrees — which is itself worth noting.** Seychelles has the
+highest settlement-based exposure (78.3%), the highest population-weighted exposure (17.6%), and
+the highest overall Compound Vulnerability Score once coral thermal-stress trend is factored in.
+An earlier version of this analysis showed Maldives and Lakshadweep as far more exposed on both
+measures, which created an appearance of disagreement between indicators — that turned out to be a
+DEM data-quality artifact rather than a real finding (see Limitations, Research Paper). The
+broader methodological point still holds: exposure, however it's measured, is a necessary but
+insufficient measure of true climate vulnerability on its own, since it leaves out ecosystem
+condition entirely.
 """)
 
 st.markdown("---")

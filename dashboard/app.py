@@ -92,7 +92,7 @@ with col2:
 with col3:
     st.metric("TIME SPAN", "1996–2024", "28 years")
 with col4:
-    st.metric("HIGHEST RISK", "Seychelles", "Score: 0.895")
+    st.metric("HIGHEST RISK", "Seychelles", "Score: 1.000")
 
 st.markdown("---")
 
@@ -105,12 +105,15 @@ st.markdown(
                   font-weight:700; font-size:0.85rem; margin-bottom:8px;">Why This Matters</p>
         <p style="color:{PALETTE['text_dark']}; font-size:1rem; line-height:1.6; margin:0;">
             Climate adaptation funding for small islands is often allocated using
-            single-indicator exposure metrics like sea-level-rise risk alone. This project shows that
-            can be actively misleading: the Maldives has the highest physical exposure of any island
-            tested — yet Seychelles is the highest overall-risk island once ecosystem-buffer
-            degradation is factored in. Treating "ecosystem degradation" as one uniform trend would be
-            another mistake: coral reefs are genuinely declining, but mangroves, tested with equal
-            rigor, are not — a finding that only survives because it wasn't assumed away from the start.
+            single-indicator exposure metrics like sea-level-rise risk alone. This project tested
+            whether that single indicator would agree with a composite that also accounts for
+            ecosystem condition — and here it does: Seychelles comes out highest on physical exposure,
+            population-weighted exposure, and the overall Compound Vulnerability Score alike, a
+            convergence across independent measures that is itself a more robust finding than a single
+            indicator pointing one way and a composite pointing another. Treating "ecosystem
+            degradation" as one uniform trend would be a separate mistake: coral reefs are genuinely
+            declining, but mangroves, tested with equal rigor, are not — a finding that only survives
+            because it wasn't assumed away from the start.
         </p>
     </div>
     """,
@@ -143,11 +146,13 @@ with col_right:
             <p style="color:{PALETTE['navy']}; text-transform:uppercase; font-size:0.75rem;
                       letter-spacing:1.5px; font-weight:700; margin-bottom:10px;">Core Finding</p>
             <p style="color:{PALETTE['text_dark']}; font-size:0.95rem; line-height:1.6; margin:0;">
-                Physical exposure alone doesn't tell the whole story. The <b>Maldives</b> has the
-                highest sea-level-rise exposure of any island tested (99.1% of settlements at risk) —
-                yet <b>Seychelles</b> emerges as the highest overall-risk island once ecosystem
-                degradation is factored in, driven by the most severe coral thermal-stress
-                trend recorded across the sample.
+                <b>Seychelles</b> is the highest-risk island on every measure tested — settlement-based
+                exposure (78.3% of settlements at risk), population-weighted exposure (17.6% of
+                population), and the overall Compound Vulnerability Score once coral thermal-stress
+                trend is factored in on top of exposure. An earlier version of this analysis showed the
+                Maldives and Lakshadweep as far more exposed, which turned out to be a DEM
+                data-quality artifact rather than a real finding — see the Research Paper's
+                Limitations section for the full correction.
             </p>
         </div>
         """, unsafe_allow_html=True
@@ -190,11 +195,12 @@ with h3:
     st.markdown(f"""
     <div style="background: {PALETTE['card_bg']}; border-radius: 14px;
                 padding: 20px; border: 2px solid {PALETTE['cyan']}; min-height: 200px;">
-        <p style="color: {PALETTE['cyan']}; font-weight: 800; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 8px;">H3 — Suggestive</p>
+        <p style="color: {PALETTE['cyan']}; font-weight: 800; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 8px;">H3 — Supported (Marginally)</p>
         <p style="color: {PALETTE['navy']}; font-weight: 700; font-size: 1rem; margin-bottom: 8px;">Governance Is Partially Aligned</p>
         <p style="color: {PALETTE['text_dark']}; font-size: 0.85rem; margin: 0;">
-            Strong positive correlation (r=0.862, n=4 — Lakshadweep excluded, no WDPA data) between risk and
-            protection — but not statistically significant at this sample size (p=0.138, 95% CI: -0.58 to 1.00).
+            Strong positive correlation (r=0.965, n=4 — Lakshadweep excluded, no WDPA data) between risk and
+            protection — reaching statistical significance (p=0.035, 95% CI: 0.05 to 1.00), though the
+            four-point sample is still too small to treat this as confirmatory.
         </p>
     </div>
     """, unsafe_allow_html=True)
