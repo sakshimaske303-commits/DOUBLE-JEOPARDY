@@ -54,7 +54,7 @@ This file shows the 7 figures for this manuscript, in the order they appear in t
   <img src="outputs/plots/compound_vulnerability_score.png" width="500">
 </p>
 
-**Figure 5.** Compound Vulnerability Score across the 5 study islands, combining normalized physical sea level rise exposure and long term coral thermal stress trend using equal weighting. Seychelles is the most vulnerable island on the settlement based exposure measure and on the compound score; population weighted exposure alone now shows Maldives narrowly ahead instead (see Section 3.1 of the manuscript). The compound score's contribution here is confirming that the settlement based ranking holds up once each island's coral thermal stress trend gets factored in on top of exposure. There was no disagreement between indicators here that needed resolving.
+**Figure 5.** Compound Vulnerability Score across the 5 study islands, combining normalized physical exposure (a static 1 m elevation threshold used as a sea level rise exposure proxy) and the change in coral thermal stress between early and recent reference periods, using equal weighting. Seychelles is the most vulnerable island on the settlement based exposure measure and on the compound score; population weighted exposure alone now shows Maldives narrowly ahead instead (see Section 3.1 of the manuscript). The compound score's contribution here is confirming that the settlement based ranking holds up once each island's coral thermal stress change gets factored in on top of exposure. There was no disagreement between indicators here that needed resolving.
 
 [View this figure on GitHub](https://github.com/sakshimaske303-commits/DOUBLE-JEOPARDY/blob/main/outputs/plots/compound_vulnerability_score.png)
 

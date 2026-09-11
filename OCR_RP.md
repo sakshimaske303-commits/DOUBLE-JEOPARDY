@@ -2,7 +2,7 @@
 
 **Running Title:** Compound Climate Vulnerability Across Small Islands
 
-**Sakshi D. Maske** (Corresponding Author)
+**Sakshi D. Maske** (Corresponding Author)*
 
 *Independent Geospatial Researcher*<br>
 Jagdamba Colony, Ward 13, Karanja Ghadge, Wardha, Maharashtra 442203, India<br>
@@ -10,13 +10,15 @@ Email: [sakshimaske303@gmail.com](mailto:sakshimaske303@gmail.com)<br>
 Phone: [+91 7796374568](tel:+917796374568)<br>
 ORCID: [https://orcid.org/0009-0002-5683-5966](https://orcid.org/0009-0002-5683-5966)
 
+*Corresponding author.
+
 **Conflict of Interest:** I declare no conflict of interest.
 
 ## Abstract
 
-Small islands are widely assumed to face a compounding climate risk: high physical exposure to sea level rise layered on top of degrading coastal defenses. This assumption is rarely tested against independent, multi-temporal evidence, or broken down by ecosystem type. This study tests it directly across 5 islands in 3 ocean basins (Maldives, Lakshadweep, Seychelles, Fiji, and the Canary Islands), treating mangrove decline and coral reef degradation as 2 separate, independently tested pathways rather than one combined category. Physical exposure was derived from settlement-level elevation data; mangrove extent was tracked at 3 independent time points (1996, 2010, 2020); coral condition came from a 24-year, monthly-sampled satellite-derived thermal stress record (1996–2020). Coral reef systems show a measurable, rising bleaching stress trend in 4 of 5 islands, most severely in Seychelles, while mangroves show no measurable decline in any of the 3 islands where present, so ecosystem decline is not uniform across type. Combining physical exposure with the coral thermal stress trend into a composite Compound Vulnerability Score, Seychelles remains the highest-risk island overall. Population-weighted exposure tells a closer story: Maldives (14.9%) sits marginally ahead of Seychelles (14.2%), close enough to read as a near tie rather than a clean disagreement between measures. A supplementary test of whether protected area coverage aligns with this empirically verified risk found a positive relationship whose p-value crosses the conventional 0.05 threshold on a small, 4-island sample (r=0.965, p=0.035), a signal read with caution given how few data points support it. A descriptive comparison of settlement expansion (2016–2024) adds a 3rd, corroborating signal: Seychelles shows the clearest built-up increase in its broader settled area, while Fiji shows none. In short, coastal ecosystem degradation does not happen uniformly across type, with direct implications for how adaptation and conservation resources should be prioritized.
+Small islands are widely assumed to face a compounding climate risk: high physical exposure to sea level rise layered on top of degrading coastal defenses. This assumption is rarely tested against independent, multi-temporal evidence, or broken down by ecosystem type. This study tests it directly across 5 islands in 3 ocean basins (Maldives, Lakshadweep, Seychelles, Fiji, and the Canary Islands), treating mangrove decline and coral reef degradation as 2 separate, independently tested pathways rather than one combined category. Physical exposure was derived from settlement-level elevation data; mangrove extent was tracked at 3 independent time points (1996, 2010, 2020); coral condition came from a 24-year, monthly-sampled satellite-derived thermal stress record (1996–2020). Coral reef systems show a measurable, rising bleaching stress trend in 4 of 5 islands, most severely in Seychelles, while mangroves show no measurable decline in any of the 3 islands where present, so ecosystem decline is not uniform across type. Combining physical exposure with the change in coral thermal stress between early and recent reference periods into a composite Compound Vulnerability Score, Seychelles remains the highest-risk island overall. Population-weighted exposure tells a closer story: Maldives (14.9%) sits marginally ahead of Seychelles (14.2%), close enough to read as a near tie rather than a clean disagreement between measures. A supplementary test of whether protected area coverage aligns with this empirically verified risk found a positive relationship whose p-value crosses the conventional 0.05 threshold on a small, 4-island sample (r=0.965, p=0.035), a signal read with caution given how few data points support it. A descriptive comparison of settlement expansion (2016–2024) adds a 3rd, corroborating signal: Seychelles shows the clearest built-up increase in its broader settled area, while Fiji shows none. In short, coastal ecosystem degradation does not happen uniformly across type, with direct implications for how adaptation and conservation resources should be prioritized.
 
-**Keywords**: sea level rise, mangroves, coral bleaching, protected area effectiveness, remote sensing
+**Keywords**: sea level rise, mangroves, coral bleaching, protected area coverage, remote sensing
 
 ---
 
@@ -56,7 +58,7 @@ Table 1 lists the variables used in this study, their sources, and temporal cove
 
 ### 2.3 Physical Exposure
 
-Elevation, sampled at every settlement location across all 5 islands, gave me the proportion of settlements sitting at or below a standard 1 meter sea level rise threshold per island.
+Elevation, sampled at every settlement location across all 5 islands, gave me the proportion of settlements sitting at or below a standard 1 meter sea level rise threshold per island. This is a static elevation threshold used as a proxy for sea level rise exposure, not a dynamic inundation model; it doesn't incorporate tidal datum reconciliation, land subsidence, storm surge, or hydrodynamic connectivity to the sea. The 1 meter figure should be read in that light throughout this paper, including in Sections 3.1 and 3.6 and in the tables and figures reporting it.
 
 As a complementary metric, I also computed physical exposure on a population weighted basis. WorldPop 2020 population raster cells were classified as at risk where their corresponding elevation (resampled to the population grid) fell at or below the 1 meter threshold, and I calculated the proportion of total population at risk straight from population counts. This is a separate number from the settlement count version above. I ran this for all 5 islands; Lakshadweep's population raster, previously unavailable because of the impractical file size of India's national dataset, I obtained via a subset clipped from a smaller regional file. For Fiji, elevation coverage didn't extend to the easternmost Lau Islands (beyond the antimeridian), so Fiji's population weighted exposure reflects approximately 97.6% of its national population. I've reported the excluded portion explicitly here. I checked how big that gap actually was; I didn't want to just wave it away as too small to matter. The population weighted figures reported below originally classified pixels using a rectangular bounding box around each island. That box wasn't the same as clipping to the island's actual boundary polygon; a small amount of open water could fall inside that box for irregular archipelagos (Fiji, Seychelles). I've since rebuilt each island's boundary polygon file from OpenStreetMap coastline data, validated the rebuilt shapes against independently sourced land area figures, and reran this analysis with the boundary polygon mask in place of the bounding box (see Section 4.4). The figures reported below are the boundary polygon version.
 
@@ -174,7 +176,7 @@ The settlement encroachment comparison adds a 3rd angle on the same island, for 
 
 ## 5. Conclusions
 
-Small islands do face a compounding vulnerability to climate change, but that compounding is neither uniform across ecosystem type nor adequately captured by physical exposure alone. Coral thermal stress is measurable and increasing across most of the sample; mangrove extent, assessed across multiple independent time points but without a comparable continuous trend test, shows no comparable decline. The implication for adaptation and conservation policy follows directly. Resources allocated under an assumption of uniform ecosystem risk may be systematically misallocated relative to where degradation is actually happening.
+Across the 5 islands examined here, compounding vulnerability to climate change is real, but that compounding is neither uniform across ecosystem type nor adequately captured by physical exposure alone. As a 5 island exploratory case comparison, this study's findings should be read as case level evidence rather than a population wide claim about small islands in general (see Section 2.1). Coral thermal stress is measurable and increasing across most of the sample; mangrove extent, assessed across multiple independent time points but without a comparable continuous trend test, shows no comparable decline. The implication for adaptation and conservation policy follows directly. Resources allocated under an assumption of uniform ecosystem risk may be systematically misallocated relative to where degradation is actually happening.
 
 ## AI Use Disclosure
 
@@ -182,7 +184,7 @@ Generative artificial intelligence tools (Claude, Anthropic) were used during th
 
 ## Data Availability Statement
 
-All data, analysis scripts, and outputs supporting the findings of this study are publicly available in the DOUBLE JEOPARDY [GitHub repository](https://github.com/sakshimaske303-commits/DOUBLE-JEOPARDY), archived on [Zenodo](https://doi.org/10.5281/zenodo.21739961) (DOI: 10.5281/zenodo.21739961), and posted as a preprint on [EarthArXiv](https://eartharxiv.org/repository/view/14826/).
+All analysis scripts and derived/processed outputs supporting the findings of this study are publicly available in the DOUBLE JEOPARDY [GitHub repository](https://github.com/sakshimaske303-commits/DOUBLE-JEOPARDY), archived on [Zenodo](https://doi.org/10.5281/zenodo.21739961) (DOI: 10.5281/zenodo.21739961). The underlying source datasets (Global Mangrove Watch, NOAA Coral Reef Watch, the World Database on Protected Areas, Copernicus DEM, WorldPop, and OpenStreetMap) are not redistributed in the repository and remain publicly available from their respective original providers, identified in Table 1 and throughout Material and Methods. A preprint of this manuscript is posted on [EarthArXiv](https://eartharxiv.org/repository/view/14826/).
 
 ## Supplementary Material
 
