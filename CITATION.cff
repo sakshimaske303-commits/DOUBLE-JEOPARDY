@@ -15,9 +15,15 @@ abstract: >-
   elevation data, mangrove extent tracking (1996, 2010, 2020), and 24-year
   coral bleaching records. Key findings reveal statistically significant
   coral bleaching stress trends in the Maldives and Seychelles, stable
-  mangrove coverage across all islands, and a Compound Vulnerability Score
-  showing highest risk in Seychelles despite the Maldives having the
-  greatest physical exposure (99.1% of settlements at risk).
+  mangrove coverage across the three islands where mangroves are present,
+  and a Compound Vulnerability Score showing Seychelles as the highest-risk
+  island overall, leading on both settlement-based physical exposure (78.3%
+  of settlements at risk) and the composite score. Population-weighted
+  exposure specifically is close to a tie at the top, with Maldives (14.9%
+  of population) marginally ahead of Seychelles (14.2%). A supplementary
+  governance-alignment test finds protected-area coverage positively
+  correlated with this verified vulnerability (r=0.965, p=0.035, n=4
+  islands).
 keywords:
   - sea-level rise
   - mangroves
