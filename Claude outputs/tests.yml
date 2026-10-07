@@ -1,0 +1,31 @@
+name: Data integrity tests
+
+# Runs the invariant checks in tests/test_data_integrity.py on every push and
+# pull request, so a change that silently breaks the counts, coordinates, or
+# panel structure this project's headline numbers rest on (251 core treated
+# villages, 732 controls, 14 districts, zero treated/control coordinate
+# overlap, and so on) fails loudly in CI instead of surfacing downstream in a
+# robustness check, the way several of the bugs in BO_Development_Log.md did.
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  data-integrity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      # Deliberately minimal: test_data_integrity.py only imports pandas, and
+      # keeping this job to that one dependency avoids the native build
+      # tooling (GDAL, etc.) that geopandas/rasterio need, which this check
+      # doesn't. If the test suite grows to need more of requirements.txt,
+      # switch this to `pip install -r requirements.txt`.
+      - run: pip install pandas
+
+      - run: python tests/test_data_integrity.py
