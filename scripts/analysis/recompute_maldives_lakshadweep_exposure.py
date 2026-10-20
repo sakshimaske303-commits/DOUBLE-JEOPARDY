@@ -1,3 +1,12 @@
+"""SUPERSEDED (2026-10-10) -- historical record only, not part of the pipeline.
+This was the one-off rerun after the Maldives/Lakshadweep DEM re-download. It
+has two known problems found in the Forensic Review: (1) points outside the DEM
+extent read 0.0 and could survive the 5x5 void test (Lakshadweep's North Islet
+and Sand Cay), and (2) the excluded points were attributed to missing (404)
+Copernicus tiles, but none of the 177 Maldives exclusions lie in a missing tile;
+they are settlement points on 0 m water pixels. Use
+scripts/analysis/slr_exposure_analysis.py instead.
+"""
 import geopandas as gpd
 import numpy as np
 import rasterio

@@ -1,6 +1,6 @@
-island,wdpa_coastal_km2,ratio
-maldives,424.18,3.9
-seychelles,4933.4,11.32
-fiji,7902.76,0.42
-canary,17179.36,2.32
-lakshadweep,0.0,0.0
+island,land_km2,coastal_zone_km2,wdpa_sum_km2_overlapping,wdpa_coastal_km2,pct_coastal_zone_protected,pct_coastal_zone_strict_iucn,ratio,wdpa_available
+maldives,292.94,47930.52,648.78,644.04,1.34,0.37,2.2,True
+seychelles,443.86,13992.2,10344.81,9991.95,71.41,9.95,22.51,True
+fiji,18819.28,71711.17,10512.42,8734.3,12.18,2.15,0.46,True
+canary,7434.12,20428.74,17788.52,10301.57,50.43,10.81,1.39,True
+lakshadweep,30.82,5738.6,,,,,,False

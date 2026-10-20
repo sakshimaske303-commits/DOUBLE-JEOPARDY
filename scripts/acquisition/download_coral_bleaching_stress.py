@@ -12,7 +12,7 @@ ISLAND_POINTS = {
     "maldives": (73.5, 3.5),
     "seychelles": (55.5, -4.5),
     "fiji": (178.5, -17.5),
-    "canary": (-15.5, 28.0),
+    "canary": (-15.375, 27.725),  # offshore cell actually used in data/coral_bleaching (the first point, (-15.5, 28.0), fell on land; Dev Log Entry 6)
     "lakshadweep": (72.6, 10.5),
 }
 

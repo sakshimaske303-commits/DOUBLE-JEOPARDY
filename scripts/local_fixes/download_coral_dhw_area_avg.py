@@ -11,7 +11,7 @@ ISLAND_POINTS = {
     "maldives": (73.5, 3.5),
     "seychelles": (55.5, -4.5),
     "fiji": (178.5, -17.5),
-    "canary": (-15.5, 28.0),
+    "canary": (-15.375, 27.725),  # NOTE: the existing data/coral_bleaching_v2 Canary file was made with the old (-15.5, 28.0) centre, a box mostly over Gran Canaria; re-run to get a box around the real sampling cell. offshore cell actually used in data/coral_bleaching (the first point, (-15.5, 28.0), fell on land; Dev Log Entry 6)
     "lakshadweep": (72.6, 10.5),
 }
 
@@ -88,10 +88,7 @@ def main():
         compare_to_original(island, result)
         time.sleep(1)
 
-    print("\nDone. Zip up data/coral_bleaching_v2/ and send it back along with")
-    print("this console output -- the Mann-Kendall trend test and Section 4.3")
-    print("figures can then be re-run against the area-averaged series to see")
-    print("whether the trend/p-values change at all before touching the paper.")
+    print("\nDone. Next: python scripts/analysis/coral_trend_test.py")
 
 
 if __name__ == "__main__":

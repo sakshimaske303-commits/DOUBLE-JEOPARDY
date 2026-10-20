@@ -50,28 +50,45 @@ def source_caption(ax_fig, text):
 # Makes the paper's Figure 1 — Physical Exposure by Island (settlement-based)
 # ------------------------------------------------------------------
 def fig2_physical_exposure():
-    df = pd.read_csv("data/slr_exposure_summary.csv")
-    df["island"] = df["island"].str.title().replace({"Canary": "Canary Islands"})
-    df = df.sort_values("pct_at_risk", ascending=True)
+    """Main exposure measure (FINISH_PLAN D1, D2): share of PEOPLE at or below
+    1 m, for each elevation model available. Updated 2026-10-11."""
+    path = "data/population_weighted_exposure_by_source.csv"
+    if not os.path.exists(path):
+        path = "data/population_weighted_exposure.csv"
+    df = pd.read_csv(path)
+    if "elevation_source" not in df:
+        df["elevation_source"] = "copernicus"
+    sources = [s for s in ("copernicus", "deltadtm") if s in set(df["elevation_source"])]
+    label = {"copernicus": "Copernicus GLO-30 (surface: includes trees and roofs)",
+             "deltadtm": "DeltaDTM (bare earth, lidar-corrected)"}
+    color = {"copernicus": "#9e9e9e", "deltadtm": BLUE}
+    piv = df.pivot(index="island", columns="elevation_source", values="pct_at_risk").reindex(ISLAND_ORDER)
+    main = "deltadtm" if "deltadtm" in sources else "copernicus"
+    piv = piv.sort_values(main, ascending=True)
 
     fig, ax = plt.subplots(figsize=(11, 7))
-    colors = [RED if p >= 50 else BLUE for p in df["pct_at_risk"]]
-    bars = ax.barh(df["island"], df["pct_at_risk"], color=colors, edgecolor=EDGE, linewidth=0.8)
-
-    for bar, pct, total in zip(bars, df["pct_at_risk"], df["total"]):
-        ax.text(bar.get_width() + 1.2, bar.get_y() + bar.get_height() / 2,
-                 f"{pct:.1f}% (n={int(total)})", va="center", fontsize=10, fontweight="bold")
-
-    ax.set_xlabel("% of Settlements At or Below 1m Elevation Threshold", fontsize=11)
-    ax.set_title(
-        "Physical Exposure by Island\n"
-        "Share of settlement locations at or below the 1-meter sea-level-rise threshold",
-        fontsize=13, fontweight="bold", pad=15
-    )
-    ax.set_xlim(0, 112)
+    y = np.arange(len(piv))
+    h = 0.8 / len(sources)
+    for k, src in enumerate(sources):
+        vals = piv[src].to_numpy()
+        bars = ax.barh(y + (k - (len(sources) - 1) / 2) * h, vals, h, color=color[src],
+                       edgecolor=EDGE, linewidth=0.6, label=label[src])
+        for bar, v in zip(bars, vals):
+            ax.text(bar.get_width() + 0.15, bar.get_y() + bar.get_height() / 2, f"{v:.1f}%",
+                    va="center", fontsize=9, fontweight="bold" if src == main else "normal")
+    ax.set_yticks(y)
+    ax.set_yticklabels(piv.index)
+    ax.set_xlabel("% of population living on land at or below 1 m (heights above EGM2008)", fontsize=11)
+    ax.set_xlim(0, max(1.0, np.nanmax(piv.to_numpy())) * 1.25)
+    ax.set_title("Physical Exposure by Island\nShare of people at or below 1 m, by elevation model",
+                 fontsize=13, fontweight="bold", pad=15)
+    ax.legend(loc="lower right", fontsize=9.5, frameon=True)
     ax.grid(axis="x", alpha=0.3)
-
-    source_caption(fig, "DOUBLE JEOPARDY — Source: Copernicus DEM GLO-30, OpenStreetMap settlements")
+    if len(sources) == 1:
+        ax.text(0.99, 0.96, "DeltaDTM not prepared: Copernicus only", transform=ax.transAxes,
+                ha="right", va="top", fontsize=9, color="#b00")
+    source_caption(fig, "DOUBLE JEOPARDY — WorldPop 2020 (100 m); Copernicus DEM GLO-30; "
+                        "DeltaDTM v1.1 (Pronk et al. 2024)")
     plt.tight_layout()
     out = os.path.join(OUT_DIR, "fig2_physical_exposure_by_island.png")
     plt.savefig(out, dpi=200)
@@ -97,10 +114,21 @@ def fig3_settlement_vs_population():
     # Maldives and Lakshadweep also use the corrected _elevation_v2.tif and
     # the raster-level void-exclusion check -- see the paper's Section 6 for
     # the full DEM coverage-gap fix.
-    population_pct = {
-        "Maldives": 14.9, "Seychelles": 14.2, "Lakshadweep": 2.1,
-        "Fiji": 1.6, "Canary Islands": 1.4,
-    }
+    # Read from population_weighted_exposure.py's output (written since the
+    # 2026-10-10 NoData fix). The hard-coded fallback is the PRE-fix run and is
+    # known to be contaminated for Seychelles; it is used only if the CSV is
+    # missing, with a loud warning.
+    pop_csv = "data/population_weighted_exposure.csv"
+    if os.path.exists(pop_csv):
+        pdf = pd.read_csv(pop_csv)
+        population_pct = dict(zip(pdf["island"], pdf["pct_at_risk"]))
+    else:
+        print("  WARNING: data/population_weighted_exposure.csv not found; using PRE-FIX hard-coded values. "
+              "Run scripts/analysis/population_weighted_exposure.py first.")
+        population_pct = {
+            "Maldives": 14.9, "Seychelles": 14.2, "Lakshadweep": 2.1,
+            "Fiji": 1.6, "Canary Islands": 1.4,
+        }
 
     islands = ISLAND_ORDER
     x = np.arange(len(islands))
@@ -108,30 +136,31 @@ def fig3_settlement_vs_population():
 
     fig, ax = plt.subplots(figsize=(11, 7))
     bars1 = ax.bar(x - width / 2, [settlement_pct[i] for i in islands], width,
-                    label="Settlement-based", color=BLUE, edgecolor=EDGE, linewidth=0.8)
+                    label="Named places (OSM points)", color=BLUE, edgecolor=EDGE, linewidth=0.8)
     bars2 = ax.bar(x + width / 2, [population_pct[i] for i in islands], width,
-                    label="Population-weighted", color=RED, edgecolor=EDGE, linewidth=0.8)
+                    label="People (WorldPop 100 m), main measure", color=RED, edgecolor=EDGE, linewidth=0.8)
 
     for bars in (bars1, bars2):
         for bar in bars:
             h = bar.get_height()
-            ax.text(bar.get_x() + bar.get_width() / 2, h + 1.5, f"{h:.1f}%",
+            ax.text(bar.get_x() + bar.get_width() / 2, h + 0.15, f"{h:.1f}%",
                      ha="center", fontsize=9, fontweight="bold")
 
     ax.set_xticks(x)
     ax.set_xticklabels(islands, fontsize=10)
     ax.set_ylabel("% Exposed to 1m SLR Threshold", fontsize=11)
-    ax.set_ylim(0, 112)
+    ax.set_ylim(0, max(max(settlement_pct.values()), max(population_pct.values())) * 1.25)
     ax.set_title(
-        "Settlement-Based vs. Population-Weighted Physical Exposure\n"
-        "Measures mostly agree on ranking, but Maldives narrowly leads Seychelles on population weighting",
+        "Named Places vs. People: Two Ways to Count Exposure\n"
+        "Share of mapped places and of population at or below 1 m (same elevation model)",
         fontsize=13, fontweight="bold", pad=15
     )
     ax.legend(loc="upper right", fontsize=10, frameon=True)
     ax.grid(axis="y", alpha=0.3)
 
-    source_caption(fig, "DOUBLE JEOPARDY — Source: Copernicus DEM GLO-30, OpenStreetMap, WorldPop 2020 "
-                         "(Fiji reflects ~97.6% of national population; Lau Islands excluded, no elevation coverage)")
+    src = str(pd.read_csv("data/slr_exposure_summary.csv").get("elevation_source", pd.Series(["copernicus"])).iloc[0])
+    source_caption(fig, f"DOUBLE JEOPARDY — OpenStreetMap places (mostly island and islet names), WorldPop 2020; "
+                        f"elevation: {'DeltaDTM v1.1' if src == 'deltadtm' else 'Copernicus GLO-30'}")
     plt.tight_layout()
     out = os.path.join(OUT_DIR, "fig3_settlement_vs_population_weighted.png")
     plt.savefig(out, dpi=200)
@@ -143,59 +172,56 @@ def fig3_settlement_vs_population():
 # Makes the paper's Figure 4 — Coral Thermal Stress Time Series with trend lines
 # ------------------------------------------------------------------
 def fig4_coral_trends():
-    # Precomputed OLS trend (intercept + slope/year, years since series start)
-    # and Mann-Kendall significance, from the robustness-check trend test.
-    # p-values are from the SEASONAL Mann-Kendall test (period=12), not the
-    # plain/original test -- DHW is structurally seasonal, so the plain
-    # test's independence assumption doesn't hold here. See coral_trend_test.py.
-    trend_info = {
-        "Maldives": {"intercept": 0.0895, "slope_per_year": 0.00450, "significant": True, "p": 0.0046},
-        "Seychelles": {"intercept": -0.0668, "slope_per_year": 0.02532, "significant": True, "p": 0.0069},
-        "Fiji": {"intercept": 0.3250, "slope_per_year": 0.00151, "significant": False, "p": 0.2437},
-        "Lakshadweep": {"intercept": 0.1072, "slope_per_year": 0.00254, "significant": False, "p": 0.3725},
-        "Canary Islands": {"intercept": 0.4762, "slope_per_year": 0.01905, "significant": False, "p": 0.6196},
-    }
+    """Small multiples, one panel per island (FINISH_PLAN D3, 2026-10-11): the
+    mean DHW over every 5 km cell of mapped reef (data/coral_bleaching_v3); the
+    Canary Islands have no mapped reef and show their single offshore cell.
+    Panel titles give the correlated seasonal Mann-Kendall p (main test) and the
+    2016-20 vs 1996-2000 change, read from data/coral_trend_results.csv."""
+    res_path = "data/coral_trend_results.csv"
+    res = pd.read_csv(res_path) if os.path.exists(res_path) else None
+    if res is None:
+        print("  WARNING: data/coral_trend_results.csv not found; run scripts/analysis/coral_trend_test.py first.")
 
-    fig, ax = plt.subplots(figsize=(13, 7.5))
-
-    for island in ISLAND_ORDER:
-        file_key = ISLAND_FILE_MAP[island]
-        path = f"data/coral_bleaching/{file_key}_dhw_timeseries.csv"
-        df = pd.read_csv(path, skiprows=[1])
-        df["time"] = pd.to_datetime(df["time"])
+    fig, axes = plt.subplots(len(ISLAND_ORDER), 1, figsize=(12, 13), sharex=True, sharey=True)
+    for ax, island in zip(axes, ISLAND_ORDER):
+        key = ISLAND_FILE_MAP[island]
+        v3 = f"data/coral_bleaching_v3/{key}_dhw_reefcells_mean.csv"
+        if os.path.exists(v3):
+            df, col, series = pd.read_csv(v3), "dhw_mean", "reef_cells"
+        else:
+            df, col, series = (pd.read_csv(f"data/coral_bleaching/{key}_dhw_timeseries.csv", skiprows=[1]),
+                               "degree_heating_week", "single_cell")
+        df["time"] = pd.to_datetime(df["time"], utc=True).dt.tz_convert(None)
         df = df.sort_values("time")
         color = ISLAND_COLOR[island]
+        ax.plot(df["time"], df[col], color=color, linewidth=1.0, alpha=0.85)
+        idx = df.groupby(df["time"].dt.year)[col].idxmax().dropna()
+        amax = df.loc[idx]
+        ax.scatter(amax["time"], amax[col], s=14, color=EDGE, zorder=3)
+        ax.axhline(4, color="orange", linestyle=":", linewidth=1)
+        ax.axhline(8, color="darkred", linestyle=":", linewidth=1)
+        for y0, y1 in ((1996, 2000), (2016, 2020)):
+            ax.axvspan(pd.Timestamp(f"{y0}-01-01"), pd.Timestamp(f"{y1}-12-31"), color="#000", alpha=0.04)
 
-        ax.plot(df["time"], df["degree_heating_week"], color=color, linewidth=1.3,
-                alpha=0.85, label=None)
-
-        info = trend_info[island]
-        start_date, end_date = df["time"].iloc[0], df["time"].iloc[-1]
-        years_elapsed = (end_date - start_date).days / 365.25
-        y_start = info["intercept"]
-        y_end = info["intercept"] + info["slope_per_year"] * years_elapsed
-        sig_label = "significant" if info["significant"] else "not significant"
-        ax.plot([start_date, end_date], [y_start, y_end], color=color, linewidth=2.4,
-                 linestyle="--",
-                 label=f"{island} trend (MK {sig_label}, p={info['p']:.3f})")
-
-    ax.axhline(4, color="orange", linestyle=":", linewidth=1.2)
-    ax.axhline(8, color="darkred", linestyle=":", linewidth=1.2)
-    ax.text(ax.get_xlim()[0], 4.15, " Bleaching threshold (4°C-wk)", fontsize=8, color="darkorange", va="bottom")
-    ax.text(ax.get_xlim()[0], 8.15, " Severe bleaching/mortality (8°C-wk)", fontsize=8, color="darkred", va="bottom")
-
-    ax.set_xlabel("Date", fontsize=11)
-    ax.set_ylabel("Degree Heating Week (°C-weeks)", fontsize=11)
-    ax.set_title(
-        "Coral Thermal Stress Over Time (1996–2020), with Trend Lines\n"
-        "Dashed lines are OLS fits; significance assessed via Mann-Kendall trend test on the full series",
-        fontsize=13, fontweight="bold", pad=15
-    )
-    ax.grid(alpha=0.3)
-    ax.legend(loc="upper left", fontsize=8.5, frameon=True, ncol=1)
-
-    source_caption(fig, "DOUBLE JEOPARDY — Source: NOAA Coral Reef Watch")
-    plt.tight_layout()
+        label = island + (" (mean of all mapped-reef cells)" if series == "reef_cells"
+                          else " (no mapped reef; one offshore cell)")
+        if res is not None:
+            r = res[(res["island"] == key) & (res["series"] == series)]
+            if len(r):
+                r = r.iloc[0]
+                pcol = "csmk_p" if "csmk_p" in r and pd.notna(r.get("csmk_p")) else "smk_calendar_p"
+                label += (f"   |   trend p = {r[pcol]:.2f} (corrected for serial correlation)"
+                          f"   |   2016–20 vs 1996–2000: {r['period_change_2016_20_vs_1996_2000']:+.2f} °C-wk")
+        ax.set_title(label, fontsize=10, loc="left")
+        ax.grid(alpha=0.3)
+        ax.set_ylabel("DHW (°C-wk)", fontsize=9)
+    axes[0].text(0.995, 0.92, "dots: annual maximum; dotted lines: NOAA alert levels 4 and 8 °C-weeks; "
+                 "shaded: the two comparison periods", transform=axes[0].transAxes, ha="right", fontsize=8, color="gray")
+    axes[-1].set_xlabel("Date", fontsize=11)
+    fig.suptitle("Coral Thermal Stress (Degree Heating Weeks), 1996–2020", fontsize=13, fontweight="bold")
+    source_caption(fig, "DOUBLE JEOPARDY — NOAA Coral Reef Watch daily 5 km DHW v3.1, sampled every 30 days; "
+                        "test: correlated seasonal Mann-Kendall (Hirsch and Slack 1984) on calendar-month means")
+    plt.tight_layout(rect=(0, 0.02, 1, 0.97))
     out = os.path.join(OUT_DIR, "fig4_coral_thermal_stress_trends.png")
     plt.savefig(out, dpi=200)
     plt.close(fig)
@@ -229,7 +255,7 @@ def fig5_mangrove_extent():
     ax.set_yscale("log")
     ax.set_title(
         "Mangrove Extent Over Time (1996, 2010, 2020)\n"
-        "Log scale — extent is essentially flat for every island, no net decline detected",
+        "Log scale — no change detected in Global Mangrove Watch v3 (note: v3 epochs are derived from a 2010 baseline)",
         fontsize=13, fontweight="bold", pad=15
     )
     ax.grid(alpha=0.3, which="both")
@@ -271,22 +297,18 @@ def fig6_governance_alignment():
 
     included_colors = [ISLAND_COLOR[i.title().replace("Canary", "Canary Islands")] for i in included["island"]]
     ax.scatter(included["vulnerability_score"], included["wdpa_ratio"], s=140, c=included_colors,
-               edgecolor=EDGE, linewidth=1, zorder=3, label=f"Included in correlation (n={n})")
+               edgecolor=EDGE, linewidth=1, zorder=3, label=f"Islands with WDPA data (n={n})")
 
-    if len(excluded):
-        ax.scatter(excluded["vulnerability_score"], excluded["wdpa_ratio"], s=140,
-                   facecolor="none", edgecolor="#888888", linewidth=2, linestyle="--",
-                   hatch="//", zorder=3, label="Excluded — no WDPA data (context only)")
-
-    for _, row in df.iterrows():
+    # Islands without WDPA data are NOT plotted (plotting them at y = 0 read as
+    # "no protection"); they are listed in a note instead.
+    for _, row in included.iterrows():
         label = row["island"].title().replace("Canary", "Canary Islands")
-        excl = is_excluded[row.name]
-        if excl:
-            label += "\n(excluded — no WDPA data)"
         ax.annotate(label, (row["vulnerability_score"], row["wdpa_ratio"]),
-                    textcoords="offset points", xytext=(10, -22) if excl else (8, 6),
-                    fontsize=10, fontweight="bold" if not excl else "normal",
-                    color=EDGE if not excl else "#888888")
+                    textcoords="offset points", xytext=(8, 6), fontsize=10, fontweight="bold", color=EDGE)
+    if len(excluded):
+        names = ", ".join(i.title() for i in excluded["island"])
+        ax.text(0.99, 0.02, f"Not shown (no WDPA data): {names}", transform=ax.transAxes,
+                ha="right", fontsize=9, color="#888888")
 
     # OLS best-fit line for visual reference — fit on the same n=4 used for
     # the reported correlation, so the line matches the r/p in the title
@@ -296,10 +318,13 @@ def fig6_governance_alignment():
             label=f"OLS fit (n={n} points only)")
 
     ax.set_xlabel("Compound Vulnerability Score", fontsize=11)
-    ax.set_ylabel("WDPA Coastal Protected-Area Ratio", fontsize=11)
+    if "pct_coastal_zone_protected" in df.columns:
+        ax.set_ylabel("Share of 10 km coastal zone protected (%, WDPA, dissolved)", fontsize=11)
+    else:
+        ax.set_ylabel("WDPA area in 10 km coastal zone / land area (ratio)", fontsize=11)
     ax.set_title(
         "Governance Alignment: Risk vs. Protected-Area Coverage\n"
-        f"r = {r:.3f}, p = {p:.3f}, 95% CI [{ci_low:.2f}, {ci_high:.2f}] (n={n} — hollow point excluded)",
+        f"Descriptive only: n = {n} islands; Pearson r = {r:.2f}, 95% CI [{ci_low:.2f}, {ci_high:.2f}]",
         fontsize=13, fontweight="bold", pad=15
     )
     ax.legend(loc="upper left", fontsize=9, framealpha=0.9)
@@ -323,17 +348,12 @@ def fig7_weighting_sensitivity():
     # read from the same CSV Figures 1/2 use rather than hardcoded here, so
     # a corrected exposure figure (e.g. the Fiji NoData fix) can't silently
     # drift out of sync between this figure and the others.
-    _slr_df = pd.read_csv("data/slr_exposure_summary.csv").set_index("island")
-    slr_data = {label: _slr_df.loc[key, "pct_at_risk"] for label, key in ISLAND_FILE_MAP.items()}
-    coral_decline = {"Maldives": 0.17, "Seychelles": 0.68, "Fiji": 0.10, "Canary Islands": -0.05, "Lakshadweep": 0.08}
-
-    def normalize(d):
-        values = list(d.values())
-        min_v, max_v = min(values), max(values)
-        return {k: (v - min_v) / (max_v - min_v) if max_v > min_v else 0 for k, v in d.items()}
-
-    slr_norm = normalize(slr_data)
-    coral_norm = normalize(coral_decline)
+    # Read the scaled inputs straight from compound_vulnerability_score.py's output
+    # (2026-10-11), so this figure always uses the same inputs and Canary rule.
+    _cvs = pd.read_csv("data/compound_vulnerability_scores.csv").set_index("island")
+    slr_norm = {label: _cvs.loc[key, "slr_norm"] for label, key in ISLAND_FILE_MAP.items()}
+    coral_norm = {label: _cvs.loc[key, "coral_norm"] for label, key in ISLAND_FILE_MAP.items()}
+    measure = str(_cvs["exposure_measure"].iloc[0]) if "exposure_measure" in _cvs else "places"
 
     weights = np.linspace(0, 1, 101)  # physical-exposure weight, 0% to 100%
     fig, ax = plt.subplots(figsize=(11, 7))
@@ -345,11 +365,18 @@ def fig7_weighting_sensitivity():
     ax.axvline(50, color=EDGE, linestyle=":", linewidth=1.3)
     ax.text(51, 0.97, "Weighting used in this study (50/50)", fontsize=8.5, color=EDGE)
 
-    ax.set_xlabel("Physical Exposure Weight (%)  —  remainder assigned to coral ecosystem decline", fontsize=10.5)
+    ax.set_xlabel(f"Exposure weight (%), share of {'people' if measure == 'people' else 'named places'} at or below 1 m"
+                  "  —  remainder: change in reef heat stress", fontsize=10.5)
     ax.set_ylabel("Compound Vulnerability Score (normalized, 0–1)", fontsize=11)
+    tops = []
+    for w in weights:
+        sc = {i: slr_norm[i] * w + coral_norm[i] * (1 - w) for i in ISLAND_ORDER}
+        tops.append(max(sc, key=sc.get))
+    changes = [f"{tops[k - 1]} \u2192 {tops[k]} at {weights[k] * 100:.0f}%" for k in range(1, len(tops)) if tops[k] != tops[k - 1]]
+    subtitle = ("Top-ranked island changes: " + "; ".join(changes)) if changes else \
+        f"{tops[0]} is top at every weight (expected if it is highest on both inputs)"
     ax.set_title(
-        "Compound Vulnerability Score — Weighting Sensitivity\n"
-        "Seychelles leads across the entire 0-100% weighting range",
+        "Compound Vulnerability Score — Weighting Sensitivity\n" + subtitle,
         fontsize=13, fontweight="bold", pad=15
     )
     ax.set_xlim(0, 100)
@@ -357,7 +384,8 @@ def fig7_weighting_sensitivity():
     ax.grid(alpha=0.3)
     ax.legend(loc="center left", fontsize=10, frameon=True)
 
-    source_caption(fig, "DOUBLE JEOPARDY — Derived from slr_exposure_summary.csv and coral DHW trend data (this study)")
+    source_caption(fig, "DOUBLE JEOPARDY — compound_vulnerability_scores.csv (this study); each input min-max scaled "
+                        "across the five islands; Canary Islands: no mapped reef, coral input 0")
     plt.tight_layout()
     out = os.path.join(OUT_DIR, "fig7_weighting_sensitivity_curve.png")
     plt.savefig(out, dpi=200)

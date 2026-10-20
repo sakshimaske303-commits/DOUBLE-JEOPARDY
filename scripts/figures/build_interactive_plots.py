@@ -1,6 +1,11 @@
 """Interactive Plotly versions of the three headline DOUBLE JEOPARDY charts.
 Same underlying data as the static figures (map1_vulnerability_score.py,
-research_paper_figures.py fig4/fig7) - just Plotly instead of matplotlib."""
+research_paper_figures.py fig4/fig7) - just Plotly instead of matplotlib.
+
+Updated 2026-10-10 (Forensic Review): every number is now read from the
+pipeline's CSV outputs (compound_vulnerability_scores.csv,
+coral_trend_results.csv, slr_exposure_summary.csv) instead of being typed in,
+and titles no longer state conclusions that depend on those numbers."""
 
 import os
 
@@ -33,11 +38,10 @@ DARK_LAYOUT = dict(
 # 1. COMPOUND VULNERABILITY SCORE — headline ranking chart
 # ============================================================
 def build_compound_vulnerability_score():
-    data = {
-        "island": ["Seychelles", "Maldives", "Lakshadweep", "Fiji", "Canary Islands"],
-        "score": [1.000, 0.242, 0.133, 0.107, 0.000],
-    }
-    df = pd.DataFrame(data).sort_values("score", ascending=True)
+    raw = pd.read_csv("data/compound_vulnerability_scores.csv")
+    label = {v: k for k, v in ISLAND_FILE_MAP.items()}
+    df = pd.DataFrame({"island": raw["island"].map(label), "score": raw["compound_vulnerability_score"]})
+    df = df.sort_values("score", ascending=True)
     colors = ["#2c7fb8" if s < 0.5 else "#e34a33" for s in df["score"]]
 
     fig = go.Figure()
@@ -48,7 +52,7 @@ def build_compound_vulnerability_score():
         hovertemplate="%{y}<br>Score: %{x:.3f}<extra></extra>",
     ))
     fig.update_layout(
-        title="Compound Vulnerability Score by Island<br><sub>Combining physical SLR exposure and coral thermal-stress trend</sub>",
+        title="Compound Vulnerability Score by Island<br><sub>Share of people at or below 1 m + change in reef heat stress over mapped reef (1996–2000 vs 2016–2020); Canary Islands: no mapped reef</sub>",
         xaxis_title="Compound Vulnerability Score (0 = lowest, 1 = highest)",
         xaxis=dict(range=[0, 1.05]),
         height=480, **DARK_LAYOUT,
@@ -61,48 +65,47 @@ def build_compound_vulnerability_score():
 # 2. CORAL THERMAL STRESS TRENDS — time series, toggleable per island
 # ============================================================
 def build_coral_thermal_stress_trends():
-    trend_info = {
-        "Maldives": {"intercept": 0.0895, "slope_per_year": 0.00450, "significant": True, "p": 0.0046},
-        "Seychelles": {"intercept": -0.0668, "slope_per_year": 0.02532, "significant": True, "p": 0.0069},
-        "Fiji": {"intercept": 0.3250, "slope_per_year": 0.00151, "significant": False, "p": 0.2437},
-        "Lakshadweep": {"intercept": 0.1072, "slope_per_year": 0.00254, "significant": False, "p": 0.3725},
-        "Canary Islands": {"intercept": 0.4762, "slope_per_year": 0.01905, "significant": False, "p": 0.6196},
-    }
-
+    """Reef-cell mean series (main series, FINISH_PLAN D3); the Canary Islands
+    have no mapped reef and show their single offshore cell. The old OLS lines
+    are gone (a straight line through a zero-inflated series misleads); instead
+    each island shows its 1996-2000 and 2016-2020 means, and the legend gives the
+    correlated seasonal Mann-Kendall p from data/coral_trend_results.csv."""
+    res = pd.read_csv("data/coral_trend_results.csv")
     fig = go.Figure()
     for island in ISLAND_ORDER:
-        file_key = ISLAND_FILE_MAP[island]
-        path = f"data/coral_bleaching/{file_key}_dhw_timeseries.csv"
-        df = pd.read_csv(path, skiprows=[1])
-        df["time"] = pd.to_datetime(df["time"])
+        key = ISLAND_FILE_MAP[island]
+        v3 = f"data/coral_bleaching_v3/{key}_dhw_reefcells_mean.csv"
+        if os.path.exists(v3):
+            df, col, series = pd.read_csv(v3), "dhw_mean", "reef_cells"
+        else:
+            df, col, series = (pd.read_csv(f"data/coral_bleaching/{key}_dhw_timeseries.csv", skiprows=[1]),
+                               "degree_heating_week", "single_cell")
+        df["time"] = pd.to_datetime(df["time"], utc=True).dt.tz_convert(None)
         df = df.sort_values("time")
+        r = res[(res["island"] == key) & (res["series"] == series)]
+        pcol = "csmk_p" if "csmk_p" in res.columns else "smk_calendar_p"
+        p = float(r[pcol].iloc[0]) if len(r) else float("nan")
+        where = "mapped-reef cells" if series == "reef_cells" else "one offshore cell, no mapped reef"
         color = ISLAND_COLOR[island]
-
         fig.add_trace(go.Scatter(
-            x=df["time"], y=df["degree_heating_week"], mode="lines", name=f"{island} (raw)",
-            line=dict(color=color, width=1.3), opacity=0.75, legendgroup=island,
+            x=df["time"], y=df[col], mode="lines", name=f"{island} ({where}; trend p={p:.2f})",
+            line=dict(color=color, width=1.3), opacity=0.8, legendgroup=island,
             hovertemplate=f"{island}<br>%{{x|%Y-%m}}<br>DHW: %{{y:.2f}}°C-wk<extra></extra>",
         ))
-
-        info = trend_info[island]
-        start_date, end_date = df["time"].iloc[0], df["time"].iloc[-1]
-        years_elapsed = (end_date - start_date).days / 365.25
-        y_start = info["intercept"]
-        y_end = info["intercept"] + info["slope_per_year"] * years_elapsed
-        sig_label = "significant" if info["significant"] else "not significant"
-        fig.add_trace(go.Scatter(
-            x=[start_date, end_date], y=[y_start, y_end], mode="lines",
-            name=f"{island} trend (MK {sig_label}, p={info['p']:.3f})",
-            line=dict(color=color, width=2.6, dash="dash"), legendgroup=island,
-            hovertemplate=f"{island} trend<br>MK {sig_label}, p={info['p']:.3f}<extra></extra>",
-        ))
-
-    fig.add_hline(y=4, line_color="orange", line_dash="dot", annotation_text="Bleaching threshold (4°C-wk)", annotation_font_color="orange")
-    fig.add_hline(y=8, line_color="darkred", line_dash="dot", annotation_text="Severe bleaching/mortality (8°C-wk)", annotation_font_color="darkred")
-
+        y = df["time"].dt.year
+        for y0, y1 in ((1996, 2000), (2016, 2020)):
+            m = df.loc[y.between(y0, y1), col].mean()
+            fig.add_trace(go.Scatter(
+                x=[pd.Timestamp(f"{y0}-01-01"), pd.Timestamp(f"{y1}-12-31")], y=[m, m], mode="lines",
+                line=dict(color=color, width=3), legendgroup=island, showlegend=False,
+                hovertemplate=f"{island}: mean {y0}–{y1} = {m:.2f}°C-wk<extra></extra>",
+            ))
+    fig.add_hline(y=4, line_color="orange", line_dash="dot", annotation_text="Bleaching likely (4°C-wk)", annotation_font_color="orange")
+    fig.add_hline(y=8, line_color="darkred", line_dash="dot", annotation_text="Severe (8°C-wk)", annotation_font_color="darkred")
     fig.update_layout(
-        title="Coral Thermal Stress Over Time (1996-2020), with Trend Lines<br>"
-              "<sub>Dashed lines are OLS fits; significance assessed via Mann-Kendall trend test on the full series</sub>",
+        title="Coral Thermal Stress, 1996–2020<br>"
+              "<sub>Thick segments: mean of 1996–2000 and of 2016–2020. Trend p: correlated seasonal Mann-Kendall "
+              "on calendar-month means (corrects for serial correlation)</sub>",
         xaxis_title="Date", yaxis_title="Degree Heating Week (°C-weeks)",
         height=600, hovermode="closest", **{**DARK_LAYOUT, "margin": dict(t=90, b=50, l=70, r=30)},
     )
@@ -114,16 +117,10 @@ def build_coral_thermal_stress_trends():
 # 3. WEIGHTING SENSITIVITY CURVE
 # ============================================================
 def build_weighting_sensitivity():
-    slr_data = {"Maldives": 14.5, "Seychelles": 78.3, "Fiji": 0.99, "Canary Islands": 0.3, "Lakshadweep": 7.1}
-    coral_decline = {"Maldives": 0.17, "Seychelles": 0.68, "Fiji": 0.10, "Canary Islands": -0.05, "Lakshadweep": 0.08}
-
-    def normalize(d):
-        values = list(d.values())
-        min_v, max_v = min(values), max(values)
-        return {k: (v - min_v) / (max_v - min_v) if max_v > min_v else 0 for k, v in d.items()}
-
-    slr_norm = normalize(slr_data)
-    coral_norm = normalize(coral_decline)
+    cvs = pd.read_csv("data/compound_vulnerability_scores.csv").set_index("island")
+    # scaled inputs straight from compound_vulnerability_score.py (same Canary rule)
+    slr_norm = {lab: cvs.loc[key, "slr_norm"] for lab, key in ISLAND_FILE_MAP.items()}
+    coral_norm = {lab: cvs.loc[key, "coral_norm"] for lab, key in ISLAND_FILE_MAP.items()}
     weights = np.linspace(0, 1, 101)
 
     fig = go.Figure()
@@ -138,8 +135,8 @@ def build_weighting_sensitivity():
     fig.add_vline(x=50, line_dash="dot", line_color="#333333", annotation_text="Weighting used in this study (50/50)")
     fig.update_layout(
         title="Compound Vulnerability Score — Weighting Sensitivity<br>"
-              "<sub>Seychelles leads across the entire 0-100% weighting range — no crossover</sub>",
-        xaxis_title="Physical Exposure Weight (%) — remainder assigned to coral ecosystem decline",
+              "<sub>Score of each island as the exposure weight goes from 0% to 100%</sub>",
+        xaxis_title="Exposure weight (%), share of people at or below 1 m — remainder: change in reef heat stress",
         yaxis_title="Compound Vulnerability Score (normalized, 0-1)",
         xaxis=dict(range=[0, 100]), yaxis=dict(range=[-0.05, 1.05]),
         height=560, **{**DARK_LAYOUT, "margin": dict(t=90, b=50, l=70, r=30)},

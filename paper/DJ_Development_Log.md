@@ -14,6 +14,9 @@
 10. [Entry 10](#entry-10)
 11. [Entry 11](#entry-11)
 12. [Entry 12](#entry-12)
+13. [Entry 13](#entry-13)
+14. [Entry 14](#entry-14)
+15. [Entry 15](#entry-15)
 
 ## Entry 1
 
@@ -665,3 +668,88 @@ For the coral 1, went nd reran the actual numbers myself 1 more time to be sure 
 For the references, swapped out the informal "Wikipedia" mentions for real sources. Fiji nd Canary Islands land area now cite the World Bank nd Instituto Canario de Estadística instead, since Wikipedia isnt really something u cite in an actual paper. Added all 5 as proper entries in the References section, nd updated the numbers in the text itself to match the real, slightly more precise figures from those sources (298 for Maldives instead of 300, 18,270 for Fiji instead of 18,272, tht kind of small correction).
 
 Still left to do after all this: the actual journal formatting pass, which is still deliberately sitting at the very end of the list where it belongs, same as always.
+
+## Entry 15
+
+### Status
+Forensic review of the whole project (10 October 2026), followed by code and documentation fixes that did not require rerunning the analysis. The analysis itself still has to be rerun with the corrected code (see "Still to run" below); until then the exposure, compound-score and governance numbers in the paper, README, Executive Summary and dashboard should be treated as superseded.
+
+### What the review found
+- **Seychelles exposure was a NoData artifact.** 188 of the 244 Seychelles settlements read −32767 m, the elevation raster's NoData value, and were counted as "at or below 1 m". The Seychelles raster is 99.97% NoData (its own statistics file reports 0.034% valid pixels). On the 56 settlements with a real reading, exposure is 3 of 56 (5.4%). This is also why Seychelles showed the same 78.3% at the 0.5, 1.0 and 1.5 m thresholds.
+- **Lakshadweep's 2 at-risk settlements were outside the DEM.** North Islet and Sand Cay (about 12.35°N) lie north of the re-downloaded DEM, read 0.0, and passed the 5×5 void test. From the available tiles Lakshadweep exposure is 0 of 26.
+- **The "404 tile" explanation was wrong.** Rebuilding the Maldives DEM from the raw tiles reproduced the 177 excluded / 819 kept / 14.5% result exactly, but none of the 177 excluded points lie in a missing tile. Copernicus only publishes tiles that contain land; the excluded points are settlement nodes on 0 m water pixels. 96 of the 119 Maldives at-risk points are also exact 0.0 water pixels.
+- **Downstream effects.** With Seychelles corrected, the compound score of Seychelles (0.68) and Maldives (0.65) are nearly tied and the top island changes at about 52% exposure weight; the governance correlation falls from r = 0.965 (p = 0.035) to r = 0.75 (p = 0.25). Even as reported, removing Seychelles alone gives r = 0.51.
+- **NDBI encroachment.** The bounding boxes are 99.7% (Maldives) and 85% (Seychelles) ocean, and the Statistical API values had no cloud or water mask. The project's own cloud-masked NDBI rasters for the same boxes give a land-only change of −0.0003 for Seychelles, not +0.1135.
+- **WDPA coverage.** The coastal ratio used the old, incomplete boundary files and summed overlapping WDPA polygons (overlaps inflate Seychelles by about 57% and Canary by about 82%).
+- **Fiji settlement coordinates.** Six Fiji settlements (Lau Group, Vanua Levu Group, Taveuni, Vanua Levu, Korolevu Island, Rabi) were stored at about 0° longitude because their point was averaged across the 180° meridian.
+- **Verified as correct:** all seasonal Mann-Kendall p-values (single cell and box average), the DHW period changes, and the mangrove areas reproduced exactly.
+
+### Code changes
+- New `scripts/common/dem_sampling.py`: one DEM rule for all five islands. Each settlement is classified as valid, snapped_to_land (point on a 0 m water pixel; elevation = median of land pixels within about 60 m), water_no_land_nearby, nodata or out_of_extent. NoData and out-of-extent points can no longer be counted as at risk. It also corrects the six Fiji longitudes.
+- `slr_exposure_analysis.py` rewritten on that module; reports coverage and status counts per island, the main rule and a strict rule (water-pixel points excluded), and writes per-settlement CSVs. `export_settlement_elevations_full.py` and `scripts/processing/precompute_elevations.py` now call the single implementation; `dashboard/precompute_elevations.py` uses the same module.
+- `population_weighted_exposure.py`: NoData, NaN and 0 m water pixels are removed before resampling (average resampling of land pixels only); population with no usable elevation is excluded and reported; large windows are processed in 1° chunks; results go to `data/population_weighted_exposure.csv`.
+- New `scripts/acquisition/download_copernicus_dem_tiles.py`: downloads GLO-30 tiles for any island over the full settlement extent and builds a VRT mosaic (Seychelles is too large for an in-memory merge).
+- `wdpa_coastal_buffer.py`: validated v2 boundaries, dissolved WDPA polygons, a new share-of-coastal-zone metric, a strict IUCN I–IV variant, and Lakshadweep reported as missing rather than zero. `filter_wdpa_islands.py` now also reads the WDPA points file.
+- `compound_vulnerability_score.py` and `governance_correlation_test.py` read their inputs from CSVs (no hand-typed numbers), report the weighting crossover, Spearman's rho and leave-one-out correlations.
+- `coral_trend_test.py`: adds calendar-month seasonal Mann-Kendall, annual-maximum Mann-Kendall and a results CSV. New `download_dhw_reef_cells.py` averages DHW over the 5 km cells that contain mapped reef.
+- New `ndbi_land_change.py`: land-only NDBI change from the cloud-masked rasters, near-ecosystem zone, block-bootstrap interval.
+- Figures: coral figure redrawn as one panel per island with annual maxima; governance figure no longer plots Lakshadweep at zero; weighting-sweep subtitle computed from the data; population figure reads the CSV; new `study_area_map.py` draws the study areas from the project's own data. SLR webmaps show settlements without a usable elevation in grey with the reason, instead of "−32767 m".
+- New `scripts/run_all.py` runs the full pipeline in order.
+
+### Documentation changes
+Research question and hypotheses stated in Section 1 of the paper; study-area map added as Figure 1; corrected the 404 explanation, the GMW epoch description, the seasonal-test description and the "24-year" wording (the series covers 25 calendar years, 1996–2020); Canary Islands disclosed as having no mapped reefs; conclusion no longer asserts misallocation; image paths fixed for the `paper/` folder. Executive Summary no longer claims that exposure alone misranks islands. CITATION.cff and dashboard titles no longer say "island nations". New `DATA_SOURCES_AND_LICENSES.md`.
+
+### Still to run (needs the full rasters and Python environment)
+1. `python scripts/acquisition/download_copernicus_dem_tiles.py --all`
+2. `python scripts/acquisition/download_dhw_reef_cells.py`
+3. `python scripts/processing/filter_wdpa_islands.py` (WDPA points check for Lakshadweep)
+4. `python scripts/run_all.py`
+5. Rewrite the numbers in the paper, Executive Summary, README, CITATION.cff and dashboard from the new CSVs.
+
+
+## Entry 16
+
+### Status
+Reran everything with the Entry 15 fixes plus a bare earth elevation model (10–11 October 2026). Numbers are now frozen. The paper, Executive Summary, README, CITATION.cff, dashboard and both portfolio pages were rewritten from the new CSVs, nd the dashboard now reads its numbers straight from `data/` so it can't go stale again.
+
+### Why a Second Elevation Model
+Entry 15 fixed the NoData problem, but the 1st clean run on Copernicus GLO-30 still bothered me. Copernicus is a surface model. On a palm covered atoll it measures the top of the canopy nd the roofs, not the ground, nd my whole threshold is 1 m. So I added DeltaDTM v1.1 (Pronk et al. 2024), which is Copernicus with trees nd buildings removed using ICESat-2 nd GEDI lidar. Same 1 arc second grid as Copernicus, heights above EGM2008, about 0.4–0.5 m error against airborne lidar.
+
+The 4TU download page was down for storage maintenance, so I exported the tiles from the Earth Engine community catalogue copy instead (`projects/sat-io/open-datasets/DELTARES/deltadtm_v1-1`): 77 tiles, one Drive export each, with `scripts/acquisition/export_deltadtm_gee.py`. Tasks didn't show up in the Code Editor because I'd started them from VS Code, so I downloaded from Drive by hand nd checked the folder until all 77 were there. `prepare_deltadtm_tiles.py` checks each tile's bounds against the Copernicus tile it replaces nd builds one VRT per island. It's now the 1st step of `run_all.py`.
+
+### The Seychelles Granite Hill Bug
+1st DeltaDTM run, a few Seychelles points looked wrong when I opened the per point file. Petite Sœur, Grande Sœur, Île Marianne: Copernicus 30–76 m, DeltaDTM close to 0 m. These are small forested granite islands. A 50 m tree canopy is not a thing there, so DeltaDTM was reading a hill as sea level. DeltaDTM is clipped at 30 m nd only meant for the coastal zone, so I added one rule: where Copernicus is above 30 m, DeltaDTM is not used nd the point counts as high terrain. Same rule in the population script. Also: where DeltaDTM is empty nd Copernicus is above 10 m, tht's "above 10 m", which is wht an empty cell means in this product. Reran once more, then froze the numbers.
+
+### Coral: Mean Over Reef nd the Serial Correlation Correction
+The coral side changed too. Instead of 1 5 km cell per island, the series is now the mean over every DHW cell tht touches mapped reef (`download_dhw_reef_cells.py`). And the seasonal Mann-Kendall test is now the version corrected for serial correlation (Hirsch & Slack 1984), on calendar month means, 300 months. DHW is a 12 week running sum, so one warm spell shows up in 3 nd 4 months in a row, nd the plain test counts each of them as new evidence. With the correction, no island is significant: Seychelles p = 0.14 (uncorrected 0.0008), Maldives 0.31, Fiji 0.55, Lakshadweep 0.90. Kind of a gut punch since "significant for Maldives nd Seychelles" was one of the headline results since version 1. But the uncorrected p is jst wrong for this kind of series nd I'd rather say tht myself. Had to fix a small bug on the way: the monthly series came out all NaN because the reef cell times were timezone aware nd the index wasn't.
+
+### Decisions (frozen)
+1. People (WorldPop) at or below 1 m is the main exposure measure. OSM points are mostly island nd islet names, so they're kept as a 2nd measure, renamed "named places".
+2. DeltaDTM is the main elevation model; Copernicus is reported next to it everywhere.
+3. Coral = mean DHW over reef cells + corrected seasonal Mann-Kendall.
+4. Canary Islands' reef input to the compound score is 0 (no reef).
+5. Compound score is descriptive. The top island depends on the weighting nd I say so.
+6. Governance is descriptive (n = 4).
+7. NDBI is supplementary, land pixels only.
+8. Cyclone tracks (IBTrACS) dropped from the analysis; the Sentinel-2 record doesn't reach the big cyclones anyway.
+9. EGM2008 is treated as mean sea level nd this is stated as an approximation.
+
+### Final Numbers
+People at or below 1 m, DeltaDTM (Copernicus in brackets): Maldives 11.82% (8.88), Lakshadweep 6.40% (0.79), Seychelles 2.07% (0.43), Fiji 0.28% (0.21), Canary Islands 0.19% (0.15). Named places at or below 1 m on DeltaDTM: Maldives 28.8%, Seychelles 24.7%, Fiji 4.7%, Lakshadweep 3.8%, Canary Islands 0.26%.
+
+Reef heat stress change, 1996–2000 to 2016–2020: Seychelles +0.52, Fiji +0.29, Maldives +0.07, Lakshadweep +0.05 °C-weeks. Mangroves flat (Fiji 485.7 → 488.4 km²).
+
+Compound score at equal weights: Seychelles 0.581, Maldives 0.512, Lakshadweep 0.267, Fiji 0.256, Canary 0.000. The top flips to Maldives at 54% exposure weight. So the "Seychelles is top at every weighting" result from version 1 is gone, nd honestly it was only ever true because both of version 1's inputs happened to be highest for Seychelles.
+
+Governance: share of the 10 km coastal zone protected, Seychelles 71.4%, Canary 50.4%, Fiji 12.2%, Maldives 1.3%, Lakshadweep no record. r = −0.01 (95% interval −0.96 to 0.96), without Seychelles −0.95. The 0.965 from version 1 is gone.
+
+NDBI on land: Maldives +0.055 (0.040 to 0.072), Seychelles −0.001, Fiji −0.011.
+
+### What I Changed in the Write-Ups
+- Dashboard: new `dashboard/results.py` loads every number from the CSVs; all pages rewritten on top of it. Trends page now shows the reef cell mean with period means instead of OLS lines. The slider data (`dashboard/static/settlement_elevations.csv`) is rebuilt by `run_all.py`.
+- Paper rewritten for version 2, with a new Section 2.5 on surface vs bare earth models nd a Section 6.1 tht lists every version 1 result tht didn't hold nd why.
+- Executive Summary, README, CITATION.cff (version 2.0.0) nd `DATA_SOURCES_AND_LICENSES.md` (DeltaDTM added) rewritten.
+- Figure footers said "DeltaDTM v2"; corrected to v1.1.
+
+### Still To Do
+Re-export the three PDFs from the new markdown, push, nd tag v2.0 so Zenodo mints a new version.

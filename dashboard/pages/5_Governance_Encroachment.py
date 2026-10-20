@@ -6,139 +6,102 @@ import os
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.append(PROJECT_ROOT)
 from styles import apply_custom_style, PALETTE
+from results import load as load_results, pct
 
 apply_custom_style()
 
-# Folder where the publication-quality static figures (research_paper_figures.py)
-# get saved. Used below to show the "as it appears in the Research Paper" version
-# alongside the interactive chart.
+# Numbers read from data/wdpa_coastal_normalized.csv, data/governance_alignment_summary.csv,
+# data/compound_vulnerability_scores.csv and data/ndbi_land_change.csv (rewritten 2026-10-11).
+R = load_results()
+G = R["gov"]
 FIGURES_DIR = os.path.join(PROJECT_ROOT, "outputs", "plots")
 
 st.markdown("<h1 style='text-align: center;'>🏛️ GOVERNANCE & ENCROACHMENT</h1>", unsafe_allow_html=True)
 st.markdown(
-    "<h3 style='text-align: center; color: #67E8F9; font-weight: 400;'>Is Protection Policy Aligned With Verified Risk?</h3>",
+    "<h3 style='text-align: center; color: #67E8F9; font-weight: 400;'>Does Protection Follow Risk?</h3>",
     unsafe_allow_html=True,
 )
 st.markdown("---")
 
 st.markdown("""
-Beyond ecological and physical risk, DOUBLE JEOPARDY tests a governance dimension: does formal
-protected-area designation — the primary policy instrument for managing coastal ecosystem risk —
-actually align with where empirically verified vulnerability is highest?
+Coverage is measured the same way for every island group: the share of the zone within 10 km of the
+coastline that lies inside a protected area in the World Database on Protected Areas (June 2026), with
+overlapping sites merged so no area is counted twice. Lakshadweep has no record in the WDPA extract and is
+left out of the comparison rather than set to zero.
 """)
 
-st.markdown("---")
-
-tab1, tab2 = st.tabs(["Governance Alignment (H3)", "Settlement Encroachment"])
+tab1, tab2 = st.tabs(["Protection and Risk (H3)", "Built-up Change (supplementary)"])
 
 with tab1:
-    st.markdown("### Protected Area Coverage vs. Compound Vulnerability")
-
-    # Lakshadweep is plotted for context but excluded from the correlation
-    # itself (see the r/p metrics and warning box below) — its 0.00 WDPA
-    # ratio is a missing-data placeholder, not a measured value.
-    islands = ["Lakshadweep", "Fiji", "Canary Islands", "Maldives", "Seychelles"]
-    vuln_scores = [0.133, 0.107, 0.000, 0.242, 1.000]
-    wdpa_ratios = [0.00, 0.42, 2.32, 3.90, 11.32]
-
-    fig = go.Figure()
-    fig.add_trace(go.Scatter(
-        x=vuln_scores, y=wdpa_ratios, mode="markers+text",
-        text=islands, textposition="top center",
-        textfont=dict(size=12, color="#FFD60A"),
+    isl = [i for i in R["islands"] if R["protected"].get(i) == R["protected"].get(i)]  # drop NaN
+    fig = go.Figure(go.Scatter(
+        x=[R["cvs"][i] for i in isl], y=[R["protected"][i] for i in isl], mode="markers+text",
+        text=[R["label"][i] for i in isl], textposition="top center",
         marker=dict(size=16, color=PALETTE["cyan"], line=dict(width=2, color=PALETTE["navy"])),
     ))
-
-    fig.update_layout(
-        template="plotly_dark",
-        xaxis_title="Compound Vulnerability Score",
-        yaxis_title="Coastal WDPA Protection Ratio",
-        xaxis=dict(tickfont=dict(color="#FFD60A", size=12), title_font=dict(color="#FFD60A", size=13)),
-        yaxis=dict(tickfont=dict(color="#FFD60A", size=12), title_font=dict(color="#FFD60A", size=13)),
-        height=440,
-        margin=dict(t=20, b=40, l=20, r=20),
-        font=dict(family="Poppins", color="#FFD60A"),
-        plot_bgcolor="rgba(0,0,0,0)",
-        paper_bgcolor="rgba(0,0,0,0)",
-    )
-
+    fig.update_layout(template="plotly_dark", height=440,
+                      xaxis=dict(title="Compound vulnerability score"),
+                      yaxis=dict(title="Share of 10 km coastal zone protected (%)"),
+                      font=dict(family="Poppins", color="#FFD60A"), plot_bgcolor="rgba(0,0,0,0)",
+                      paper_bgcolor="rgba(0,0,0,0)", margin=dict(t=20, b=40, l=20, r=20))
     st.plotly_chart(fig, use_container_width=True)
 
-    col1, col2 = st.columns(2)
-    with col1:
-        st.metric("CORRELATION (r)", "0.965", "Strong, positive (n=4)")
-    with col2:
-        st.metric("P-VALUE", "0.035", "Statistically significant")
+    c1, c2, c3 = st.columns(3)
+    c1.metric("Pearson r", f"{G['r']:.2f}", f"n = {G['n']}")
+    c2.metric("95% interval", f"{G['lo']:.2f} to {G['hi']:.2f}")
+    c3.metric("Spearman ρ", f"{G['rho']:.2f}")
 
-    st.warning("""
-    **A positive finding that now reaches significance — but still on a very small sample.** The
-    direction of the relationship is consistent with risk-responsive governance — Seychelles, the
-    highest-vulnerability island, also has the highest coastal protection ratio. With only four
-    islands in the correlation (n=4) — and a 95% confidence interval spanning from r = 0.05 to
-    r = 1.00 — a single data point could still move both the coefficient and the p-value
-    substantially, so this is read as a stronger signal rather than settled proof. This is an
-    improvement on an earlier estimate (r=0.862, p=0.138) after a Maldives/Lakshadweep DEM
-    data-quality fix changed the underlying vulnerability scores (see Research Paper, Section 6).
-    **Lakshadweep is excluded from the correlation itself** (plotted above for context
-    only) — no protected-area dataset was available for it, and rather than substitute a
-    placeholder zero and let it bias an already-tiny sample, it's left out of the r/p calculation
-    entirely; its Compound Vulnerability Score (0.133) is reported unpaired with a WDPA measurement.
+    st.warning(f"""
+    **Protection does not track risk in this sample.** Coverage ranges from {pct(R['protected']['maldives'])} of the
+    coastal zone in the Maldives to {pct(R['protected']['seychelles'])} in Seychelles, and is unrelated to the
+    compound score (r = {G['r']:.2f}). With four island groups this is a description, not a test: removing
+    Seychelles alone moves r to {G['loo_no_sey']:.2f}.
+
+    **What changed from the first version:** it reported r = 0.965, p = 0.035. Overlapping protected areas had been
+    counted twice and coverage was divided by land area, which for small islands with large marine reserves gives
+    ratios far above 1. Measured as a share of the coastal zone, the relationship disappears.
     """)
 
-    st.markdown("")
-    st.markdown("##### Figure 6 — As it appears in the Research Paper")
+    st.markdown("##### Coverage and instruments")
+    st.markdown(f"""
+| Island group | Coastal zone protected | Strict (IUCN Ia–IV) | Main instrument behind the coverage |
+|---|---:|---:|---|
+| Seychelles | {pct(R['protected']['seychelles'])} | {pct(R['protected_strict']['seychelles'])} | Marine Spatial Plan, more than 30% of the EEZ designated in 2020, prepared under a 2016 debt-for-nature swap |
+| Canary Islands | {pct(R['protected']['canary'])} | {pct(R['protected_strict']['canary'])} | Natura 2000 sites (EU Habitats and Birds Directives) and Spanish national parks |
+| Fiji | {pct(R['protected']['fiji'])} | {pct(R['protected_strict']['fiji'])} | Locally managed marine areas: 102 of 126 WDPA records |
+| Maldives | {pct(R['protected']['maldives'])} | {pct(R['protected_strict']['maldives'])} | Protected areas under the Environmental Protection and Preservation Act (Law 4/93) |
+| Lakshadweep | – | – | No record in the WDPA extract |
+""")
+
     fig6_path = os.path.join(FIGURES_DIR, "fig6_governance_alignment.png")
     if os.path.exists(fig6_path):
+        st.markdown("##### Figure 6 — As it appears in the Research Paper")
         st.image(fig6_path, use_container_width=True)
-    else:
-        st.caption("Figure not found yet — run research_paper_figures.py once to generate it.")
 
 with tab2:
-    st.markdown("### Built-Up Area Change: 2016 vs. 2024")
+    st.markdown("### Built-up Change on Land, 2016 to 2024 (supplementary)")
     st.markdown("""
-    Using Sentinel-2 satellite imagery, the Normalized Difference Built-up Index (NDBI) was compared
-    between 2016 and 2024 for the three islands with mangrove ecosystems, as a directional check on
-    whether settlement pressure is rising in the same broad coastal area as each island's ecosystem
-    buffers. Each value below is a single mean NDBI change over a broad bounding region around the
-    island's main settled area, not a measurement localized to mangrove or reef buffer boundaries
-    specifically — read it as descriptive corroborating context, not a spatially targeted
-    buffer-zone measurement.
+    Change in the Normalized Difference Built-up Index (NDBI) from cloud-masked Sentinel-2 composites,
+    measured **on land pixels only** and on land within 1 km of mapped mangroves and reefs, with 95% block-bootstrap
+    intervals. This is supporting context, not one of the study's hypotheses.
     """)
-
-    encroach_islands = ["Fiji", "Maldives", "Seychelles"]
-    ndbi_change = [-0.0008, 0.0461, 0.1135]
-
-    fig2 = go.Figure()
-    colors2 = [PALETTE["mint"] if v < 0.02 else PALETTE["risk"] for v in ndbi_change]
-    fig2.add_trace(go.Bar(
-        x=encroach_islands, y=ndbi_change, marker_color=colors2,
-        text=[f"{v:+.4f}" for v in ndbi_change], textposition="outside",
-        textfont=dict(color="#FFD60A", size=13),
-    ))
-
-    fig2.update_layout(
-        template="plotly_dark",
-        yaxis_title="NDBI Change (2016 → 2024)",
-        xaxis=dict(tickfont=dict(color="#FFD60A", size=13)),
-        yaxis=dict(tickfont=dict(color="#FFD60A", size=12), title_font=dict(color="#FFD60A", size=13)),
-        height=400,
-        margin=dict(t=20, b=40, l=20, r=20),
-        font=dict(family="Poppins", color="#FFD60A"),
-        plot_bgcolor="rgba(0,0,0,0)",
-        paper_bgcolor="rgba(0,0,0,0)",
-    )
-
-    st.plotly_chart(fig2, use_container_width=True)
-
-    st.error("""
-    **Seychelles shows the strongest encroachment signal** (+0.1135) — notably crossing from a
-    vegetation-dominated to a built-up-dominated average, consistent with its status as the
-    highest compound-vulnerability island. Fiji shows effectively no change, consistent with its
-    stable mangrove extent and mild coral thermal-stress trend.
+    rows = []
+    for key in ("maldives", "seychelles", "fiji"):
+        for zone, zl in (("all_land", "all land"), ("land_within_1000m_of_ecosystems", "land within 1 km of ecosystems")):
+            v = R["ndbi"].get((key, zone))
+            if v:
+                rows.append((R["label"][key], zl, v))
+    if rows:
+        st.markdown("| Island | Zone | NDBI change | 95% interval |\n|---|---|---:|---|\n" + "\n".join(
+            f"| {a} | {b} | {v[0]:+.3f} | {v[1]:+.3f} to {v[2]:+.3f} |" for a, b, v in rows))
+    st.info("""
+    **What changed from the first version:** it reported a large rise for Seychelles (+0.11). That was measured over
+    bounding boxes that were mostly ocean. On land pixels only, Seychelles shows no rise and the Maldives a small one.
     """)
 
 st.markdown("---")
 st.markdown(
-    "<p class='caption-text' style='text-align:center;'>DOUBLE JEOPARDY — Source: World Database on Protected Areas, Sentinel-2</p>",
+    "<p class='caption-text' style='text-align:center;'>DOUBLE JEOPARDY — Sources: UNEP-WCMC and IUCN, Protected Planet (WDPA, June 2026); "
+    "Copernicus Sentinel-2</p>",
     unsafe_allow_html=True,
 )

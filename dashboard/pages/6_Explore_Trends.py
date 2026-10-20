@@ -7,8 +7,12 @@ import os
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.append(PROJECT_ROOT)
 from styles import apply_custom_style, PALETTE
+from results import load as load_results, pval
 
 apply_custom_style()
+
+# Trend results read from data/coral_trend_results.csv (rewritten 2026-10-11).
+R = load_results()
 
 st.markdown("<h1 style='text-align: center;'>📈 EXPLORE TRENDS</h1>", unsafe_allow_html=True)
 st.markdown(
@@ -21,19 +25,6 @@ ISLANDS = ["Maldives", "Seychelles", "Fiji", "Canary Islands", "Lakshadweep"]
 ISLAND_FILE_MAP = {
     "Maldives": "maldives", "Seychelles": "seychelles", "Fiji": "fiji",
     "Canary Islands": "canary", "Lakshadweep": "lakshadweep",
-}
-
-# Precomputed OLS trend line (intercept + slope/year, in years since 1996-01-01)
-# and SEASONAL Mann-Kendall significance (period=12 -- DHW is structurally
-# seasonal, so the plain MK test's independence assumption doesn't hold),
-# from the robustness-check trend test run on the complete 24-year series
-# for each island.
-TREND_INFO = {
-    "Maldives": {"intercept": 0.0895, "slope_per_year": 0.00450, "significant": True, "p": 0.0046},
-    "Seychelles": {"intercept": -0.0668, "slope_per_year": 0.02532, "significant": True, "p": 0.0069},
-    "Fiji": {"intercept": 0.3250, "slope_per_year": 0.00151, "significant": False, "p": 0.2437},
-    "Lakshadweep": {"intercept": 0.1072, "slope_per_year": 0.00254, "significant": False, "p": 0.3725},
-    "Canary Islands": {"intercept": 0.4762, "slope_per_year": 0.01905, "significant": False, "p": 0.6196},
 }
 
 # Fixed per-island colors (not PALETTE -- several entries look near-identical
@@ -74,49 +65,49 @@ selected_islands = st.multiselect(
     default=["Seychelles", "Canary Islands"],
 )
 
-show_trend = st.checkbox("Show trend line (Mann-Kendall / OLS robustness check)", value=True)
+show_periods = st.checkbox("Show 1996–2000 and 2016–2020 period means", value=True)
+
+
+def load_series(key):
+    """Mean DHW over all mapped reef cells; the Canary Islands have no mapped reef, so one 5 km cell."""
+    reef = os.path.join(PROJECT_ROOT, "data", "coral_bleaching_v3", f"{key}_dhw_reefcells_mean.csv")
+    if os.path.exists(reef):
+        df = pd.read_csv(reef).rename(columns={"dhw_mean": "dhw"})
+    else:
+        df = pd.read_csv(os.path.join(PROJECT_ROOT, "data", "coral_bleaching", f"{key}_dhw_timeseries.csv"),
+                         skiprows=[1]).rename(columns={"degree_heating_week": "dhw"})
+    df["time"] = pd.to_datetime(df["time"], utc=True).dt.tz_convert(None)
+    return df.sort_values("time")[["time", "dhw"]]
+
 
 if selected_islands:
     fig = go.Figure()
-
     for island_name in selected_islands:
-        file_key = ISLAND_FILE_MAP[island_name]
-        path = os.path.join(PROJECT_ROOT, "data", "coral_bleaching", f"{file_key}_dhw_timeseries.csv")
+        key = ISLAND_FILE_MAP[island_name]
         try:
-            df = pd.read_csv(path, skiprows=[1])
-            df["time"] = pd.to_datetime(df["time"])
-            df = df.sort_values("time")
-            line_color = ISLAND_COLOR[island_name]
-
-            fig.add_trace(go.Scatter(
-                x=df["time"], y=df["degree_heating_week"],
-                mode="lines", name=island_name,
-                line=dict(color=line_color, width=2),
-            ))
-
-            if show_trend and island_name in TREND_INFO:
-                info = TREND_INFO[island_name]
-                start_date = df["time"].iloc[0]
-                end_date = df["time"].iloc[-1]
-                years_elapsed = (end_date - start_date).days / 365.25
-                y_start = info["intercept"]
-                y_end = info["intercept"] + info["slope_per_year"] * years_elapsed
-                sig_label = f"significant, p={info['p']:.3f}" if info["significant"] else f"not significant, p={info['p']:.3f}"
-
-                fig.add_trace(go.Scatter(
-                    x=[start_date, end_date], y=[y_start, y_end],
-                    mode="lines", name=f"{island_name} trend ({sig_label})",
-                    line=dict(color=line_color, width=2, dash="dash"),
-                    opacity=0.85,
-                ))
+            df = load_series(key)
         except FileNotFoundError:
             st.warning(f"Data not found for {island_name}")
+            continue
+        series = R["coral_series"][key]
+        p = R["coral_p"][(key, series)]
+        line_color = ISLAND_COLOR[island_name]
+        fig.add_trace(go.Scatter(x=df["time"], y=df["dhw"], mode="lines",
+                                 name=f"{island_name} (trend test {pval(p)})",
+                                 line=dict(color=line_color, width=2)))
+        if show_periods:
+            for y0, y1 in ((1996, 2000), (2016, 2020)):
+                m = df[(df["time"].dt.year >= y0) & (df["time"].dt.year <= y1)]["dhw"].mean()
+                fig.add_trace(go.Scatter(x=[pd.Timestamp(f"{y0}-01-01"), pd.Timestamp(f"{y1}-12-31")], y=[m, m],
+                                         mode="lines", showlegend=False, hoverinfo="text",
+                                         text=f"{island_name} mean {y0}–{y1}: {m:.2f}",
+                                         line=dict(color=line_color, width=3, dash="dash")))
 
     # Threshold labels spread apart on the x-axis so they don't sit on a data spike.
     add_threshold_line(fig, y=4, label="Bleaching threshold (4°C-wk)",
-                        color=THRESHOLD_COLOR, anchor_x="1997-03-01", ay_offset=-38)
+                       color=THRESHOLD_COLOR, anchor_x="1997-03-01", ay_offset=-38)
     add_threshold_line(fig, y=8, label="Severe bleaching / mortality (8°C-wk)",
-                        color=SEVERE_COLOR, anchor_x="2001-09-01", ay_offset=-38)
+                       color=SEVERE_COLOR, anchor_x="2001-09-01", ay_offset=-38)
 
     fig.update_layout(
         template="plotly_dark",
@@ -131,28 +122,29 @@ if selected_islands:
         legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="center", x=0.5, font=dict(color="#FFD60A")),
         margin=dict(t=70, b=40, l=40, r=40),
     )
-
-    # Hide the hover modebar (camera/zoom/pan icons) — on the live dashboard
-    # it was rendering directly over the legend text, adding clutter.
     st.plotly_chart(fig, use_container_width=True, config={"displayModeBar": False})
+
+    sig = [ISLANDS[i] for i, k in enumerate(ISLAND_FILE_MAP.values())
+           if R["coral_p"][(k, R["coral_series"][k])] < 0.05]
     st.markdown(
-        "<p class='caption-text'>Dashed lines (if shown) are the OLS trend fit for each island; significance is "
-        "assessed via a Mann-Kendall trend test on the complete 24-year series. Only Maldives and Seychelles reach "
-        "statistical significance — the two islands driving this project's compound vulnerability ranking.</p>",
+        "<p class='caption-text'>Each line is the mean Degree Heating Weeks over all mapped reef cells "
+        "(Canary Islands: one 5 km cell, no mapped reef). Dashed segments are the 1996–2000 and 2016–2020 means. "
+        "The p-value is a seasonal Mann-Kendall test on monthly means, corrected for serial correlation "
+        "(DHW is a 12-week running sum, so neighbouring months are not independent). "
+        + ("No island shows a significant trend at the 5% level once this is accounted for; "
+           "without the correction Seychelles would appear significant."
+           if not sig else f"Significant at the 5% level: {', '.join(sig)}.")
+        + "</p>",
         unsafe_allow_html=True,
     )
 else:
-    st.info("Select at least one island above to view its thermal stress trend.")
+    st.info("Select at least one island above to view its thermal stress series.")
 
 st.markdown("---")
 
 st.markdown("### Mangrove Extent Over Time (1996, 2010, 2020)")
 
-mangrove_data = {
-    "Maldives": [0.97, 0.97, 0.97],
-    "Seychelles": [3.83, 3.84, 3.83],
-    "Fiji": [485.72, 487.97, 488.41],
-}
+mangrove_data = {R["label"][k]: list(v) for k, v in R["mangroves"].items()}
 years = [1996, 2010, 2020]
 
 selected_mangrove_islands = st.multiselect(
@@ -187,7 +179,7 @@ if selected_mangrove_islands:
 
     st.plotly_chart(fig2, use_container_width=True, config={"displayModeBar": False})
     st.markdown(
-        "<p class='caption-text'>Note the near-flat lines — mangrove extent shows no meaningful decline across any tested island, contrary to the original hypothesis.</p>",
+        "<p class='caption-text'>Near-flat lines: Global Mangrove Watch shows no decline in mapped mangrove extent on any of the three islands. Mangrove patches on the atolls are close to the 25 m pixel size, so small losses there may not be detectable.</p>",
         unsafe_allow_html=True,
     )
 

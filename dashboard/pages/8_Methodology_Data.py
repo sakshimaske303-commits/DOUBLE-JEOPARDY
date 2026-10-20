@@ -6,8 +6,13 @@ import os
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.append(PROJECT_ROOT)
 from styles import apply_custom_style, PALETTE
+from results import load as load_results, pct, source_label
 
 apply_custom_style()
+
+# Limitations text reads its numbers from the pipeline's CSVs (rewritten 2026-10-11).
+R = load_results()
+G = R["gov"]
 
 st.markdown("<h1 style='text-align: center;'>📖 METHODOLOGY & DATA</h1>", unsafe_allow_html=True)
 st.markdown(
@@ -61,9 +66,9 @@ col1, col2 = st.columns(2)
 with col1:
     r1a, r1b = st.columns([0.88, 0.12])
     with r1a:
-        st.markdown("- **Settlements, Tourism, Infrastructure** — OpenStreetMap")
+        st.markdown("- **Named places** — OpenStreetMap")
     with r1b:
-        proof_popover("04_canary_settlements_qgis.png", "Canary Islands OpenStreetMap settlement points in QGIS, attribute table open — named places (Santa Cruz de La Palma, San Telmo, El Muelle, etc.) used for the settlement/tourism exposure layer.")
+        proof_popover("04_canary_settlements_qgis.png", "Canary Islands OpenStreetMap settlement points in QGIS, attribute table open — named places (Santa Cruz de La Palma, San Telmo, El Muelle, etc.) used for the named-places exposure measure.")
     st.markdown("- **Mangrove Extent (1996/2010/2020)** — Global Mangrove Watch")
     r2a, r2b = st.columns([0.88, 0.12])
     with r2a:
@@ -74,15 +79,14 @@ with col1:
 with col2:
     r3a, r3b = st.columns([0.88, 0.12])
     with r3a:
-        st.markdown("- **Elevation, Slope** — Copernicus DEM GLO-30")
+        st.markdown("- **Elevation** — DeltaDTM v1.1 bare-earth model (main), Copernicus DEM GLO-30 (comparison)")
     with r3b:
-        proof_popover("02_seychelles_elevation_qgis.png", "Seychelles elevation (Copernicus DEM) in QGIS, pseudocolor-styled, with the Seychelles WDPA boundary overlaid — the elevation layer behind the SLR exposure analysis.")
+        proof_popover("02_seychelles_elevation_qgis.png", "Seychelles elevation (Copernicus DEM) in QGIS, pseudocolor-styled, with the Seychelles WDPA boundary overlaid — the surface model that the bare-earth DeltaDTM results are compared against.")
     r5a, r5b = st.columns([0.88, 0.12])
     with r5a:
         st.markdown("- **Population** — WorldPop 2020")
     with r5b:
         proof_popover("05_population_exposure_vscode.png", "population_weighted_exposure.py open in VS Code — computes what % of each island's population (not just settlements) lives at or below the 1m sea-level-rise threshold.")
-    st.markdown("- **Cyclone Tracks** — IBTrACS v04r01")
     r4a, r4b = st.columns([0.88, 0.12])
     with r4a:
         st.markdown("- **Protected Areas** — World Database on Protected Areas (WDPA)")
@@ -147,15 +151,15 @@ st.markdown("### Honest Limitations")
 
 hl1, hl2 = st.columns([0.94, 0.06])
 with hl1:
-    st.warning("""
-    **Small sample size.** With only five islands — and only four with a usable governance
-    correlation (H3), whose 95% confidence interval spans from r = 0.05 to r = 1.00 — a single data
-    point could still move the coefficient and p-value substantially, even now that the correlation
-    (r=0.965, p=0.035) has crossed into statistical significance. This is a genuine constraint of
-    cross-national island research, not glossed over in this project's conclusions.
+    st.warning(f"""
+    **Small sample size.** Four island groups have a usable protected-area record (Lakshadweep has none in the
+    WDPA extract). Across them, coastal protection and the compound score are unrelated (r = {G['r']:.2f},
+    95% interval {G['lo']:.2f} to {G['hi']:.2f}), and removing Seychelles alone moves r to {G['loo_no_sey']:.2f}.
+    With n = 4 this is a description of these islands, not a test that could generalise. The first version
+    reported r = 0.965, p = 0.035; that came from double-counted overlapping sites and a land-area denominator.
     """)
 with hl2:
-    proof_popover("07_governance_correlation_vscode.png", "governance_correlation_test.py open in VS Code — the Pearson correlation test (r, p-value) behind the H3 governance-alignment finding.")
+    proof_popover("07_governance_correlation_vscode.png", "governance_correlation_test.py open in VS Code — the correlation (r, interval, leave-one-out) behind the descriptive H3 governance comparison.")
 
 st.info("""
 **Uneven data depth.** Canary Islands coral and mangrove data were confirmed genuinely absent —
@@ -165,11 +169,13 @@ or estimated. Lakshadweep population data, initially unavailable for the reason 
 was later obtained and is now included in the population-weighted exposure analysis.
 """)
 
-st.error("""
-**Partial elevation coverage for Fiji.** Elevation data did not extend to Fiji's easternmost
-territory (the Lau Islands, beyond the antimeridian). Fiji's population-weighted exposure figure
-therefore reflects approximately 97.6% of its national population; the excluded population is
-reported explicitly rather than assumed negligible.
+_pop = pd.read_csv(os.path.join(PROJECT_ROOT, "data", "population_weighted_exposure_by_source.csv"))
+_cov = _pop[_pop["elevation_source"] == R["primary"]].set_index("island")["pct_pop_covered"]
+st.error(f"""
+**Elevation is an approximation, not a flood model.** Heights from {source_label(R['primary'])} are above the
+EGM2008 geoid, treated as mean sea level; DeltaDTM's error against airborne lidar is about 0.4–0.5 m. Tides, surge
+and waves are not modelled. Population with a usable elevation ranges from {_cov.min():.1f}% ({_cov.idxmin()}) to
+{_cov.max():.1f}% ({_cov.idxmax()}); people on cells with no elevation are reported, not assumed safe.
 """)
 
 st.markdown("---")
@@ -179,7 +185,7 @@ with dd1:
     st.markdown("### Download the Data")
 with dd2:
     st.markdown("<div style='margin-top: 1.6rem;'></div>", unsafe_allow_html=True)
-    proof_popover("08_compound_vulnerability_score_vscode.png", "compound_vulnerability_score.py open in VS Code — the script that computes the Compound Vulnerability Score (SLR exposure + coral decline) and produces this CSV.")
+    proof_popover("08_compound_vulnerability_score_vscode.png", "compound_vulnerability_score.py open in VS Code — the script that computes the compound score (people at or below 1 m + change in reef heat stress) and produces this CSV.")
 
 try:
     df = pd.read_csv(os.path.join(PROJECT_ROOT, "data", "compound_vulnerability_scores.csv"))

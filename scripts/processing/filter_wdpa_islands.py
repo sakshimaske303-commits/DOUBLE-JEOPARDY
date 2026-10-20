@@ -1,3 +1,18 @@
+"""Filter the global WDPA download to each island's bounding box.
+
+Updated 2026-10-10 (Forensic Review): also reads the WDPA *points* shapefile.
+WDPA stores some protected areas only as a point plus a reported area
+(REP_AREA), with no polygon. This project previously read only the polygons
+file, which is the most likely reason Lakshadweep (e.g. Pitti Island Bird
+Sanctuary) came back empty. Point records are saved to
+data/protected_areas_wdpa/<island>_wdpa_points.gpkg so they can be checked and,
+if appropriate, represented as circles of area REP_AREA (the convention
+Protected Planet uses for point-only sites).
+
+RAW_BASE below is a path on the author's machine; change it to where your
+WDPA download is unpacked. WDPA data may not be redistributed publicly; see
+DATA_SOURCES_AND_LICENSES.md.
+"""
 import geopandas as gpd
 import os
 
@@ -43,6 +58,28 @@ def filter_polygons_for_island(island_name, bbox):
         print(f"  No WDPA protected areas found for {island_name}")
 
 
+def filter_points_for_island(island_name, bbox):
+    os.makedirs(OUTPUT_DIR, exist_ok=True)
+    found = []
+    for part in PARTS:
+        shp_path = os.path.join(RAW_BASE, part, "WDPA_Jun2026_Public_shp-points.shp")
+        if not os.path.exists(shp_path):
+            continue
+        gdf = gpd.read_file(shp_path, bbox=bbox)
+        if len(gdf):
+            found.append(gdf)
+    if found:
+        import pandas as pd
+        combined = gpd.GeoDataFrame(pd.concat(found, ignore_index=True), crs=found[0].crs)
+        out = os.path.join(OUTPUT_DIR, f"{island_name}_wdpa_points.gpkg")
+        combined.to_file(out, driver="GPKG")
+        print(f"  POINT records for {island_name}: {len(combined)} -> {out}")
+        cols = [c for c in ["NAME", "DESIG_ENG", "STATUS", "REP_AREA"] if c in combined.columns]
+        print(combined[cols].to_string())
+    else:
+        print(f"  No WDPA point records for {island_name}")
+
+
 def main():
     filter_polygons_for_island("maldives", ISLAND_BBOX["maldives"])
     filter_polygons_for_island("canary", ISLAND_BBOX["canary"])
@@ -50,6 +87,8 @@ def main():
     filter_polygons_for_island("lakshadweep", ISLAND_BBOX["lakshadweep"])
     filter_polygons_for_island("fiji_west", ISLAND_BBOX["fiji_west"])
     filter_polygons_for_island("fiji_east", ISLAND_BBOX["fiji_east"])
+    for name, bbox in ISLAND_BBOX.items():
+        filter_points_for_island(name, bbox)
 
 
 if __name__ == "__main__":

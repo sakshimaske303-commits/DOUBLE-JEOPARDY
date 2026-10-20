@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this software or its findings, please cite it using the metadata below."
-title: "DOUBLE JEOPARDY: The Vulnerability Spiral — Compound Climate Risk Across Five Island Nations"
+title: "DOUBLE JEOPARDY: The Vulnerability Spiral of Compound Climate Risk Across 5 Islands"
 type: software
 authors:
   - family-names: "Maske"
@@ -8,28 +8,27 @@ authors:
 repository-code: "https://github.com/sakshimaske303-commits/DOUBLE-JEOPARDY"
 url: "https://github.com/sakshimaske303-commits/DOUBLE-JEOPARDY"
 abstract: >-
-  This geospatial analysis examines climate vulnerability across five island
-  nations (Maldives, Lakshadweep, Seychelles, Fiji, Canary Islands) by
-  analyzing physical exposure to sea-level rise and degradation of natural
-  coastal defenses independently. The project combines settlement-level
-  elevation data, mangrove extent tracking (1996, 2010, 2020), and 24-year
-  coral bleaching records. Key findings reveal statistically significant
-  coral bleaching stress trends in the Maldives and Seychelles, stable
-  mangrove coverage across the three islands where mangroves are present,
-  and a Compound Vulnerability Score showing Seychelles as the highest-risk
-  island overall, leading on both settlement-based physical exposure (78.3%
-  of settlements at risk) and the composite score. Population-weighted
-  exposure specifically is close to a tie at the top, with Maldives (14.9%
-  of population) marginally ahead of Seychelles (14.2%). A supplementary
-  governance-alignment test finds protected-area coverage positively
-  correlated with this verified vulnerability (r=0.965, p=0.035, n=4
-  islands).
+  This geospatial study measures two threats to low islands together, sea-level
+  rise and the weakening of the reefs and mangroves that buffer it, across five
+  island groups (Maldives, Lakshadweep, Seychelles, Fiji, Canary Islands). On a
+  bare-earth elevation model (DeltaDTM v1.1), 11.8% of people in the Maldives and
+  6.4% in Lakshadweep live at or below 1 m, against 8.9% and 0.8% on the
+  Copernicus GLO-30 surface model; the choice of elevation model and of exposure
+  measure (people or named places) moves the results more than any other step.
+  Mean Degree Heating Weeks over mapped reef rose between 1996-2000 and 2016-2020
+  on every reef island, most in Seychelles, but no monotonic trend is significant
+  once serial correlation is accounted for. Mangrove extent shows no decline. A
+  compound score of exposure and reef heat stress ranks Seychelles and the
+  Maldives in a near tie, with the top island changing at an exposure weight of
+  0.54. Protection of the 10 km coastal zone does not follow this risk across the
+  four island groups with a WDPA record (r = -0.01, n = 4; descriptive only).
 keywords:
   - sea-level rise
   - mangroves
   - coral bleaching
   - compound vulnerability
   - small island developing states
+  - digital terrain model
   - protected-area effectiveness
   - remote sensing
   - climate adaptation
@@ -40,5 +39,5 @@ identifiers:
     description: "Zenodo archive of DOUBLE JEOPARDY v1.0.0"
 doi: "10.5281/zenodo.21739961"
 license: CC-BY-4.0
-version: 1.0.0
-date-released: "2026-08-01"
+version: 2.0.0
+date-released: "2026-10-11"

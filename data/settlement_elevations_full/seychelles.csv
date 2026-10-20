@@ -1,245 +1,245 @@
-name,place,lon,lat,elevation_m,at_risk
-Groupe d'Aldabra,archipelago,46.9822705,-9.738605,-32767,True
-L'Islette,islet,55.4093483,-4.6629789,-32767,True
-Île Picard,island,46.2242052,-9.3875361,-32767,True
-Farquhar Atoll,locality,51.1138311,-10.1669807,-32767,True
-Poivre Islands,archipelago,53.3064459,-5.7616274,-32767,True
-Mahé,island,55.4521201,-4.6838076,-32767,True
-Alphonse Group,archipelago,52.7483378,-7.0822085,-32767,True
-Assomption,island,46.508401,-9.7250674,-32767,True
-Malabar,island,46.3587716,-9.3780066,-32767,True
-Grand Terre,island,46.3661824,-9.4341054,-32767,True
-Ile Aux Vaches,islet,55.4337998,-4.6859108,-32767,True
-Eden Island,islet,55.4782952,-4.6399735,-32767,True
-Ile Cerf,islet,50.9887787,-9.526476,-32767,True
-Praslin,island,55.7338547,-4.3251043,278,False
-Île de la Persévérance,island,55.4652306,-4.6059912,-32767,True
-Recif Island,island,55.7646165,-4.5847657,-32767,True
-Unnamed settlement,islet,55.6732501,-4.2586682,-32767,True
-Unnamed settlement,islet,55.7499262,-4.3025099,-32767,True
-Unnamed settlement,islet,55.7457837,-4.3104911,-32767,True
-Île Curieuse,island,55.7283681,-4.2842385,3,False
-Providence Island,island,51.0308544,-9.2256959,-32767,True
-Île de Coëtivy,island,56.2760218,-7.1354453,-32767,True
-Alphonse Island,island,52.7282654,-7.0071623,-32767,True
-Bijoutier Island,island,52.7347313,-7.0677131,-32767,True
-Île Saint-François,island,52.7398917,-7.1527982,-32767,True
-Île Marie-Louise,island,53.1436828,-6.1792636,-32767,True
-Île Desnœufs,island,53.043467,-6.2345919,-32767,True
-Desroches Island,island,53.670863,-5.6891532,-32767,True
-Remire,islet,53.3122966,-5.1165962,-32767,True
-Île d'Arros,island,53.2980229,-5.4156035,-32767,True
-Île Ressource,island,53.3268214,-5.4102964,-32767,True
-Île Fouquet,islet,53.3414702,-5.4234193,-32767,True
-Île Saint-Joseph,island,53.3564946,-5.4361366,-32767,True
-Île Silhouette,island,55.2304331,-4.4888634,375,False
-Île du Nord,island,55.2459417,-4.3920487,-32767,True
-Île Félicité,island,55.8748307,-4.3278471,179,False
-La Digue,island,55.8404249,-4.3601044,-32767,True
-Cousin,islet,55.6615962,-4.3314118,33,False
-Petite Sœur,islet,55.8552197,-4.28775,-32767,True
-Île Marianne,island,55.9210512,-4.3425994,48,False
-Grande Sœur,island,55.8692683,-4.2900147,60,False
-Unnamed settlement,islet,55.5396902,-4.4841466,-32767,True
-Unnamed settlement,islet,55.907447,-4.6018204,-32767,True
-Île d'Aride,island,55.6667104,-4.212426,60,False
-Unnamed settlement,islet,55.6476417,-4.3507606,20,False
-Unnamed settlement,islet,55.3667123,-4.6634084,122,False
-Unnamed settlement,islet,55.4013224,-4.6744836,127,False
-Île au Cerf,island,55.4987179,-4.634051,-32767,True
-Île Sainte-Anne,island,55.5045414,-4.6059439,-32767,True
-Île de Romainville,islet,55.4708131,-4.6250643,-32767,True
-Unnamed settlement,islet,55.7905346,-4.3416723,-32767,True
-Unnamed settlement,islet,55.8680325,-4.3166051,-32767,True
-Île Coco,islet,55.8655551,-4.3118981,-32767,True
-Unnamed settlement,islet,55.8638834,-4.3089954,-32767,True
-Unnamed settlement,islet,55.8167062,-4.3174981,-32767,True
-Île Michel,islet,46.4467628,-9.4067447,-32767,True
-Unnamed settlement,islet,46.4580823,-9.3939701,-32767,True
-Unnamed settlement,islet,46.4630284,-9.4036043,-32767,True
-Île Esprit,islet,46.2507288,-9.4279422,-32767,True
-Unnamed settlement,islet,46.2379253,-9.4388792,-32767,True
-Polymnie,island,46.2618721,-9.3743531,-32767,True
-Grande Île,island,47.6457068,-9.7486618,-32767,True
-Astove,island,47.7405283,-10.0830861,-32767,True
-Bird Island,island,55.2060412,-3.7188852,-32767,True
-Long Island,islet,55.5084037,-4.6266634,-32767,True
-Île Moyenne,islet,55.5089453,-4.6195826,-32767,True
-Unnamed settlement,island,55.4621219,-4.5923845,-32767,True
-Unnamed settlement,island,55.4614657,-4.6140486,-32767,True
-Île Ronde,islet,55.503579,-4.6219501,-32767,True
-Atoll Saint-Joseph,atoll,53.3431835,-5.4292338,-32767,True
-St. François Atoll,atoll,52.7527609,-7.1151845,-32767,True
-Île Platte,islet,55.3844826,-5.864091,-32767,True
-Manaha Nord,islet,51.176084,-10.1547646,-32767,True
-Bancs de sable (Grande Caye),islet,51.0417887,-10.1716038,-32767,True
-Ile du Nord,island,51.1733842,-10.1300626,-32767,True
-Manaha Milieu,islet,51.1760122,-10.1565209,-32767,True
-Manaha Sud,islet,51.1755428,-10.158913,-32767,True
-Ile du Sud,island,51.1643922,-10.1825413,-32767,True
-Goëlette,islet,51.1300405,-10.224559,-32767,True
-Unnamed settlement,islet,50.9865021,-9.5464088,-32767,True
-Ile Saint Pierre,island,50.7276617,-9.3314679,-32767,True
-Caye Boudeuse,islet,52.8324052,-6.0889301,-32767,True
-Île Denis,island,55.665731,-3.8067952,-32767,True
-Ile des Déposés,islet,51.0713674,-10.1509348,-32767,True
-Ile du Milieu,islet,51.0779642,-10.1499988,-32767,True
-Ile Lapin,islet,51.0888329,-10.149287,-32767,True
-Unnamed settlement,islet,55.827967,-4.3478803,-32767,True
-Unnamed settlement,islet,55.827667,-4.3465566,-32767,True
-Unnamed settlement,islet,55.4647938,-4.7390872,-32767,True
-Unnamed settlement,islet,55.4640965,-4.7388896,-32767,True
-Unnamed settlement,islet,55.4570331,-4.624236,-5,True
-Île Frégate,island,55.9416231,-4.5858781,54,False
-Île Cachée,islet,55.5050823,-4.6406432,-32767,True
-Rat Island,islet,55.5352324,-4.669072,-32767,True
-Île Anonyme,islet,55.5234212,-4.6650903,-32767,True
-Unnamed settlement,islet,55.6857725,-4.2899056,-32767,True
-Picard,hamlet,46.2061607,-9.4014624,-32767,True
-Grand Polyte,islet,47.6558932,-9.7193008,-32767,True
-Petit Polyte,islet,47.6569862,-9.7293779,-32767,True
-Île Sud Ouest,islet,47.5822491,-9.7696248,-32767,True
-Pagode,islet,47.6068678,-9.7629958,-32767,True
-Île Goelette,islet,47.6451919,-9.7005234,-32767,True
-Île du Trou,islet,47.6295564,-9.6883668,-32767,True
-Île Nord-Est,islet,47.5863351,-9.6638674,-32767,True
-Île du Nord,islet,47.5716471,-9.660873,-32767,True
-Île Menai,island,47.5168367,-9.7153451,-32767,True
-Île Moustique,islet,47.5104582,-9.7323544,-32767,True
-Île Baleine,islet,47.510903,-9.7242543,-32767,True
-Îlot Lacroix,islet,47.5286243,-9.7050696,-32767,True
-Île des Rats,islet,47.5273259,-9.7062113,-32767,True
-Île Macaque,islet,47.5373894,-9.7027676,-32767,True
-Seychelles,country,55.4540146,-4.6574977,413,False
-African Banks,island,53.3873719,-4.8807051,-32767,True
-Unnamed settlement,village,55.4288241,-4.6135556,10,False
-Anse Boileau,village,55.4836699,-4.7110788,5,False
-Anse Royale,village,55.5176065,-4.7376121,22,False
-Port Launay,village,55.4009292,-4.6508556,30,False
-Unnamed settlement,islet,55.5254791,-4.7378279,-32767,True
-Unnamed settlement,farm,55.2076834,-3.7187569,-32767,True
-Tam Tam Surf,locality,52.7308016,-7.1057021,-32767,True
-Tam Tam Flat,locality,52.7334998,-7.1084632,-32767,True
-Wayne's Bay,locality,52.7267029,-7.1374486,-32767,True
-Donals's Bay,locality,52.7296672,-7.1381349,-32767,True
-Rattrays,locality,52.7274296,-7.1492241,-32767,True
-Beirut,locality,52.7261944,-7.1560462,-32767,True
-Baghdad,locality,52.7537791,-7.1649107,-32767,True
-Back Of The Moon,locality,52.7373502,-7.1613518,-32767,True
-Prawn Beds,locality,52.7396689,-7.1557047,-32767,True
-Cosmic Lagoon,locality,52.7429626,-7.15594,-32767,True
-Nursery,locality,52.7458611,-7.1534563,-32767,True
-Morning Traffic,locality,52.7420186,-7.1442464,-32767,True
-Pompano Channel,locality,52.7482766,-7.142024,-32767,True
-East Knoll,locality,52.7572355,-7.1416319,-32767,True
-Invisible Wreck,locality,52.7748259,-7.1514791,-32767,True
-Gauntanemo Bay,locality,52.7560614,-7.1227009,-32767,True
-Top Sticks,locality,52.7524074,-7.1291353,-32767,True
-Delta,locality,52.7580273,-7.1269864,-32767,True
-Andrew's Train,locality,52.7583237,-7.1298625,-32767,True
-Gravy Train,locality,52.7575991,-7.1323463,-32767,True
-West Edge,locality,52.7374417,-7.1277708,-32767,True
-Milky Way,locality,52.7448393,-7.1280388,-32767,True
-Invisible Flat,locality,52.7422887,-7.1315319,-32767,True
-Betsy's Bay,locality,52.7418882,-7.1339582,-32767,True
-One Palm Island,locality,52.7373415,-7.1410436,-32767,True
-Lollipops Wreck,locality,52.7780208,-7.1400407,-32767,True
-Small Wreck,locality,52.7775749,-7.120161,-32767,True
-Crossroads,locality,52.7496912,-7.1016448,-32767,True
-Badlands,locality,52.7625498,-7.1024292,-32767,True
-Dragons Back,locality,52.7469772,-7.1086261,-32767,True
-Ignoblis Channel,locality,52.7425241,-7.1066912,-32767,True
-Moorings,locality,52.7384663,-7.1098289,-32767,True
-Tam Tam Channel,locality,52.7413414,-7.1153399,-32767,True
-Nirvana Channel,locality,52.7427116,-7.1148169,-32767,True
-East Edage,locality,52.7613967,-7.1170476,-32767,True
-Judes,locality,52.7630963,-7.1087116,-32767,True
-Highway,locality,52.7722355,-7.1190758,-32767,True
-Coral Garden,locality,52.7365806,-7.0798139,-32767,True
-Gods Aquarium,locality,52.7380646,-7.0775547,-32767,True
-Arno's Flat,locality,52.7361306,-7.0907555,-32767,True
-Petit La Passe,locality,52.7425599,-7.090311,-32767,True
-La Passe,locality,52.7470393,-7.084846,-32767,True
-Tiger Flat,locality,52.7569731,-7.0823619,-32767,True
-Helmut Knoll,locality,52.7535213,-7.0776028,-32767,True
-St Josephs,locality,52.7758827,-7.0924669,-32767,True
-Fields Of Gold,locality,52.7605736,-7.0944542,-32767,True
-Mullet Bay,locality,52.7612324,-7.0912641,-32767,True
-Invisible Lagoon,locality,52.754645,-7.0961276,-32767,True
-Pancake Flat,locality,52.7526951,-7.0931206,-32767,True
-Île Poivre,island,53.3064459,-5.7483149,-32767,True
-Île Florentin,islet,53.3018098,-5.7613301,-32767,True
-Île du Sud,islet,53.3055702,-5.7688443,-32767,True
-Étoile Cay,islet,53.0264347,-5.8842209,-32767,True
-Unnamed settlement,village,55.7177343,-4.3269702,5,False
-Unnamed settlement,village,55.7564233,-4.3411172,30,False
-Anse Kerlan,village,55.6874433,-4.3123248,-2,True
-Sans Souci,village,55.4522357,-4.6409975,236,False
-Unnamed settlement,village,55.4177606,-4.66406,5,False
-Quatre Bornes,village,55.5115693,-4.7790776,90,False
-Unnamed settlement,village,55.4811946,-4.7526077,34,False
-Unnamed settlement,village,55.4112979,-4.6193716,23,False
-Ile Soleil,islet,55.5302195,-4.6876489,-32767,True
-Unnamed settlement,islet,55.8769063,-4.3212355,-32767,True
-Unnamed settlement,islet,55.8713682,-4.3329156,-32767,True
-Unnamed settlement,islet,55.8724179,-4.3336959,-32767,True
-Unnamed settlement,islet,55.87231,-4.3337849,-32767,True
-Unnamed settlement,islet,55.878747,-4.3396444,-32767,True
-Unnamed settlement,islet,55.8805541,-4.3392045,-32767,True
-Unnamed settlement,islet,55.8889903,-4.3385038,-32767,True
-Unnamed settlement,islet,55.8642724,-4.3134885,-32767,True
-Unnamed settlement,islet,55.8650087,-4.3132632,-32767,True
-Unnamed settlement,islet,55.8632472,-4.3104796,-32767,True
-Unnamed settlement,islet,55.8629299,-4.3103131,-32767,True
-Unnamed settlement,islet,55.864485,-4.3091135,-32767,True
-Unnamed settlement,islet,55.8644313,-4.3092667,-32767,True
-Unnamed settlement,islet,55.864324,-4.3092793,-32767,True
-Anse Mondon village,locality,55.2212052,-4.4671201,-32767,True
-Sand Cay,island,53.2380277,-5.6506707,-32767,True
-Unnamed settlement,neighbourhood,55.8312095,-4.3431821,17,False
-Unnamed settlement,islet,53.3578981,-5.4477938,-32767,True
-Unnamed settlement,islet,47.7378438,-10.0989552,-32767,True
-Unnamed settlement,islet,47.5104416,-9.7251409,-32767,True
-Unnamed settlement,islet,47.7345439,-10.094246,-32767,True
-Anse Boudin,village,55.7091652,-4.2989646,34,False
-Anse des Genets,village,55.5114647,-4.6735851,45,False
-Pointe Au Sel,village,55.5227825,-4.7264693,36,False
-Anse Louis,village,55.4839207,-4.7184256,19,False
-Barbarons,village,55.4566575,-4.6799576,39,False
-Bon Espoir,village,55.4996386,-4.7072335,242,False
-Capucins,village,55.5200725,-4.6904678,54,False
-Unnamed settlement,village,55.4972693,-4.6691243,26,False
-Unnamed settlement,village,55.4505286,-4.6750171,21,False
-La Béolière,village,55.435331,-4.670083,116,False
-La Plaine St. Andre,village,55.5215697,-4.7205684,18,False
-Pascal Village,village,55.4351586,-4.620927,94,False
-Talbot,village,55.5011429,-4.6702758,40,False
-Unnamed settlement,village,55.4851734,-4.6584014,21,False
-Unnamed settlement,village,55.455248,-4.5932954,30,False
-Unnamed settlement,village,55.4345526,-4.583654,72,False
-La Retraite,village,55.4608205,-4.5840828,10,False
-Ma Constance,village,55.455935,-4.5975253,28,False
-Mare Anglaise,village,55.4334831,-4.6066837,26,False
-Vista do Mar,village,55.4348924,-4.5757792,36,False
-Unnamed settlement,village,55.450062,-4.5653565,52,False
-La Misère,village,55.4704516,-4.6677028,436,False
-Unnamed settlement,islet,55.7621333,-4.3428898,0,True
-Unnamed settlement,islet,55.4650315,-4.7059554,-32767,True
-Unnamed settlement,islet,55.8229764,-4.36289,-32767,True
-Unnamed settlement,islet,46.2574578,-9.4268971,-32767,True
-Unnamed settlement,islet,46.2565526,-9.4272312,-32767,True
-Bois Verse,locality,55.6848602,-4.3195654,-32767,True
-Point Ste Marie,locality,55.677547,-4.3002604,-32767,True
-Hodoul Point,locality,46.5200745,-9.4008563,-32767,True
-Platte,village,55.3834915,-5.8641583,-32767,True
-Victoria,city,55.452359,-4.6232085,3,False
-Roche Tortue,islet,55.5418216,-4.6688439,-32767,True
-Pointe Machabee,locality,55.2182283,-4.4654836,-32767,True
-Poivre,village,53.311817,-5.7467898,-32767,True
-Coëtivy,village,56.271161,-7.1450058,-32767,True
-Hist. Marine Park,locality,55.3812916,-4.6418699,5,False
-Grande Poste,hamlet,51.1620808,-10.1229324,-32767,True
-L'Union,village,55.8334898,-4.3633241,16,False
-Unnamed settlement,town,55.8306895,-4.356222,7,False
-La Réunion,village,55.8319162,-4.3523294,14,False
-La Passe,village,55.8322653,-4.349538,4,False
+name,place,lon,lat,raw_value,elevation_m,status,dem_file,elevation_source,copernicus_m,at_risk
+Groupe d'Aldabra,archipelago,46.9822705,-9.738605,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+L'Islette,islet,55.4093483,-4.6629789,0.06787582486867905,0.06787582486867905,valid,seychelles_deltadtm.vrt,deltadtm,1.9739575386047363,True
+Île Picard,island,46.2242052,-9.3875361,2.449336290359497,2.449336290359497,valid,seychelles_deltadtm.vrt,deltadtm,8.560763359069824,False
+Farquhar Atoll,locality,51.1138311,-10.1669807,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Poivre Islands,archipelago,53.3064459,-5.7616274,0.5705070495605469,0.5705070495605469,valid,seychelles_deltadtm.vrt,deltadtm,5.988168239593506,True
+Mahé,island,55.4521201,-4.6838076,5.237067699432373,5.237067699432373,valid,seychelles_deltadtm.vrt,deltadtm,27.341733932495117,False
+Alphonse Group,archipelago,52.7483378,-7.0822085,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Assomption,island,46.508401,-9.7250674,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Malabar,island,46.3587716,-9.3780066,3.6713614463806152,3.6713614463806152,valid,seychelles_deltadtm.vrt,deltadtm,5.040627479553223,False
+Grand Terre,island,46.3661824,-9.4341054,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Ile Aux Vaches,islet,55.4337998,-4.6859108,30.0,48.27683639526367,above_10m,seychelles_deltadtm.vrt,deltadtm,48.27683639526367,False
+Eden Island,islet,55.4782952,-4.6399735,5.441610336303711,5.441610336303711,valid,seychelles_deltadtm.vrt,deltadtm,7.1362152099609375,False
+Ile Cerf,islet,50.9887787,-9.526476,-9999.0,0.5541269183158875,snapped_to_land,seychelles_deltadtm.vrt,deltadtm,1.4456928968429565,True
+Praslin,island,55.7338547,-4.3251043,30.0,279.53839111328125,above_10m,seychelles_deltadtm.vrt,deltadtm,279.53839111328125,False
+Île de la Persévérance,island,55.4652306,-4.6059912,4.231215000152588,4.231215000152588,valid,seychelles_deltadtm.vrt,deltadtm,5.904419422149658,False
+Recif Island,island,55.7646165,-4.5847657,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,55.6732501,-4.2586682,23.746816635131836,23.746816635131836,valid,seychelles_deltadtm.vrt,deltadtm,24.89128303527832,False
+Unnamed settlement,islet,55.7499262,-4.3025099,4.344804286956787,4.344804286956787,valid,seychelles_deltadtm.vrt,deltadtm,5.4943342208862305,False
+Unnamed settlement,islet,55.7457837,-4.3104911,6.472480773925781,6.472480773925781,valid,seychelles_deltadtm.vrt,deltadtm,7.62268590927124,False
+Île Curieuse,island,55.7283681,-4.2842385,-9999.0,2.4656102657318115,snapped_to_land,seychelles_deltadtm.vrt,deltadtm,3.6140506267547607,False
+Providence Island,island,51.0308544,-9.2256959,-9999.0,14.591344833374023,above_10m,seychelles_deltadtm.vrt,deltadtm,14.591344833374023,False
+Île de Coëtivy,island,56.2760218,-7.1354453,3.377584218978882,3.377584218978882,valid,seychelles_deltadtm.vrt,deltadtm,15.884819984436035,False
+Alphonse Island,island,52.7282654,-7.0071623,-1.1424815654754639,-1.1424815654754639,valid,seychelles_deltadtm.vrt,deltadtm,0.5922143459320068,True
+Bijoutier Island,island,52.7347313,-7.0677131,2.4194791316986084,2.4194791316986084,valid,seychelles_deltadtm.vrt,deltadtm,4.1162190437316895,False
+Île Saint-François,island,52.7398917,-7.1527982,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Île Marie-Louise,island,53.1436828,-6.1792636,-9999.0,,deltadtm_nodata,seychelles_deltadtm.vrt,deltadtm,6.635241508483887,False
+Île Desnœufs,island,53.043467,-6.2345919,-9999.0,,deltadtm_nodata,seychelles_deltadtm.vrt,deltadtm,0.13074344396591187,False
+Desroches Island,island,53.670863,-5.6891532,2.294448137283325,2.294448137283325,valid,seychelles_deltadtm.vrt,deltadtm,12.979703903198242,False
+Remire,islet,53.3122966,-5.1165962,1.6150091886520386,1.6150091886520386,valid,seychelles_deltadtm.vrt,deltadtm,3.499691963195801,False
+Île d'Arros,island,53.2980229,-5.4156035,2.1575849056243896,2.1575849056243896,valid,seychelles_deltadtm.vrt,deltadtm,6.1284894943237305,False
+Île Ressource,island,53.3268214,-5.4102964,-9999.0,3.1588523387908936,snapped_to_land,seychelles_deltadtm.vrt,deltadtm,6.324454307556152,False
+Île Fouquet,islet,53.3414702,-5.4234193,1.687197208404541,1.687197208404541,valid,seychelles_deltadtm.vrt,deltadtm,8.29130744934082,False
+Île Saint-Joseph,island,53.3564946,-5.4361366,-9999.0,-1.5391333103179932,snapped_to_land,seychelles_deltadtm.vrt,deltadtm,0.38128024339675903,True
+Île Silhouette,island,55.2304331,-4.4888634,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Île du Nord,island,55.2459417,-4.3920487,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Île Félicité,island,55.8748307,-4.3278471,30.0,172.09776306152344,above_10m,seychelles_deltadtm.vrt,deltadtm,172.09776306152344,False
+La Digue,island,55.8404249,-4.3601044,30.0,187.54833984375,above_10m,seychelles_deltadtm.vrt,deltadtm,187.54833984375,False
+Cousin,islet,55.6615962,-4.3314118,12.704904556274414,37.25203323364258,above_10m,seychelles_deltadtm.vrt,deltadtm,37.25203323364258,False
+Petite Sœur,islet,55.8552197,-4.28775,0.6276328563690186,76.52842712402344,above_10m,seychelles_deltadtm.vrt,deltadtm,76.52842712402344,False
+Île Marianne,island,55.9210512,-4.3425994,-1.548640251159668,30.040307998657227,above_10m,seychelles_deltadtm.vrt,deltadtm,30.040307998657227,False
+Grande Sœur,island,55.8692683,-4.2900147,0.2968529760837555,37.13932418823242,above_10m,seychelles_deltadtm.vrt,deltadtm,37.13932418823242,False
+Unnamed settlement,islet,55.5396902,-4.4841466,1.2528852224349976,1.2528852224349976,valid,seychelles_deltadtm.vrt,deltadtm,14.06743049621582,False
+Unnamed settlement,islet,55.907447,-4.6018204,6.927696704864502,6.927696704864502,valid,seychelles_deltadtm.vrt,deltadtm,8.097565650939941,False
+Île d'Aride,island,55.6667104,-4.212426,14.824414253234863,62.913272857666016,above_10m,seychelles_deltadtm.vrt,deltadtm,62.913272857666016,False
+Unnamed settlement,islet,55.6476417,-4.3507606,12.049468994140625,12.049468994140625,valid,seychelles_deltadtm.vrt,deltadtm,23.3743896484375,False
+Unnamed settlement,islet,55.3667123,-4.6634084,12.551998138427734,120.55592346191406,above_10m,seychelles_deltadtm.vrt,deltadtm,120.55592346191406,False
+Unnamed settlement,islet,55.4013224,-4.6744836,21.926725387573242,112.30522155761719,above_10m,seychelles_deltadtm.vrt,deltadtm,112.30522155761719,False
+Île au Cerf,island,55.4987179,-4.634051,5.836663722991943,59.80093765258789,above_10m,seychelles_deltadtm.vrt,deltadtm,59.80093765258789,False
+Île Sainte-Anne,island,55.5045414,-4.6059439,30.0,234.30894470214844,above_10m,seychelles_deltadtm.vrt,deltadtm,234.30894470214844,False
+Île de Romainville,islet,55.4708131,-4.6250643,1.525033712387085,1.525033712387085,valid,seychelles_deltadtm.vrt,deltadtm,4.7219743728637695,False
+Unnamed settlement,islet,55.7905346,-4.3416723,7.356928825378418,59.43036651611328,above_10m,seychelles_deltadtm.vrt,deltadtm,59.43036651611328,False
+Unnamed settlement,islet,55.8680325,-4.3166051,-0.3412635624408722,-0.3412635624408722,valid,seychelles_deltadtm.vrt,deltadtm,7.514884948730469,True
+Île Coco,islet,55.8655551,-4.3118981,-0.856457531452179,-0.856457531452179,valid,seychelles_deltadtm.vrt,deltadtm,0.2920328378677368,True
+Unnamed settlement,islet,55.8638834,-4.3089954,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,55.8167062,-4.3174981,0.5470351576805115,0.5470351576805115,valid,seychelles_deltadtm.vrt,deltadtm,2.990781784057617,True
+Île Michel,islet,46.4467628,-9.4067447,2.004828691482544,2.004828691482544,valid,seychelles_deltadtm.vrt,deltadtm,4.896081447601318,False
+Unnamed settlement,islet,46.4580823,-9.3939701,2.2996251583099365,2.2996251583099365,valid,seychelles_deltadtm.vrt,deltadtm,3.6371753215789795,False
+Unnamed settlement,islet,46.4630284,-9.4036043,2.171250820159912,2.171250820159912,valid,seychelles_deltadtm.vrt,deltadtm,6.633936882019043,False
+Île Esprit,islet,46.2507288,-9.4279422,1.861575722694397,1.861575722694397,valid,seychelles_deltadtm.vrt,deltadtm,7.107787609100342,False
+Unnamed settlement,islet,46.2379253,-9.4388792,1.9324651956558228,1.9324651956558228,valid,seychelles_deltadtm.vrt,deltadtm,3.8463082313537598,False
+Polymnie,island,46.2618721,-9.3743531,4.472115993499756,4.472115993499756,valid,seychelles_deltadtm.vrt,deltadtm,6.233559608459473,False
+Grande Île,island,47.6457068,-9.7486618,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Astove,island,47.7405283,-10.0830861,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Bird Island,island,55.2060412,-3.7188852,-9999.0,,deltadtm_nodata,seychelles_deltadtm.vrt,deltadtm,8.674713134765625,False
+Long Island,islet,55.5084037,-4.6266634,6.713191032409668,52.30796432495117,above_10m,seychelles_deltadtm.vrt,deltadtm,52.30796432495117,False
+Île Moyenne,islet,55.5089453,-4.6195826,3.428753614425659,45.49812698364258,above_10m,seychelles_deltadtm.vrt,deltadtm,45.49812698364258,False
+Unnamed settlement,island,55.4621219,-4.5923845,6.0719757080078125,6.0719757080078125,valid,seychelles_deltadtm.vrt,deltadtm,9.282050132751465,False
+Unnamed settlement,island,55.4614657,-4.6140486,5.860205173492432,5.860205173492432,valid,seychelles_deltadtm.vrt,deltadtm,7.556200981140137,False
+Île Ronde,islet,55.503579,-4.6219501,7.411716461181641,7.411716461181641,valid,seychelles_deltadtm.vrt,deltadtm,15.940413475036621,False
+Atoll Saint-Joseph,atoll,53.3431835,-5.4292338,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+St. François Atoll,atoll,52.7527609,-7.1151845,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Île Platte,islet,55.3844826,-5.864091,-9999.0,,deltadtm_nodata,seychelles_deltadtm.vrt,deltadtm,-0.5963695049285889,False
+Manaha Nord,islet,51.176084,-10.1547646,3.1391384601593018,3.1391384601593018,valid,seychelles_deltadtm.vrt,deltadtm,10.949440956115723,False
+Bancs de sable (Grande Caye),islet,51.0417887,-10.1716038,0.8471174240112305,0.8471174240112305,valid,seychelles_deltadtm.vrt,deltadtm,1.7116599082946777,True
+Ile du Nord,island,51.1733842,-10.1300626,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Manaha Milieu,islet,51.1760122,-10.1565209,2.9354162216186523,2.9354162216186523,valid,seychelles_deltadtm.vrt,deltadtm,13.253887176513672,False
+Manaha Sud,islet,51.1755428,-10.158913,2.737661600112915,2.737661600112915,valid,seychelles_deltadtm.vrt,deltadtm,9.997971534729004,False
+Ile du Sud,island,51.1643922,-10.1825413,4.995558738708496,4.995558738708496,valid,seychelles_deltadtm.vrt,deltadtm,11.27031135559082,False
+Goëlette,islet,51.1300405,-10.224559,0.7225167751312256,0.7225167751312256,valid,seychelles_deltadtm.vrt,deltadtm,1.7158724069595337,True
+Unnamed settlement,islet,50.9865021,-9.5464088,2.792649984359741,2.792649984359741,valid,seychelles_deltadtm.vrt,deltadtm,3.396176338195801,False
+Ile Saint Pierre,island,50.7276617,-9.3314679,1.9198185205459595,1.9198185205459595,valid,seychelles_deltadtm.vrt,deltadtm,2.7673532962799072,False
+Caye Boudeuse,islet,52.8324052,-6.0889301,-9999.0,,deltadtm_nodata,seychelles_deltadtm.vrt,deltadtm,0.4032595753669739,False
+Île Denis,island,55.665731,-3.8067952,-9999.0,22.082252502441406,above_10m,seychelles_deltadtm.vrt,deltadtm,22.082252502441406,False
+Ile des Déposés,islet,51.0713674,-10.1509348,1.7926369905471802,1.7926369905471802,valid,seychelles_deltadtm.vrt,deltadtm,2.67838716506958,False
+Ile du Milieu,islet,51.0779642,-10.1499988,2.63857102394104,2.63857102394104,valid,seychelles_deltadtm.vrt,deltadtm,3.531280279159546,False
+Ile Lapin,islet,51.0888329,-10.149287,1.1890628337860107,1.1890628337860107,valid,seychelles_deltadtm.vrt,deltadtm,2.093379497528076,False
+Unnamed settlement,islet,55.827967,-4.3478803,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,55.827667,-4.3465566,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,55.4647938,-4.7390872,-0.4588041603565216,-0.4588041603565216,valid,seychelles_deltadtm.vrt,deltadtm,1.4296191930770874,True
+Unnamed settlement,islet,55.4640965,-4.7388896,-1.2357155084609985,-1.2357155084609985,valid,seychelles_deltadtm.vrt,deltadtm,0.6536681652069092,True
+Unnamed settlement,islet,55.4570331,-4.624236,3.0126898288726807,3.0126898288726807,valid,seychelles_deltadtm.vrt,deltadtm,4.736008644104004,False
+Île Frégate,island,55.9416231,-4.5858781,30.0,44.5702018737793,above_10m,seychelles_deltadtm.vrt,deltadtm,44.5702018737793,False
+Île Cachée,islet,55.5050823,-4.6406432,10.227555274963379,10.227555274963379,valid,seychelles_deltadtm.vrt,deltadtm,19.575014114379883,False
+Rat Island,islet,55.5352324,-4.669072,5.357052326202393,5.357052326202393,valid,seychelles_deltadtm.vrt,deltadtm,6.954341888427734,False
+Île Anonyme,islet,55.5234212,-4.6650903,12.97299575805664,12.97299575805664,valid,seychelles_deltadtm.vrt,deltadtm,27.733295440673828,False
+Unnamed settlement,islet,55.6857725,-4.2899056,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Picard,hamlet,46.2061607,-9.4014624,4.099663734436035,4.099663734436035,valid,seychelles_deltadtm.vrt,deltadtm,6.7067389488220215,False
+Grand Polyte,islet,47.6558932,-9.7193008,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Petit Polyte,islet,47.6569862,-9.7293779,0.7524859309196472,0.7524859309196472,valid,seychelles_deltadtm.vrt,deltadtm,1.5284748077392578,True
+Île Sud Ouest,islet,47.5822491,-9.7696248,-9999.0,1.0166889131069183,snapped_to_land,seychelles_deltadtm.vrt,deltadtm,1.7722823023796082,False
+Pagode,islet,47.6068678,-9.7629958,0.9938669204711914,0.9938669204711914,valid,seychelles_deltadtm.vrt,deltadtm,1.759196162223816,True
+Île Goelette,islet,47.6451919,-9.7005234,-9999.0,-0.27329686284065247,snapped_to_land,seychelles_deltadtm.vrt,deltadtm,0.48411092162132263,True
+Île du Trou,islet,47.6295564,-9.6883668,-9999.0,-0.364699125289917,snapped_to_land,seychelles_deltadtm.vrt,deltadtm,0.37944361567497253,True
+Île Nord-Est,islet,47.5863351,-9.6638674,-9999.0,0.8358505964279175,snapped_to_land,seychelles_deltadtm.vrt,deltadtm,2.3333470821380615,True
+Île du Nord,islet,47.5716471,-9.660873,0.45820748805999756,0.45820748805999756,valid,seychelles_deltadtm.vrt,deltadtm,2.457286834716797,True
+Île Menai,island,47.5168367,-9.7153451,-9999.0,1.2070475816726685,snapped_to_land,seychelles_deltadtm.vrt,deltadtm,3.6822621822357178,False
+Île Moustique,islet,47.5104582,-9.7323544,-9999.0,1.1967157125473022,snapped_to_land,seychelles_deltadtm.vrt,deltadtm,2.159271478652954,False
+Île Baleine,islet,47.510903,-9.7242543,0.8629062175750732,0.8629062175750732,valid,seychelles_deltadtm.vrt,deltadtm,1.5623438358306885,True
+Îlot Lacroix,islet,47.5286243,-9.7050696,-9999.0,0.8436582982540131,snapped_to_land,seychelles_deltadtm.vrt,deltadtm,1.9689001441001892,True
+Île des Rats,islet,47.5273259,-9.7062113,-9999.0,0.28563442826271057,snapped_to_land,seychelles_deltadtm.vrt,deltadtm,0.9853758215904236,True
+Île Macaque,islet,47.5373894,-9.7027676,0.9026535749435425,0.9026535749435425,valid,seychelles_deltadtm.vrt,deltadtm,1.6062572002410889,True
+Seychelles,country,55.4540146,-4.6574977,30.0,413.27899169921875,above_10m,seychelles_deltadtm.vrt,deltadtm,413.27899169921875,False
+African Banks,island,53.3873719,-4.8807051,-9999.0,,deltadtm_nodata,seychelles_deltadtm.vrt,deltadtm,1.8389431238174438,False
+Unnamed settlement,village,55.4288241,-4.6135556,6.262239933013916,6.262239933013916,valid,seychelles_deltadtm.vrt,deltadtm,8.039633750915527,False
+Anse Boileau,village,55.4836699,-4.7110788,3.3402254581451416,3.3402254581451416,valid,seychelles_deltadtm.vrt,deltadtm,6.412128448486328,False
+Anse Royale,village,55.5176065,-4.7376121,7.273322105407715,7.273322105407715,valid,seychelles_deltadtm.vrt,deltadtm,28.9853572845459,False
+Port Launay,village,55.4009292,-4.6508556,30.0,36.21543884277344,above_10m,seychelles_deltadtm.vrt,deltadtm,36.21543884277344,False
+Unnamed settlement,islet,55.5254791,-4.7378279,3.577993154525757,3.577993154525757,valid,seychelles_deltadtm.vrt,deltadtm,5.310153484344482,False
+Unnamed settlement,farm,55.2076834,-3.7187569,-9999.0,,deltadtm_nodata,seychelles_deltadtm.vrt,deltadtm,3.4957098960876465,False
+Tam Tam Surf,locality,52.7308016,-7.1057021,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Tam Tam Flat,locality,52.7334998,-7.1084632,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Wayne's Bay,locality,52.7267029,-7.1374486,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Donals's Bay,locality,52.7296672,-7.1381349,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Rattrays,locality,52.7274296,-7.1492241,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Beirut,locality,52.7261944,-7.1560462,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Baghdad,locality,52.7537791,-7.1649107,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Back Of The Moon,locality,52.7373502,-7.1613518,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Prawn Beds,locality,52.7396689,-7.1557047,-0.08624466508626938,-0.08624466508626938,valid,seychelles_deltadtm.vrt,deltadtm,0.1929275542497635,True
+Cosmic Lagoon,locality,52.7429626,-7.15594,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Nursery,locality,52.7458611,-7.1534563,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Morning Traffic,locality,52.7420186,-7.1442464,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Pompano Channel,locality,52.7482766,-7.142024,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+East Knoll,locality,52.7572355,-7.1416319,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Invisible Wreck,locality,52.7748259,-7.1514791,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Gauntanemo Bay,locality,52.7560614,-7.1227009,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Top Sticks,locality,52.7524074,-7.1291353,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Delta,locality,52.7580273,-7.1269864,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Andrew's Train,locality,52.7583237,-7.1298625,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Gravy Train,locality,52.7575991,-7.1323463,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+West Edge,locality,52.7374417,-7.1277708,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Milky Way,locality,52.7448393,-7.1280388,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Invisible Flat,locality,52.7422887,-7.1315319,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Betsy's Bay,locality,52.7418882,-7.1339582,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+One Palm Island,locality,52.7373415,-7.1410436,-2.0773215293884277,-2.0773215293884277,valid,seychelles_deltadtm.vrt,deltadtm,-0.4252183437347412,True
+Lollipops Wreck,locality,52.7780208,-7.1400407,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Small Wreck,locality,52.7775749,-7.120161,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Crossroads,locality,52.7496912,-7.1016448,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Badlands,locality,52.7625498,-7.1024292,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Dragons Back,locality,52.7469772,-7.1086261,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Ignoblis Channel,locality,52.7425241,-7.1066912,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Moorings,locality,52.7384663,-7.1098289,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Tam Tam Channel,locality,52.7413414,-7.1153399,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Nirvana Channel,locality,52.7427116,-7.1148169,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+East Edage,locality,52.7613967,-7.1170476,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Judes,locality,52.7630963,-7.1087116,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Highway,locality,52.7722355,-7.1190758,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Coral Garden,locality,52.7365806,-7.0798139,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Gods Aquarium,locality,52.7380646,-7.0775547,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Arno's Flat,locality,52.7361306,-7.0907555,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Petit La Passe,locality,52.7425599,-7.090311,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+La Passe,locality,52.7470393,-7.084846,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Tiger Flat,locality,52.7569731,-7.0823619,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Helmut Knoll,locality,52.7535213,-7.0776028,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+St Josephs,locality,52.7758827,-7.0924669,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Fields Of Gold,locality,52.7605736,-7.0944542,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Mullet Bay,locality,52.7612324,-7.0912641,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Invisible Lagoon,locality,52.754645,-7.0961276,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Pancake Flat,locality,52.7526951,-7.0931206,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Île Poivre,island,53.3064459,-5.7483149,0.15220507979393005,0.15220507979393005,valid,seychelles_deltadtm.vrt,deltadtm,19.101547241210938,True
+Île Florentin,islet,53.3018098,-5.7613301,0.4264158308506012,0.4264158308506012,valid,seychelles_deltadtm.vrt,deltadtm,4.284313201904297,True
+Île du Sud,islet,53.3055702,-5.7688443,0.9996697306632996,0.9996697306632996,valid,seychelles_deltadtm.vrt,deltadtm,4.441262245178223,True
+Étoile Cay,islet,53.0264347,-5.8842209,-9999.0,0.8356198072433472,snapped_to_land,seychelles_deltadtm.vrt,deltadtm,2.6585209369659424,True
+Unnamed settlement,village,55.7177343,-4.3269702,0.9918679594993591,0.9918679594993591,valid,seychelles_deltadtm.vrt,deltadtm,2.1437437534332275,True
+Unnamed settlement,village,55.7564233,-4.3411172,25.534305572509766,25.534305572509766,valid,seychelles_deltadtm.vrt,deltadtm,26.686670303344727,False
+Anse Kerlan,village,55.6874433,-4.3123248,2.4034764766693115,2.4034764766693115,valid,seychelles_deltadtm.vrt,deltadtm,3.5526187419891357,False
+Sans Souci,village,55.4522357,-4.6409975,30.0,190.60057067871094,above_10m,seychelles_deltadtm.vrt,deltadtm,190.60057067871094,False
+Unnamed settlement,village,55.4177606,-4.66406,3.2405331134796143,3.2405331134796143,valid,seychelles_deltadtm.vrt,deltadtm,5.127300262451172,False
+Quatre Bornes,village,55.5115693,-4.7790776,30.0,93.35630798339844,above_10m,seychelles_deltadtm.vrt,deltadtm,93.35630798339844,False
+Unnamed settlement,village,55.4811946,-4.7526077,29.120437622070312,34.45054244995117,above_10m,seychelles_deltadtm.vrt,deltadtm,34.45054244995117,False
+Unnamed settlement,village,55.4112979,-4.6193716,25.1304931640625,25.1304931640625,valid,seychelles_deltadtm.vrt,deltadtm,26.961570739746094,False
+Ile Soleil,islet,55.5302195,-4.6876489,4.413326263427734,4.413326263427734,valid,seychelles_deltadtm.vrt,deltadtm,6.053183078765869,False
+Unnamed settlement,islet,55.8769063,-4.3212355,-9999.0,0.947868674993515,snapped_to_land,seychelles_deltadtm.vrt,deltadtm,3.5999722480773926,True
+Unnamed settlement,islet,55.8713682,-4.3329156,-9999.0,-0.4841189980506897,snapped_to_land,seychelles_deltadtm.vrt,deltadtm,3.6125751733779907,True
+Unnamed settlement,islet,55.8724179,-4.3336959,-0.4811893701553345,-0.4811893701553345,valid,seychelles_deltadtm.vrt,deltadtm,7.410064220428467,True
+Unnamed settlement,islet,55.87231,-4.3337849,-0.5306020379066467,-0.5306020379066467,valid,seychelles_deltadtm.vrt,deltadtm,0.619452953338623,True
+Unnamed settlement,islet,55.878747,-4.3396444,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,55.8805541,-4.3392045,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,55.8889903,-4.3385038,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,55.8642724,-4.3134885,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,55.8650087,-4.3132632,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,55.8632472,-4.3104796,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,55.8629299,-4.3103131,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,55.864485,-4.3091135,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,55.8644313,-4.3092667,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,55.864324,-4.3092793,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Anse Mondon village,locality,55.2212052,-4.4671201,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Sand Cay,island,53.2380277,-5.6506707,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,neighbourhood,55.8312095,-4.3431821,12.667549133300781,12.667549133300781,valid,seychelles_deltadtm.vrt,deltadtm,13.818924903869629,False
+Unnamed settlement,islet,53.3578981,-5.4477938,-9999.0,-1.227683961391449,snapped_to_land,seychelles_deltadtm.vrt,deltadtm,0.6933073997497559,True
+Unnamed settlement,islet,47.7378438,-10.0989552,1.822563648223877,1.822563648223877,valid,seychelles_deltadtm.vrt,deltadtm,2.8016879558563232,False
+Unnamed settlement,islet,47.5104416,-9.7251409,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,47.7345439,-10.094246,-9999.0,-0.6281125843524933,snapped_to_land,seychelles_deltadtm.vrt,deltadtm,0.3474999964237213,True
+Anse Boudin,village,55.7091652,-4.2989646,9.11208438873291,34.48387908935547,above_10m,seychelles_deltadtm.vrt,deltadtm,34.48387908935547,False
+Anse des Genets,village,55.5114647,-4.6735851,23.86223602294922,54.191097259521484,above_10m,seychelles_deltadtm.vrt,deltadtm,54.191097259521484,False
+Pointe Au Sel,village,55.5227825,-4.7264693,30.0,36.885074615478516,above_10m,seychelles_deltadtm.vrt,deltadtm,36.885074615478516,False
+Anse Louis,village,55.4839207,-4.7184256,7.234327793121338,7.234327793121338,valid,seychelles_deltadtm.vrt,deltadtm,28.725528717041016,False
+Barbarons,village,55.4566575,-4.6799576,30.0,50.36219787597656,above_10m,seychelles_deltadtm.vrt,deltadtm,50.36219787597656,False
+Bon Espoir,village,55.4996386,-4.7072335,30.0,243.50572204589844,above_10m,seychelles_deltadtm.vrt,deltadtm,243.50572204589844,False
+Capucins,village,55.5200725,-4.6904678,30.0,57.95950698852539,above_10m,seychelles_deltadtm.vrt,deltadtm,57.95950698852539,False
+Unnamed settlement,village,55.4972693,-4.6691243,5.760468006134033,5.760468006134033,valid,seychelles_deltadtm.vrt,deltadtm,29.923171997070312,False
+Unnamed settlement,village,55.4505286,-4.6750171,27.025880813598633,27.025880813598633,valid,seychelles_deltadtm.vrt,deltadtm,28.847063064575195,False
+La Béolière,village,55.435331,-4.670083,30.0,120.25790405273438,above_10m,seychelles_deltadtm.vrt,deltadtm,120.25790405273438,False
+La Plaine St. Andre,village,55.5215697,-4.7205684,18.627389907836914,18.627389907836914,valid,seychelles_deltadtm.vrt,deltadtm,20.34172248840332,False
+Pascal Village,village,55.4351586,-4.620927,30.0,97.17716217041016,above_10m,seychelles_deltadtm.vrt,deltadtm,97.17716217041016,False
+Talbot,village,55.5011429,-4.6702758,-1.2856383323669434,35.66729736328125,above_10m,seychelles_deltadtm.vrt,deltadtm,35.66729736328125,False
+Unnamed settlement,village,55.4851734,-4.6584014,17.236637115478516,17.236637115478516,valid,seychelles_deltadtm.vrt,deltadtm,21.521211624145508,False
+Unnamed settlement,village,55.455248,-4.5932954,6.787746906280518,6.787746906280518,valid,seychelles_deltadtm.vrt,deltadtm,25.40239906311035,False
+Unnamed settlement,village,55.4345526,-4.583654,30.0,85.66171264648438,above_10m,seychelles_deltadtm.vrt,deltadtm,85.66171264648438,False
+La Retraite,village,55.4608205,-4.5840828,5.542840480804443,5.542840480804443,valid,seychelles_deltadtm.vrt,deltadtm,12.780582427978516,False
+Ma Constance,village,55.455935,-4.5975253,18.649581909179688,18.649581909179688,valid,seychelles_deltadtm.vrt,deltadtm,29.016380310058594,False
+Mare Anglaise,village,55.4334831,-4.6066837,29.995576858520508,31.749855041503906,above_10m,seychelles_deltadtm.vrt,deltadtm,31.749855041503906,False
+Vista do Mar,village,55.4348924,-4.5757792,15.188754081726074,39.50149917602539,above_10m,seychelles_deltadtm.vrt,deltadtm,39.50149917602539,False
+Unnamed settlement,village,55.450062,-4.5653565,30.0,59.80713653564453,above_10m,seychelles_deltadtm.vrt,deltadtm,59.80713653564453,False
+La Misère,village,55.4704516,-4.6677028,30.0,440.1677551269531,above_10m,seychelles_deltadtm.vrt,deltadtm,440.1677551269531,False
+Unnamed settlement,islet,55.7621333,-4.3428898,6.175291061401367,6.175291061401367,valid,seychelles_deltadtm.vrt,deltadtm,7.327692985534668,False
+Unnamed settlement,islet,55.4650315,-4.7059554,-0.8056891560554504,-0.8056891560554504,valid,seychelles_deltadtm.vrt,deltadtm,1.0284662246704102,True
+Unnamed settlement,islet,55.8229764,-4.36289,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,46.2574578,-9.4268971,-9999.0,1.9085975885391235,snapped_to_land,seychelles_deltadtm.vrt,deltadtm,2.559603452682495,False
+Unnamed settlement,islet,46.2565526,-9.4272312,1.9097830057144165,1.9097830057144165,valid,seychelles_deltadtm.vrt,deltadtm,4.089656352996826,False
+Bois Verse,locality,55.6848602,-4.3195654,-9999.0,3.1739494800567627,snapped_to_land,seychelles_deltadtm.vrt,deltadtm,4.323406219482422,False
+Point Ste Marie,locality,55.677547,-4.3002604,-0.6971670389175415,-0.6971670389175415,valid,seychelles_deltadtm.vrt,deltadtm,0.45044249296188354,True
+Hodoul Point,locality,46.5200745,-9.4008563,3.3908512592315674,3.3908512592315674,valid,seychelles_deltadtm.vrt,deltadtm,6.052583694458008,False
+Platte,village,55.3834915,-5.8641583,-9999.0,,deltadtm_nodata,seychelles_deltadtm.vrt,deltadtm,1.0155717134475708,False
+Victoria,city,55.452359,-4.6232085,8.299928665161133,8.299928665161133,valid,seychelles_deltadtm.vrt,deltadtm,10.033864974975586,False
+Roche Tortue,islet,55.5418216,-4.6688439,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Pointe Machabee,locality,55.2182283,-4.4654836,0.0,,water_no_land_nearby,seychelles_elevation_v2.vrt,deltadtm,,False
+Poivre,village,53.311817,-5.7467898,0.9345018267631531,0.9345018267631531,valid,seychelles_deltadtm.vrt,deltadtm,12.501982688903809,True
+Coëtivy,village,56.271161,-7.1450058,5.121933460235596,5.121933460235596,valid,seychelles_deltadtm.vrt,deltadtm,8.359957695007324,False
+Hist. Marine Park,locality,55.3812916,-4.6418699,3.64951491355896,3.64951491355896,valid,seychelles_deltadtm.vrt,deltadtm,5.592709541320801,False
+Grande Poste,hamlet,51.1620808,-10.1229324,1.1340513229370117,1.1340513229370117,valid,seychelles_deltadtm.vrt,deltadtm,2.1048896312713623,False
+L'Union,village,55.8334898,-4.3633241,20.779525756835938,20.779525756835938,valid,seychelles_deltadtm.vrt,deltadtm,21.932403564453125,False
+Unnamed settlement,town,55.8306895,-4.356222,7.092423915863037,7.092423915863037,valid,seychelles_deltadtm.vrt,deltadtm,8.244799613952637,False
+La Réunion,village,55.8319162,-4.3523294,8.883111953735352,8.883111953735352,valid,seychelles_deltadtm.vrt,deltadtm,10.035171508789062,False
+La Passe,village,55.8322653,-4.349538,2.17987322807312,2.17987322807312,valid,seychelles_deltadtm.vrt,deltadtm,3.3317172527313232,False

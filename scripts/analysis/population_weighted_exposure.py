@@ -86,6 +86,26 @@ paper's Section 6 for the full rebuild, validation, and independent
 verification of the Maldives/Seychelles figures.
 """
 
+# --- Update (Forensic Review, 2026-10-10) ---
+# NoData was not handled in the DEM resampling step (see process_bbox), so
+# Seychelles' -32767 cells counted as at risk. Fixed; water/NoData cells are
+# now excluded and reported, the void check below is kept only for reference
+# (exact 0.0 is now always treated as water), elevation files prefer the
+# re-downloaded *_elevation_v2.tif when present, and results are written to
+# data/population_weighted_exposure.csv so figures read them instead of
+# hard-coding them.
+
+# --- Update (FINISH_PLAN D1, D2, 2026-10-11) ---
+# This is now the MAIN exposure measure (share of people at or below 1 m),
+# because most OSM "settlement" points are island names, not settlements.
+# It runs once per available elevation source. For DeltaDTM (bare earth,
+# values only below 10 m) a cell with no DeltaDTM value takes the Copernicus
+# value when Copernicus is above 10 m (dry at 1 m) and is excluded otherwise.
+# Outputs: data/population_weighted_exposure.csv (primary source, same columns
+# as before plus elevation_source) and data/population_weighted_exposure_by_source.csv.
+
+import os
+import sys
 import geopandas as gpd
 import numpy as np
 import rasterio
@@ -115,6 +135,14 @@ VOID_HALF_WINDOW = 2  # 2 -> 5x5 window, matching slr_exposure_analysis.py
 # ISLANDS below, this can safely stay on.
 APPLY_BOUNDARY_MASK = True
 
+# Large windows are processed in CHUNK_DEG x CHUNK_DEG pieces so the 1-arc-second
+# DEM read stays small (Seychelles spans ~10 x 7 degrees).
+CHUNK_DEG = 1.0
+
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
+from scripts.common.dem_sampling import (DELTADTM_CEILING_M, DELTADTM_TRUST_MAX_COP_M, available_sources,  # noqa: E402
+                                         deltadtm_path, elevation_path, primary_source)
+
 
 def build_void_mask(elev_array, half_window=VOID_HALF_WINDOW):
     """True where a pixel reads exactly 0.0 AND its (2*half_window+1)^2
@@ -132,7 +160,8 @@ def build_void_mask(elev_array, half_window=VOID_HALF_WINDOW):
 # territory straddles the antimeridian.
 ISLANDS = {
     "Maldives": {
-        "elevation": "data/terrain/maldives_elevation_v2.tif",
+        "elevation": elevation_path("maldives"),
+        "key": "maldives",
         "population": "data/population/maldives_population_clean.tif",
         "boundary": "data/boundaries_v2/maldives_islands_v2.gpkg",
         # from data/boundaries/maldives_islands.gpkg total_bounds
@@ -140,7 +169,8 @@ ISLANDS = {
                      73.76 + BUFFER_DEGREES, 7.11 + BUFFER_DEGREES)],
     },
     "Seychelles": {
-        "elevation": "data/terrain/seychelles_elevation.tif",
+        "elevation": elevation_path("seychelles"),
+        "key": "seychelles",
         "population": "data/population/seychelles_population_clean.tif",
         "boundary": "data/boundaries_v2/seychelles_islands_v2.gpkg",
         # from data/boundaries/seychelles_islands.gpkg total_bounds
@@ -148,7 +178,8 @@ ISLANDS = {
                      56.29 + BUFFER_DEGREES, -3.79 + BUFFER_DEGREES)],
     },
     "Fiji": {
-        "elevation": "data/terrain/fiji_elevation.tif",
+        "elevation": elevation_path("fiji"),
+        "key": "fiji",
         "population": "data/population/fiji_population_clean.tif",
         "boundary": "data/boundaries_v2/fiji_islands_v2.gpkg",
         # two windows straddling the antimeridian — mirrors the "two
@@ -159,7 +190,8 @@ ISLANDS = {
         ],
     },
     "Canary Islands": {
-        "elevation": "data/terrain/canary_elevation.tif",
+        "elevation": elevation_path("canary"),
+        "key": "canary",
         "population": "data/population/canary_population_clean.tif",
         "boundary": "data/boundaries_v2/canary_islands_v2.gpkg",
         # from data/boundaries/canary_islands.gpkg total_bounds
@@ -167,7 +199,8 @@ ISLANDS = {
                      -13.42 + BUFFER_DEGREES, 29.24 + BUFFER_DEGREES)],
     },
     "Lakshadweep": {
-        "elevation": "data/terrain/lakshadweep_elevation_v2.tif",
+        "elevation": elevation_path("lakshadweep"),
+        "key": "lakshadweep",
         "population": "data/population/lakshadweep_population_clean.tif",
         "boundary": "data/boundaries_v2/lakshadweep_islands_v2.gpkg",
         # from data/boundaries/lakshadweep_islands.gpkg total_bounds
@@ -187,7 +220,32 @@ def load_boundary_geoms(boundary_path, dst_crs):
     return [geom.__geo_interface__ for geom in gdf.geometry if geom is not None and not geom.is_empty]
 
 
-def process_bbox(pop_src, elev_src, bbox, boundary_geoms, threshold, void_check=False):
+def _clean(arr, nodata):
+    """NaN for NoData, values <= -1000 and exact 0.0 (flattened water surface)."""
+    bad = ~np.isfinite(arr) | (arr <= -1000.0) | (arr == 0.0)
+    if nodata is not None:
+        bad |= arr == nodata
+    return np.where(bad, np.nan, arr)
+
+
+def _fill_from_copernicus(ddtm, ddtm_transform, ddtm_crs, cop_src, bounds):
+    """Where DeltaDTM is empty, use Copernicus if it is above the 10 m ceiling."""
+    window = from_bounds(*bounds, transform=cop_src.transform).round_offsets().round_lengths()
+    window = window.intersection(Window(0, 0, cop_src.width, cop_src.height))
+    if window.width <= 0 or window.height <= 0:
+        return ddtm
+    cop = _clean(cop_src.read(1, window=window).astype("float32"), cop_src.nodata)
+    cop_on_grid = np.full(ddtm.shape, np.nan, dtype="float32")
+    reproject(source=cop, destination=cop_on_grid, src_transform=cop_src.window_transform(window),
+              src_crs=cop_src.crs, src_nodata=np.nan, dst_transform=ddtm_transform, dst_crs=ddtm_crs,
+              dst_nodata=np.nan, resampling=Resampling.nearest)
+    high = np.isfinite(cop_on_grid) & (
+        (np.isnan(ddtm) & (cop_on_grid > DELTADTM_CEILING_M))   # DeltaDTM empty above its 10 m scope
+        | (cop_on_grid > DELTADTM_TRUST_MAX_COP_M))             # high terrain: DeltaDTM out of scope
+    return np.where(high, cop_on_grid, ddtm)
+
+
+def process_bbox(pop_src, elev_src, bbox, boundary_geoms, threshold, void_check=False, cop_src=None):
     minx, miny, maxx, maxy = bbox
 
     pop_window = from_bounds(minx, miny, maxx, maxy, transform=pop_src.transform)
@@ -236,44 +294,41 @@ def process_bbox(pop_src, elev_src, bbox, boundary_geoms, threshold, void_check=
     if elev_window.width <= 0 or elev_window.height <= 0:
         raise ValueError("bbox does not overlap the elevation raster at all")
 
-    elev_window_data = elev_src.read(1, window=elev_window)
+    elev_window_data = elev_src.read(1, window=elev_window).astype("float32")
     elev_window_transform = elev_src.window_transform(elev_window)
 
-    elev_on_pop_grid = np.empty(pop_shape, dtype="float32")
+    # --- NoData / water handling (Forensic Review fix, 2026-10-10) ---------
+    # Previously the DEM window was reprojected with no src_nodata, so the
+    # Seychelles NoData value (-32767) was blended into the population grid
+    # and counted as "<= 1 m, at risk". Now: NoData, NaN, values <= -1000 and
+    # exact 0.0 (Copernicus' flattened water surface, the same rule as
+    # scripts/common/dem_sampling.py) are all set to NaN BEFORE resampling,
+    # and the resampling averages only the remaining land pixels. A population
+    # cell with no land pixel under it gets NaN and is excluded from both the
+    # numerator and the denominator; that population is reported separately.
+    elev_window_data = _clean(elev_window_data, elev_src.nodata)
+    if cop_src is not None:  # DeltaDTM run: fill empty cells that Copernicus puts above 10 m
+        elev_window_data = _fill_from_copernicus(elev_window_data, elev_window_transform, elev_src.crs,
+                                                 cop_src, (e_minx, e_miny, e_maxx, e_maxy))
+
+    elev_on_pop_grid = np.full(pop_shape, np.nan, dtype="float32")
     reproject(
         source=elev_window_data,
         destination=elev_on_pop_grid,
         src_transform=elev_window_transform,
         src_crs=elev_src.crs,
+        src_nodata=np.nan,
         dst_transform=pop_transform,
         dst_crs=pop_crs,
-        resampling=Resampling.bilinear,
+        dst_nodata=np.nan,
+        resampling=Resampling.average,
     )
 
-    excluded_pop = 0.0
-    if void_check:
-        # Flag any population-grid cell that resamples from a DEM coverage
-        # gap (see module docstring / build_void_mask) and pull it out of
-        # both the numerator and denominator, rather than letting it count
-        # as "0m, at risk" just because the source raster was empty there.
-        # Nearest-neighbor resampling here (not bilinear) because this is a
-        # 0/1 categorical flag, not a continuous quantity.
-        void_mask_native = build_void_mask(elev_window_data.astype("float64"))
-        void_on_pop_grid = np.zeros(pop_shape, dtype="float32")
-        reproject(
-            source=void_mask_native.astype("float32"),
-            destination=void_on_pop_grid,
-            src_transform=elev_window_transform,
-            src_crs=elev_src.crs,
-            dst_transform=pop_transform,
-            dst_crs=pop_crs,
-            resampling=Resampling.nearest,
-        )
-        coverage_gap_mask = void_on_pop_grid > 0.5
-        excluded_pop = float(pop_array[coverage_gap_mask].sum())
-        pop_array = np.where(coverage_gap_mask, 0, pop_array)
+    no_elev = ~np.isfinite(elev_on_pop_grid)
+    excluded_pop = float(pop_array[no_elev].sum())
+    pop_array = np.where(no_elev, 0, pop_array)
 
-    at_risk_mask = elev_on_pop_grid <= threshold
+    at_risk_mask = np.isfinite(elev_on_pop_grid) & (elev_on_pop_grid <= threshold)
     return pop_array[at_risk_mask].sum(), pop_array.sum(), excluded_pop
 
 
@@ -302,13 +357,28 @@ def population_in_bbox(pop_src, bbox, boundary_geoms=None):
     return float(arr.sum())
 
 
+def split_bbox(bbox, step=CHUNK_DEG):
+    minx, miny, maxx, maxy = bbox
+    xs = list(np.arange(minx, maxx, step)) + [maxx]
+    ys = list(np.arange(miny, maxy, step)) + [maxy]
+    return [(xs[i], ys[j], xs[i + 1], ys[j + 1]) for i in range(len(xs) - 1) for j in range(len(ys) - 1)]
+
+
 def population_weighted_exposure(elevation_path, population_path, boundary_path, windows, threshold=1.0,
-                                    void_check=False):
+                                    void_check=False, west_elevation_path=None,
+                                    cop_path=None, west_cop_path=None):
     total_at_risk = 0.0
     total_pop = 0.0
     skipped_pop = 0.0
     excluded_gap_pop = 0.0
-    with rasterio.open(population_path) as pop_src, rasterio.open(elevation_path) as elev_src:
+    west_elevation_path = west_elevation_path or elevation_path
+    from contextlib import ExitStack
+    with ExitStack() as stack:
+        pop_src = stack.enter_context(rasterio.open(population_path))
+        elev_main = stack.enter_context(rasterio.open(elevation_path))
+        elev_west = stack.enter_context(rasterio.open(west_elevation_path))
+        cop_main = stack.enter_context(rasterio.open(cop_path)) if cop_path else None
+        cop_west = stack.enter_context(rasterio.open(west_cop_path or cop_path)) if cop_path else None
         if not APPLY_BOUNDARY_MASK:
             boundary_geoms = None
         else:
@@ -319,11 +389,14 @@ def population_weighted_exposure(elevation_path, population_path, boundary_path,
                       flush=True)
                 boundary_geoms = None
 
-        for i, bbox in enumerate(windows, start=1):
-            print(f"    window {i}/{len(windows)}: {bbox}", flush=True)
+        chunks = [c for w in windows for c in split_bbox(w)]
+        for i, bbox in enumerate(chunks, start=1):
+            elev_src = elev_west if bbox[0] < 0 else elev_main
+            cop_src = (cop_west if bbox[0] < 0 else cop_main) if cop_main is not None else None
+            print(f"    chunk {i}/{len(chunks)}: {tuple(round(v, 2) for v in bbox)}", flush=True)
             try:
                 at_risk, total, excluded = process_bbox(pop_src, elev_src, bbox, boundary_geoms, threshold,
-                                                          void_check=void_check)
+                                                          void_check=void_check, cop_src=cop_src)
                 total_at_risk += at_risk
                 total_pop += total
                 excluded_gap_pop += excluded
@@ -337,23 +410,51 @@ def population_weighted_exposure(elevation_path, population_path, boundary_path,
         print(f"    NOTE: {skipped_pop:,.0f} people were in areas with no elevation "
               f"coverage and were excluded from this island's percentage.", flush=True)
     if excluded_gap_pop > 0:
-        print(f"    NOTE: {excluded_gap_pop:,.0f} people sit on a DEM coverage-gap patch "
-              f"(flat-void signature) and were excluded from both the numerator and "
-              f"denominator, rather than counted as at-risk.", flush=True)
+        print(f"    NOTE: {excluded_gap_pop:,.0f} people sit on cells with no usable elevation "
+              f"(NoData, no tile, or water-only DEM pixels) and were excluded from both the "
+              f"numerator and denominator, rather than counted as at-risk.", flush=True)
     percent_at_risk = (total_at_risk / total_pop * 100) if total_pop > 0 else float("nan")
     return total_at_risk, total_pop, percent_at_risk, excluded_gap_pop
 
 
-if __name__ == "__main__":
-    print(f"{'Island':<16} {'Pop. at risk':>15} {'Total pop.':>15} {'% at risk':>12} {'Excl. (gap)':>14}")
+def run_source(source):
+    rows = []
+    print(f"\n===== elevation source: {source} =====")
+    print(f"{'Island':<16} {'Pop. at risk':>15} {'Total pop.':>15} {'% at risk':>12} {'Excl. (no elev.)':>16}")
     print("-" * 78)
     for island, cfg in ISLANDS.items():
         print(f"  -> {island}...", flush=True)
+        key = cfg["key"]
         try:
+            if source == "deltadtm":
+                kw = dict(elevation_path=deltadtm_path(key),
+                          west_elevation_path=deltadtm_path(key, west_of_antimeridian=True),
+                          cop_path=elevation_path(key),
+                          west_cop_path=elevation_path(key, west_of_antimeridian=True))
+            else:
+                kw = dict(elevation_path=elevation_path(key),
+                          west_elevation_path=elevation_path(key, west_of_antimeridian=True))
             at_risk, total, pct, excluded = population_weighted_exposure(
-                cfg["elevation"], cfg["population"], cfg["boundary"], cfg["windows"], ELEVATION_THRESHOLD_M,
-                void_check=(island in VOID_CHECK_ISLANDS),
-            )
-            print(f"{island:<16} {at_risk:>15,.0f} {total:>15,.0f} {pct:>11.1f}% {excluded:>13,.0f}")
+                population_path=cfg["population"], boundary_path=cfg["boundary"], windows=cfg["windows"],
+                threshold=ELEVATION_THRESHOLD_M, void_check=(island in VOID_CHECK_ISLANDS), **kw)
+            print(f"{island:<16} {at_risk:>15,.0f} {total:>15,.0f} {pct:>11.1f}% {excluded:>16,.0f}")
+            rows.append({"island": island, "elevation_source": source, "pop_at_risk": at_risk,
+                         "pop_with_elevation": total, "pct_at_risk": pct,
+                         "pop_excluded_no_elevation": excluded,
+                         "pct_pop_covered": total / (total + excluded) * 100 if (total + excluded) else float("nan")})
         except Exception as e:
             print(f"{island:<16}  ERROR: {e}")
+    return rows
+
+
+if __name__ == "__main__":
+    import pandas as pd
+    primary = primary_source()
+    rows = []
+    for source in available_sources():
+        rows += run_source(source)
+    out = pd.DataFrame(rows)
+    out.to_csv("data/population_weighted_exposure_by_source.csv", index=False)
+    out[out["elevation_source"] == primary].to_csv("data/population_weighted_exposure.csv", index=False)
+    print(f"Saved: data/population_weighted_exposure.csv (primary source: {primary}) and "
+          f"data/population_weighted_exposure_by_source.csv")

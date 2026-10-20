@@ -20,3 +20,9 @@ data/boundaries/land-polygons-complete-4326/
 Outputs2/
 OUTPUTS3/
 outputs4/
+
+# local backup made before the 2026-10-10 review fixes (safe to delete)
+_backup_before_review_fixes/
+
+# private finish plan (never pushed)
+FINISH_PLAN.md

@@ -1,121 +1,138 @@
-import geopandas as gpd
-import numpy as np
-import rasterio
-from rasterio.sample import sample_gen
+"""Settlement-based physical exposure to a 1 m sea-level-rise threshold.
+
+Rewritten 2026-10-10 after the Forensic Review. All DEM reading now goes
+through scripts/common/dem_sampling.py, which applies ONE rule to all five
+islands (out-of-extent, NoData, water-pixel snapping; see that module's
+docstring). The previous version had no NoData handling: Seychelles' -32767
+NoData value was counted as "at or below 1 m" for 188 of 244 settlements, and
+Lakshadweep's 2 at-risk settlements lay outside the DEM. It also used a
+different exclusion rule per island (blanket zero drop for Canary/Fiji,
+5x5 void test for Maldives/Lakshadweep, nothing for Seychelles).
+
+Outputs
+-------
+data/slr_exposure_summary.csv         one row per island: counts by status,
+                                      coverage, % at risk at 0.5/1.0/1.5 m under
+                                      the main rule (water pixels snapped to
+                                      nearby land) and under the strict rule
+                                      (water-pixel points excluded).
+data/settlement_elevations_full/<island>.csv
+                                      one row per settlement with raw DEM value,
+                                      elevation used, status, at_risk flag.
+
+Update 2026-10-11 (FINISH_PLAN D1, D2): runs once per available elevation
+source (Copernicus GLO-30 always, DeltaDTM when prepared). The primary source
+(DeltaDTM when ready) is written to the files above, so every reader keeps
+working; all sources go to data/slr_exposure_summary_by_source.csv, and the
+non-primary per-place files get a suffix (<island>_copernicus.csv). Most OSM
+"settlement" points are island and islet names, not settlements, so the paper
+calls them "named places" and data/named_places_by_type.csv breaks the result
+down by OSM place type. The main exposure measure is now population-weighted
+(population_weighted_exposure.py).
+
+Run from the repository root:  python scripts/analysis/slr_exposure_analysis.py
+"""
+
+import os
+import sys
+
 import pandas as pd
 
-ISLANDS = ["maldives", "seychelles", "fiji", "canary", "lakshadweep"]
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
+from scripts.common.dem_sampling import (ISLANDS, KEPT_STATUSES, available_sources,  # noqa: E402
+                                         primary_source, repo_path, sample_settlements)
 
-SLR_THRESHOLD_M = 1.0  # standard 1-meter sea-level-rise scenario
-SENSITIVITY_THRESHOLDS_M = [0.5, 1.0, 1.5]  # robustness check across a range of thresholds
-
-# Canary's DEM returns literal 0.0 at some settlement points that aren't real
-# near-sea-level terrain (volcanic, mountainous -- verified against QGIS, see
-# data/canary_python_elevations_check.csv). Fiji shows the same signature
-# (31.3% of points exactly 0.0m on volcanic/mountainous terrain -- an
-# implausible spike, not real near-sea-level readings) and is now excluded
-# the same way; see map1_slr_fiji.py, which already treated Fiji's zeros
-# as NoData independently of this script. For both islands, EVERY exact-zero
-# reading is dropped -- a blanket rule, justified because their terrain is
-# volcanic/mountainous and a real settlement at true sea level would be
-# geologically implausible in the first place.
-ZERO_IS_NODATA = {"canary", "fiji"}
-
-# Maldives and Lakshadweep are different: they're genuine low-lying coral
-# atolls, so a real settlement CAN legitimately sit at or near 0.0m -- a
-# blanket "drop every exact zero" rule would wrongly delete real at-risk
-# points, not just artifacts. The original data/terrain/{island}_elevation.tif
-# files for these two turned out to be almost entirely a raster coverage gap
-# (99.99% of pixels were exactly 0.0, and settlement points were on average
-# nowhere near any real, non-zero pixel) -- confirmed by re-downloading the
-# source Copernicus DEM GLO-30 tiles directly from ESA's public archive and
-# comparing. The redownloaded files are data/terrain/{island}_elevation_v2.tif.
-# Even in the v2 files, a small remaining fraction of settlement points still
-# read exactly 0.0m (some source tiles returned 404 -- genuine gaps in the
-# public Copernicus archive, not a bug on our end). For those, this script
-# tells a real reading apart from a leftover void the same way the DEM
-# investigation did: look at the 5x5 pixel neighborhood around the point.
-# If every pixel in that neighborhood is also exactly 0.0, it's a flat void
-# signature (no real terrain reads perfectly flat across 25 adjacent 30m
-# pixels) and the point is excluded as a coverage gap. If the neighborhood
-# has real variation, the 0.0m reading is kept as genuine low terrain.
-NEIGHBORHOOD_CHECK_NODATA = {"maldives", "lakshadweep"}
-NEIGHBORHOOD_HALF_WINDOW = 2  # 2 -> 5x5 window
+SLR_THRESHOLD_M = 1.0
+SENSITIVITY_THRESHOLDS_M = [0.5, 1.0, 1.5]
+OUT_DIR = repo_path("data", "settlement_elevations_full")
 
 
-def is_void_neighborhood(arr, src, x, y):
-    row, col = src.index(x, y)
-    r0, r1 = max(0, row - NEIGHBORHOOD_HALF_WINDOW), min(arr.shape[0], row + NEIGHBORHOOD_HALF_WINDOW + 1)
-    c0, c1 = max(0, col - NEIGHBORHOOD_HALF_WINDOW), min(arr.shape[1], col + NEIGHBORHOOD_HALF_WINDOW + 1)
-    window = arr[r0:r1, c0:c1]
-    return bool(np.all(window == 0))
+def pct(n, d):
+    return (n / d * 100) if d else float("nan")
 
 
-def analyze_island(island):
-    settlements_path = f"data/settlements/{island}_settlements_clean.gpkg"
-    if island in NEIGHBORHOOD_CHECK_NODATA:
-        elevation_path = f"data/terrain/{island}_elevation_v2.tif"
-    else:
-        elevation_path = f"data/terrain/{island}_elevation.tif"
+def analyze_island(island, source="copernicus", primary=True):
+    df = sample_settlements(island, snap_zero_to_land=True, source=source)
+    kept = df[df["status"].isin(KEPT_STATUSES)]
+    strict = df[df["status"].isin({"valid", "above_10m"})]  # water-pixel points excluded instead of snapped
 
-    gdf = gpd.read_file(settlements_path)
-    n_excluded_coverage_gap = 0
+    df["at_risk"] = df["status"].isin(KEPT_STATUSES) & (df["elevation_m"] <= SLR_THRESHOLD_M)
+    os.makedirs(OUT_DIR, exist_ok=True)
+    suffix = "" if primary else f"_{source}"
+    df.to_csv(os.path.join(OUT_DIR, f"{island}{suffix}.csv"), index=False)
 
-    with rasterio.open(elevation_path) as src:
-        coords = [(geom.centroid.x, geom.centroid.y) for geom in gdf.geometry]
-        elevations = [val[0] for val in src.sample(coords)]
-        gdf["elevation_m"] = elevations
-
-        if island in ZERO_IS_NODATA:
-            keep_mask = gdf["elevation_m"] != 0.0
-            n_excluded_coverage_gap = int((~keep_mask).sum())
-            gdf = gdf[keep_mask].copy()
-        elif island in NEIGHBORHOOD_CHECK_NODATA:
-            arr = src.read(1).astype("float64")
-            exclude_mask = pd.Series(False, index=gdf.index)
-            for idx, geom in zip(gdf.index, gdf.geometry):
-                if gdf.loc[idx, "elevation_m"] == 0.0:
-                    if is_void_neighborhood(arr, src, geom.centroid.x, geom.centroid.y):
-                        exclude_mask.loc[idx] = True
-            n_excluded_coverage_gap = int(exclude_mask.sum())
-            gdf = gdf[~exclude_mask].copy()
-
-    total = len(gdf)
-    at_risk = (gdf["elevation_m"] <= SLR_THRESHOLD_M).sum()
-    pct_at_risk = (at_risk / total * 100) if total > 0 else 0
-
-    sensitivity = {}
+    counts = df["status"].value_counts()
+    result = {
+        "island": island,
+        "elevation_source": source,
+        "dem_file": df["dem_file"].iloc[0] if len(df) else "",
+        "n_settlements": len(df),
+        "n_valid": int(counts.get("valid", 0)),
+        "n_snapped_to_land": int(counts.get("snapped_to_land", 0)),
+        "n_water_no_land_nearby": int(counts.get("water_no_land_nearby", 0)),
+        "n_nodata": int(counts.get("nodata", 0)),
+        "n_out_of_extent": int(counts.get("out_of_extent", 0)),
+        "n_above_10m": int(counts.get("above_10m", 0)),
+        "n_deltadtm_nodata": int(counts.get("deltadtm_nodata", 0)),
+        "total": len(kept),
+        "coverage_pct": pct(len(kept), len(df)),
+        "at_risk": int((kept["elevation_m"] <= SLR_THRESHOLD_M).sum()),
+        "pct_at_risk": pct((kept["elevation_m"] <= SLR_THRESHOLD_M).sum(), len(kept)),
+    }
     for t in SENSITIVITY_THRESHOLDS_M:
-        n_risk = (gdf["elevation_m"] <= t).sum()
-        sensitivity[f"pct_at_risk_{t}m"] = (n_risk / total * 100) if total > 0 else 0
+        result[f"pct_at_risk_{t}m"] = pct((kept["elevation_m"] <= t).sum(), len(kept))
+    result["strict_total"] = len(strict)
+    result["strict_pct_at_risk_1.0m"] = pct((strict["elevation_m"] <= SLR_THRESHOLD_M).sum(), len(strict))
 
-    print(f"{island.upper()}:")
-    if n_excluded_coverage_gap:
-        print(f"  Excluded as DEM coverage gap: {n_excluded_coverage_gap}")
-    print(f"  Total settlements (after exclusions): {total}")
-    print(f"  At risk (<= {SLR_THRESHOLD_M}m elevation): {at_risk} ({pct_at_risk:.1f}%)")
+    print(f"{island.upper()} [{source}] ({result['dem_file']})")
+    print(f"  status counts: {counts.to_dict()}")
+    print(f"  coverage: {result['total']}/{len(df)} settlements ({result['coverage_pct']:.1f}%)")
+    print(f"  at risk <= {SLR_THRESHOLD_M} m: {result['at_risk']} ({result['pct_at_risk']:.1f}%)")
     for t in SENSITIVITY_THRESHOLDS_M:
-        print(f"    @ {t}m threshold: {sensitivity[f'pct_at_risk_{t}m']:.2f}%")
-    print()
+        print(f"    @ {t} m: {result[f'pct_at_risk_{t}m']:.2f}%")
+    print(f"  strict rule (water-pixel points excluded): {result['strict_pct_at_risk_1.0m']:.2f}% "
+          f"of {result['strict_total']}\n")
+    if result["coverage_pct"] < 80:
+        print(f"  WARNING: only {result['coverage_pct']:.0f}% of {island} settlements have a usable "
+              f"elevation. Fix DEM coverage before reporting this island's figure.\n")
+    return result, df
 
-    result = {"island": island, "total": total, "at_risk": at_risk, "pct_at_risk": pct_at_risk,
-               "excluded_coverage_gap": n_excluded_coverage_gap}
-    result.update(sensitivity)
-    return result
+
+def place_type_table(frames):
+    """Exposure by OSM place type for the primary source (FINISH_PLAN D1)."""
+    rows = []
+    for island, df in frames.items():
+        for place, g in df.groupby(df["place"].fillna("(none)")):
+            kept = g[g["status"].isin(KEPT_STATUSES)]
+            rows.append({"island": island, "place": place, "n": len(g), "n_usable": len(kept),
+                         "n_at_risk_1m": int((kept["elevation_m"] <= SLR_THRESHOLD_M).sum())})
+    out = pd.DataFrame(rows).sort_values(["island", "n"], ascending=[True, False])
+    out.to_csv(repo_path("data", "named_places_by_type.csv"), index=False)
+    print("Saved: data/named_places_by_type.csv")
 
 
 def main():
-    results = []
-    for island in ISLANDS:
-        try:
-            result = analyze_island(island)
-            results.append(result)
-        except Exception as e:
-            print(f"{island.upper()}: ERROR - {e}\n")
-
-    df = pd.DataFrame(results)
-    df.to_csv("data/slr_exposure_summary.csv", index=False)
-    print("Saved: data/slr_exposure_summary.csv")
+    primary = primary_source()
+    results, frames = [], {}
+    for source in available_sources():
+        print("=" * 30 + f" elevation source: {source}" + (" (primary)" if source == primary else "") + " " + "=" * 30)
+        for island in ISLANDS:
+            try:
+                res, df = analyze_island(island, source, primary=(source == primary))
+                results.append(res)
+                if source == primary:
+                    frames[island] = df
+            except Exception as e:  # keep going so one missing file doesn't hide the others
+                print(f"{island.upper()} [{source}]: ERROR - {e}\n")
+    allres = pd.DataFrame(results)
+    allres.to_csv(repo_path("data", "slr_exposure_summary_by_source.csv"), index=False)
+    allres[allres["elevation_source"] == primary].to_csv(repo_path("data", "slr_exposure_summary.csv"), index=False)
+    print(f"Saved: data/slr_exposure_summary.csv (primary source: {primary}) and "
+          f"data/slr_exposure_summary_by_source.csv")
+    if len(allres["elevation_source"].unique()) > 1:
+        piv = allres.pivot(index="island", columns="elevation_source", values="pct_at_risk").round(2)
+        print("\n% of named places at or below 1 m, by elevation source:\n" + piv.to_string())
+    place_type_table(frames)
 
 
 if __name__ == "__main__":

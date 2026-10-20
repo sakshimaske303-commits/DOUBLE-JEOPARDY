@@ -1,6 +1,12 @@
-"""Turns the NDBI diff rasters into a percentile-based hotspot folium map
-per island (a fixed +/-0.05 threshold flagged noise, not real
-construction). Needs rasterio, geopandas, folium.
+"""Turns the NDBI diff rasters into a hotspot folium map per island.
+Needs rasterio, geopandas, folium.
+
+Updated 2026-10-10 (Forensic Review): land mask now uses the validated
+data/boundaries_v2 files. NOTE: the hotspot class is still the top
+HOTSPOT_PERCENTILE % of each island's OWN pixels, a relative stretch that
+always marks some pixels red even where nothing changed. Set
+USE_ABSOLUTE_THRESHOLD = True to mark only pixels whose NDBI rose by more than
+ABSOLUTE_DELTA, which makes islands comparable (recommended for the paper).
 """
 import os
 import numpy as np
@@ -12,14 +18,14 @@ import matplotlib.colors as mcolors
 import folium
 
 DATA_DIR = "data/settlement_encroachment"
-BOUNDARY_DIR = "data/boundaries"
+BOUNDARY_DIR = "data/boundaries_v2"
 OUT_DIR = "dashboard/static"
 
 # Boundary polygons used to mask the raster to land -- same fixed mask both years.
 BOUNDARY_FILE = {
-    "maldives": "maldives_islands.gpkg",
-    "seychelles": "seychelles_islands.gpkg",
-    "fiji": "fiji_islands.gpkg",
+    "maldives": "maldives_islands_v2.gpkg",
+    "seychelles": "seychelles_islands_v2.gpkg",
+    "fiji": "fiji_islands_v2.gpkg",
 }
 
 
@@ -35,6 +41,8 @@ def load_land_mask(island, transform, shape):
 
 # Percentile cut for hotspot pixels, relative to each island's own distribution.
 HOTSPOT_PERCENTILE = 15
+USE_ABSOLUTE_THRESHOLD = False
+ABSOLUTE_DELTA = 0.10  # NDBI units; only used when USE_ABSOLUTE_THRESHOLD is True
 
 # Display-only upscale (nearest-neighbor) so hotspot pixels are actually
 # visible at island scale -- doesn't change which pixels are selected.
@@ -88,8 +96,11 @@ def build_island_map(island):
         print(f"  SKIPPED {island}: no land pixels found inside the boundary polygon for this raster's extent.")
         return
 
-    hi_cut = np.percentile(valid_values, 100 - HOTSPOT_PERCENTILE)
-    lo_cut = np.percentile(valid_values, HOTSPOT_PERCENTILE)
+    if USE_ABSOLUTE_THRESHOLD:
+        hi_cut, lo_cut = ABSOLUTE_DELTA, -ABSOLUTE_DELTA
+    else:
+        hi_cut = np.percentile(valid_values, 100 - HOTSPOT_PERCENTILE)
+        lo_cut = np.percentile(valid_values, HOTSPOT_PERCENTILE)
 
     # Only render the top/bottom HOTSPOT_PERCENTILE — the noisy middle band
     # is left fully transparent rather than shown in a pale, misleading color.

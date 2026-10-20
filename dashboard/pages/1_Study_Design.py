@@ -122,24 +122,22 @@ st.markdown("---")
 st.markdown("### Methodology at a Glance")
 
 st.markdown("""
-1. **Physical Exposure** — Elevation and slope data intersected with settlement locations,
-   identifying the proportion of settlements below a 1-meter sea-level-rise threshold,
-   computed on both a settlement-count and a population-weighted basis.
+1. **Physical Exposure** — Share of people (WorldPop 2020) living at or below 1 m on a bare-earth
+   elevation model (DeltaDTM v1.1), with Copernicus GLO-30 as a comparison and the share of
+   OpenStreetMap named places as a second measure; 0.5 m and 1.5 m as sensitivity checks.
 
-2. **Ecosystem Trends** — Mangrove extent tracked across 3 independent time points
-   (1996, 2010, 2020); coral condition tracked via 24 years of continuous thermal stress
-   data (1996–2020), tested with both a period-comparison method and a formal Mann-Kendall
-   trend test.
+2. **Ecosystem Trends** — Mangrove extent at three time points (1996, 2010, 2020); reef heat
+   stress as mean Degree Heating Weeks over all mapped reef, 1996–2020, compared by period
+   and tested with a seasonal Mann-Kendall test corrected for serial correlation.
 
-3. **Compound Vulnerability Score** — Physical exposure and ecosystem degradation combined
-   into a single, normalized, cross-island comparable score, with weighting sensitivity
-   tested across the full 0–100% range.
+3. **Compound Vulnerability Score** — Exposure and change in reef heat stress, each scaled 0–1
+   and averaged, with the weighting swept from 0 to 100%. A descriptive ranking within this sample.
 
-4. **Governance Alignment** — Formal protected-area coverage tested against the compound
-   vulnerability score, to assess whether conservation policy is evidence-responsive.
+4. **Governance Alignment** — Share of the 10 km coastal zone that is protected, compared with
+   the compound score across the four island groups with a WDPA record. Descriptive only (n = 4).
 
-5. **Settlement Encroachment** — Satellite-derived built-up area change (2016–2024) tested
-   for concentration within or adjacent to ecosystem buffer zones.
+5. **Built-up Change (supplementary)** — Sentinel-2 NDBI change on land, 2016–2024, including
+   land within 1 km of mangroves and reefs.
 """)
 
 st.markdown("---")

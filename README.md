@@ -2,7 +2,7 @@
 
 [![EarthArXiv](https://img.shields.io/badge/EarthArXiv-Preprint-B7410E.svg)](https://eartharxiv.org/repository/view/14826/) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21739961.svg)](https://doi.org/10.5281/zenodo.21739961)
 
-**Testing whether compound coastal climate vulnerability is real, and whether it affects every ecosystem equally.**
+**How many people on five island groups live at or below 1 m, how reef heat stress has changed around them, and whether protection follows that risk.**
 
 ## Live Dashboard
 
@@ -13,12 +13,12 @@
 | Document | What's Inside |
 |---|---|
 | [`DJ_Executive_Summary.pdf`](./paper/DJ_Executive_Summary.pdf) / [`.md`](./paper/DJ_Executive_Summary.md) | One page snapshot: project overview, question, method, headline finding, robustness checklist, and links (fastest overview; start here) |
-| [`DJ_Research_Paper.md`](./paper/DJ_Research_Paper.md) | Formal academic paper: literature review, statistical methodology, results, discussion |
+| [`DJ_Research_Paper.md`](./paper/DJ_Research_Paper.md) | Research paper: literature review, methods, results, limitations |
 | [`DJ_Development_Log.md`](./paper/DJ_Development_Log.md) | Full technical development log: every bug, debugging session, and methodology iteration |
 
 ---
 
-DOUBLE JEOPARDY is a geospatial framework that independently tests physical sea level rise exposure and ecosystem buffer degradation across 5 islands spanning 3 ocean basins. Instead of assuming mangroves and coral reefs degrade together, each ecosystem is tested independently, revealing that climate vulnerability is not the uniform story it is often assumed to be.
+DOUBLE JEOPARDY looks at two threats to low islands together: the sea rising, and the reefs and mangroves that hold it back weakening. It measures both across 5 island groups in 3 ocean basins (Maldives, Lakshadweep, Seychelles, Fiji, Canary Islands), tests each ecosystem separately, and shows how much the answer depends on the elevation model, the exposure measure and the weighting.
 
 Built on a **"Trust, But Verify"** philosophy: every hypothesis in this project is tested rigorously, and every finding is reported plainly, including where the original hypothesis was not supported.
 
@@ -56,24 +56,38 @@ Interactive geospatial maps are hosted separately via GitHub Pages. Sample links
 
 ## What This Project Does
 
-- Tests physical sea level rise exposure at the settlement level across all 5 islands, using elevation data intersected with over 6,000 individual settlement points, complemented by a population weighted recomputation using WorldPop 2020 data
-- Independently tracks **mangrove extent** across 3 time points (1996, 2010, 2020) and **coral reef thermal stress** across a 24-year, monthly sampled satellite record (1996–2020), treating them as 2 separate hypotheses instead of one combined assumption
-- Combines physical exposure and ecosystem degradation into a single **Compound Vulnerability Score**, checking whether a single exposure measure alone would agree with a composite that also accounts for ecosystem condition
-- Tests whether formal protected area governance is statistically aligned with verified vulnerability, or represents a "paper park" gap between policy and evidence
-- Tests whether settlement expansion is rising in the same broad coastal area as each island's ecosystem buffers, using satellite derived built up area change (2016–2024)
-- Presents all findings through an interactive Streamlit dashboard with live recalculating features, Python (folium) interactive maps, and Plotly interactive plots
+- Measures **sea-level-rise exposure** as the share of people (WorldPop 2020) living at or below 1 m, on a **bare-earth elevation model** (DeltaDTM v1.1), with the Copernicus GLO-30 surface model kept for comparison. The share of OpenStreetMap named places at or below 1 m (7,647 points with a usable elevation) is a second measure, and 0.5 m and 1.5 m are sensitivity checks
+- Tracks **mangrove extent** at 3 time points (1996, 2010, 2020) and **reef heat stress** as mean Degree Heating Weeks over all mapped reef cells, 1996–2020, tested as 2 separate hypotheses instead of one combined assumption
+- Combines exposure and the change in reef heat stress into a **compound score**, and sweeps the weighting from 0 to 100% to show where the ranking changes
+- Describes whether **protected-area coverage of the 10 km coastal zone** follows that risk (4 island groups; descriptive, not a test)
+- Adds **built-up change on land** from Sentinel-2 NDBI (2016–2024) as supporting context
+- Presents everything in an interactive Streamlit dashboard that reads its numbers directly from the analysis CSVs, with Python (folium) maps and Plotly plots
 
 ## Key Findings
 
-**Coral thermal stress is rising; mangrove extent shows no measurable decline.** Comparing early period and recent period averages, 4 of 5 islands show increasing coral thermal stress over 24 years, most severely in Seychelles. Run through a seasonal Mann-Kendall trend test on the complete 24-year series, that increase reaches statistical significance for 2 of the 5, Maldives and Seychelles; the more modest increases in Fiji and Lakshadweep don't reach significance, and the Canary Islands shows no significant trend at all. Mangrove extent, assessed at 3 independent time points (a coarser snapshot comparison, short of a continuous trend test), shows no measurable decline in any tested island. This split between the 2 ecosystems, instead of a uniform "ecosystems are collapsing" narrative, is the project's central empirical contribution.
+All numbers below are written by `python scripts/run_all.py` to the CSVs in `data/`; the dashboard and figures read the same files.
 
-**Seychelles is the highest risk island on settlement based exposure and the overall compound score; population weighted exposure is close to a tie with Maldives.** Settlement based exposure (78.3% of settlements at risk) and the overall Compound Vulnerability Score both point to Seychelles. Population weighted exposure, after a boundary polygon fix corrected a bounding box that had been letting open water leak into the calculation, now shows Maldives (14.9% of population) marginally ahead of Seychelles (14.2%), close enough that it reads as a near tie rather than a clean reversal. This is a correction from an earlier version of this project, where a DEM data quality problem in the Maldives and Lakshadweep elevation files made those 2 islands look far more exposed than they actually are, creating an appearance of disagreement between indicators that turned out not to be real once the underlying data was fixed.
+**1. The elevation model changes the answer more than anything else.** On a surface model, roofs and tree canopy are read as ground. On the bare-earth model, the share of people at or below 1 m is:
 
-**Governance alignment is positive and crosses the conventional significance threshold, on a very small sample.** A strong correlation (r=0.965, n=4; Lakshadweep excluded, no WDPA measurement available for it) exists between protected area coverage and verified vulnerability, with a p value of 0.035 that crosses the conventional significance threshold. With only 4 data points though, this reads as a strong signal short of confirmed proof, since a sample this small leaves both the correlation and its p value fragile to any single new data point.
+| Island group | Bare earth (DeltaDTM) | Surface (Copernicus) | People at or below 1 m |
+|---|---:|---:|---:|
+| Maldives | 11.82% | 8.88% | 57,889 |
+| Lakshadweep | 6.40% | 0.79% | 4,238 |
+| Seychelles | 2.07% | 0.43% | 1,933 |
+| Fiji | 0.28% | 0.21% | 2,460 |
+| Canary Islands | 0.19% | 0.15% | 3,946 |
 
-**Findings hold up under robustness checks.** The coral thermal stress trend is confirmed statistically significant via a seasonal Mann-Kendall test for Maldives (p=0.0046) and Seychelles (p=0.0069); the Compound Vulnerability ranking holds across the entire 0–100% physical exposure weighting range, not just the 50/50 weighting actually used; and physical exposure recomputed on a population weighted basis, against boundary polygon files rebuilt from OpenStreetMap coastline data and validated against independently sourced land area figures, mostly agrees with the settlement based ranking, with Maldives and Seychelles in a near tie at the top on this 1 measure specifically.
+Counting named places instead of people gives a different picture: Maldives 28.8% and Seychelles 24.7% are close, because Seychelles has many small, low coral islets with few residents. People are the main measure.
 
-Full methodology, including 3 hypotheses tested (one supported, one not supported, and one supported marginally, crossing the conventional significance threshold on a very small sample), is documented in the dashboard's Methodology page and in `paper/DJ_Research_Paper.md`.
+**2. Reef heat stress rose, but no trend is significant once serial correlation is accounted for.** Mean DHW over mapped reef rose between 1996–2000 and 2016–2020 on every reef island, most in Seychelles (+0.52 °C-weeks). A seasonal Mann-Kendall test corrected for serial correlation (DHW is a 12-week running sum) gives p = 0.14 for Seychelles, 0.31 for the Maldives, 0.55 for Fiji and 0.90 for Lakshadweep. Without the correction Seychelles would look significant (p < 0.001); the first version of this project reported that.
+
+**3. Mangrove extent shows no decline** on any of the 3 islands where it is mapped (Global Mangrove Watch: Fiji 485.7 → 488.4 km²). On the atolls, patches are close to the pixel size, so small losses may not be detectable.
+
+**4. Which island is "most vulnerable" depends on the weighting.** At equal weights the compound score is Seychelles 0.58, Maldives 0.51, Lakshadweep 0.27, Fiji 0.26, Canary Islands 0.00. Exposure points to the Maldives and reef heat stress to Seychelles, so the top island switches to the Maldives once exposure carries 54% or more of the weight. The score is a descriptive ranking within this sample, not an absolute measure.
+
+**5. Protection does not track risk in this sample.** Coastal-zone protection ranges from 1.3% (Maldives) to 71.4% (Seychelles) and is unrelated to the compound score (r = −0.01, 95% interval −0.96 to 0.96, n = 4; Lakshadweep has no WDPA record). Removing Seychelles alone moves r to −0.95, so this is a description of four island groups, not a finding that generalises.
+
+**What changed from version 1.** Version 1 reported 78.3% of Seychelles settlements at risk, significant coral trends in the Maldives and Seychelles, a ranking that "held at every weighting", and a governance correlation of r = 0.965 (p = 0.035). Each of these came from a measurement choice that did not hold up: NoData elevation values counted as sea level, OSM points that are mostly island names, a surface elevation model, one 5 km DHW cell per island, a trend test that ignored serial correlation, and protected areas counted twice over a land-area denominator. The [Development Log](./paper/DJ_Development_Log.md) records each correction.
 
 ## Repository Structure
 
@@ -98,16 +112,15 @@ DOUBLE_JEOPARDY/
 ├── dashboard/                       # Streamlit dashboard (10 pages)
 │   └── static/                      # Interactive map exports, built in Python (folium) (served via GitHub Pages)
 ├── data/                            # Processed datasets across 5 islands, 11+ categories
-│   ├── settlements/, ecosystem_buffers/, terrain/, population/
-│   ├── cyclone_tracks/, boundaries/, boundaries_v2/, mangroves/, coral_bleaching/
+│   ├── settlements/, ecosystem_buffers/, terrain/ (incl. deltadtm/), population/
+│   ├── boundaries/, boundaries_v2/, mangroves/, coral_bleaching/
 │   └── settlement_encroachment/
 ├── outputs/
 │   └── plots/                       # Publication quality static figures for the Research Paper
-│       └── interactive/             # Plotly interactive HTML charts
-│                                     # (compound vulnerability, physical exposure, population weighted
-│                                     #  comparison, mangrove extent, coral trends, governance alignment,
-│                                     #  weighting sensitivity curve)
-├── qgis_processing/                 # Original QGIS2Web webmap exports
+│       └── interactive/             # Plotly interactive HTML charts (compound vulnerability score,
+│                                     #  coral thermal stress trends, weighting sensitivity curve)
+├── qgis_processing/                 # Superseded QGIS2Web (OpenLayers) webmap exports; the live maps are
+│                                     #  the folium maps in dashboard/static/ built by scripts/figures/
 ├── README.md
 ├── LICENSE
 ├── CITATION.cff
@@ -116,23 +129,39 @@ DOUBLE_JEOPARDY/
 
 All scripts under `scripts/` read and write paths (like `data/terrain/...` or `outputs/plots/...`) relative to the repository root, not to the script's own folder — so every script here is still meant to be run from the `DOUBLE_JEOPARDY/` root, e.g. `python scripts/analysis/population_weighted_exposure.py`, not from inside its subfolder.
 
+## Reproducing the Analysis
+
+Large rasters (`*.tif`: Copernicus and DeltaDTM tiles, WorldPop, NDBI) are not committed (see `.gitignore`), and WDPA extracts may not be redistributed (see `DATA_SOURCES_AND_LICENSES.md`). To rebuild everything from the repository root:
+
+```bash
+pip install -r requirements.txt
+python scripts/acquisition/export_deltadtm_gee.py --project <your-earth-engine-project>   # DeltaDTM tiles to Google Drive
+# download the exported tiles into data/terrain/deltadtm/gee/
+python scripts/run_all.py --download   # fetch Copernicus DEM tiles + reef-cell DHW, build DeltaDTM VRTs, run every step
+python scripts/run_all.py              # re-run analysis, figures, maps and dashboard data only
+```
+
+Every reported number is written to a CSV in `data/` (e.g. `slr_exposure_summary.csv`, `population_weighted_exposure.csv`, `coral_trend_results.csv`, `compound_vulnerability_scores.csv`, `governance_alignment_summary.csv`, `ndbi_land_change.csv`), and the figures and dashboard read those files. Elevation sampling for all islands uses one shared rule in `scripts/common/dem_sampling.py`. The DeltaDTM export needs the Earth Engine Python API (`pip install earthengine-api`) and an Earth Engine project; everything else runs without it.
+
 ## Tech Stack
 
-Python · GeoPandas · Rasterio · Folium · SciPy · PyMannKendall · Plotly · Streamlit · GitHub Pages · Sentinel Hub API · NOAA Coral Reef Watch API · Global Mangrove Watch
+Python · Google Earth Engine · GeoPandas · Rasterio · Folium · SciPy · PyMannKendall · Plotly · Streamlit · GitHub Pages · Sentinel Hub API · NOAA Coral Reef Watch API · Global Mangrove Watch
 
 ## Data Sources
 
 | Dataset | Provider |
 |---|---|
-| Settlements, Tourism, Infrastructure | OpenStreetMap |
+| Named places | OpenStreetMap |
 | Mangrove Extent (1996/2010/2020) | Global Mangrove Watch |
 | Coral Reef Extent | WCMC / OpenStreetMap |
 | Coral Thermal Stress | NOAA Coral Reef Watch (Degree Heating Week) |
 | Protected Areas | World Database on Protected Areas (WDPA) |
-| Elevation, Slope | Copernicus DEM GLO-30 |
-| Population | WorldPop |
-| Cyclone Tracks | IBTrACS v04r01 |
-| Settlement Encroachment | Sentinel-2 (NDBI) |
+| Bare-earth elevation (main) | DeltaDTM v1.1 (Pronk et al. 2024) |
+| Surface elevation (comparison) | Copernicus DEM GLO-30 |
+| Population | WorldPop 2020 |
+| Built-up change (supplementary) | Sentinel-2 (NDBI) |
+
+Full citations, licences and attribution requirements: [`DATA_SOURCES_AND_LICENSES.md`](./DATA_SOURCES_AND_LICENSES.md).
 
 ## Running Locally
 

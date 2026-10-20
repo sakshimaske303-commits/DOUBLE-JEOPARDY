@@ -6,6 +6,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # .../da
 ROOT_DIR = os.path.dirname(BASE_DIR)                                     # repo root
 sys.path.append(BASE_DIR)
 from styles import apply_custom_style, PALETTE
+from results import load as load_results, pct
+
+R = load_results()
+_P = R["primary"]
 
 st.set_page_config(page_title="Ocean Physics & Reef Biogeography — DOUBLE JEOPARDY", page_icon="🌊", layout="wide")
 apply_custom_style()
@@ -13,7 +17,7 @@ apply_custom_style()
 st.markdown("<h1 style='text-align: center;'>🌊 DOUBLE JEOPARDY: THE PHYSICS AND THE BIOGEOGRAPHY</h1>", unsafe_allow_html=True)
 st.markdown(
     f"<h3 style='text-align: center; color: {PALETTE['navy']}; font-weight: 400;'>"
-    "Why Physical Exposure Alone Isn't the Whole Risk Picture</h3>",
+    "How Sea Level Exposure and Coastal Ecosystems Interact</h3>",
     unsafe_allow_html=True,
 )
 st.markdown("---")
@@ -50,14 +54,14 @@ with temperature at constant mass:
 
 st.latex(r"\frac{\Delta V}{V} = \alpha \, \Delta T")
 
-st.markdown("""
+st.markdown(f"""
 where **α** is seawater's coefficient of thermal expansion. Separately, **land-ice melt (the
 eustatic component)** — glaciers and ice sheets on land losing mass adds genuinely new water to
-the ocean, rather than merely expanding what's already there. Both mechanisms are captured
-together in the diagram above, and both contribute to the settlement-level exposure scores
-computed on this project's Physical Exposure page — **Seychelles'** 78.3% of settlements at risk
-is the highest in this sample, a direct consequence of a nation with a substantial share of its
-settlements sitting at an elevation these combined processes are steadily eroding.
+the ocean, rather than merely expanding what's already there. Both raise the level that the
+Physical Exposure page measures against: on a bare-earth elevation model,
+{pct(R['people'][('maldives', _P)])} of the Maldives' people and {pct(R['people'][('lakshadweep', _P)])}
+of Lakshadweep's live on land at or below 1 m, against {pct(R['people'][('canary', _P)])} in the
+volcanic, high-relief Canary Islands.
 """)
 
 st.markdown("---")
@@ -86,20 +90,16 @@ st.markdown("---")
 # ============================================================
 st.markdown("### Why the Physics and the Biogeography Together Explain the Headline Finding")
 
-st.markdown("""
-This is exactly the mechanism behind Double Jeopardy's central finding. **Seychelles** carries the
-highest physical sea-level-rise exposure of any island tested (78.3% of settlements at or below the
-1-meter threshold) — a straightforward consequence of its settlement pattern concentrating in
-low-lying coastal areas despite its granite interior. It also recorded the most severe coral
-thermal-stress trend in the sample (+0.68 °C-weeks), meaning its biogeographic buffer is degrading
-fastest at the same time its physical exposure is highest — a genuine double jeopardy, where both
-halves of the risk equation point the same way rather than pulling against each other. Risk, in
-other words, is not simply a function of ocean physics — it's the product of physical exposure
-*and* the biological state of the reef system standing between that exposure and the shoreline,
-which is precisely the compound relationship this project's vulnerability score was built to
-capture. (An earlier version of this analysis, based on a DEM data-quality artifact in the
-Maldives' and Lakshadweep's elevation files, showed the Maldives as the highest-exposure island;
-the corrected figure is 14.5% — see the Research Paper's Limitations section.)
+st.markdown(f"""
+The two halves do not have to point the same way, and in this sample they mostly do not. The
+**Maldives** has by far the largest share of people at or below 1 m ({pct(R['people'][('maldives', _P)])}),
+but the smallest rise in reef heat stress of the four reef groups
+(+{R['coral_change'][('maldives', 'reef_cells')]:.2f} °C-weeks between 1996–2000 and 2016–2020).
+**Seychelles** shows the largest rise (+{R['coral_change'][('seychelles', 'reef_cells')]:.2f} °C-weeks) with far fewer
+people at or below 1 m ({pct(R['people'][('seychelles', _P)])}). Which of them counts as "most vulnerable"
+therefore depends on how the two halves are weighted, which is what the Compound Vulnerability page
+shows. Risk is not a function of ocean physics alone: it depends on physical exposure *and* on the
+state of the reef standing between that exposure and the shoreline.
 """)
 
 st.markdown("---")

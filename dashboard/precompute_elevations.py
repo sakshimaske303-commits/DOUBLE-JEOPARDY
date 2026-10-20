@@ -1,67 +1,31 @@
-import geopandas as gpd
-import rasterio
-import numpy as np
+"""Builds dashboard/static/settlement_elevations.csv, the data behind the
+Physical Exposure page's live threshold slider.
+
+Rewritten 2026-10-10 (Forensic Review): uses the same shared DEM rule as the
+analysis (scripts/common/dem_sampling.py), so the slider can no longer count
+NoData (-32767) or out-of-extent points as "at risk". Only settlements with a
+usable elevation (status valid or snapped_to_land) are written.
+
+Run from anywhere:  python dashboard/precompute_elevations.py
+"""
+import os
+import sys
+
 import pandas as pd
 
-ISLANDS = ["maldives", "seychelles", "fiji", "canary", "lakshadweep"]
+ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+sys.path.insert(0, ROOT)
+from scripts.common.dem_sampling import ISLANDS, KEPT_STATUSES, primary_source, sample_settlements  # noqa: E402
 
-# Canary Islands' DEM was verified to have 0.0 as a NoData artifact
-# (confirmed via QGIS transparency settings and pixel inspection).
-# Fiji added after a distributional check found the same signature: 31.3%
-# of Fiji settlement points read exactly 0.0m -- a spike, not a gradient,
-# on volcanic/mountainous terrain where near-sea-level readings aren't
-# geologically expected. map1_slr_fiji.py already excluded Fiji's zeros
-# independently; this brings the main pipeline in line with that.
-ISLANDS_WITH_ZERO_AS_NODATA = {"canary", "fiji"}
-
-# Update: Maldives and Lakshadweep's original elevation.tif turned out to
-# be a severe DEM coverage gap (~99.99% of pixels a flat 0.0), not genuine
-# low-lying terrain -- confirmed and fixed in slr_exposure_analysis.py.
-# These two now read from the re-downloaded elevation_v2.tif, and use a
-# neighborhood-based void check instead of the blanket zero-exclusion used
-# for Canary Islands/Fiji above: a 0.0 reading is only dropped if its
-# surrounding 5x5-pixel window is also entirely 0.0 (a flat void signature
-# no real terrain would produce), since a real settlement on these two
-# genuine low-lying atolls CAN legitimately sit at or near 0m.
-ISLANDS_WITH_NEIGHBORHOOD_VOID_CHECK = {"maldives", "lakshadweep"}
-VOID_HALF_WINDOW = 2  # 5x5 window
-
-
-def is_void_neighborhood(arr, src, x, y):
-    row, col = src.index(x, y)
-    r0, r1 = max(0, row - VOID_HALF_WINDOW), min(arr.shape[0], row + VOID_HALF_WINDOW + 1)
-    c0, c1 = max(0, col - VOID_HALF_WINDOW), min(arr.shape[1], col + VOID_HALF_WINDOW + 1)
-    return bool(np.all(arr[r0:r1, c0:c1] == 0))
-
-
-all_data = []
-
+# Same elevation source as the main results (DeltaDTM when prepared, 2026-10-11).
+SOURCE = primary_source()
+frames = []
 for island in ISLANDS:
-    gdf = gpd.read_file(f"../data/settlements/{island}_settlements_clean.gpkg")
-    elevation_file = f"{island}_elevation_v2.tif" if island in ISLANDS_WITH_NEIGHBORHOOD_VOID_CHECK \
-        else f"{island}_elevation.tif"
-    with rasterio.open(f"../data/terrain/{elevation_file}") as src:
-        coords = [(g.centroid.x, g.centroid.y) for g in gdf.geometry]
-        raw_elevations = [val[0] for val in src.sample(coords)]
+    df = sample_settlements(island, source=SOURCE)
+    kept = df[df["status"].isin(KEPT_STATUSES)]
+    print(f"{island}: {len(kept)}/{len(df)} settlements with usable elevation")
+    frames.append(pd.DataFrame({"island": island.capitalize(), "elevation_m": kept["elevation_m"]}))
 
-        if island in ISLANDS_WITH_ZERO_AS_NODATA:
-            elevations = [np.nan if e == 0.0 else e for e in raw_elevations]
-        elif island in ISLANDS_WITH_NEIGHBORHOOD_VOID_CHECK:
-            arr = src.read(1).astype("float64")
-            elevations = []
-            for e, geom in zip(raw_elevations, gdf.geometry):
-                if e == 0.0 and is_void_neighborhood(arr, src, geom.centroid.x, geom.centroid.y):
-                    elevations.append(np.nan)
-                else:
-                    elevations.append(e)
-        else:
-            elevations = raw_elevations
-
-    for elev in elevations:
-        if elev is not None and not np.isnan(elev):
-            all_data.append({"island": island.capitalize(), "elevation_m": elev})
-
-df = pd.DataFrame(all_data)
-df.to_csv("static/settlement_elevations.csv", index=False)
-print(f"Saved {len(df)} rows to static/settlement_elevations.csv")
-print(df.groupby("island").size())
+out = os.path.join(ROOT, "dashboard", "static", "settlement_elevations.csv")
+pd.concat(frames).to_csv(out, index=False)
+print(f"Saved {out} (elevation source: {SOURCE})")

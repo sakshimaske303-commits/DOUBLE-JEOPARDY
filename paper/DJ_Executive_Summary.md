@@ -1,66 +1,66 @@
 # DOUBLE JEOPARDY: The Vulnerability Spiral
-### Compound Climate Risk Across 5 Islands
+### Sea-Level Exposure and Reef Heat Stress Across 5 Island Groups
 
-Executive Summary · DOI: 10.5281/zenodo.21739961 · Sakshi D. Maske
+Executive Summary · Version 2.0 · DOI: 10.5281/zenodo.21739961 · Sakshi D. Maske
 
 ## Project Overview
 
-I built DOUBLE JEOPARDY to pressure test an assumption climate adaptation policy makes almost by default: that physical exposure to sea level rise is enough on its own to describe a small island's climate risk. It isn't, and I wanted numbers that could show that instead of just arguing it.
+Low islands face two threats at once: the sea rising, and the reefs and mangroves that hold it back weakening. I named the project for that double threat. I wanted to measure both, island by island, across 5 island groups in 3 ocean basins (Maldives, Lakshadweep, Seychelles, Fiji and the Canary Islands), and see whether protection follows the risk.
 
-Working across 5 islands spanning 3 ocean basins (Maldives, Lakshadweep, Seychelles, Fiji, and the Canary Islands), I refused to lump mangroves and coral reefs together under one "ecosystem buffer" label. Mangrove decline and coral degradation went in as 2 independent hypotheses, tested separately. Coral thermal stress was then combined with verified physical exposure into a single Compound Vulnerability Score per island; mangrove extent, which showed no measurable decline, is reported as its own standalone result rather than folded into that score.
-
-That framing shaped the project's central result. Seychelles carries the highest overall compound risk once ecosystem degradation is weighted in, and, following a DEM data quality fix made during this project (see below), it also has the highest settlement based physical exposure of any island in the sample. Population weighted exposure tells a closer story: after a separate fix to the boundary polygon used to clip the population raster, Maldives now narrowly edges out Seychelles on that 1 measure specifically (14.9% versus 14.2%), close enough that I read it as a near tie rather than a clean disagreement. An earlier version of this project showed a 3rd island (Lakshadweep) as highest by population weighted exposure. That looked at first like exactly the kind of indicator disagreement this project set out to test for, but it turned out instead to be nothing more than an artifact of the same DEM data problem, and it disappeared once that data was fixed. The compound score, built from settlement based exposure rather than the population weighted figure, still points to Seychelles, so the central result doesn't change; population weighted exposure specifically is now the 1 measure where the top 2 islands sit close enough to call a near tie.
-
-I pushed the same standard onto governance too, testing whether formal protected area coverage actually tracks this empirically verified vulnerability. The answer is a strong correlation whose p value crosses the conventional 0.05 threshold despite the tiny sample (r=0.965, p=0.035, n=4; Lakshadweep excluded since no WDPA measurement is available for it). With only 4 data points though, I'm treating this as a strong signal and not yet a fully confirmed relationship.
-
-Getting here also meant catching my own mistakes along the way. Early Canary Islands and Fiji physical exposure figures were inflated by DEM NoData artifacts misread as sea level settlements; corrected, they became the 2 lowest exposure figures in the sample (0.3% and 1.0% of settlements at risk). A larger catch followed: Maldives' and Lakshadweep's original elevation files turned out to have a severe data coverage gap instead of real near sea level terrain, with 99.99% of pixels holding no real data at all. Redownloading the source Copernicus data and recomputing corrected both islands' exposure figures substantially, and a related bug in the population weighted version of the same measure was caught and fixed too, followed later by a separate boundary polygon rebuild that changed the population weighted numbers again (full numbers are in the Limitations section below). Settlement based exposure and the compound score agree on Seychelles as highest; population weighted exposure alone now shows Maldives narrowly ahead instead.
-
-Together, the compound score result and the governance test are this project's 2 central contributions beyond the individual ecosystem hypotheses. One shows exposure alone is an incomplete measure of risk; the other shows protected area policy doesn't yet reliably track that fuller picture.
+Version 1 gave a clean story: Seychelles most exposed, coral trends significant, the ranking robust, protection tracking risk. When I went back through every measurement choice, most of that story did not survive. Version 2 is what is left, and the main thing it shows is how much the answer depends on choices that are usually made silently: which elevation model, what is counted as exposure, and how the inputs are weighted.
 
 ## The Question
 
-Small islands face a compounding climate vulnerability: high physical exposure to sea level rise, layered with degrading natural coastal defenses (mangroves and coral reefs). Climate adaptation funding is often allocated using single indicator exposure metrics alone. Is that reliable, or does it systematically misrepresent true risk? And do all ecosystem buffers degrade uniformly, or does that assumption itself need testing?
+How many people on these islands live at or below 1 m? How has heat stress on their reefs changed between 1996 and 2020, and have mangroves declined? When the two are put side by side, which island comes out highest, and does protected-area coverage follow that ranking?
 
 ## The Method
 
-5 islands, 3 ocean basins (Canary Islands, Fiji, Lakshadweep, Maldives, Seychelles), tested against 10+ independently sourced datasets spanning 1996–2024. Physical exposure (settlement level sea level rise risk) and coral thermal stress trend (NOAA Coral Reef Watch Degree Heating Week) were normalized and combined into a single Compound Vulnerability Score. Mangrove extent was tracked separately, across 3 independent time points (1996, 2010, 2020) using Global Mangrove Watch as a distinct hypothesis, not assumed to move in step with coral reefs.
+- **Exposure:** share of people (WorldPop 2020, 100 m) on land at or below 1 m, on the **DeltaDTM v1.1 bare-earth model** (Pronk et al. 2024). Copernicus GLO-30, a surface model, is kept for comparison. The share of OpenStreetMap named places is a second measure; 0.5 m and 1.5 m are sensitivity checks. Heights are above the EGM2008 geoid, used as an approximation of mean sea level.
+- **Reef heat stress:** NOAA Coral Reef Watch Degree Heating Weeks (DHW, 5 km), averaged over all mapped reef cells per island, 1996–2020. Change between 1996–2000 and 2016–2020, and a seasonal Mann-Kendall test on monthly means corrected for serial correlation.
+- **Mangroves:** Global Mangrove Watch v3 at 1996, 2010 and 2020.
+- **Compound score:** exposure and change in reef heat stress, each scaled 0–1, averaged; weighting swept from 0 to 100%.
+- **Governance:** share of the 10 km coastal zone inside a protected area (WDPA, June 2026, overlaps merged). Descriptive only.
 
-## The Finding
+## The Findings
 
-Seychelles is the highest risk island on settlement based exposure (78.3% of settlements at risk) and on the overall compound risk score once coral thermal stress is factored in on top of physical exposure. Population weighted exposure is closer: Maldives (14.9% of population) now narrowly edges out Seychelles (14.2%) on this 1 measure specifically, after a boundary polygon fix corrected a bounding box that had been letting open water leak into the calculation (see Limitations). An earlier version of this project showed Lakshadweep as the highest exposure island specifically by population weighting, and at the time that looked like the clearest case of exposure alone reasoning misleading you. It turned out to be a DEM data quality artifact instead: no real disagreement between indicators was ever there, and it disappeared once that data was corrected.
+**People at or below 1 m**
+
+| Island group | Bare earth (DeltaDTM) | Surface (Copernicus) | People |
+|---|---:|---:|---:|
+| Maldives | 11.82% | 8.88% | 57,889 |
+| Lakshadweep | 6.40% | 0.79% | 4,238 |
+| Seychelles | 2.07% | 0.43% | 1,933 |
+| Fiji | 0.28% | 0.21% | 2,460 |
+| Canary Islands | 0.19% | 0.15% | 3,946 |
 
 | Hypothesis | Result |
 |---|---|
-| H1: Coral thermal stress is rising | Supported: significant for Maldives (p=0.0046) & Seychelles (p=0.0069) |
-| H2: Mangroves are degrading | Not supported: zero net decline across 3 islands, 3 time points |
-| H3: Governance tracks vulnerability | Supported (marginally): r=0.965, p=0.035, n=4 (crosses the conventional significance threshold, but on a very small sample) |
+| H1: Reef heat stress is rising | **Partly supported.** Mean DHW over reef rose on every reef island (Seychelles +0.52, Fiji +0.29, Maldives +0.07, Lakshadweep +0.05 °C-weeks), but no monotonic trend is significant once serial correlation is accounted for (p = 0.14 to 0.90) |
+| H2: Mangroves are declining | **Not supported.** No decline on any of the 3 islands (Fiji 485.7 → 488.4 km²) |
+| H3: Protection follows risk | **Not supported.** r = −0.01 (95% interval −0.96 to 0.96, n = 4); coverage from 1.3% (Maldives) to 71.4% (Seychelles) |
 
-**Compound Vulnerability Score (top):** Seychelles 1.000 · Maldives 0.242 · Lakshadweep 0.133
+**Compound score (equal weights):** Seychelles 0.58 · Maldives 0.51 · Lakshadweep 0.27 · Fiji 0.26 · Canary Islands 0.00. Exposure points to the Maldives and reef heat stress to Seychelles, so the top island switches to the Maldives once exposure carries 54% or more of the weight. I read the top two as a near tie.
 
-The Compound Vulnerability ranking holds robustly across the entire 0–100% weighting sensitivity sweep. Seychelles stays highest ranked at every weighting from pure coral thermal stress to pure physical exposure, a stronger result than an earlier version of this project, where Maldives overtook Seychelles beyond about 76.8% physical exposure weighting.
+## What Changed From Version 1, and Why
 
-## Validation & Robustness Checklist
+- ✗ **"78.3% of Seychelles settlements at risk."** 188 of 244 Seychelles points read the elevation raster's NoData value (−32767 m) and were counted as at risk. And most OSM "settlement" points on these islands are names of islands and islets, some sitting in open water. I now count people, with named places as a second measure (Seychelles 24.7%, Maldives 28.8% on bare earth).
+- ✗ **Surface elevation model.** Copernicus measures roofs and canopy on wooded atolls. On bare earth, Lakshadweep goes from 0.8% to 6.4% of people at or below 1 m. Where Copernicus is above 30 m, I do not use DeltaDTM: on small forested granite islands in Seychelles it otherwise reads a hill as sea level.
+- ✗ **"Coral trends significant for Maldives (p = 0.0046) and Seychelles (p = 0.0069)."** That used one 5 km cell per island and a test that treats neighbouring months as independent. DHW is a 12-week running sum, so they are not. Without the correction Seychelles still looks significant (p < 0.001); with it, p = 0.14.
+- ✗ **"The ranking holds at every weighting."** Seychelles came out top at every weighting because it was highest on both inputs by construction. With people and reef-cell means, the inputs disagree and the ranking depends on the weights.
+- ✗ **"Governance correlation r = 0.965, p = 0.035."** Overlapping protected areas were counted twice and coverage was divided by land area. As a share of the coastal zone, the relationship disappears.
+- ✗ **Seychelles built-up rise (+0.11 NDBI).** Measured over bounding boxes that were mostly ocean. On land only, Seychelles shows no rise and the Maldives a small one (+0.055).
 
-- ✓ 2 ecosystems tested independently: no uniform decline assumption
-- ✓ Seasonal Mann-Kendall trend test on the full 24-year coral series (not just a period comparison): the seasonal variant accounts for DHW's structural within year seasonality
-- ✓ 3 independent time points for mangroves (1996 / 2010 / 2020)
-- ✓ Population weighted exposure recomputation as a cross check
-- ✓ Full 0–100% weighting sensitivity sweep (compound score robustness)
-- ✓ SLR threshold sensitivity check across 0.5m / 1.0m / 1.5m thresholds
-- ✓ Null result reported plainly: H2 (mangrove decline) not supported
-- ! Governance correlation's p value now crosses the conventional significance threshold (r=0.965, p=0.035) but it still rests on only 4 data points: treated here as a strong signal, short of a confirmed relationship
-- ✓ Coral thermal stress series is primarily sampled from a single representative coordinate per island, but this was tested directly rather than left as an untested gap: a spatially averaged version (every valid 5km cell within ±0.15° of the original coordinate) was recomputed and rerun through the same seasonal Mann-Kendall test. The trend conclusion held for all 5 islands, Maldives (p=0.0011) and Seychelles (p=0.0194) still significant, the other 3 still not, matching the single coordinate result in every case
-- ! Lakshadweep has no coastal WDPA measurement available, so it's excluded from the governance alignment correlation (n=4) instead of being assigned a placeholder value
-- ✓ Population weighted exposure now uses each island's real boundary shape instead of a bounding box: boundary polygon files were rebuilt from OpenStreetMap coastline data and validated against independently sourced land area figures (within about 7% for all 5 islands) before being used. The fix moved every island's population weighted figure down and put Maldives (14.9%) marginally ahead of Seychelles (14.2%) specifically on this measure, a near tie rather than a clean reversal
-- ! Compound Vulnerability Score only combines physical exposure and coral condition. It does not include adaptive capacity (income, relocation options, disaster response), the 3rd leg of the standard IPCC vulnerability framework, so read it as a physical/ecological composite, short of a full socioeconomic vulnerability index
+## Limitations
 
-**Limitations, in Full:** The governance alignment test (protected area coverage vs. verified vulnerability) shows a strong positive correlation (r=0.965, n=4) whose p value now crosses the conventional 0.05 threshold (p=0.035, 95% CI: 0.05 to 1.00), up from an earlier r=0.862, p=0.138. With only 4 islands in the correlation though, I'm still treating this as a strong signal short of settled proof, since a single data point could move both the coefficient and the p value substantially at this sample size. Lakshadweep is excluded from that correlation entirely instead of being assigned a placeholder value, since I had no protected area dataset for it and a fabricated zero would bias an already tiny sample; its Compound Vulnerability Score (0.133) is reported separately, unpaired with a WDPA measurement. The Compound Vulnerability Score also uses min max normalization, so scores are relative within this 5 island sample instead of absolute: Canary Islands' score of 0.000 reflects the lowest raw values in this sample. It doesn't mean an absence of risk. The coral thermal stress series itself primarily comes from a single representative coordinate per island instead of a spatial average across the full reef area, a coarser sampling choice than area weighted aggregation would give, kept for consistency with how the DHW product is queried; a spatially averaged robustness check (±0.15° box around each coordinate, same seasonal Mann-Kendall test) confirmed the same trend conclusion for all 5 islands, so this specific choice isn't driving the significant Maldives and Seychelles result.
-
-I also corrected both Canary Islands' and Fiji's physical exposure figures (0.3% and 1.0% of settlements at risk, respectively) during data quality review, excluding DEM NoData artifacts I'd initially misread as sea level settlements. A separate, larger correction applied to Maldives and Lakshadweep: their original elevation files had a severe data coverage gap instead of a small artifact (99.99% of pixels held no real data), so I redownloaded the source Copernicus DEM tiles directly from ESA's public archive and recomputed exposure against the complete data. That brought their settlement based figures down from an artifact inflated 99.1% and 77.8% to a corrected 14.5% and 7.1%. Fixing the population weighted version of the same measure then surfaced a 2nd, independent bug: the script had been silently applying a known incomplete boundary polygon mask on every run instead of the bounding box method this project reports. That undercounted Lakshadweep's population by roughly seven eighths. With both bugs fixed, Maldives' and Lakshadweep's population weighted exposure moved from an artifact inflated 64.5% and 87.5% to a corrected 16.9% and 2.2%. Those figures were themselves later superseded once I rebuilt and validated each island's boundary polygon file (see the checklist above) and re-enabled the boundary polygon mask in place of the bounding box: population weighted exposure now stands at Seychelles 14.2%, Maldives 14.9%, Lakshadweep 2.1%, Fiji 1.6%, and Canary Islands 1.4%, with Maldives marginally ahead of Seychelles specifically on this measure. See the Research Paper's Limitations section for the full explanation, including the residual 17.8%/22.2% of settlements still sitting in an unresolved coverage gap in the public Copernicus archive itself.
+- These are elevation thresholds, not flood models: no tides, surge, waves or connectivity. DeltaDTM's error against airborne lidar (about 0.4–0.5 m) is large next to a 1 m threshold, so the comparison between models matters more than any single percentage.
+- WorldPop is a modelled population surface, not a census.
+- Five island groups (four for governance) describe this sample; they cannot establish general relationships.
+- The compound score uses min–max scaling, so Canary Islands' 0.00 is the lowest in this sample, not an absence of risk, and it leaves out adaptive capacity entirely.
+- Mangrove patches on the atolls are close to Global Mangrove Watch's pixel size, so small losses there may not be detectable.
 
 ## Real World Relevance
 
-Climate adaptation funding for small islands is frequently allocated using single indicator exposure metrics. This project's central methodological argument, that exposure and true compound risk are not the same thing and that ecosystem buffers do not degrade uniformly, has direct implications for how conservation and adaptation resources should be prioritized across islands and ecosystem types.
+Adaptation finance for small islands is increasingly tied to vulnerability indices. This project shows that the same islands can rank differently depending on the elevation model, the exposure measure and the weighting, and that a surface model can understate how many people live at or below 1 m by several times on a forested atoll. Any index built on these inputs should report those choices and how sensitive its ranking is to them.
 
 ---
 

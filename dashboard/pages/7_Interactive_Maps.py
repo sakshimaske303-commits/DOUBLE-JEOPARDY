@@ -6,8 +6,13 @@ import os
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.append(PROJECT_ROOT)
 from styles import apply_custom_style, PALETTE
+from results import load as load_results, pct, source_label
 
 apply_custom_style()
+
+# Observations read from the pipeline's CSVs via dashboard/results.py (rewritten 2026-10-11).
+R = load_results()
+P = R["primary"]
 
 st.markdown("<h1 style='text-align: center;'>🗺️ INTERACTIVE MAPS &amp; PLOTS</h1>", unsafe_allow_html=True)
 st.markdown(
@@ -19,18 +24,18 @@ st.markdown("---")
 MAP_SERVER_BASE = "https://sakshimaske303-commits.github.io/DOUBLE-JEOPARDY/dashboard/static"
 
 # ============ SLR EXPOSURE ============
-SLR_DATA = {
-    "Maldives": {"folder": "maldives_slr_exposure_webmap",
-                 "observation": "14.5% of settlements are at or below 1m elevation. An earlier, DEM-error-driven version of this map showed 99.1%; the corrected Copernicus DEM data brings this down substantially."},
-    "Lakshadweep": {"folder": "lakshadweep_slr_exposure_webmap",
-                     "observation": "7.1% of settlements are at risk, out of the smallest sample size (28 settlements). An earlier, DEM-error-driven version of this map showed 77.8%."},
-    "Seychelles": {"folder": "seychelles_slr_exposure_webmap",
-                    "observation": "78.3% of settlements are at risk — the highest of any island tested, and Seychelles also comes out highest on the overall compound vulnerability score once ecosystem degradation is factored in."},
-    "Fiji": {"folder": "fiji_slr_exposure_webmap",
-             "observation": "Only 1.0% of settlements are at risk — Fiji's volcanic terrain provides substantially more elevation buffer."},
-    "Canary Islands": {"folder": "canary_slr_exposure_webmap",
-                        "observation": "Just 0.3% of settlements are at risk — the lowest of all five islands."},
-}
+
+
+def slr_obs(k):
+    at, total, _ = R["places_n"][(k, P)]
+    return (f"{pct(R['places'][(k, P)])} of named places with a usable elevation ({at:,} of {total:,}) are at or "
+            f"below 1 m on {source_label(P)}; {pct(R['people'][(k, P)], 2)} of people "
+            f"({R['people_n'][(k, P)]:,.0f}) live at or below 1 m. On the Copernicus surface model the shares "
+            f"are {pct(R['places'][(k, 'copernicus')])} and {pct(R['people'][(k, 'copernicus')], 2)}.")
+
+
+SLR_DATA = {R["label"][k]: {"folder": f"{k}_slr_exposure_webmap", "observation": slr_obs(k)}
+            for k in ("maldives", "lakshadweep", "seychelles", "fiji", "canary")}
 
 st.markdown("### Sea-Level-Rise Exposure Maps")
 
@@ -38,8 +43,8 @@ st.markdown(f"""
 <div style="background: {PALETTE['card_bg']}; border-radius: 10px; padding: 14px; margin-bottom: 14px;">
     <p style="color: {PALETTE['navy']}; font-weight: 700; font-size: 0.85rem; margin-bottom: 8px;">MAP LEGEND</p>
     <p style="color: {PALETTE['text_dark']}; font-size: 0.9rem; margin: 0;">
-        Red — At/Below 1m Elevation (SLR Risk) &nbsp;|&nbsp;
-        Yellow — Above 1m Elevation (Safe)
+        Red — named place at or below 1 m &nbsp;|&nbsp; Yellow — above 1 m &nbsp;|&nbsp;
+        Points with no usable elevation are shown separately and left out of the share.
     </p>
 </div>
 """, unsafe_allow_html=True)
@@ -61,17 +66,17 @@ st.markdown("---")
 ECO_DATA = {
     "Maldives": {
         "folder": "maldives_ecosystem_buffer_webmap",
-        "observation": "All four ecosystem layers present. Maldives shows extensive mangrove and coral coverage alongside 93 WDPA-protected areas.",
+        "observation": "All four ecosystem layers present. Maldives shows extensive coral reef coverage, a small mangrove area (about 1 km²) and 93 WDPA records.",
         "layers": ["mangroves", "coral", "wdpa", "boundary"],
     },
     "Fiji": {
         "folder": "fiji_ecosystem_buffer_webmap",
-        "observation": "All four ecosystem layers present. Fiji shows the largest mangrove extent (488 km²) and 126 WDPA-protected areas of any island tested — consistent with its confirmed ecosystem stability.",
+        "observation": "All four ecosystem layers present. Fiji has by far the largest mangrove extent (488 km²) and 126 WDPA records, 102 of them Locally Managed Marine Areas.",
         "layers": ["mangroves", "coral", "wdpa", "boundary"],
     },
     "Seychelles": {
         "folder": "seychelles_ecosystem_buffer_webmap",
-        "observation": "All four ecosystem layers present. Despite this coverage, Seychelles shows the most severe coral thermal-stress trend and highest compound vulnerability of any island.",
+        "observation": "All four ecosystem layers present. Seychelles has the largest rise in reef heat stress of the five groups and the most protected coastal zone; at equal weights it narrowly tops the compound score, ahead of the Maldives.",
         "layers": ["mangroves", "coral", "wdpa", "boundary"],
     },
     "Lakshadweep": {
@@ -131,15 +136,15 @@ st.markdown("---")
 ENCROACH_DATA = {
     "Seychelles": {
         "folder": "seychelles_settlement_encroachment_webmap",
-        "observation": "Seychelles shows the strongest encroachment signal of the three islands tested — consistent with its status as the highest compound-vulnerability island.",
+        "observation": "Measured on land pixels only, Seychelles shows no rise in built-up index between 2016 and 2024 (mean change close to zero). An earlier version reported a large rise; it was driven by ocean pixels in the bounding box.",
     },
     "Maldives": {
         "folder": "maldives_settlement_encroachment_webmap",
-        "observation": "A clear, if more modest, increase in built-up density between 2016 and 2024 around the Malé urban cluster.",
+        "observation": "The only clear rise of the three: a small increase in built-up index on land between 2016 and 2024, concentrated around the Malé urban cluster.",
     },
     "Fiji": {
         "folder": "fiji_settlement_encroachment_webmap",
-        "observation": "Effectively no change — consistent with Fiji's stability across every other measure tested in this project.",
+        "observation": "No rise in built-up index on land between 2016 and 2024.",
     },
 }
 
@@ -153,7 +158,7 @@ st.markdown(f"""
     </p>
     <p style="color: {PALETTE['text_muted']}; font-size: 0.8rem; margin: 8px 0 0 0; font-style: italic;">
         Exploratory — shows where the built-up signal shifted most, not a precise area total.
-        The validated, quantified change figure is the bar chart on the Governance & Encroachment page.
+        The quantified change on land, with intervals, is the table on the Governance & Encroachment page.
     </p>
 </div>
 """, unsafe_allow_html=True)
@@ -172,7 +177,7 @@ st.markdown(f"""
     <p style="color: {PALETTE['text_dark']}; margin: 0; font-size: 0.95rem;">{info3['observation']}</p>
 </div>
 """, unsafe_allow_html=True)
-st.caption("Built from per-pixel Sentinel-2 NDBI rasters (2016 vs. 2024), clipped to this project's own validated island boundaries. A visual companion to the bar chart on the Governance & Encroachment page, not a replacement for its quantified figure.")
+st.caption("Built from per-pixel Sentinel-2 NDBI rasters (2016 vs. 2024), clipped to this project's own validated island boundaries. A visual companion to the table on the Governance & Encroachment page, not a replacement for its quantified figure.")
 
 st.markdown("---")
 

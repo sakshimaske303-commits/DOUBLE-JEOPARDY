@@ -1,68 +1,132 @@
-"""Coral DHW trend test (Mann-Kendall + OLS), a robustness check on the
-two-period comparison, over the full 24-year series per island.
-"""
+"""Coral Degree Heating Week (DHW) trend tests, per island.
 
-import pandas as pd
+Updated 2026-10-10 after the Forensic Review. For each island and for both the
+single-cell series (data/coral_bleaching) and the +-0.15 deg box average
+(data/coral_bleaching_v2) this reports:
+
+  smk_index_p     seasonal Mann-Kendall as used so far: pymannkendall
+                  seasonal_test(period=12) on the sample index. NOTE: samples
+                  are every 30 days (12 x 30 = 360 days), so these "seasons"
+                  drift ~5 days a year (~4 months over 1996-2020). They are not
+                  calendar months.
+  smk_calendar_p  seasonal Mann-Kendall with TRUE calendar-month seasons
+                  (Hirsch et al. 1982: S and Var(S) summed over months).
+                  This is what the paper's wording describes.
+  annual_max_p    Mann-Kendall on each year's MAXIMUM DHW, the metric used in
+                  bleaching-risk work. Sen's slope reported per year.
+  period_change   mean DHW 2016-2020 minus mean DHW 1996-2000 (the value used
+                  in the compound score).
+
+Update 2026-10-11 (FINISH_PLAN D3):
+  csmk_p          correlated seasonal Mann-Kendall (Hirsch and Slack 1984,
+                  pymannkendall.correlated_seasonal_test) on CALENDAR-MONTH
+                  means (Jan 1996 ... Dec 2020, 300 months). DHW is a 12-week
+                  running sum, so neighbouring months are strongly correlated;
+                  the ordinary seasonal test treats them as independent and
+                  gives p-values that are too small. This is the MAIN test.
+  monthly_smk_p   ordinary seasonal test on the same monthly matrix, to show
+                  how much the correction changes.
+  primary         True for the series reported in the paper: the mean over
+                  every 5 km cell of mapped reef ("reef_cells"). The single
+                  cell and the +-0.15 deg box are sensitivity checks.
+
+Results are written to data/coral_trend_results.csv so figures and the paper
+can read them instead of hard-coding p-values.
+Needs pandas, numpy, scipy, pymannkendall.
+"""
 import numpy as np
-from scipy import stats
+import pandas as pd
+from scipy.stats import norm
 
 try:
     import pymannkendall as mk
 except ImportError:
-    raise SystemExit(
-        "Missing package. Run this first:\n    pip install pymannkendall\n"
-        "then re-run this script."
-    )
+    raise SystemExit("Missing package. Run:  pip install pymannkendall")
 
-ISLANDS = {
-    "Maldives": "data/coral_bleaching/maldives_dhw_timeseries.csv",
-    "Seychelles": "data/coral_bleaching/seychelles_dhw_timeseries.csv",
-    "Fiji": "data/coral_bleaching/fiji_dhw_timeseries.csv",
-    "Lakshadweep": "data/coral_bleaching/lakshadweep_dhw_timeseries.csv",
-    "Canary Islands": "data/coral_bleaching/canary_dhw_timeseries.csv",
+ISLANDS = ["maldives", "seychelles", "fiji", "lakshadweep", "canary"]
+PRIMARY_SERIES = "reef_cells"
+SOURCES = {
+    "single_cell": ("data/coral_bleaching/{}_dhw_timeseries.csv", "degree_heating_week", [1]),
+    "box_average": ("data/coral_bleaching_v2/{}_dhw_timeseries_areaavg.csv", "dhw_mean", None),
+    # written by scripts/acquisition/download_dhw_reef_cells.py (mean over reef cells only)
+    "reef_cells": ("data/coral_bleaching_v3/{}_dhw_reefcells_mean.csv", "dhw_mean", None),
 }
 
 
-def run_trend_test(csv_path):
-    df = pd.read_csv(csv_path, skiprows=[1])  # skip the units row
+def _s_and_var(x):
+    x = np.asarray(x, float)
+    x = x[~np.isnan(x)]
+    n = len(x)
+    s = sum(np.sign(x[k + 1:] - x[k]).sum() for k in range(n - 1))
+    _, c = np.unique(x, return_counts=True)
+    var = (n * (n - 1) * (2 * n + 5) - np.sum(c * (c - 1) * (2 * c + 5))) / 18
+    return s, var
+
+
+def seasonal_mk_calendar(df, col):
+    S = V = 0.0
+    for _, g in df.groupby(df["time"].dt.month):
+        s, v = _s_and_var(g.sort_values("time")[col].to_numpy())
+        S += s
+        V += v
+    z = (S - np.sign(S)) / np.sqrt(V) if S != 0 else 0.0
+    return S, 2 * (1 - norm.cdf(abs(z)))
+
+
+def monthly_series(df, col):
+    """Calendar-month means, Jan 1996 - Dec 2020; short gaps (<= 2 months) interpolated."""
+    t = pd.to_datetime(df["time"], utc=True).dt.tz_convert(None)  # NOAA times are UTC
+    m = pd.Series(df[col].to_numpy(), index=t).resample("MS").mean()
+    full = pd.date_range("1996-01-01", "2020-12-01", freq="MS")
+    m = m.reindex(full).interpolate(limit=2, limit_area="inside")
+    return m
+
+
+def run(island, source):
+    pattern, col, skip = SOURCES[source]
+    df = pd.read_csv(pattern.format(island), skiprows=skip)
     df["time"] = pd.to_datetime(df["time"])
-    df = df.sort_values("time").dropna(subset=["degree_heating_week"])
+    df = df.sort_values("time")
+    values = df[col].to_numpy()
 
-    values = df["degree_heating_week"].to_numpy()
+    smk_index = mk.seasonal_test(values, period=12)
+    _, p_cal = seasonal_mk_calendar(df.dropna(subset=[col]), col)
+    annual_max = df.groupby(df["time"].dt.year)[col].max()
+    amk = mk.original_test(annual_max.to_numpy())
+    y = df["time"].dt.year
+    change = df.loc[y.between(2016, 2020), col].mean() - df.loc[y.between(1996, 2000), col].mean()
+    weeks_ge4 = int((df[col] >= 4).sum())
+    monthly = monthly_series(df, col)
+    n_missing_months = int(monthly.isna().sum())
+    mvals = monthly.to_numpy()
+    csmk = mk.correlated_seasonal_test(mvals, period=12)
+    msmk = mk.seasonal_test(mvals, period=12)
 
-    # Seasonal Mann-Kendall (non-parametric, standard for climate time series
-    # WITH a seasonal cycle). DHW is structurally seasonal -- near-zero most
-    # months, spiking during the warm season -- so the plain/original MK
-    # test's independence assumption is violated by within-year
-    # autocorrelation, which can distort the significance of the trend.
-    # seasonal_test(period=12) compares same-calendar-month values across
-    # years instead, which is the correct test for this data shape.
-    mk_result = mk.seasonal_test(values, period=12)
-
-    # Simple OLS regression on time (in years since first observation) as a
-    # more familiar secondary reference point
-    years_since_start = (df["time"] - df["time"].iloc[0]).dt.days / 365.25
-    slope, intercept, r_value, p_value, std_err = stats.linregress(years_since_start, values)
-
-    return {
-        "n_obs": len(values),
-        "mk_trend": mk_result.trend,          # 'increasing', 'decreasing', or 'no trend'
-        "mk_p": mk_result.p,
-        "sens_slope_per_year": mk_result.slope,
-        "ols_slope_per_year": slope,
-        "ols_p": p_value,
-    }
+    return {"island": island, "series": source, "n_obs": int(np.isfinite(values).sum()),
+            "first": df["time"].min().date(), "last": df["time"].max().date(),
+            "smk_index_trend": smk_index.trend, "smk_index_p": smk_index.p,
+            "smk_index_sen_per_step": smk_index.slope, "smk_calendar_p": p_cal,
+            "annual_max_trend": amk.trend, "annual_max_p": amk.p, "annual_max_sen_per_year": amk.slope,
+            "period_change_2016_20_vs_1996_2000": change, "max_dhw": float(np.nanmax(values)),
+            "samples_ge_4_degC_weeks": weeks_ge4,
+            "csmk_trend": csmk.trend, "csmk_p": csmk.p, "csmk_sen_per_year": csmk.slope,
+            "monthly_smk_p": msmk.p, "months_missing": n_missing_months,
+            "primary": source == PRIMARY_SERIES}
 
 
 if __name__ == "__main__":
-    print(f"{'Island':<16} {'N':>4} {'MK trend':>12} {'MK p-value':>11} "
-          f"{'Sen slope/yr':>13} {'OLS slope/yr':>13} {'OLS p-value':>12}")
-    print("-" * 90)
-    for island, path in ISLANDS.items():
-        try:
-            r = run_trend_test(path)
-            print(f"{island:<16} {r['n_obs']:>4} {r['mk_trend']:>12} {r['mk_p']:>11.4f} "
-                  f"{r['sens_slope_per_year']:>13.4f} {r['ols_slope_per_year']:>13.4f} "
-                  f"{r['ols_p']:>12.4f}")
-        except Exception as e:
-            print(f"{island:<16}  ERROR: {e}")
+    rows = []
+    for source in SOURCES:
+        for island in ISLANDS:
+            try:
+                rows.append(run(island, source))
+            except FileNotFoundError as e:
+                print(f"{island} [{source}]: SKIPPED ({e})")
+    out = pd.DataFrame(rows)
+    pd.set_option("display.width", 200)
+    print(out[["island", "series", "n_obs", "csmk_p", "monthly_smk_p", "smk_calendar_p", "smk_index_p",
+               "annual_max_p", "period_change_2016_20_vs_1996_2000", "max_dhw", "months_missing"]]
+          .round(4).to_string(index=False))
+    print(f"\nMain test: correlated seasonal Mann-Kendall (csmk_p) on the '{PRIMARY_SERIES}' series.")
+    out.to_csv("data/coral_trend_results.csv", index=False)
+    print("\nSaved: data/coral_trend_results.csv")

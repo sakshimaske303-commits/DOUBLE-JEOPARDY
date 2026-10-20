@@ -1,820 +1,997 @@
-name,place,lon,lat,elevation_m,at_risk
-Embudu,islet,73.512006,4.0840053,8.3684435,False
-ހުޅުމާލެ,island,73.5419905,4.2209118,1.9426572,False
-Havodda,islet,73.0952911,0.5406883,4.3089314,False
-Mathiveri,islet,72.7460515,4.192073,6.6389594,False
-Maafushi,island,73.4896585,3.941188,3.487922,False
-Unnamed settlement,islet,73.5898037,4.5897122,0.99066436,True
-މާލެ,island,73.5097631,4.1746841,5.5343213,False
-Kuramathi Island Resort,islet,72.9763325,4.2601822,0.0,True
-Unnamed settlement,islet,72.898761,5.4074432,3.1099968,False
-Kanufushi,islet,72.9516028,5.0117322,4.8003473,False
-ކިހާދޫ,islet,73.1251373,5.2152537,5.610015,False
-Unnamed settlement,islet,72.8269423,5.5139123,6.8490715,False
-Unnamed settlement,islet,73.3661602,5.8611038,10.348654,False
-Maamaduvvari,islet,72.9419713,5.0093868,11.529565,False
-އުނގޫފާރު,islet,73.0298632,5.6682812,5.523467,False
-Vakkaru,islet,72.9097795,5.1334351,8.540866,False
-މަޑުއްވަރީ,islet,73.5023801,5.2849096,2.9069474,False
-އިއްނަމާދޫ,islet,73.0440241,5.5494422,2.1215336,False
-Hirundhoo,islet,73.1535636,5.2171099,7.78703,False
-އިނގުރައިދޫ,islet,73.0366196,5.4768646,3.5289705,False
-މަޑިވަރު,islet,73.3702748,5.458818,12.1979,False
-Loafaru,islet,73.275885,5.7860641,4.203747,False
-ނޮޅިވަރަމް,island,73.0824823,6.6625305,6.9810114,False
-Kudafushi,islet,72.9802994,5.5105895,6.824381,False
-ވައްވަރު,islet,73.354294,5.4171909,1.9617679,False
-Bodu,islet,72.8574258,5.0080488,5.7113028,False
-ތަކަންދޫ,islet,72.9955673,6.8444499,8.522509,False
-Hiboodhoo,islet,72.9186904,5.6125519,3.9905858,False
-Unnamed settlement,islet,72.8841645,5.5516353,2.8060071,False
-InterContinental Maldives Resort,islet,72.919098,5.3599837,8.426014,False
-ކަމަދޫ,islet,73.1370917,5.2821677,4.3392296,False
-Ifuru,island,73.0240324,5.7081104,13.189791,False
-Maarikilu,islet,72.952427,5.3349376,6.493161,False
-Unnamed settlement,islet,72.8768742,5.5520411,0.0,True
-Unnamed settlement,islet,72.6405099,6.3190326,0.5493025,True
-Maanenfushi,islet,72.9616279,5.7510638,3.4561753,False
-ފެހިގިލި,islet,73.4815095,5.5573356,0.0,True
-Ugulufinolhu,islet,72.9005763,6.9712458,0.0,True
-Mudhdhoo,islet,73.0848118,5.206666,13.439499,False
-Boduhuraa,islet,73.022081,5.4178129,0.0,True
-Faridhoo,islet,73.0539218,6.7849197,14.39082,False
-Unnamed settlement,islet,72.9197004,6.642697,4.7573333,False
-ހޮޅުދޫ,islet,73.2629627,5.7550374,5.6885567,False
-Govvaafushi,islet,72.9193748,7.0125806,5.0757794,False
-Ufuligiri,islet,72.9701831,5.0170851,0.0,True
-Kanifushi,islet,73.3426827,5.3676856,0.0,True
-Unnamed settlement,islet,73.3026373,6.0001817,1.5,False
-Unnamed settlement,islet,73.0444849,6.0640878,0.42337456,True
-Unnamed settlement,islet,72.9457587,5.5563057,3.9821694,False
-ވެލިދޫ,islet,73.2729746,5.6641312,5.416017,False
-ފެލިވަރު,islet,73.3862436,5.4770418,4.050295,False
-Ookolhufinolhu,islet,73.6228122,5.2821666,7.4670057,False
-މާކުރަތު,islet,73.0433335,5.6061794,4.0658507,False
-ކިނޮޅަސް,islet,73.0306574,5.4484196,13.570983,False
-މާބިންހުރާ,islet,73.651778,5.3375427,6.480604,False
-Unnamed settlement,islet,73.1439198,5.8732867,8.371436,False
-މީދާހުރާ,islet,73.4078344,5.3692946,10.458524,False
-Keyodhoo,islet,72.9960716,5.2765578,11.97461,False
-Dhigali,islet,72.9528021,5.4751258,11.0155735,False
-Unnamed settlement,islet,73.126613,6.8950873,13.054037,False
-Kuredhivaru,islet,73.3434995,5.875317,7.193682,False
-މަގޫދޫ,islet,73.362341,5.776297,11.467069,False
-Huvahandhoo,islet,72.9054853,6.9603196,5.931353,False
-Unnamed settlement,islet,73.0437357,6.0717532,3.155752,False
-Hathifushi,islet,72.8308141,7.0201515,5.9825377,False
-ނޭކުރެންދޫ,island,72.9797925,6.5430988,11.134932,False
-މާޅޮސް,islet,73.1080727,5.1347987,6.8655596,False
-ނަރުދޫ,islet,73.218141,6.2643023,1.9585179,False
-Kanufusheegaathufinolhu,islet,72.9628743,5.0139299,2.4617498,False
-ކުރެންދޫ,islet,73.4636405,5.3338136,6.1237187,False
-ވޭވަށް,islet,73.361313,5.4251133,1.3952996,False
-Vagaru,islet,73.2031293,6.0895247,2.0321054,False
-Dhonakulhi,islet,73.0521164,6.8442169,0.0,True
-Medhufinolhu,islet,72.9669363,5.0158305,3.4360037,False
-Medhufaru,islet,73.4143274,5.7140415,5.267935,False
-ޅައިމަގު,islet,73.251374,6.1639686,7.4831824,False
-Hulhumeedhoo,islet,73.2495,5.7513226,7.9486923,False
-JOALI Maldives,island,72.9514358,5.6079917,9.09314,False
-މަކުނުދޫ,island,72.7052087,6.4091973,2.0874166,False
-Matheerah,islet,72.8192592,7.0277287,12.340145,False
-Kan'doogan'du,islet,72.8764624,5.7808525,6.3697495,False
-ފުނަދޫ,island,73.2900644,6.1540224,2.6875148,False
-ކުރިނބީ,islet,72.9965584,6.6656059,4.176833,False
-Kihaadhuffaru,islet,73.1324759,5.1910462,6.5983925,False
-Unnamed settlement,islet,72.9363817,6.6581781,5.587687,False
-އަނގޮޅިތީމު,islet,73.0066334,5.7929772,12.79803,False
-ރަސްމާދޫ,islet,73.0437086,5.5630139,4.4888744,False
-މަޑުއްވަރި,islet,72.8961369,5.4864906,2.571693,False
-Unnamed settlement,islet,73.3874021,5.8225751,14.554589,False
-Arilundhoo,islet,72.9576713,5.6600991,8.126246,False
-Unnamed settlement,islet,72.9276355,5.5647764,2.4729245,False
-Unnamed settlement,islet,72.6454586,6.4090228,0.8680418,True
-Madulu,islet,72.9529798,7.0549107,3.9755144,False
-Gemendhoo,islet,73.0198392,5.2755575,8.623755,False
-Kothaifaru,islet,72.8440477,5.5248935,0.0,True
-Maamin'gili,islet,72.8840462,5.6509931,6.3743606,False
-މާއުނގޫދޫ,islet,73.2837212,6.0367041,4.995892,False
-Unnamed settlement,islet,73.2275207,5.7964168,13.164084,False
-މާކޯ,islet,73.4303485,5.3576407,8.135795,False
-ފޮއްދޫ,islet,73.2160861,5.7437828,11.029435,False
-Kunfunadhoo,islet,73.078018,5.112621,14.596674,False
-Kukulhudhoo,islet,72.8711629,5.4591663,1.016942,False
-Hondaafushi,islet,73.1226724,6.7795067,0.0,True
-އޮޅުވެލިފުށި,islet,73.606802,5.2783646,5.107237,False
-Fenfushi,islet,72.9018081,5.3824141,1.6073706,False
-އުތީމު,island,73.1123677,6.8348961,4.281166,False
-Unnamed settlement,islet,73.1109264,5.9813674,2.802887,False
-Unnamed settlement,islet,73.3190309,5.8150818,12.466819,False
-Maakandoodhoo,island,73.2674323,6.2349489,2.5,False
-Randheli,islet,73.3406006,5.6918654,3.018456,False
-ވައިކަރަދޫ,island,72.9530456,6.5499183,2.8737526,False
-މިލަދޫ,islet,73.3628078,5.7905706,4.500131,False
-ލަންދޫ,islet,73.4665408,5.8816351,7.769169,False
-ކޮމަންޑޫ,islet,73.0538547,6.0539812,3.2290654,False
-Gaamathikulhudhoo,islet,72.984352,7.0387702,0.0,True
-Unnamed settlement,islet,72.8611883,5.5883221,1.3026925,False
-ދޮންފަނު,islet,73.1230481,5.1881094,4.128475,False
-ގޮއިދޫ,islet,72.9297805,6.4300698,2.5657938,False
-ފޯކައިދޫ,islet,73.149106,6.326764,6.9647875,False
-Velifinolhu,islet,72.874384,6.9939914,1.9730194,False
-މުރައިދޫ,islet,73.1671703,6.8377833,2.9712455,False
-Unnamed settlement,islet,72.9069378,5.5806756,2.0821493,False
-Unnamed settlement,islet,73.30724,5.9499021,6.844725,False
-Huruvalhi,islet,72.978943,5.3920188,3.4765358,False
-މާފިލާފުށި,islet,73.4177554,5.3630035,0.0,True
-Unnamed settlement,islet,73.3262493,5.8149271,11.770582,False
-Maakurandhoo,islet,73.3118973,5.6965895,9.6017275,False
-Aidhoo,islet,73.1634063,5.1872599,12.128361,False
-މަރޮށި,islet,73.0615191,6.2097446,5.220077,False
-Gaaun'dhoodhoo,islet,73.0155956,5.7494153,14.2101,False
-ޅޮހި,islet,73.4728376,5.3215715,8.759271,False
-Hanifaru,islet,73.1329984,5.1826227,1.8828976,False
-Unnamed settlement,islet,73.0461839,6.0572338,3.578421,False
-Kudakurathu,islet,73.0443851,5.5834821,3.8691254,False
-ނޫމަރާ,islet,73.0690779,6.4341498,9.614518,False
-ހިތާދޫ,islet,72.9227756,5.007554,4.584556,False
-އޭދަފުށި,islet,73.071022,5.1025657,3.6309335,False
-Unnamed settlement,islet,72.9043396,6.6705396,4.34319,False
-ކުޑަފަރީ,islet,73.4003264,5.8827222,5.3687325,False
-ކެނދިކުޅުދޫ,island,73.4150757,5.9523405,3.329279,False
-Unnamed settlement,islet,73.1302739,6.9256904,0.0,True
-Unnamed settlement,islet,73.3237955,5.9835273,9.756192,False
-Berinmadhoo,islet,72.9712566,7.0470365,5.2818704,False
-Migoodhoo,islet,73.2412201,6.2287595,8.219097,False
-Kudafinolhu,islet,72.8834806,6.9894303,2.7630267,False
-Hunadu,islet,73.0876247,6.7697917,16.045898,False
-Kandoodhoo,islet,73.3294842,5.6464096,11.951459,False
-Funadhoo,islet,73.0331008,5.2746617,14.421499,False
-ޅޮހި,islet,73.3774976,5.8157779,6.04871,False
-Iru Fushi Maldives,islet,73.3236581,5.7442797,4.484766,False
-Unnamed settlement,islet,72.9750991,5.4848322,3.3119352,False
-Meedhupparu,islet,72.9798244,5.4559099,7.3065815,False
-Dheburidheythereyvaadhoo,islet,72.9911834,5.4006602,6.394371,False
-ދެރުއްފިނޮޅު,islet,73.6473522,5.3242529,6.984067,False
-Kunburudhoo,islet,73.0274613,6.6583135,3.1016896,False
-ކެންދޫ,islet,73.010233,5.2753488,3.9571245,False
-Mendhoo,islet,72.9956097,5.174883,6.2181673,False
-Unnamed settlement,islet,72.9989598,6.2036796,1.3512328,False
-ފިނޭ,island,73.0534555,6.7459246,15.135222,False
-Dhigurah,island,73.3592434,5.7315908,6.0604467,False
-Fushifaru,islet,73.5152274,5.4912913,3.1311288,False
-Mulidhoo,island,73.0109544,6.8359532,6.047828,False
-Beenaafushi,islet,73.13616,6.9281927,0.0,True
-Kuda-funafaru,islet,73.3780112,5.8847174,6.047842,False
-Ungulu,islet,73.0264839,5.6906695,5.0095453,False
-Innafinolhu,islet,72.8107906,7.0731716,6.921102,False
-Ufulandhoo,islet,72.9133582,5.4642565,4.261135,False
-Lun'dhufushi,islet,72.9871675,5.6441419,1.2127855,False
-Neyo,islet,73.0596625,6.4503451,3.9013772,False
-Unnamed settlement,islet,73.4449568,5.8452864,7.8519645,False
-Unnamed settlement,islet,73.1246135,5.9691056,11.593735,False
-Uligan,island,72.9253004,7.0840292,6.067288,False
-ކަނޑިތީމު,island,72.9159674,6.44072,3.5555284,False
-Keylakunu,island,73.0091467,6.6027907,23.072,False
-Hulhudhoo,islet,73.0320741,5.0711997,10.455745,False
-Voavah,islet,73.0777767,5.3164642,3.3699563,False
-މިލަންދޫ,island,73.2444113,6.28697,1.7114403,False
-Manafur,islet,72.9399437,6.997104,5.0080233,False
-Undoodhoo,islet,73.0425101,5.2746787,14.900664,False
-Lun'boakandhoo,islet,72.9342963,5.7307265,13.891781,False
-Unnamed settlement,islet,73.1711092,5.8051432,6.027404,False
-މަނަދޫ,island,73.4110501,5.7662364,4.365242,False
-ޅޮއްސަލަފުށި,islet,73.4832069,5.3072218,6.448731,False
-ހެނބަދޫ,islet,73.3928183,5.9676326,5.0551963,False
-Unnamed settlement,islet,73.306505,5.8358825,4.268158,False
-އަލިގާ,islet,73.5165918,5.2440316,10.348331,False
-Unnamed settlement,islet,73.3186542,5.8877243,7.4257507,False
-ބިލެތްފަހި,islet,72.9730786,6.338073,3.2261992,False
-Kotafuri,islet,73.0416733,5.5315288,6.3693414,False
-Bodufen maaen'budhoo,islet,72.9239264,5.6291388,2.8183699,False
-Hirimaradhoo,islet,73.0242994,6.7249015,12.811813,False
-ކުޑަރިކިލު,islet,73.0709423,5.3002945,5.3114266,False
-Mahafai,islet,73.1572879,6.8293623,3.6811843,False
-Unnamed settlement,islet,73.1342716,5.9531298,0.0,True
-Maaddoo,islet,73.0625941,5.0928679,10.457218,False
-Naavaidhoo,islet,72.9347193,6.7471071,3.9568007,False
-ތިލަމާފުށި,islet,73.5871233,5.2732587,7.4955683,False
-Komandoo,islet,73.4242869,5.49334,5.65885,False
-ފައިނު,islet,73.0345761,5.4633497,10.711506,False
-Faarufushi,islet,72.9653459,5.7677819,5.8416758,False
-Goiymaru,islet,72.8881897,5.6302311,3.4328687,False
-މެދަފުށި,islet,73.4267114,5.3556218,8.767186,False
-Unnamed settlement,islet,72.9380446,6.7543364,0.0,True
-Fushivelavaru,islet,73.2093453,5.8310199,1.186813,False
-Didhdhoo,islet,73.2574025,5.6849435,7.8848605,False
-Neyo,islet,73.0389395,5.4925272,6.478778,False
-Unnamed settlement,islet,73.3446456,5.7971351,11.833069,False
-ފާދޫހުރާގަނޑު,islet,73.6197645,5.4361713,0.74152464,True
-Orivaru,islet,73.2974652,5.8021507,1.2969414,False
-Unnamed settlement,islet,73.3459835,5.9714137,3.4679472,False
-Firun'baidhoo,islet,73.2276837,6.1143152,10.254676,False
-Filaidhoo,islet,72.9382677,5.4917022,3.0017576,False
-Unnamed settlement,islet,72.8853222,5.4615226,10.230808,False
-Unnamed settlement,islet,73.0774452,6.0242168,0.0,True
-Unnamed settlement,islet,72.9075177,6.4359154,7.891502,False
-Kuredhdhoo,islet,72.8944105,5.6402425,4.5630884,False
-Kattalafushi,islet,72.9830384,6.5665514,7.827951,False
-Hulhudhoo,islet,73.0190235,5.7387048,8.672891,False
-Unnamed settlement,islet,73.3438098,5.7688291,6.0442414,False
-ވަރިހުރާ,islet,73.4885513,5.3033615,8.155644,False
-Medhukuburudhoo,islet,73.0300528,6.1970527,6.8441973,False
-މާޅެންދޫ,islet,73.45612,5.9022747,5.423829,False
-Madhirivaadhoo,islet,73.1613436,5.2688398,1.9757999,False
-Unnamed settlement,islet,72.9442154,5.5374674,3.116162,False
-Veyvah,islet,72.8931375,5.7672974,0.0,True
-Nibiligaa,islet,72.944135,5.1725169,0.0,True
-ފާދޫ,islet,73.6295973,5.4318762,11.913795,False
-Maafinolhu,islet,72.8623384,7.0021911,3.988545,False
-Dhandhoo,islet,73.1685318,5.2357364,6.239409,False
-Milaidhoo,islet,73.1285083,5.2670876,7.675597,False
-Dhigudhefaru,islet,73.1388001,5.2351054,0.9053085,True
-Unnamed settlement,islet,73.2413783,5.7088366,0.0,True
-ފީވައް,islet,73.2095523,6.3489737,5.48845,False
-Uthurumaafaru,islet,72.8457704,5.6699273,1.5898665,False
-Coco Palm Dhuni Kolhu,islet,72.8815555,5.0391063,4.0593243,False
-Than'burudhoo,islet,73.2346701,5.7164349,8.936568,False
-ދުވާފަރު,islet,73.0411902,5.6298164,1.9770694,False
-Unnamed settlement,islet,72.9977621,5.4945736,2.9057474,False
-Gaagandufaruhuraa,islet,73.0608278,5.3691394,0.0,True
-Kihavah huravalhi,islet,73.0571774,5.296409,7.6491413,False
-Aarah,islet,72.9410475,5.4474825,5.238977,False
-Finolhas,islet,73.113656,5.2337914,13.592711,False
-Kudafen maaen'boodhoo,islet,72.9354474,5.6250637,2.1221292,False
-ނައިފަރު,islet,73.3639483,5.4466026,0.81397796,True
-Vinaneiyfaruhuraa,islet,73.0788515,5.3461979,0.40167946,True
-Farukolhu,island,73.2962702,6.1899923,0.0,True
-Gallandhoo,islet,72.9833747,6.9470124,11.557426,False
-Dhigufaru,islet,73.0571934,5.1670627,0.0,True
-Vattaru,islet,73.3854291,5.6697197,3.7607384,False
-Hirubadhoo,islet,73.2454871,6.187925,13.470341,False
-ކުޅުދުއްފުށި,island,73.0689344,6.6232292,4.403457,False
-Maavaidhoo,islet,73.0539328,6.5154201,11.528297,False
-Anhenunfushi,islet,72.9685513,5.34203,11.768674,False
-Thiladhoo,islet,73.1553109,5.2622705,13.258715,False
-ދިއްދޫ,islet,73.3818759,5.3760696,3.4963796,False
-Unnamed settlement,islet,73.368098,5.9654656,4.334452,False
-Keekimini,islet,73.1121806,6.0073738,6.953834,False
-Thuraakunu,islet,72.8989188,7.1039485,3.0057156,False
-Kashidhoo,islet,72.9686947,5.2971745,12.692783,False
-Hirinaidhoo,islet,72.9482125,6.7017073,11.652082,False
-Fasmendhoo,islet,72.8816397,5.4941429,6.9015255,False
-Gaakoshinbi,islet,73.0119808,6.287067,5.8775606,False
-Fuggiri,islet,72.8527603,5.72424,0.0,True
-ތުޅާދޫ,islet,72.8412355,5.0216527,2.669045,False
-Horubadhoo,islet,73.052929,5.162601,12.42972,False
-Unnamed settlement,islet,73.3863464,5.9622776,10.529513,False
-Fonimagoodhoo,islet,73.1635327,5.2552356,3.7947803,False
-ކަނދޮޅުދޫ,islet,72.8551841,5.6186993,3.944596,False
-Umarehfinolhu,islet,72.8513803,7.0094567,0.6871588,True
-Unnamed settlement,islet,72.899268,6.7052967,4.7504063,False
-ވާދޫ,islet,72.9908042,5.8554451,4.6678104,False
-ފޭދޫ,islet,73.0488265,6.3603798,3.9302123,False
-Unnamed settlement,islet,72.8561296,5.06387,7.966622,False
-ރަސްގެތީމު,islet,73.0029763,5.8077549,3.8069637,False
-Unnamed settlement,islet,73.1092153,6.3023087,4.8461285,False
-Fares,islet,72.8773391,5.2321472,9.773433,False
-Unnamed settlement,islet,73.3161909,5.9129841,3.4418564,False
-Vilin'gili,islet,72.9542282,5.3766342,2.294669,False
-Kuredu Island,islet,73.4648326,5.5497948,7.083962,False
-Unnamed settlement,islet,72.9256994,6.3955666,3.9526277,False
-Miriandhoo,islet,73.0313288,5.0631969,6.484412,False
-Hibalhidoo,islet,73.1149463,5.1412934,12.38902,False
-Vangaaru,islet,72.8783447,7.0933353,8.547694,False
-Landaa Giraavaru,islet,73.1113476,5.2862914,5.0130863,False
-ހއ. އިހަވަންދޫ,island,72.9262956,6.9549153,4.073729,False
-މާރަންދޫ,islet,72.98438,6.8524058,17.296417,False
-ދަރަވަންދޫ,islet,73.130402,5.1567585,3.065687,False
-އަލިފުށި,island,72.9530175,5.9672156,4.837881,False
-Medhafushi,islet,72.9347215,7.0107308,2.8864188,False
-Dhakandhoo,islet,72.8936764,5.248485,4.622503,False
-Dhigufaruvinagandu,islet,72.9897671,5.3524744,3.8543968,False
-Madhiriguraidhoo,islet,73.5600134,5.4699808,0.0,True
-Theefaridhoo,island,73.0332752,6.7401885,11.8837595,False
-Furaveri,islet,72.9079891,5.4406284,9.462239,False
-Kakaaeriyadhoo,islet,72.9023497,6.4781239,8.908494,False
-Unnamed settlement,islet,73.4366708,5.9207123,16.9948,False
-Veyofushi,islet,73.1581831,5.2289281,0.0,True
-Nellaidhoo,islet,72.947035,6.7148335,3.6347404,False
-ހުޅުދުއްފާރު,islet,73.0123412,5.7659306,3.5980759,False
-Joali being Bodufushi,islet,72.968662,5.5076421,1.8079301,False
-މޮޅަދޫ,island,72.9968365,7.0154235,9.593923,False
-އިންނަހުރާ,islet,73.6540322,5.3499295,5.930927,False
-Meedhuffushi,islet,73.0004656,3.0033482,10.175065,False
-Dhiggiri,islet,73.4868325,3.6448405,7.926047,False
-Rangali Finolhu,islet,72.7233105,3.6181812,7.9525805,False
-Bulhaaholhi,islet,72.7317846,3.7390657,5.0794773,False
-ހުރާ,islet,73.6013213,4.3337674,-0.106640026,True
-Akirifushi,islet,73.4018621,4.6376414,0.0,True
-Minimasgali,islet,72.8356525,3.2428053,9.293705,False
-Holiday Inn Resort Kandooma Maldives,islet,73.4737106,3.903628,9.216369,False
-Unnamed settlement,islet,72.8978628,3.3161378,2.9195738,False
-އޮމަދޫ,islet,72.9619566,3.7916391,5.7854843,False
-ދިއްދޫ,islet,72.8789128,3.4847647,13.464976,False
-Velidhu,islet,72.8190019,4.1947705,7.689171,False
-Madoogali,islet,72.7528795,4.0961673,10.951441,False
-Vabbinfaru,islet,73.4238859,4.3096968,4.3893,False
-Fihalhohi,islet,73.3670776,3.877351,6.919915,False
-Maagaa,islet,72.9568816,3.989098,4.285313,False
-ބިލެއްދޫ,islet,72.9843618,3.1184365,8.300023,False
-Bodufinolhu,islet,73.456504,3.8576107,3.3463435,False
-ދަނގެތި,islet,72.9561643,3.6068808,4.2975054,False
-ބޮޑުފޮޅުދޫ,islet,72.7735929,4.1857526,7.938841,False
-Cocoa Island,islet,73.4711132,3.9177889,0.0,True
-Olhahali,islet,73.4506637,4.6900376,0.44978562,True
-Rah Gili Maldives,islet,73.4113707,3.8121414,9.247809,False
-Naladhu,islet,73.5064158,3.9718617,6.38093,False
-Kudhiboli,islet,73.365291,3.6365738,0.0,True
-Thulhagiri,islet,73.4874884,4.3116364,4.895316,False
-Kudahithi,islet,73.3803446,4.4174188,2.9205768,False
-Dhiffushi,island,72.8240092,3.4754734,6.777021,False
-Maafushi,islet,72.978353,3.2430398,0.0,True
-Theluveligaa,islet,72.9026456,3.6697961,4.421048,False
-Rangali,islet,72.715827,3.6162071,0.0,True
-Embudhu Finolhu,islet,73.5253609,4.1026899,0.0,True
-Anbaraa,islet,73.4390652,3.3722971,0.0,True
-Makunudu,islet,73.4057194,4.542587,7.348219,False
-Mathiveri Finolhu,islet,72.7499131,4.186194,3.23816,False
-Gangehi,islet,72.7552185,4.2201,10.648579,False
-ދިއްފުށި,islet,73.7144112,4.4420446,4.6428685,False
-Tholhifushi,islet,72.7898097,3.4849825,8.306923,False
-Kudarah,islet,72.9106312,3.57394,8.927168,False
-އެއްލައިދޫ,islet,72.9490865,4.0062607,3.6246898,False
-ހިމެންދޫ,islet,72.7449889,3.920851,7.3491464,False
-Buri,islet,73.5204327,3.3429753,5.767492,False
-Aarah,islet,73.5299633,3.4990633,0.0,True
-Athuruga,islet,72.8160779,3.8872474,8.042297,False
-Unnamed settlement,islet,73.5824896,4.3206086,0.0,True
-ރަކީދޫ,islet,73.4700185,3.3149485,4.352719,False
-Kudadhoo,islet,72.8701743,3.4792359,7.1654305,False
-ހިއްމަފުށި,island,73.5710409,4.3085626,3.86959,False
-Lankanfinolhu,islet,73.553942,4.2829316,1.6034352,False
-Adaaran Prestige Vadoo,islet,73.4573214,4.1240825,5.5891504,False
-Maadhoo,islet,73.4588954,3.8720064,2.7255943,False
-Boduhuthi,islet,73.3847467,4.4310185,2.5102184,False
-Spa Island,islet,73.5965047,4.3306442,0.0,True
-Maayafushi,islet,72.8869489,4.0735918,0.0,True
-ހަންޏާމީދޫ,islet,72.9553613,3.8493579,4.155553,False
-Kodhipparu,islet,73.3798833,4.2594692,0.20021927,True
-Veliganduhuraa,islet,73.505084,3.9674056,7.1322823,False
-Dighu,islet,73.5022903,3.972459,5.6240354,False
-Hembadhu,islet,73.3932162,4.4817067,4.158664,False
-Mandhoo,islet,72.7101036,3.6982617,6.784482,False
-Gasfinolhu,islet,73.6263002,4.3613809,7.64336,False
-Vihamanaafushi,islet,73.5196797,4.2263711,4.7103295,False
-Helengeli Island,islet,73.5635943,4.634603,3.5976899,False
-Mirihi,islet,72.7806719,3.6194958,8.751577,False
-Kandolhudhoo,islet,72.8818241,4.0027012,7.334633,False
-ފުލިދޫ,islet,73.4160481,3.6802978,6.655186,False
-ކާށިދޫ,island,73.4596278,4.9570017,3.5536394,False
-Unnamed settlement,islet,73.6101483,4.3488489,1.1581109,False
-Asdhu,islet,73.6609671,4.4664394,0.0,True
-އެތެރެމަޑިވަރު,islet,72.9372587,4.1186194,0.0,True
-ދޫނިދޫ,islet,73.5139616,4.1973237,7.770659,False
-ރަތްމަންދޫ,islet,73.6391675,3.0889599,4.876817,False
-Villivaru,islet,73.4550099,3.9144553,9.553934,False
-Unnamed settlement,islet,73.5471103,4.252096,2.665079,False
-ގާފަރު,islet,73.4995507,4.7364849,0.7013392,True
-Enboodhoo,islet,72.7525503,3.8152884,7.814073,False
-Kandu Oiy Giri,islet,73.5405617,4.2578761,7.804475,False
-Girifushi,islet,73.5782791,4.3183496,7.4312234,False
-Meeru Island Resort,islet,73.7167646,4.45424,9.499223,False
-Lonubo,islet,72.9006715,3.6033807,3.6166432,False
-Villinglivaru,islet,72.9552307,3.6190106,5.6066737,False
-Unnamed settlement,islet,73.4263844,3.2218265,4.888044,False
-Ziyaraifushi,islet,73.3724228,4.5327087,7.8578315,False
-Thumbafushi,islet,73.5898037,4.5897122,0.99066436,True
-Hukurudhoo,islet,72.7188658,3.5703603,14.568916,False
-Bolifushi,islet,73.3998073,4.0972,1.7998762,False
-Bodukaashihuraa,islet,72.954324,3.8758902,2.7097247,False
-Lhosfushi,islet,73.470036,3.8969653,0.0,True
-Maniya Fushi,islet,73.4109993,4.0557733,2.6524327,False
-Bathala,islet,72.9455468,4.070308,4.526379,False
-Nakachcchaafushi,islet,73.3700496,4.3684427,5.8983307,False
-Ukulhas Fushi,islet,72.8835038,4.2156082,1.1055547,False
-Madivaru,islet,73.0002182,4.2655706,3.0421405,False
-ގުރައިދޫ,islet,73.4660912,3.9017033,3.7421308,False
-Ihuru,islet,73.4160374,4.3067295,1.2720245,False
-Alikoirah,islet,72.8802491,3.9434071,0.0,True
-Dhigurah,islet,72.9216674,3.5251756,0.0,True
-Vakarufalhi,islet,72.902189,3.5787133,6.814263,False
-Rahddhigaa,islet,72.7709526,3.7575707,4.1079884,False
-Maafushivaru,islet,72.9002138,3.6078876,9.342028,False
-Unnamed settlement,islet,73.6113319,4.3432859,5.4769473,False
-Thudufushi,islet,72.7307082,3.7862371,7.698119,False
-Kanuhuraa,islet,73.5920264,4.3192242,0.0,True
-އުކުޅަސް,islet,72.8641266,4.2148776,7.1495714,False
-Makunueri,islet,72.9288861,3.2585974,5.799749,False
-Foththeyobodufushi,islet,73.7579554,3.4555521,2.8126907,False
-Halaveli,islet,72.9193001,4.0386768,4.179273,False
-ތިނަދޫ,islet,73.5380612,3.4878188,8.105763,False
-މަތިވެރި,islet,72.7460515,4.192073,6.6389594,False
-Unnamed settlement,islet,72.7464427,4.1218751,9.093329,False
-Unnamed settlement,islet,73.5515281,4.2865279,0.0,True
-Ranfinolhu,islet,72.7275243,3.6110642,2.7521496,False
-Vabboahuraa,islet,73.5963084,4.3195274,5.8289003,False
-ފެލިދޫ,islet,73.5470129,3.471979,5.331278,False
-ދަރަނބޫދޫ,islet,72.9253063,3.0630833,6.429537,False
-Aarah,islet,73.4946259,4.2299552,7.666109,False
-Unnamed settlement,islet,72.9145779,3.8582535,0.0,True
-Kuda Bandos,islet,73.4999106,4.2638583,5.1877885,False
-Gaathu Fushi,islet,72.8107184,4.0236968,0.0,True
-Reethi Rah,island,73.3693057,4.5145745,0.0,True
-Hurasdhoo,islet,72.7747156,3.6668354,8.78462,False
-Moofushi,islet,72.726695,3.8848294,0.0,True
-ކުނބުރުދޫ,islet,72.9237471,3.7755798,5.5508494,False
-ނިލަންދޫ,islet,72.888625,3.0572824,5.4778833,False
-Madivaru,islet,73.368432,4.500595,3.1018248,False
-Bushi,islet,73.5065595,3.9767559,4.738868,False
-Alimatha,islet,73.498015,3.5937328,7.4685025,False
-Furanafushi,islet,73.5445723,4.2497111,4.7089977,False
-ތޮއްޑޫ,island,72.9590674,4.4368285,7.410571,False
-Kanifinolhu,islet,73.6077099,4.3435668,8.846599,False
-Giraavaru Falhu,islet,73.4128253,4.2004017,6.025774,False
-Velifaru,islet,73.4863292,4.7304883,0.23231682,True
-Innafushi,islet,72.8792157,4.8776673,3.805904,False
-Villingilimathidhahuraa,islet,73.663775,4.3774338,0.0,True
-Huruelhi Island,islet,72.7195405,3.5442926,4.183768,False
-Kagi Maldives Spa Island,islet,73.5009103,4.6769902,6.8679233,False
-ފެންފުށި,islet,72.7834777,3.4892974,4.7660623,False
-Nika Island,islet,72.7671702,4.1811668,9.257499,False
-Lankanfushi,islet,73.5581382,4.2951555,5.071055,False
-Vaagali,islet,73.3559257,3.9489793,0.0,True
-Ruhhurihuraa,islet,73.499883,3.3612075,2.214421,False
-Kuda Huraa,islet,73.5973776,4.32821,5.197449,False
-Machchafushi,islet,72.883316,3.593778,9.352134,False
-Didhoofinolhu,islet,72.8966848,3.49838,0.0,True
-Ariadhoo,islet,72.8550707,3.4752745,5.8769226,False
-ރަސްދޫ,islet,72.9916915,4.263147,4.5908117,False
-Thanburudhoo,islet,73.5841115,4.3159721,6.8338213,False
-ފީއަލި,islet,73.001514,3.2700001,7.100648,False
-Vilimale',island,73.4853531,4.1735031,5.4892426,False
-Medhufinolhu,islet,73.4583894,3.8651945,2.198517,False
-ތުލުސްދޫ,islet,73.647335,4.3733383,10.056712,False
-Angaga Island Resort,islet,72.8218903,3.6521648,9.313371,False
-ކެޔޮދޫ,islet,73.5502786,3.4621039,3.9780626,False
-Vilamendhoo Island Resort & Spa,islet,72.9587872,3.6338083,5.8002625,False
-Unnamed settlement,islet,73.0101004,4.2930394,0.0,True
-Velassaru,islet,73.4368952,4.1213701,2.3153944,False
-Unnamed settlement,islet,73.537008,4.2493604,1.9426063,False
-Naibukaloabodufushi,islet,73.0239524,2.7667128,5.3554873,False
-Dhoores,islet,72.8837672,2.9174997,15.464034,False
-ރިނބުދޫ,islet,72.8953632,2.9245002,6.978001,False
-Kanneiyfaru,islet,73.0271409,2.9239485,8.555094,False
-Holhurahaa,islet,73.5391805,2.0685304,7.7265873,False
-ބަނޑިދޫ,islet,72.9904684,2.9368279,8.179882,False
-Baglioni Resort Maldives,islet,72.9145572,2.9475873,11.907558,False
-މީދޫ,islet,73.0064059,2.9983962,6.2079086,False
-Unnamed settlement,islet,73.5361418,2.0715521,0.0,True
-Gaathurehaa,islet,73.0154531,2.1685731,0.0,True
-ހުޅުދެލި,islet,72.8466867,2.8583767,8.402122,False
-އިސްދޫ,island,73.5684563,2.1190979,3.918288,False
-Unnamed settlement,islet,72.9825745,2.706636,3.9024847,False
-Unnamed settlement,islet,73.2782534,1.8175152,7.4969544,False
-Hulhiyanfushi,islet,73.2188981,2.2596601,6.8743362,False
-ގާދިއްފުށި,islet,73.2125675,2.2529952,6.1561894,False
-Elaa,islet,73.0791862,2.1723748,8.1725855,False
-Faés,islet,73.2952969,1.8014451,6.8269944,False
-Mandoo,islet,73.5339236,2.0111877,6.6082478,False
-Vadinolhu,islet,73.3589136,2.0177249,6.3565125,False
-Bokaifushi,islet,73.5349092,1.9989523,9.199543,False
-މުލައް,islet,73.5841936,2.9463365,13.135542,False
-Munyafushi,islet,73.3092932,1.9892643,4.3905487,False
-Fenboahuraa,islet,73.5368269,2.0609333,9.0889845,False
-މާއެނބޫދޫ,islet,72.9634196,2.6957411,6.396431,False
-ކަޅައިދޫ,islet,73.5375045,1.9886782,4.204799,False
-ގަން,island,73.5365663,1.9067854,0.0,True
-Gaadhoo,island,73.4520212,1.8214298,7.7037563,False
-Usfushi,islet,73.204922,2.2469676,6.3068047,False
-Kiraidhoo,islet,73.0255822,2.7874592,10.777238,False
-Dhebaidhoo,islet,73.0255701,2.7939028,5.835397,False
-Vommuli,islet,72.8661108,2.9113406,14.811153,False
-Unnamed settlement,islet,73.0255755,2.7907453,5.252272,False
-Hulhimendhoo,islet,73.3943018,1.8227585,9.068396,False
-Unnamed settlement,islet,73.0255641,2.797703,4.6797895,False
-Vaanee,islet,73.002831,2.7254258,6.0115905,False
-Vallalhohi,islet,72.8880158,2.7306226,7.8068986,False
-ކިނބިދޫ,islet,73.0674071,2.1695213,6.0777283,False
-Minimasgali,islet,72.8876252,2.7502754,9.8839035,False
-Lhohi,islet,72.9854289,2.9569233,11.602141,False
-Kurali,islet,73.3719305,2.7803864,0.0,True
-Thilabolhufushi,islet,73.0223672,2.7557576,6.707212,False
-Thinhuraa,islet,73.0250848,2.7801141,6.7528663,False
-Hikandhirahaa,islet,73.5365704,2.0583981,8.415609,False
-ކޮޅުފުށި,islet,73.4243349,2.7808231,10.994007,False
-ކުނަހަންދޫ,island,73.3683283,1.7839192,4.991039,False
-Medhoo,island,73.3818359,1.7861705,11.806094,False
-Naraka,islet,72.9763115,2.1873625,0.0,True
-ވޭވައް,islet,73.5997928,2.956399,15.482507,False
-Uvadhevifushi,islet,73.5372525,1.9791726,8.784962,False
-Boduhuraa,islet,73.3534972,1.7811553,0.0,True
-މާމެންދޫ,islet,73.3899663,1.8180938,4.894624,False
-Fushi,islet,73.5323769,2.045795,10.327064,False
-Niyama Maldives,islet,72.9346115,2.6823174,4.952253,False
-Medhufushi,islet,73.5753513,2.8863608,0.0,True
-Kani,islet,72.9743242,2.1899542,0.0,True
-ދަނބިދޫ,island,73.5443758,2.0937724,11.072154,False
-Thuvaru,islet,73.3794388,2.8983352,4.59466,False
-Berasdhoo,islet,73.5400497,1.9681175,14.908777,False
-Kudafushi,islet,73.3317506,1.7885929,7.7756186,False
-ނާލާފުށި,islet,73.5772228,2.8959378,11.909533,False
-Kandaru,islet,73.5321951,2.0497005,14.07142,False
-Olhutholhu,islet,73.3520641,1.7879786,7.967128,False
-ވޭމަންޑޫ,islet,73.0942311,2.185977,5.1427946,False
-Kolafushi,islet,73.2234476,2.263773,3.2558334,False
-Maalhaveli,islet,73.5788951,2.9048917,0.0,True
-Kakaahuraa,islet,73.5348722,2.8525116,7.8540263,False
-Lhavaddoo,islet,73.2913119,2.3056043,15.536798,False
-Olhuveli,islet,73.4047312,1.8169428,8.495464,False
-Fonidhaani,islet,73.285036,2.3012094,14.062631,False
-Kalhudheyfushi,islet,73.2762894,2.2952068,6.8729916,False
-Rihaamaafushi,islet,73.2702406,2.2918055,1.3451068,False
-ވަންދޫ,islet,72.9419252,2.2917748,12.589353,False
-Fenfushi,islet,73.266708,2.289632,3.0452237,False
-މާވަށް,islet,73.242306,1.8853327,6.5821843,False
-Hathifushi,islet,73.2635265,2.2875395,5.1127663,False
-ގުރައިދޫ,islet,73.319439,2.3250489,6.346179,False
-Fonaddoo,islet,73.1289257,2.1982505,11.880944,False
-Hakuraahuraa,islet,73.5386013,2.8540041,9.563729,False
-އޮމަދޫ,islet,73.0238074,2.167771,7.677471,False
-ކަނޑޫދޫ,island,72.9167825,2.320629,10.687686,False
-Maalefushi,islet,73.298248,2.3105927,12.251113,False
-Fenmeerufushi,islet,73.233436,2.2707868,3.6478436,False
-Fushi,islet,72.9693085,2.1932068,0.0,True
-Kakolhas,islet,72.9443103,2.3152483,9.280744,False
-Bodurehaa,islet,73.2263222,2.266142,8.457483,False
-Enboodhoofushi,islet,72.9285556,2.6771742,2.2225018,False
-Kaaddoo,islet,73.2546423,2.2820692,16.387125,False
-Kudakaaddoo,islet,73.2595035,2.2853469,0.0,True
-Mahakanfushi,islet,73.5409717,1.9586351,0.0,True
-Unnamed settlement,islet,73.5322843,2.0431981,5.177823,False
-ހިރިލަންދޫ,islet,72.9326731,2.2696956,0.0,True
-Gaalee,islet,73.1544497,2.5463486,5.0344806,False
-Unnamed settlement,islet,73.3050722,2.3151975,6.2929573,False
-Kurandhuvaru,islet,73.1759619,2.5392082,15.821926,False
-ބުރުނީ,islet,73.1060007,2.5587401,11.5200615,False
-Unnamed settlement,islet,73.1569546,2.5490856,3.8349626,False
-Ekuruffushi,islet,73.2292593,2.268116,4.4675226,False
-Gasfinolhu,islet,73.5401152,1.952416,6.8837333,False
-ހިތަދޫ,island,73.3879806,1.7965881,7.53581,False
-Velavaru,islet,73.0156649,2.9797109,11.08493,False
-Weligandu,islet,72.9087071,2.3659658,3.3359509,False
-މާބައިދޫ,island,73.5327505,2.0297067,3.0,False
-ދިޔަމިގިލި,islet,73.3368918,2.3401478,3.3874378,False
-މަޑިފުށި,islet,73.3544748,2.3572202,3.9651082,False
-Uddhoo,islet,72.9903537,2.970615,5.471268,False
-Unnamed settlement,islet,73.2324058,2.5149703,10.993299,False
-Hikandhilohi,islet,73.2265594,2.5203551,12.778311,False
-Unnamed settlement,islet,72.9874546,2.5313005,6.1863985,False
-Maagulhi,islet,73.1795271,2.5383267,13.616979,False
-Dhonhanfushi,islet,73.3149293,2.490279,9.495314,False
-Unnamed settlement,islet,73.3127814,2.4952203,2.7422206,False
-Unnamed settlement,islet,73.1114993,2.1958833,8.595574,False
-ވިލުފުށި,island,73.308219,2.5027957,6.409823,False
-Olhugiri,islet,73.2554181,2.5057543,13.3363695,False
-Unnamed settlement,islet,73.0264657,0.3428939,3.5540514,False
-ނަޑެއްލާ,islet,73.0409634,0.2940768,7.021066,False
-ފިޔޯރީ,islet,73.1366161,0.2211379,1.8963813,False
-Unnamed settlement,islet,73.3361272,0.8853996,6.4292784,False
-Unnamed settlement,islet,73.4366029,0.3349591,7.067024,False
-Unnamed settlement,islet,73.1240399,0.5413028,6.6724052,False
-Unnamed settlement,islet,73.4985887,0.5058205,8.833592,False
-Unnamed settlement,islet,73.4166159,0.3021278,6.761948,False
-Unnamed settlement,islet,73.0685158,0.2736523,7.5102944,False
-Unnamed settlement,islet,73.4864598,0.3209648,9.405093,False
-Maamutaa,islet,73.407697,0.8465028,3.1525924,False
-Gan,island,73.4356695,0.275081,9.549968,False
-ހޯނޑެއްދޫ,island,73.0050157,0.4441902,3.6797686,False
-Unnamed settlement,islet,73.3372976,0.288589,7.5541005,False
-ގެމަނަފުށި,islet,73.5685486,0.4422643,5.5091896,False
-Hulhimendhoo,islet,73.4399997,0.7036017,8.963946,False
-ވާދޫ,island,73.2736968,0.2272477,9.991951,False
-Maguhdhuvaa,islet,73.3568124,0.2779893,4.877992,False
-Unnamed settlement,islet,73.497776,0.3810978,5.3013997,False
-Unnamed settlement,islet,73.3804795,0.3196711,7.014346,False
-Unnamed settlement,islet,73.2423663,0.8494774,22.781199,False
-Unnamed settlement,islet,73.2077213,0.8467144,5.8041105,False
-Maavarulu,islet,73.5106378,0.3350918,0.0,True
-Unnamed settlement,islet,73.3496443,0.8968211,5.828612,False
-Kunata,islet,73.1546428,0.4627277,7.265091,False
-ރަތަފަންދޫ,islet,73.1046807,0.2528717,5.620928,False
-ދެއްވަދޫ,islet,73.2421259,0.5568095,2.9856913,False
-Unnamed settlement,islet,73.4487774,0.3127257,7.1625223,False
-Unnamed settlement,islet,73.0259315,0.3290827,9.012999,False
-Unnamed settlement,islet,73.2250485,0.7949897,10.909679,False
-Unnamed settlement,islet,73.1475923,0.5104901,6.73052,False
-Unnamed settlement,islet,73.2090157,0.8537403,11.039907,False
-Unnamed settlement,islet,73.3093939,0.6046786,4.189692,False
-Unnamed settlement,islet,73.2444926,0.8724931,9.950464,False
-Unnamed settlement,islet,73.3447647,0.6298741,10.386409,False
-Falhumaafush,islet,73.4384978,0.6718575,5.128754,False
-ނިލަންދޫ,islet,73.445993,0.6365608,3.654897,False
-ކޮލަމާފުށި,islet,73.1848998,0.8371951,1.9684668,False
-Unnamed settlement,islet,73.192208,0.5710253,5.9259586,False
-Maarandhoo,islet,73.0933988,0.5866621,5.035153,False
-ގައްދޫ,islet,73.4583283,0.290252,5.944043,False
-Mahaddhoo,islet,73.5137537,0.5843172,0.0,True
-Unnamed settlement,islet,73.438735,0.6592046,8.719323,False
-Unnamed settlement,islet,73.1901187,0.8662709,7.282341,False
-Amari Havodda Maldives,islet,73.0952911,0.5406883,4.3089314,False
-Unnamed settlement,islet,73.497126,0.3285715,7.1952147,False
-Unnamed settlement,islet,73.0038137,0.4280787,6.2761602,False
-Funamadua,islet,73.1900432,0.5339108,5.5377035,False
-Unnamed settlement,islet,73.3198728,0.3577315,7.953629,False
-Kudhehulhahddu,islet,72.9974419,0.4543079,3.796618,False
-Unnamed settlement,islet,73.3462795,0.5406658,2.1528597,False
-Faruhulhudhoo,islet,73.2552126,0.8742822,6.136875,False
-Unnamed settlement,islet,73.5349576,0.4519945,7.7253537,False
-ކޮނޑޭ,islet,73.5493327,0.4996133,12.991608,False
-Unnamed settlement,islet,73.2850655,0.7270343,9.424593,False
-Rahadhoo,islet,72.9898165,0.4968598,7.38199,False
-Kaadedhdhoo,island,72.9929236,0.4877038,9.369188,False
-Unnamed settlement,islet,73.370006,0.3986602,4.4463406,False
-Unnamed settlement,islet,73.2163184,0.5188733,3.8927133,False
-ކަނޑުހުޅުދޫ,islet,73.5399259,0.351553,5.886338,False
-Unnamed settlement,islet,73.2852285,0.7140793,6.876652,False
-Unnamed settlement,islet,73.4134644,0.3087025,7.428376,False
-މަޑަވެލި,islet,72.9991486,0.4590172,3.755787,False
-Unnamed settlement,islet,73.1724141,0.4949848,6.851582,False
-ވިލިނގިލި,island,73.4346235,0.7560338,2.6773915,False
-Havoddaa,islet,73.0744064,0.5233323,8.39682,False
-ކައްދޫ އެއަރޕޯޓް,island,73.5208364,1.8609607,3.1287658,False
-Kanuhuraa,islet,73.5057657,5.5326306,0.0,True
-ގަން,island,73.1518279,-0.6945065,3.4301991,False
-ހިތަދޫ,island,73.0930517,-0.6156605,1.5938461,False
-Rannalhi,islet,73.3578725,3.9033305,8.002274,False
-މާޅޮސް,islet,72.7190507,3.9863123,4.854227,False
-Biyadhoo,islet,73.456351,3.9222817,12.207305,False
-Mulikado,islet,73.215945,-0.6588633,0.0,True
-Nalaguraidhoo,island,72.802495,3.4830953,8.768173,False
-Baros,islet,73.4270792,4.284725,3.704774,False
-ކުމުންދޫ,island,73.0517479,6.5712624,8.094818,False
-ފެރިދޫ,islet,72.7254563,4.0510491,6.9902425,False
-Unnamed settlement,islet,72.9484285,3.9985559,1.8405888,False
-މީދޫ,islet,72.9554562,5.4580071,4.4928503,False
-Unnamed settlement,islet,73.1258577,-0.681131,0.0,True
-Unnamed settlement,islet,73.123302,-0.677627,1.8488067,False
-Thunburi,islet,73.5402017,2.074897,10.300451,False
-Hulhiyandhoo,islet,73.5420384,2.0809867,7.3096867,False
-މަހިބަދޫ,islet,72.9689014,3.7572569,2.114646,False
-Lily Beach Resort & Spa,islet,72.9537251,3.6537041,6.8518267,False
-Dheerondi,islet,73.0871321,-0.5948357,3.1958604,False
-Kudamaahera,islet,73.0889997,-0.5979672,0.0,True
-Maahera,islet,73.0900678,-0.5949222,3.4765496,False
-Unnamed settlement,island,73.1121656,-0.6554075,0.0,True
-Huraagandu,islet,73.654634,4.3716684,5.2999563,False
-Unnamed settlement,islet,73.1485751,-0.6123031,1.5553159,False
-Fathikedehera gan’du,islet,73.1417416,-0.6151393,0.0,True
-Unnamed settlement,islet,73.1476289,-0.6132625,0.60521775,True
-Hermit Crab Island,islet,73.503109,3.968876,0.29721588,True
-Unnamed settlement,islet,73.3915329,0.3680358,5.7615967,False
-ތިނަދޫ,island,72.9986245,0.5325645,2.7714999,False
-Hulhumeedhoo,island,73.229609,-0.5939836,4.2090163,False
-Hikihera,islet,73.2217002,-0.5804269,0.0,True
-ފެހެންދޫ,islet,72.9676438,4.8819927,0.0,True
-ފުޅަދޫ,islet,72.9318248,4.884655,3.5266244,False
-ގޮއިދޫ,island,73.0002889,4.8709111,5.2079,False
-Veligandu,islet,73.0116425,4.2985052,7.4779797,False
-Filitheyo,islet,73.0367944,3.2131558,11.596467,False
-Unnamed settlement,islet,73.5353064,2.0551267,5.1203256,False
-Unnamed settlement,islet,73.5382509,2.0642019,3.9017498,False
-Unnamed settlement,islet,73.2781883,1.8164101,5.38856,False
-Maakaulhuveli,islet,73.3406791,1.7883084,0.0,True
-Bodufenrahaa,islet,73.2796031,1.8171294,6.4008937,False
-Bodumaabulhali,islet,73.2554717,1.849273,10.736009,False
-Unnamed settlement,islet,73.5366117,2.0650878,6.7185473,False
-Bileitheyrahaa,islet,73.5349631,2.056848,0.0,True
-ފުވައްމުލައް,island,73.4258244,-0.2945814,6.428182,False
-Bandos,islet,73.4914537,4.2693806,2.6599607,False
-Staffarea,locality,72.8219341,3.6525775,7.4138427,False
-Unnamed settlement,islet,72.9057999,5.001359,11.893938,False
-Jumhooree Maidan,square,73.5111036,4.1791188,1.2753761,False
-ކޫއްޑޫ އެއަރޕޯޓް,island,73.4338179,0.7337101,8.368823,False
-Dream Island,islet,73.4606783,3.8519668,1.0014218,False
-ފުނަދޫ,islet,73.5177074,4.1836972,4.23374,False
-Lankanfinolhu,islet,73.5541144,4.2858273,6.6776123,False
-Haadhoo,islet,72.9995985,0.4521898,4.693491,False
-Dhinmana,islet,72.997844,0.4500111,4.0515447,False
-Kannigilla,islet,72.9982305,0.449225,7.1494694,False
-Unnamed settlement,islet,73.0394043,0.2995227,0.0,True
-Kudafares,islet,73.3004004,1.7990948,1.5,False
-Hadahaa Island,islet,73.4539344,0.505654,7.725842,False
-Kandahalagala,islet,73.2166718,0.2252894,5.4576917,False
-Unnamed settlement,islet,73.5048766,3.976503,0.0,True
-ގުޅި,islet,73.5094121,3.9903538,2.536317,False
-Unnamed settlement,islet,72.871434,3.4796863,0.0,True
-Hiyafushi,islet,72.8718068,3.4791556,5.6091094,False
-ދާންދޫ,islet,73.4609287,0.6209616,2.2480345,False
-Mushimasgali,islet,72.9125189,3.9589068,0.0,True
-Unnamed settlement,islet,73.297171,2.3125555,0.0,True
-Hulhudhoo,islet,73.0251257,5.2748769,14.046582,False
-Unnamed settlement,islet,73.3539583,5.7872484,0.0,True
-ފެހިގިލި,islet,73.4828597,5.5544952,1.6363851,False
-ދެހުރާއެއްވިރަށް,islet,73.4896671,5.554654,4.3823214,False
-މަސްލެއްގިހުރާ,islet,73.500984,5.5438813,3.9078496,False
-Kudadhoo,islet,73.4336894,5.5030307,10.095596,False
-މެދާދިހުރާ,islet,73.5030937,5.5410995,4.8661494,False
-Huruvalhi,islet,73.4416664,5.5212171,5.635054,False
-ގާއެރިފަޅު,islet,73.4035817,5.4851725,2.982316,False
-ހިންނަވަރު,islet,73.4114982,5.4923924,1.7974529,False
-Alidhoo,islet,73.1521915,6.8490092,6.008683,False
-Staff Area,yes,73.1517886,6.8495802,4.663801,False
-Hulhidhoo,islet,73.5323578,3.4933617,10.436634,False
-Unnamed settlement,islet,72.9389928,6.7590535,0.9439361,True
-Unnamed settlement,islet,73.0676677,6.0299289,4.7261477,False
-Unnamed settlement,islet,73.0137138,2.1699782,0.0,True
-Unnamed settlement,islet,72.9123304,3.9635632,1.602806,False
-Himithi,islet,72.8185522,3.2565793,0.0,True
-ކެލާ,island,73.2155077,6.9518294,2.1218753,False
-Unnamed settlement,islet,73.0416531,5.6394902,0.0,True
-Fesdhoo,islet,72.8110179,4.0069069,6.9756,False
-ތިލަފުށި,island,73.4317698,4.1833727,0.68667185,True
-Hudhuranfushi,islet,73.6179939,4.3509306,3.4785535,False
-Unnamed settlement,islet,73.1896263,0.5316082,0.38171256,True
-Unnamed settlement,islet,73.1101646,-0.6309471,1.9705211,False
-Maafushi Island,island,73.489666,3.9409948,3.487922,False
-Unnamed settlement,islet,72.9177239,5.3625853,0.0,True
-Unnamed settlement,square,73.520206,4.227548,2.6791673,False
-Kottefaru,islet,73.040964,5.5100205,3.5078309,False
-Unnamed settlement,islet,72.859066,2.8679384,2.4037616,False
-މާމެންދޫ,islet,73.4386912,0.7132393,4.959203,False
-Unnamed settlement,islet,72.9162307,3.5152914,0.0,True
-Unnamed settlement,islet,72.9166331,3.5152488,0.0,True
-Unnamed settlement,islet,73.0264784,2.8136662,11.677231,False
-Unnamed settlement,islet,73.0258395,2.8065764,4.1654625,False
-Unnamed settlement,islet,73.0269481,2.8063936,3.4616022,False
-Unnamed settlement,islet,73.0262157,2.8037811,10.44934,False
-Unnamed settlement,islet,73.0258884,2.8012431,12.74029,False
-Unnamed settlement,square,72.8651263,4.2155327,3.2902112,False
-Unnamed settlement,plot,73.0937058,-0.6086289,1.1770217,False
-Unnamed settlement,plot,73.0927248,-0.6072085,0.91710365,True
-Unnamed settlement,square,73.0923715,-0.6090656,3.1287408,False
-Unnamed settlement,islet,73.292479,6.1551762,2.8705022,False
-Unnamed settlement,square,73.091408,-0.6052787,1.7879682,False
-Unnamed settlement,islet,73.0093428,2.986239,2.689009,False
-Staff Area,quarter,73.5201227,4.2269063,3.2444105,False
-Unnamed settlement,islet,73.3250235,5.7427402,5.5905075,False
-Unnamed settlement,islet,73.3250436,5.742868,5.5905075,False
-Unnamed settlement,island,73.0788594,-0.5837333,2.6254125,False
-Unnamed settlement,islet,73.5598508,5.469925,2.066962,False
-Unnamed settlement,islet,73.5404837,2.1066687,3.2325745,False
-Unnamed settlement,islet,73.6189587,3.0307741,4.276143,False
-Unnamed settlement,islet,72.8020308,3.4878187,0.0,True
-Maamigili,island,72.8312058,3.4758404,3.8742592,False
-Unnamed settlement,square,73.5108565,4.1779247,5.6850586,False
-Unnamed settlement,islet,73.2044031,6.8157208,3.2443547,False
-Unnamed settlement,islet,73.2760092,5.6666783,0.0,True
-Unnamed settlement,islet,72.8130699,7.077697,6.6045704,False
-Raafushi,islet,73.2982498,5.6477373,4.936626,False
-Halaveli,village,72.9195173,4.038515,4.2135377,False
-Staffarea,locality,73.488104,3.6454886,5.4048343,False
-ހުޅުމާލެ,town,73.5385131,4.2139376,1.0574552,False
-ވޭމަންޑޫ,town,73.0950817,2.188013,4.356602,False
-މާލެ,city,73.5107387,4.1779879,5.6850586,False
-Maayafushi,village,72.8877046,4.0736885,9.674777,False
-Kandolhudhoo,hamlet,72.8817276,4.0025859,7.5621576,False
-Kuda Gulhi,locality,73.5070244,3.9929117,0.41610596,True
-Savaaheli,islet,73.126936,-0.6826836,6.1684446,False
-Boduhajaraa,islet,73.1231836,-0.6788908,0.0,True
-Gauken'di,locality,73.1078764,-0.6515553,0.0,True
-Aboohuraa,locality,73.1046483,-0.6433635,8.658369,False
-ހިތަދޫ,town,73.0879612,-0.6061889,5.243007,False
-Kaohera,island,73.0886837,-0.5913575,3.0428503,False
-Bedhey aurah,locality,73.0879996,-0.5818971,1.536974,False
-Kan’dihera gan’du,islet,73.1480454,-0.6126265,0.0,True
-Maradhoofeydhoo,locality,73.125814,-0.6733099,3.0687768,False
-Kafathalhaa Hera,islet,73.1258442,-0.6802993,5.317233,False
-Kuda Kandihereganda,locality,73.134977,-0.6137416,0.0,True
-Kudhu Kandihera,locality,73.1474193,-0.6140546,0.0,True
-އުނގޫފާރު,town,73.0301724,5.6680631,5.823146,False
-Eththigili,locality,72.9381027,5.9789627,6.3902335,False
-އޭދަފުށި,town,73.0703652,5.1033363,1.535936,False
-ރަސްދޫ,town,72.9919981,4.2628232,5.0113425,False
-މަހިބަދޫ,town,72.9696123,3.7572007,4.1537957,False
-ކުޑަހުވަދޫ,town,72.8938459,2.6712087,3.563615,False
-ނިލަންދޫ,town,72.889895,3.0561219,5.5410132,False
-ވިލިނގިލި,town,73.4338993,0.7551045,2.9906054,False
-ފުވައްމުލައް,town,73.4254986,-0.3005253,2.8400347,False
-ދިއްދޫ,town,73.1133538,6.889046,3.3260772,False
-ކުޅުދުއްފުށި,town,73.0709428,6.6229329,6.718336,False
-ފޮނަދޫ,town,73.5025558,1.8333203,5.095539,False
-ނައިފަރު,town,73.365232,5.4447298,0.76976043,True
-މުލި,town,73.5814986,2.9221163,7.5800233,False
-ފުނަދޫ,town,73.2903689,6.1488286,2.0674984,False
-ފެލިދޫ,town,73.5473728,3.4719776,5.523067,False
-ތުލުސްދޫ,town,73.6519073,4.3748502,4.6087413,False
-Unnamed settlement,village,72.9265702,3.063521,8.882925,False
-އޮޅުވެލިފުށި,village,73.6072389,5.278298,4.8714128,False
-ދިއްފުށިމާދޫ,island,73.6499372,5.3865343,3.49004,False
-ސެއްޅިފުށި,island,73.6399103,5.4238928,3.6183388,False
-މޭއްޔަފުށި,island,73.6090055,5.4411576,5.6248,False
-މިލަދޫ,village,73.3625587,5.7905005,5.049978,False
-ކުޑަފަރީ,village,73.4000573,5.8827458,4.6735005,False
-ތިމަރަފުށި,town,73.142812,2.2061554,5.125482,False
-Van'gaaru,islet,73.2038453,6.0895386,3.4228702,False
-މަގޫދޫ,village,72.9641446,3.078537,8.079492,False
-ތިނަދޫ,town,72.9965866,0.530351,6.5075073,False
-މަނަދޫ,town,73.4123826,5.7666661,5.195919,False
-މަޑިފުށި,town,73.3545971,2.3566697,4.0368032,False
-Hangnaameedhoo,island,72.9561952,3.8490218,5.1163692,False
+name,place,lon,lat,raw_value,elevation_m,status,dem_file,elevation_source,copernicus_m,at_risk
+Embudu,islet,73.512006,4.0840053,1.620873212814331,1.620873212814331,valid,maldives_deltadtm.vrt,deltadtm,8.368443489074707,False
+Baa Atoll,atoll,73.0943817,5.1846123,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+ހުޅުލެ,island,73.5332422,4.1972008,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+ހުޅުމާލެ,island,73.5419905,4.2209118,2.2833752632141113,2.2833752632141113,valid,maldives_deltadtm.vrt,deltadtm,1.942657232284546,False
+ކާށިދޫ,archipelago,73.4557056,4.9604273,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Havodda,islet,73.0952911,0.5406883,0.5636389255523682,0.5636389255523682,valid,maldives_deltadtm.vrt,deltadtm,4.308931350708008,True
+Mathiveri,islet,72.7460515,4.192073,-0.056525781750679016,-0.056525781750679016,valid,maldives_deltadtm.vrt,deltadtm,6.6389594078063965,True
+Maafushi,island,73.4896585,3.941188,2.073780059814453,2.073780059814453,valid,maldives_deltadtm.vrt,deltadtm,3.487921953201294,False
+Eh`mafushi,islet,73.4675663,4.1231102,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,73.5802289,4.5824767,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,73.5898037,4.5897122,0.15377721190452576,0.15377721190452576,valid,maldives_deltadtm.vrt,deltadtm,0.9906643629074097,True
+Unnamed settlement,islet,73.5839236,4.5947442,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Fari Islands,archipelago,73.5771482,4.6115335,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,72.9938507,2.7171959,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+މާލެ,island,73.5097631,4.1746841,2.230912685394287,2.230912685394287,valid,maldives_deltadtm.vrt,deltadtm,5.534321308135986,False
+Kuramathi Island Resort,islet,72.9763325,4.2601822,-9999.0,4.576082706451416,snapped_to_land,maldives_deltadtm.vrt,deltadtm,4.120607852935791,False
+Unnamed settlement,islet,72.898761,5.4074432,0.7430511713027954,0.7430511713027954,valid,maldives_deltadtm.vrt,deltadtm,3.109996795654297,True
+Kanufushi,islet,72.9516028,5.0117322,1.8249623775482178,1.8249623775482178,valid,maldives_deltadtm.vrt,deltadtm,4.800347328186035,False
+ކިހާދޫ,islet,73.1251373,5.2152537,1.483027458190918,1.483027458190918,valid,maldives_deltadtm.vrt,deltadtm,5.610014915466309,False
+Unnamed settlement,islet,72.8269423,5.5139123,0.3454987108707428,0.3454987108707428,valid,maldives_deltadtm.vrt,deltadtm,6.849071502685547,True
+ބޮޑުގާހުރާ,islet,73.6576849,5.332234,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,73.3661602,5.8611038,1.9077434539794922,1.9077434539794922,valid,maldives_deltadtm.vrt,deltadtm,10.348653793334961,False
+Maamaduvvari,islet,72.9419713,5.0093868,10.583434104919434,10.583434104919434,valid,maldives_deltadtm.vrt,deltadtm,11.52956485748291,False
+އުނގޫފާރު,islet,73.0298632,5.6682812,1.9319478273391724,1.9319478273391724,valid,maldives_deltadtm.vrt,deltadtm,5.523467063903809,False
+Vakkaru,islet,72.9097795,5.1334351,9.35634994506836,9.35634994506836,valid,maldives_deltadtm.vrt,deltadtm,8.540865898132324,False
+މަޑުއްވަރީ,islet,73.5023801,5.2849096,1.4242663383483887,1.4242663383483887,valid,maldives_deltadtm.vrt,deltadtm,2.906947374343872,False
+އިއްނަމާދޫ,islet,73.0440241,5.5494422,1.0152701139450073,1.0152701139450073,valid,maldives_deltadtm.vrt,deltadtm,2.1215336322784424,False
+Vaikaramuraidhoo,island,72.8953974,6.541253,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Hirundhoo,islet,73.1535636,5.2171099,1.8475080728530884,1.8475080728530884,valid,maldives_deltadtm.vrt,deltadtm,7.787030220031738,False
+އިނގުރައިދޫ,islet,73.0366196,5.4768646,1.2920423746109009,1.2920423746109009,valid,maldives_deltadtm.vrt,deltadtm,3.52897047996521,False
+މަޑިވަރު,islet,73.3702748,5.458818,1.1752907037734985,1.1752907037734985,valid,maldives_deltadtm.vrt,deltadtm,12.19789981842041,False
+Loafaru,islet,73.275885,5.7860641,1.3707391023635864,1.3707391023635864,valid,maldives_deltadtm.vrt,deltadtm,4.203746795654297,False
+ނޮޅިވަރަމް,island,73.0824823,6.6625305,2.753636121749878,2.753636121749878,valid,maldives_deltadtm.vrt,deltadtm,6.981011390686035,False
+Kudafushi,islet,72.9802994,5.5105895,1.8035639524459839,1.8035639524459839,valid,maldives_deltadtm.vrt,deltadtm,6.824380874633789,False
+ވައްވަރު,islet,73.354294,5.4171909,0.845718264579773,0.845718264579773,valid,maldives_deltadtm.vrt,deltadtm,1.9617679119110107,True
+Bodu,islet,72.8574258,5.0080488,1.5214636325836182,1.5214636325836182,valid,maldives_deltadtm.vrt,deltadtm,5.711302757263184,False
+ތަކަންދޫ,islet,72.9955673,6.8444499,1.4857131242752075,1.4857131242752075,valid,maldives_deltadtm.vrt,deltadtm,8.52250862121582,False
+Hiboodhoo,islet,72.9186904,5.6125519,1.3086166381835938,1.3086166381835938,valid,maldives_deltadtm.vrt,deltadtm,3.9905858039855957,False
+Unnamed settlement,islet,72.8841645,5.5516353,0.7144993543624878,0.7144993543624878,valid,maldives_deltadtm.vrt,deltadtm,2.806007146835327,True
+InterContinental Maldives Resort,islet,72.919098,5.3599837,0.9042540788650513,0.9042540788650513,valid,maldives_deltadtm.vrt,deltadtm,8.426013946533203,True
+ކަމަދޫ,islet,73.1370917,5.2821677,1.9167472124099731,1.9167472124099731,valid,maldives_deltadtm.vrt,deltadtm,4.339229583740234,False
+މާފަރު,island,73.4687266,5.8240814,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Ifuru,island,73.0240324,5.7081104,1.7063876390457153,1.7063876390457153,valid,maldives_deltadtm.vrt,deltadtm,13.189790725708008,False
+ރަތްރުއްހުރާ,islet,73.6450878,5.4172651,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Maarikilu,islet,72.952427,5.3349376,1.3948508501052856,1.3948508501052856,valid,maldives_deltadtm.vrt,deltadtm,6.493161201477051,False
+Unnamed settlement,islet,72.8768742,5.5520411,-9999.0,0.9367896914482117,snapped_to_land,maldives_deltadtm.vrt,deltadtm,2.530722141265869,True
+Unnamed settlement,islet,72.6405099,6.3190326,-0.3107523024082184,-0.3107523024082184,valid,maldives_deltadtm.vrt,deltadtm,0.5493025183677673,True
+Maanenfushi,islet,72.9616279,5.7510638,1.7456798553466797,1.7456798553466797,valid,maldives_deltadtm.vrt,deltadtm,3.4561753273010254,False
+ދިއްދޫ,island,73.1093731,6.8865725,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Nelifunadhoo,islet,73.0859142,5.1258277,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+ފެހިގިލި,islet,73.4815095,5.5573356,-9999.0,0.4669873118400574,snapped_to_land,maldives_deltadtm.vrt,deltadtm,1.9907970428466797,True
+Ugulufinolhu,islet,72.9005763,6.9712458,-9999.0,1.0687531232833862,snapped_to_land,maldives_deltadtm.vrt,deltadtm,5.25787615776062,False
+Mudhdhoo,islet,73.0848118,5.206666,1.5681068897247314,1.5681068897247314,valid,maldives_deltadtm.vrt,deltadtm,13.439498901367188,False
+Boduhuraa,islet,73.022081,5.4178129,-9999.0,0.1764179915189743,snapped_to_land,maldives_deltadtm.vrt,deltadtm,1.0744978189468384,True
+Faridhoo,islet,73.0539218,6.7849197,2.3354437351226807,2.3354437351226807,valid,maldives_deltadtm.vrt,deltadtm,14.390819549560547,False
+Unnamed settlement,islet,72.9197004,6.642697,2.159393072128296,2.159393072128296,valid,maldives_deltadtm.vrt,deltadtm,4.757333278656006,False
+ހޮޅުދޫ,islet,73.2629627,5.7550374,2.3472201824188232,2.3472201824188232,valid,maldives_deltadtm.vrt,deltadtm,5.688556671142578,False
+Govvaafushi,islet,72.9193748,7.0125806,1.1991486549377441,1.1991486549377441,valid,maldives_deltadtm.vrt,deltadtm,5.075779438018799,False
+Ufuligiri,islet,72.9701831,5.0170851,-9999.0,1.38218754529953,snapped_to_land,maldives_deltadtm.vrt,deltadtm,1.1801219582557678,False
+Kanifushi,islet,73.3426827,5.3676856,-9999.0,1.175674557685852,snapped_to_land,maldives_deltadtm.vrt,deltadtm,2.8787624835968018,False
+Unnamed settlement,islet,73.3026373,6.0001817,-9999.0,,deltadtm_nodata,maldives_deltadtm.vrt,deltadtm,1.5,False
+Unnamed settlement,islet,73.0444849,6.0640878,-0.8042488098144531,-0.8042488098144531,valid,maldives_deltadtm.vrt,deltadtm,0.42337456345558167,True
+Unnamed settlement,islet,72.9457587,5.5563057,0.7531548142433167,0.7531548142433167,valid,maldives_deltadtm.vrt,deltadtm,3.9821693897247314,True
+ވެލިދޫ,islet,73.2729746,5.6641312,1.925723910331726,1.925723910331726,valid,maldives_deltadtm.vrt,deltadtm,5.416017055511475,False
+ފެލިވަރު,islet,73.3862436,5.4770418,0.4812580347061157,0.4812580347061157,valid,maldives_deltadtm.vrt,deltadtm,4.050294876098633,True
+Ookolhufinolhu,islet,73.6228122,5.2821666,1.6022329330444336,1.6022329330444336,valid,maldives_deltadtm.vrt,deltadtm,7.467005729675293,False
+މާކުރަތު,islet,73.0433335,5.6061794,1.5285775661468506,1.5285775661468506,valid,maldives_deltadtm.vrt,deltadtm,4.065850734710693,False
+ކިނޮޅަސް,islet,73.0306574,5.4484196,0.47222256660461426,0.47222256660461426,valid,maldives_deltadtm.vrt,deltadtm,13.570982933044434,True
+މާބިންހުރާ,islet,73.651778,5.3375427,1.805978775024414,1.805978775024414,valid,maldives_deltadtm.vrt,deltadtm,6.48060417175293,False
+Unnamed settlement,islet,73.1439198,5.8732867,0.9165670871734619,0.9165670871734619,valid,maldives_deltadtm.vrt,deltadtm,8.37143611907959,True
+މީދާހުރާ,islet,73.4078344,5.3692946,0.8290486335754395,0.8290486335754395,valid,maldives_deltadtm.vrt,deltadtm,10.458523750305176,True
+Keyodhoo,islet,72.9960716,5.2765578,1.574241280555725,1.574241280555725,valid,maldives_deltadtm.vrt,deltadtm,11.974610328674316,False
+Dhigali,islet,72.9528021,5.4751258,1.4036341905593872,1.4036341905593872,valid,maldives_deltadtm.vrt,deltadtm,11.015573501586914,False
+Unnamed settlement,islet,73.126613,6.8950873,1.363553762435913,1.363553762435913,valid,maldives_deltadtm.vrt,deltadtm,13.054037094116211,False
+Kuredhivaru,islet,73.3434995,5.875317,1.401726245880127,1.401726245880127,valid,maldives_deltadtm.vrt,deltadtm,7.1936821937561035,False
+މަގޫދޫ,islet,73.362341,5.776297,1.5753042697906494,1.5753042697906494,valid,maldives_deltadtm.vrt,deltadtm,11.467068672180176,False
+Huvahandhoo,islet,72.9054853,6.9603196,1.6423460245132446,1.6423460245132446,valid,maldives_deltadtm.vrt,deltadtm,5.9313530921936035,False
+Unnamed settlement,islet,73.0437357,6.0717532,0.34122106432914734,0.34122106432914734,valid,maldives_deltadtm.vrt,deltadtm,3.155751943588257,True
+Hathifushi,islet,72.8308141,7.0201515,0.41235584020614624,0.41235584020614624,valid,maldives_deltadtm.vrt,deltadtm,5.982537746429443,True
+ނޭކުރެންދޫ,island,72.9797925,6.5430988,2.905503273010254,2.905503273010254,valid,maldives_deltadtm.vrt,deltadtm,11.134931564331055,False
+މާޅޮސް,islet,73.1080727,5.1347987,1.2089653015136719,1.2089653015136719,valid,maldives_deltadtm.vrt,deltadtm,6.8655595779418945,False
+ނަރުދޫ,islet,73.218141,6.2643023,0.8561723232269287,0.8561723232269287,valid,maldives_deltadtm.vrt,deltadtm,1.9585179090499878,True
+Kanufusheegaathufinolhu,islet,72.9628743,5.0139299,2.6334824562072754,2.6334824562072754,valid,maldives_deltadtm.vrt,deltadtm,2.461749792098999,False
+ކުރެންދޫ,islet,73.4636405,5.3338136,2.6106138229370117,2.6106138229370117,valid,maldives_deltadtm.vrt,deltadtm,6.123718738555908,False
+ވޭވަށް,islet,73.361313,5.4251133,0.28390368819236755,0.28390368819236755,valid,maldives_deltadtm.vrt,deltadtm,1.3952995538711548,True
+Vagaru,islet,73.2031293,6.0895247,0.7499152421951294,0.7499152421951294,valid,maldives_deltadtm.vrt,deltadtm,2.0321054458618164,True
+Dhonakulhi,islet,73.0521164,6.8442169,-9999.0,2.108680009841919,snapped_to_land,maldives_deltadtm.vrt,deltadtm,5.348160266876221,False
+Medhufinolhu,islet,72.9669363,5.0158305,2.614985942840576,2.614985942840576,valid,maldives_deltadtm.vrt,deltadtm,3.4360036849975586,False
+Medhufaru,islet,73.4143274,5.7140415,2.206205129623413,2.206205129623413,valid,maldives_deltadtm.vrt,deltadtm,5.267934799194336,False
+ޅައިމަގު,islet,73.251374,6.1639686,2.0607516765594482,2.0607516765594482,valid,maldives_deltadtm.vrt,deltadtm,7.483182430267334,False
+Hulhumeedhoo,islet,73.2495,5.7513226,1.8040969371795654,1.8040969371795654,valid,maldives_deltadtm.vrt,deltadtm,7.948692321777344,False
+JOALI Maldives,island,72.9514358,5.6079917,7.9488654136657715,7.9488654136657715,valid,maldives_deltadtm.vrt,deltadtm,9.0931396484375,False
+މަކުނުދޫ,island,72.7052087,6.4091973,1.0800715684890747,1.0800715684890747,valid,maldives_deltadtm.vrt,deltadtm,2.087416648864746,False
+Matheerah,islet,72.8192592,7.0277287,0.05932356044650078,0.05932356044650078,valid,maldives_deltadtm.vrt,deltadtm,12.340145111083984,True
+Kan'doogan'du,islet,72.8764624,5.7808525,0.44339820742607117,0.44339820742607117,valid,maldives_deltadtm.vrt,deltadtm,6.369749546051025,True
+ފުނަދޫ,island,73.2900644,6.1540224,1.6515029668807983,1.6515029668807983,valid,maldives_deltadtm.vrt,deltadtm,2.6875147819519043,False
+ކުރިނބީ,islet,72.9965584,6.6656059,1.81223726272583,1.81223726272583,valid,maldives_deltadtm.vrt,deltadtm,4.176833152770996,False
+Kihaadhuffaru,islet,73.1324759,5.1910462,1.5386176109313965,1.5386176109313965,valid,maldives_deltadtm.vrt,deltadtm,6.598392486572266,False
+Unnamed settlement,islet,72.9363817,6.6581781,1.3301775455474854,1.3301775455474854,valid,maldives_deltadtm.vrt,deltadtm,5.587687015533447,False
+އަނގޮޅިތީމު,islet,73.0066334,5.7929772,1.3180615901947021,1.3180615901947021,valid,maldives_deltadtm.vrt,deltadtm,12.798029899597168,False
+ހޯރަފުށި,island,72.893346,6.9758329,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+ރަސްމާދޫ,islet,73.0437086,5.5630139,1.948722004890442,1.948722004890442,valid,maldives_deltadtm.vrt,deltadtm,4.488874435424805,False
+މަޑުއްވަރި,islet,72.8961369,5.4864906,1.881319522857666,1.881319522857666,valid,maldives_deltadtm.vrt,deltadtm,2.571692943572998,False
+Unnamed settlement,islet,73.3874021,5.8225751,0.35371989011764526,0.35371989011764526,valid,maldives_deltadtm.vrt,deltadtm,14.55458927154541,True
+Arilundhoo,islet,72.9576713,5.6600991,0.9032206535339355,0.9032206535339355,valid,maldives_deltadtm.vrt,deltadtm,8.126246452331543,True
+Unnamed settlement,islet,72.9276355,5.5647764,1.651939868927002,1.651939868927002,valid,maldives_deltadtm.vrt,deltadtm,2.4729244709014893,False
+Unnamed settlement,islet,72.6454586,6.4090228,-0.15589472651481628,-0.15589472651481628,valid,maldives_deltadtm.vrt,deltadtm,0.8680418133735657,True
+Madulu,islet,72.9529798,7.0549107,1.5531026124954224,1.5531026124954224,valid,maldives_deltadtm.vrt,deltadtm,3.9755144119262695,False
+Gemendhoo,islet,73.0198392,5.2755575,2.2455127239227295,2.2455127239227295,valid,maldives_deltadtm.vrt,deltadtm,8.62375545501709,False
+Kothaifaru,islet,72.8440477,5.5248935,-9999.0,0.5255414247512817,snapped_to_land,maldives_deltadtm.vrt,deltadtm,4.231621742248535,True
+Maamin'gili,islet,72.8840462,5.6509931,1.4103604555130005,1.4103604555130005,valid,maldives_deltadtm.vrt,deltadtm,6.37436056137085,False
+މާއުނގޫދޫ,islet,73.2837212,6.0367041,1.3640563488006592,1.3640563488006592,valid,maldives_deltadtm.vrt,deltadtm,4.99589204788208,False
+Unnamed settlement,islet,73.2275207,5.7964168,1.1918847560882568,1.1918847560882568,valid,maldives_deltadtm.vrt,deltadtm,13.164084434509277,False
+މާކޯ,islet,73.4303485,5.3576407,1.3724325895309448,1.3724325895309448,valid,maldives_deltadtm.vrt,deltadtm,8.135794639587402,False
+ވަށަފަރު,islet,73.1590744,6.8986567,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+ފޮއްދޫ,islet,73.2160861,5.7437828,2.021327495574951,2.021327495574951,valid,maldives_deltadtm.vrt,deltadtm,11.029435157775879,False
+Kunfunadhoo,islet,73.078018,5.112621,2.0362629890441895,2.0362629890441895,valid,maldives_deltadtm.vrt,deltadtm,14.596673965454102,False
+Kukulhudhoo,islet,72.8711629,5.4591663,0.4077026844024658,0.4077026844024658,valid,maldives_deltadtm.vrt,deltadtm,1.016942024230957,True
+Hondaafushi,islet,73.1226724,6.7795067,-9999.0,2.270071268081665,snapped_to_land,maldives_deltadtm.vrt,deltadtm,3.1644632816314697,False
+އޮޅުވެލިފުށި,islet,73.606802,5.2783646,1.3518266677856445,1.3518266677856445,valid,maldives_deltadtm.vrt,deltadtm,5.107236862182617,False
+Fenfushi,islet,72.9018081,5.3824141,0.982361912727356,0.982361912727356,valid,maldives_deltadtm.vrt,deltadtm,1.6073706150054932,True
+އުތީމު,island,73.1123677,6.8348961,3.0477352142333984,3.0477352142333984,valid,maldives_deltadtm.vrt,deltadtm,4.281166076660156,False
+Unnamed settlement,islet,73.1109264,5.9813674,1.4282915592193604,1.4282915592193604,valid,maldives_deltadtm.vrt,deltadtm,2.802886962890625,False
+Unnamed settlement,islet,73.3190309,5.8150818,1.393854022026062,1.393854022026062,valid,maldives_deltadtm.vrt,deltadtm,12.466818809509277,False
+Maakandoodhoo,island,73.2674323,6.2349489,-9999.0,,deltadtm_nodata,maldives_deltadtm.vrt,deltadtm,2.5,False
+Randheli,islet,73.3406006,5.6918654,1.6040534973144531,1.6040534973144531,valid,maldives_deltadtm.vrt,deltadtm,3.018455982208252,False
+ވައިކަރަދޫ,island,72.9530456,6.5499183,1.423769474029541,1.423769474029541,valid,maldives_deltadtm.vrt,deltadtm,2.8737525939941406,False
+މިލަދޫ,islet,73.3628078,5.7905706,0.5655219554901123,0.5655219554901123,valid,maldives_deltadtm.vrt,deltadtm,4.500131130218506,True
+ލަންދޫ,islet,73.4665408,5.8816351,0.7990787029266357,0.7990787029266357,valid,maldives_deltadtm.vrt,deltadtm,7.769168853759766,True
+ކޮމަންޑޫ,islet,73.0538547,6.0539812,2.6404712200164795,2.6404712200164795,valid,maldives_deltadtm.vrt,deltadtm,3.229065418243408,False
+Gaamathikulhudhoo,islet,72.984352,7.0387702,-9999.0,0.8861323595046997,snapped_to_land,maldives_deltadtm.vrt,deltadtm,6.305177688598633,True
+Unnamed settlement,islet,72.8611883,5.5883221,0.6347355842590332,0.6347355842590332,valid,maldives_deltadtm.vrt,deltadtm,1.3026925325393677,True
+ދޮންފަނު,islet,73.1230481,5.1881094,1.7131210565567017,1.7131210565567017,valid,maldives_deltadtm.vrt,deltadtm,4.128475189208984,False
+ގޮއިދޫ,islet,72.9297805,6.4300698,1.327620029449463,1.327620029449463,valid,maldives_deltadtm.vrt,deltadtm,2.565793752670288,False
+ފޯކައިދޫ,islet,73.149106,6.326764,3.0361268520355225,3.0361268520355225,valid,maldives_deltadtm.vrt,deltadtm,6.964787483215332,False
+Velifinolhu,islet,72.874384,6.9939914,0.3513948619365692,0.3513948619365692,valid,maldives_deltadtm.vrt,deltadtm,1.9730193614959717,True
+މުރައިދޫ,islet,73.1671703,6.8377833,1.9684205055236816,1.9684205055236816,valid,maldives_deltadtm.vrt,deltadtm,2.971245527267456,False
+Unnamed settlement,islet,72.9069378,5.5806756,0.9961876273155212,0.9961876273155212,valid,maldives_deltadtm.vrt,deltadtm,2.0821492671966553,True
+Unnamed settlement,islet,73.30724,5.9499021,5.582046031951904,5.582046031951904,valid,maldives_deltadtm.vrt,deltadtm,6.844725131988525,False
+Huruvalhi,islet,72.978943,5.3920188,2.119704008102417,2.119704008102417,valid,maldives_deltadtm.vrt,deltadtm,3.4765357971191406,False
+މާފިލާފުށި,islet,73.4177554,5.3630035,-9999.0,1.7578794956207275,snapped_to_land,maldives_deltadtm.vrt,deltadtm,2.6744298934936523,False
+Unnamed settlement,islet,73.3262493,5.8149271,0.9901714324951172,0.9901714324951172,valid,maldives_deltadtm.vrt,deltadtm,11.77058219909668,True
+Maakurandhoo,islet,73.3118973,5.6965895,1.6846370697021484,1.6846370697021484,valid,maldives_deltadtm.vrt,deltadtm,9.601727485656738,False
+Aidhoo,islet,73.1634063,5.1872599,1.0070654153823853,1.0070654153823853,valid,maldives_deltadtm.vrt,deltadtm,12.128360748291016,False
+މަރޮށި,islet,73.0615191,6.2097446,0.27549058198928833,0.27549058198928833,valid,maldives_deltadtm.vrt,deltadtm,5.220077037811279,True
+Gaaun'dhoodhoo,islet,73.0155956,5.7494153,1.5541061162948608,1.5541061162948608,valid,maldives_deltadtm.vrt,deltadtm,14.210100173950195,False
+ޅޮހި,islet,73.4728376,5.3215715,1.543540120124817,1.543540120124817,valid,maldives_deltadtm.vrt,deltadtm,8.759270668029785,False
+Hanifaru,islet,73.1329984,5.1826227,1.2385145425796509,1.2385145425796509,valid,maldives_deltadtm.vrt,deltadtm,1.8828976154327393,False
+Unnamed settlement,islet,73.0461839,6.0572338,-0.48289328813552856,-0.48289328813552856,valid,maldives_deltadtm.vrt,deltadtm,3.578421115875244,True
+Kudakurathu,islet,73.0443851,5.5834821,2.137324094772339,2.137324094772339,valid,maldives_deltadtm.vrt,deltadtm,3.8691253662109375,False
+ނޫމަރާ,islet,73.0690779,6.4341498,3.0495316982269287,3.0495316982269287,valid,maldives_deltadtm.vrt,deltadtm,9.614518165588379,False
+ހިތާދޫ,islet,72.9227756,5.007554,2.284526824951172,2.284526824951172,valid,maldives_deltadtm.vrt,deltadtm,4.5845561027526855,False
+އޭދަފުށި,islet,73.071022,5.1025657,1.6756763458251953,1.6756763458251953,valid,maldives_deltadtm.vrt,deltadtm,3.6309335231781006,False
+ވިހަފަރުފިނޮޅު,islet,73.5825668,5.4559267,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,72.9043396,6.6705396,1.2639644145965576,1.2639644145965576,valid,maldives_deltadtm.vrt,deltadtm,4.3431901931762695,False
+ކުޑަފަރީ,islet,73.4003264,5.8827222,2.360285997390747,2.360285997390747,valid,maldives_deltadtm.vrt,deltadtm,5.368732452392578,False
+ކެނދިކުޅުދޫ,island,73.4150757,5.9523405,2.0286967754364014,2.0286967754364014,valid,maldives_deltadtm.vrt,deltadtm,3.3292789459228516,False
+Unnamed settlement,islet,73.1302739,6.9256904,-9999.0,-0.19308511912822723,snapped_to_land,maldives_deltadtm.vrt,deltadtm,0.3100000023841858,True
+Unnamed settlement,islet,73.3237955,5.9835273,1.8851968050003052,1.8851968050003052,valid,maldives_deltadtm.vrt,deltadtm,9.756192207336426,False
+Berinmadhoo,islet,72.9712566,7.0470365,0.4193826913833618,0.4193826913833618,valid,maldives_deltadtm.vrt,deltadtm,5.281870365142822,True
+Migoodhoo,islet,73.2412201,6.2287595,1.1990314722061157,1.1990314722061157,valid,maldives_deltadtm.vrt,deltadtm,8.219097137451172,False
+Kudafinolhu,islet,72.8834806,6.9894303,0.6842212677001953,0.6842212677001953,valid,maldives_deltadtm.vrt,deltadtm,2.763026714324951,True
+Hunadu,islet,73.0876247,6.7697917,1.909704566001892,1.909704566001892,valid,maldives_deltadtm.vrt,deltadtm,16.0458984375,False
+Kandoodhoo,islet,73.3294842,5.6464096,1.2784626483917236,1.2784626483917236,valid,maldives_deltadtm.vrt,deltadtm,11.951458930969238,False
+Funadhoo,islet,73.0331008,5.2746617,1.6855474710464478,1.6855474710464478,valid,maldives_deltadtm.vrt,deltadtm,14.421499252319336,False
+ޅޮހި,islet,73.3774976,5.8157779,1.0638091564178467,1.0638091564178467,valid,maldives_deltadtm.vrt,deltadtm,6.048709869384766,False
+Iru Fushi Maldives,islet,73.3236581,5.7442797,1.8626147508621216,1.8626147508621216,valid,maldives_deltadtm.vrt,deltadtm,4.484766006469727,False
+Unnamed settlement,islet,72.9750991,5.4848322,1.4941558837890625,1.4941558837890625,valid,maldives_deltadtm.vrt,deltadtm,3.3119351863861084,False
+Meedhupparu,islet,72.9798244,5.4559099,0.9444052577018738,0.9444052577018738,valid,maldives_deltadtm.vrt,deltadtm,7.306581497192383,True
+Dheburidheythereyvaadhoo,islet,72.9911834,5.4006602,0.8720075488090515,0.8720075488090515,valid,maldives_deltadtm.vrt,deltadtm,6.394371032714844,True
+ދެރުއްފިނޮޅު,islet,73.6473522,5.3242529,1.4276275634765625,1.4276275634765625,valid,maldives_deltadtm.vrt,deltadtm,6.984066963195801,False
+Kunburudhoo,islet,73.0274613,6.6583135,2.3405654430389404,2.3405654430389404,valid,maldives_deltadtm.vrt,deltadtm,3.101689577102661,False
+ކެންދޫ,islet,73.010233,5.2753488,0.8651570677757263,0.8651570677757263,valid,maldives_deltadtm.vrt,deltadtm,3.9571244716644287,True
+Mendhoo,islet,72.9956097,5.174883,0.8222700357437134,0.8222700357437134,valid,maldives_deltadtm.vrt,deltadtm,6.218167304992676,True
+Unnamed settlement,islet,72.9989598,6.2036796,-0.3326123356819153,-0.3326123356819153,valid,maldives_deltadtm.vrt,deltadtm,1.3512327671051025,True
+ފިނޭ,island,73.0534555,6.7459246,2.5598666667938232,2.5598666667938232,valid,maldives_deltadtm.vrt,deltadtm,15.135222434997559,False
+Dhigurah,island,73.3592434,5.7315908,2.4541914463043213,2.4541914463043213,valid,maldives_deltadtm.vrt,deltadtm,6.060446739196777,False
+Fushifaru,islet,73.5152274,5.4912913,1.4179720878601074,1.4179720878601074,valid,maldives_deltadtm.vrt,deltadtm,3.1311287879943848,False
+Mulidhoo,island,73.0109544,6.8359532,1.3535332679748535,1.3535332679748535,valid,maldives_deltadtm.vrt,deltadtm,6.047828197479248,False
+Beenaafushi,islet,73.13616,6.9281927,-9999.0,2.5868337154388428,snapped_to_land,maldives_deltadtm.vrt,deltadtm,3.9545083045959473,False
+Kuda-funafaru,islet,73.3780112,5.8847174,1.469766616821289,1.469766616821289,valid,maldives_deltadtm.vrt,deltadtm,6.047842025756836,False
+Ungulu,islet,73.0264839,5.6906695,1.2588918209075928,1.2588918209075928,valid,maldives_deltadtm.vrt,deltadtm,5.00954532623291,False
+Innafinolhu,islet,72.8107906,7.0731716,0.33053550124168396,0.33053550124168396,valid,maldives_deltadtm.vrt,deltadtm,6.921102046966553,True
+ފިއްލަދޫ,island,73.2282476,6.8969422,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Ufulandhoo,islet,72.9133582,5.4642565,1.7081654071807861,1.7081654071807861,valid,maldives_deltadtm.vrt,deltadtm,4.261135101318359,False
+Lun'dhufushi,islet,72.9871675,5.6441419,0.18859802186489105,0.18859802186489105,valid,maldives_deltadtm.vrt,deltadtm,1.2127854824066162,True
+Neyo,islet,73.0596625,6.4503451,2.605259418487549,2.605259418487549,valid,maldives_deltadtm.vrt,deltadtm,3.9013772010803223,False
+Unnamed settlement,islet,73.4449568,5.8452864,1.9951176643371582,1.9951176643371582,valid,maldives_deltadtm.vrt,deltadtm,7.851964473724365,False
+Unnamed settlement,islet,73.1246135,5.9691056,10.318233489990234,10.318233489990234,valid,maldives_deltadtm.vrt,deltadtm,11.593734741210938,False
+Uligan,island,72.9253004,7.0840292,2.339846611022949,2.339846611022949,valid,maldives_deltadtm.vrt,deltadtm,6.067287921905518,False
+ކަނޑިތީމު,island,72.9159674,6.44072,2.3057312965393066,2.3057312965393066,valid,maldives_deltadtm.vrt,deltadtm,3.555528402328491,False
+Keylakunu,island,73.0091467,6.6027907,2.289975881576538,2.289975881576538,valid,maldives_deltadtm.vrt,deltadtm,23.07200050354004,False
+Hulhudhoo,islet,73.0320741,5.0711997,2.1656289100646973,2.1656289100646973,valid,maldives_deltadtm.vrt,deltadtm,10.455744743347168,False
+Voavah,islet,73.0777767,5.3164642,1.7316548824310303,1.7316548824310303,valid,maldives_deltadtm.vrt,deltadtm,3.3699562549591064,False
+މިލަންދޫ,island,73.2444113,6.28697,0.7123787999153137,0.7123787999153137,valid,maldives_deltadtm.vrt,deltadtm,1.7114403247833252,True
+Manafur,islet,72.9399437,6.997104,1.5655083656311035,1.5655083656311035,valid,maldives_deltadtm.vrt,deltadtm,5.008023262023926,False
+Undoodhoo,islet,73.0425101,5.2746787,1.4833875894546509,1.4833875894546509,valid,maldives_deltadtm.vrt,deltadtm,14.900664329528809,False
+Lun'boakandhoo,islet,72.9342963,5.7307265,2.0997135639190674,2.0997135639190674,valid,maldives_deltadtm.vrt,deltadtm,13.891780853271484,False
+Unnamed settlement,islet,73.1711092,5.8051432,1.5563790798187256,1.5563790798187256,valid,maldives_deltadtm.vrt,deltadtm,6.027403831481934,False
+މަނަދޫ,island,73.4110501,5.7662364,1.907293438911438,1.907293438911438,valid,maldives_deltadtm.vrt,deltadtm,4.365242004394531,False
+Unnamed settlement,islet,73.0983341,5.1777626,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+ޅޮއްސަލަފުށި,islet,73.4832069,5.3072218,2.170077085494995,2.170077085494995,valid,maldives_deltadtm.vrt,deltadtm,6.448730945587158,False
+ހެނބަދޫ,islet,73.3928183,5.9676326,0.8368414640426636,0.8368414640426636,valid,maldives_deltadtm.vrt,deltadtm,5.055196285247803,True
+Unnamed settlement,islet,73.306505,5.8358825,2.1830971240997314,2.1830971240997314,valid,maldives_deltadtm.vrt,deltadtm,4.268157958984375,False
+އަލިގާ,islet,73.5165918,5.2440316,1.010425329208374,1.010425329208374,valid,maldives_deltadtm.vrt,deltadtm,10.348331451416016,False
+Unnamed settlement,islet,73.3186542,5.8877243,1.808715581893921,1.808715581893921,valid,maldives_deltadtm.vrt,deltadtm,7.425750732421875,False
+ބިލެތްފަހި,islet,72.9730786,6.338073,1.754211187362671,1.754211187362671,valid,maldives_deltadtm.vrt,deltadtm,3.226199150085449,False
+Kotafuri,islet,73.0416733,5.5315288,1.3797903060913086,1.3797903060913086,valid,maldives_deltadtm.vrt,deltadtm,6.3693413734436035,False
+Kanbaalifaru,islet,73.2527823,6.1246026,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Bodufen maaen'budhoo,islet,72.9239264,5.6291388,1.1140393018722534,1.1140393018722534,valid,maldives_deltadtm.vrt,deltadtm,2.8183698654174805,False
+Hirimaradhoo,islet,73.0242994,6.7249015,1.9893509149551392,1.9893509149551392,valid,maldives_deltadtm.vrt,deltadtm,12.811813354492188,False
+Unnamed settlement,islet,72.9465388,5.9709641,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+ކުޑަރިކިލު,islet,73.0709423,5.3002945,1.6867598295211792,1.6867598295211792,valid,maldives_deltadtm.vrt,deltadtm,5.311426639556885,False
+Mahafai,islet,73.1572879,6.8293623,1.6109172105789185,1.6109172105789185,valid,maldives_deltadtm.vrt,deltadtm,3.6811842918395996,False
+Unnamed settlement,islet,73.1342716,5.9531298,-9999.0,1.0300140380859375,snapped_to_land,maldives_deltadtm.vrt,deltadtm,3.3048956394195557,False
+Maaddoo,islet,73.0625941,5.0928679,1.9990495443344116,1.9990495443344116,valid,maldives_deltadtm.vrt,deltadtm,10.457218170166016,False
+Naavaidhoo,islet,72.9347193,6.7471071,2.036942481994629,2.036942481994629,valid,maldives_deltadtm.vrt,deltadtm,3.956800699234009,False
+ތިލަމާފުށި,islet,73.5871233,5.2732587,1.3073641061782837,1.3073641061782837,valid,maldives_deltadtm.vrt,deltadtm,7.49556827545166,False
+Komandoo,islet,73.4242869,5.49334,1.163004755973816,1.163004755973816,valid,maldives_deltadtm.vrt,deltadtm,5.658850193023682,False
+ފައިނު,islet,73.0345761,5.4633497,1.9439725875854492,1.9439725875854492,valid,maldives_deltadtm.vrt,deltadtm,10.711505889892578,False
+Faarufushi,islet,72.9653459,5.7677819,1.2864649295806885,1.2864649295806885,valid,maldives_deltadtm.vrt,deltadtm,5.841675758361816,False
+Goiymaru,islet,72.8881897,5.6302311,0.3242146670818329,0.3242146670818329,valid,maldives_deltadtm.vrt,deltadtm,3.432868719100952,True
+މެދަފުށި,islet,73.4267114,5.3556218,1.0568265914916992,1.0568265914916992,valid,maldives_deltadtm.vrt,deltadtm,8.767186164855957,False
+Unnamed settlement,islet,72.9380446,6.7543364,-9999.0,-0.10762156546115875,snapped_to_land,maldives_deltadtm.vrt,deltadtm,0.7676973342895508,True
+Fushivelavaru,islet,73.2093453,5.8310199,-0.4424183666706085,-0.4424183666706085,valid,maldives_deltadtm.vrt,deltadtm,1.1868129968643188,True
+Didhdhoo,islet,73.2574025,5.6849435,0.6813467741012573,0.6813467741012573,valid,maldives_deltadtm.vrt,deltadtm,7.884860515594482,True
+Neyo,islet,73.0389395,5.4925272,1.1164919137954712,1.1164919137954712,valid,maldives_deltadtm.vrt,deltadtm,6.478777885437012,False
+Unnamed settlement,islet,73.3446456,5.7971351,1.7424941062927246,1.7424941062927246,valid,maldives_deltadtm.vrt,deltadtm,11.83306884765625,False
+ފާދޫހުރާގަނޑު,islet,73.6197645,5.4361713,0.2891903221607208,0.2891903221607208,valid,maldives_deltadtm.vrt,deltadtm,0.7415246367454529,True
+Orivaru,islet,73.2974652,5.8021507,-0.17167377471923828,-0.17167377471923828,valid,maldives_deltadtm.vrt,deltadtm,1.2969413995742798,True
+Unnamed settlement,islet,73.3459835,5.9714137,2.451019287109375,2.451019287109375,valid,maldives_deltadtm.vrt,deltadtm,3.467947244644165,False
+Firun'baidhoo,islet,73.2276837,6.1143152,1.4315530061721802,1.4315530061721802,valid,maldives_deltadtm.vrt,deltadtm,10.25467586517334,False
+Filaidhoo,islet,72.9382677,5.4917022,2.200850486755371,2.200850486755371,valid,maldives_deltadtm.vrt,deltadtm,3.0017576217651367,False
+Unnamed settlement,islet,72.8853222,5.4615226,0.9671091437339783,0.9671091437339783,valid,maldives_deltadtm.vrt,deltadtm,10.23080825805664,True
+Unnamed settlement,islet,73.0774452,6.0242168,-9999.0,1.0471498370170593,snapped_to_land,maldives_deltadtm.vrt,deltadtm,3.6653761863708496,False
+Unnamed settlement,islet,72.9075177,6.4359154,0.6033667922019958,0.6033667922019958,valid,maldives_deltadtm.vrt,deltadtm,7.8915019035339355,True
+Kuredhdhoo,islet,72.8944105,5.6402425,0.2598397135734558,0.2598397135734558,valid,maldives_deltadtm.vrt,deltadtm,4.563088417053223,True
+ހުދުފުށި,islet,73.6542705,5.3619933,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Kattalafushi,islet,72.9830384,6.5665514,1.226815104484558,1.226815104484558,valid,maldives_deltadtm.vrt,deltadtm,7.827950954437256,False
+Hulhudhoo,islet,73.0190235,5.7387048,1.0198934078216553,1.0198934078216553,valid,maldives_deltadtm.vrt,deltadtm,8.672890663146973,False
+Unnamed settlement,islet,73.3438098,5.7688291,1.0984647274017334,1.0984647274017334,valid,maldives_deltadtm.vrt,deltadtm,6.044241428375244,False
+ވަރިހުރާ,islet,73.4885513,5.3033615,1.3274776935577393,1.3274776935577393,valid,maldives_deltadtm.vrt,deltadtm,8.155644416809082,False
+Medhukuburudhoo,islet,73.0300528,6.1970527,7.392796039581299,7.392796039581299,valid,maldives_deltadtm.vrt,deltadtm,6.8441972732543945,False
+މާޅެންދޫ,islet,73.45612,5.9022747,1.7942712306976318,1.7942712306976318,valid,maldives_deltadtm.vrt,deltadtm,5.423829078674316,False
+ހަނިމާދޫ,island,73.1660202,6.7513903,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Madhirivaadhoo,islet,73.1613436,5.2688398,1.0071161985397339,1.0071161985397339,valid,maldives_deltadtm.vrt,deltadtm,1.9757999181747437,False
+Unnamed settlement,islet,72.9442154,5.5374674,1.4666529893875122,1.4666529893875122,valid,maldives_deltadtm.vrt,deltadtm,3.116162061691284,False
+Veyvah,islet,72.8931375,5.7672974,-9999.0,1.616684079170227,snapped_to_land,maldives_deltadtm.vrt,deltadtm,2.4825528860092163,False
+Nibiligaa,islet,72.944135,5.1725169,-9999.0,0.33254510164260864,snapped_to_land,maldives_deltadtm.vrt,deltadtm,0.596646785736084,True
+ފާދޫ,islet,73.6295973,5.4318762,1.0922755002975464,1.0922755002975464,valid,maldives_deltadtm.vrt,deltadtm,11.913795471191406,False
+Maafinolhu,islet,72.8623384,7.0021911,0.15552477538585663,0.15552477538585663,valid,maldives_deltadtm.vrt,deltadtm,3.9885449409484863,True
+Dhandhoo,islet,73.1685318,5.2357364,1.3837472200393677,1.3837472200393677,valid,maldives_deltadtm.vrt,deltadtm,6.23940896987915,False
+Milaidhoo,islet,73.1285083,5.2670876,1.1069236993789673,1.1069236993789673,valid,maldives_deltadtm.vrt,deltadtm,7.675597190856934,False
+Dhigudhefaru,islet,73.1388001,5.2351054,0.058381587266922,0.058381587266922,valid,maldives_deltadtm.vrt,deltadtm,0.9053084850311279,True
+Unnamed settlement,islet,73.2413783,5.7088366,-9999.0,-0.2346113622188568,snapped_to_land,maldives_deltadtm.vrt,deltadtm,1.7080843448638916,True
+ފީވައް,islet,73.2095523,6.3489737,2.0158181190490723,2.0158181190490723,valid,maldives_deltadtm.vrt,deltadtm,5.488450050354004,False
+Uthurumaafaru,islet,72.8457704,5.6699273,0.9075000882148743,0.9075000882148743,valid,maldives_deltadtm.vrt,deltadtm,1.5898665189743042,True
+Coco Palm Dhuni Kolhu,islet,72.8815555,5.0391063,1.9233661890029907,1.9233661890029907,valid,maldives_deltadtm.vrt,deltadtm,4.059324264526367,False
+Than'burudhoo,islet,73.2346701,5.7164349,0.7400948405265808,0.7400948405265808,valid,maldives_deltadtm.vrt,deltadtm,8.936568260192871,True
+ދުވާފަރު,islet,73.0411902,5.6298164,0.8255937695503235,0.8255937695503235,valid,maldives_deltadtm.vrt,deltadtm,1.97706937789917,True
+Unnamed settlement,islet,72.9977621,5.4945736,1.9543977975845337,1.9543977975845337,valid,maldives_deltadtm.vrt,deltadtm,2.905747413635254,False
+ނޮޅިވަރަންފަރު,island,73.1170524,6.6933299,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,73.2863513,6.1035257,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Gaagandufaruhuraa,islet,73.0608278,5.3691394,-9999.0,-0.35048457980155945,snapped_to_land,maldives_deltadtm.vrt,deltadtm,0.558568999171257,True
+Kihavah huravalhi,islet,73.0571774,5.296409,1.6615959405899048,1.6615959405899048,valid,maldives_deltadtm.vrt,deltadtm,7.649141311645508,False
+Aarah,islet,72.9410475,5.4474825,2.596508264541626,2.596508264541626,valid,maldives_deltadtm.vrt,deltadtm,5.238976955413818,False
+ބޮޑުފިނޮޅު,islet,73.560658,5.2639274,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Finolhas,islet,73.113656,5.2337914,1.0026121139526367,1.0026121139526367,valid,maldives_deltadtm.vrt,deltadtm,13.592711448669434,False
+Kudafen maaen'boodhoo,islet,72.9354474,5.6250637,1.2414727210998535,1.2414727210998535,valid,maldives_deltadtm.vrt,deltadtm,2.122129201889038,False
+ނައިފަރު,islet,73.3639483,5.4466026,-0.3203887641429901,-0.3203887641429901,valid,maldives_deltadtm.vrt,deltadtm,0.8139779567718506,True
+Vinaneiyfaruhuraa,islet,73.0788515,5.3461979,-0.5109601020812988,-0.5109601020812988,valid,maldives_deltadtm.vrt,deltadtm,0.40167945623397827,True
+Farukolhu,island,73.2962702,6.1899923,-9999.0,1.7726248502731323,snapped_to_land,maldives_deltadtm.vrt,deltadtm,4.38205361366272,False
+Gallandhoo,islet,72.9833747,6.9470124,0.5888954997062683,0.5888954997062683,valid,maldives_deltadtm.vrt,deltadtm,11.557426452636719,True
+Dhigufaru,islet,73.0571934,5.1670627,-9999.0,0.21364906430244446,snapped_to_land,maldives_deltadtm.vrt,deltadtm,0.6568393707275391,True
+Vattaru,islet,73.3854291,5.6697197,1.9036163091659546,1.9036163091659546,valid,maldives_deltadtm.vrt,deltadtm,3.7607383728027344,False
+Hirubadhoo,islet,73.2454871,6.187925,1.5137391090393066,1.5137391090393066,valid,maldives_deltadtm.vrt,deltadtm,13.470340728759766,False
+ކުޅުދުއްފުށި,island,73.0689344,6.6232292,2.4457809925079346,2.4457809925079346,valid,maldives_deltadtm.vrt,deltadtm,4.403457164764404,False
+Maavaidhoo,islet,73.0539328,6.5154201,1.6441477537155151,1.6441477537155151,valid,maldives_deltadtm.vrt,deltadtm,11.528297424316406,False
+Anhenunfushi,islet,72.9685513,5.34203,1.4293125867843628,1.4293125867843628,valid,maldives_deltadtm.vrt,deltadtm,11.76867389678955,False
+Thiladhoo,islet,73.1553109,5.2622705,1.9872111082077026,1.9872111082077026,valid,maldives_deltadtm.vrt,deltadtm,13.25871467590332,False
+ދިއްދޫ,islet,73.3818759,5.3760696,1.3720381259918213,1.3720381259918213,valid,maldives_deltadtm.vrt,deltadtm,3.4963796138763428,False
+Unnamed settlement,islet,73.368098,5.9654656,1.0386863946914673,1.0386863946914673,valid,maldives_deltadtm.vrt,deltadtm,4.334452152252197,False
+Keekimini,islet,73.1121806,6.0073738,5.67031717300415,5.67031717300415,valid,maldives_deltadtm.vrt,deltadtm,6.953834056854248,False
+Thuraakunu,islet,72.8989188,7.1039485,1.4076333045959473,1.4076333045959473,valid,maldives_deltadtm.vrt,deltadtm,3.0057156085968018,False
+Kashidhoo,islet,72.9686947,5.2971745,1.656184196472168,1.656184196472168,valid,maldives_deltadtm.vrt,deltadtm,12.69278335571289,False
+Hirinaidhoo,islet,72.9482125,6.7017073,1.790635347366333,1.790635347366333,valid,maldives_deltadtm.vrt,deltadtm,11.652082443237305,False
+Fasmendhoo,islet,72.8816397,5.4941429,2.647815227508545,2.647815227508545,valid,maldives_deltadtm.vrt,deltadtm,6.901525497436523,False
+Gaakoshinbi,islet,73.0119808,6.287067,1.212371826171875,1.212371826171875,valid,maldives_deltadtm.vrt,deltadtm,5.877560615539551,False
+Fuggiri,islet,72.8527603,5.72424,-9999.0,1.8633718490600586,snapped_to_land,maldives_deltadtm.vrt,deltadtm,1.8064665794372559,False
+ތުޅާދޫ,islet,72.8412355,5.0216527,1.791998028755188,1.791998028755188,valid,maldives_deltadtm.vrt,deltadtm,2.6690449714660645,False
+Horubadhoo,islet,73.052929,5.162601,1.248162865638733,1.248162865638733,valid,maldives_deltadtm.vrt,deltadtm,12.429719924926758,False
+Unnamed settlement,islet,73.3863464,5.9622776,0.8999127149581909,0.8999127149581909,valid,maldives_deltadtm.vrt,deltadtm,10.529513359069824,True
+Fonimagoodhoo,islet,73.1635327,5.2552356,1.3568520545959473,1.3568520545959473,valid,maldives_deltadtm.vrt,deltadtm,3.7947802543640137,False
+Kudalhaimendhoo,islet,73.2945505,6.0146261,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+ކަނދޮޅުދޫ,islet,72.8551841,5.6186993,3.2921674251556396,3.2921674251556396,valid,maldives_deltadtm.vrt,deltadtm,3.9445960521698,False
+Umarehfinolhu,islet,72.8513803,7.0094567,-0.9445443153381348,-0.9445443153381348,valid,maldives_deltadtm.vrt,deltadtm,0.6871588230133057,True
+Unnamed settlement,islet,72.899268,6.7052967,1.6645981073379517,1.6645981073379517,valid,maldives_deltadtm.vrt,deltadtm,4.750406265258789,False
+ވާދޫ,islet,72.9908042,5.8554451,1.791193962097168,1.791193962097168,valid,maldives_deltadtm.vrt,deltadtm,4.667810440063477,False
+ފޭދޫ,islet,73.0488265,6.3603798,2.7502901554107666,2.7502901554107666,valid,maldives_deltadtm.vrt,deltadtm,3.9302122592926025,False
+Unnamed settlement,islet,72.8561296,5.06387,1.566306710243225,1.566306710243225,valid,maldives_deltadtm.vrt,deltadtm,7.9666218757629395,False
+ރަސްގެތީމު,islet,73.0029763,5.8077549,2.6361093521118164,2.6361093521118164,valid,maldives_deltadtm.vrt,deltadtm,3.8069636821746826,False
+Unnamed settlement,islet,73.1092153,6.3023087,1.4873192310333252,1.4873192310333252,valid,maldives_deltadtm.vrt,deltadtm,4.846128463745117,False
+Fares,islet,72.8773391,5.2321472,9.439172744750977,9.439172744750977,valid,maldives_deltadtm.vrt,deltadtm,9.773432731628418,False
+Unnamed settlement,islet,73.3161909,5.9129841,2.2074248790740967,2.2074248790740967,valid,maldives_deltadtm.vrt,deltadtm,3.4418563842773438,False
+Vilin'gili,islet,72.9542282,5.3766342,1.5784145593643188,1.5784145593643188,valid,maldives_deltadtm.vrt,deltadtm,2.2946689128875732,False
+Kuredu Island,islet,73.4648326,5.5497948,1.1427984237670898,1.1427984237670898,valid,maldives_deltadtm.vrt,deltadtm,7.0839619636535645,False
+Unnamed settlement,islet,72.9256994,6.3955666,1.513728141784668,1.513728141784668,valid,maldives_deltadtm.vrt,deltadtm,3.952627658843994,False
+Miriandhoo,islet,73.0313288,5.0631969,2.4234466552734375,2.4234466552734375,valid,maldives_deltadtm.vrt,deltadtm,6.48441219329834,False
+Hibalhidoo,islet,73.1149463,5.1412934,2.223508358001709,2.223508358001709,valid,maldives_deltadtm.vrt,deltadtm,12.389019966125488,False
+Vangaaru,islet,72.8783447,7.0933353,1.999685287475586,1.999685287475586,valid,maldives_deltadtm.vrt,deltadtm,8.547694206237793,False
+Landaa Giraavaru,islet,73.1113476,5.2862914,1.4948604106903076,1.4948604106903076,valid,maldives_deltadtm.vrt,deltadtm,5.013086318969727,False
+ހއ. އިހަވަންދޫ,island,72.9262956,6.9549153,2.5709726810455322,2.5709726810455322,valid,maldives_deltadtm.vrt,deltadtm,4.073729038238525,False
+މާރަންދޫ,islet,72.98438,6.8524058,1.1396305561065674,1.1396305561065674,valid,maldives_deltadtm.vrt,deltadtm,17.296417236328125,False
+ދަރަވަންދޫ,islet,73.130402,5.1567585,2.5207929611206055,2.5207929611206055,valid,maldives_deltadtm.vrt,deltadtm,3.0656869411468506,False
+އަލިފުށި,island,72.9530175,5.9672156,1.7062358856201172,1.7062358856201172,valid,maldives_deltadtm.vrt,deltadtm,4.837881088256836,False
+Medhafushi,islet,72.9347215,7.0107308,1.303566575050354,1.303566575050354,valid,maldives_deltadtm.vrt,deltadtm,2.8864188194274902,False
+Dhakandhoo,islet,72.8936764,5.248485,0.5762948989868164,0.5762948989868164,valid,maldives_deltadtm.vrt,deltadtm,4.62250280380249,True
+Dhigufaruvinagandu,islet,72.9897671,5.3524744,1.6394920349121094,1.6394920349121094,valid,maldives_deltadtm.vrt,deltadtm,3.8543968200683594,False
+Madhiriguraidhoo,islet,73.5600134,5.4699808,-9999.0,1.6236274242401123,snapped_to_land,maldives_deltadtm.vrt,deltadtm,6.0651960372924805,False
+Theefaridhoo,island,73.0332752,6.7401885,2.1248936653137207,2.1248936653137207,valid,maldives_deltadtm.vrt,deltadtm,11.883759498596191,False
+Furaveri,islet,72.9079891,5.4406284,1.7926818132400513,1.7926818132400513,valid,maldives_deltadtm.vrt,deltadtm,9.462239265441895,False
+Kakaaeriyadhoo,islet,72.9023497,6.4781239,0.9535107016563416,0.9535107016563416,valid,maldives_deltadtm.vrt,deltadtm,8.908493995666504,True
+Unnamed settlement,islet,73.4366708,5.9207123,1.9303205013275146,1.9303205013275146,valid,maldives_deltadtm.vrt,deltadtm,16.994800567626953,False
+Veyofushi,islet,73.1581831,5.2289281,-9999.0,1.8212004899978638,snapped_to_land,maldives_deltadtm.vrt,deltadtm,2.7954249382019043,False
+Nellaidhoo,islet,72.947035,6.7148335,1.6067372560501099,1.6067372560501099,valid,maldives_deltadtm.vrt,deltadtm,3.6347403526306152,False
+ހުޅުދުއްފާރު,islet,73.0123412,5.7659306,1.648203730583191,1.648203730583191,valid,maldives_deltadtm.vrt,deltadtm,3.5980758666992188,False
+Joali being Bodufushi,islet,72.968662,5.5076421,0.9197346568107605,0.9197346568107605,valid,maldives_deltadtm.vrt,deltadtm,1.8079301118850708,True
+މޮޅަދޫ,island,72.9968365,7.0154235,1.9075790643692017,1.9075790643692017,valid,maldives_deltadtm.vrt,deltadtm,9.59392261505127,False
+އިންނަހުރާ,islet,73.6540322,5.3499295,1.9370653629302979,1.9370653629302979,valid,maldives_deltadtm.vrt,deltadtm,5.93092679977417,False
+ބާރަށް,island,73.2076751,6.8168962,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Meedhuffushi,islet,73.0004656,3.0033482,-0.2866884171962738,-0.2866884171962738,valid,maldives_deltadtm.vrt,deltadtm,10.175065040588379,True
+Dhiggiri,islet,73.4868325,3.6448405,-0.15870897471904755,-0.15870897471904755,valid,maldives_deltadtm.vrt,deltadtm,7.926046848297119,True
+Rangali Finolhu,islet,72.7233105,3.6181812,0.43823620676994324,0.43823620676994324,valid,maldives_deltadtm.vrt,deltadtm,7.952580451965332,True
+Bulhaaholhi,islet,72.7317846,3.7390657,1.3597067594528198,1.3597067594528198,valid,maldives_deltadtm.vrt,deltadtm,5.079477310180664,False
+ހުރާ,islet,73.6013213,4.3337674,1.1225314140319824,1.1225314140319824,valid,maldives_deltadtm.vrt,deltadtm,-0.10664002597332001,False
+Akirifushi,islet,73.4018621,4.6376414,-9999.0,-0.31106141209602356,snapped_to_land,maldives_deltadtm.vrt,deltadtm,0.3304424285888672,True
+Minimasgali,islet,72.8356525,3.2428053,-0.17347142100334167,-0.17347142100334167,valid,maldives_deltadtm.vrt,deltadtm,9.293704986572266,True
+Holiday Inn Resort Kandooma Maldives,islet,73.4737106,3.903628,1.5890755653381348,1.5890755653381348,valid,maldives_deltadtm.vrt,deltadtm,9.216368675231934,False
+Unnamed settlement,islet,72.8978628,3.3161378,0.3601405620574951,0.3601405620574951,valid,maldives_deltadtm.vrt,deltadtm,2.9195737838745117,True
+އޮމަދޫ,islet,72.9619566,3.7916391,1.1540446281433105,1.1540446281433105,valid,maldives_deltadtm.vrt,deltadtm,5.785484313964844,False
+ދިއްދޫ,islet,72.8789128,3.4847647,2.7722604274749756,2.7722604274749756,valid,maldives_deltadtm.vrt,deltadtm,13.46497631072998,False
+Velidhu,islet,72.8190019,4.1947705,7.525477409362793,7.525477409362793,valid,maldives_deltadtm.vrt,deltadtm,7.689170837402344,False
+Madoogali,islet,72.7528795,4.0961673,10.827569961547852,10.827569961547852,valid,maldives_deltadtm.vrt,deltadtm,10.951440811157227,False
+Vabbinfaru,islet,73.4238859,4.3096968,0.2719331979751587,0.2719331979751587,valid,maldives_deltadtm.vrt,deltadtm,4.3892998695373535,True
+Fihalhohi,islet,73.3670776,3.877351,1.1250660419464111,1.1250660419464111,valid,maldives_deltadtm.vrt,deltadtm,6.919915199279785,False
+Maagaa,islet,72.9568816,3.989098,0.2533245384693146,0.2533245384693146,valid,maldives_deltadtm.vrt,deltadtm,4.285313129425049,True
+ބިލެއްދޫ,islet,72.9843618,3.1184365,2.3824355602264404,2.3824355602264404,valid,maldives_deltadtm.vrt,deltadtm,8.300023078918457,False
+Bodufinolhu,islet,73.456504,3.8576107,1.8498351573944092,1.8498351573944092,valid,maldives_deltadtm.vrt,deltadtm,3.346343517303467,False
+ދަނގެތި,islet,72.9561643,3.6068808,1.443903923034668,1.443903923034668,valid,maldives_deltadtm.vrt,deltadtm,4.2975053787231445,False
+ބޮޑުފޮޅުދޫ,islet,72.7735929,4.1857526,-0.02171114645898342,-0.02171114645898342,valid,maldives_deltadtm.vrt,deltadtm,7.938840866088867,True
+Cocoa Island,islet,73.4711132,3.9177889,-9999.0,1.401073396205902,snapped_to_land,maldives_deltadtm.vrt,deltadtm,5.282528400421143,False
+Olhahali,islet,73.4506637,4.6900376,0.006521014031022787,0.006521014031022787,valid,maldives_deltadtm.vrt,deltadtm,0.44978561997413635,True
+Rah Gili Maldives,islet,73.4113707,3.8121414,0.9082854390144348,0.9082854390144348,valid,maldives_deltadtm.vrt,deltadtm,9.247809410095215,True
+Dhinnolhu Finolhu,islet,72.7324409,4.1386751,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Naladhu,islet,73.5064158,3.9718617,1.2871578931808472,1.2871578931808472,valid,maldives_deltadtm.vrt,deltadtm,6.380929946899414,False
+Kudhiboli,islet,73.365291,3.6365738,-9999.0,0.03529299423098564,snapped_to_land,maldives_deltadtm.vrt,deltadtm,3.491976499557495,True
+Thulhagiri,islet,73.4874884,4.3116364,1.3998886346817017,1.3998886346817017,valid,maldives_deltadtm.vrt,deltadtm,4.895316123962402,False
+Kudahithi,islet,73.3803446,4.4174188,1.5365135669708252,1.5365135669708252,valid,maldives_deltadtm.vrt,deltadtm,2.920576810836792,False
+Dhiffushi,island,72.8240092,3.4754734,1.4574545621871948,1.4574545621871948,valid,maldives_deltadtm.vrt,deltadtm,6.7770209312438965,False
+Maafushi,islet,72.978353,3.2430398,-9999.0,0.6426898837089539,snapped_to_land,maldives_deltadtm.vrt,deltadtm,6.439284801483154,True
+Theluveligaa,islet,72.9026456,3.6697961,2.02805495262146,2.02805495262146,valid,maldives_deltadtm.vrt,deltadtm,4.421048164367676,False
+Rangali,islet,72.715827,3.6162071,-9999.0,0.4582187533378601,snapped_to_land,maldives_deltadtm.vrt,deltadtm,5.866193056106567,True
+Embudhu Finolhu,islet,73.5253609,4.1026899,-9999.0,1.6990545988082886,snapped_to_land,maldives_deltadtm.vrt,deltadtm,3.355870008468628,False
+Anbaraa,islet,73.4390652,3.3722971,-9999.0,4.919323921203613,snapped_to_land,maldives_deltadtm.vrt,deltadtm,4.693228006362915,False
+Makunudu,islet,73.4057194,4.542587,0.6731735467910767,0.6731735467910767,valid,maldives_deltadtm.vrt,deltadtm,7.34821891784668,True
+Mathiveri Finolhu,islet,72.7499131,4.186194,-0.06968710571527481,-0.06968710571527481,valid,maldives_deltadtm.vrt,deltadtm,3.2381598949432373,True
+Gangehi,islet,72.7552185,4.2201,10.37619400024414,10.37619400024414,valid,maldives_deltadtm.vrt,deltadtm,10.648578643798828,False
+Unnamed settlement,islet,73.4055614,4.6352139,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+ދިއްފުށި,islet,73.7144112,4.4420446,0.752684473991394,0.752684473991394,valid,maldives_deltadtm.vrt,deltadtm,4.642868518829346,True
+Tholhifushi,islet,72.7898097,3.4849825,1.583054780960083,1.583054780960083,valid,maldives_deltadtm.vrt,deltadtm,8.306922912597656,False
+Kudarah,islet,72.9106312,3.57394,1.9391778707504272,1.9391778707504272,valid,maldives_deltadtm.vrt,deltadtm,8.927167892456055,False
+އެއްލައިދޫ,islet,72.9490865,4.0062607,1.2701175212860107,1.2701175212860107,valid,maldives_deltadtm.vrt,deltadtm,3.624689817428589,False
+ހިމެންދޫ,islet,72.7449889,3.920851,1.173977255821228,1.173977255821228,valid,maldives_deltadtm.vrt,deltadtm,7.349146366119385,False
+Buri,islet,73.5204327,3.3429753,6.009524345397949,6.009524345397949,valid,maldives_deltadtm.vrt,deltadtm,5.767491817474365,False
+Aarah,islet,73.5299633,3.4990633,-9999.0,-0.002538673346862197,snapped_to_land,maldives_deltadtm.vrt,deltadtm,2.8981804847717285,True
+Athuruga,islet,72.8160779,3.8872474,1.8264951705932617,1.8264951705932617,valid,maldives_deltadtm.vrt,deltadtm,8.04229736328125,False
+Unnamed settlement,islet,73.5824896,4.3206086,-9999.0,1.7753838896751404,snapped_to_land,maldives_deltadtm.vrt,deltadtm,0.7099124193191528,False
+ރަކީދޫ,islet,73.4700185,3.3149485,1.509751796722412,1.509751796722412,valid,maldives_deltadtm.vrt,deltadtm,4.352718830108643,False
+Kudadhoo,islet,72.8701743,3.4792359,2.9004664421081543,2.9004664421081543,valid,maldives_deltadtm.vrt,deltadtm,7.165430545806885,False
+ހިއްމަފުށި,island,73.5710409,4.3085626,1.9366488456726074,1.9366488456726074,valid,maldives_deltadtm.vrt,deltadtm,3.8695900440216064,False
+Lankanfinolhu,islet,73.553942,4.2829316,1.576298475265503,1.576298475265503,valid,maldives_deltadtm.vrt,deltadtm,1.6034351587295532,False
+Adaaran Prestige Vadoo,islet,73.4573214,4.1240825,1.6516022682189941,1.6516022682189941,valid,maldives_deltadtm.vrt,deltadtm,5.589150428771973,False
+Maadhoo,islet,73.4588954,3.8720064,1.9755533933639526,1.9755533933639526,valid,maldives_deltadtm.vrt,deltadtm,2.7255942821502686,False
+Boduhuthi,islet,73.3847467,4.4310185,1.479945421218872,1.479945421218872,valid,maldives_deltadtm.vrt,deltadtm,2.510218381881714,False
+Spa Island,islet,73.5965047,4.3306442,-9999.0,1.9539402723312378,snapped_to_land,maldives_deltadtm.vrt,deltadtm,1.3855944871902466,False
+Maayafushi,islet,72.8869489,4.0735918,-9999.0,1.7872737646102905,snapped_to_land,maldives_deltadtm.vrt,deltadtm,5.859609127044678,False
+ހަންޏާމީދޫ,islet,72.9553613,3.8493579,1.5974198579788208,1.5974198579788208,valid,maldives_deltadtm.vrt,deltadtm,4.155552864074707,False
+Kodhipparu,islet,73.3798833,4.2594692,0.22995255887508392,0.22995255887508392,valid,maldives_deltadtm.vrt,deltadtm,0.2002192735671997,True
+Veliganduhuraa,islet,73.505084,3.9674056,1.5269324779510498,1.5269324779510498,valid,maldives_deltadtm.vrt,deltadtm,7.132282257080078,False
+Dighu,islet,73.5022903,3.972459,1.5241540670394897,1.5241540670394897,valid,maldives_deltadtm.vrt,deltadtm,5.624035358428955,False
+Hembadhu,islet,73.3932162,4.4817067,0.5345332026481628,0.5345332026481628,valid,maldives_deltadtm.vrt,deltadtm,4.158664226531982,True
+Mandhoo,islet,72.7101036,3.6982617,1.8774981498718262,1.8774981498718262,valid,maldives_deltadtm.vrt,deltadtm,6.784482002258301,False
+Gasfinolhu,islet,73.6263002,4.3613809,1.9351547956466675,1.9351547956466675,valid,maldives_deltadtm.vrt,deltadtm,7.643360137939453,False
+Vihamanaafushi,islet,73.5196797,4.2263711,2.122234344482422,2.122234344482422,valid,maldives_deltadtm.vrt,deltadtm,4.710329532623291,False
+Helengeli Island,islet,73.5635943,4.634603,0.1734444797039032,0.1734444797039032,valid,maldives_deltadtm.vrt,deltadtm,3.5976898670196533,True
+Mirihi,islet,72.7806719,3.6194958,0.5154988169670105,0.5154988169670105,valid,maldives_deltadtm.vrt,deltadtm,8.751577377319336,True
+Kandolhudhoo,islet,72.8818241,4.0027012,1.630651593208313,1.630651593208313,valid,maldives_deltadtm.vrt,deltadtm,7.334632873535156,False
+ފުލިދޫ,islet,73.4160481,3.6802978,0.003878724528476596,0.003878724528476596,valid,maldives_deltadtm.vrt,deltadtm,6.655186176300049,True
+Madivaru Finolhu,islet,73.0019853,4.2702487,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+ކާށިދޫ,island,73.4596278,4.9570017,1.5452582836151123,1.5452582836151123,valid,maldives_deltadtm.vrt,deltadtm,3.5536394119262695,False
+Unnamed settlement,islet,73.6101483,4.3488489,2.1214423179626465,2.1214423179626465,valid,maldives_deltadtm.vrt,deltadtm,1.1581108570098877,False
+Asdhu,islet,73.6609671,4.4664394,-9999.0,1.0281545519828796,snapped_to_land,maldives_deltadtm.vrt,deltadtm,7.903679847717285,False
+އެތެރެމަޑިވަރު,islet,72.9372587,4.1186194,-9999.0,1.2199938297271729,snapped_to_land,maldives_deltadtm.vrt,deltadtm,3.8272249698638916,False
+ދޫނިދޫ,islet,73.5139616,4.1973237,1.651585578918457,1.651585578918457,valid,maldives_deltadtm.vrt,deltadtm,7.77065896987915,False
+ރަތްމަންދޫ,islet,73.6391675,3.0889599,4.936625003814697,4.936625003814697,valid,maldives_deltadtm.vrt,deltadtm,4.876817226409912,False
+Villivaru,islet,73.4550099,3.9144553,1.4911729097366333,1.4911729097366333,valid,maldives_deltadtm.vrt,deltadtm,9.553934097290039,False
+މަގޫދޫ,islet,72.9579555,3.0777174,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,73.5471103,4.252096,1.5990662574768066,1.5990662574768066,valid,maldives_deltadtm.vrt,deltadtm,2.665079116821289,False
+ގާފަރު,islet,73.4995507,4.7364849,-0.04141642153263092,-0.04141642153263092,valid,maldives_deltadtm.vrt,deltadtm,0.7013391852378845,True
+Enboodhoo,islet,72.7525503,3.8152884,0.973047137260437,0.973047137260437,valid,maldives_deltadtm.vrt,deltadtm,7.814073085784912,True
+Kandu Oiy Giri,islet,73.5405617,4.2578761,1.461138367652893,1.461138367652893,valid,maldives_deltadtm.vrt,deltadtm,7.804474830627441,False
+Girifushi,islet,73.5782791,4.3183496,2.0431196689605713,2.0431196689605713,valid,maldives_deltadtm.vrt,deltadtm,7.431223392486572,False
+Meeru Island Resort,islet,73.7167646,4.45424,0.6663949489593506,0.6663949489593506,valid,maldives_deltadtm.vrt,deltadtm,9.499222755432129,True
+Lonubo,islet,72.9006715,3.6033807,1.917677640914917,1.917677640914917,valid,maldives_deltadtm.vrt,deltadtm,3.616643190383911,False
+Villinglivaru,islet,72.9552307,3.6190106,1.6904475688934326,1.6904475688934326,valid,maldives_deltadtm.vrt,deltadtm,5.606673717498779,False
+Unnamed settlement,islet,73.4263844,3.2218265,-0.022592755034565926,-0.022592755034565926,valid,maldives_deltadtm.vrt,deltadtm,4.8880438804626465,True
+Ziyaraifushi,islet,73.3724228,4.5327087,1.015425682067871,1.015425682067871,valid,maldives_deltadtm.vrt,deltadtm,7.8578314781188965,False
+Thumbafushi,islet,73.5898037,4.5897122,0.15377721190452576,0.15377721190452576,valid,maldives_deltadtm.vrt,deltadtm,0.9906643629074097,True
+Hukurudhoo,islet,72.7188658,3.5703603,15.63177490234375,15.63177490234375,valid,maldives_deltadtm.vrt,deltadtm,14.568916320800781,False
+Bolifushi,islet,73.3998073,4.0972,2.1504387855529785,2.1504387855529785,valid,maldives_deltadtm.vrt,deltadtm,1.7998762130737305,False
+Bodukaashihuraa,islet,72.954324,3.8758902,1.1254531145095825,1.1254531145095825,valid,maldives_deltadtm.vrt,deltadtm,2.7097246646881104,False
+Lhosfushi,islet,73.470036,3.8969653,-9999.0,1.079285979270935,snapped_to_land,maldives_deltadtm.vrt,deltadtm,2.630681276321411,False
+Maniya Fushi,islet,73.4109993,4.0557733,0.1524457484483719,0.1524457484483719,valid,maldives_deltadtm.vrt,deltadtm,2.652432680130005,True
+މަޑުއްވަރީ,islet,73.5712578,3.1046252,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Bathala,islet,72.9455468,4.070308,1.702545166015625,1.702545166015625,valid,maldives_deltadtm.vrt,deltadtm,4.526379108428955,False
+Nakachcchaafushi,islet,73.3700496,4.3684427,0.3540832996368408,0.3540832996368408,valid,maldives_deltadtm.vrt,deltadtm,5.8983306884765625,True
+Ukulhas Fushi,islet,72.8835038,4.2156082,0.2456503063440323,0.2456503063440323,valid,maldives_deltadtm.vrt,deltadtm,1.1055546998977661,True
+Madivaru,islet,73.0002182,4.2655706,0.9707703590393066,0.9707703590393066,valid,maldives_deltadtm.vrt,deltadtm,3.042140483856201,True
+ގުރައިދޫ,islet,73.4660912,3.9017033,1.9367082118988037,1.9367082118988037,valid,maldives_deltadtm.vrt,deltadtm,3.742130756378174,False
+Ihuru,islet,73.4160374,4.3067295,0.13651719689369202,0.13651719689369202,valid,maldives_deltadtm.vrt,deltadtm,1.2720245122909546,True
+Alikoirah,islet,72.8802491,3.9434071,-9999.0,0.17864184081554413,snapped_to_land,maldives_deltadtm.vrt,deltadtm,2.878438711166382,True
+Dhigurah,islet,72.9216674,3.5251756,-9999.0,1.37076735496521,snapped_to_land,maldives_deltadtm.vrt,deltadtm,5.777546405792236,False
+Vakarufalhi,islet,72.902189,3.5787133,1.8410043716430664,1.8410043716430664,valid,maldives_deltadtm.vrt,deltadtm,6.814262866973877,False
+Rahddhigaa,islet,72.7709526,3.7575707,0.4530021846294403,0.4530021846294403,valid,maldives_deltadtm.vrt,deltadtm,4.107988357543945,True
+Maafushivaru,islet,72.9002138,3.6078876,1.983903408050537,1.983903408050537,valid,maldives_deltadtm.vrt,deltadtm,9.34202766418457,False
+Unnamed settlement,islet,73.6113319,4.3432859,1.9840672016143799,1.9840672016143799,valid,maldives_deltadtm.vrt,deltadtm,5.47694730758667,False
+Thudufushi,islet,72.7307082,3.7862371,1.3245471715927124,1.3245471715927124,valid,maldives_deltadtm.vrt,deltadtm,7.698119163513184,False
+Fenfushi,island,72.7603704,3.4953245,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Kanuhuraa,islet,73.5920264,4.3192242,-9999.0,2.0161279439926147,snapped_to_land,maldives_deltadtm.vrt,deltadtm,5.0806825160980225,False
+އުކުޅަސް,islet,72.8641266,4.2148776,0.1300421953201294,0.1300421953201294,valid,maldives_deltadtm.vrt,deltadtm,7.149571418762207,True
+Makunueri,islet,72.9288861,3.2585974,1.0346077680587769,1.0346077680587769,valid,maldives_deltadtm.vrt,deltadtm,5.79974889755249,False
+Vashugiri,islet,73.37738,3.6304161,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Foththeyobodufushi,islet,73.7579554,3.4555521,-0.0004307654744479805,-0.0004307654744479805,valid,maldives_deltadtm.vrt,deltadtm,2.8126907348632812,True
+Halaveli,islet,72.9193001,4.0386768,1.703118085861206,1.703118085861206,valid,maldives_deltadtm.vrt,deltadtm,4.1792731285095215,False
+ތިނަދޫ,islet,73.5380612,3.4878188,8.569762229919434,8.569762229919434,valid,maldives_deltadtm.vrt,deltadtm,8.10576343536377,False
+މަތިވެރި,islet,72.7460515,4.192073,-0.056525781750679016,-0.056525781750679016,valid,maldives_deltadtm.vrt,deltadtm,6.6389594078063965,True
+Unnamed settlement,islet,72.7464427,4.1218751,8.847846031188965,8.847846031188965,valid,maldives_deltadtm.vrt,deltadtm,9.093329429626465,False
+Unnamed settlement,islet,73.5515281,4.2865279,-9999.0,1.9235875606536865,snapped_to_land,maldives_deltadtm.vrt,deltadtm,0.9719297289848328,False
+Haru Haru,islet,73.4563719,3.8503432,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Ranfinolhu,islet,72.7275243,3.6110642,0.23998408019542694,0.23998408019542694,valid,maldives_deltadtm.vrt,deltadtm,2.7521495819091797,True
+Vabboahuraa,islet,73.5963084,4.3195274,2.0086638927459717,2.0086638927459717,valid,maldives_deltadtm.vrt,deltadtm,5.828900337219238,False
+ފެލިދޫ,islet,73.5470129,3.471979,-0.043649524450302124,-0.043649524450302124,valid,maldives_deltadtm.vrt,deltadtm,5.331277847290039,True
+ދަރަނބޫދޫ,islet,72.9253063,3.0630833,2.2432913780212402,2.2432913780212402,valid,maldives_deltadtm.vrt,deltadtm,6.429536819458008,False
+Aarah,islet,73.4946259,4.2299552,1.770364761352539,1.770364761352539,valid,maldives_deltadtm.vrt,deltadtm,7.666109085083008,False
+Unnamed settlement,islet,72.9145779,3.8582535,-9999.0,1.3050678968429565,snapped_to_land,maldives_deltadtm.vrt,deltadtm,1.6097813248634338,False
+Kuda Bandos,islet,73.4999106,4.2638583,1.67056405544281,1.67056405544281,valid,maldives_deltadtm.vrt,deltadtm,5.187788486480713,False
+Gaathu Fushi,islet,72.8107184,4.0236968,-9999.0,0.4927312731742859,snapped_to_land,maldives_deltadtm.vrt,deltadtm,6.362576961517334,True
+Reethi Rah,island,73.3693057,4.5145745,-9999.0,1.334123134613037,snapped_to_land,maldives_deltadtm.vrt,deltadtm,5.327361106872559,False
+Hurasdhoo,islet,72.7747156,3.6668354,1.8650022745132446,1.8650022745132446,valid,maldives_deltadtm.vrt,deltadtm,8.78462028503418,False
+Moofushi,islet,72.726695,3.8848294,-9999.0,1.7150666117668152,snapped_to_land,maldives_deltadtm.vrt,deltadtm,4.7735207080841064,False
+ކުނބުރުދޫ,islet,72.9237471,3.7755798,1.1572930812835693,1.1572930812835693,valid,maldives_deltadtm.vrt,deltadtm,5.550849437713623,False
+ނިލަންދޫ,islet,72.888625,3.0572824,2.218865156173706,2.218865156173706,valid,maldives_deltadtm.vrt,deltadtm,5.477883338928223,False
+Madivaru,islet,73.368432,4.500595,1.2828468084335327,1.2828468084335327,valid,maldives_deltadtm.vrt,deltadtm,3.1018247604370117,False
+Bushi,islet,73.5065595,3.9767559,1.445621371269226,1.445621371269226,valid,maldives_deltadtm.vrt,deltadtm,4.738868236541748,False
+Alimatha,islet,73.498015,3.5937328,7.933665752410889,7.933665752410889,valid,maldives_deltadtm.vrt,deltadtm,7.468502521514893,False
+Furanafushi,islet,73.5445723,4.2497111,1.2179933786392212,1.2179933786392212,valid,maldives_deltadtm.vrt,deltadtm,4.70899772644043,False
+ތޮއްޑޫ,island,72.9590674,4.4368285,2.6854820251464844,2.6854820251464844,valid,maldives_deltadtm.vrt,deltadtm,7.410571098327637,False
+Kanifinolhu,islet,73.6077099,4.3435668,1.8015623092651367,1.8015623092651367,valid,maldives_deltadtm.vrt,deltadtm,8.846598625183105,False
+Giraavaru Falhu,islet,73.4128253,4.2004017,1.1879528760910034,1.1879528760910034,valid,maldives_deltadtm.vrt,deltadtm,6.025774002075195,False
+Velifaru,islet,73.4863292,4.7304883,0.03605947643518448,0.03605947643518448,valid,maldives_deltadtm.vrt,deltadtm,0.23231682181358337,True
+Innafushi,islet,72.8792157,4.8776673,0.4829186797142029,0.4829186797142029,valid,maldives_deltadtm.vrt,deltadtm,3.805903911590576,True
+Villingilimathidhahuraa,islet,73.663775,4.3774338,-9999.0,1.655089795589447,snapped_to_land,maldives_deltadtm.vrt,deltadtm,2.3439143300056458,False
+Huruelhi Island,islet,72.7195405,3.5442926,0.07993417978286743,0.07993417978286743,valid,maldives_deltadtm.vrt,deltadtm,4.183767795562744,True
+Kagi Maldives Spa Island,islet,73.5009103,4.6769902,-0.0017007990973070264,-0.0017007990973070264,valid,maldives_deltadtm.vrt,deltadtm,6.867923259735107,True
+ފެންފުށި,islet,72.7834777,3.4892974,1.3186345100402832,1.3186345100402832,valid,maldives_deltadtm.vrt,deltadtm,4.766062259674072,False
+Nika Island,islet,72.7671702,4.1811668,8.96238899230957,8.96238899230957,valid,maldives_deltadtm.vrt,deltadtm,9.257498741149902,False
+Lankanfushi,islet,73.5581382,4.2951555,1.8050367832183838,1.8050367832183838,valid,maldives_deltadtm.vrt,deltadtm,5.071054935455322,False
+Vaagali,islet,73.3559257,3.9489793,-9999.0,-0.06395962089300156,snapped_to_land,maldives_deltadtm.vrt,deltadtm,3.6384634971618652,True
+Ruhhurihuraa,islet,73.499883,3.3612075,0.8644511103630066,0.8644511103630066,valid,maldives_deltadtm.vrt,deltadtm,2.214421033859253,True
+Kuda Huraa,islet,73.5973776,4.32821,1.83161461353302,1.83161461353302,valid,maldives_deltadtm.vrt,deltadtm,5.197449207305908,False
+Machchafushi,islet,72.883316,3.593778,1.6455284357070923,1.6455284357070923,valid,maldives_deltadtm.vrt,deltadtm,9.352133750915527,False
+Didhoofinolhu,islet,72.8966848,3.49838,-9999.0,1.487215280532837,snapped_to_land,maldives_deltadtm.vrt,deltadtm,7.876439332962036,False
+Ariadhoo,islet,72.8550707,3.4752745,2.0799949169158936,2.0799949169158936,valid,maldives_deltadtm.vrt,deltadtm,5.876922607421875,False
+ރަސްދޫ,islet,72.9916915,4.263147,1.0045064687728882,1.0045064687728882,valid,maldives_deltadtm.vrt,deltadtm,4.590811729431152,False
+Thanburudhoo,islet,73.5841115,4.3159721,2.0645618438720703,2.0645618438720703,valid,maldives_deltadtm.vrt,deltadtm,6.8338212966918945,False
+ފީއަލި,islet,73.001514,3.2700001,1.4250808954238892,1.4250808954238892,valid,maldives_deltadtm.vrt,deltadtm,7.100647926330566,False
+Feydoofinolu,islet,73.48447,4.2129867,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Vilimale',island,73.4853531,4.1735031,1.3495897054672241,1.3495897054672241,valid,maldives_deltadtm.vrt,deltadtm,5.4892425537109375,False
+Medhufinolhu,islet,73.4583894,3.8651945,1.7687100172042847,1.7687100172042847,valid,maldives_deltadtm.vrt,deltadtm,2.198517084121704,False
+ތުލުސްދޫ,islet,73.647335,4.3733383,1.954652190208435,1.954652190208435,valid,maldives_deltadtm.vrt,deltadtm,10.05671215057373,False
+Angaga Island Resort,islet,72.8218903,3.6521648,1.7795696258544922,1.7795696258544922,valid,maldives_deltadtm.vrt,deltadtm,9.313370704650879,False
+ކެޔޮދޫ,islet,73.5502786,3.4621039,-0.049923982471227646,-0.049923982471227646,valid,maldives_deltadtm.vrt,deltadtm,3.978062629699707,True
+Vilamendhoo Island Resort & Spa,islet,72.9587872,3.6338083,1.554465413093567,1.554465413093567,valid,maldives_deltadtm.vrt,deltadtm,5.800262451171875,False
+Unnamed settlement,islet,73.0101004,4.2930394,-9999.0,0.9428287744522095,snapped_to_land,maldives_deltadtm.vrt,deltadtm,3.297940731048584,True
+Velassaru,islet,73.4368952,4.1213701,1.369978427886963,1.369978427886963,valid,maldives_deltadtm.vrt,deltadtm,2.315394401550293,False
+Unnamed settlement,islet,73.537008,4.2493604,1.6276369094848633,1.6276369094848633,valid,maldives_deltadtm.vrt,deltadtm,1.9426063299179077,False
+Naibukaloabodufushi,islet,73.0239524,2.7667128,0.9411737322807312,0.9411737322807312,valid,maldives_deltadtm.vrt,deltadtm,5.35548734664917,True
+Dhoores,islet,72.8837672,2.9174997,15.140536308288574,15.140536308288574,valid,maldives_deltadtm.vrt,deltadtm,15.464034080505371,False
+ރިނބުދޫ,islet,72.8953632,2.9245002,6.7084527015686035,6.7084527015686035,valid,maldives_deltadtm.vrt,deltadtm,6.978001117706299,False
+Aloofushi,islet,72.9594787,2.933061,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Kanneiyfaru,islet,73.0271409,2.9239485,-0.08097225427627563,-0.08097225427627563,valid,maldives_deltadtm.vrt,deltadtm,8.555093765258789,True
+Holhurahaa,islet,73.5391805,2.0685304,1.1950706243515015,1.1950706243515015,valid,maldives_deltadtm.vrt,deltadtm,7.726587295532227,False
+ބަނޑިދޫ,islet,72.9904684,2.9368279,8.145040512084961,8.145040512084961,valid,maldives_deltadtm.vrt,deltadtm,8.179882049560547,False
+Baglioni Resort Maldives,islet,72.9145572,2.9475873,11.582362174987793,11.582362174987793,valid,maldives_deltadtm.vrt,deltadtm,11.90755844116211,False
+ތިމަރަފުށި,island,73.1489306,2.2093312,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+މީދޫ,islet,73.0064059,2.9983962,5.634415626525879,5.634415626525879,valid,maldives_deltadtm.vrt,deltadtm,6.207908630371094,False
+Unnamed settlement,islet,73.5361418,2.0715521,-9999.0,1.2247357964515686,snapped_to_land,maldives_deltadtm.vrt,deltadtm,3.270769476890564,False
+Gaathurehaa,islet,73.0154531,2.1685731,-9999.0,0.40275838971138,snapped_to_land,maldives_deltadtm.vrt,deltadtm,4.3201375007629395,True
+ހުޅުދެލި,islet,72.8466867,2.8583767,2.0014939308166504,2.0014939308166504,valid,maldives_deltadtm.vrt,deltadtm,8.402121543884277,False
+އިސްދޫ,island,73.5684563,2.1190979,2.196343183517456,2.196343183517456,valid,maldives_deltadtm.vrt,deltadtm,3.918287992477417,False
+Unnamed settlement,islet,72.9825745,2.706636,1.0796804428100586,1.0796804428100586,valid,maldives_deltadtm.vrt,deltadtm,3.902484655380249,False
+Unnamed settlement,islet,73.2782534,1.8175152,0.7442944645881653,0.7442944645881653,valid,maldives_deltadtm.vrt,deltadtm,7.496954441070557,True
+Hulhiyanfushi,islet,73.2188981,2.2596601,1.6994178295135498,1.6994178295135498,valid,maldives_deltadtm.vrt,deltadtm,6.874336242675781,False
+ގާދިއްފުށި,islet,73.2125675,2.2529952,1.2996928691864014,1.2996928691864014,valid,maldives_deltadtm.vrt,deltadtm,6.156189441680908,False
+Elaa,islet,73.0791862,2.1723748,0.4462752342224121,0.4462752342224121,valid,maldives_deltadtm.vrt,deltadtm,8.172585487365723,True
+Faés,islet,73.2952969,1.8014451,0.8165108561515808,0.8165108561515808,valid,maldives_deltadtm.vrt,deltadtm,6.8269944190979,True
+Mandoo,islet,73.5339236,2.0111877,1.8795669078826904,1.8795669078826904,valid,maldives_deltadtm.vrt,deltadtm,6.608247756958008,False
+Vadinolhu,islet,73.3589136,2.0177249,-0.13879601657390594,-0.13879601657390594,valid,maldives_deltadtm.vrt,deltadtm,6.356512546539307,True
+Bokaifushi,islet,73.5349092,1.9989523,1.657370924949646,1.657370924949646,valid,maldives_deltadtm.vrt,deltadtm,9.199542999267578,False
+މުލައް,islet,73.5841936,2.9463365,2.058954954147339,2.058954954147339,valid,maldives_deltadtm.vrt,deltadtm,13.135541915893555,False
+Munyafushi,islet,73.3092932,1.9892643,-0.10822414606809616,-0.10822414606809616,valid,maldives_deltadtm.vrt,deltadtm,4.3905487060546875,True
+Fenboahuraa,islet,73.5368269,2.0609333,0.8887912034988403,0.8887912034988403,valid,maldives_deltadtm.vrt,deltadtm,9.088984489440918,True
+މާއެނބޫދޫ,islet,72.9634196,2.6957411,1.176365613937378,1.176365613937378,valid,maldives_deltadtm.vrt,deltadtm,6.396430969238281,False
+ކަޅައިދޫ,islet,73.5375045,1.9886782,0.9473834037780762,0.9473834037780762,valid,maldives_deltadtm.vrt,deltadtm,4.204799175262451,True
+ގަން,island,73.5365663,1.9067854,-9999.0,1.953370451927185,snapped_to_land,maldives_deltadtm.vrt,deltadtm,5.4372546672821045,False
+Gaadhoo,island,73.4520212,1.8214298,1.4399672746658325,1.4399672746658325,valid,maldives_deltadtm.vrt,deltadtm,7.703756332397461,False
+Usfushi,islet,73.204922,2.2469676,0.7160657644271851,0.7160657644271851,valid,maldives_deltadtm.vrt,deltadtm,6.306804656982422,True
+Kiraidhoo,islet,73.0255822,2.7874592,1.0395270586013794,1.0395270586013794,valid,maldives_deltadtm.vrt,deltadtm,10.777237892150879,False
+Dhebaidhoo,islet,73.0255701,2.7939028,0.8228605389595032,0.8228605389595032,valid,maldives_deltadtm.vrt,deltadtm,5.835396766662598,True
+Vommuli,islet,72.8661108,2.9113406,14.389156341552734,14.389156341552734,valid,maldives_deltadtm.vrt,deltadtm,14.811153411865234,False
+Unnamed settlement,islet,73.0255755,2.7907453,1.0222800970077515,1.0222800970077515,valid,maldives_deltadtm.vrt,deltadtm,5.252272129058838,False
+Hulhimendhoo,islet,73.3943018,1.8227585,1.1462591886520386,1.1462591886520386,valid,maldives_deltadtm.vrt,deltadtm,9.068395614624023,False
+Unnamed settlement,islet,73.0255641,2.797703,0.7739182710647583,0.7739182710647583,valid,maldives_deltadtm.vrt,deltadtm,4.6797895431518555,True
+Vaanee,islet,73.002831,2.7254258,0.8943415284156799,0.8943415284156799,valid,maldives_deltadtm.vrt,deltadtm,6.011590480804443,True
+Vallalhohi,islet,72.8880158,2.7306226,-0.02487359568476677,-0.02487359568476677,valid,maldives_deltadtm.vrt,deltadtm,7.806898593902588,True
+Kandima Maldives,hotel,73.014932,2.7410173,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+ކިނބިދޫ,islet,73.0674071,2.1695213,1.3527518510818481,1.3527518510818481,valid,maldives_deltadtm.vrt,deltadtm,6.077728271484375,False
+Minimasgali,islet,72.8876252,2.7502754,-0.07623835653066635,-0.07623835653066635,valid,maldives_deltadtm.vrt,deltadtm,9.883903503417969,True
+Lhohi,islet,72.9854289,2.9569233,11.242701530456543,11.242701530456543,valid,maldives_deltadtm.vrt,deltadtm,11.602141380310059,False
+Kurali,islet,73.3719305,2.7803864,-9999.0,0.9341296255588531,snapped_to_land,maldives_deltadtm.vrt,deltadtm,5.275226354598999,True
+Thilabolhufushi,islet,73.0223672,2.7557576,1.6250638961791992,1.6250638961791992,valid,maldives_deltadtm.vrt,deltadtm,6.707211971282959,False
+Thinhuraa,islet,73.0250848,2.7801141,1.3085399866104126,1.3085399866104126,valid,maldives_deltadtm.vrt,deltadtm,6.752866268157959,False
+Hikandhirahaa,islet,73.5365704,2.0583981,0.9855165481567383,0.9855165481567383,valid,maldives_deltadtm.vrt,deltadtm,8.415609359741211,True
+ކޮޅުފުށި,islet,73.4243349,2.7808231,2.3415441513061523,2.3415441513061523,valid,maldives_deltadtm.vrt,deltadtm,10.994007110595703,False
+ކުނަހަންދޫ,island,73.3683283,1.7839192,1.291254997253418,1.291254997253418,valid,maldives_deltadtm.vrt,deltadtm,4.991038799285889,False
+Medhoo,island,73.3818359,1.7861705,1.551943063735962,1.551943063735962,valid,maldives_deltadtm.vrt,deltadtm,11.8060941696167,False
+Naraka,islet,72.9763115,2.1873625,-9999.0,1.4956560730934143,snapped_to_land,maldives_deltadtm.vrt,deltadtm,4.227197647094727,False
+ވޭވައް,islet,73.5997928,2.956399,1.576051950454712,1.576051950454712,valid,maldives_deltadtm.vrt,deltadtm,15.48250675201416,False
+Uvadhevifushi,islet,73.5372525,1.9791726,1.1491223573684692,1.1491223573684692,valid,maldives_deltadtm.vrt,deltadtm,8.784961700439453,False
+Boduhuraa,islet,73.3534972,1.7811553,-9999.0,1.2793549299240112,snapped_to_land,maldives_deltadtm.vrt,deltadtm,6.183660507202148,False
+މާމެންދޫ,islet,73.3899663,1.8180938,1.7836045026779175,1.7836045026779175,valid,maldives_deltadtm.vrt,deltadtm,4.89462423324585,False
+Fushi,islet,73.5323769,2.045795,1.011038064956665,1.011038064956665,valid,maldives_deltadtm.vrt,deltadtm,10.32706356048584,False
+Niyama Maldives,islet,72.9346115,2.6823174,0.8616268038749695,0.8616268038749695,valid,maldives_deltadtm.vrt,deltadtm,4.9522528648376465,True
+Medhufushi,islet,73.5753513,2.8863608,-9999.0,1.4081106185913086,snapped_to_land,maldives_deltadtm.vrt,deltadtm,11.563980102539062,False
+Kani,islet,72.9743242,2.1899542,-9999.0,1.6193469762802124,snapped_to_land,maldives_deltadtm.vrt,deltadtm,3.443906784057617,False
+ދަނބިދޫ,island,73.5443758,2.0937724,1.5954091548919678,1.5954091548919678,valid,maldives_deltadtm.vrt,deltadtm,11.07215404510498,False
+Thuvaru,islet,73.3794388,2.8983352,1.6045390367507935,1.6045390367507935,valid,maldives_deltadtm.vrt,deltadtm,4.594659805297852,False
+Berasdhoo,islet,73.5400497,1.9681175,0.6806714534759521,0.6806714534759521,valid,maldives_deltadtm.vrt,deltadtm,14.908777236938477,True
+Kudafushi,islet,73.3317506,1.7885929,1.226967215538025,1.226967215538025,valid,maldives_deltadtm.vrt,deltadtm,7.775618553161621,False
+ނާލާފުށި,islet,73.5772228,2.8959378,1.3850504159927368,1.3850504159927368,valid,maldives_deltadtm.vrt,deltadtm,11.90953254699707,False
+Kandaru,islet,73.5321951,2.0497005,1.764011025428772,1.764011025428772,valid,maldives_deltadtm.vrt,deltadtm,14.071419715881348,False
+Olhutholhu,islet,73.3520641,1.7879786,1.409690499305725,1.409690499305725,valid,maldives_deltadtm.vrt,deltadtm,7.967127799987793,False
+ވޭމަންޑޫ,islet,73.0942311,2.185977,0.5612399578094482,0.5612399578094482,valid,maldives_deltadtm.vrt,deltadtm,5.142794609069824,True
+Kolafushi,islet,73.2234476,2.263773,2.008991003036499,2.008991003036499,valid,maldives_deltadtm.vrt,deltadtm,3.255833387374878,False
+Maalhaveli,islet,73.5788951,2.9048917,-9999.0,1.5066481828689575,snapped_to_land,maldives_deltadtm.vrt,deltadtm,3.8820064067840576,False
+Kakaahuraa,islet,73.5348722,2.8525116,0.05574493855237961,0.05574493855237961,valid,maldives_deltadtm.vrt,deltadtm,7.8540263175964355,True
+Lhavaddoo,islet,73.2913119,2.3056043,0.6975589394569397,0.6975589394569397,valid,maldives_deltadtm.vrt,deltadtm,15.536797523498535,True
+Olhuveli,islet,73.4047312,1.8169428,0.8369936943054199,0.8369936943054199,valid,maldives_deltadtm.vrt,deltadtm,8.495464324951172,True
+Fonidhaani,islet,73.285036,2.3012094,0.8237155079841614,0.8237155079841614,valid,maldives_deltadtm.vrt,deltadtm,14.062630653381348,True
+Kalhudheyfushi,islet,73.2762894,2.2952068,1.3376116752624512,1.3376116752624512,valid,maldives_deltadtm.vrt,deltadtm,6.872991561889648,False
+Rihaamaafushi,islet,73.2702406,2.2918055,0.7869154810905457,0.7869154810905457,valid,maldives_deltadtm.vrt,deltadtm,1.345106840133667,True
+ވަންދޫ,islet,72.9419252,2.2917748,0.24482901394367218,0.24482901394367218,valid,maldives_deltadtm.vrt,deltadtm,12.58935260772705,True
+Fenfushi,islet,73.266708,2.289632,1.371413230895996,1.371413230895996,valid,maldives_deltadtm.vrt,deltadtm,3.0452237129211426,False
+މާވަށް,islet,73.242306,1.8853327,0.40902820229530334,0.40902820229530334,valid,maldives_deltadtm.vrt,deltadtm,6.582184314727783,True
+Hathifushi,islet,73.2635265,2.2875395,2.136624336242676,2.136624336242676,valid,maldives_deltadtm.vrt,deltadtm,5.112766265869141,False
+ގުރައިދޫ,islet,73.319439,2.3250489,2.1209657192230225,2.1209657192230225,valid,maldives_deltadtm.vrt,deltadtm,6.346179008483887,False
+Fonaddoo,islet,73.1289257,2.1982505,1.1443471908569336,1.1443471908569336,valid,maldives_deltadtm.vrt,deltadtm,11.88094425201416,False
+Hakuraahuraa,islet,73.5386013,2.8540041,5.016973972320557,5.016973972320557,valid,maldives_deltadtm.vrt,deltadtm,9.563729286193848,False
+އޮމަދޫ,islet,73.0238074,2.167771,1.5495682954788208,1.5495682954788208,valid,maldives_deltadtm.vrt,deltadtm,7.677471160888672,False
+ކަނޑޫދޫ,island,72.9167825,2.320629,10.399372100830078,10.399372100830078,valid,maldives_deltadtm.vrt,deltadtm,10.6876859664917,False
+Maalefushi,islet,73.298248,2.3105927,1.2146902084350586,1.2146902084350586,valid,maldives_deltadtm.vrt,deltadtm,12.251112937927246,False
+Fenmeerufushi,islet,73.233436,2.2707868,2.423551559448242,2.423551559448242,valid,maldives_deltadtm.vrt,deltadtm,3.647843599319458,False
+Fushi,islet,72.9693085,2.1932068,-9999.0,1.4191418886184692,snapped_to_land,maldives_deltadtm.vrt,deltadtm,8.125252962112427,False
+Kakolhas,islet,72.9443103,2.3152483,8.806120872497559,8.806120872497559,valid,maldives_deltadtm.vrt,deltadtm,9.280743598937988,False
+Bodurehaa,islet,73.2263222,2.266142,2.321043014526367,2.321043014526367,valid,maldives_deltadtm.vrt,deltadtm,8.457483291625977,False
+Enboodhoofushi,islet,72.9285556,2.6771742,0.6244021058082581,0.6244021058082581,valid,maldives_deltadtm.vrt,deltadtm,2.222501754760742,True
+Kaaddoo,islet,73.2546423,2.2820692,0.7564659118652344,0.7564659118652344,valid,maldives_deltadtm.vrt,deltadtm,16.38712501525879,True
+Kudakaaddoo,islet,73.2595035,2.2853469,-9999.0,1.800379991531372,snapped_to_land,maldives_deltadtm.vrt,deltadtm,2.5728213787078857,False
+Mahakanfushi,islet,73.5409717,1.9586351,-9999.0,0.6985122859477997,snapped_to_land,maldives_deltadtm.vrt,deltadtm,6.283371210098267,True
+Unnamed settlement,islet,73.5322843,2.0431981,0.6375102996826172,0.6375102996826172,valid,maldives_deltadtm.vrt,deltadtm,5.177823066711426,True
+Olhudhiyafushi,islet,73.2368091,2.2729237,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+ހިރިލަންދޫ,islet,72.9326731,2.2696956,-9999.0,0.3065222501754761,snapped_to_land,maldives_deltadtm.vrt,deltadtm,3.028730869293213,True
+ކުޑަހުވަދޫ,island,72.8873629,2.6704889,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Gaalee,islet,73.1544497,2.5463486,4.79585075378418,4.79585075378418,valid,maldives_deltadtm.vrt,deltadtm,5.034480571746826,False
+Unnamed settlement,islet,73.3050722,2.3151975,1.4715532064437866,1.4715532064437866,valid,maldives_deltadtm.vrt,deltadtm,6.292957305908203,False
+Kurandhuvaru,islet,73.1759619,2.5392082,0.023341409862041473,0.023341409862041473,valid,maldives_deltadtm.vrt,deltadtm,15.82192611694336,True
+ބުރުނީ,islet,73.1060007,2.5587401,0.3662668466567993,0.3662668466567993,valid,maldives_deltadtm.vrt,deltadtm,11.520061492919922,True
+Unnamed settlement,islet,73.1569546,2.5490856,0.22145311534404755,0.22145311534404755,valid,maldives_deltadtm.vrt,deltadtm,3.8349626064300537,True
+Ekuruffushi,islet,73.2292593,2.268116,2.369039297103882,2.369039297103882,valid,maldives_deltadtm.vrt,deltadtm,4.467522621154785,False
+Gasfinolhu,islet,73.5401152,1.952416,1.2293846607208252,1.2293846607208252,valid,maldives_deltadtm.vrt,deltadtm,6.88373327255249,False
+ހިތަދޫ,island,73.3879806,1.7965881,1.2225912809371948,1.2225912809371948,valid,maldives_deltadtm.vrt,deltadtm,7.5358099937438965,False
+Velavaru,islet,73.0156649,2.9797109,10.549956321716309,10.549956321716309,valid,maldives_deltadtm.vrt,deltadtm,11.084930419921875,False
+Weligandu,islet,72.9087071,2.3659658,-0.03876981511712074,-0.03876981511712074,valid,maldives_deltadtm.vrt,deltadtm,3.3359508514404297,True
+Fahala,island,73.3558087,2.4117585,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+މުލި,islet,73.5810963,2.9144778,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+މާބައިދޫ,island,73.5327505,2.0297067,-9999.0,1.3007515668869019,snapped_to_land,maldives_deltadtm.vrt,deltadtm,3.0,False
+ދިޔަމިގިލި,islet,73.3368918,2.3401478,1.6022447347640991,1.6022447347640991,valid,maldives_deltadtm.vrt,deltadtm,3.3874378204345703,False
+މަޑިފުށި,islet,73.3544748,2.3572202,1.690696120262146,1.690696120262146,valid,maldives_deltadtm.vrt,deltadtm,3.9651081562042236,False
+Uddhoo,islet,72.9903537,2.970615,4.988373756408691,4.988373756408691,valid,maldives_deltadtm.vrt,deltadtm,5.471268177032471,False
+Unnamed settlement,islet,73.2324058,2.5149703,0.3619769513607025,0.3619769513607025,valid,maldives_deltadtm.vrt,deltadtm,10.993298530578613,True
+Hikandhilohi,islet,73.2265594,2.5203551,0.13617098331451416,0.13617098331451416,valid,maldives_deltadtm.vrt,deltadtm,12.778310775756836,True
+Unnamed settlement,islet,72.9874546,2.5313005,-0.07386286556720734,-0.07386286556720734,valid,maldives_deltadtm.vrt,deltadtm,6.186398506164551,True
+Maagulhi,islet,73.1795271,2.5383267,-0.018679073080420494,-0.018679073080420494,valid,maldives_deltadtm.vrt,deltadtm,13.616978645324707,True
+Dhonhanfushi,islet,73.3149293,2.490279,1.6676288843154907,1.6676288843154907,valid,maldives_deltadtm.vrt,deltadtm,9.49531364440918,False
+Unnamed settlement,islet,73.3127814,2.4952203,1.960196852684021,1.960196852684021,valid,maldives_deltadtm.vrt,deltadtm,2.742220640182495,False
+Unnamed settlement,islet,73.1114993,2.1958833,0.9557865858078003,0.9557865858078003,valid,maldives_deltadtm.vrt,deltadtm,8.595574378967285,True
+ވިލުފުށި,island,73.308219,2.5027957,2.134589195251465,2.134589195251465,valid,maldives_deltadtm.vrt,deltadtm,6.409822940826416,False
+Olhugiri,islet,73.2554181,2.5057543,0.9091494083404541,0.9091494083404541,valid,maldives_deltadtm.vrt,deltadtm,13.336369514465332,True
+Unnamed settlement,islet,73.0264657,0.3428939,0.7877357602119446,0.7877357602119446,valid,maldives_deltadtm.vrt,deltadtm,3.554051399230957,True
+ނަޑެއްލާ,islet,73.0409634,0.2940768,1.3505842685699463,1.3505842685699463,valid,maldives_deltadtm.vrt,deltadtm,7.021066188812256,False
+ފިޔޯރީ,islet,73.1366161,0.2211379,1.6274359226226807,1.6274359226226807,valid,maldives_deltadtm.vrt,deltadtm,1.8963812589645386,False
+Unnamed settlement,islet,73.3361272,0.8853996,-0.2944847643375397,-0.2944847643375397,valid,maldives_deltadtm.vrt,deltadtm,6.429278373718262,True
+Unnamed settlement,islet,73.4366029,0.3349591,1.3293489217758179,1.3293489217758179,valid,maldives_deltadtm.vrt,deltadtm,7.067024230957031,False
+Unnamed settlement,islet,73.1240399,0.5413028,0.02286212518811226,0.02286212518811226,valid,maldives_deltadtm.vrt,deltadtm,6.672405242919922,True
+Unnamed settlement,islet,73.4985887,0.5058205,2.0809578895568848,2.0809578895568848,valid,maldives_deltadtm.vrt,deltadtm,8.833592414855957,False
+Unnamed settlement,islet,73.4166159,0.3021278,1.7202174663543701,1.7202174663543701,valid,maldives_deltadtm.vrt,deltadtm,6.761948108673096,False
+Unnamed settlement,islet,73.0685158,0.2736523,1.0322656631469727,1.0322656631469727,valid,maldives_deltadtm.vrt,deltadtm,7.510294437408447,False
+Unnamed settlement,islet,73.4864598,0.3209648,1.3273931741714478,1.3273931741714478,valid,maldives_deltadtm.vrt,deltadtm,9.4050931930542,False
+Maamutaa,islet,73.407697,0.8465028,0.46283164620399475,0.46283164620399475,valid,maldives_deltadtm.vrt,deltadtm,3.152592420578003,True
+Gan,island,73.4356695,0.275081,2.285808563232422,2.285808563232422,valid,maldives_deltadtm.vrt,deltadtm,9.549967765808105,False
+ހޯނޑެއްދޫ,island,73.0050157,0.4441902,2.2525227069854736,2.2525227069854736,valid,maldives_deltadtm.vrt,deltadtm,3.6797685623168945,False
+Unnamed settlement,islet,73.3372976,0.288589,1.1417299509048462,1.1417299509048462,valid,maldives_deltadtm.vrt,deltadtm,7.554100513458252,False
+ގެމަނަފުށި,islet,73.5685486,0.4422643,2.1470131874084473,2.1470131874084473,valid,maldives_deltadtm.vrt,deltadtm,5.509189605712891,False
+Hulhimendhoo,islet,73.4399997,0.7036017,2.2214856147766113,2.2214856147766113,valid,maldives_deltadtm.vrt,deltadtm,8.963946342468262,False
+Unnamed settlement,islet,73.4040741,0.2997124,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+ވާދޫ,island,73.2736968,0.2272477,1.8646798133850098,1.8646798133850098,valid,maldives_deltadtm.vrt,deltadtm,9.991950988769531,False
+Maguhdhuvaa,islet,73.3568124,0.2779893,2.1006031036376953,2.1006031036376953,valid,maldives_deltadtm.vrt,deltadtm,4.877992153167725,False
+Unnamed settlement,islet,73.497776,0.3810978,0.9770491719245911,0.9770491719245911,valid,maldives_deltadtm.vrt,deltadtm,5.3013997077941895,True
+Unnamed settlement,islet,73.3804795,0.3196711,1.439575433731079,1.439575433731079,valid,maldives_deltadtm.vrt,deltadtm,7.014346122741699,False
+Unnamed settlement,islet,73.2423663,0.8494774,1.6154807806015015,1.6154807806015015,valid,maldives_deltadtm.vrt,deltadtm,22.781198501586914,False
+Unnamed settlement,islet,73.2077213,0.8467144,1.3239803314208984,1.3239803314208984,valid,maldives_deltadtm.vrt,deltadtm,5.804110527038574,False
+Maavarulu,islet,73.5106378,0.3350918,-9999.0,2.587204694747925,snapped_to_land,maldives_deltadtm.vrt,deltadtm,5.931260108947754,False
+Unnamed settlement,islet,73.3496443,0.8968211,-0.3340456485748291,-0.3340456485748291,valid,maldives_deltadtm.vrt,deltadtm,5.828611850738525,True
+Unnamed settlement,islet,73.2007883,0.2890139,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Kunata,islet,73.1546428,0.4627277,0.19884562492370605,0.19884562492370605,valid,maldives_deltadtm.vrt,deltadtm,7.2650909423828125,True
+ރަތަފަންދޫ,islet,73.1046807,0.2528717,0.9725626111030579,0.9725626111030579,valid,maldives_deltadtm.vrt,deltadtm,5.620927810668945,True
+ދެއްވަދޫ,islet,73.2421259,0.5568095,3.1056883335113525,3.1056883335113525,valid,maldives_deltadtm.vrt,deltadtm,2.9856913089752197,False
+Unnamed settlement,islet,73.4487774,0.3127257,1.7924613952636719,1.7924613952636719,valid,maldives_deltadtm.vrt,deltadtm,7.162522315979004,False
+Unnamed settlement,islet,73.0259315,0.3290827,0.8598476052284241,0.8598476052284241,valid,maldives_deltadtm.vrt,deltadtm,9.012998580932617,True
+Unnamed settlement,islet,73.2250485,0.7949897,1.971323847770691,1.971323847770691,valid,maldives_deltadtm.vrt,deltadtm,10.909679412841797,False
+Unnamed settlement,islet,73.1475923,0.5104901,0.16998407244682312,0.16998407244682312,valid,maldives_deltadtm.vrt,deltadtm,6.730519771575928,True
+Unnamed settlement,islet,73.2090157,0.8537403,1.750320553779602,1.750320553779602,valid,maldives_deltadtm.vrt,deltadtm,11.039907455444336,False
+Unnamed settlement,islet,73.3093939,0.6046786,4.356664180755615,4.356664180755615,valid,maldives_deltadtm.vrt,deltadtm,4.18969202041626,False
+Unnamed settlement,islet,73.2444926,0.8724931,1.3861665725708008,1.3861665725708008,valid,maldives_deltadtm.vrt,deltadtm,9.950464248657227,False
+Unnamed settlement,islet,73.3447647,0.6298741,1.2887296676635742,1.2887296676635742,valid,maldives_deltadtm.vrt,deltadtm,10.386408805847168,False
+Falhumaafush,islet,73.4384978,0.6718575,0.7483980655670166,0.7483980655670166,valid,maldives_deltadtm.vrt,deltadtm,5.128754138946533,True
+ނިލަންދޫ,islet,73.445993,0.6365608,1.8477895259857178,1.8477895259857178,valid,maldives_deltadtm.vrt,deltadtm,3.6548969745635986,False
+ކޮލަމާފުށި,islet,73.1848998,0.8371951,2.0655181407928467,2.0655181407928467,valid,maldives_deltadtm.vrt,deltadtm,1.9684667587280273,False
+ފަރެސްމާތޮޑާ,islet,73.187199,0.1990019,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,73.192208,0.5710253,5.883176803588867,5.883176803588867,valid,maldives_deltadtm.vrt,deltadtm,5.925958633422852,False
+Maarandhoo,islet,73.0933988,0.5866621,5.127196788787842,5.127196788787842,valid,maldives_deltadtm.vrt,deltadtm,5.035152912139893,False
+ގައްދޫ,islet,73.4583283,0.290252,1.9254038333892822,1.9254038333892822,valid,maldives_deltadtm.vrt,deltadtm,5.944043159484863,False
+Mahaddhoo,islet,73.5137537,0.5843172,-9999.0,0.985483705997467,snapped_to_land,maldives_deltadtm.vrt,deltadtm,3.943429470062256,True
+Unnamed settlement,islet,73.438735,0.6592046,1.1510603427886963,1.1510603427886963,valid,maldives_deltadtm.vrt,deltadtm,8.71932315826416,False
+Unnamed settlement,islet,73.1901187,0.8662709,1.3277121782302856,1.3277121782302856,valid,maldives_deltadtm.vrt,deltadtm,7.282341003417969,False
+Amari Havodda Maldives,islet,73.0952911,0.5406883,0.5636389255523682,0.5636389255523682,valid,maldives_deltadtm.vrt,deltadtm,4.308931350708008,True
+Unnamed settlement,islet,73.497126,0.3285715,1.467673420906067,1.467673420906067,valid,maldives_deltadtm.vrt,deltadtm,7.195214748382568,False
+Unnamed settlement,islet,73.0038137,0.4280787,1.6358776092529297,1.6358776092529297,valid,maldives_deltadtm.vrt,deltadtm,6.27616024017334,False
+Funamadua,islet,73.1900432,0.5339108,5.868720054626465,5.868720054626465,valid,maldives_deltadtm.vrt,deltadtm,5.537703514099121,False
+Unnamed settlement,islet,73.3198728,0.3577315,0.6101749539375305,0.6101749539375305,valid,maldives_deltadtm.vrt,deltadtm,7.953629016876221,True
+Kudhehulhahddu,islet,72.9974419,0.4543079,2.2443761825561523,2.2443761825561523,valid,maldives_deltadtm.vrt,deltadtm,3.7966179847717285,False
+Unnamed settlement,islet,73.3462795,0.5406658,-0.02709173783659935,-0.02709173783659935,valid,maldives_deltadtm.vrt,deltadtm,2.152859687805176,True
+Faruhulhudhoo,islet,73.2552126,0.8742822,1.1082923412322998,1.1082923412322998,valid,maldives_deltadtm.vrt,deltadtm,6.136875152587891,False
+Dhiyadhoo,islet,73.5550621,0.4763941,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,73.5349576,0.4519945,2.12711238861084,2.12711238861084,valid,maldives_deltadtm.vrt,deltadtm,7.725353717803955,False
+ކޮނޑޭ,islet,73.5493327,0.4996133,2.4398317337036133,2.4398317337036133,valid,maldives_deltadtm.vrt,deltadtm,12.991607666015625,False
+Unnamed settlement,islet,73.2850655,0.7270343,2.14567494392395,2.14567494392395,valid,maldives_deltadtm.vrt,deltadtm,9.424592971801758,False
+Rahadhoo,islet,72.9898165,0.4968598,3.7888131141662598,3.7888131141662598,valid,maldives_deltadtm.vrt,deltadtm,7.3819899559021,False
+Kaadedhdhoo,island,72.9929236,0.4877038,3.855281114578247,3.855281114578247,valid,maldives_deltadtm.vrt,deltadtm,9.36918830871582,False
+Unnamed settlement,islet,73.370006,0.3986602,4.18701696395874,4.18701696395874,valid,maldives_deltadtm.vrt,deltadtm,4.446340560913086,False
+Menthandhoo,islet,73.4867845,0.3264123,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,73.2163184,0.5188733,4.1008124351501465,4.1008124351501465,valid,maldives_deltadtm.vrt,deltadtm,3.8927133083343506,False
+ކަނޑުހުޅުދޫ,islet,73.5399259,0.351553,0.9405616521835327,0.9405616521835327,valid,maldives_deltadtm.vrt,deltadtm,5.886338233947754,True
+Unnamed settlement,islet,73.2852285,0.7140793,1.8180633783340454,1.8180633783340454,valid,maldives_deltadtm.vrt,deltadtm,6.876651763916016,False
+Unnamed settlement,islet,73.4134644,0.3087025,1.9783903360366821,1.9783903360366821,valid,maldives_deltadtm.vrt,deltadtm,7.428376197814941,False
+މަޑަވެލި,islet,72.9991486,0.4590172,2.620694398880005,2.620694398880005,valid,maldives_deltadtm.vrt,deltadtm,3.755786895751953,False
+Unnamed settlement,islet,73.1724141,0.4949848,0.8681008219718933,0.8681008219718933,valid,maldives_deltadtm.vrt,deltadtm,6.851582050323486,True
+ވިލިނގިލި,island,73.4346235,0.7560338,2.0438578128814697,2.0438578128814697,valid,maldives_deltadtm.vrt,deltadtm,2.677391529083252,False
+Havoddaa,islet,73.0744064,0.5233323,0.8407086730003357,0.8407086730003357,valid,maldives_deltadtm.vrt,deltadtm,8.396820068359375,True
+ކައްދޫ އެއަރޕޯޓް,island,73.5208364,1.8609607,1.6728434562683105,1.6728434562683105,valid,maldives_deltadtm.vrt,deltadtm,3.128765821456909,False
+Kanuhuraa,islet,73.5057657,5.5326306,-9999.0,1.4956550002098083,snapped_to_land,maldives_deltadtm.vrt,deltadtm,5.8263280391693115,False
+ގަން,island,73.1518279,-0.6945065,2.2422285079956055,2.2422285079956055,valid,maldives_deltadtm.vrt,deltadtm,3.430199146270752,False
+ހިތަދޫ,island,73.0930517,-0.6156605,2.01275372505188,2.01275372505188,valid,maldives_deltadtm.vrt,deltadtm,1.593846082687378,False
+Villingili,islet,73.19173,-0.6809082,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Sandbank,islet,73.7041974,3.4818863,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Rannalhi,islet,73.3578725,3.9033305,0.6870670318603516,0.6870670318603516,valid,maldives_deltadtm.vrt,deltadtm,8.002273559570312,True
+މާޅޮސް,islet,72.7190507,3.9863123,-0.2167838215827942,-0.2167838215827942,valid,maldives_deltadtm.vrt,deltadtm,4.854227066040039,True
+Biyadhoo,islet,73.456351,3.9222817,1.6717051267623901,1.6717051267623901,valid,maldives_deltadtm.vrt,deltadtm,12.207304954528809,False
+Mulikado,islet,73.215945,-0.6588633,-9999.0,2.466153383255005,snapped_to_land,maldives_deltadtm.vrt,deltadtm,1.6221703886985779,False
+Nalaguraidhoo,island,72.802495,3.4830953,1.5499531030654907,1.5499531030654907,valid,maldives_deltadtm.vrt,deltadtm,8.768173217773438,False
+Baros,islet,73.4270792,4.284725,0.4861181974411011,0.4861181974411011,valid,maldives_deltadtm.vrt,deltadtm,3.7047739028930664,True
+ކުމުންދޫ,island,73.0517479,6.5712624,2.3618311882019043,2.3618311882019043,valid,maldives_deltadtm.vrt,deltadtm,8.094818115234375,False
+ފެރިދޫ,islet,72.7254563,4.0510491,6.972815990447998,6.972815990447998,valid,maldives_deltadtm.vrt,deltadtm,6.9902424812316895,False
+Unnamed settlement,islet,72.9484285,3.9985559,0.47756126523017883,0.47756126523017883,valid,maldives_deltadtm.vrt,deltadtm,1.8405888080596924,True
+މީދޫ,islet,72.9554562,5.4580071,2.379624843597412,2.379624843597412,valid,maldives_deltadtm.vrt,deltadtm,4.492850303649902,False
+Unnamed settlement,islet,73.1258577,-0.681131,-9999.0,2.068723678588867,snapped_to_land,maldives_deltadtm.vrt,deltadtm,3.7813483476638794,False
+Unnamed settlement,islet,73.123302,-0.677627,2.1884467601776123,2.1884467601776123,valid,maldives_deltadtm.vrt,deltadtm,1.8488067388534546,False
+Thunburi,islet,73.5402017,2.074897,1.2906571626663208,1.2906571626663208,valid,maldives_deltadtm.vrt,deltadtm,10.300451278686523,False
+Hulhiyandhoo,islet,73.5420384,2.0809867,1.0055111646652222,1.0055111646652222,valid,maldives_deltadtm.vrt,deltadtm,7.309686660766602,False
+މަހިބަދޫ,islet,72.9689014,3.7572569,0.8523625731468201,0.8523625731468201,valid,maldives_deltadtm.vrt,deltadtm,2.1146459579467773,True
+Lily Beach Resort & Spa,islet,72.9537251,3.6537041,1.9363476037979126,1.9363476037979126,valid,maldives_deltadtm.vrt,deltadtm,6.8518266677856445,False
+Dheerondi,islet,73.0871321,-0.5948357,2.1029560565948486,2.1029560565948486,valid,maldives_deltadtm.vrt,deltadtm,3.1958603858947754,False
+Kudamaahera,islet,73.0889997,-0.5979672,-9999.0,2.0533721446990967,snapped_to_land,maldives_deltadtm.vrt,deltadtm,1.0101492702960968,False
+Maahera,islet,73.0900678,-0.5949222,2.031991481781006,2.031991481781006,valid,maldives_deltadtm.vrt,deltadtm,3.4765496253967285,False
+Unnamed settlement,island,73.1121656,-0.6554075,-9999.0,2.3955832719802856,snapped_to_land,maldives_deltadtm.vrt,deltadtm,1.881667137145996,False
+Unnamed settlement,islet,73.6145469,4.3514725,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,73.6146693,4.3528971,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Huraagandu,islet,73.654634,4.3716684,1.6447784900665283,1.6447784900665283,valid,maldives_deltadtm.vrt,deltadtm,5.299956321716309,False
+Unnamed settlement,islet,73.3766177,3.8404555,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,73.1485751,-0.6123031,2.062040090560913,2.062040090560913,valid,maldives_deltadtm.vrt,deltadtm,1.5553158521652222,False
+Fathikedehera gan’du,islet,73.1417416,-0.6151393,-9999.0,1.8651273846626282,snapped_to_land,maldives_deltadtm.vrt,deltadtm,0.4076858460903168,False
+Unnamed settlement,islet,73.1476289,-0.6132625,2.063366413116455,2.063366413116455,valid,maldives_deltadtm.vrt,deltadtm,0.6052177548408508,False
+Hermit Crab Island,islet,73.503109,3.968876,0.700158417224884,0.700158417224884,valid,maldives_deltadtm.vrt,deltadtm,0.29721587896347046,True
+Unnamed settlement,islet,73.3915329,0.3680358,0.9117063283920288,0.9117063283920288,valid,maldives_deltadtm.vrt,deltadtm,5.7615966796875,True
+ތިނަދޫ,island,72.9986245,0.5325645,2.676025629043579,2.676025629043579,valid,maldives_deltadtm.vrt,deltadtm,2.7714998722076416,False
+Hulhumeedhoo,island,73.229609,-0.5939836,1.9388220310211182,1.9388220310211182,valid,maldives_deltadtm.vrt,deltadtm,4.2090163230896,False
+Ismehela Hera,islet,73.2150283,-0.579396,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Hikihera,islet,73.2217002,-0.5804269,-9999.0,2.0530006885528564,snapped_to_land,maldives_deltadtm.vrt,deltadtm,1.9484199285507202,False
+Herathera,islet,73.2244862,-0.6264944,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+ފެހެންދޫ,islet,72.9676438,4.8819927,-9999.0,2.119518995285034,snapped_to_land,maldives_deltadtm.vrt,deltadtm,4.663834571838379,False
+ފުޅަދޫ,islet,72.9318248,4.884655,1.3632460832595825,1.3632460832595825,valid,maldives_deltadtm.vrt,deltadtm,3.5266244411468506,False
+ގޮއިދޫ,island,73.0002889,4.8709111,2.3782284259796143,2.3782284259796143,valid,maldives_deltadtm.vrt,deltadtm,5.207900047302246,False
+Veligandu,islet,73.0116425,4.2985052,1.7107096910476685,1.7107096910476685,valid,maldives_deltadtm.vrt,deltadtm,7.47797966003418,False
+Filitheyo,islet,73.0367944,3.2131558,1.4673219919204712,1.4673219919204712,valid,maldives_deltadtm.vrt,deltadtm,11.596467018127441,False
+Unnamed settlement,islet,73.5353064,2.0551267,1.049307107925415,1.049307107925415,valid,maldives_deltadtm.vrt,deltadtm,5.120325565338135,False
+Unnamed settlement,islet,73.5382509,2.0642019,0.8779312372207642,0.8779312372207642,valid,maldives_deltadtm.vrt,deltadtm,3.901749849319458,True
+Unnamed settlement,islet,73.2781883,1.8164101,0.7032749056816101,0.7032749056816101,valid,maldives_deltadtm.vrt,deltadtm,5.388559818267822,True
+Maakaulhuveli,islet,73.3406791,1.7883084,-9999.0,1.2775951027870178,snapped_to_land,maldives_deltadtm.vrt,deltadtm,3.547995686531067,False
+Bodufenrahaa,islet,73.2796031,1.8171294,0.847638726234436,0.847638726234436,valid,maldives_deltadtm.vrt,deltadtm,6.400893688201904,True
+Bodumaabulhali,islet,73.2554717,1.849273,0.891086757183075,0.891086757183075,valid,maldives_deltadtm.vrt,deltadtm,10.736008644104004,True
+Unnamed settlement,islet,73.5366117,2.0650878,1.043643593788147,1.043643593788147,valid,maldives_deltadtm.vrt,deltadtm,6.718547344207764,False
+Bileitheyrahaa,islet,73.5349631,2.056848,-9999.0,1.0874123573303223,snapped_to_land,maldives_deltadtm.vrt,deltadtm,5.0028486251831055,False
+ފުވައްމުލައް,island,73.4258244,-0.2945814,2.439152956008911,2.439152956008911,valid,maldives_deltadtm.vrt,deltadtm,6.428182125091553,False
+Bandos,islet,73.4914537,4.2693806,1.5857588052749634,1.5857588052749634,valid,maldives_deltadtm.vrt,deltadtm,2.6599607467651367,False
+Staffarea,locality,72.8219341,3.6525775,1.6773430109024048,1.6773430109024048,valid,maldives_deltadtm.vrt,deltadtm,7.413842678070068,False
+B.Kudadhoo,islet,72.9914927,5.029032,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,72.9057999,5.001359,1.5675132274627686,1.5675132274627686,valid,maldives_deltadtm.vrt,deltadtm,11.893938064575195,False
+Jumhooree Maidan,square,73.5111036,4.1791188,1.9682185649871826,1.9682185649871826,valid,maldives_deltadtm.vrt,deltadtm,1.2753760814666748,False
+ކޫއްޑޫ އެއަރޕޯޓް,island,73.4338179,0.7337101,2.2156667709350586,2.2156667709350586,valid,maldives_deltadtm.vrt,deltadtm,8.368823051452637,False
+Dream Island,islet,73.4606783,3.8519668,1.2166422605514526,1.2166422605514526,valid,maldives_deltadtm.vrt,deltadtm,1.0014218091964722,False
+ފޮނަދޫ,island,73.4988191,1.8358256,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+ފުނަދޫ,islet,73.5177074,4.1836972,1.7735621929168701,1.7735621929168701,valid,maldives_deltadtm.vrt,deltadtm,4.233739852905273,False
+ދިއްގަރު,islet,73.5619305,3.1138411,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Lankanfinolhu,islet,73.5541144,4.2858273,1.945298194885254,1.945298194885254,valid,maldives_deltadtm.vrt,deltadtm,6.6776123046875,False
+Haadhoo,islet,72.9995985,0.4521898,2.0644075870513916,2.0644075870513916,valid,maldives_deltadtm.vrt,deltadtm,4.693490982055664,False
+Dhinmana,islet,72.997844,0.4500111,2.1320390701293945,2.1320390701293945,valid,maldives_deltadtm.vrt,deltadtm,4.051544666290283,False
+Kannigilla,islet,72.9982305,0.449225,1.9559069871902466,1.9559069871902466,valid,maldives_deltadtm.vrt,deltadtm,7.149469375610352,False
+Unnamed settlement,islet,73.0394043,0.2995227,-9999.0,1.208715558052063,snapped_to_land,maldives_deltadtm.vrt,deltadtm,2.953876256942749,False
+Kudafares,islet,73.3004004,1.7990948,-9999.0,1.086412489414215,snapped_to_land,maldives_deltadtm.vrt,deltadtm,1.5,False
+Hadahaa Island,islet,73.4539344,0.505654,0.0676695704460144,0.0676695704460144,valid,maldives_deltadtm.vrt,deltadtm,7.725841999053955,True
+Kandahalagala,islet,73.2166718,0.2252894,1.7485718727111816,1.7485718727111816,valid,maldives_deltadtm.vrt,deltadtm,5.457691669464111,False
+Unnamed settlement,islet,73.5048766,3.976503,-9999.0,0.7431467175483704,snapped_to_land,maldives_deltadtm.vrt,deltadtm,0.33008453249931335,True
+ގުޅި,islet,73.5094121,3.9903538,0.915819525718689,0.915819525718689,valid,maldives_deltadtm.vrt,deltadtm,2.5363171100616455,True
+Unnamed settlement,islet,72.871434,3.4796863,-9999.0,2.82819926738739,snapped_to_land,maldives_deltadtm.vrt,deltadtm,3.4171422719955444,False
+Hiyafushi,islet,72.8718068,3.4791556,2.815485954284668,2.815485954284668,valid,maldives_deltadtm.vrt,deltadtm,5.609109401702881,False
+ދާންދޫ,islet,73.4609287,0.6209616,1.5900006294250488,1.5900006294250488,valid,maldives_deltadtm.vrt,deltadtm,2.2480344772338867,False
+Mushimasgali,islet,72.9125189,3.9589068,-9999.0,0.4121241271495819,snapped_to_land,maldives_deltadtm.vrt,deltadtm,1.795992374420166,True
+Unnamed settlement,islet,73.297171,2.3125555,-9999.0,0.7915664911270142,snapped_to_land,maldives_deltadtm.vrt,deltadtm,1.4638618230819702,True
+Alifushi,archipelago,72.947372,5.9709406,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Hulhudhoo,islet,73.0251257,5.2748769,1.5640366077423096,1.5640366077423096,valid,maldives_deltadtm.vrt,deltadtm,14.046582221984863,False
+Maamunagaufinolhu,islet,72.876277,5.3693485,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,73.3539583,5.7872484,-9999.0,0.9214818477630615,snapped_to_land,maldives_deltadtm.vrt,deltadtm,2.145707607269287,True
+ދިވެހިރާއްޖެ,country,73.2244152,3.7203503,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+ފެހިގިލި,islet,73.4828597,5.5544952,0.7025839686393738,0.7025839686393738,valid,maldives_deltadtm.vrt,deltadtm,1.6363850831985474,True
+ދެހުރާއެއްވިރަށް,islet,73.4896671,5.554654,-0.053288985043764114,-0.053288985043764114,valid,maldives_deltadtm.vrt,deltadtm,4.382321357727051,True
+މަސްލެއްގިހުރާ,islet,73.500984,5.5438813,0.37682899832725525,0.37682899832725525,valid,maldives_deltadtm.vrt,deltadtm,3.9078495502471924,True
+ވެލިގަނޑު,islet,73.4376188,5.5284099,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Kudadhoo,islet,73.4336894,5.5030307,1.2163468599319458,1.2163468599319458,valid,maldives_deltadtm.vrt,deltadtm,10.095596313476562,False
+މެދާދިހުރާ,islet,73.5030937,5.5410995,0.21844890713691711,0.21844890713691711,valid,maldives_deltadtm.vrt,deltadtm,4.866149425506592,True
+Huruvalhi,islet,73.4416664,5.5212171,1.4278411865234375,1.4278411865234375,valid,maldives_deltadtm.vrt,deltadtm,5.635054111480713,False
+ގާއެރިފަޅު,islet,73.4035817,5.4851725,1.8789430856704712,1.8789430856704712,valid,maldives_deltadtm.vrt,deltadtm,2.982316017150879,False
+ހިންނަވަރު,islet,73.4114982,5.4923924,0.7005866765975952,0.7005866765975952,valid,maldives_deltadtm.vrt,deltadtm,1.7974529266357422,True
+Alidhoo,islet,73.1521915,6.8490092,1.6461362838745117,1.6461362838745117,valid,maldives_deltadtm.vrt,deltadtm,6.008683204650879,False
+Staff Area,yes,73.1517886,6.8495802,1.648676872253418,1.648676872253418,valid,maldives_deltadtm.vrt,deltadtm,4.663801193237305,False
+Hulhidhoo,islet,73.5323578,3.4933617,10.912214279174805,10.912214279174805,valid,maldives_deltadtm.vrt,deltadtm,10.436634063720703,False
+Medhudheli,islet,73.3444051,5.6925986,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Fahudheli,islet,73.3446816,5.6949851,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Cheval Blanc Spa,islet,73.3361006,5.6968577,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Cheval Blanc Randheli Private Island,islet,73.3353968,5.6989198,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,72.9389928,6.7590535,0.05760740488767624,0.05760740488767624,valid,maldives_deltadtm.vrt,deltadtm,0.9439361095428467,True
+Unnamed settlement,islet,73.0676677,6.0299289,0.37689605355262756,0.37689605355262756,valid,maldives_deltadtm.vrt,deltadtm,4.726147651672363,True
+Unnamed settlement,islet,73.0137138,2.1699782,-9999.0,1.6100411415100098,snapped_to_land,maldives_deltadtm.vrt,deltadtm,4.515361785888672,False
+Ekasdhoo,islet,73.2845164,6.0708116,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,72.9123304,3.9635632,-0.057355042546987534,-0.057355042546987534,valid,maldives_deltadtm.vrt,deltadtm,1.6028059720993042,True
+Himithi,islet,72.8185522,3.2565793,-9999.0,4.884929656982422,snapped_to_land,maldives_deltadtm.vrt,deltadtm,4.563400745391846,False
+ކެލާ,island,73.2155077,6.9518294,1.9284443855285645,1.9284443855285645,valid,maldives_deltadtm.vrt,deltadtm,2.121875286102295,False
+Unnamed settlement,islet,73.0416531,5.6394902,-9999.0,0.6144513636827469,snapped_to_land,maldives_deltadtm.vrt,deltadtm,1.7736743092536926,True
+Fesdhoo,islet,72.8110179,4.0069069,0.18308503925800323,0.18308503925800323,valid,maldives_deltadtm.vrt,deltadtm,6.975599765777588,True
+ތިލަފުށި,island,73.4317698,4.1833727,1.123939037322998,1.123939037322998,valid,maldives_deltadtm.vrt,deltadtm,0.6866718530654907,False
+Hudhuranfushi,islet,73.6179939,4.3509306,1.639672875404358,1.639672875404358,valid,maldives_deltadtm.vrt,deltadtm,3.478553533554077,False
+Thiladhunmathi,archipelago,73.173666,6.3044703,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Faadhippolhu Atoll,archipelago,73.4954506,5.4000218,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Southern Maalhosmadulhu Atoll,archipelago,73.0019534,5.1868334,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Northern Maalhosmadulu Atoll,archipelago,72.917692,5.6201036,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Maamakunudhoo-Atoll,archipelago,72.6312375,6.310275,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Ihavandhippolhu Atoll,archipelago,72.8990508,7.0089992,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+North Malé Atoll,archipelago,73.5324698,4.4363069,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+South Malé Atoll,archipelago,73.4465593,3.9680647,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Huvadhu Atoll,archipelago,73.283332,0.5510963,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Addu Atoll,archipelago,73.1582234,-0.6411787,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Mulaku Atoll,archipelago,73.5107839,2.9605111,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Vattaru Atoll,archipelago,73.4363027,3.2513776,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Felidhu Atoll,archipelago,73.5241308,3.4931249,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Ari Atoll,archipelago,72.8390764,3.8779712,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Rashdoo Atoll,archipelago,72.9737262,4.2954685,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Goidhoo,archipelago,72.9290192,4.8504226,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+ގާފަރު Gaafaru,archipelago,73.4404724,4.750264,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Faafu Atoll,archipelago,72.9245853,3.1884067,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Dhaalu Atoll,archipelago,72.9263878,2.836239,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Laamu Atoll,archipelago,73.4113231,1.9555513,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Thaa Atoll,archipelago,73.1282897,2.3618187,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,73.3950127,4.2181905,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,73.1896263,0.5316082,0.60417640209198,0.60417640209198,valid,maldives_deltadtm.vrt,deltadtm,0.38171255588531494,True
+Unnamed settlement,island,72.9557178,3.6478712,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+The Marina at Crossroads Maldives,islet,73.4628634,4.1241559,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,73.1101646,-0.6309471,2.0366873741149902,2.0366873741149902,valid,maldives_deltadtm.vrt,deltadtm,1.970521092414856,False
+Amingiri Resort,islet,73.366763,4.2499534,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,73.6574668,5.3441735,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Hard Rock Hotel Maldives,islet,73.4720415,4.1238158,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,73.6249265,4.3629903,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,73.5236898,4.0897684,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Maafushi Island,island,73.489666,3.9409948,2.073780059814453,2.073780059814453,valid,maldives_deltadtm.vrt,deltadtm,3.487921953201294,False
+Rah Falhu B,islet,73.5839236,4.5947442,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+The Ritz Carlton Maldives Fari Islands,islet,73.5805701,4.6042884,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Capella Maldives,islet,73.5704385,4.6138953,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,73.5325476,4.6708495,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,73.5446142,4.6654454,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+"SAii Lagoon Maldives, Curio Collection by Hilton",islet,73.4684011,4.1203418,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,73.481224,4.1233709,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,73.4838998,4.1231367,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,73.492789,4.1220851,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,73.5034139,4.1216266,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,73.5144349,4.1211203,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,73.5162549,4.1232014,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,73.5182049,4.1204202,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,73.5037581,3.5785496,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,73.4654382,4.1224544,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,72.9163168,5.3626846,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,72.9177239,5.3625853,-9999.0,1.1475077867507935,snapped_to_land,maldives_deltadtm.vrt,deltadtm,3.7283103466033936,False
+Unnamed settlement,islet,73.394311,4.0142394,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,73.3901155,4.0144124,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,73.3875188,4.015157,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Ithaafushi,islet,73.3835619,4.0143756,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,73.3831743,4.0119695,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Ithaafushi. The private island by a Waldorf Astoria,islet,73.4033898,4.0088336,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,73.4733827,3.9008761,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,73.5147894,4.6919856,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,square,73.520206,4.227548,2.092634677886963,2.092634677886963,valid,maldives_deltadtm.vrt,deltadtm,2.6791672706604004,False
+Kottefaru,islet,73.040964,5.5100205,2.454868793487549,2.454868793487549,valid,maldives_deltadtm.vrt,deltadtm,3.507830858230591,False
+Unnamed settlement,islet,72.859066,2.8679384,1.9999964237213135,1.9999964237213135,valid,maldives_deltadtm.vrt,deltadtm,2.403761625289917,False
+މާމެންދޫ,islet,73.4386912,0.7132393,1.9697877168655396,1.9697877168655396,valid,maldives_deltadtm.vrt,deltadtm,4.959202766418457,False
+TUI Blue Romance Island,islet,73.4600774,3.8474381,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,72.9162307,3.5152914,-9999.0,1.1364232301712036,snapped_to_land,maldives_deltadtm.vrt,deltadtm,4.662769556045532,False
+Unnamed settlement,islet,72.9166331,3.5152488,-9999.0,1.1332463026046753,snapped_to_land,maldives_deltadtm.vrt,deltadtm,4.923605918884277,False
+OBLU SELECT LOBIGILI,islet,73.5011045,4.308009,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+OBLU XPERIENCE AILAFUSHI,islet,73.5054907,4.3064333,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,73.0264784,2.8136662,0.7781622409820557,0.7781622409820557,valid,maldives_deltadtm.vrt,deltadtm,11.677230834960938,True
+Unnamed settlement,islet,73.0258395,2.8065764,0.8650226593017578,0.8650226593017578,valid,maldives_deltadtm.vrt,deltadtm,4.165462493896484,True
+Unnamed settlement,islet,73.0269481,2.8063936,0.8631477355957031,0.8631477355957031,valid,maldives_deltadtm.vrt,deltadtm,3.461602210998535,True
+Unnamed settlement,islet,73.0262157,2.8037811,0.8714795708656311,0.8714795708656311,valid,maldives_deltadtm.vrt,deltadtm,10.449339866638184,True
+Unnamed settlement,islet,73.0258884,2.8012431,0.6555964946746826,0.6555964946746826,valid,maldives_deltadtm.vrt,deltadtm,12.740289688110352,True
+Unnamed settlement,islet,73.5264136,4.1178405,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,square,72.8651263,4.2155327,3.079602003097534,3.079602003097534,valid,maldives_deltadtm.vrt,deltadtm,3.2902112007141113,False
+ގުޅިފަޅު,island,73.4665342,4.179906,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,73.4606517,3.8687057,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,plot,73.0937058,-0.6086289,1.7746076583862305,1.7746076583862305,valid,maldives_deltadtm.vrt,deltadtm,1.1770217418670654,False
+Unnamed settlement,plot,73.0927248,-0.6072085,1.9508734941482544,1.9508734941482544,valid,maldives_deltadtm.vrt,deltadtm,0.91710364818573,False
+Unnamed settlement,square,73.0923715,-0.6090656,1.9426378011703491,1.9426378011703491,valid,maldives_deltadtm.vrt,deltadtm,3.1287407875061035,False
+Unnamed settlement,islet,72.8798511,4.1696538,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,72.9403585,3.6119609,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,73.292479,6.1551762,1.847998857498169,1.847998857498169,valid,maldives_deltadtm.vrt,deltadtm,2.870502233505249,False
+Unnamed settlement,islet,73.5902133,5.2752866,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,73.5904513,5.277001,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,73.588224,5.27593,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,square,73.091408,-0.6052787,1.99953293800354,1.99953293800354,valid,maldives_deltadtm.vrt,deltadtm,1.7879681587219238,False
+Unnamed settlement,islet,73.0093428,2.986239,0.02424723096191883,0.02424723096191883,valid,maldives_deltadtm.vrt,deltadtm,2.689008951187134,True
+Staff Area,quarter,73.5201227,4.2269063,2.0749828815460205,2.0749828815460205,valid,maldives_deltadtm.vrt,deltadtm,3.244410514831543,False
+Unnamed settlement,islet,73.3250235,5.7427402,2.0493991374969482,2.0493991374969482,valid,maldives_deltadtm.vrt,deltadtm,5.590507507324219,False
+Unnamed settlement,islet,73.3250436,5.742868,2.0493991374969482,2.0493991374969482,valid,maldives_deltadtm.vrt,deltadtm,5.590507507324219,False
+Unnamed settlement,islet,73.426863,4.2266869,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,73.436143,4.2249133,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,island,73.0788594,-0.5837333,2.2869675159454346,2.2869675159454346,valid,maldives_deltadtm.vrt,deltadtm,2.6254124641418457,False
+Kodhipparu Falhu,islet,73.348211,4.3136219,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,73.5598508,5.469925,1.3798046112060547,1.3798046112060547,valid,maldives_deltadtm.vrt,deltadtm,2.0669620037078857,False
+Unnamed settlement,islet,73.3797841,4.0617438,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,73.3884727,4.0561704,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,73.3878091,4.0851946,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Mantafushi Island,island,73.4875361,3.9331132,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,73.4962206,3.9489199,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,73.3597447,4.2569947,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,73.3516466,4.2798108,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,73.3589735,4.3095315,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,73.3868145,4.3423,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,73.6658241,4.376069,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,73.6610836,4.5184256,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,73.4372264,3.8238719,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,72.8581032,5.012898,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,72.8558996,5.0054047,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,73.5404837,2.1066687,1.6164324283599854,1.6164324283599854,valid,maldives_deltadtm.vrt,deltadtm,3.232574462890625,False
+Unnamed settlement,islet,73.6174892,3.0254612,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,73.6189587,3.0307741,1.776989459991455,1.776989459991455,valid,maldives_deltadtm.vrt,deltadtm,4.2761430740356445,False
+Unnamed settlement,islet,73.4475329,3.9650871,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,73.3531996,4.2972846,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,73.4079086,4.6090936,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,73.3960238,4.6207902,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,73.4075547,4.6243032,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,73.4199035,4.6103261,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,73.6531765,4.5223536,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,73.6456007,4.5190554,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,73.6771824,4.3873978,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,72.8462857,5.0609332,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,72.9786232,5.1335038,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,72.8020308,3.4878187,-9999.0,1.5653530359268188,snapped_to_land,maldives_deltadtm.vrt,deltadtm,4.650542497634888,False
+Maamigili,island,72.8312058,3.4758404,0.9790107607841492,0.9790107607841492,valid,maldives_deltadtm.vrt,deltadtm,3.8742592334747314,True
+Unnamed settlement,square,73.5108565,4.1779247,1.9935383796691895,1.9935383796691895,valid,maldives_deltadtm.vrt,deltadtm,5.68505859375,False
+Unnamed settlement,islet,73.4234226,4.2652919,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Giraavaru Falhu,island,73.4023083,4.198924,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,73.2044031,6.8157208,1.3074591159820557,1.3074591159820557,valid,maldives_deltadtm.vrt,deltadtm,3.244354724884033,False
+Unnamed settlement,islet,73.2760092,5.6666783,-9999.0,-0.6561882644891739,snapped_to_land,maldives_deltadtm.vrt,deltadtm,0.9420687258243561,True
+Unnamed settlement,islet,72.8130699,7.077697,0.4908212125301361,0.4908212125301361,valid,maldives_deltadtm.vrt,deltadtm,6.604570388793945,True
+Unnamed settlement,islet,72.9671666,5.7699075,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Unnamed settlement,islet,72.9677576,5.7689696,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Raafushi,islet,73.2982498,5.6477373,1.6927999258041382,1.6927999258041382,valid,maldives_deltadtm.vrt,deltadtm,4.936625957489014,False
+Unnamed settlement,islet,73.6352297,3.0837671,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Baby Island,islet,72.9762341,5.3881561,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Halaveli,village,72.9195173,4.038515,1.9168968200683594,1.9168968200683594,valid,maldives_deltadtm.vrt,deltadtm,4.213537693023682,False
+Staffarea,locality,73.488104,3.6454886,-0.16060446202754974,-0.16060446202754974,valid,maldives_deltadtm.vrt,deltadtm,5.404834270477295,True
+ހުޅުމާލެ,town,73.5385131,4.2139376,1.8945361375808716,1.8945361375808716,valid,maldives_deltadtm.vrt,deltadtm,1.0574551820755005,False
+ވޭމަންޑޫ,town,73.0950817,2.188013,0.41292205452919006,0.41292205452919006,valid,maldives_deltadtm.vrt,deltadtm,4.356602191925049,True
+މާލެ,city,73.5107387,4.1779879,1.9935383796691895,1.9935383796691895,valid,maldives_deltadtm.vrt,deltadtm,5.68505859375,False
+Maayafushi,village,72.8877046,4.0736885,1.7470568418502808,1.7470568418502808,valid,maldives_deltadtm.vrt,deltadtm,9.674777030944824,False
+Kandolhudhoo,hamlet,72.8817276,4.0025859,1.6764521598815918,1.6764521598815918,valid,maldives_deltadtm.vrt,deltadtm,7.56215763092041,False
+Kuda Gulhi,locality,73.5070244,3.9929117,0.8330405354499817,0.8330405354499817,valid,maldives_deltadtm.vrt,deltadtm,0.4161059558391571,True
+Savaaheli,islet,73.126936,-0.6826836,1.9461933374404907,1.9461933374404907,valid,maldives_deltadtm.vrt,deltadtm,6.168444633483887,False
+Boduhajaraa,islet,73.1231836,-0.6788908,-9999.0,2.0339337587356567,snapped_to_land,maldives_deltadtm.vrt,deltadtm,1.4945762157440186,False
+Gauken'di,locality,73.1078764,-0.6515553,-9999.0,2.0325584411621094,snapped_to_land,maldives_deltadtm.vrt,deltadtm,2.3623173236846924,False
+Aboohuraa,locality,73.1046483,-0.6433635,0.33348244428634644,0.33348244428634644,valid,maldives_deltadtm.vrt,deltadtm,8.658369064331055,True
+ހިތަދޫ,town,73.0879612,-0.6061889,2.0591866970062256,2.0591866970062256,valid,maldives_deltadtm.vrt,deltadtm,5.243007183074951,False
+Kaohera,island,73.0886837,-0.5913575,2.340898275375366,2.340898275375366,valid,maldives_deltadtm.vrt,deltadtm,3.0428502559661865,False
+Bedhey aurah,locality,73.0879996,-0.5818971,2.3084356784820557,2.3084356784820557,valid,maldives_deltadtm.vrt,deltadtm,1.5369739532470703,False
+Kan’dihera gan’du,islet,73.1480454,-0.6126265,-9999.0,2.1665127277374268,snapped_to_land,maldives_deltadtm.vrt,deltadtm,1.1668193340301514,False
+Kodadhihera gan’du,islet,73.1443603,-0.61355,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Maradhoofeydhoo,locality,73.125814,-0.6733099,2.1177709102630615,2.1177709102630615,valid,maldives_deltadtm.vrt,deltadtm,3.068776845932007,False
+Kafathalhaa Hera,islet,73.1258442,-0.6802993,2.0753979682922363,2.0753979682922363,valid,maldives_deltadtm.vrt,deltadtm,5.317233085632324,False
+Vashahéra,islet,73.1289406,-0.6854403,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Kuda Kandihereganda,locality,73.134977,-0.6137416,-9999.0,1.9933911561965942,snapped_to_land,maldives_deltadtm.vrt,deltadtm,0.5401374101638794,False
+Kudhu Kandihera,locality,73.1474193,-0.6140546,-9999.0,2.2698895931243896,snapped_to_land,maldives_deltadtm.vrt,deltadtm,0.8113688826560974,False
+12 Blues,island,72.9861964,5.6466705,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+އުނގޫފާރު,town,73.0301724,5.6680631,1.8481841087341309,1.8481841087341309,valid,maldives_deltadtm.vrt,deltadtm,5.823145866394043,False
+Eththigili,locality,72.9381027,5.9789627,0.5537031888961792,0.5537031888961792,valid,maldives_deltadtm.vrt,deltadtm,6.390233516693115,True
+Kashidhuffarufinolhu,islet,72.9249114,5.2979562,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+Hanifaruhuraa,islet,73.1510008,5.1723891,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+އޭދަފުށި,town,73.0703652,5.1033363,1.2991074323654175,1.2991074323654175,valid,maldives_deltadtm.vrt,deltadtm,1.5359359979629517,False
+Ethigan'du jehihuraa,islet,73.0309925,5.4256241,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+ރަސްދޫ,town,72.9919981,4.2628232,1.0474238395690918,1.0474238395690918,valid,maldives_deltadtm.vrt,deltadtm,5.011342525482178,False
+މަހިބަދޫ,town,72.9696123,3.7572007,1.2621837854385376,1.2621837854385376,valid,maldives_deltadtm.vrt,deltadtm,4.1537957191467285,False
+ކުޑަހުވަދޫ,town,72.8938459,2.6712087,0.20020952820777893,0.20020952820777893,valid,maldives_deltadtm.vrt,deltadtm,3.563615083694458,True
+ނިލަންދޫ,town,72.889895,3.0561219,2.368887186050415,2.368887186050415,valid,maldives_deltadtm.vrt,deltadtm,5.541013240814209,False
+ވިލިނގިލި,town,73.4338993,0.7551045,2.3608577251434326,2.3608577251434326,valid,maldives_deltadtm.vrt,deltadtm,2.990605354309082,False
+ފުވައްމުލައް,town,73.4254986,-0.3005253,3.25935435295105,3.25935435295105,valid,maldives_deltadtm.vrt,deltadtm,2.8400347232818604,False
+ދިއްދޫ,town,73.1133538,6.889046,2.8524653911590576,2.8524653911590576,valid,maldives_deltadtm.vrt,deltadtm,3.3260772228240967,False
+ކުޅުދުއްފުށި,town,73.0709428,6.6229329,1.9468698501586914,1.9468698501586914,valid,maldives_deltadtm.vrt,deltadtm,6.71833610534668,False
+ފޮނަދޫ,town,73.5025558,1.8333203,1.7177025079727173,1.7177025079727173,valid,maldives_deltadtm.vrt,deltadtm,5.095539093017578,False
+ނައިފަރު,town,73.365232,5.4447298,-0.35925450921058655,-0.35925450921058655,valid,maldives_deltadtm.vrt,deltadtm,0.7697604298591614,True
+މުލި,town,73.5814986,2.9221163,1.363114595413208,1.363114595413208,valid,maldives_deltadtm.vrt,deltadtm,7.580023288726807,False
+ފުނަދޫ,town,73.2903689,6.1488286,1.0261341333389282,1.0261341333389282,valid,maldives_deltadtm.vrt,deltadtm,2.0674984455108643,False
+ފެލިދޫ,town,73.5473728,3.4719776,-0.04275572672486305,-0.04275572672486305,valid,maldives_deltadtm.vrt,deltadtm,5.523066997528076,True
+ތުލުސްދޫ,town,73.6519073,4.3748502,1.2733259201049805,1.2733259201049805,valid,maldives_deltadtm.vrt,deltadtm,4.608741283416748,False
+Unnamed settlement,village,72.9265702,3.063521,2.4856841564178467,2.4856841564178467,valid,maldives_deltadtm.vrt,deltadtm,8.882925033569336,False
+އޮޅުވެލިފުށި,village,73.6072389,5.278298,1.5175175666809082,1.5175175666809082,valid,maldives_deltadtm.vrt,deltadtm,4.871412754058838,False
+ދިއްފުށިމާދޫ,island,73.6499372,5.3865343,1.4761998653411865,1.4761998653411865,valid,maldives_deltadtm.vrt,deltadtm,3.4900400638580322,False
+ސެއްޅިފުށި,island,73.6399103,5.4238928,0.9545524716377258,0.9545524716377258,valid,maldives_deltadtm.vrt,deltadtm,3.6183388233184814,True
+ހުރާގަނޑު,island,73.5103265,5.5006983,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+މޭއްޔަފުށި,island,73.6090055,5.4411576,1.1136455535888672,1.1136455535888672,valid,maldives_deltadtm.vrt,deltadtm,5.624800205230713,False
+ދުމަށިފަރު,island,73.4194556,5.5031279,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+ކަޅިފުށީފަރު,island,73.4297833,5.5139987,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+މިލަދޫ,village,73.3625587,5.7905005,0.7440876364707947,0.7440876364707947,valid,maldives_deltadtm.vrt,deltadtm,5.049977779388428,True
+ކުޑަފަރީ,village,73.4000573,5.8827458,2.281719446182251,2.281719446182251,valid,maldives_deltadtm.vrt,deltadtm,4.6735005378723145,False
+ފާދިއްޕޮޅު,atoll,73.5159489,5.3771115,0.0,,water_no_land_nearby,maldives_elevation_v2.vrt,deltadtm,,False
+ތިމަރަފުށި,town,73.142812,2.2061554,1.2790275812149048,1.2790275812149048,valid,maldives_deltadtm.vrt,deltadtm,5.125482082366943,False
+Van'gaaru,islet,73.2038453,6.0895386,2.140216588973999,2.140216588973999,valid,maldives_deltadtm.vrt,deltadtm,3.42287015914917,False
+މަގޫދޫ,village,72.9641446,3.078537,2.067373514175415,2.067373514175415,valid,maldives_deltadtm.vrt,deltadtm,8.07949161529541,False
+ތިނަދޫ,town,72.9965866,0.530351,2.4305450916290283,2.4305450916290283,valid,maldives_deltadtm.vrt,deltadtm,6.50750732421875,False
+މަނަދޫ,town,73.4123826,5.7666661,2.371202230453491,2.371202230453491,valid,maldives_deltadtm.vrt,deltadtm,5.195919036865234,False
+މަޑިފުށި,town,73.3545971,2.3566697,1.627509593963623,1.627509593963623,valid,maldives_deltadtm.vrt,deltadtm,4.036803245544434,False
+Hangnaameedhoo,island,72.9561952,3.8490218,1.5900263786315918,1.5900263786315918,valid,maldives_deltadtm.vrt,deltadtm,5.116369247436523,False

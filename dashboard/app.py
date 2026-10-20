@@ -5,6 +5,13 @@ import os
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 from styles import apply_custom_style, PALETTE
 from doc_viewer import render_doc_viewer
+from results import load as load_results, pct, pval
+
+R = load_results()
+_P = R["primary"]
+_ppl = {i: R["people"][(i, _P)] for i in R["islands"]}
+_top_ppl = max(_ppl, key=_ppl.get)
+_cvs_sorted = sorted(R["cvs"], key=R["cvs"].get, reverse=True)
 
 st.set_page_config(
     page_title="DOUBLE JEOPARDY",
@@ -25,7 +32,7 @@ ROOT_DIR = os.path.dirname(BASE_DIR)                      # repo root
 st.markdown("<h1 style='text-align: center;'>🌊 DOUBLE JEOPARDY</h1>", unsafe_allow_html=True)
 st.markdown(
     "<h3 style='text-align: center; color: #67E8F9; font-weight: 400; margin-top: -10px;'>"
-    "The Vulnerability Spiral — Compound Climate Risk Across Five Island Nations</h3>",
+    "The Vulnerability Spiral — Compound Climate Risk Across 5 Islands</h3>",
     unsafe_allow_html=True,
 )
 
@@ -92,7 +99,8 @@ with col2:
 with col3:
     st.metric("TIME SPAN", "1996–2024", "28 years")
 with col4:
-    st.metric("HIGHEST RISK", "Seychelles", "Score: 1.000")
+    _top = max(R["cvs"], key=R["cvs"].get)
+    st.metric("TOP COMPOUND SCORE", R["label"][_top], f"{R['cvs'][_top]:.2f} (near tie)", delta_color="off")
 
 st.markdown("---")
 
@@ -104,17 +112,14 @@ st.markdown(
         <p style="color:{PALETTE['navy']}; text-transform:uppercase; letter-spacing:1.5px;
                   font-weight:700; font-size:0.85rem; margin-bottom:8px;">Why This Matters</p>
         <p style="color:{PALETTE['text_dark']}; font-size:1rem; line-height:1.6; margin:0;">
-            Climate adaptation funding for small islands is often allocated using
-            single-indicator exposure metrics like sea-level-rise risk alone. This project tested
-            whether that single indicator would agree with a composite that also accounts for
-            ecosystem condition — and mostly it does: Seychelles comes out highest on settlement-based
-            physical exposure and the overall Compound Vulnerability Score alike, while population-weighted
-            exposure specifically now shows Maldives marginally ahead after a boundary-polygon correction
-            (see Physical Exposure), close enough to read as a near-tie between the two rather than a
-            clean disagreement. Treating "ecosystem
-            degradation" as one uniform trend would be a separate mistake: coral reefs are genuinely
-            declining, but mangroves, tested with equal rigor, are not — a finding that only survives
-            because it wasn't assumed away from the start.
+            Climate adaptation funding for small islands is often allocated using a single exposure
+            indicator. This project shows how much that choice matters. On a surface elevation model the
+            Maldives have {pct(R['people'][('maldives', 'copernicus')])} of people at or below 1 m; on a
+            bare-earth model, {pct(R['people'][('maldives', 'deltadtm')])}, and Lakshadweep moves from
+            {pct(R['people'][('lakshadweep', 'copernicus')])} to {pct(R['people'][('lakshadweep', 'deltadtm')])}.
+            Counting named places instead of people puts Seychelles level with the Maldives. And once
+            reef heat stress is added, the top island depends on the weighting: Seychelles at equal weights,
+            the Maldives once exposure carries {R['cvs_crossover']:.0%} or more of the weight. A single number would hide all of this.
         </p>
     </div>
     """,
@@ -147,15 +152,14 @@ with col_right:
             <p style="color:{PALETTE['navy']}; text-transform:uppercase; font-size:0.75rem;
                       letter-spacing:1.5px; font-weight:700; margin-bottom:10px;">Core Finding</p>
             <p style="color:{PALETTE['text_dark']}; font-size:0.95rem; line-height:1.6; margin:0;">
-                <b>Seychelles</b> is the highest-risk island on settlement-based
-                exposure (78.3% of settlements at risk) and the overall Compound Vulnerability Score once
-                coral thermal-stress trend is factored in on top of exposure. Population-weighted exposure
-                is closer: after a boundary-polygon fix, <b>Maldives</b> (14.9% of population) now
-                narrowly edges out Seychelles (14.2%) on this one measure specifically — a near-tie, not a
-                clean reversal. An earlier version of this analysis showed the
-                Maldives and Lakshadweep as far more exposed, which turned out to be a DEM
-                data-quality artifact rather than a real finding — see the Research Paper's
-                Limitations section for the full correction.
+                On a bare-earth elevation model, <b>{R['label'][_top_ppl]}</b> has the largest share of people
+                living at or below 1 m ({pct(_ppl[_top_ppl])}), followed by Lakshadweep ({pct(_ppl['lakshadweep'])})
+                and Seychelles ({pct(_ppl['seychelles'])}). The surface model used at first (Copernicus GLO-30)
+                put the Maldives at {pct(R['people'][('maldives', 'copernicus')])}: it measures tree and roof tops,
+                which lifts flat atolls most. Combined with the change in reef heat stress, the compound score
+                ranks <b>{R['label'][_cvs_sorted[0]]}</b> ({R['cvs'][_cvs_sorted[0]]:.2f}) just ahead of
+                {R['label'][_cvs_sorted[1]]} ({R['cvs'][_cvs_sorted[1]]:.2f}); the order flips once exposure
+                carries {R['cvs_crossover']:.0%} or more of the weight.
             </p>
         </div>
         """, unsafe_allow_html=True
@@ -171,12 +175,13 @@ with h1:
     st.markdown(f"""
     <div style="background: {PALETTE['card_bg']}; border-radius: 14px;
                 padding: 20px; border: 2px solid {PALETTE['risk']}; min-height: 200px;">
-        <p style="color: {PALETTE['risk']}; font-weight: 800; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 8px;">H1 — Supported</p>
-        <p style="color: {PALETTE['navy']}; font-weight: 700; font-size: 1rem; margin-bottom: 8px;">Coral Thermal Stress Is Rising</p>
+        <p style="color: {PALETTE['risk']}; font-weight: 800; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 8px;">H1 — Partly supported</p>
+        <p style="color: {PALETTE['navy']}; font-weight: 700; font-size: 1rem; margin-bottom: 8px;">More Reef Heat Stress, No Established Trend</p>
         <p style="color: {PALETTE['text_dark']}; font-size: 0.85rem; margin: 0;">
-            4 of 5 islands show a nominal rise in thermal-bleaching stress over 24 years; a
-            formal trend test confirms this as statistically significant for Maldives and
-            Seychelles (+0.68°C-weeks) — the two islands driving this project's central finding.
+            Mean heat stress over mapped reef was higher in 2016–2020 than in 1996–2000 at all four
+            island groups with reefs (largest in Seychelles, +{R['coral_change'][('seychelles', 'reef_cells')]:.2f} °C-weeks).
+            Once serial correlation is accounted for, no monotonic trend is significant
+            (Seychelles {pval(R['coral_p'][('seychelles', 'reef_cells')])}).
         </p>
     </div>
     """, unsafe_allow_html=True)
@@ -198,12 +203,12 @@ with h3:
     st.markdown(f"""
     <div style="background: {PALETTE['card_bg']}; border-radius: 14px;
                 padding: 20px; border: 2px solid {PALETTE['cyan']}; min-height: 200px;">
-        <p style="color: {PALETTE['cyan']}; font-weight: 800; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 8px;">H3 — Supported (Marginally)</p>
-        <p style="color: {PALETTE['navy']}; font-weight: 700; font-size: 1rem; margin-bottom: 8px;">Governance Is Partially Aligned</p>
+        <p style="color: {PALETTE['cyan']}; font-weight: 800; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 8px;">H3 — Not supported</p>
+        <p style="color: {PALETTE['navy']}; font-weight: 700; font-size: 1rem; margin-bottom: 8px;">Protection Does Not Track Risk</p>
         <p style="color: {PALETTE['text_dark']}; font-size: 0.85rem; margin: 0;">
-            Strong positive correlation (r=0.965, n=4 — Lakshadweep excluded, no WDPA data) between risk and
-            protection — reaching statistical significance (p=0.035, 95% CI: 0.05 to 1.00), though the
-            four-point sample is still too small to treat this as confirmatory.
+            Share of the 10 km coastal zone protected ranges from {pct(R['protected']['maldives'])} (Maldives) to
+            {pct(R['protected']['seychelles'])} (Seychelles) and is unrelated to the compound score
+            (r = {R['gov']['r']:.2f}, n = {R['gov']['n']}; Lakshadweep has no WDPA record). Descriptive only.
         </p>
     </div>
     """, unsafe_allow_html=True)
@@ -214,9 +219,9 @@ st.markdown("### Explore the Analysis")
 
 nav_items = [
     ("Study Design", "Islands, methodology, and hypotheses"),
-    ("Theoretical Foundations", "The physical and ecological theory behind the risk-reversal finding"),
+    ("Theoretical Foundations", "The physical and ecological theory behind compound coastal risk"),
     ("Ecological Findings", "Coral thermal stress vs. mangrove stability"),
-    ("Physical Exposure", "Settlement-level sea-level-rise risk"),
+    ("Physical Exposure", "People and places at or below 1 m, on two elevation models"),
     ("Compound Vulnerability", "The signature cross-island ranking"),
     ("Governance & Encroachment", "Protection alignment and settlement pressure"),
     ("Interactive Maps & Plots", "Live geospatial exploration plus the three headline charts"),

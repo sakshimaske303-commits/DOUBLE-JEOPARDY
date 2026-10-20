@@ -5,6 +5,9 @@ import os
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.append(PROJECT_ROOT)
 from styles import apply_custom_style, PALETTE
+from results import load as load_results, pval
+
+R = load_results()
 
 apply_custom_style()
 
@@ -21,13 +24,14 @@ st.markdown("---")
 
 st.markdown("""
 DOUBLE JEOPARDY tests mangrove and coral reef ecosystems **independently**, rather than assuming
-both degrade uniformly. The results reveal a striking asymmetry — one ecosystem type shows genuine,
-measurable decline; the other shows remarkable stability across nearly three decades.
+both degrade uniformly. Reef heat stress was higher in 2016–2020 than in 1996–2000 at every island
+group with mapped reef, although no monotonic trend is statistically established; mangrove area shows
+no change in Global Mangrove Watch between 1996 and 2020.
 """)
 
 st.markdown("---")
 
-tab1, tab2 = st.tabs(["Coral Reefs — H1 (Supported)", "Mangroves — H2 (Not Supported)"])
+tab1, tab2 = st.tabs(["Coral Reefs — H1 (Partly supported)", "Mangroves — H2 (Not supported)"])
 
 with tab1:
     st.markdown("### Coral Thermal Stress: 1996–2020")
@@ -38,30 +42,32 @@ with tab1:
     """)
 
     col1, col2, col3, col4, col5 = st.columns(5)
-    # trend_significant: whether the full 24-year Mann-Kendall trend test (run as a
-    # robustness check alongside the period-comparison method below) reached
-    # statistical significance for this island
-    dhw_data = [
-        (col1, "Seychelles", "+0.68", "10.47", True, True),
-        (col2, "Maldives", "+0.17", "6.57", False, True),
-        (col3, "Fiji", "+0.10", "5.74", False, False),
-        (col4, "Lakshadweep", "+0.08", "4.39", False, False),
-        (col5, "Canary Islands", "−0.05", "12.46", False, False),
-    ]
+    # Main series: mean over every 5 km cell of mapped reef; the Canary Islands have no
+    # mapped reef, so their single offshore cell is shown. Test: correlated seasonal
+    # Mann-Kendall (Hirsch and Slack 1984). All values read from data/coral_trend_results.csv.
+    _order = ["seychelles", "maldives", "fiji", "lakshadweep", "canary"]
+    _top = max(_order[:4], key=lambda i: R["coral_change"][(i, R["coral_series"][i])])
+    dhw_data = []
+    for col, key in zip((col1, col2, col3, col4, col5), _order):
+        ser = R["coral_series"][key]
+        ch = R["coral_change"][(key, ser)]
+        name = R["label"][key] + (" (offshore cell; no reefs mapped)" if key == "canary" else "")
+        dhw_data.append((col, name, f"{ch:+.2f}".replace("-", "−"), f"{R['coral_max'][(key, ser)]:.2f}",
+                         key == _top, R["coral_p"][(key, ser)] < 0.05))
 
     for col, island, change, max_dhw, highlight, trend_significant in dhw_data:
         with col:
             border_color = PALETTE["risk"] if highlight else "rgba(0,150,199,0.3)"
             sig_line = (
-                f"<p style='color:{PALETTE['risk']}; font-size:0.65rem; font-weight:700; margin-top:8px;'>✓ MK-significant</p>"
+                f"<p style='color:{PALETTE['risk']}; font-size:0.65rem; font-weight:700; margin-top:8px;'>✓ trend significant</p>"
                 if trend_significant else
-                f"<p style='color:{PALETTE['text_muted']}; font-size:0.65rem; margin-top:8px;'>not significant</p>"
+                f"<p style='color:{PALETTE['text_muted']}; font-size:0.65rem; margin-top:8px;'>trend not significant</p>"
             )
             st.markdown(f"""
             <div style="background: {PALETTE['card_bg']}; border-radius: 12px; padding: 14px;
                         text-align: center; min-height: 175px; border: 2px solid {border_color};">
                 <p style="color: {PALETTE['navy']}; font-weight: 700; font-size: 0.95rem; margin-bottom: 8px;">{island}</p>
-                <p style="color: {PALETTE['text_muted']}; font-size: 0.7rem; text-transform: uppercase; margin-bottom: 4px;">Trend Change</p>
+                <p style="color: {PALETTE['text_muted']}; font-size: 0.7rem; text-transform: uppercase; margin-bottom: 4px;">2016–20 vs 1996–2000</p>
                 <p style="color: {PALETTE['risk'] if change.startswith('+') else PALETTE['mint']}; font-weight: 800; font-size: 1.3rem; margin-bottom: 8px;">{change}</p>
                 <p style="color: {PALETTE['text_muted']}; font-size: 0.7rem; text-transform: uppercase; margin-bottom: 2px;">Max DHW</p>
                 <p style="color: {PALETTE['navy']}; font-weight: 700; font-size: 1rem; margin: 0;">{max_dhw}°C-wk</p>
@@ -70,16 +76,17 @@ with tab1:
             """, unsafe_allow_html=True)
 
     st.markdown("")
-    st.warning("""
-    **Seychelles shows the most severe thermal stress increase** — a maximum recorded value of
-    10.47°C-weeks falls within the range associated with severe bleaching and coral mortality.
-    Four of five islands show a nominal rise in thermal-stress trend using a reference-period
-    comparison (1996–2000 vs. 2016–2020 averages); a seasonal Mann-Kendall trend test on the complete
-    24-year series confirms this increase as **statistically significant for Maldives (p=0.0046)
-    and Seychelles (p=0.0069)** — the two islands driving this project's compound vulnerability
-    ranking. The smaller increases in Fiji and Lakshadweep do not reach significance over the
-    full series, and the Canary Islands, with a distinct Atlantic climate regime, shows no
-    significant trend at all, consistent with its slight period-comparison decline.
+    _s = R["coral_series"]
+    st.warning(f"""
+    **Heat stress was higher in 2016–2020 than in 1996–2000 at all four island groups with mapped
+    reef**, most in Seychelles (+{R['coral_change'][('seychelles', 'reef_cells')]:.2f} °C-weeks on average over its reef
+    cells, peak {R['coral_max'][('seychelles', 'reef_cells')]:.1f} °C-weeks in 2016). A monotonic trend over the full
+    1996–2020 series is **not** established: the correlated seasonal Mann-Kendall test, which allows for
+    the strong month-to-month dependence of a 12-week running sum like DHW, gives
+    {pval(R['coral_p'][('seychelles', 'reef_cells')])} for Seychelles and {pval(R['coral_p'][('maldives', 'reef_cells')])} for the Maldives.
+    An ordinary seasonal test, which treats neighbouring months as independent, would have called both
+    significant ({pval(R['coral_p_uncorrected'][('seychelles', 'reef_cells')])} and {pval(R['coral_p_uncorrected'][('maldives', 'reef_cells')])});
+    that was the first version's mistake. The Canary Islands value comes from an offshore cell with no mapped reef.
     """)
 
     st.markdown("")
@@ -132,7 +139,8 @@ with tab2:
     st.success("""
     **No net decline detected in any tested island.** Mangrove extent remained essentially stable
     across all three time points and all three islands where mangroves are present — Fiji even
-    shows a marginal net increase. This does not support Hypothesis H2 as originally framed, and
+    shows a marginal net increase. Note that the Global Mangrove Watch 1996 and 2020 layers are
+    change maps built on its 2010 baseline, so the three dates are not fully independent surveys. This does not support Hypothesis H2 as originally framed, and
     is reported transparently as the observed result of this three-point snapshot comparison —
     not a continuous trend test comparable to the coral analysis — rather than adjusted to
     fit the original hypothesis.
@@ -150,8 +158,8 @@ st.markdown("---")
 
 st.markdown("### Why the Difference Matters")
 st.markdown("""
-This asymmetry — genuine coral degradation alongside mangrove resilience — is itself the project's
-central empirical contribution. It demonstrates that ecosystem buffer degradation is **not a uniform
+This asymmetry — more frequent reef heat stress alongside stable mangrove area — is one of the
+project's main empirical results. It demonstrates that ecosystem buffer degradation is **not a uniform
 phenomenon**, with direct implications for how conservation and adaptation resources should be
 prioritized across ecosystem types, rather than allocated under an assumption of uniform ecosystem risk.
 """)
