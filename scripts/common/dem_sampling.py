@@ -34,13 +34,14 @@ Elevation sources (added 2026-10-11, FINISH_PLAN decision D2)
 --------------------------------------------------------------
   copernicus  Copernicus GLO-30, a surface model (tree and roof tops).
   deltadtm    DeltaDTM v1.1, Copernicus corrected with ICESat-2/GEDI lidar to a
-              bare-earth terrain model, coastal zone below 10 m only.
+              bare-earth terrain model of the coastal zone (meant for land below
+              about 10 m; values clipped at 30 m; empty outside its coastal mask).
 For "deltadtm" the place set and the Copernicus status are kept, so both
 sources are compared on exactly the same places; only the height changes:
   - DeltaDTM value at the point (or, at a coast or tile edge, the median of the
     valid DeltaDTM pixels in the same 5x5 window)   -> "valid"/"snapped_to_land"
   - DeltaDTM empty and Copernicus height > 10 m     -> "above_10m" (kept; it is
-    dry at any threshold studied here, which is what DeltaDTM's empty cells mean)
+    dry at any threshold studied here)
   - DeltaDTM empty and Copernicus height <= 10 m    -> "deltadtm_nodata" (excluded)
   - Copernicus height > 30 m (DELTADTM_TRUST_MAX_COP_M): high terrain, DeltaDTM
     not used, status "above_10m" (see the constant for why)
@@ -58,7 +59,7 @@ SNAP_HALF_WINDOW = 2          # 2 -> 5x5 window (about +-60 m at 1 arc-second)
 NODATA_FLOOR = -1000.0        # anything at or below this is treated as NoData
 KEPT_STATUSES = {"valid", "snapped_to_land", "above_10m"}
 ELEVATION_SOURCES = ("copernicus", "deltadtm")
-DELTADTM_CEILING_M = 10.0     # DeltaDTM only has values below this height
+DELTADTM_CEILING_M = 10.0     # DeltaDTM's intended range; above it an empty cell is taken as dry land
 # Where the Copernicus surface is above this height the ground is taken as high
 # terrain and DeltaDTM is not used: DeltaDTM v1.1 is clipped at 30 m, so real
 # terrain above 30 m should read 30, not near 0. A low DeltaDTM value under a

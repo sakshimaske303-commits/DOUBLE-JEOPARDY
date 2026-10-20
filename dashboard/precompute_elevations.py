@@ -4,7 +4,7 @@ Physical Exposure page's live threshold slider.
 Rewritten 2026-10-10 (Forensic Review): uses the same shared DEM rule as the
 analysis (scripts/common/dem_sampling.py), so the slider can no longer count
 NoData (-32767) or out-of-extent points as "at risk". Only settlements with a
-usable elevation (status valid or snapped_to_land) are written.
+usable elevation (status valid, snapped_to_land or above_10m) are written.
 
 Run from anywhere:  python dashboard/precompute_elevations.py
 """

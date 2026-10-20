@@ -32,6 +32,7 @@ STEPS = [
     "scripts/analysis/mangrove_3point_comparison.py",
     "scripts/analysis/compound_vulnerability_score.py",
     "scripts/processing/wdpa_coastal_buffer.py",
+    "scripts/validation/boundary_area_validation.py",
     "scripts/analysis/governance_correlation_test.py",
     "scripts/analysis/ndbi_land_change.py",
     "scripts/figures/research_paper_figures.py",

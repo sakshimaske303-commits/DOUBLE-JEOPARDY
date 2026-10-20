@@ -52,7 +52,10 @@ st.markdown(f"""
 
 PROOF_DIR = os.path.join(PROJECT_ROOT, "outputs", "proof_screenshots")
 
+# Code screenshots (*_vscode.png) show an earlier version of the scripts and are not displayed.
 def proof_popover(filename, caption):
+    if filename.endswith("_vscode.png"):
+        return
     path = os.path.join(PROOF_DIR, filename)
     with st.popover("Proof"):
         if os.path.exists(path):
@@ -91,7 +94,7 @@ with col2:
     with r4a:
         st.markdown("- **Protected Areas** — World Database on Protected Areas (WDPA)")
     with r4b:
-        proof_popover("01_canary_wdpa_qgis.png", "Canary Islands WDPA protected areas in QGIS over a satellite basemap — La Resbala, Las Lagunetas, Montes y Cumbre de Tenerife, etc. — the layer behind the governance/protected-area ratio analysis.")
+        proof_popover("01_canary_wdpa_qgis.png", "Canary Islands WDPA protected areas in QGIS over a satellite basemap — La Resbala, Las Lagunetas, Montes y Cumbre de Tenerife, etc. — the layer behind the coastal protected-area coverage.")
 
 st.markdown("---")
 
@@ -114,23 +117,14 @@ with st.expander("**A Data-Quality Bug: Maldives' Coral File Wasn't Actually Cor
     tags recovered 2,921 verified coral reef features.
     """)
 
-with st.expander("**A Satellite-Record Constraint: Cyclone Damage Verification**"):
-    st.markdown("""
-    An attempt to extend satellite-based cyclone damage verification to Maldives, Seychelles, and
-    Lakshadweep failed for a structural reason: each island's strongest historically recorded
-    cyclone predates 2015, when Sentinel-2 (the satellite used throughout this project) launched.
-    No valid "before" imagery could exist for these events. This is documented as a genuine
-    methodological boundary, not a gap to work around.
-    """)
-
 rga, rgb = st.columns([0.94, 0.06])
 with rga:
     with st.expander("**Governance Ratio Sanity Check: Comparing Land to Marine EEZs**"):
         st.markdown("""
         An initial protected-area-to-land ratio for Seychelles came out to 1,005.69 — a nonsensical
         result caused by including the country's Exclusive Economic Zone (over a million km² of ocean)
-        in the calculation. This was corrected by restricting the metric to a 10km coastal buffer
-        around each island, producing interpretable, comparable ratios.
+        in the calculation. The metric is now the share of a 10 km coastal zone around each island
+        that lies inside a protected area, with overlapping sites merged so no area is counted twice.
         """)
 with rgb:
     st.markdown("<div style='margin-top: 0.5rem;'></div>", unsafe_allow_html=True)

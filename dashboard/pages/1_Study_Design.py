@@ -29,9 +29,9 @@ st.markdown("---")
 st.markdown("""
 ### The Research Question
 
-Does physical sea-level-rise exposure combine with ecosystem buffer degradation to produce
-compounding settlement-level vulnerability — and does this operate uniformly across ecosystem
-types, or does it depend on which specific ecosystem is degrading?
+Across five island groups in three ocean basins, how many people live on land at or below 1 m,
+how have reef heat stress and mangrove extent changed between 1996 and 2020, and does combining
+exposure with reef heat stress change how the islands rank?
 """)
 
 st.markdown("---")
@@ -41,11 +41,11 @@ st.markdown("### The Five Islands")
 col1, col2, col3, col4, col5 = st.columns(5)
 
 islands_info = [
-    (col1, "Maldives", "Indian Ocean", "Low-lying coral atolls, moderate SLR exposure", "maldives"),
-    (col2, "Lakshadweep", "Indian Ocean", "Small coral archipelago, India", "lakshadweep"),
-    (col3, "Seychelles", "Western Indian Ocean", "Granite islands, highest compound risk", "seychelles"),
-    (col4, "Fiji", "South Pacific", "Volcanic islands, largest cyclone record", "fiji"),
-    (col5, "Canary Islands", "Eastern Atlantic", "Volcanic, lowest compound risk", "canary"),
+    (col1, "Maldives", "Indian Ocean", "Low-lying coral atolls, largest share of people at or below 1 m", "maldives"),
+    (col2, "Lakshadweep", "Indian Ocean", "Small coral archipelago, India; second-highest share of people at or below 1 m", "lakshadweep"),
+    (col3, "Seychelles", "Western Indian Ocean", "Granite and coral islands; largest rise in reef heat stress", "seychelles"),
+    (col4, "Fiji", "South Pacific", "Large volcanic islands with fringing reef and the largest mangrove area", "fiji"),
+    (col5, "Canary Islands", "Eastern Atlantic", "Volcanic Atlantic islands, no mapped reef or mangroves", "canary"),
 ]
 
 for col, name, basin, desc, slug in islands_info:
@@ -89,32 +89,28 @@ for i, (col, name, basin, desc, slug) in enumerate(islands_info):
 
 st.markdown("---")
 
-st.markdown("### Three Hypotheses, Tested Independently")
+st.markdown("### Hypotheses")
 
 col1, col2, col3 = st.columns(3)
 with col1:
     st.info("""
     **H1 — Coral Pathway**
 
-    Coral reef ecosystems will show a statistically detectable increase in thermal
-    bleaching stress over a multi-decadal period (1996–2020), more pronounced in
-    islands with higher physical SLR exposure.
+    Reef heat stress (Degree Heating Weeks over mapped reef) increased over
+    1996–2020.
     """)
 with col2:
     st.info("""
     **H2 — Mangrove Pathway**
 
-    Mangrove ecosystems will show a statistically detectable decline in spatial
-    extent over the same period, contributing an independent compounding pathway
-    alongside coral degradation.
+    Mangrove extent (Global Mangrove Watch) declined over the same period.
     """)
 with col3:
     st.info("""
     **H3 — Governance Alignment**
 
-    Islands with higher compound vulnerability scores will show correspondingly
-    higher formal protected-area coverage, consistent with risk-responsive
-    governance.
+    Coastal protected-area coverage is higher where the compound score is higher.
+    Secondary and descriptive only (n = 4).
     """)
 
 st.markdown("---")

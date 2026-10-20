@@ -12,7 +12,7 @@
 
 | Document | What's Inside |
 |---|---|
-| [`DJ_Executive_Summary.pdf`](./paper/DJ_Executive_Summary.pdf) / [`.md`](./paper/DJ_Executive_Summary.md) | One page snapshot: project overview, question, method, headline finding, robustness checklist, and links (fastest overview; start here) |
+| [`DJ_Executive_Summary.pdf`](./paper/DJ_Executive_Summary.pdf) / [`.md`](./paper/DJ_Executive_Summary.md) | One page snapshot: project overview, question, method, headline findings, limitations, and links (fastest overview; start here) |
 | [`DJ_Research_Paper.md`](./paper/DJ_Research_Paper.md) | Research paper: literature review, methods, results, limitations |
 | [`DJ_Development_Log.md`](./paper/DJ_Development_Log.md) | Full technical development log: every bug, debugging session, and methodology iteration |
 
@@ -79,13 +79,13 @@ All numbers below are written by `python scripts/run_all.py` to the CSVs in `dat
 
 Counting named places instead of people gives a different picture: Maldives 28.8% and Seychelles 24.7% are close, because Seychelles has many small, low coral islets with few residents. People are the main measure.
 
-**2. Reef heat stress rose, but no trend is significant once serial correlation is accounted for.** Mean DHW over mapped reef rose between 1996–2000 and 2016–2020 on every reef island, most in Seychelles (+0.52 °C-weeks). A seasonal Mann-Kendall test corrected for serial correlation (DHW is a 12-week running sum) gives p = 0.14 for Seychelles, 0.31 for the Maldives, 0.55 for Fiji and 0.90 for Lakshadweep. Without the correction Seychelles would look significant (p < 0.001); the first version of this project reported that.
+**2. Reef heat stress rose, but no trend is significant once serial correlation is accounted for.** Mean DHW over mapped reef rose between 1996–2000 and 2016–2020 on every reef island, most in Seychelles (+0.52 °C-weeks). A seasonal Mann-Kendall test corrected for serial correlation (DHW is a 12-week running sum) gives p = 0.14 for Seychelles, 0.31 for the Maldives, 0.55 for Fiji and 0.90 for Lakshadweep. Without the correction Seychelles (p = 0.002) and the Maldives (p = 0.049) would look significant; the first version of this project reported that.
 
 **3. Mangrove extent shows no decline** on any of the 3 islands where it is mapped (Global Mangrove Watch: Fiji 485.7 → 488.4 km²). On the atolls, patches are close to the pixel size, so small losses may not be detectable.
 
-**4. Which island is "most vulnerable" depends on the weighting.** At equal weights the compound score is Seychelles 0.58, Maldives 0.51, Lakshadweep 0.27, Fiji 0.26, Canary Islands 0.00. Exposure points to the Maldives and reef heat stress to Seychelles, so the top island switches to the Maldives once exposure carries 54% or more of the weight. The score is a descriptive ranking within this sample, not an absolute measure.
+**4. Which island is "most vulnerable" depends on the weighting.** At equal weights the compound score is Seychelles 0.58, Maldives 0.56, Lakshadweep 0.32, Fiji 0.28, Canary Islands 0.00. Exposure points to the Maldives and reef heat stress to Seychelles, so the top island switches to the Maldives once exposure carries 52% or more of the weight. The score is a descriptive ranking within this sample, not an absolute measure.
 
-**5. Protection does not track risk in this sample.** Coastal-zone protection ranges from 1.3% (Maldives) to 71.4% (Seychelles) and is unrelated to the compound score (r = −0.01, 95% interval −0.96 to 0.96, n = 4; Lakshadweep has no WDPA record). Removing Seychelles alone moves r to −0.95, so this is a description of four island groups, not a finding that generalises.
+**5. Protection does not track risk in this sample.** Coastal-zone protection ranges from 1.3% (Maldives) to 71.4% (Seychelles) and is unrelated to the compound score (r = −0.10, 95% interval −0.97 to 0.95, n = 4; Lakshadweep has no WDPA record). Removing Seychelles alone moves r to −0.95, so this is a description of four island groups, not a finding that generalises.
 
 **What changed from version 1.** Version 1 reported 78.3% of Seychelles settlements at risk, significant coral trends in the Maldives and Seychelles, a ranking that "held at every weighting", and a governance correlation of r = 0.965 (p = 0.035). Each of these came from a measurement choice that did not hold up: NoData elevation values counted as sea level, OSM points that are mostly island names, a surface elevation model, one 5 km DHW cell per island, a trend test that ignored serial correlation, and protected areas counted twice over a land-area denominator. The [Development Log](./paper/DJ_Development_Log.md) records each correction.
 

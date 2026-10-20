@@ -90,7 +90,7 @@ with tab1:
     """)
 
     st.markdown("")
-    st.markdown("##### Figure 4 — As it appears in the Research Paper")
+    st.markdown("##### Figure 5 — As it appears in the Research Paper")
     fig4_path = os.path.join(FIGURES_DIR, "fig4_coral_thermal_stress_trends.png")
     if os.path.exists(fig4_path):
         st.image(fig4_path, use_container_width=True)
@@ -98,11 +98,11 @@ with tab1:
         st.caption("Figure not found yet — run research_paper_figures.py once to generate it.")
 
 with tab2:
-    st.markdown("### Mangrove Extent: Three Independent Time Points")
+    st.markdown("### Mangrove Extent at Three Epochs")
     st.markdown("""
-    Rather than relying on a single before/after comparison, mangrove extent was tracked across
-    **three independent snapshots** (1996, 2010, 2020) using the Global Mangrove Watch archive,
-    with area calculated in an equal-area projection to avoid distortion.
+    Mangrove extent was measured at **three epochs** (1996, 2010, 2020) from Global Mangrove Watch v3,
+    with area calculated in an equal-area projection. The 1996 and 2020 layers are derived by change
+    detection from the 2010 baseline, so they are not independent surveys.
     """)
 
     col1, col2, col3 = st.columns(3)
@@ -147,7 +147,7 @@ with tab2:
     """)
 
     st.markdown("")
-    st.markdown("##### Figure 5 — As it appears in the Research Paper")
+    st.markdown("##### Figure 4 — As it appears in the Research Paper")
     fig5_path = os.path.join(FIGURES_DIR, "fig5_mangrove_extent_over_time.png")
     if os.path.exists(fig5_path):
         st.image(fig5_path, use_container_width=True)
@@ -158,10 +158,10 @@ st.markdown("---")
 
 st.markdown("### Why the Difference Matters")
 st.markdown("""
-This asymmetry — more frequent reef heat stress alongside stable mangrove area — is one of the
-project's main empirical results. It demonstrates that ecosystem buffer degradation is **not a uniform
-phenomenon**, with direct implications for how conservation and adaptation resources should be
-prioritized across ecosystem types, rather than allocated under an assumption of uniform ecosystem risk.
+Over 1996–2020 the two buffers did not move together: mean reef heat stress was higher in the later
+period, driven largely by the 2016 event, while Global Mangrove Watch detects no change in mangrove
+area. With five island groups this describes these cases; it is a reason to assess the two
+ecosystems separately rather than as one buffer, not a general result.
 """)
 
 st.markdown("---")

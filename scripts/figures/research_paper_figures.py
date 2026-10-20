@@ -148,7 +148,7 @@ def fig3_settlement_vs_population():
 
     ax.set_xticks(x)
     ax.set_xticklabels(islands, fontsize=10)
-    ax.set_ylabel("% Exposed to 1m SLR Threshold", fontsize=11)
+    ax.set_ylabel("% at or below 1 m (heights above EGM2008)", fontsize=11)
     ax.set_ylim(0, max(max(settlement_pct.values()), max(population_pct.values())) * 1.25)
     ax.set_title(
         "Named Places vs. People: Two Ways to Count Exposure\n"
@@ -255,7 +255,7 @@ def fig5_mangrove_extent():
     ax.set_yscale("log")
     ax.set_title(
         "Mangrove Extent Over Time (1996, 2010, 2020)\n"
-        "Log scale — no change detected in Global Mangrove Watch v3 (note: v3 epochs are derived from a 2010 baseline)",
+        "Log scale. No change detected in Global Mangrove Watch v3\n(1996 and 2020 epochs are derived from the 2010 baseline)",
         fontsize=13, fontweight="bold", pad=15
     )
     ax.grid(alpha=0.3, which="both")
@@ -310,12 +310,7 @@ def fig6_governance_alignment():
         ax.text(0.99, 0.02, f"Not shown (no WDPA data): {names}", transform=ax.transAxes,
                 ha="right", fontsize=9, color="#888888")
 
-    # OLS best-fit line for visual reference — fit on the same n=4 used for
-    # the reported correlation, so the line matches the r/p in the title
-    slope, intercept, *_ = stats.linregress(corr_df["vulnerability_score"], corr_df["wdpa_ratio"])
-    xs = np.linspace(corr_df["vulnerability_score"].min(), corr_df["vulnerability_score"].max(), 50)
-    ax.plot(xs, intercept + slope * xs, color=EDGE, linestyle="--", linewidth=1.3, alpha=0.7, zorder=2,
-            label=f"OLS fit (n={n} points only)")
+    # No fitted line: with n = 4 a regression line suggests a relationship the data cannot support.
 
     ax.set_xlabel("Compound Vulnerability Score", fontsize=11)
     if "pct_coastal_zone_protected" in df.columns:

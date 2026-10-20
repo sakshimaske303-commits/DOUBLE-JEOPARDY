@@ -37,15 +37,15 @@ How many people on these islands live at or below 1 m? How has heat stress on th
 |---|---|
 | H1: Reef heat stress is rising | **Partly supported.** Mean DHW over reef rose on every reef island (Seychelles +0.52, Fiji +0.29, Maldives +0.07, Lakshadweep +0.05 °C-weeks), but no monotonic trend is significant once serial correlation is accounted for (p = 0.14 to 0.90) |
 | H2: Mangroves are declining | **Not supported.** No decline on any of the 3 islands (Fiji 485.7 → 488.4 km²) |
-| H3: Protection follows risk | **Not supported.** r = −0.01 (95% interval −0.96 to 0.96, n = 4); coverage from 1.3% (Maldives) to 71.4% (Seychelles) |
+| H3: Protection follows risk | **Not supported.** r = −0.10 (95% interval −0.97 to 0.95, n = 4); coverage from 1.3% (Maldives) to 71.4% (Seychelles) |
 
-**Compound score (equal weights):** Seychelles 0.58 · Maldives 0.51 · Lakshadweep 0.27 · Fiji 0.26 · Canary Islands 0.00. Exposure points to the Maldives and reef heat stress to Seychelles, so the top island switches to the Maldives once exposure carries 54% or more of the weight. I read the top two as a near tie.
+**Compound score (equal weights):** Seychelles 0.58 · Maldives 0.56 · Lakshadweep 0.32 · Fiji 0.28 · Canary Islands 0.00. Exposure points to the Maldives and reef heat stress to Seychelles, so the top island switches to the Maldives once exposure carries 52% or more of the weight. I read the top two as a near tie.
 
 ## What Changed From Version 1, and Why
 
 - ✗ **"78.3% of Seychelles settlements at risk."** 188 of 244 Seychelles points read the elevation raster's NoData value (−32767 m) and were counted as at risk. And most OSM "settlement" points on these islands are names of islands and islets, some sitting in open water. I now count people, with named places as a second measure (Seychelles 24.7%, Maldives 28.8% on bare earth).
 - ✗ **Surface elevation model.** Copernicus measures roofs and canopy on wooded atolls. On bare earth, Lakshadweep goes from 0.8% to 6.4% of people at or below 1 m. Where Copernicus is above 30 m, I do not use DeltaDTM: on small forested granite islands in Seychelles it otherwise reads a hill as sea level.
-- ✗ **"Coral trends significant for Maldives (p = 0.0046) and Seychelles (p = 0.0069)."** That used one 5 km cell per island and a test that treats neighbouring months as independent. DHW is a 12-week running sum, so they are not. Without the correction Seychelles still looks significant (p < 0.001); with it, p = 0.14.
+- ✗ **"Coral trends significant for Maldives (p = 0.0046) and Seychelles (p = 0.0069)."** That used one 5 km cell per island and a test that treats neighbouring months as independent. DHW is a 12-week running sum, so they are not. Without the correction, Seychelles (p = 0.002) and the Maldives (p = 0.049) still look significant; with it, p = 0.14 and 0.31.
 - ✗ **"The ranking holds at every weighting."** Seychelles came out top at every weighting because it was highest on both inputs by construction. With people and reef-cell means, the inputs disagree and the ranking depends on the weights.
 - ✗ **"Governance correlation r = 0.965, p = 0.035."** Overlapping protected areas were counted twice and coverage was divided by land area. As a share of the coastal zone, the relationship disappears.
 - ✗ **Seychelles built-up rise (+0.11 NDBI).** Measured over bounding boxes that were mostly ocean. On land only, Seychelles shows no rise and the Maldives a small one (+0.055).

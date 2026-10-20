@@ -1,4 +1,4 @@
-# DOUBLE JEOPARDY: The Vulnerability Spiral, Quantifying Compound Coastal Risk nd Governance Evidence Alignment Across 5 Islands
+# DOUBLE JEOPARDY: The Vulnerability Spiral, Quantifying Compound Coastal Risk and Governance Evidence Alignment Across 5 Islands
 
 ## Index
 
@@ -17,6 +17,8 @@
 13. [Entry 13](#entry-13)
 14. [Entry 14](#entry-14)
 15. [Entry 15](#entry-15)
+16. [Entry 16](#entry-16)
+17. [Entry 17](#entry-17)
 
 ## Entry 1
 
@@ -637,9 +639,9 @@ Cldnt fully check the elevation/at risk half the same way tho, bc those raster f
 
 But the mechanism made sense too, not jst the numbers. The whole point of fixing the boundary mask was to stop counting open water next to an island as if it were populated land. Maldives is a spread out archipelago with a lot of water between its islands inside the old bounding box. So a tighter, more accurate boundary would naturally pull the Maldives number down less than expected, or in this case just enough for it to land ahead of Seychelles once Seychelles' own number also came down for the same reason. Not a bug. Jst the fix doing exactly wht it was supposed to do.
 
-### Krde
+### Updating the Write-Ups
 
-Once I explained all tht, got the go ahead. Actual go ahead word was jst "krde", which at this point in the project I basically read as "yeah okay I trust the work now, go update it."
+Once the verification above was done, I updated the write-ups.
 
 So updated the paper, the executive summary, nd the README. Not jst swapping numbers in a table either. Had to go thru every sentence tht said "Seychelles is highest on every measure" or "all measures agree" nd actually rewrite the claim to be accurate. Settlement based exposure nd the compound score still say Seychelles, tht part didnt change. Population weighted exposure specifically now says Maldives, narrowly, like a near tie (abt 0.7 percentage points apart) rather than some clean win. Kept the same style this whole project has used for every correction so far, old number, new number, why it changed, never jst silently swap a number nd move on.
 
@@ -651,7 +653,7 @@ Realized halfway thru tht the Streamlit dashboard hd the exact same old numbers 
 
 ### Cleaned Up the Local Fix Scripts
 
-Got asked to strip all the explanatory comments nd docstrings out of the 4 scripts I'd written this session for local runs (the coral area avg 1, the 2 boundary rebuild 1s, nd the population weighted v2ready 1). Fair enough, those docstrings were mostly me explaining stuff to myself/her mid debugging, not really needed once the script jst works. Wrote a small script using Python's own tokenize nd ast modules to strip every # comment nd every real docstring cleanly without breaking the actual code, ran it, double checked each file still parses nd still does exactly wht it did before. Confirmed 0 leftover comments anywhere after.
+Stripped the explanatory comments nd docstrings out of the 4 scripts I'd written this session for local runs (the coral area avg 1, the 2 boundary rebuild 1s, nd the population weighted v2ready 1). Those docstrings were mostly me explaining stuff to myself mid debugging, not really needed once the script jst works. Wrote a small script using Python's own tokenize nd ast modules to strip every # comment nd every real docstring cleanly without breaking the actual code, ran it, double checked each file still parses nd still does exactly wht it did before. Confirmed 0 leftover comments anywhere after.
 
 ### Then Got Asked the Big Question Again: Is This Actually Ready
 
@@ -753,3 +755,29 @@ NDBI on land: Maldives +0.055 (0.040 to 0.072), Seychelles −0.001, Fiji −0.0
 
 ### Still To Do
 Re-export the three PDFs from the new markdown, push, nd tag v2.0 so Zenodo mints a new version.
+
+
+## Entry 17
+
+### Status
+Second forensic review of the whole project (20 October 2026), followed by corrections that did not need the large rasters. The exposure, coral and mangrove numbers did not change. The compound score, the weighting crossover and the governance correlation did.
+
+### Corrections
+| Change | Before | After | Why |
+|---|---|---|---|
+| Compound score scaling | Coral input scaled across the 4 reef islands, Canary set to 0 afterwards | Both inputs scaled across all 5 island groups (Canary raw coral input 0) | The paper (Section 3.6) said five; the code did four, so Lakshadweep got the same coral input (0) as an island with no reef |
+| Compound scores (equal weights) | Seychelles 0.581, Maldives 0.512, Lakshadweep 0.267, Fiji 0.256 | Seychelles 0.581, Maldives 0.563, Lakshadweep 0.320, Fiji 0.282 | Follows from the scaling fix |
+| Top-island crossover | 54% exposure weight | 52% | Same |
+| Governance correlation | r = −0.01 (−0.96 to 0.96), LOO up to 0.55; ratio r = 0.64 | r = −0.10 (−0.97 to 0.95), LOO up to 0.42; ratio r = 0.57 | Uses the corrected scores |
+| "Uncorrected" coral p-values | Ordinary seasonal test on the raw 30-day samples (Seychelles 0.0008, Maldives 0.07) | Ordinary seasonal test on the same 300 monthly means as the corrected test (Seychelles 0.002, Maldives 0.049) | Like-for-like comparison; only the serial-correlation correction now differs |
+| Land-area validation (Section 6.3) | Maldives 317.6 km², Seychelles 449.6, Fiji 18,820.6, Canary 7,432.6 | 292.9, 443.9, 18,819.3, 7,434.1 (EPSG:6933, overlaps merged) | The earlier figures were not reproducible from the current boundary files; new `scripts/validation/boundary_area_validation.py` writes them. All still within 4% of the reference figures |
+| DeltaDTM description | "cells above 10 m are left empty" | Coastal product meant for land below about 10 m, values clipped at 30 m | The tiles hold values up to 30 m |
+| Named places, two DEMs | Not stated that DeltaDTM drops some points | Stated; on the common point set Seychelles still leads on Copernicus (8.4% vs 4.4%) | Different denominators (Seychelles 154 vs 162) |
+| NDBI | "for the 3 islands" | The three windows named (Malé area, Mahé, western Viti Levu); possible effect of Hulhumalé reclamation noted | The analysis never covered whole countries |
+| WDPA note | – | 25 of the Maldives' 93 records are UNESCO-MAB zones, stated | Coverage definitions differ |
+| Figures | Clipped subtitles (mangrove, compound), "SLR threshold" axis label, red/blue classes on the compound bars, OLS line through 4 points | Fixed; one colour; line removed | Presentation |
+| Dashboard | v1 research question and island descriptions, "independent time points", outdated code screenshots, dropped cyclone material, figure numbers different from the paper | Brought in line with the paper; code screenshots hidden | Consistency |
+
+### Still To Do
+Rerun the light scripts listed in the review, re-export the three PDFs, push, and redeploy the dashboard.
+

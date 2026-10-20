@@ -62,7 +62,7 @@ st.markdown("### Coral Thermal Stress Over Time (1996–2020)")
 selected_islands = st.multiselect(
     "Select islands to compare",
     options=ISLANDS,
-    default=["Seychelles", "Canary Islands"],
+    default=["Seychelles", "Maldives"],
 )
 
 show_periods = st.checkbox("Show 1996–2000 and 2016–2020 period means", value=True)

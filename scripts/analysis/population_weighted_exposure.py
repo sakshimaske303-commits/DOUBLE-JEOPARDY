@@ -70,11 +70,12 @@ closing even after pooling ways across tiles).
 
 The rebuilt files (data/boundaries_v2/{island}_islands_v2.gpkg) were
 validated against an independently sourced land area figure per island
-before use here (Maldives 317.57 vs 298 km2, World Bank 2023; Seychelles
-449.55 vs 460 km2, World Bank 2023; Fiji 18,820.57 vs 18,270 km2, World
-Bank 2023; Canary Islands 7,432.61 vs ~7,446 km2, Instituto Canario de
-Estadistica; Lakshadweep 30.84 vs 32 km2, the Lakshadweep government's
-official site), all within about 7% of a citable reference. ISLANDS
+before use here (EPSG:6933, overlaps merged; see
+scripts/validation/boundary_area_validation.py: Maldives 292.9 vs 298 km2,
+World Bank; Seychelles 443.9 vs 460 km2, World Bank; Fiji 18,819.3 vs
+18,270 km2, World Bank; Canary Islands 7,434.1 vs ~7,446 km2, Instituto
+Canario de Estadistica; Lakshadweep 30.8 vs 32 km2, the Lakshadweep
+government's official site), all within 4% of a citable reference. ISLANDS
 below now points at these v2 files and APPLY_BOUNDARY_MASK is back on.
 Population weighted exposure
 moved down for every island as a result (all 5 figures fell, consistent

@@ -1,0 +1,6 @@
+island,boundary_km2,reference_km2,difference_pct,reference_source
+maldives,292.9,298,-1.7,"World Bank (2024), WDI AG.LND.TOTL.K2, 2023 value"
+seychelles,443.9,460,-3.5,"World Bank (2024), WDI AG.LND.TOTL.K2, 2023 value"
+fiji,18819.3,18270,3.0,"World Bank (2024), WDI AG.LND.TOTL.K2, 2023 value"
+canary,7434.1,7446,-0.2,Instituto Canario de Estadistica (2026)
+lakshadweep,30.8,32,-3.7,Administration of UT of Lakshadweep

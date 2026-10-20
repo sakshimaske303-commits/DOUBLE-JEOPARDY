@@ -69,13 +69,13 @@ with tab1:
 | Seychelles | {pct(R['protected']['seychelles'])} | {pct(R['protected_strict']['seychelles'])} | Marine Spatial Plan, more than 30% of the EEZ designated in 2020, prepared under a 2016 debt-for-nature swap |
 | Canary Islands | {pct(R['protected']['canary'])} | {pct(R['protected_strict']['canary'])} | Natura 2000 sites (EU Habitats and Birds Directives) and Spanish national parks |
 | Fiji | {pct(R['protected']['fiji'])} | {pct(R['protected_strict']['fiji'])} | Locally managed marine areas: 102 of 126 WDPA records |
-| Maldives | {pct(R['protected']['maldives'])} | {pct(R['protected_strict']['maldives'])} | Protected areas under the Environmental Protection and Preservation Act (Law 4/93) |
+| Maldives | {pct(R['protected']['maldives'])} | {pct(R['protected_strict']['maldives'])} | Many small protected sites under the Environmental Protection and Preservation Act (Law 4/93); 25 of its 93 WDPA records are UNESCO-MAB Biosphere Reserve zones |
 | Lakshadweep | – | – | No record in the WDPA extract |
 """)
 
     fig6_path = os.path.join(FIGURES_DIR, "fig6_governance_alignment.png")
     if os.path.exists(fig6_path):
-        st.markdown("##### Figure 6 — As it appears in the Research Paper")
+        st.markdown("##### Figure 7 — As it appears in the Research Paper")
         st.image(fig6_path, use_container_width=True)
 
 with tab2:
@@ -83,7 +83,8 @@ with tab2:
     st.markdown("""
     Change in the Normalized Difference Built-up Index (NDBI) from cloud-masked Sentinel-2 composites,
     measured **on land pixels only** and on land within 1 km of mapped mangroves and reefs, with 95% block-bootstrap
-    intervals. This is supporting context, not one of the study's hypotheses.
+    intervals. Each island is one window, not the whole country: the Malé area (Maldives), Mahé (Seychelles)
+    and western Viti Levu (Fiji). This is supporting context, not one of the study's hypotheses.
     """)
     rows = []
     for key in ("maldives", "seychelles", "fiji"):

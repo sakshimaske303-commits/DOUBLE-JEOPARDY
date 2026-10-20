@@ -69,7 +69,9 @@ def load():
     cor = _read("coral_trend_results.csv")
     pcol = "csmk_p" if "csmk_p" in cor.columns else "smk_calendar_p"
     R["coral_p"] = {(r["island"], r["series"]): r[pcol] for _, r in cor.iterrows()}
-    R["coral_p_uncorrected"] = {(r["island"], r["series"]): r["smk_calendar_p"] for _, r in cor.iterrows()}
+    # Uncorrected seasonal test on the SAME monthly series as csmk_p (like-for-like comparison).
+    ucol = "monthly_smk_p" if "monthly_smk_p" in cor.columns else "smk_calendar_p"
+    R["coral_p_uncorrected"] = {(r["island"], r["series"]): r[ucol] for _, r in cor.iterrows()}
     R["coral_change"] = {(r["island"], r["series"]): r["period_change_2016_20_vs_1996_2000"] for _, r in cor.iterrows()}
     R["coral_max"] = {(r["island"], r["series"]): r["max_dhw"] for _, r in cor.iterrows()}
 

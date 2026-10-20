@@ -7,7 +7,7 @@ Sakshi D. Maske
 
 ## Abstract
 
-Low islands face two threats at once: the sea rising, and the reefs and mangroves that buffer it weakening. I measured both across 5 island groups in 3 ocean basins (Maldives, Lakshadweep, Seychelles, Fiji and the Canary Islands), testing mangroves and coral reefs as separate pathways. Exposure is the share of people (WorldPop 2020) living on land at or below 1 m, on a bare earth elevation model (DeltaDTM v1.1), with the Copernicus GLO-30 surface model and the share of OpenStreetMap named places as comparisons. On bare earth, 11.8% of people in the Maldives and 6.4% in Lakshadweep live at or below 1 m, against 8.9% and 0.8% on the surface model; counting named places instead puts Seychelles (24.7%) level with the Maldives (28.8%). Mean Degree Heating Weeks over mapped reef were higher in 2016–2020 than in 1996–2000 on all 4 reef islands, most in Seychelles (+0.52 °C-weeks), but no monotonic trend is significant once serial correlation is accounted for (corrected seasonal Mann-Kendall p = 0.14 to 0.90). Mangrove extent (Global Mangrove Watch, 1996, 2010, 2020) shows no decline. A compound score of exposure and reef heat stress puts Seychelles (0.58) and the Maldives (0.51) in a near tie, with the top island changing at an exposure weight of 54%. Protection of the 10 km coastal zone ranges from 1.3% (Maldives) to 71.4% (Seychelles) and does not follow this score (r = −0.01, n = 4, descriptive only). This is version 2 of the study; version 1 reported significant coral trends, a ranking robust to weighting and a strong governance correlation, and Section 6.1 explains why none of those held. The main result is about method: the elevation model, the exposure measure and the weighting each change which island looks most vulnerable, and an index used to allocate adaptation resources should report all three.
+Low islands face two threats at once: the sea rising, and the reefs and mangroves that buffer it weakening. I measured both across 5 island groups in 3 ocean basins (Maldives, Lakshadweep, Seychelles, Fiji and the Canary Islands), testing mangroves and coral reefs as separate pathways. Exposure is the share of people (WorldPop 2020) living on land at or below 1 m, on a bare earth elevation model (DeltaDTM v1.1), with the Copernicus GLO-30 surface model and the share of OpenStreetMap named places as comparisons. On bare earth, 11.8% of people in the Maldives and 6.4% in Lakshadweep live at or below 1 m, against 8.9% and 0.8% on the surface model; counting named places instead puts Seychelles (24.7%) level with the Maldives (28.8%). Mean Degree Heating Weeks over mapped reef were higher in 2016–2020 than in 1996–2000 on all 4 reef islands, most in Seychelles (+0.52 °C-weeks), but no monotonic trend is significant once serial correlation is accounted for (corrected seasonal Mann-Kendall p = 0.14 to 0.90). Mangrove extent (Global Mangrove Watch, 1996, 2010, 2020) shows no decline. A compound score of exposure and reef heat stress puts Seychelles (0.58) and the Maldives (0.56) in a near tie, with the top island changing at an exposure weight of 52%. Protection of the 10 km coastal zone ranges from 1.3% (Maldives) to 71.4% (Seychelles) and does not follow this score (r = −0.10, n = 4, descriptive only). This is version 2 of the study; version 1 reported significant coral trends, a ranking robust to weighting and a strong governance correlation, and Section 6.1 explains why none of those held. The main result is about method: the elevation model, the exposure measure and the weighting each change which island looks most vulnerable, and an index used to allocate adaptation resources should report all three.
 
 **Keywords**: sea level rise, digital terrain model, coral bleaching, mangroves, compound vulnerability, small island states, protected areas, remote sensing
 
@@ -20,7 +20,7 @@ International climate adaptation policy increasingly treats coastal ecosystems (
 What's less frequently tested is whether the ecosystems providing that protection are themselves degrading uniformly, or whether adaptation planning that treats them as 1 undifferentiated buffer risks obscuring truly different underlying trajectories. I address that gap directly here, testing mangrove extent and coral reef condition as 2 independent pathways, across a properly cross national, multi ocean basin sample, without assuming up front that they move together.
 
 
-**Research question.** Across five island groups in three ocean basins, how many people live on land at or below 1 m, how has heat stress on their reefs and the extent of their mangroves changed between 1996 and 2020, and does combining exposure with reef heat stress change how the islands rank? Two hypotheses follow: H1, reef heat stress increased over 1996–2020; H2, mangrove extent declined over the same period. Two secondary, descriptive analyses are reported separately: whether coastal protected area coverage is higher where the combined score is higher (H3, n = 4, descriptive only), and whether built up surfaces expanded on land near the ecosystem buffers between 2016 and 2024.
+**Research question.** Across five island groups in three ocean basins, how many people live on land at or below 1 m, how has heat stress on their reefs and the extent of their mangroves changed between 1996 and 2020, and does combining exposure with reef heat stress change how the islands rank? Two main hypotheses follow: H1, reef heat stress increased over 1996–2020; H2, mangrove extent declined over the same period. Two secondary, descriptive analyses are reported separately: whether coastal protected area coverage is higher where the combined score is higher (H3, n = 4, descriptive only), and whether built up surfaces expanded on land near the ecosystem buffers between 2016 and 2024.
 
 This is version 2 of the study. Version 1 reported a clean result: Seychelles most exposed, significant coral trends in the Maldives and Seychelles, a ranking that held at every weighting, and protected area coverage strongly tracking risk. Going back through each measurement choice, most of that did not hold up, and Section 6.1 sets out what changed and why. I kept the corrections in the paper because they are part of the result: the same five islands rank differently depending on the elevation model, what is counted as exposure, and how inputs are weighted.
 
@@ -81,9 +81,9 @@ Full citations and licences are in `DATA_SOURCES_AND_LICENSES.md`.
 
 ### 3.3 Physical Exposure
 
-**Elevation.** The main elevation model is DeltaDTM v1.1, a bare earth version of Copernicus GLO-30 in which vegetation and buildings have been removed using ICESat-2 and GEDI lidar (Pronk et al., 2024). DeltaDTM only covers the coastal zone: cells above 10 m are left empty, and the product is clipped at 30 m. I took the tiles from the Earth Engine community catalogue copy of DeltaDTM v1.1, exported on the same 1 arc second grid as Copernicus GLO-30. Copernicus GLO-30, a surface model, is kept as a comparison, and every exposure figure is reported on both.
+**Elevation.** The main elevation model is DeltaDTM v1.1, a bare earth version of Copernicus GLO-30 in which vegetation and buildings have been removed using ICESat-2 and GEDI lidar (Pronk et al., 2024). DeltaDTM is a coastal product: it is intended for land below about 10 m, values are clipped at 30 m, and cells outside its coastal mask are empty. I took the tiles from the Earth Engine community catalogue copy of DeltaDTM v1.1, exported on the same 1 arc second grid as Copernicus GLO-30. Copernicus GLO-30, a surface model, is kept as a comparison, and every exposure figure is reported on both.
 
-Two rules handle the edges of DeltaDTM's coverage. Where DeltaDTM is empty and Copernicus reads above 10 m, the point is treated as above 10 m, which is what an empty cell means in this product. Where Copernicus reads above 30 m, I do not use DeltaDTM at all. On several small, forested granite islands in Seychelles (Grande Sœur, Petite Sœur, Île Marianne), DeltaDTM reads close to 0 m under a Copernicus surface of 30–76 m; a 30 m tree canopy is not plausible there, so those cells are treated as high terrain. Heights in both models are above the EGM2008 geoid, which I use as an approximation of mean sea level.
+Two rules handle the edges of DeltaDTM's coverage. Where DeltaDTM is empty and Copernicus reads above 10 m, the point is treated as above 10 m. Where DeltaDTM is empty and Copernicus reads 10 m or less, the point has no usable bare-earth height and is left out of the DeltaDTM figure (Section 4.6 shows this does not change the comparison). Where Copernicus reads above 30 m, I do not use DeltaDTM at all. On several small, forested granite islands in Seychelles (Grande Sœur, Petite Sœur, Île Marianne), DeltaDTM reads close to 0 m under a Copernicus surface of 30–76 m; a 30 m tree canopy is not plausible there, so those cells are treated as high terrain. Heights in both models are above the EGM2008 geoid, which I use as an approximation of mean sea level.
 
 **People (main measure).** I resampled elevation to the WorldPop 2020 100 m grid, clipped to each island's validated boundary polygon (Section 6.3), and counted the people on cells at or below 1 m. People on cells with no usable elevation are excluded from both numerator and denominator and reported (between 0.2% and 2.2% of each island group's population).
 
@@ -118,7 +118,7 @@ I measured the share of a 10 km zone around each island's coastline (land and se
 
 ### 3.8 Built Up Change (supplementary)
 
-For the 3 islands with mangroves I compared Sentinel-2 NDBI between cloud masked 2016 and 2024 composites, on land pixels only, and on land within 1 km of mapped mangroves and reefs, with 95% block bootstrap intervals. This is context, not one of the study's hypotheses.
+For the 3 islands with mangroves I compared Sentinel-2 NDBI between cloud masked 2016 and 2024 composites, on land pixels only, and on land within 1 km of mapped mangroves and reefs, with 95% block bootstrap intervals. Each island is represented by one 1,024 × 1,024 pixel window, not the whole country: the Malé area of the Maldives (72.9–73.6° E, 3.0–4.5° N), Mahé in Seychelles (55.3–55.6° E, 4.5–4.8° S) and western Viti Levu in Fiji (177.2–178.0° E, 17.5–18.3° S). This is context, not one of the study's hypotheses.
 
 ## 4. Results
 
@@ -168,13 +168,13 @@ Mean DHW over mapped reef was higher in 2016–2020 than in 1996–2000 on all 4
 
 | Island group | Change, 1996–2000 to 2016–2020 (°C-weeks) | Max DHW | Seasonal MK p, corrected | Seasonal MK p, uncorrected |
 |---|---:|---:|---:|---:|
-| Seychelles | +0.52 | 8.03 | 0.14 | 0.0008 |
+| Seychelles | +0.52 | 8.03 | 0.14 | 0.002 |
 | Fiji | +0.29 | 7.69 | 0.55 | 0.25 |
-| Maldives | +0.07 | 6.25 | 0.31 | 0.07 |
-| Lakshadweep | +0.05 | 3.86 | 0.90 | 0.80 |
-| Canary Islands (one offshore cell) | −0.05 | 12.46 | 0.55 | — |
+| Maldives | +0.07 | 6.25 | 0.31 | 0.049 |
+| Lakshadweep | +0.05 | 3.86 | 0.90 | 0.81 |
+| Canary Islands (one offshore cell) | −0.05 | 12.46 | 0.55 | 0.30 |
 
-No monotonic trend is significant at the 5% level once serial correlation is accounted for. Without the correction, Seychelles would be highly significant (p = 0.0008). That gap is the point: DHW accumulates over 12 weeks, so a single warm year produces a run of high monthly values, and a test that counts each month as independent evidence overstates how much information 25 years contain. H1 is partly supported: heat stress over reef rose everywhere, but over this record the rise cannot be separated from serially correlated variability. The record ends in 2020, before the fourth global bleaching event that began in 2023 (NOAA, 2024).
+Both columns test the same 300 monthly means; only the correction differs. No monotonic trend is significant at the 5% level once serial correlation is accounted for. Without the correction, Seychelles (p = 0.002) and the Maldives (p = 0.049) would appear significant. That gap is the point: DHW accumulates over 12 weeks, so a single warm year produces a run of high monthly values, and a test that counts each month as independent evidence overstates how much information 25 years contain. H1 is partly supported: heat stress over reef rose everywhere, but over this record the rise cannot be separated from serially correlated variability. The record ends in 2020, before the fourth global bleaching event that began in 2023 (NOAA, 2024).
 
 <p align="center">
   <img src="../outputs/plots/fig4_coral_thermal_stress_trends.png" width="750">
@@ -184,9 +184,9 @@ No monotonic trend is significant at the 5% level once serial correlation is acc
 
 ### 4.4 Compound Score: The Top Depends on the Weighting
 
-Seychelles 0.581. Maldives 0.512. Lakshadweep 0.267. Fiji 0.256. Canary Islands 0.000.
+Seychelles 0.581. Maldives 0.563. Lakshadweep 0.320. Fiji 0.282. Canary Islands 0.000.
 
-The two inputs point to different islands. The Maldives have by far the highest exposure (11.82% of people) but almost no change in reef heat stress (+0.07). Seychelles has the largest rise in reef heat stress (+0.52) but much lower exposure (2.07%). At equal weights Seychelles is narrowly ahead, but the gap of 0.07 is small next to the choices behind it, and I read the top two as a near tie.
+The two inputs point to different islands. The Maldives have by far the highest exposure (11.82% of people) but almost no change in reef heat stress (+0.07). Seychelles has the largest rise in reef heat stress (+0.52) but much lower exposure (2.07%). At equal weights Seychelles is narrowly ahead, but the gap of 0.02 is small next to the choices behind it, and I read the top two as a near tie.
 
 <p align="center">
   <img src="../outputs/plots/compound_vulnerability_score.png" width="700">
@@ -200,13 +200,13 @@ The two inputs point to different islands. The Maldives have by far the highest 
 |---|---:|---:|---:|
 | Seychelles | 71.4% | 9.9% | 0.581 |
 | Canary Islands | 50.4% | 10.8% | 0.000 |
-| Fiji | 12.2% | 2.2% | 0.256 |
-| Maldives | 1.3% | 0.4% | 0.512 |
-| Lakshadweep | no WDPA record | — | 0.267 |
+| Fiji | 12.2% | 2.2% | 0.282 |
+| Maldives | 1.3% | 0.4% | 0.563 |
+| Lakshadweep | no WDPA record | — | 0.320 |
 
-Coverage and the compound score are unrelated across the 4 island groups (r = −0.01, 95% interval −0.96 to 0.96; Spearman ρ = 0.20). The two islands at the top of the compound score sit at opposite ends of protection: Seychelles at 71.4% and the Maldives at 1.3%. Removing Seychelles alone moves r to −0.95, which shows how little 4 points can say. H3 is not supported, and with n = 4 it could not have been confirmed either way.
+Coverage and the compound score are unrelated across the 4 island groups (r = −0.10, 95% interval −0.97 to 0.95; Spearman ρ = 0.20). The two islands at the top of the compound score sit at opposite ends of protection: Seychelles at 71.4% and the Maldives at 1.3%. Removing Seychelles alone moves r to −0.95, which shows how little 4 points can say. H3 is not supported, and with n = 4 it could not have been confirmed either way.
 
-What drives coverage looks institutional rather than risk based. Seychelles' coverage comes largely from its Marine Spatial Plan, which designated more than 30% of its EEZ in 2020 following a 2016 debt for nature swap; the Canary Islands' from Natura 2000 sites and national parks; Fiji's from locally managed marine areas (102 of its 126 WDPA records). These are different instruments with different strengths, and coverage alone says nothing about how well any of them is managed.
+What drives coverage looks institutional rather than risk based. Seychelles' coverage comes largely from its Marine Spatial Plan, which designated more than 30% of its EEZ in 2020 following a 2016 debt for nature swap; the Canary Islands' from Natura 2000 sites and national parks; Fiji's from locally managed marine areas (102 of its 126 WDPA records). These are different instruments with different strengths, and coverage alone says nothing about how well any of them is managed. Definitions also differ: 25 of the Maldives' 93 WDPA records are UNESCO-MAB Biosphere Reserve zones, which Protected Planet does not count towards its own coverage statistics; they are included here as they appear in WDPA.
 
 <p align="center">
   <img src="../outputs/plots/fig6_governance_alignment.png" width="700">
@@ -216,9 +216,9 @@ What drives coverage looks institutional rather than risk based. Seychelles' cov
 
 ### 4.6 Sensitivity Checks
 
-* **Weighting.** Sweeping the exposure weight from 0 to 100%, Seychelles is top up to 53% and the Maldives from 54% upward (Figure 8). The equal weighting I use sits close to that crossover, which is another reason to read the top two as a near tie.
+* **Weighting.** Sweeping the exposure weight from 0 to 100%, Seychelles is top up to 51% and the Maldives from 52% upward (Figure 8). The equal weighting I use sits close to that crossover, which is another reason to read the top two as a near tie.
 
-* **Elevation model.** Section 4.1 reports every figure on both models. For people the order is the same on both, but the gaps change: Lakshadweep goes from under a tenth of the Maldives' share to more than half. For named places the leader changes, from Seychelles on the surface model (9.9% against 4.4%) to the Maldives on bare earth (28.8% against 24.7%). No other choice in the study moves the numbers as much.
+* **Elevation model.** Section 4.1 reports every figure on both models. For people the order is the same on both, but the gaps change: Lakshadweep goes from under a tenth of the Maldives' share to more than half. For named places the leader changes, from Seychelles on the surface model (9.9% against 4.4%) to the Maldives on bare earth (28.8% against 24.7%). The two models do not use quite the same places, because points with no DeltaDTM value and a Copernicus height of 10 m or less are left out of the bare-earth figure (Seychelles 154 of 162 points, Fiji 1,180 of 1,269). On the 154 Seychelles points both models share, Copernicus gives 8.4% against the Maldives' 4.4%, so the change of leader holds. No other choice in the study moves the numbers as much.
 
 * **Water level.** Share of named places at 0.5 m, 1 m and 1.5 m on DeltaDTM:
 
@@ -234,17 +234,17 @@ What drives coverage looks institutional rather than risk based. Seychelles' cov
 
 * **Reef heat stress series.** With one 5 km cell per island instead of the reef cell mean, the corrected p values are 0.14 (Maldives) and 0.13 (Seychelles); with a ±0.15° box around that cell, 0.09 and 0.13. No version reaches 0.05 once serial correlation is accounted for.
 
-* **Governance.** Leave one out r ranges from −0.95 (without Seychelles) to 0.55 (without the Canary Islands). The earlier land area ratio, kept for comparison, gives r = 0.64 (p = 0.36).
+* **Governance.** Leave one out r ranges from −0.95 (without Seychelles) to 0.42 (without the Canary Islands). The earlier land area ratio, kept for comparison, gives r = 0.57 (p = 0.43).
 
 <p align="center">
   <img src="../outputs/plots/fig7_weighting_sensitivity_curve.png" width="700">
 </p>
 
-**Figure 8.** Compound score for each island as the exposure weight is swept from 0 to 100%. The top island changes from Seychelles to the Maldives at an exposure weight of 54%.
+**Figure 8.** Compound score for each island as the exposure weight is swept from 0 to 100%. The top island changes from Seychelles to the Maldives at an exposure weight of 52%.
 
 ### 4.7 Built Up Change on Land (supplementary)
 
-On land pixels only, NDBI rose in the Maldives (+0.055, 95% interval 0.040 to 0.072) and did not rise in Seychelles (−0.001, −0.004 to 0.001) or Fiji (−0.011, −0.013 to −0.009). On land within 1 km of mapped mangroves and reefs, the Maldives again rose (+0.053), Seychelles fell slightly (−0.009) and Fiji rose slightly (+0.008, 0.002 to 0.014). Only the Maldives shows a clear rise, concentrated around the Malé urban area. This is context; it is not tested as a hypothesis.
+On land pixels only, NDBI rose in the Maldives (+0.055, 95% interval 0.040 to 0.072) and did not rise in Seychelles (−0.001, −0.004 to 0.001) or Fiji (−0.011, −0.013 to −0.009). On land within 1 km of mapped mangroves and reefs, the Maldives again rose (+0.053), Seychelles fell slightly (−0.009) and Fiji rose slightly (+0.008, 0.002 to 0.014). Only the Maldives shows a clear rise, concentrated around the Malé urban area. Part of it may be new land rather than new building: much of Hulhumalé Phase 2 was reclaimed from the lagoon between 2015 and 2019, and the current OpenStreetMap coastline used to define land includes it. This is context; it is not tested as a hypothesis.
 
 ## 5. Discussion
 
@@ -267,8 +267,8 @@ Version 1 of this study reported four results that did not survive review. I lis
 - **"78.3% of Seychelles settlements at risk."** 188 of the 244 Seychelles points read −32767 m, the elevation raster's NoData value, and were counted as at or below 1 m; the raster was 99.97% NoData. On top of that, OpenStreetMap "settlement" points on these islands are mostly names of islands and islets, some placed in open water. The study now samples one shared elevation rule for every island (NoData and out of extent points can no longer count as at risk), moves points in water to land within 60 m or leaves them out, uses people as the main measure, and reports named places as a second measure.
 - **A surface elevation model.** Version 1 used Copernicus GLO-30 only. On bare earth, exposure rises everywhere and the order changes (Section 4.1).
 - **"Significant coral trends in the Maldives (p = 0.0046) and Seychelles (p = 0.0069)."** These came from one 5 km cell per island and a seasonal test that treats months as independent. With the mean over mapped reef and the correction for serial correlation, no trend is significant (Section 4.3).
-- **"Seychelles is top at every weighting."** Version 1's inputs (share of points and single cell DHW) both happened to be highest for Seychelles, so it scored 1.0 at every weight by construction, which was reported as robustness. With people and reef cell means, the inputs disagree and the ranking changes at 54%.
-- **"Governance correlation r = 0.965, p = 0.035."** Overlapping protected areas were counted twice and coverage was divided by land area, which for small islands with large marine reserves gives ratios far above 1. As a share of the coastal zone, the relationship disappears (r = −0.01).
+- **"Seychelles is top at every weighting."** Version 1's inputs (share of points and single cell DHW) both happened to be highest for Seychelles, so it scored 1.0 at every weight by construction, which was reported as robustness. With people and reef cell means, the inputs disagree and the ranking changes at 52%.
+- **"Governance correlation r = 0.965, p = 0.035."** Overlapping protected areas were counted twice and coverage was divided by land area, which for small islands with large marine reserves gives ratios far above 1. As a share of the coastal zone, the relationship disappears (r = −0.10).
 - **"Seychelles shows the strongest built up rise (+0.11)."** That was measured over bounding boxes that were mostly ocean. On land only, Seychelles shows no rise.
 
 Earlier still, the Maldives and Lakshadweep elevation files had a coverage gap (99.99% of pixels read 0.0), and an incomplete boundary mask undercounted Lakshadweep's population; both were fixed earlier in the project. The Development Log records every step.
@@ -283,7 +283,7 @@ Earlier still, the Maldives and Lakshadweep elevation files had a coverage gap (
 
 ### 6.3 Boundaries
 
-Island boundaries were rebuilt from OpenStreetMap coastlines (joined with shapely's polygonize) and, for Fiji, OSM's pre closed land polygons, then validated against independent land area figures: Maldives 317.6 km² against 298 km² (World Bank, 2023), Seychelles 449.6 against 460, Fiji 18,820.6 against 18,270, Canary Islands 7,432.6 against about 7,446 (Instituto Canario de Estadística), Lakshadweep 30.8 against 32 (Lakshadweep administration), all within about 7%.
+Island boundaries were rebuilt from OpenStreetMap coastlines (joined with shapely's polygonize) and, for Fiji, OSM's pre closed land polygons, then validated against independent land area figures (areas in the equal area projection EPSG:6933, overlapping polygons merged; `scripts/validation/boundary_area_validation.py`): Maldives 292.9 km² against 298 km² (World Bank, 2024), Seychelles 443.9 against 460, Fiji 18,819.3 against 18,270, Canary Islands 7,434.1 against about 7,446 (Instituto Canario de Estadística), Lakshadweep 30.8 against 32 (Lakshadweep administration), all within 4%.
 
 ### 6.4 Reef Heat Stress and Mangroves
 
@@ -304,7 +304,7 @@ NDBI is an index, not a map of buildings, and it responds to bare soil and dry v
 
 ## 7. Conclusion
 
-On five island groups, the share of people living on land at or below 1 m depends strongly on the elevation model: on bare earth it is 11.8% in the Maldives and 6.4% in Lakshadweep, up from 8.9% and 0.8% on a surface model. Mangrove extent shows no decline. Heat stress over reef rose on every reef island, most in Seychelles, but over 1996–2020 the rise cannot be separated from serially correlated variability. Combining exposure with reef heat stress gives a near tie between Seychelles and the Maldives that flips at 54% exposure weight, and protection of the coastal zone does not follow that ranking.
+On five island groups, the share of people living on land at or below 1 m depends strongly on the elevation model: on bare earth it is 11.8% in the Maldives and 6.4% in Lakshadweep, up from 8.9% and 0.8% on a surface model. Mangrove extent shows no decline. Heat stress over reef rose on every reef island, most in Seychelles, but over 1996–2020 the rise cannot be separated from serially correlated variability. Combining exposure with reef heat stress gives a near tie between Seychelles and the Maldives that flips at 52% exposure weight, and protection of the coastal zone does not follow that ranking.
 
 The main lesson is about method. The elevation model, the exposure measure and the weighting each change which island looks most vulnerable. An index used to allocate adaptation resources across islands should report those choices and how sensitive its ranking is to them, and should use a bare earth model on low, forested coasts.
 

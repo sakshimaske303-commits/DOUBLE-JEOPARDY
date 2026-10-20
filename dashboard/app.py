@@ -97,7 +97,7 @@ with col1:
 with col2:
     st.metric("DATASETS", "10+", "Multi-source")
 with col3:
-    st.metric("TIME SPAN", "1996–2024", "28 years")
+    st.metric("TIME SPAN", "1996–2020", "NDBI to 2024")
 with col4:
     _top = max(R["cvs"], key=R["cvs"].get)
     st.metric("TOP COMPOUND SCORE", R["label"][_top], f"{R['cvs'][_top]:.2f} (near tie)", delta_color="off")
@@ -112,8 +112,8 @@ st.markdown(
         <p style="color:{PALETTE['navy']}; text-transform:uppercase; letter-spacing:1.5px;
                   font-weight:700; font-size:0.85rem; margin-bottom:8px;">Why This Matters</p>
         <p style="color:{PALETTE['text_dark']}; font-size:1rem; line-height:1.6; margin:0;">
-            Climate adaptation funding for small islands is often allocated using a single exposure
-            indicator. This project shows how much that choice matters. On a surface elevation model the
+            Rankings of small-island exposure are often built from a single elevation model and a single
+            exposure measure. This project shows how much those choices matter. On a surface elevation model the
             Maldives have {pct(R['people'][('maldives', 'copernicus')])} of people at or below 1 m; on a
             bare-earth model, {pct(R['people'][('maldives', 'deltadtm')])}, and Lakshadweep moves from
             {pct(R['people'][('lakshadweep', 'copernicus')])} to {pct(R['people'][('lakshadweep', 'deltadtm')])}.
@@ -154,8 +154,8 @@ with col_right:
             <p style="color:{PALETTE['text_dark']}; font-size:0.95rem; line-height:1.6; margin:0;">
                 On a bare-earth elevation model, <b>{R['label'][_top_ppl]}</b> has the largest share of people
                 living at or below 1 m ({pct(_ppl[_top_ppl])}), followed by Lakshadweep ({pct(_ppl['lakshadweep'])})
-                and Seychelles ({pct(_ppl['seychelles'])}). The surface model used at first (Copernicus GLO-30)
-                put the Maldives at {pct(R['people'][('maldives', 'copernicus')])}: it measures tree and roof tops,
+                and Seychelles ({pct(_ppl['seychelles'])}). The Copernicus GLO-30 surface model
+                puts the Maldives at {pct(R['people'][('maldives', 'copernicus')])}: it measures tree and roof tops,
                 which lifts flat atolls most. Combined with the change in reef heat stress, the compound score
                 ranks <b>{R['label'][_cvs_sorted[0]]}</b> ({R['cvs'][_cvs_sorted[0]]:.2f}) just ahead of
                 {R['label'][_cvs_sorted[1]]} ({R['cvs'][_cvs_sorted[1]]:.2f}); the order flips once exposure
@@ -191,10 +191,11 @@ with h2:
     <div style="background: {PALETTE['card_bg']}; border-radius: 14px;
                 padding: 20px; border: 2px solid {PALETTE['mint']}; min-height: 200px;">
         <p style="color: {PALETTE['mint']}; font-weight: 800; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 8px;">H2 — Not Supported</p>
-        <p style="color: {PALETTE['navy']}; font-weight: 700; font-size: 1rem; margin-bottom: 8px;">Mangroves Are Stable</p>
+        <p style="color: {PALETTE['navy']}; font-weight: 700; font-size: 1rem; margin-bottom: 8px;">No Mangrove Decline Detected</p>
         <p style="color: {PALETTE['text_dark']}; font-size: 0.85rem; margin: 0;">
-            Zero net decline across 3 tested islands and 3 independent time points
-            (1996–2020) — based on a three-point snapshot comparison, not a continuous trend test.
+            Global Mangrove Watch shows no net decline on the 3 islands with mangroves at 1996, 2010 and
+            2020. These epochs are derived from a 2010 baseline, so they are not independent surveys, and
+            small atoll patches are near the product's resolution.
         </p>
     </div>
     """, unsafe_allow_html=True)
