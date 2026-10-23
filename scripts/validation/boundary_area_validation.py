@@ -1,12 +1,6 @@
 """Land area of each island boundary (data/boundaries_v2) against an independent
-reference figure. Written for the paper's Section 6.3, so the validation numbers
-come from a script rather than being typed in.
-
-Area is computed in the equal-area projection EPSG:6933 after merging all polygons
-(unary_union), the same way scripts/processing/wdpa_coastal_buffer.py measures land.
-
-Run from the repository root:  python scripts/validation/boundary_area_validation.py
-Output: data/boundary_area_validation.csv
+reference figure. Written for the paper's Section 6.3, so the validation numbers come
+from a script rather than being typed in.
 """
 import geopandas as gpd
 import pandas as pd

@@ -7,24 +7,24 @@ Sakshi D. Maske
 
 ## Abstract
 
-Low islands face two threats at once: the sea rising, and the reefs and mangroves that buffer it weakening. I measured both across 5 island groups in 3 ocean basins (Maldives, Lakshadweep, Seychelles, Fiji and the Canary Islands), testing mangroves and coral reefs as separate pathways. Exposure is the share of people (WorldPop 2020) living on land at or below 1 m, on a bare earth elevation model (DeltaDTM v1.1), with the Copernicus GLO-30 surface model and the share of OpenStreetMap named places as comparisons. On bare earth, 11.8% of people in the Maldives and 6.4% in Lakshadweep live at or below 1 m, against 8.9% and 0.8% on the surface model; counting named places instead puts Seychelles (24.7%) level with the Maldives (28.8%). Mean Degree Heating Weeks over mapped reef were higher in 2016–2020 than in 1996–2000 on all 4 reef islands, most in Seychelles (+0.52 °C-weeks), but no monotonic trend is significant once serial correlation is accounted for (corrected seasonal Mann-Kendall p = 0.14 to 0.90). Mangrove extent (Global Mangrove Watch, 1996, 2010, 2020) shows no decline. A compound score of exposure and reef heat stress puts Seychelles (0.58) and the Maldives (0.56) in a near tie, with the top island changing at an exposure weight of 52%. Protection of the 10 km coastal zone ranges from 1.3% (Maldives) to 71.4% (Seychelles) and does not follow this score (r = −0.10, n = 4, descriptive only). This is version 2 of the study; version 1 reported significant coral trends, a ranking robust to weighting and a strong governance correlation, and Section 6.1 explains why none of those held. The main result is about method: the elevation model, the exposure measure and the weighting each change which island looks most vulnerable, and an index used to allocate adaptation resources should report all three.
+Low islands face two threats at once: the sea rising, and the reefs and mangroves that buffer it weakening. I measured both across 5 island groups in 3 ocean basins (Maldives, Lakshadweep, Seychelles, Fiji and the Canary Islands), testing mangroves and coral reefs as separate pathways. Exposure is the share of people (WorldPop 2020) living on land at or below 1 m, on a bare earth elevation model (DeltaDTM v1.1), with the Copernicus GLO-30 surface model and the share of OpenStreetMap named places as comparisons. On bare earth, 11.8% of people in the Maldives and 6.4% in Lakshadweep live at or below 1 m, against 8.9% and 0.8% on the surface model; counting named places instead puts Seychelles (24.7%) level with the Maldives (28.8%). Mean Degree Heating Weeks over mapped reef were higher in 2016–2020 than in 1996–2000 on all 4 reef islands, most in Seychelles (+0.52 °C-weeks), but no monotonic trend is significant once serial correlation is accounted for (corrected seasonal Mann-Kendall p = 0.14 to 0.90). Mangrove extent (Global Mangrove Watch, 1996, 2010, 2020) shows no decline. A compound score of exposure and reef heat stress puts Seychelles (0.58) and the Maldives (0.56) in a near tie, with the top island changing at an exposure weight of 52%. Protection of the 10 km coastal zone ranges from 1.3% (Maldives) to 71.4% (Seychelles) and does not follow this score (r = −0.10, n = 4, descriptive only). A building-level extension adds a policy question: whether statutory coastal setbacks are drawn where low-lying buildings are. Of Overture Maps buildings at or below 1 m, 92–93% lie landward of the 25 m setback in Seychelles and the 20 m zone in Lakshadweep, the Maldives and Fiji have no setback for inhabited land, and only the Canary Islands' 100 m Ley de Costas line covers most of them (85%); on the four tropical island groups, half of the low buildings stand 80–136 m from the shoreline. The main result is about method: the elevation model, the exposure measure and the weighting each change which island looks most vulnerable, and an index used to allocate adaptation resources should report all three.
 
-**Keywords**: sea level rise, digital terrain model, coral bleaching, mangroves, compound vulnerability, small island states, protected areas, remote sensing
+**Keywords**: sea level rise, digital terrain model, coral bleaching, mangroves, compound vulnerability, small island states, protected areas, coastal setbacks, policy instruments, remote sensing
 
 ---
 
 ## 1. Introduction
 
-International climate adaptation policy increasingly treats coastal ecosystems (mangroves, coral reefs, seagrass beds) as a single protective category, financed and managed under the umbrella term "nature based solutions." A substantial body of research documents that these ecosystems really do provide measurable coastal protection. Reef structures dissipate wave energy before it reaches shore, and dense mangrove stands can reduce wave heights by well over half and, where wide enough, storm surge peak water levels too. Small island developing states are frequently identified as the setting where this protective value is proportionally greatest relative to national economic output.
+International climate adaptation policy increasingly treats coastal ecosystems (mangroves, coral reefs, seagrass beds) as a single protective category, financed and managed under the umbrella term "nature based solutions." Research shows that these ecosystems provide measurable coastal protection. Reef structures dissipate wave energy before it reaches shore, and dense mangrove stands can reduce wave heights by well over half and, where wide enough, storm surge peak water levels too. Small island developing states are frequently identified as the setting where this protective value is proportionally greatest relative to national economic output.
 
-What's less frequently tested is whether the ecosystems providing that protection are themselves degrading uniformly, or whether adaptation planning that treats them as 1 undifferentiated buffer risks obscuring truly different underlying trajectories. I address that gap directly here, testing mangrove extent and coral reef condition as 2 independent pathways, across a properly cross national, multi ocean basin sample, without assuming up front that they move together.
+Less often tested is whether the ecosystems providing that protection are degrading at the same rate, or whether planning that treats them as one buffer hides different trajectories. This study tests mangrove extent and coral reef condition as two separate pathways, across a cross-national sample spanning three ocean basins, without assuming that they move together.
 
 
-**Research question.** Across five island groups in three ocean basins, how many people live on land at or below 1 m, how has heat stress on their reefs and the extent of their mangroves changed between 1996 and 2020, and does combining exposure with reef heat stress change how the islands rank? Two main hypotheses follow: H1, reef heat stress increased over 1996–2020; H2, mangrove extent declined over the same period. Two secondary, descriptive analyses are reported separately: whether coastal protected area coverage is higher where the combined score is higher (H3, n = 4, descriptive only), and whether built up surfaces expanded on land near the ecosystem buffers between 2016 and 2024.
+**Research question.** Across five island groups in three ocean basins, how many people live on land at or below 1 m, how has heat stress on their reefs and the extent of their mangroves changed between 1996 and 2020, and does combining exposure with reef heat stress change how the islands rank? Two main hypotheses follow: H1, reef heat stress increased over 1996–2020; H2, mangrove extent declined over the same period. Two secondary, descriptive analyses are reported separately: whether coastal protected area coverage is higher where the combined score is higher (H3, n = 4, descriptive only), whether built up surfaces expanded on land near the ecosystem buffers between 2016 and 2024, and whether each government's statutory coastal setback covers the buildings that stand on low land (Section 3.9).
 
-This is version 2 of the study. Version 1 reported a clean result: Seychelles most exposed, significant coral trends in the Maldives and Seychelles, a ranking that held at every weighting, and protected area coverage strongly tracking risk. Going back through each measurement choice, most of that did not hold up, and Section 6.1 sets out what changed and why. I kept the corrections in the paper because they are part of the result: the same five islands rank differently depending on the elevation model, what is counted as exposure, and how inputs are weighted.
+This is version 2 of the study. Version 1 reported a clean result: Seychelles most exposed, significant coral trends in the Maldives and Seychelles, a ranking that held at every weighting, and protected area coverage strongly tracking risk. Most of that did not hold up once each measurement choice was rechecked; Section 6.1 sets out what changed and why. The corrections show that the same five islands rank differently depending on the elevation model, what is counted as exposure, and how inputs are weighted.
 
-A quick note about the title. "Double jeopardy" is the two threats together: the sea rising while the reefs and mangroves that hold it back weaken. "Vulnerability spiral" is used descriptively for that combination. It isn't a claim that this study models a feedback loop between the two. What follows is a cross sectional, multi indicator comparison.
+"Double jeopardy" in the title refers to the two threats together: the sea rising while the reefs and mangroves that hold it back weaken. "Vulnerability spiral" describes that combination; the study does not model a feedback loop between the two. It is a cross-sectional, multi-indicator comparison.
 
 ## 2. Literature Review
 
@@ -34,7 +34,7 @@ Coastal ecosystems are established in the literature as effective, measurable pr
 
 ### 2.2 Global Mangrove Trends: A More Stable Picture Than Often Assumed
 
-My own result of no measurable mangrove decline across the 3 tested islands isn't an anomalous or surprising finding once set against the wider record. While mangrove loss driven by aquaculture and agricultural conversion is well documented across the 20th century, the most comprehensive recent multidecadal remote sensing assessment (the Global Mangrove Watch archive's own change detection analysis spanning 1996 to 2020, the same dataset this study draws from) found a global net loss of only approximately 3.4%, considerably more modest than earlier deforestation era estimates might suggest, and it points in the same direction as my own islands; mangrove loss has slowed down a lot in the more recent multi decade record compared to the mid 20th century period.
+The absence of a measurable mangrove decline on the 3 tested islands is consistent with the wider record. While mangrove loss driven by aquaculture and agricultural conversion is well documented across the 20th century, the most comprehensive recent multidecadal remote sensing assessment (the Global Mangrove Watch archive's own change detection analysis spanning 1996 to 2020, the same dataset this study draws from) found a global net loss of only approximately 3.4%, considerably more modest than earlier deforestation era estimates might suggest, and it points in the same direction as my own islands; mangrove loss has slowed down a lot in the more recent multi decade record compared to the mid 20th century period.
 
 ### 2.3 Coral Bleaching as a Distinct, Escalating Pathway
 
@@ -42,12 +42,12 @@ Coral doesn't get the comparatively stable picture mangroves do. Bleaching drive
 
 ### 2.4 Protected Area Effectiveness and the "Paper Park" Problem
 
-A separate, substantial body of literature documents that formal protected area designation frequently fails to translate into effective on the ground management, a phenomenon widely termed the "paper park" problem, where protected areas exist in legal or administrative terms without correspondingly effective enforcement, monitoring, or ecological outcomes. Recent global assessments estimate that while roughly 10% of the ocean carries some form of formal protected status, only a small fraction of that area meets rigorous effectiveness standards. Identified drivers of this implementation gap include inadequate enforcement capacity, insufficient stakeholder engagement, and a persistent disconnect between protected area evaluation findings and actual management action. It's what motivates my governance alignment test, run in the same spirit. Instead of treating formal protection status as inherently meaningful, I describe whether protected area coverage of the coastal zone is higher where measured risk is higher, across the 4 island groups that have a protected area record.
+A separate literature documents that formal protected area designation frequently fails to translate into effective on the ground management, a phenomenon widely termed the "paper park" problem, where protected areas exist in legal or administrative terms without correspondingly effective enforcement, monitoring, or ecological outcomes. Recent global assessments estimate that while roughly 10% of the ocean carries some form of formal protected status, only a small fraction of that area meets rigorous effectiveness standards. Identified drivers of this implementation gap include inadequate enforcement capacity, insufficient stakeholder engagement, and a persistent disconnect between protected area evaluation findings and actual management action. It's what motivates my governance alignment test, run in the same spirit. Instead of treating formal protection status as inherently meaningful, I describe whether protected area coverage of the coastal zone is higher where measured risk is higher, across the 4 island groups that have a protected area record.
 
 
 ### 2.5 Surface Models, Bare Earth, and Low Coasts
 
-Most global sea level exposure estimates have relied on elevation models built from radar or optical stereo, which measure the top of whatever covers the ground. Over vegetated or built up coasts this surface sits above the terrain, and Kulp and Strauss (2019) showed that correcting for it roughly triples global estimates of the population living on land below projected high tide lines. DeltaDTM (Pronk et al., 2024) applies the same idea to Copernicus GLO-30, removing vegetation and buildings with ICESat-2 and GEDI lidar to give a bare earth model of the global coastal zone, with a reported mean absolute error of about 0.4–0.5 m against airborne lidar. For forested coral islands only a few metres high, this difference is not a refinement; it can change which island looks most exposed. That is why the elevation model is treated as a variable in this study, with both models reported side by side.
+Most global sea level exposure estimates have relied on elevation models built from radar or optical stereo, which measure the top of whatever covers the ground. Over vegetated or built up coasts this surface sits above the terrain, and Kulp and Strauss (2019) showed that correcting for it roughly triples global estimates of the population living on land below projected high tide lines. DeltaDTM (Pronk et al., 2024) applies the same idea to Copernicus GLO-30, removing vegetation and buildings with ICESat-2 and GEDI lidar to give a bare earth model of the global coastal zone, with a reported mean absolute error of about 0.4–0.5 m against airborne lidar. For forested coral islands only a few metres high, this difference can change which island looks most exposed. That is why the elevation model is treated as a variable in this study, with both models reported side by side.
 
 ## 3. Data and Methodology
 
@@ -120,6 +120,24 @@ I measured the share of a 10 km zone around each island's coastline (land and se
 
 For the 3 islands with mangroves I compared Sentinel-2 NDBI between cloud masked 2016 and 2024 composites, on land pixels only, and on land within 1 km of mapped mangroves and reefs, with 95% block bootstrap intervals. Each island is represented by one 1,024 × 1,024 pixel window, not the whole country: the Malé area of the Maldives (72.9–73.6° E, 3.0–4.5° N), Mahé in Seychelles (55.3–55.6° E, 4.5–4.8° S) and western Viti Levu in Fiji (177.2–178.0° E, 17.5–18.3° S). This is context, not one of the study's hypotheses.
 
+### 3.9 Coastal Setbacks and Low-Lying Buildings
+
+The protected area measure in Section 3.7 asks whether conservation designations follow risk. A setback asks a sharper question, because it is the one coastal instrument that decides directly where people may build. I classify the coastal instruments documented in this paper with Hood's (1983) NATO scheme (Nodality, Authority, Treasure, Organisation) and then test the Authority instrument that all five settings could in principle use: a minimum building distance from the shoreline.
+
+| Island group | Setback for buildings (Authority) | Other coastal instruments in this paper | Legal status of the setback |
+|---|---|---|---|
+| Canary Islands | 100 m protection easement; 20 m on land already urban in 1988 | Natura 2000 sites and national parks (Authority) | Ley 22/1988 de Costas, art. 23 and Transitional Provision 3 |
+| Seychelles | 25 m from the landward side of the high water mark; 10 m with permission where topography justifies it | Marine Spatial Plan protected areas (Authority), financed through a 2016 debt for nature swap (Treasure) | Physical Planning (Development and Subdivision of Parcels) Regulations 2023, S.I. 91 of 2023, reg. 13 |
+| Lakshadweep | 20 m no development zone | none in WDPA | Island Coastal Regulation Zone Notification 2019 (width from secondary sources; primary text not verified) |
+| Maldives | none found for inhabited islands; 5 m from the vegetation line on islands leased for tourism | protected areas and UNESCO-MAB zones (Authority) | Regulation on the Protection and Conservation of Environment in the Tourism Industry, cl. 2.10 |
+| Fiji | none found | locally managed marine areas (Organisation, community co-management) | – |
+
+No Nodality instrument (public information, hazard mapping) is analysed here, and the table lists only instruments this paper documents; it is not a full inventory of each country's coastal policy.
+
+The pair Maldives–Lakshadweep is the closest to a most similar systems design in the sample: both are Indian Ocean coral atoll chains with similar island sizes and heights, and Minicoy in Lakshadweep speaks Mahl, a dialect of Dhivehi. They differ in government, a sovereign small island state against a Union Territory under India's national coastal regulation, and in the setback rule that follows from it.
+
+For buildings I used footprints from Overture Maps (release 2026-08-19.0), which merges OpenStreetMap, Google Open Buildings, Microsoft ML Buildings, Esri Community Maps and, for Spain, the Instituto Geográfico Nacional. The 100 m WorldPop grid is too coarse for a 20–25 m rule. Fiji's extract contains OpenStreetMap buildings only. For each footprint I took a representative point inside it, sampled elevation with the same rule as Section 3.3 (DeltaDTM, with Copernicus where DeltaDTM is empty and Copernicus exceeds 10 m, or where Copernicus exceeds 30 m), and measured its distance to the shoreline, taken as the edge of the validated island polygons (Section 6.3) densified to 5 m. Buildings more than 50 m seaward of the polygons or without usable elevation are excluded and counted. The main measure is the share of buildings at or below 1 m that stand landward of every statutory setback, that is, low buildings the setback does not reach. Because 45% of the low buildings in Seychelles and 39% in Fiji sit on cells below 0 m, which are DeltaDTM artefacts rather than ground below sea level, every number is also reported without them (`scripts/analysis/setback_calibration.py`).
+
 ## 4. Results
 
 ### 4.1 Physical Exposure
@@ -144,7 +162,7 @@ The bare earth model raises every figure, and by very different amounts. The Mal
 
 **Figure 2.** Share of people living on land at or below 1 m, by elevation model. Grey: Copernicus GLO-30 (surface, including trees and roofs). Blue: DeltaDTM v1.1 (bare earth). Heights above EGM2008.
 
-Counting named places tells a different story. By people, the Maldives lead clearly. By named places, the Maldives (28.8%) and Seychelles (24.7%) are close, because Seychelles has many small, low coral islets with few or no residents, while most of its people live on the high granitic islands. Lakshadweep goes the other way: few named places, but its people live on low ground. Neither measure is wrong; they answer different questions. I use people as the main measure because the question is who lives on low land.
+Counting named places gives a different picture. By people, the Maldives lead clearly. By named places, the Maldives (28.8%) and Seychelles (24.7%) are close, because Seychelles has many small, low coral islets with few or no residents, while most of its people live on the high granitic islands. Lakshadweep goes the other way: few named places, but its people live on low ground. Neither measure is wrong; they answer different questions. I use people as the main measure because the question is who lives on low land.
 
 <p align="center">
   <img src="../outputs/plots/fig3_settlement_vs_population_weighted.png" width="700">
@@ -246,23 +264,53 @@ What drives coverage looks institutional rather than risk based. Seychelles' cov
 
 On land pixels only, NDBI rose in the Maldives (+0.055, 95% interval 0.040 to 0.072) and did not rise in Seychelles (−0.001, −0.004 to 0.001) or Fiji (−0.011, −0.013 to −0.009). On land within 1 km of mapped mangroves and reefs, the Maldives again rose (+0.053), Seychelles fell slightly (−0.009) and Fiji rose slightly (+0.008, 0.002 to 0.014). Only the Maldives shows a clear rise, concentrated around the Malé urban area. Part of it may be new land rather than new building: much of Hulhumalé Phase 2 was reclaimed from the lagoon between 2015 and 2019, and the current OpenStreetMap coastline used to define land includes it. This is context; it is not tested as a hypothesis.
 
+### 4.8 Coastal Setbacks Miss Most Low-Lying Buildings
+
+| Island group | Buildings analysed | At or below 1 m | Statutory setback | Low buildings landward of every setback | Median distance of low buildings to shore | Distance covering 90% of low buildings |
+|---|---:|---:|---|---:|---:|---:|
+| Maldives | 114,884 | 13.4% (15,392) | none for inhabited islands | 99.4% | 92 m | 225 m |
+| Lakshadweep | 9,434 | 4.7% (444) | 20 m | 93.2% | 80 m | 345 m |
+| Seychelles | 52,534 | 4.6% (2,440) | 25 m | 92.0% | 136 m | 427 m |
+| Fiji | 277,470 | 0.5% (1,397) | none | 99.8% | 95 m | 463 m |
+| Canary Islands | 880,287 | 0.02% (192) | 100 m (20 m urban) | 15.1% | 19 m | 122 m |
+
+The building count gives the same order as the population count in Section 4.1 (Maldives 13.4% of buildings against 11.8% of people; Fiji 0.5% against 0.28%), except that Seychelles rises from 2.1% of people to 4.6% of buildings; without the sub-zero cells it is 2.6%. Excluding those cells moves the share of low buildings landward of the setback by less than three points anywhere (Seychelles 94.3%, Lakshadweep 95.7%).
+
+On the four tropical island groups the setbacks reach 5–11% of the low buildings, whether the rule is the 20 m and 25 m that Lakshadweep and Seychelles have or the 20–25 m the Maldives and Fiji do not. The Canary Islands are the exception: their low buildings are a thin beachfront strip, half of them within 19 m of the shore, and the 100 m Ley de Costas line covers 85% of them (52% if the 20 m urban rule applied everywhere). The Maldives–Lakshadweep pair gives the same result under two different legal regimes: with a national 20 m zone in Lakshadweep and none on inhabited Maldivian islands, the low buildings outside any setback are 93% and 99%.
+
+A longer setback would not close the gap on the atolls. Applying the Spanish 100 m line to the Maldives would cover 54% of the low buildings and would also place 39% of all buildings inside the setback, on islands that are often only a few hundred metres wide. On atolls low land is not a coastal strip but most of the island, so a distance rule, however wide, measures the wrong thing.
+
+<p align="center">
+  <img src="../outputs/plots/fig9_setback_calibration.png" width="750">
+</p>
+
+**Figure 9.** Share of buildings at or below 1 m (DeltaDTM) that stand within a given distance of the shoreline, with each statutory setback marked. Overture Maps buildings, release 2026-08-19.0; shoreline from the validated island polygons. The Maldives and Fiji have no national setback for inhabited land.
+
+<p align="center">
+  <img src="../outputs/plots/fig10_setback_close_ups.png" width="800">
+</p>
+
+**Figure 10.** Close-ups of the densest cluster of buildings at or below 1 m in each island group (about 7 km across). Blue: low buildings inside the statutory setback; red: low buildings landward of it, or where there is none; grey: buildings above 1 m. In the Maldives window almost every building on the inhabited island is at or below 1 m; in the Canary Islands the low buildings are mostly on port quays. Cells below 0 m are left out.
+
 ## 5. Discussion
 
 The first finding is about measurement. On forested coral islands, a surface elevation model reads the canopy as ground, and the share of people at or below 1 m in Lakshadweep and Seychelles rises five to eightfold when the canopy is removed. The order by people stays the same, but the gaps change, and by named places the leader changes from Seychelles to the Maldives. This matches what Kulp and Strauss (2019) found at global scale, and it matters for any index that ranks islands by exposure: the elevation model is a decision, and it should be reported as one.
 
 The second is that what counts as exposure is also a decision. Counting mapped places puts Seychelles level with the Maldives; counting people puts the Maldives far ahead and Lakshadweep second. Both are defensible, they answer different questions, and an index that uses one without saying so hides a choice that changes the ranking.
 
-The third is about the ecosystems. The two buffers do not move together. Mangrove extent is stable on all 3 islands, which is consistent with the slowing of mangrove loss in the global record (Bunting et al., 2022). Heat stress over reef rose everywhere, most in Seychelles and Fiji, consistent with the escalating bleaching literature (Heron et al., 2016), but 25 years of a 12 week running sum are not enough to call it a monotonic trend once serial correlation is respected. I think that is the honest reading, and it is a stronger position than a significant p value that comes from counting the same warm spell several times.
+The third is about the ecosystems. The two buffers do not move together. Mangrove extent is stable on all 3 islands, which is consistent with the slowing of mangrove loss in the global record (Bunting et al., 2022). Heat stress over reef rose everywhere, most in Seychelles and Fiji, consistent with the escalating bleaching literature (Heron et al., 2016), but 25 years of a 12 week running sum are not enough to call it a monotonic trend once serial correlation is respected.
 
-Put together, the compound score does not give one answer. The island with the most people on low land (the Maldives) is not the island whose reefs are warming fastest (Seychelles), and which one is "most vulnerable" depends on how much weight exposure carries. For allocation decisions that is the useful result: a ranking that flips near equal weights should not be presented as if it were settled.
+Put together, the compound score does not give one answer. The island with the most people on low land (the Maldives) is not the island whose reefs are warming fastest (Seychelles), and which one is "most vulnerable" depends on how much weight exposure carries. For allocation decisions, a ranking that flips near equal weights should not be presented as settled.
 
 Protection, finally, does not follow this risk in these 4 island groups. Seychelles protects most of its coastal zone and the Maldives almost none, while both sit at the top of the compound score. The reasons look institutional, a debt for nature swap and marine spatial plan in one case, a dispersed atoll geography with many small sites in the other. With 4 cases this describes the sample; it does not show that protection policy in general ignores risk.
+
+The setback analysis points the same way with a far larger sample of buildings. The one Authority instrument that decides where people build is calibrated to the low-lying stock only in the Canary Islands, and there because Spain's 1988 rule was written for a mainland and high-island coast where low land is a beachfront strip. On the coral and granitic islands the low buildings sit 80–140 m inland, and a distance rule of any practical width cannot follow them. For adaptation policy on atolls, that suggests instruments defined by height (minimum floor or ground levels, or raising land) rather than by distance from the shore. The most similar pair supports this reading: Lakshadweep's national 20 m zone and the Maldives' absence of one leave practically the same share of low buildings outside, so in this comparison the existence of a setback matters less than the geometry it assumes.
 
 ## 6. Limitations
 
 ### 6.1 What Changed From Version 1
 
-Version 1 of this study reported four results that did not survive review. I list them here because each came from a measurement choice that is easy to make and hard to see.
+Version 1 of this study reported six results that were withdrawn on review. Each came from a measurement choice that is easy to make and hard to see.
 
 - **"78.3% of Seychelles settlements at risk."** 188 of the 244 Seychelles points read −32767 m, the elevation raster's NoData value, and were counted as at or below 1 m; the raster was 99.97% NoData. On top of that, OpenStreetMap "settlement" points on these islands are mostly names of islands and islets, some placed in open water. The study now samples one shared elevation rule for every island (NoData and out of extent points can no longer count as at risk), moves points in water to land within 60 m or leaves them out, uses people as the main measure, and reports named places as a second measure.
 - **A surface elevation model.** Version 1 used Copernicus GLO-30 only. On bare earth, exposure rises everywhere and the order changes (Section 4.1).
@@ -302,9 +350,17 @@ Island boundaries were rebuilt from OpenStreetMap coastlines (joined with shapel
 
 NDBI is an index, not a map of buildings, and it responds to bare soil and dry vegetation as well as built surfaces. The comparison is between two composites, not a time series, and covers only the 3 mangrove islands.
 
+### 6.7 Setbacks and Buildings
+
+- The shoreline is the edge of the island polygons, not the legal high water mark, vegetation line or inner edge of the Spanish public domain, so distances are approximate to some tens of metres. A 20–25 m rule against medians of 80–140 m is not sensitive to that, but individual buildings near the line are.
+- DeltaDTM is a 30 m grid sampled at one point per building, with about 0.4–0.5 m vertical error against lidar; cells below 0 m are artefacts and are reported with and without.
+- Building completeness differs: Fiji's extract is OpenStreetMap only, and 4,478 Maldivian buildings (3.6%, almost all OpenStreetMap; the largest cluster is in Addu Atoll) lie more than 50 m outside the island polygons and are excluded, which suggests some islands are missing or misplaced in the boundaries.
+- The setback measured is the one written in national law. Local plans, permits and enforcement are not observed, and the Lakshadweep width rests on secondary sources.
+- Buildings inside a setback may predate it; the analysis describes where buildings are, not whether rules were broken.
+
 ## 7. Conclusion
 
-On five island groups, the share of people living on land at or below 1 m depends strongly on the elevation model: on bare earth it is 11.8% in the Maldives and 6.4% in Lakshadweep, up from 8.9% and 0.8% on a surface model. Mangrove extent shows no decline. Heat stress over reef rose on every reef island, most in Seychelles, but over 1996–2020 the rise cannot be separated from serially correlated variability. Combining exposure with reef heat stress gives a near tie between Seychelles and the Maldives that flips at 52% exposure weight, and protection of the coastal zone does not follow that ranking.
+On five island groups, the share of people living on land at or below 1 m depends strongly on the elevation model: on bare earth it is 11.8% in the Maldives and 6.4% in Lakshadweep, up from 8.9% and 0.8% on a surface model. Mangrove extent shows no decline. Heat stress over reef rose on every reef island, most in Seychelles, but over 1996–2020 the rise cannot be separated from serially correlated variability. Combining exposure with reef heat stress gives a near tie between Seychelles and the Maldives that flips at 52% exposure weight, and protection of the coastal zone does not follow that ranking. Coastal setbacks, where they exist, reach fewer than one in ten low-lying buildings on the four tropical island groups, against 85% in the Canary Islands, because on atolls low land is the island rather than its edge.
 
 The main lesson is about method. The elevation model, the exposure measure and the weighting each change which island looks most vulnerable. An index used to allocate adaptation resources across islands should report those choices and how sensitive its ranking is to them, and should use a bare earth model on low, forested coasts.
 
@@ -316,11 +372,15 @@ Bunting, P., Rosenqvist, A., Hilarides, L., Lucas, R. M., Thomas, N., Tadono, T.
 
 European Space Agency / Copernicus Data Space Ecosystem. (2024). Copernicus DEM: Copernicus Digital Elevation Model Product Handbook (Issue 5.0). [Read](https://dataspace.copernicus.eu/sites/default/files/media/files/2024-06/geo1988-copernicusdem-spe-002_producthandbook_i5.0.pdf)
 
+España. (1988). Ley 22/1988, de 28 de julio, de Costas. Boletín Oficial del Estado, 181, 29 July 1988. [Read](https://www.boe.es/buscar/act.php?id=BOE-A-1988-18762)
+
 Ferrario, F., Beck, M. W., Storlazzi, C. D., Micheli, F., Shepard, C. C., & Airoldi, L. (2014). The effectiveness of coral reefs for coastal hazard risk reduction and adaptation. Nature Communications, 5, 3794. [https://doi.org/10.1038/ncomms4794](https://doi.org/10.1038/ncomms4794)
 
 Guannel, G., Arkema, K., Ruggiero, P., & Verutes, G. (2016). The Power of Three: Coral Reefs, Seagrasses and Mangroves Protect Coastal Regions and Increase Their Resilience. *PLOS ONE*, 11(7), e0158094. [https://doi.org/10.1371/journal.pone.0158094](https://doi.org/10.1371/journal.pone.0158094)
 
 Heron, S. F., Maynard, J. A., van Hooidonk, R., & Eakin, C. M. (2016). Warming Trends and Bleaching Stress of the World's Coral Reefs 1985–2012. *Scientific Reports*, 6, 38402. [https://doi.org/10.1038/srep38402](https://doi.org/10.1038/srep38402)
+
+Government of India, Ministry of Environment, Forest and Climate Change. (2019). Island Coastal Regulation Zone Notification, 2019. [Read](https://leap.unep.org/en/countries/in/national-legislation/island-coastal-regulation-zone-notification-2019)
 
 Hipel, K. W., & McLeod, A. I. (1994). *Time Series Modelling of Water Resources and Environmental Systems*. Elsevier.
 
@@ -328,21 +388,29 @@ Hirsch, R. M., & Slack, J. R. (1984). A nonparametric trend test for seasonal da
 
 Hirsch, R. M., Slack, J. R., & Smith, R. A. (1982). Techniques of trend analysis for monthly water quality data. *Water Resources Research*, 18(1), 107–121. [https://doi.org/10.1029/WR018i001p00107](https://doi.org/10.1029/WR018i001p00107)
 
+Hood, C. (1983). *The Tools of Government*. Macmillan.
+
 Hussain, M. M., & Mahmud, I. (2019). pyMannKendall: a python package for non parametric Mann Kendall family of trend tests. *Journal of Open Source Software*, 4(39), 1556. [https://doi.org/10.21105/joss.01556](https://doi.org/10.21105/joss.01556)
 
 Instituto Canario de Estadística. (2026). Superficie. Islas y municipios de Canarias [Data set]. Gobierno de Canarias. [Read](https://www.gobiernodecanarias.org/istac/temas_estadisticos/territorioymedioambiente/territorioyusosdelsuelo/territorio/X00004A.html)
 
 Kulp, S. A., & Strauss, B. H. (2019). New elevation data triple estimates of global vulnerability to sea-level rise and coastal flooding. *Nature Communications*, 10, 4844. [https://doi.org/10.1038/s41467-019-12808-z](https://doi.org/10.1038/s41467-019-12808-z)
 
+Maldives, Ministry of Tourism. (n.d.). Regulation on the Protection and Conservation of Environment in the Tourism Industry. [Read](https://old.mvlaw.gov.mv/pdf/gavaid/minTourism/11.pdf)
+
 National Oceanic and Atmospheric Administration, Coral Reef Watch. Daily 5km Satellite Coral Bleaching Heat Stress Degree Heating Week Product (Version 3.1) — Methodology. [Read](https://coralreefwatch.noaa.gov/product/5km/methodology.php)
 
 National Oceanic and Atmospheric Administration. (2024, April 15). NOAA Confirms 4th Global Coral Bleaching Event. [Read](https://www.noaa.gov/news-release/noaa-confirms-4th-global-coral-bleaching-event)
+
+Overture Maps Foundation. (2026). Overture Maps buildings theme, release 2026-08-19.0 [Data set]. [Read](https://docs.overturemaps.org/)
 
 Pieraccini, M., Coppa, S., & De Lucia, G. A. (2017). Beyond marine paper parks? Regulation theory to assess and address environmental non-compliance. Aquatic Conservation: Marine and Freshwater Ecosystems, 27(1), 177–196. [https://doi.org/10.1002/aqc.2632](https://doi.org/10.1002/aqc.2632)
 
 Pike, B. (2026). 10% Protected. 3% Effective. The Widening Gap We Can't Ignore. Marine Conservation Institute. [Read](https://marine-conservation.org/on-the-tide/ten-percent-protected-three-percent-effective/)
 
 Pronk, M., Hooijer, A., Eilander, D., Haag, A., de Jong, T., Vousdoukas, M., Vernimmen, R., Ledoux, H., & Eleveld, M. (2024). DeltaDTM: A global coastal digital terrain model. *Scientific Data*, 11, 273. [https://doi.org/10.1038/s41597-024-03091-9](https://doi.org/10.1038/s41597-024-03091-9)
+
+Seychelles. (2023). Physical Planning (Development and Subdivision of Parcels) Regulations, 2023 (S.I. 91 of 2023). [Read](https://www.gazette.sc/sites/default/files/2023-11/SI%2091%202023%20-%20Physical%20Planning%20%28Development%20and%20Subdivision%20of%20Parcels%29%20Regulations%202023.pdf)
 
 The Nature Conservancy, Mapping Ocean Wealth. Coastal Protection: The Role of Mangroves and Coral Reefs. [Read](https://oceanwealth.org/ecosystem-services/coastal-protection/)
 

@@ -99,6 +99,11 @@ def load():
     R["protected_strict"] = wd["pct_coastal_zone_strict_iucn"].to_dict()
 
     # NDBI (supplementary)
+    # coastal setbacks (building level, added 2026-10-23); optional
+    sb = _read("setback_calibration_summary.csv")
+    R["setback"] = None if sb is None else sb.set_index(["island", "variant"])
+    R["setback_curve"] = _read("setback_coverage_curve.csv")
+
     nd = _read("ndbi_land_change.csv")
     R["ndbi"] = {} if nd is None else {(r["island"], r["zone"]): (r["mean_change"], r["ci95_low"], r["ci95_high"])
                                         for _, r in nd.iterrows()}

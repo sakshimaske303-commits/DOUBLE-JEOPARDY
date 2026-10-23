@@ -14,7 +14,7 @@ apply_custom_style()
 # Trend results read from data/coral_trend_results.csv (rewritten 2026-10-11).
 R = load_results()
 
-st.markdown("<h1 style='text-align: center;'>📈 EXPLORE TRENDS</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center;'>EXPLORE TRENDS</h1>", unsafe_allow_html=True)
 st.markdown(
     "<h3 style='text-align: center; color: #67E8F9; font-weight: 400;'>Interactive Island-Level Time Series</h3>",
     unsafe_allow_html=True,

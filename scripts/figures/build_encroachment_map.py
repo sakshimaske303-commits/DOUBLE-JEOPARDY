@@ -1,12 +1,5 @@
-"""Turns the NDBI diff rasters into a hotspot folium map per island.
-Needs rasterio, geopandas, folium.
-
-Updated 2026-10-10 (Forensic Review): land mask now uses the validated
-data/boundaries_v2 files. NOTE: the hotspot class is still the top
-HOTSPOT_PERCENTILE % of each island's OWN pixels, a relative stretch that
-always marks some pixels red even where nothing changed. Set
-USE_ABSOLUTE_THRESHOLD = True to mark only pixels whose NDBI rose by more than
-ABSOLUTE_DELTA, which makes islands comparable (recommended for the paper).
+"""Turns the NDBI diff rasters into a hotspot folium map per island. Needs rasterio,
+geopandas, folium.
 """
 import os
 import numpy as np

@@ -13,17 +13,16 @@ This project's own code and text are released under the terms in `LICENSE`. **Th
 | UNEP-WCMC coral reef and mangrove layers | Fiji, Lakshadweep, Seychelles reef/mangrove extent (`data/ecosystem_buffers`) | UNEP-WCMC, WorldFish Centre, WRI, TNC (2021). Global distribution of warm-water coral reefs, v4.1; Giri et al. (2011) mangroves | UNEP-WCMC data licence: non-commercial use, **redistribution requires permission** | Cite the exact version listed on the UNEP-WCMC Ocean Data Viewer download page |
 | World Database on Protected Areas (WDPA), June 2026 release | Protected-area coverage | UNEP-WCMC and IUCN (2026), Protected Planet | WDPA terms of use: non-commercial use, **no public redistribution of the data** without permission | "UNEP-WCMC and IUCN (2026), Protected Planet: The World Database on Protected Areas (WDPA) [Online], June 2026, Cambridge, UK: UNEP-WCMC and IUCN. Available at: www.protectedplanet.net." |
 | WorldPop 2020 population, 100 m | People at or below 1 m (main exposure measure) | WorldPop, University of Southampton | CC BY 4.0 | Cite the specific WorldPop dataset and DOI shown on its download page |
+| Overture Maps buildings theme, release 2026-08-19.0 | Building footprints for the coastal setback analysis | Overture Maps Foundation; sources merged in the release: OpenStreetMap, Google Open Buildings, Microsoft ML Buildings, Esri Community Maps, Instituto Geográfico Nacional (España) | ODbL 1.0 (share-alike). Not committed (`data/buildings/` is git-ignored); rebuilt with `scripts/acquisition/download_buildings_overture.py` | "© OpenStreetMap contributors, Overture Maps Foundation" plus the source attributions listed in the release |
 | IBTrACS v04r01 | Cyclone tracks (collected, not used in the paper) | Knapp et al. (2010), *Bull. Amer. Meteor. Soc.* 91, 363–376; NOAA NCEI | US Government work | Cite Knapp et al. (2010) and IBTrACS v04r01 |
 | Sentinel-2 L2A | NDBI built-up change on land (supplementary) | Copernicus Sentinel data, accessed via Copernicus Data Space Ecosystem / Sentinel Hub | Free, full and open; attribution required | "Contains modified Copernicus Sentinel data [2016, 2024]" |
 
-## What this means for the public repository (action needed)
+## Notes on redistribution
 
-- [ ] **Remove WDPA extracts from the public repository** (`data/ecosystem_buffers/*_wdpa.gpkg`, `data/protected_areas_wdpa/`) and from any webmap layer files that embed them, or obtain permission from UNEP-WCMC. Keep `scripts/processing/filter_wdpa_islands.py` so others can rebuild them from their own WDPA download.
-- [ ] Check the same for the UNEP-WCMC coral and mangrove extracts in `data/ecosystem_buffers/`.
-- [ ] Keep OSM-derived files (settlements, `boundaries_v2`) under ODbL; state this in `LICENSE`.
-- [ ] Add the attribution lines above to the paper's Data section and to the dashboard footer and maps.
-- [ ] Consider licensing the code under MIT or Apache-2.0 and the text and figures under CC BY 4.0 (Creative Commons recommends against CC licences for software). This is the author's decision; `LICENSE` has not been changed.
+- WDPA extracts (`data/ecosystem_buffers/*_wdpa.gpkg`, `data/protected_areas_wdpa/`) are not included in this repository. `scripts/processing/filter_wdpa_islands.py` rebuilds them from your own WDPA download.
+- The UNEP-WCMC coral and mangrove extracts in `data/ecosystem_buffers/` are used for research only; check their licence before reusing them.
+- OSM-derived files (settlements, `boundaries_v2`) and the Overture building points stay under ODbL.
 
 ## Software
 
-Python packages used: GeoPandas, Rasterio, Earth Engine Python API (DeltaDTM export only), Shapely, NumPy, pandas, SciPy, pyMannKendall (Hussain & Mahmud, 2019, *Journal of Open Source Software* 4(39), 1556), Matplotlib, Plotly, Folium, Streamlit. Cite them in the paper's Methods or Acknowledgements.
+Python packages used: GeoPandas, Rasterio, Earth Engine Python API (DeltaDTM export only), Shapely, NumPy, pandas, SciPy, pyMannKendall (Hussain & Mahmud, 2019, *Journal of Open Source Software* 4(39), 1556), Matplotlib, Plotly, Folium, Streamlit. 

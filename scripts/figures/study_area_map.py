@@ -1,16 +1,4 @@
-"""Study-area figure built from the project's own data (added 2026-10-10).
-
-Replaces outputs/plots/fig1_study_area_map.png, which was not produced by any
-script in this repository and has wrong graticules (e.g. the Canary panel's
-longitude labels run backwards; Lakshadweep islands are mispositioned by up
-to ~1 degree). Every element here is drawn from repository data:
-  land        data/boundaries_v2/<island>_islands_v2.gpkg (validated vs official land areas)
-  coral reef  data/ecosystem_buffers/<island>_coral_clean.gpkg
-  mangroves   data/mangroves/gmw_2020_by_island/<island>_mangroves_2020.gpkg
-  settlements data/settlements/<island>_settlements_clean.gpkg
-Output: outputs/plots/study_area_map.png
-Needs geopandas, matplotlib, numpy.
-"""
+"""Study-area figure built from the project's own data (added 2026-10-10)."""
 import os
 
 import matplotlib.pyplot as plt

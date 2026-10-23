@@ -18,7 +18,7 @@ def find_locator_map(maps_dir, slug):
     return path if os.path.exists(path) else None
 
 
-st.markdown("<h1 style='text-align: center;'>🏝️ STUDY DESIGN</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center;'>STUDY DESIGN</h1>", unsafe_allow_html=True)
 st.markdown(
     "<h3 style='text-align: center; color: #2d6a4f; font-weight: 400;'>Five Islands, Three Ocean Basins, One Question</h3>",
     unsafe_allow_html=True,
@@ -112,6 +112,13 @@ with col3:
     Coastal protected-area coverage is higher where the compound score is higher.
     Secondary and descriptive only (n = 4).
     """)
+
+st.info("""
+**Policy extension — Coastal setbacks (descriptive).** Do the setbacks in national law (Canary Islands 100 m,
+Seychelles 25 m, Lakshadweep 20 m, none for inhabited land in the Maldives and Fiji) reach the buildings that
+stand at or below 1 m? Tested on about 1.35 million building footprints, with the coastal instruments classified
+by Hood's NATO scheme and the Maldives–Lakshadweep pair read as a most similar systems comparison.
+""")
 
 st.markdown("---")
 

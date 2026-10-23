@@ -1,11 +1,7 @@
-"""Interactive Plotly versions of the three headline DOUBLE JEOPARDY charts.
-Same underlying data as the static figures (map1_vulnerability_score.py,
-research_paper_figures.py fig4/fig7) - just Plotly instead of matplotlib.
-
-Updated 2026-10-10 (Forensic Review): every number is now read from the
-pipeline's CSV outputs (compound_vulnerability_scores.csv,
-coral_trend_results.csv, slr_exposure_summary.csv) instead of being typed in,
-and titles no longer state conclusions that depend on those numbers."""
+"""Interactive Plotly versions of the headline DOUBLE JEOPARDY charts. Same underlying
+data as the static figures (map1_vulnerability_score.py, research_paper_figures.py
+fig4/fig7) - just Plotly instead of matplotlib.
+"""
 
 import os
 
@@ -42,7 +38,7 @@ def build_compound_vulnerability_score():
     label = {v: k for k, v in ISLAND_FILE_MAP.items()}
     df = pd.DataFrame({"island": raw["island"].map(label), "score": raw["compound_vulnerability_score"]})
     df = df.sort_values("score", ascending=True)
-    colors = ["#2c7fb8" if s < 0.5 else "#e34a33" for s in df["score"]]
+    colors = ["#2c7fb8"] * len(df)
 
     fig = go.Figure()
     fig.add_trace(go.Bar(
@@ -65,7 +61,7 @@ def build_compound_vulnerability_score():
 # 2. CORAL THERMAL STRESS TRENDS — time series, toggleable per island
 # ============================================================
 def build_coral_thermal_stress_trends():
-    """Reef-cell mean series (main series, FINISH_PLAN D3); the Canary Islands
+    """Reef-cell mean series (main series, Development Log Entry 16); the Canary Islands
     have no mapped reef and show their single offshore cell. The old OLS lines
     are gone (a straight line through a zero-inflated series misleads); instead
     each island shows its 1996-2000 and 2016-2020 means, and the legend gives the
@@ -145,7 +141,59 @@ def build_weighting_sensitivity():
     print("Saved:", f"{OUT}/weighting_sensitivity_curve.html")
 
 
+# ============================================================
+# 4. COASTAL SETBACK COVERAGE CURVE
+# ============================================================
+SETBACKS = {"Canary Islands": [100, 20], "Seychelles": [25], "Lakshadweep": [20]}
+
+
+def build_setback_coverage():
+    path = "data/setback_coverage_curve.csv"
+    if not os.path.exists(path):
+        print("Skipped setback coverage: run scripts/analysis/setback_calibration.py first")
+        return
+    cur = pd.read_csv(path)
+    summ = pd.read_csv("data/setback_calibration_summary.csv")
+    summ = summ[summ["variant"] == "all"].set_index("island")
+    fig = go.Figure()
+    for island in ["Maldives", "Lakshadweep", "Seychelles", "Fiji", "Canary Islands"]:
+        d = cur[cur["island"] == island].sort_values("distance_m")
+        if d.empty:
+            continue
+        n = int(summ.loc[island, "low_buildings"])
+        rule = summ.loc[island, "statutory_setback_m"]
+        rule = "no national setback" if rule == "none" else f"setback {rule} m"
+        fig.add_trace(go.Scatter(
+            x=d["distance_m"], y=d["pct_low_buildings_within"], mode="lines",
+            name=f"{island} ({n:,} low buildings; {rule})", line=dict(color=ISLAND_COLOR[island], width=2.4),
+            legendgroup=island,
+            hovertemplate=f"{island}<br>Within %{{x:,.0f}} m of shore: %{{y:.1f}}% of low buildings<extra></extra>",
+        ))
+        for sb in SETBACKS.get(island, []):
+            v = float(np.interp(sb, d["distance_m"], d["pct_low_buildings_within"]))
+            fig.add_trace(go.Scatter(
+                x=[sb], y=[v], mode="markers+text", text=[f"{sb} m: {v:.0f}%"],
+                textposition="middle left" if island == "Canary Islands" else "bottom right",
+                marker=dict(color=ISLAND_COLOR[island], size=11, line=dict(color="white", width=1.5)),
+                textfont=dict(color=ISLAND_COLOR[island], size=12), legendgroup=island, showlegend=False,
+                hovertemplate=f"{island} statutory setback {sb} m<br>covers {v:.1f}% of low buildings<extra></extra>",
+            ))
+    fig.update_layout(
+        title="How Much of the Low-Lying Building Stock Each Coastal Setback Covers<br>"
+              "<sub>Share of buildings at or below 1 m (DeltaDTM, bare earth) within a given distance of the shoreline; "
+              "Overture Maps buildings 2026-08-19.0</sub>",
+        xaxis_title="Distance from shoreline (m, log scale)",
+        yaxis_title="% of buildings at or below 1 m within this distance",
+        xaxis=dict(type="log", range=[0, np.log10(3000)]), yaxis=dict(range=[0, 100]),
+        legend=dict(x=0.99, y=0.02, xanchor="right", yanchor="bottom", bgcolor="rgba(255,255,255,0.8)"),
+        height=580, **{**DARK_LAYOUT, "margin": dict(t=90, b=50, l=70, r=30)},
+    )
+    fig.write_html(f"{OUT}/setback_coverage_curve.html", include_plotlyjs="cdn")
+    print("Saved:", f"{OUT}/setback_coverage_curve.html")
+
+
 if __name__ == "__main__":
     build_compound_vulnerability_score()
     build_coral_thermal_stress_trends()
     build_weighting_sensitivity()
+    build_setback_coverage()

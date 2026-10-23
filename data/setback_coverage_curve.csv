@@ -1,0 +1,136 @@
+island,distance_m,pct_low_buildings_within,pct_all_buildings_within
+Maldives,1,0.55,0.17
+Maldives,2,0.56,0.17
+Maldives,3,0.61,0.2
+Maldives,5,0.81,0.27
+Maldives,7,1.05,0.39
+Maldives,10,1.72,0.63
+Maldives,15,3.2,1.38
+Maldives,20,5.2,2.39
+Maldives,25,7.86,3.98
+Maldives,30,11.15,6.01
+Maldives,40,17.95,10.8
+Maldives,50,24.58,15.82
+Maldives,60,31.19,20.46
+Maldives,75,40.28,27.36
+Maldives,100,54.4,38.55
+Maldives,125,66.26,48.88
+Maldives,150,74.72,57.75
+Maldives,200,86.69,71.7
+Maldives,250,91.87,81.04
+Maldives,300,94.56,87.12
+Maldives,400,98.72,94.71
+Maldives,500,99.62,98.33
+Maldives,750,100.0,99.89
+Maldives,1000,100.0,100.0
+Maldives,1500,100.0,100.0
+Maldives,2000,100.0,100.0
+Maldives,3000,100.0,100.0
+Lakshadweep,1,0.0,0.0
+Lakshadweep,2,0.0,0.0
+Lakshadweep,3,0.0,0.01
+Lakshadweep,5,0.23,0.03
+Lakshadweep,7,0.45,0.08
+Lakshadweep,10,1.13,0.24
+Lakshadweep,15,3.38,0.66
+Lakshadweep,20,6.76,1.48
+Lakshadweep,25,10.81,2.59
+Lakshadweep,30,12.84,4.08
+Lakshadweep,40,20.95,8.05
+Lakshadweep,50,30.63,12.38
+Lakshadweep,60,37.61,17.02
+Lakshadweep,75,47.97,23.72
+Lakshadweep,100,59.23,33.91
+Lakshadweep,125,65.54,42.11
+Lakshadweep,150,69.82,49.86
+Lakshadweep,200,77.48,63.06
+Lakshadweep,250,83.78,74.7
+Lakshadweep,300,87.39,83.55
+Lakshadweep,400,92.79,93.03
+Lakshadweep,500,94.59,97.06
+Lakshadweep,750,100.0,99.99
+Lakshadweep,1000,100.0,100.0
+Lakshadweep,1500,100.0,100.0
+Lakshadweep,2000,100.0,100.0
+Lakshadweep,3000,100.0,100.0
+Seychelles,1,0.04,0.0
+Seychelles,2,0.04,0.0
+Seychelles,3,0.04,0.01
+Seychelles,5,0.37,0.05
+Seychelles,7,0.9,0.14
+Seychelles,10,2.25,0.34
+Seychelles,15,3.81,0.79
+Seychelles,20,5.61,1.41
+Seychelles,25,7.95,2.17
+Seychelles,30,10.08,2.98
+Seychelles,40,14.75,5.01
+Seychelles,50,19.75,7.05
+Seychelles,60,23.24,9.16
+Seychelles,75,29.63,12.45
+Seychelles,100,38.98,17.24
+Seychelles,125,47.46,21.62
+Seychelles,150,53.85,25.51
+Seychelles,200,65.33,32.41
+Seychelles,250,73.28,38.12
+Seychelles,300,79.84,43.48
+Seychelles,400,88.48,52.83
+Seychelles,500,93.61,60.92
+Seychelles,750,99.18,75.86
+Seychelles,1000,100.0,84.88
+Seychelles,1500,100.0,96.77
+Seychelles,2000,100.0,99.65
+Seychelles,3000,100.0,100.0
+Fiji,1,0.21,0.01
+Fiji,2,0.21,0.01
+Fiji,3,0.29,0.01
+Fiji,5,0.43,0.02
+Fiji,7,0.79,0.05
+Fiji,10,1.65,0.12
+Fiji,15,3.94,0.33
+Fiji,20,6.94,0.7
+Fiji,25,10.09,1.19
+Fiji,30,13.96,1.76
+Fiji,40,22.69,3.0
+Fiji,50,29.85,4.24
+Fiji,60,35.93,5.46
+Fiji,75,42.45,7.15
+Fiji,100,52.18,9.69
+Fiji,125,61.56,11.81
+Fiji,150,66.5,13.52
+Fiji,200,71.22,16.2
+Fiji,250,74.52,18.21
+Fiji,300,77.52,19.78
+Fiji,400,85.33,22.29
+Fiji,500,90.98,24.33
+Fiji,750,94.27,28.91
+Fiji,1000,96.21,32.76
+Fiji,1500,98.43,39.55
+Fiji,2000,99.14,45.16
+Fiji,3000,99.5,55.04
+Canary Islands,1,1.56,0.0
+Canary Islands,2,1.56,0.0
+Canary Islands,3,7.29,0.0
+Canary Islands,5,13.02,0.01
+Canary Islands,7,16.67,0.02
+Canary Islands,10,25.0,0.05
+Canary Islands,15,42.71,0.13
+Canary Islands,20,51.56,0.24
+Canary Islands,25,56.77,0.36
+Canary Islands,30,63.02,0.51
+Canary Islands,40,70.31,0.84
+Canary Islands,50,71.88,1.19
+Canary Islands,60,74.48,1.54
+Canary Islands,75,80.73,2.06
+Canary Islands,100,84.9,2.89
+Canary Islands,125,91.15,3.69
+Canary Islands,150,92.71,4.47
+Canary Islands,200,94.79,5.92
+Canary Islands,250,97.92,7.26
+Canary Islands,300,98.44,8.53
+Canary Islands,400,98.44,10.88
+Canary Islands,500,98.44,13.06
+Canary Islands,750,98.44,18.29
+Canary Islands,1000,100.0,22.78
+Canary Islands,1500,100.0,31.48
+Canary Islands,2000,100.0,40.33
+Canary Islands,3000,100.0,54.45

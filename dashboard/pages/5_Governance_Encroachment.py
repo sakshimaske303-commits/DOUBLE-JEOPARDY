@@ -1,5 +1,6 @@
 import streamlit as st
 import plotly.graph_objects as go
+import numpy as np
 import sys
 import os
 
@@ -16,7 +17,7 @@ R = load_results()
 G = R["gov"]
 FIGURES_DIR = os.path.join(PROJECT_ROOT, "outputs", "plots")
 
-st.markdown("<h1 style='text-align: center;'>🏛️ GOVERNANCE & ENCROACHMENT</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center;'>GOVERNANCE & ENCROACHMENT</h1>", unsafe_allow_html=True)
 st.markdown(
     "<h3 style='text-align: center; color: #67E8F9; font-weight: 400;'>Does Protection Follow Risk?</h3>",
     unsafe_allow_html=True,
@@ -30,7 +31,7 @@ overlapping sites merged so no area is counted twice. Lakshadweep has no record 
 left out of the comparison rather than set to zero.
 """)
 
-tab1, tab2 = st.tabs(["Protection and Risk (H3)", "Built-up Change (supplementary)"])
+tab1, tab_sb, tab2 = st.tabs(["Protection and Risk (H3)", "Coastal Setbacks", "Built-up Change (supplementary)"])
 
 with tab1:
     isl = [i for i in R["islands"] if R["protected"].get(i) == R["protected"].get(i)]  # drop NaN
@@ -78,6 +79,89 @@ with tab1:
         st.markdown("##### Figure 7 — As it appears in the Research Paper")
         st.image(fig6_path, use_container_width=True)
 
+with tab_sb:
+    SB, CUR = R.get("setback"), R.get("setback_curve")
+    st.markdown("### Do the Building Rules Reach the Low-Lying Buildings?")
+    st.markdown("""
+    A setback is the one coastal rule that decides where people may build. For about 1.35 million building
+    footprints (Overture Maps, release 2026-08-19.0), the bare-earth elevation (DeltaDTM) and the distance to the
+    shoreline were compared with the setback written in national law. The question is how many buildings at or
+    below 1 m stand landward of that line, where the rule does not reach them.
+    """)
+    if SB is None:
+        st.info("Run scripts/analysis/setback_calibration.py to produce data/setback_calibration_summary.csv.")
+    else:
+        variant = st.radio("Elevation cells below 0 m (DeltaDTM artefacts)", ["all", "excl_negative"],
+                           format_func=lambda v: "Included (main)" if v == "all" else "Left out (sensitivity)",
+                           horizontal=True)
+        order = ["Maldives", "Lakshadweep", "Seychelles", "Fiji", "Canary Islands"]
+        rows = []
+        for isl in order:
+            r = SB.loc[(isl, variant)]
+            rule = "none for inhabited land" if r["statutory_setback_m"] == "none" else f"{r['statutory_setback_m']} m"
+            rows.append(f"| {isl} | {r['low_pct']:.2f}% ({int(r['low_buildings']):,}) | {rule} | "
+                        f"{r['low_outside_every_setback_pct']:.1f}% | {r['low_median_dist_m']:.0f} m | "
+                        f"{r['setback_covering_90pct_low_m']:.0f} m |")
+        st.markdown("| Island group | Buildings at or below 1 m | Statutory setback | Low buildings landward of every setback | Median distance to shore | Distance covering 90% |\n"
+                    "|---|---:|---|---:|---:|---:|\n" + "\n".join(rows))
+
+        if CUR is not None:
+            col = {"Maldives": "#2c7fb8", "Seychelles": "#e34a33", "Fiji": "#31a354",
+                   "Canary Islands": "#756bb1", "Lakshadweep": "#fd8d3c"}
+            marks = {"Canary Islands": [100, 20], "Seychelles": [25], "Lakshadweep": [20]}
+            fig = go.Figure()
+            for isl in order:
+                d = CUR[CUR["island"] == isl].sort_values("distance_m")
+                fig.add_trace(go.Scatter(x=d["distance_m"], y=d["pct_low_buildings_within"], mode="lines",
+                                         name=isl, line=dict(color=col[isl], width=2.4),
+                                         hovertemplate=isl + "<br>within %{x:,.0f} m: %{y:.1f}%<extra></extra>"))
+                for m in marks.get(isl, []):
+                    v = float(np.interp(m, d["distance_m"], d["pct_low_buildings_within"]))
+                    fig.add_trace(go.Scatter(x=[m], y=[v], mode="markers+text", text=[f"{m} m: {v:.0f}%"],
+                                             textposition="middle left" if isl == "Canary Islands" else "bottom right",
+                                             marker=dict(size=11, color=col[isl], line=dict(color="white", width=1.5)),
+                                             textfont=dict(color=col[isl]), showlegend=False, hoverinfo="skip"))
+            fig.update_layout(template="plotly_dark", height=460,
+                              xaxis=dict(title="Distance from shoreline (m, log scale)", type="log", range=[0, 3.48]),
+                              yaxis=dict(title="% of buildings at or below 1 m within this distance", range=[0, 100]),
+                              font=dict(family="Poppins", color="#FFD60A"), plot_bgcolor="rgba(0,0,0,0)",
+                              paper_bgcolor="rgba(0,0,0,0)", margin=dict(t=20, b=40, l=20, r=20),
+                              legend=dict(x=0.99, y=0.02, xanchor="right", yanchor="bottom"))
+            st.plotly_chart(fig, use_container_width=True)
+            st.caption("Curve: share of low buildings within each distance (all cells). Dots: the statutory setback.")
+
+        mal = SB.loc[("Maldives", "all")]
+        st.warning(f"""
+        **On the tropical islands the setbacks reach fewer than one in ten low buildings.** Those buildings stand a
+        median {SB.loc[('Lakshadweep', 'all'), 'low_median_dist_m']:.0f}–{SB.loc[('Seychelles', 'all'), 'low_median_dist_m']:.0f} m
+        from the shore, well behind a 20 m or 25 m line. The Canary Islands are the exception: their low buildings are a
+        thin beachfront and port strip, and Spain's 100 m rule covers {100 - SB.loc[('Canary Islands', 'all'), 'low_outside_every_setback_pct']:.0f}% of them.
+        Even a 100 m rule would cover only about half of the low buildings in the Maldives, because on an atoll low land
+        is most of the island ({mal['low_pct']:.1f}% of all Maldivian buildings are at or below 1 m). Rules written in
+        heights (minimum floor or ground levels) would fit atolls better than rules written in distance.
+        """)
+
+    st.markdown("##### Coastal instruments by Hood's NATO tools")
+    st.markdown("""
+| Island group | Setback for buildings (Authority) | Other coastal instruments | Legal basis of the setback |
+|---|---|---|---|
+| Canary Islands | 100 m; 20 m on land already urban in 1988 | Natura 2000 sites and national parks (Authority) | Ley 22/1988 de Costas, art. 23 and Transitional Provision 3 |
+| Seychelles | 25 m from the high water mark; 10 m with permission | Marine Spatial Plan (Authority), financed through a 2016 debt-for-nature swap (Treasure) | S.I. 91 of 2023, reg. 13 |
+| Lakshadweep | 20 m no development zone | none in WDPA | ICRZ Notification 2019 (width from secondary sources) |
+| Maldives | none for inhabited islands; 5 m from the vegetation line on resort islands | protected areas and UNESCO-MAB zones (Authority) | Tourism environment regulation, cl. 2.10 |
+| Fiji | none found | locally managed marine areas (Organisation, co-management) | – |
+""")
+    st.caption("The Maldives and Lakshadweep are the closest pair to a most similar systems design: Indian Ocean coral atolls, "
+               "with Mahl (a Dhivehi dialect) spoken on Minicoy, but a sovereign state against a Union Territory under India's "
+               "coastal regulation. Their low buildings are outside any setback at almost the same rate.")
+
+    for name, cap in (("fig9_setback_calibration.png", "Figure 9 — Setback coverage, as in the Research Paper"),
+                      ("fig10_setback_close_ups.png", "Figure 10 — Close-ups of the densest low-lying clusters")):
+        pth = os.path.join(FIGURES_DIR, name)
+        if os.path.exists(pth):
+            st.markdown(f"##### {cap}")
+            st.image(pth, use_container_width=True)
+
 with tab2:
     st.markdown("### Built-up Change on Land, 2016 to 2024 (supplementary)")
     st.markdown("""
@@ -103,6 +187,6 @@ with tab2:
 st.markdown("---")
 st.markdown(
     "<p class='caption-text' style='text-align:center;'>DOUBLE JEOPARDY — Sources: UNEP-WCMC and IUCN, Protected Planet (WDPA, June 2026); "
-    "Copernicus Sentinel-2</p>",
+    "Copernicus Sentinel-2; Overture Maps buildings (ODbL)</p>",
     unsafe_allow_html=True,
 )

@@ -1,32 +1,5 @@
-"""NOAA Coral Reef Watch DHW averaged over the 5 km cells that actually
-contain mapped coral reef, per island.
-
-Added 2026-10-10 after the Forensic Review. The existing series use one
-hand-picked 5 km cell per island (data/coral_bleaching) or a +-0.15 deg box
-around it (data/coral_bleaching_v2). Neither is tied to where the reefs are,
-and the Maldives and Seychelles reef systems span hundreds of kilometres.
-This script:
-  1. reads the mapped reef polygons in data/ecosystem_buffers/<island>_coral_clean.gpkg
-  2. finds every 0.05 deg DHW cell those polygons touch
-  3. downloads DHW for each 1 x 1 deg block that contains reef (ERDDAP griddap),
-     keeps only reef cells, and writes:
-       data/coral_bleaching_v3/<island>_dhw_reefcells_raw.csv   (time, lat, lon, dhw)
-       data/coral_bleaching_v3/<island>_dhw_reefcells_mean.csv  (time, dhw_mean,
-            dhw_p90, pct_cells_ge4, pct_cells_ge8, n_cells)
-The Canary Islands are skipped: no coral reefs are mapped there.
-
-TIME_STRIDE_DAYS = 30 keeps comparability with the earlier series; 7 captures
-annual peaks better (annual maximum DHW is the standard bleaching metric).
-Needs geopandas, numpy, pandas, requests, rasterio.
-
-Robust to NOAA server errors (updated after the first run hit many 502s):
-  * each 1-degree block is requested in 5-year pieces (smaller, faster requests)
-  * every piece is cached in data/coral_bleaching_v3/blocks/ as soon as it
-    arrives, so a re-run only fetches what is still missing
-  * up to 6 attempts per piece with growing waits (15 s, 30 s, 60 s ...)
-  * the per-island mean file is written ONLY when every block is complete;
-    otherwise the script lists what is missing. Just run it again later
-    (NOAA ERDDAP is often overloaded in US daytime; Indian night-time works better).
+"""NOAA Coral Reef Watch DHW averaged over the 5 km cells that actually contain mapped
+coral reef, per island.
 """
 import io
 import math

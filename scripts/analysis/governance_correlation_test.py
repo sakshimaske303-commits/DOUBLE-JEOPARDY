@@ -1,21 +1,5 @@
-"""Governance alignment: does coastal protected-area coverage track the
-Compound Vulnerability Score?
-
-Rewritten 2026-10-10 after the Forensic Review. Inputs are read from pipeline
-outputs (no hand-typed scores). With n = 4 islands this is DESCRIPTIVE, not a
-hypothesis test that can "support" anything: one island (Seychelles) carries
-most of the correlation. The script therefore reports, for each coverage
-metric, Pearson r with a Fisher-z 95% CI, Spearman rho, and the leave-one-out
-Pearson r for every island, so the fragility is visible.
-
-Coverage metrics (from scripts/processing/wdpa_coastal_buffer.py):
-  pct_coastal_zone_protected  share of the 10 km coastal zone that is protected
-                              (dissolved polygons) -- the recommended metric
-  ratio                       protected km2 in the zone / land km2 (older metric;
-                              mostly reflects island size and fragmentation)
-
-Islands with no WDPA data (wdpa_available False, currently Lakshadweep) are
-excluded from the correlation and listed separately; they are never set to 0.
+"""Governance alignment: does coastal protected-area coverage track the Compound
+Vulnerability Score?
 """
 import numpy as np
 import pandas as pd

@@ -1,25 +1,4 @@
-"""Protected-area coverage within a 10 km coastal zone around each island.
-
-Updated 2026-10-10 after the Forensic Review:
-  * Uses the validated boundary files in data/boundaries_v2/ (the old
-    data/boundaries/ files were incomplete: Maldives 108.7 km2 vs ~298 km2 real).
-  * Dissolves (unions) WDPA polygons before measuring area. WDPA polygons
-    overlap (Natura 2000 + national designations in Canary, UNESCO-MAB zones in
-    Maldives, Ramsar + national park in Seychelles), so summing them double
-    counted: by about +57% for Seychelles and +82% for Canary.
-  * Reports pct_coastal_zone_protected = protected area inside the 10 km zone
-    divided by the area of that zone. This is a true share (0-100%). The older
-    "ratio" (protected km2 / land km2) is kept for comparison but mainly
-    reflects island size and fragmentation, not protection effort.
-  * Optional IUCN filter (strict categories Ia-IV) for a sensitivity check.
-
-Lakshadweep: no polygon was found in the WDPA polygons file. Its protected
-area(s) (e.g. Pitti Island Bird Sanctuary) may exist in WDPA only as POINT
-records, which this project never read; see filter_wdpa_islands.py. Until that
-is checked, Lakshadweep is reported as missing (NaN), not as zero.
-
-Run from the repository root:  python scripts/processing/wdpa_coastal_buffer.py
-"""
+"""Protected-area coverage within a 10 km coastal zone around each island."""
 import geopandas as gpd
 import numpy as np
 import pandas as pd

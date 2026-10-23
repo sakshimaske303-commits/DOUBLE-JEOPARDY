@@ -1,109 +1,8 @@
-"""Population-weighted physical exposure at or below a 1m sea-level-rise
-threshold.
+"""Population-weighted physical exposure at or below a 1m sea-level-rise threshold."""
 
-v4 used simple bbox windows around each island. This undercounted
-Maldives by about 1/3, because a bbox also covers open water next to
-the island.
+# Results are written to data/population_weighted_exposure.csv.
 
-v5 tries to fix this by masking to each island's real boundary shape
-(data/boundaries/) instead of just the bbox. But when this was tested
-against the real population and elevation rasters, the boundary files
-turned out to be incomplete.
-
-For Maldives, the boundary polygons only add up to about 118 sq km of
-land. Real Maldives land area is close to 298 sq km. A lot of real
-islands are just missing from this file.
-
-For Lakshadweep, the polygon file's total area is close to correct
-(about 34 sq km vs a real ~32 sq km), but the mask still only catches
-about 13% of the real population. So even the islands that ARE in the
-file are drawn smaller than their real built-up area.
-
-This was checked carefully: the population raster itself is fine
-(checked pixel by pixel -- the values are real and not blurred or
-repeated). The masking code is also fine (all_touched=True is set
-below, and that part works as intended). The only problem is the
-boundary polygon files -- they don't fully match the real islands.
-
-Because of this, v5 was not usable at the time. The paper reported
-the v4 (bbox) numbers for a while, and flagged those as less accurate
-for irregular islands. See the "boundary polygon rebuild (v2)" update
-below for how this was eventually fixed. Needs rasterio, geopandas,
-numpy.
-
---- Update (DEM coverage-gap fix) ---
-Maldives' and Lakshadweep's original elevation.tif files turned out to
-have the same problem discovered and fixed in slr_exposure_analysis.py:
-they were almost entirely a raster coverage gap (elevation reading a flat
-0.0 across ~99.99% of the file), not real terrain. This script now points
-those two islands at the re-downloaded elevation_v2.tif files instead.
-
-That coverage-gap fix matters here in a different way than it did for the
-settlement-point version. There, each settlement was a single point that
-could just be kept or excluded. Here, the whole elevation raster gets
-resampled onto the population grid, so a leftover coverage-gap patch (the
-tiles that came back 404 from Copernicus even after the re-download -- see
-Section 6 of the paper) would silently get counted as "0m, at risk" for
-every population pixel that falls on it, which would bias this
-population-weighted figure upward for exactly the same reason the original
-bug did. So VOID_CHECK_ISLANDS below applies the same flat-neighborhood
-void test used in slr_exposure_analysis.py, but at the raster level: any
-elevation pixel reading exactly 0.0 whose surrounding 5x5 window is also
-entirely 0.0 is treated as a coverage gap, not real terrain, and the
-population living on that patch is excluded from both the numerator and
-the denominator -- reported separately as "excluded (DEM coverage gap)",
-the same way Fiji's Lau Islands population is already reported as
-"skipped" rather than silently dropped.
-
---- Update (boundary polygon rebuild, v2) ---
-The v5 boundary files above (data/boundaries/) were incomplete because
-they came from a naive Overpass coastline download that only kept ways
-already closed into a single loop -- most real coastlines are built from
-several connected segments, not one. That's now fixed in
-rebuild_boundary_polygons_osm.py, which joins every coastline way (open
-or closed) with shapely.ops.polygonize() instead, and, for Fiji
-specifically, in rebuild_fiji_boundary_landpolygons.py, which uses OSM's
-official pre gap-closed "land polygons" dataset instead of raw Overpass
-data (Fiji's 2 largest islands span more than 1 download tile, and a
-genuine small gap in the raw coastline topology kept their ring from
-closing even after pooling ways across tiles).
-
-The rebuilt files (data/boundaries_v2/{island}_islands_v2.gpkg) were
-validated against an independently sourced land area figure per island
-before use here (EPSG:6933, overlaps merged; see
-scripts/validation/boundary_area_validation.py: Maldives 292.9 vs 298 km2,
-World Bank; Seychelles 443.9 vs 460 km2, World Bank; Fiji 18,819.3 vs
-18,270 km2, World Bank; Canary Islands 7,434.1 vs ~7,446 km2, Instituto
-Canario de Estadistica; Lakshadweep 30.8 vs 32 km2, the Lakshadweep
-government's official site), all within 4% of a citable reference. ISLANDS
-below now points at these v2 files and APPLY_BOUNDARY_MASK is back on.
-Population weighted exposure
-moved down for every island as a result (all 5 figures fell, consistent
-with the mask now correctly excluding open water the old bbox-only run
-had been counting as populated land), and Maldives (14.9%) came out
-marginally ahead of Seychelles (14.2%) on this measure specifically --
-close enough to read as a near tie, not a clean reversal. See the
-paper's Section 6 for the full rebuild, validation, and independent
-verification of the Maldives/Seychelles figures.
-"""
-
-# --- Update (Forensic Review, 2026-10-10) ---
-# NoData was not handled in the DEM resampling step (see process_bbox), so
-# Seychelles' -32767 cells counted as at risk. Fixed; water/NoData cells are
-# now excluded and reported, the void check below is kept only for reference
-# (exact 0.0 is now always treated as water), elevation files prefer the
-# re-downloaded *_elevation_v2.tif when present, and results are written to
-# data/population_weighted_exposure.csv so figures read them instead of
-# hard-coding them.
-
-# --- Update (FINISH_PLAN D1, D2, 2026-10-11) ---
-# This is now the MAIN exposure measure (share of people at or below 1 m),
-# because most OSM "settlement" points are island names, not settlements.
-# It runs once per available elevation source. For DeltaDTM (bare earth,
-# values only below 10 m) a cell with no DeltaDTM value takes the Copernicus
-# value when Copernicus is above 10 m (dry at 1 m) and is excluded otherwise.
-# Outputs: data/population_weighted_exposure.csv (primary source, same columns
-# as before plus elevation_source) and data/population_weighted_exposure_by_source.csv.
+# Main exposure measure; runs once per elevation source (DeltaDTM, Copernicus).
 
 import os
 import sys
@@ -123,17 +22,7 @@ BUFFER_DEGREES = 0.1  # small buffer around each island's real known extent
 VOID_CHECK_ISLANDS = {"Maldives", "Lakshadweep"}
 VOID_HALF_WINDOW = 2  # 2 -> 5x5 window, matching slr_exposure_analysis.py
 
-# Re-enabled now that the boundary polygon files have been rebuilt from
-# OpenStreetMap coastline data and validated against independently sourced
-# land area figures for every island (see the "boundary polygon rebuild
-# (v2)" update in the module docstring above). Earlier, this used to
-# silently always apply the mask whenever the boundary file loaded without
-# raising an exception -- which it did, for every island, even though the
-# v5 polygons themselves were known incomplete (Maldives' boundary file
-# only covered ~118 of ~298 real sq km; Lakshadweep's mask caught only
-# ~13% of the real population). That's what forced this flag off for a
-# while, restoring the v4 bbox-only behavior instead. With the v2 files in
-# ISLANDS below, this can safely stay on.
+# Mask population to the validated island boundaries (data/boundaries_v2).
 APPLY_BOUNDARY_MASK = True
 
 # Large windows are processed in CHUNK_DEG x CHUNK_DEG pieces so the 1-arc-second
@@ -271,13 +160,7 @@ def process_bbox(pop_src, elev_src, bbox, boundary_geoms, threshold, void_check=
     # pixels as "population at risk" or "population not at risk" — they
     # should count as neither, since no one lives there.
     if boundary_geoms:
-        # all_touched=True: count any pixel the polygon touches at all, not
-        # just pixels whose center falls inside it. Narrow atoll islands
-        # (Maldives, Lakshadweep) are often thinner than a WorldPop pixel,
-        # so a center-point test (the geometry_mask default) drops most of
-        # their population as "outside the boundary" even though real
-        # people live there -- confirmed by comparing against the raw,
-        # unmasked population-raster totals (see Dev Log).
+        # all_touched=True so narrow atoll islands are not dropped.
         land_mask = geometry_mask(
             boundary_geoms, out_shape=pop_shape, transform=pop_transform, invert=True,
             all_touched=True,
@@ -298,15 +181,7 @@ def process_bbox(pop_src, elev_src, bbox, boundary_geoms, threshold, void_check=
     elev_window_data = elev_src.read(1, window=elev_window).astype("float32")
     elev_window_transform = elev_src.window_transform(elev_window)
 
-    # --- NoData / water handling (Forensic Review fix, 2026-10-10) ---------
-    # Previously the DEM window was reprojected with no src_nodata, so the
-    # Seychelles NoData value (-32767) was blended into the population grid
-    # and counted as "<= 1 m, at risk". Now: NoData, NaN, values <= -1000 and
-    # exact 0.0 (Copernicus' flattened water surface, the same rule as
-    # scripts/common/dem_sampling.py) are all set to NaN BEFORE resampling,
-    # and the resampling averages only the remaining land pixels. A population
-    # cell with no land pixel under it gets NaN and is excluded from both the
-    # numerator and the denominator; that population is reported separately.
+    # NoData, NaN and 0 m water pixels are dropped before resampling; cells with no land are excluded and reported.
     elev_window_data = _clean(elev_window_data, elev_src.nodata)
     if cop_src is not None:  # DeltaDTM run: fill empty cells that Copernicus puts above 10 m
         elev_window_data = _fill_from_copernicus(elev_window_data, elev_window_transform, elev_src.crs,

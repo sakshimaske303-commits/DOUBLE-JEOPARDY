@@ -1,17 +1,4 @@
-"""
-Reusable no-download document viewer for Streamlit apps.
-Renders a row of "View" buttons; clicking one opens a modal with the PDF
-embedded via an iframe (served from Streamlit's static file server) and a
-close (X) button -- no download prompt, no new tab.
-
-Technical note: st.components.v1.html() content lives inside its own small
-iframe, sandboxed to that iframe's own box -- a CSS position:fixed overlay
-built *inside* it would only cover that tiny box, not the real page. To get
-a true full-viewport modal, the JS below reaches into window.parent.document
-(same-origin srcdoc iframe, so this is allowed) and injects the modal
-directly into the actual Streamlit page's <body>. Only the small button row
-stays inside the component's own iframe.
-"""
+"""Reusable no-download document viewer for Streamlit apps."""
 import streamlit.components.v1 as components
 import json
 

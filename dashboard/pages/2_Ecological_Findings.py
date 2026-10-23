@@ -15,7 +15,7 @@ apply_custom_style()
 # get saved. Used below to show the "as it appears in the Research Paper" version.
 FIGURES_DIR = os.path.join(PROJECT_ROOT, "outputs", "plots")
 
-st.markdown("<h1 style='text-align: center;'>🌡️ ECOLOGICAL FINDINGS</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center;'>ECOLOGICAL FINDINGS</h1>", unsafe_allow_html=True)
 st.markdown(
     "<h3 style='text-align: center; color: #1b4332; font-weight: 400;'>Two Ecosystems, Two Very Different Stories</h3>",
     unsafe_allow_html=True,
@@ -59,7 +59,7 @@ with tab1:
         with col:
             border_color = PALETTE["risk"] if highlight else "rgba(0,150,199,0.3)"
             sig_line = (
-                f"<p style='color:{PALETTE['risk']}; font-size:0.65rem; font-weight:700; margin-top:8px;'>✓ trend significant</p>"
+                f"<p style='color:{PALETTE['risk']}; font-size:0.65rem; font-weight:700; margin-top:8px;'>trend significant</p>"
                 if trend_significant else
                 f"<p style='color:{PALETTE['text_muted']}; font-size:0.65rem; margin-top:8px;'>trend not significant</p>"
             )
@@ -140,10 +140,8 @@ with tab2:
     **No net decline detected in any tested island.** Mangrove extent remained essentially stable
     across all three time points and all three islands where mangroves are present — Fiji even
     shows a marginal net increase. Note that the Global Mangrove Watch 1996 and 2020 layers are
-    change maps built on its 2010 baseline, so the three dates are not fully independent surveys. This does not support Hypothesis H2 as originally framed, and
-    is reported transparently as the observed result of this three-point snapshot comparison —
-    not a continuous trend test comparable to the coral analysis — rather than adjusted to
-    fit the original hypothesis.
+    change maps built on its 2010 baseline, so the three dates are not fully independent surveys. This does not support Hypothesis H2. It is a comparison of three snapshots,
+    not a continuous trend test like the coral analysis.
     """)
 
     st.markdown("")

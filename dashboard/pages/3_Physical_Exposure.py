@@ -18,7 +18,7 @@ P = R["primary"]
 FIGURES_DIR = os.path.join(PROJECT_ROOT, "outputs", "plots")
 ORDER = sorted(R["islands"], key=lambda i: R["people"][(i, P)], reverse=True)
 
-st.markdown("<h1 style='text-align: center;'>📉 PHYSICAL EXPOSURE</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center;'>PHYSICAL EXPOSURE</h1>", unsafe_allow_html=True)
 st.markdown(
     "<h3 style='text-align: center; color: #67E8F9; font-weight: 400;'>People and Places at or Below 1 m</h3>",
     unsafe_allow_html=True,

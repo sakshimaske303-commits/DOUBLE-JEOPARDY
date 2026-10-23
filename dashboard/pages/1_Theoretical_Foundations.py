@@ -11,10 +11,10 @@ from results import load as load_results, pct
 R = load_results()
 _P = R["primary"]
 
-st.set_page_config(page_title="Ocean Physics & Reef Biogeography — DOUBLE JEOPARDY", page_icon="🌊", layout="wide")
+st.set_page_config(page_title="Ocean Physics & Reef Biogeography — DOUBLE JEOPARDY", layout="wide")
 apply_custom_style()
 
-st.markdown("<h1 style='text-align: center;'>🌊 DOUBLE JEOPARDY: THE PHYSICS AND THE BIOGEOGRAPHY</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center;'>DOUBLE JEOPARDY: THE PHYSICS AND THE BIOGEOGRAPHY</h1>", unsafe_allow_html=True)
 st.markdown(
     f"<h3 style='text-align: center; color: {PALETTE['navy']}; font-weight: 400;'>"
     "How Sea Level Exposure and Coastal Ecosystems Interact</h3>",

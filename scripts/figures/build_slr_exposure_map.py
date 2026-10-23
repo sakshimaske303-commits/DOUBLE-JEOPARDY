@@ -1,12 +1,6 @@
-"""Folium rebuild of the SLR exposure maps: settlements plotted red (at/below
-1m), yellow (above 1m) or grey (no usable elevation), from the per-settlement
-CSVs written by scripts/analysis/slr_exposure_analysis.py.
-
-Updated 2026-10-10 (Forensic Review): settlements whose DEM reading is NoData,
-outside the DEM extent, or on a water pixel with no land nearby are no longer
-shown as "at risk" (previously Seychelles popups read "Elevation: -32767.0 m").
-They are drawn grey with the reason, and the legend reports coverage.
-Boundaries now come from the validated data/boundaries_v2 files.
+"""Folium rebuild of the SLR exposure maps: settlements plotted red (at/below 1m), yellow
+(above 1m) or grey (no usable elevation), from the per-settlement CSVs written by
+scripts/analysis/slr_exposure_analysis.py.
 """
 import os
 import pandas as pd

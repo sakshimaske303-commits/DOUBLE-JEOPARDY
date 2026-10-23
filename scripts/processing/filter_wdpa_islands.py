@@ -1,21 +1,8 @@
-"""Filter the global WDPA download to each island's bounding box.
-
-Updated 2026-10-10 (Forensic Review): also reads the WDPA *points* shapefile.
-WDPA stores some protected areas only as a point plus a reported area
-(REP_AREA), with no polygon. This project previously read only the polygons
-file, which is the most likely reason Lakshadweep (e.g. Pitti Island Bird
-Sanctuary) came back empty. Point records are saved to
-data/protected_areas_wdpa/<island>_wdpa_points.gpkg so they can be checked and,
-if appropriate, represented as circles of area REP_AREA (the convention
-Protected Planet uses for point-only sites).
-
-RAW_BASE below is a path on the author's machine; change it to where your
-WDPA download is unpacked. WDPA data may not be redistributed publicly; see
-DATA_SOURCES_AND_LICENSES.md.
-"""
+"""Filter the global WDPA download to each island's bounding box."""
 import geopandas as gpd
 import os
 
+# Folder with the global WDPA download on my machine; change it to yours.
 RAW_BASE = r"D:\SAKSHI_RESEARCH\SAKSHI_RESEARCH\SAKSHI QGIS\New folder\DIGITAL_TWIN_ISLANDS\02_data_raw"
 OUTPUT_DIR = "data/protected_areas_wdpa"
 

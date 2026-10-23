@@ -1,42 +1,7 @@
 """Prepare DeltaDTM (bare-earth coastal elevation) tiles for the five islands.
 
-Added 2026-10-11 (FINISH_PLAN decision D2). Copernicus GLO-30 is a surface
-model: it measures the top of trees and roofs, which lifts flat, wooded atolls
-most. DeltaDTM (Pronk et al. 2024, Scientific Data 11:273; data DOI
-10.4121/21997565, version 2, CC BY 4.0) corrects Copernicus with ICESat-2 and
-GEDI lidar for the coastal zone below 10 m. Same 1-arc-second grid, same 1 x 1
-degree tiles, same vertical datum (EGM2008). Cells above 10 m are left empty
-in DeltaDTM; dem_sampling.py treats those as "above 10 m" using Copernicus.
-
-What you do first
------------------
-Download the continent zips you need from
-https://data.4tu.nl/datasets/1da2e70f-6c4d-4b03-86bd-b53e789cc629
-(Asia: Maldives, Lakshadweep; Africa: Seychelles and probably the Canary
-Islands; Oceania/Australia: Fiji) and put the zips, unopened, in
-    data/terrain/deltadtm/zips/
-
-Or, if 4TU is offline: export the tiles from Google Earth Engine with
-scripts/acquisition/export_deltadtm_gee.py and put the downloaded .tif files in
-    data/terrain/deltadtm/gee/
-Tiles found there are used directly (no zips needed).
-
-What this script does
----------------------
-1. Works out which 1 x 1 degree tiles are needed: the same tiles that exist
-   for Copernicus in data/terrain/raw_tiles/<island>/ (tiles without land are
-   not needed).
-2. Finds those tiles inside the zips, by name first and then, for anything
-   still missing, by reading each tile's real bounds inside the zip.
-3. Extracts only those tiles to data/terrain/deltadtm/tiles/<island>/.
-4. Checks that each tile can be read (DeltaDTM uses ZSTD compression).
-5. Writes data/terrain/deltadtm/<island>_deltadtm.vrt (and, for Fiji,
-   fiji_deltadtm_west_of_antimeridian.vrt).
-6. Prints a table of needed / found / missing tiles per island.
-
 Run from the repository root:
     python scripts/acquisition/prepare_deltadtm_tiles.py
-Running it again is safe: tiles already extracted are not extracted again.
 """
 import glob
 import math

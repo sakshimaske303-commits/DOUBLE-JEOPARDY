@@ -22,6 +22,10 @@ abstract: >-
   Maldives in a near tie, with the top island changing at an exposure weight of
   0.52. Protection of the 10 km coastal zone does not follow this risk across the
   four island groups with a WDPA record (r = -0.10, n = 4; descriptive only).
+  Across about 1.35 million building footprints, statutory coastal setbacks
+  reach fewer than one in ten buildings at or below 1 m in Seychelles (25 m) and
+  Lakshadweep (20 m), the Maldives and Fiji have no setback for inhabited land,
+  and the Canary Islands' 100 m rule covers 85%.
 keywords:
   - sea-level rise
   - mangroves
@@ -33,11 +37,13 @@ keywords:
   - remote sensing
   - climate adaptation
   - geospatial analysis
+  - coastal setbacks
+  - comparative environmental policy
 identifiers:
   - type: doi
     value: "10.5281/zenodo.21739961"
     description: "Zenodo archive of DOUBLE JEOPARDY v1.0.0"
 doi: "10.5281/zenodo.21739961"
 license: CC-BY-4.0
-version: 2.0.0
-date-released: "2026-10-11"
+version: 2.1.0
+date-released: "2026-10-23"

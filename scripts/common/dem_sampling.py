@@ -1,53 +1,4 @@
-"""Single, shared rule for reading a DEM value at each settlement point.
-
-Every exposure script (slr_exposure_analysis.py, export_settlement_elevations_full.py,
-both precompute_elevations.py copies) now calls sample_settlements() from here,
-so all five islands are treated by the SAME rule. Before this module existed,
-each script had its own logic and none of them handled the DEM's NoData value:
-Seychelles' raster stores NoData as -32767, and 188 of its 244 settlements were
-being counted as "at or below 1 m" because -32767 <= 1 (see the Forensic Review,
-2026-10-10).
-
-The rule, applied identically to every island
---------------------------------------------
-Each settlement point gets one status:
-
-  out_of_extent   the point lies outside the DEM's bounds (e.g. Lakshadweep's
-                  North Islet / Sand Cay at ~12.35 N, north of the DEM). Excluded.
-  nodata          the DEM pixel is the file's NoData value (or NaN, or a value
-                  <= -1000, which no real terrain has). Excluded.
-  water_pixel     the pixel is exactly 0.0. In Copernicus GLO-30, 0.0 is the
-                  flattened sea / water-body surface, not a ground height, so the
-                  label point has landed on water next to the coast. We look for
-                  real land pixels (valid and != 0) in the surrounding
-                  (2*SNAP_HALF_WINDOW+1)^2 window (default 5x5 = about +-60 m):
-                    - land found   -> status "snapped_to_land", elevation = median
-                                      of those land pixels (kept in the analysis)
-                    - none found   -> status "water_no_land_nearby" (excluded)
-  valid           any other value. Kept as read.
-
-The snapping step can be switched off (SNAP_ZERO_TO_LAND = False) to get the
-stricter "exclude every water-pixel point" variant; slr_exposure_analysis.py
-reports both so the choice is visible as a sensitivity check.
-
-Elevation sources (added 2026-10-11, FINISH_PLAN decision D2)
---------------------------------------------------------------
-  copernicus  Copernicus GLO-30, a surface model (tree and roof tops).
-  deltadtm    DeltaDTM v1.1, Copernicus corrected with ICESat-2/GEDI lidar to a
-              bare-earth terrain model of the coastal zone (meant for land below
-              about 10 m; values clipped at 30 m; empty outside its coastal mask).
-For "deltadtm" the place set and the Copernicus status are kept, so both
-sources are compared on exactly the same places; only the height changes:
-  - DeltaDTM value at the point (or, at a coast or tile edge, the median of the
-    valid DeltaDTM pixels in the same 5x5 window)   -> "valid"/"snapped_to_land"
-  - DeltaDTM empty and Copernicus height > 10 m     -> "above_10m" (kept; it is
-    dry at any threshold studied here)
-  - DeltaDTM empty and Copernicus height <= 10 m    -> "deltadtm_nodata" (excluded)
-  - Copernicus height > 30 m (DELTADTM_TRUST_MAX_COP_M): high terrain, DeltaDTM
-    not used, status "above_10m" (see the constant for why)
-
-Needs rasterio, geopandas, numpy, pandas. Run scripts from the repository root.
-"""
+"""Single, shared rule for reading a DEM value at each settlement point."""
 
 import os
 
@@ -60,13 +11,7 @@ NODATA_FLOOR = -1000.0        # anything at or below this is treated as NoData
 KEPT_STATUSES = {"valid", "snapped_to_land", "above_10m"}
 ELEVATION_SOURCES = ("copernicus", "deltadtm")
 DELTADTM_CEILING_M = 10.0     # DeltaDTM's intended range; above it an empty cell is taken as dry land
-# Where the Copernicus surface is above this height the ground is taken as high
-# terrain and DeltaDTM is not used: DeltaDTM v1.1 is clipped at 30 m, so real
-# terrain above 30 m should read 30, not near 0. A low DeltaDTM value under a
-# >30 m surface comes from DeltaDTM classifying a forested hill on a small high
-# island as non-terrain and interpolating it from the coast (seen on Petite Soeur,
-# Grande Soeur and Ile Marianne, Seychelles). Atoll canopy stays below this
-# (Maldives Copernicus maximum at a place point: 23 m). Added 2026-10-11.
+# Above this Copernicus height DeltaDTM is not used (it can read forested hills as sea level).
 DELTADTM_TRUST_MAX_COP_M = 30.0
 
 
@@ -99,7 +44,7 @@ def available_sources():
 
 
 def primary_source():
-    """The source reported as the main result (FINISH_PLAN D2): DeltaDTM when it
+    """The source reported as the main result: DeltaDTM when it
     is ready for every island, otherwise Copernicus, with a loud warning."""
     if deltadtm_ready():
         return "deltadtm"

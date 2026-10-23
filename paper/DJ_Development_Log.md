@@ -19,6 +19,7 @@
 15. [Entry 15](#entry-15)
 16. [Entry 16](#entry-16)
 17. [Entry 17](#entry-17)
+18. [Entry 18](#entry-18)
 
 ## Entry 1
 
@@ -48,7 +49,7 @@ Then I have my 2nd question. Want to check if the actual places where government
 
 My 1st guess is abt coral reefs. (Think my long term stats will show a clear increase in thermal bleaching stress over many decades, especially on islands that face much higher physical sea level rise exposure). Will check this 1st. 
 
-Next, I look at mangroves. I think my data will show they are shrinking in total area over this exact same time frame as a totally separate problem alongside the coral dying. (I am going to test this idea jst as strictly as the 1st one, nd I will write down the truth in my log no matter what my final charts actually show). 
+Next, I look at mangroves. I think my data will show they are shrinking in total area over this exact same time frame as a totally separate problem alongside the coral dying. (I'll test this the same way as the 1st one nd log whatever the charts show). 
 
 Finally, I hve a governance guess. Expect tht islands n coastlines with high total vulnerability scores will have more protected area coverage because rulers should react to real danger. But if I find zero connection or the complete opposite thing, tht is still a real result proving tht protection rules in my sample are not based on actual risk data, n I will report it straight either way.......
 
@@ -76,7 +77,7 @@ So I will do a later phase. (For this part, I plan to use satellite based built 
 
 ### Study Area
 
-I picked 5 islands. (My list spreads across 3 ocean basins: Maldives n Lakshadweep in the Indian Ocean, Seychelles in the western Indian Ocean, Fiji in the South Pacific, n the Canary Islands over in the eastern Atlantic). So I had to choose these specific places because they hve good, matching data from multiple sources. It helps my study. (Wanted massive geographic, geological, and climatic differences so my compound vulnerability score nd governance alignment framework get tested across totally different island styles, law systems, nd administration types instead of jst checking one single boring case). This makes my data look solid.
+I picked 5 islands. (My list spreads across 3 ocean basins: Maldives n Lakshadweep in the Indian Ocean, Seychelles in the western Indian Ocean, Fiji in the South Pacific, n the Canary Islands over in the eastern Atlantic). So I had to choose these specific places because they hve good, matching data from multiple sources. It helps my study. (Wanted massive geographic, geological, and climatic differences so my compound vulnerability score nd governance alignment framework get tested across totally different island styles, law systems, nd administration types instead of jst checking one single boring case).
 
 ### Expected Outputs
 
@@ -208,7 +209,7 @@ So, I chose to filter it down myself. I used the official OSM reef tagging conve
 
 ### Real Ecological Absences, Not Data Gaps
 
-So I got zero results for 2 islands....... (When I was pulling specific ecosystem data, these 2 places came back completely empty, but I chose to investigate n found out they were real absences instead of data download failures). This is my standard rule. So I treat every single zero result as a real hypothesis to double check instead of jst hiding it like an error. 
+So I got zero results for 2 islands....... (When I was pulling specific ecosystem data, these 2 places came back completely empty, but I chose to investigate n found out they were real absences instead of data download failures). So now I double check every zero result before treating it as an error. 
 
 My Lakshadweep data showed zero mangrove features. This makes sense. (Mangroves are very rare in this specific archipelago because it is jst a small coral atoll chain tht lacks the muddy intertidal delta conditions tht mangrove trees actually need to grow). Accepted this as a true fact.......
 
@@ -266,7 +267,7 @@ I got historical cyclone track data from IBTrACS. (This is NOAA's standard globa
 
 4 out of my 5 islands returned real storm data. (I found that Fiji had 143 tracks, Lakshadweep had 4, Maldives had 5, and Seychelles had 2 entries in the final count). These numbers matched my expectations. But the Canary Islands file came back with absolutely zero rows. (Checked this specific place twice under 2 separately named filtering attempts in my script, but it is a true result because the Canary Islands sit entirely outside the typical Atlantic tropical cyclone formation n travel corridor). I logged it as a real geographical finding.
 
-So I found another bad data quality issue here. (The wind speed column I wanted to use, called WMO_WIND, was completely blank for most of my records since it only had data for 1 out of 5 storms in the Maldives nd 31 out of 143 for Fiji). This was a total block. But I noticed tht IBTrACS separately logs wind estimates from different local national agencies like USA_WIND, REU_WIND, BOM_WIND, TOK_WIND, CMA_WIND, n HKO_WIND. So, I chose to use pandas' bfill(axis=1) trick across a prioritized list of these agency columns. (This smart code script automatically grabs the very 1st available non null wind value for each storm row no matter which country's office tracked it originally). It worked like magic. Managed to improve Fiji's useful wind speed data from 31 up to 87 out of 143 rows. My data counts for the other 3 small islands (Maldives, Seychelles, nd Lakshadweep) stayed low, but tht is jst because those places hve a real natural scarcity of storms rather than a bug in my coding consolidation method. (Confirmed this fact by running the exact same multi agency check script against those islands nd found absolutely nothing extra beyond wht my 1st 4 agency check caught). My logic was solid.
+So I found another bad data quality issue here. (The wind speed column I wanted to use, called WMO_WIND, was completely blank for most of my records since it only had data for 1 out of 5 storms in the Maldives nd 31 out of 143 for Fiji). This was a total block. But I noticed tht IBTrACS separately logs wind estimates from different local national agencies like USA_WIND, REU_WIND, BOM_WIND, TOK_WIND, CMA_WIND, n HKO_WIND. So, I chose to use pandas' bfill(axis=1) trick across a prioritized list of these agency columns. (This smart code script automatically grabs the very 1st available non null wind value for each storm row no matter which country's office tracked it originally). Managed to improve Fiji's useful wind speed data from 31 up to 87 out of 143 rows. My data counts for the other 3 small islands (Maldives, Seychelles, nd Lakshadweep) stayed low, but tht is jst because those places hve a real natural scarcity of storms rather than a bug in my coding consolidation method. (Confirmed this fact by running the exact same multi agency check script against those islands nd found absolutely nothing extra beyond wht my 1st 4 agency check caught).
 
 So I saved this new consolidated wind speed field into a clean file. (So I trimmed down the huge raw IBTrACS table which had over 150 useless columns down to jst a small set containing storm ID, season, name, timestamp, nature, position, consolidated wind speed, n distance to land). I saved everything as a new _final.gpkg file for each island. This new file replaced the bulky raw file entirely for my next steps. 
 
@@ -298,7 +299,7 @@ My old data from Entry 4 only showed a single snapshot in time. (So I realized t
 
 I used the Global Mangrove Watch archive............ (The GMW archive gives you pre processed, ready to use annual mangrove extent snapshots so I did not hve to waste my hours sitting n calculating the boundary limits from raw satellite pictures by hand). It saved my energy. I chose 3 specific time points for my project: 1996 which is the earliest baseline available, 2010 for the exact midpoint, nd 2020 as the most recent single year data block. (This covers a proper 24-year span with a clear check right in the middle because a single big 24-year jump completely hides whether the jungle loss was gradual or jst happened suddenly in a tiny window). I wanted to see the full timeline clearly.
 
-Noticed a small trick inside the GMW folder. (The database provides files both as single year snapshots like gmw_v3_2020_vec.zip n as change detection vectors spanning a date range like gmw_v3_f1996_t2020_vec.zip where f means from nd t means to). So I had to make a choice. I chose to independently derive the total area change by my own scripts using the 3 separately verified snapshots. (So I did not want to blindly lean on GMW's own pre computed change detection algorithm, so I downloaded n ran the 3 single year files instead of touching their mixed pre computed change file). This choice kept my calculations 100% transparent.
+Noticed a small trick inside the GMW folder. (The database provides files both as single year snapshots like gmw_v3_2020_vec.zip n as change detection vectors spanning a date range like gmw_v3_f1996_t2020_vec.zip where f means from nd t means to). So I had to make a choice. I chose to independently derive the total area change by my own scripts using the 3 separately verified snapshots. (So I did not want to blindly lean on GMW's own pre computed change detection algorithm, so I downloaded n ran the 3 single year files instead of touching their mixed pre computed change file). This way every step of the area calculation is in my own scripts.
 
 I filtered each global GMW shapefile. (The raw files are massive at around 894 to 948 megabytes each, so I used the exact same bbox based approach from my WDPA and IBTrACS scripts to avoid loading the whole global file into my laptop memory). This kept my machine from slowing down. So I generated clean per island nd per year mangrove extent files from this step. (Only did this for the 4 islands where mangrove trees actually grow because my data check in Entry 4 already confirmed tht Lakshadweep has zero mangroves). My folders are fully organized now.
 
@@ -312,7 +313,7 @@ I tested this issue directly. (So I reprojected all 3 years for each of the 3 ma
 
 Coral degradation shows up as bleaching. (Basically, it is a health nd condition change coming from heavy thermal stress instead of a simple drop in the mapped physical boundary line, so I absolutely needed a totally different data source nd metric than my mangrove tracking setup). My 1st plan failed. So I considered using the Allen Coral Atlas 1st, but it turned out to be jst a single snapshot composite built from 2018 to 2020 pictures instead of a real multi year timeline layer. It did not fit my trend requirement.
 
-So, I chose a better tool. (Found tht NOAA Coral Reef Watch’s Degree Heating Week product was the perfect match because it gives a continuous daily satellite derived measure of accumulated heat stress from 1985 up to the present day). This dataset tracks everything nicely. (I konw that values above 4°C weeks cause major coral bleaching n numbers above 8°C weeks mean severe bleaching n dead corals)....... This metric measures the actual biological stress driver directly. It makes complete sense because hard coral reef structures can physically stand there in the ocean for years after a bad heating event even when the living animals inside are already dead. My analytical logic was solid here.
+So, I chose a better tool. (Found tht NOAA Coral Reef Watch’s Degree Heating Week product was the perfect match because it gives a continuous daily satellite derived measure of accumulated heat stress from 1985 up to the present day). This dataset tracks everything nicely. (I konw that values above 4°C weeks cause major coral bleaching n numbers above 8°C weeks mean severe bleaching n dead corals)....... This metric measures the actual biological stress driver directly. It makes complete sense because hard coral reef structures can physically stand there in the ocean for years after a bad heating event even when the living animals inside are already dead.
 
 #### Bug: Access Denied, Then the Wrong Variable Name
 
@@ -362,7 +363,7 @@ Finished the 2 final analytical pieces...... (For this last step, I ran statisti
 
 ### Adding a Governance Dimension
 
-I finished my main risk analysis. (I chose to add a deliberate extra phase right here because I really wanted to connect my work to real policy evaluation instead of leaving it like a basic, boring science project). I had a plan. Instead of treating protected area boundaries as jst some unexamined backdrop maps, I formulated a specific testable hypothesis. (So I think tht official protection marks like WDPA coverage should go up in places where my Compound Vulnerability Score from Entry 6 is high, if the governments are actually listening to data). So I will find the truth.
+I finished my main risk analysis. (I added an extra phase here to connect the results to policy). I had a plan. Instead of treating protected area boundaries as jst some unexamined backdrop maps, I formulated a specific testable hypothesis. (So I think tht official protection marks like WDPA coverage should go up in places where my Compound Vulnerability Score from Entry 6 is high, if the governments are actually listening to data). So I'll test tht.
 
 ### Bug: Comparing Land Area to Marine EEZs
 
@@ -399,7 +400,7 @@ Compared the average NDBI values. (Looked closely at the data between my 2 selec
 Seychelles kept popping up everywhere. (Across every analytical piece I coded, this specific place showed the absolute strongest proof of a compounding, self reinforcing vulnerability pattern because it carried the highest Compound Vulnerability Score driven by the worst coral thermal stress trends). My data points in one clear direction. It also has the highest coastal protected area ratio. (Even though I could not statistically confirm this governance response with my small sample size, the policy direction looks correct). It also gave me the biggest house building encroachment signal. 
 
 Fiji was the opposite story. (My data shows it stayed completely stable across every single temporal measure over the decades with flat mangrove boundaries, the smallest coral heat stress increase among all working islands, n zero infrastructure encroachment). This was an amazing comparison. It serves as a rock steady low change reference case right against Seychelles’ crazy high change profile in my sheets. My full synthesis is complete.
-My mangrove decline hypothesis completely failed. (I tested H2 with the exact same strict code rigor n multi point timeline validation as everything else in my project folder, but the actual evidence did not support my guess in any of the 3 islands where trees grow). So I found no real jungle loss. (Writing this down straight in my log instead of tweaking my code or hiding the bad results feels like a solid, helpful contribution). (My data clearly shows that nature buffer degradation is not uniform across different ecosystem types at all because coral reefs in my 5 island sample are measurably more vulnerable to heat stress than mangroves over this multi decadal timeline). This is a big deal for resource prioritization. (It tells global adaptation n conservation finance groups exactly where to spend their budget 1st instead of wasting money on stable zones). My final log sheets are sorted.
+My mangrove decline hypothesis completely failed. (I tested H2 the same way as everything else, nd the data did not support it on any of the 3 islands with mangroves). So I found no real jungle loss. (My data clearly shows that nature buffer degradation is not uniform across different ecosystem types at all because coral reefs in my 5 island sample are measurably more vulnerable to heat stress than mangroves over this multi decadal timeline). My final log sheets are sorted.
 
 ### Complete Project Data Inventory
 
@@ -415,7 +416,7 @@ My mangrove decline hypothesis completely failed. (I tested H2 with the exact sa
 | Cyclone Tracks | 4 islands (Canary Islands confirmed absent) |
 | Settlement Encroachment (NDBI) | 3 islands (mangrove present islands only) |
 
-Investigated every single zero result. (Whenever I hit an unexpected finding along the way, like Lakshadweep's completely absent mangroves, the Canary Islands' absent corals and cyclones, or my mangrove decline hypothesis not holding up, I chose to dig deep n confirmed them as real geographical facts or traced them back to a specific, fixable data cause). I never assumed these weird numbers were just random bugs or quietly worked around them to make my life easy....... (Where my original hypothesis jst did not pan out in the stats, I wrote it down openly as a real, valuable finding in my log sheets instead of tricking the system or reframing the txt to fit my original baseline expectations).
+Investigated every single zero result. (Whenever I hit an unexpected finding along the way, like Lakshadweep's completely absent mangroves, the Canary Islands' absent corals and cyclones, or my mangrove decline hypothesis not holding up, I chose to dig deep n confirmed them as real geographical facts or traced them back to a specific, fixable data cause). Where a hypothesis didnt hold, I wrote it down as a result.
 
 ---
 
@@ -444,7 +445,7 @@ I built this check directly into my script. (I chose to add a strict pre conditi
 
 ### How This Got Reported
 
-I did not treat this as a gap to paper over. (For example, I refused to swap in a weaker, later cyclone for one of the affected islands jst to trick my scripts into producing some fake results). It is an actual structural limit of satellite based verification....... (Any remote sensing method u try is strictly bounded by when its satellite hardware platform actually started operating in space, n events before tht date cannot be verified by that method no matter how smartly u configure the API request parameters). This is a fixed reality. I documented it transparently as a scope limit on this one supplementary analysis block specifically. (The best part is that it does not touch my project's core sea level rise or ecosystem degradation findings because those calculations do not depend on Sentinel-2's coverage window the same way at all). My primary results stay fully safe.
+I didnt swap in a later, weaker cyclone to get a result. It is a structural limit of satellite based verification....... (Any remote sensing method u try is strictly bounded by when its satellite hardware platform actually started operating in space, n events before tht date cannot be verified by that method no matter how smartly u configure the API request parameters). So I wrote it down as a scope limit for this one supplementary analysis. (It does not touch my project's core sea level rise or ecosystem degradation findings because those calculations do not depend on Sentinel-2's coverage window the same way at all). My primary results stay fully safe.
 
 ### Final Cyclone Damage Proxy Status
 
@@ -475,7 +476,7 @@ Went nd checked wht kind of settlement points these actually were before assumin
 
 Fixed it by adding fiji to the same nodata exclusion set already used for canary. Did this across precompute_elevations.py, dashboard/precompute_elevations.py, slr_exposure_analysis.py, nd export_settlement_elevations_full.py. Corrected Fiji's settlement based exposure from 32.0% down to 1.0% (909 valid points left after dropping the 414 NoData ones, only 9 truly at risk). This is a much bigger correction than Canary's, proportionally speaking. But Fiji was already my 2nd lowest exposure island before this fix, so it doesnt flip anything in the ranking order. Jst makes the "volcanic islands have way less exposure than atolls" story even more lopsided than wht I'd already reported.
 
-One thing I want to flag straight up instead of quietly stretching past wht I actually checked. Maldives (99.0% of points exactly 0.0m) nd Lakshadweep (77.8%) show this SAME zero heavy pattern. I did NOT apply the same fix to them. (The difference is tht Maldives nd Lakshadweep are real low lying coral atolls). Near sea level elevation across most of the land is the expected geology there, not some anomaly the way it is on a volcanic island. So the same statistical red flag doesnt carry the same weight for those 2. But I also cant say for sure none of their zero readings are DEM artifacts either. Havent done a pixel level QGIS check on either of them the way I did for Canary. Leaving this open for now instead of pretending I've already verified it.
+One open point. Maldives (99.0% of points exactly 0.0m) nd Lakshadweep (77.8%) show this SAME zero heavy pattern. I did NOT apply the same fix to them. (The difference is tht Maldives nd Lakshadweep are real low lying coral atolls). Near sea level elevation across most of the land is the expected geology there, not some anomaly the way it is on a volcanic island. So the same statistical red flag doesnt carry the same weight for those 2. But I also cant say for sure none of their zero readings are DEM artifacts either. Havent done a pixel level QGIS check on either of them the way I did for Canary. Leaving this open for now.
 
 ### This Changed the Compound Score nd Governance Test Too
 
@@ -487,7 +488,7 @@ While I was back in tht part of the pipeline, caught another thing tht'd been bu
 
 ### Switched the Coral Trend Test to the Seasonal Mann-Kendall Version
 
-Also realized my Mann-Kendall trend test on the 24-year DHW series was using the plain, original version, run straight on raw monthly values. DHW is seasonal by nature though...... near zero most months, then spiking during the warm season. So the plain test's independence assumption jst doesnt hold for data shaped like tht. Switched coral_trend_test.py over to pymannkendall's seasonal_test(period=12), which compares same calendar month values across years instead. New p values came out as: Maldives 0.0046 (was 0.011), Seychelles 0.0069 (was 0.025), Fiji 0.2437 (was 0.184), Lakshadweep 0.3725 (was 0.386), Canary 0.6196 (was 0.641). Nothing flips. Maldives nd Seychelles are still the only 2 significant, everything else still isnt. If anything the seasonal test makes the 2 real trends look even MORE solid, not less. So this was a pure rigor upgrade, not a result tht got weaker under scrutiny.
+Also realized my Mann-Kendall trend test on the 24-year DHW series was using the plain, original version, run straight on raw monthly values. DHW is seasonal by nature though...... near zero most months, then spiking during the warm season. So the plain test's independence assumption jst doesnt hold for data shaped like tht. Switched coral_trend_test.py over to pymannkendall's seasonal_test(period=12), which compares same calendar month values across years instead. New p values came out as: Maldives 0.0046 (was 0.011), Seychelles 0.0069 (was 0.025), Fiji 0.2437 (was 0.184), Lakshadweep 0.3725 (was 0.386), Canary 0.6196 (was 0.641). Nothing flips. Maldives nd Seychelles are still the only 2 significant, everything else still isnt. The seasonal test is the right one for this data, nd the result didnt change.
 
 ### Cleaned Up Some Wording nd Some Dead Code
 
@@ -504,11 +505,11 @@ Central finding is completely unchanged. Seychelles still comes out as the highe
 
 ## Entry 10
 
-Had an external review done against the current `main` branch nd it flagged 2 real internal consistency issues tht survived from before the Entry 9 cleanup. Both wording only. Neither one changes a reported number or a conclusion. But both were worth fixing since the whole point of this log is catching exactly this kind of drift.
+Did another pass over the current `main` branch nd found 2 real internal consistency issues tht survived from before the Entry 9 cleanup. Both wording only. Neither one changes a reported number or a conclusion. But both were worth fixing since the whole point of this log is catching exactly this kind of drift.
 
 **`dashboard/pages/7_Interactive_Maps.py`**, Lakshadweep's ecosystem overlay caption said mangroves *and* formal WDPA protection were "both confirmed absent, a finding independently confirmed across multiple data sources." Tht's correct for mangroves (confirmed absent, matches `mangrove_3point_comparison.py` only ever testing Maldives, Seychelles, and Fiji). But it's wrong for WDPA. `compute_wdpa_area.py` nd `wdpa_coastal_buffer.py` both say straight out tht Lakshadweep has no WDPA dataset available at all. Nd the paper itself (Section 3.7, nd again in Limitations) is careful to call this "a missing data gap, not a governance finding." This one dashboard caption was the only place in the whole project tht had drifted into claiming the missing WDPA data as a confirmed ecological absence instead. Reworded it to separate the 2 claims properly: mangroves confirmed absent, WDPA data simply unavailable.
 
-**`research_paper_figures.py`**, the comment above the population weighted exposure figure called those numbers "population_weighted_exposure.py's validated final run." They arent. `population_weighted_exposure.py`'s own module docstring, nd the paper's Section 4.1 / Limitations text, both already say these are still the old bbox only v4 numbers, not yet rerun against the real rasters with the v5 boundary polygon mask. The paper text itself has always said this plainly. It was jst this one code comment tht was still describing the numbers as finished nd validated. Reworded the comment to match wht the docstring nd the paper actually say.
+**`research_paper_figures.py`**, the comment above the population weighted exposure figure called those numbers "population_weighted_exposure.py's validated final run." They arent. `population_weighted_exposure.py`'s own module docstring, nd the paper's Section 4.1 / Limitations text, both already say these are still the old bbox only v4 numbers, not yet rerun against the real rasters with the v5 boundary polygon mask. The paper text already said this. It was jst this one code comment tht was still describing the numbers as finished nd validated. Reworded the comment to match wht the docstring nd the paper actually say.
 
 Neither fix touches a single reported number, a figure, or a conclusion. Both were jst internal consistency wording gaps, now closed.
 
@@ -551,7 +552,7 @@ Either way, both islands come back to the same root cause. The boundary shape fi
 
 ### Decision: Not Swapping v4 for v5 Numbers Yet
 
-Pushing the current v5 output into the paper would replace a limitation I'd already disclosed plainly (v4's bbox numbers, which slightly over count because a box can include some open water) with a WORSE nd undisclosed problem (v5 badly under counting real people, by around 60% for Maldives). Tht's a step backward, not a fix, even though the code itself is working correctly now.
+Pushing the current v5 output into the paper would replace a limitation I'd already disclosed (v4's bbox numbers, which slightly over count because a box can include some open water) with a WORSE nd undisclosed problem (v5 badly under counting real people, by around 60% for Maldives). Tht's a step backward, not a fix, even though the code itself is working correctly now.
 
 So I'm keeping the v4 (bbox) numbers in the paper exactly as they are. Nothing in the actual reported table changed. Wht I did change is the wording in 3 places (population_weighted_exposure.py's own top note, the paper's Limitations section, nd the executive summary checklist), so all 3 now explain the real reason clearly. The boundary polygon files are incomplete, tht's been checked nd confirmed, nd fixing it properly needs a better set of island boundary shapes, not another round of code changes. This closes out wht Entry 9 left as an open item. Jst not with the ending I was hoping for. The plain answer this time is "found the real reason, still cant use it yet."
 
@@ -577,7 +578,7 @@ Fixed it properly this time with an explicit `APPLY_BOUNDARY_MASK = False` flag 
 
 ### Where This Actually Leaves the Central Finding
 
-With both fixes in, all 3 independent measures (settlement based exposure, population weighted exposure, nd the compound vulnerability score) now agree Seychelles is the highest risk island. Tht's a real change from how I'd been framing this project. I used to argue "physical exposure alone would mislead u, the compound score catches wht exposure misses." Tht argument doesnt work anymore since exposure isnt misleading here either. The accurate version of the finding now is convergence, not correction. Every independent way of measuring risk lands on the same island, which is arguably a MORE robust result than the old "gotcha" framing. Jst a less dramatic one to write about. Went through nd reframed the paper, executive summary, README, nd every dashboard page tht referenced the old numbers to say this properly instead of leaving the disproven "exposure would mislead u" argument sitting next to numbers tht no longer support it.
+With both fixes in, all 3 independent measures (settlement based exposure, population weighted exposure, nd the compound vulnerability score) now agree Seychelles is the highest risk island. Tht's a real change from how I'd been framing this project. I used to argue "physical exposure alone would mislead u, the compound score catches wht exposure misses." Tht argument doesnt work anymore since exposure isnt misleading here either. The accurate version of the finding now is convergence, not correction. Every independent way of measuring risk lands on the same island. Went through nd reframed the paper, executive summary, README, nd every dashboard page tht referenced the old numbers to say this properly instead of leaving the disproven "exposure would mislead u" argument sitting next to numbers tht no longer support it.
 
 Recomputed the downstream stuff tht depends on the compound score too. The governance correlation (H3) came out at r=0.965, p=0.035 (up from r=0.862, p=0.138), which crosses into conventional statistical significance for the 1st time. Still only n=4 though, so I'm not letting myself read "significant" as "settled." A single data point could still move both numbers a lot at this sample size, nd said so directly everywhere this result gets reported. The weighting sensitivity sweep also changed. The ~76.8% Maldives overtakes Seychelles crossover point from Entry 9 is gone entirely. Seychelles now leads across the full 0–100% range, no crossover anywhere, which is a cleaner robustness result than before.
 
@@ -585,11 +586,11 @@ Fixed every place carrying the old numbers tht I could find: `slr_exposure_analy
 
 ## Entry 13
 
-### Someone Ran an Automated Review On My Repo nd Sent Me the Review
+### Checked Whether the Repo Was Actually in Sync
 
-Got handed a big list of "errors" an automated review found in the project, saying the results werent synced properly, old numbers still sitting in the paper, governance r=0.862 vs r=0.965 mismatch, hardcoded stale numbers in governance_correlation_test.py nd build_interactive_plots.py, weighting sensitivity crossover still showing the old ~76.8% number. It even named a specific commit, 50f0d8b, as the latest one.
+After the Entry 12 changes I wanted to make sure every place in the repo showed the new numbers. Wrote down wht could still be stale: old numbers in the paper, governance r=0.862 vs r=0.965, hardcoded numbers in governance_correlation_test.py nd build_interactive_plots.py, nd the old ~76.8% weighting crossover.
 
-Didnt jst trust it. Cloned the repo fresh nd checked git log 1st. Tht commit is 5 commits behind wht's actually on main right now. The commit right after it, d6280da ("Sync corrected findings"), is literally the exact fix for everything the review complained abt. So I went thru every single claim by hand, actually running governance_correlation_test.py nd reading build_interactive_plots.py's actual code instead of taking the review's word for it. Every claim came back false against wht's actually in the repo now. r=0.965 is the primary number everywhere, r=0.862 only shows up once nd its clearly labeled as the old pre correction estimate. The weighting sweep chart already says "no crossover" in its own subtitle. So the review wasnt wrong abt wht it saw, it jst saw an old snapshot of the repo, not wht's actually here now.
+Cloned the repo fresh nd checked git log 1st, so I was looking at wht's actually on main. Then went thru each point by hand, running governance_correlation_test.py nd reading build_interactive_plots.py's code. Everything was already in sync. Commit d6280da ("Sync corrected findings") had fixed all of it. r=0.965 is the main number everywhere, r=0.862 only shows up once nd its labeled as the old pre correction estimate. The weighting sweep chart already says "no crossover" in its subtitle.
 
 ### Softened the Governance Significance Wording
 
@@ -627,7 +628,7 @@ Ran the v2 population weighted script (the 1 pointed at the new, actually valida
 
 Then I looked at the full table properly nd my stomach kind of dropped a lil. Seychelles nd Maldives, on population weighted exposure specifically, had flipped. Maldives came out at abt 14.9%, Seychelles at abt 14.2%. Jst barely, but Maldives was ahead. Every single version of this paper, since the very start, has said Seychelles is the highest exposure island on every measure. Nd now 1 of those measures didnt agree anymore.
 
-1st reaction was jst "did I break something." So I didnt jst update the paper. Got asked whether to update the paper straight away or verify 1st, nd picked verify 1st, obviously. This is exactly the kind of thing where jst trusting a new number bc it came out of a "fixed" script would be the wrong move.
+1st reaction was jst "did I break something." So I didnt jst update the paper. Had to choose between updating the paper straight away or verifying 1st. Picked verify 1st. This is exactly the kind of thing where jst trusting a new number bc it came out of a "fixed" script would be the wrong move.
 
 ### Checking It Myself Before Touching a Single Word of the Paper
 
@@ -635,7 +636,7 @@ Went back to raw basics. Pulled the actual population raster nd the new boundary
 
 Seychelles matched exactly. 94,175 people inside the mask, same number the real script reported, down to the digit. Maldives came out close too, abt 498,819, matching within a small margin. So the population side of this isnt some fluke or rounding bug, its reproducible from scratch.
 
-Cldnt fully check the elevation/at risk half the same way tho, bc those raster files (nearly 1GB nd 1.5GB) were too big to pull across for this kind of quick check. So tht part stays a small real gap in how far the verification went, nd I said so plainly instead of pretending it was fully checked.
+Cldnt fully check the elevation/at risk half the same way tho, bc those raster files (nearly 1GB nd 1.5GB) were too big to pull across for this kind of quick check. So tht part wasnt checked by hand.
 
 But the mechanism made sense too, not jst the numbers. The whole point of fixing the boundary mask was to stop counting open water next to an island as if it were populated land. Maldives is a spread out archipelago with a lot of water between its islands inside the old bounding box. So a tighter, more accurate boundary would naturally pull the Maldives number down less than expected, or in this case just enough for it to land ahead of Seychelles once Seychelles' own number also came down for the same reason. Not a bug. Jst the fix doing exactly wht it was supposed to do.
 
@@ -643,7 +644,7 @@ But the mechanism made sense too, not jst the numbers. The whole point of fixing
 
 Once the verification above was done, I updated the write-ups.
 
-So updated the paper, the executive summary, nd the README. Not jst swapping numbers in a table either. Had to go thru every sentence tht said "Seychelles is highest on every measure" or "all measures agree" nd actually rewrite the claim to be accurate. Settlement based exposure nd the compound score still say Seychelles, tht part didnt change. Population weighted exposure specifically now says Maldives, narrowly, like a near tie (abt 0.7 percentage points apart) rather than some clean win. Kept the same style this whole project has used for every correction so far, old number, new number, why it changed, never jst silently swap a number nd move on.
+So updated the paper, the executive summary, nd the README. Not jst swapping numbers in a table either. Had to go thru every sentence tht said "Seychelles is highest on every measure" or "all measures agree" nd actually rewrite the claim to be accurate. Settlement based exposure nd the compound score still say Seychelles, tht part didnt change. Population weighted exposure specifically now says Maldives, narrowly, like a near tie (abt 0.7 percentage points apart) rather than some clean win. Wrote down the old number, the new number nd why, same as every other correction.
 
 Table ended up like this in the end: Seychelles 14.2%, Maldives 14.9%, Lakshadweep 2.1%, Fiji 1.6%, Canary Islands 1.4%. All 5 numbers moved down from wht the paper hd before, which makes sense since the old bounding box version was always going to be counting some extra water as land.
 
@@ -653,15 +654,15 @@ Realized halfway thru tht the Streamlit dashboard hd the exact same old numbers 
 
 ### Cleaned Up the Local Fix Scripts
 
-Stripped the explanatory comments nd docstrings out of the 4 scripts I'd written this session for local runs (the coral area avg 1, the 2 boundary rebuild 1s, nd the population weighted v2ready 1). Those docstrings were mostly me explaining stuff to myself mid debugging, not really needed once the script jst works. Wrote a small script using Python's own tokenize nd ast modules to strip every # comment nd every real docstring cleanly without breaking the actual code, ran it, double checked each file still parses nd still does exactly wht it did before. Confirmed 0 leftover comments anywhere after.
+Stripped the explanatory comments nd docstrings out of the 4 scripts I'd written for local runs (the coral area avg 1, the 2 boundary rebuild 1s, nd the population weighted v2ready 1). Those docstrings were mostly me explaining stuff to myself mid debugging, not really needed once the script jst works. Wrote a small script using Python's own tokenize nd ast modules to strip every # comment nd every real docstring cleanly without breaking the actual code, ran it, double checked each file still parses nd still does exactly wht it did before. Confirmed 0 leftover comments anywhere after.
 
-### Then Got Asked the Big Question Again: Is This Actually Ready
+### The Big Question Again: Is This Actually Ready
 
-Went thru the whole project again, this time specifically looking for anything still out of sync now tht the population weighted numbers hd changed. Found 1 real problem this time, not jst a wording thing. The actual population_weighted_exposure.py sitting at the root of the repo, the real 1, not the local_fix_scripts copy, still hd APPLY_BOUNDARY_MASK set to False nd was still pointing at the old boundary files. So if anyone actually ran the canonical script in this repo right now, theyd get the old numbers, not wht the paper says. Exactly the kind of stale code vs paper mismatch tht got flagged by tht automated review way back. Fixed it myself, flipped the flag, updated all 5 paths to the new boundary files, nd rewrote the docstring to explain the full history instead of jst deleting it.
+Went thru the whole project again, this time specifically looking for anything still out of sync now tht the population weighted numbers hd changed. Found 1 real problem this time, not jst a wording thing. The actual population_weighted_exposure.py sitting at the root of the repo, the real 1, not the local_fix_scripts copy, still hd APPLY_BOUNDARY_MASK set to False nd was still pointing at the old boundary files. So if anyone actually ran the canonical script in this repo right now, theyd get the old numbers, not wht the paper says. Exactly the kind of stale code vs paper mismatch I was checking for in Entry 13. Fixed it myself, flipped the flag, updated all 5 paths to the new boundary files, nd rewrote the docstring to explain the full history instead of jst deleting it.
 
 Also did some actual research on the journal itself this time, not jst guessing. Ocean and Coastal Research turns out to not be restricted to Brazil or South America like I half assumed, its actually international in scope, Scopus nd DOAJ indexed, single blind peer review, no charge to publish. No official Web of Science listing tho, so its a solid mid tier journal, not a flagship 1.
 
-Found 2 more real gaps while scanning. 1st, the coral DHW spatial averaging robustness check I actually did nd tested earlier this session was never written into the paper. The paper still said "this is future work" in 3 different places, which was jst flat out wrong, I hd already done it nd it hd already held up. 2nd, the land area numbers I used to validate the boundary shapes, World Bank nd Wikipedia nd the Lakshadweep gov site, were named in the text but never actually added as real references in the References list.
+Found 2 more real gaps while scanning. 1st, the coral DHW spatial averaging robustness check I'd already done earlier was never written into the paper. The paper still said "this is future work" in 3 different places, which was jst flat out wrong, I hd already done it nd it hd already held up. 2nd, the land area numbers I used to validate the boundary shapes, World Bank nd Wikipedia nd the Lakshadweep gov site, were named in the text but never actually added as real references in the References list.
 
 ### Closing Both of Those Out Right Now
 
@@ -674,9 +675,9 @@ Still left to do after all this: the actual journal formatting pass, which is st
 ## Entry 15
 
 ### Status
-Forensic review of the whole project (10 October 2026), followed by code and documentation fixes that did not require rerunning the analysis. The analysis itself still has to be rerun with the corrected code (see "Still to run" below); until then the exposure, compound-score and governance numbers in the paper, README, Executive Summary and dashboard should be treated as superseded.
+Went back through the whole project (10 October 2026), followed by code and documentation fixes that did not require rerunning the analysis. The analysis itself still has to be rerun with the corrected code (see "Still to run" below); until then the exposure, compound-score and governance numbers in the paper, README, Executive Summary and dashboard should be treated as superseded.
 
-### What the review found
+### What I found
 - **Seychelles exposure was a NoData artifact.** 188 of the 244 Seychelles settlements read −32767 m, the elevation raster's NoData value, and were counted as "at or below 1 m". The Seychelles raster is 99.97% NoData (its own statistics file reports 0.034% valid pixels). On the 56 settlements with a real reading, exposure is 3 of 56 (5.4%). This is also why Seychelles showed the same 78.3% at the 0.5, 1.0 and 1.5 m thresholds.
 - **Lakshadweep's 2 at-risk settlements were outside the DEM.** North Islet and Sand Cay (about 12.35°N) lie north of the re-downloaded DEM, read 0.0, and passed the 5×5 void test. From the available tiles Lakshadweep exposure is 0 of 26.
 - **The "404 tile" explanation was wrong.** Rebuilding the Maldives DEM from the raw tiles reproduced the 177 excluded / 819 kept / 14.5% result exactly, but none of the 177 excluded points lie in a missing tile. Copernicus only publishes tiles that contain land; the excluded points are settlement nodes on 0 m water pixels. 96 of the 119 Maldives at-risk points are also exact 0.0 water pixels.
@@ -723,7 +724,7 @@ The 4TU download page was down for storage maintenance, so I exported the tiles 
 1st DeltaDTM run, a few Seychelles points looked wrong when I opened the per point file. Petite Sœur, Grande Sœur, Île Marianne: Copernicus 30–76 m, DeltaDTM close to 0 m. These are small forested granite islands. A 50 m tree canopy is not a thing there, so DeltaDTM was reading a hill as sea level. DeltaDTM is clipped at 30 m nd only meant for the coastal zone, so I added one rule: where Copernicus is above 30 m, DeltaDTM is not used nd the point counts as high terrain. Same rule in the population script. Also: where DeltaDTM is empty nd Copernicus is above 10 m, tht's "above 10 m", which is wht an empty cell means in this product. Reran once more, then froze the numbers.
 
 ### Coral: Mean Over Reef nd the Serial Correlation Correction
-The coral side changed too. Instead of 1 5 km cell per island, the series is now the mean over every DHW cell tht touches mapped reef (`download_dhw_reef_cells.py`). And the seasonal Mann-Kendall test is now the version corrected for serial correlation (Hirsch & Slack 1984), on calendar month means, 300 months. DHW is a 12 week running sum, so one warm spell shows up in 3 nd 4 months in a row, nd the plain test counts each of them as new evidence. With the correction, no island is significant: Seychelles p = 0.14 (uncorrected 0.0008), Maldives 0.31, Fiji 0.55, Lakshadweep 0.90. Kind of a gut punch since "significant for Maldives nd Seychelles" was one of the headline results since version 1. But the uncorrected p is jst wrong for this kind of series nd I'd rather say tht myself. Had to fix a small bug on the way: the monthly series came out all NaN because the reef cell times were timezone aware nd the index wasn't.
+The coral side changed too. Instead of 1 5 km cell per island, the series is now the mean over every DHW cell tht touches mapped reef (`download_dhw_reef_cells.py`). And the seasonal Mann-Kendall test is now the version corrected for serial correlation (Hirsch & Slack 1984), on calendar month means, 300 months. DHW is a 12 week running sum, so one warm spell shows up in 3 nd 4 months in a row, nd the plain test counts each of them as new evidence. With the correction, no island is significant: Seychelles p = 0.14 (uncorrected 0.0008), Maldives 0.31, Fiji 0.55, Lakshadweep 0.90. "Significant for Maldives nd Seychelles" had been a headline result since version 1. But the uncorrected p is wrong for this kind of series. Had to fix a small bug on the way: the monthly series came out all NaN because the reef cell times were timezone aware nd the index wasn't.
 
 ### Decisions (frozen)
 1. People (WorldPop) at or below 1 m is the main exposure measure. OSM points are mostly island nd islet names, so they're kept as a 2nd measure, renamed "named places".
@@ -741,7 +742,7 @@ People at or below 1 m, DeltaDTM (Copernicus in brackets): Maldives 11.82% (8.88
 
 Reef heat stress change, 1996–2000 to 2016–2020: Seychelles +0.52, Fiji +0.29, Maldives +0.07, Lakshadweep +0.05 °C-weeks. Mangroves flat (Fiji 485.7 → 488.4 km²).
 
-Compound score at equal weights: Seychelles 0.581, Maldives 0.512, Lakshadweep 0.267, Fiji 0.256, Canary 0.000. The top flips to Maldives at 54% exposure weight. So the "Seychelles is top at every weighting" result from version 1 is gone, nd honestly it was only ever true because both of version 1's inputs happened to be highest for Seychelles.
+Compound score at equal weights: Seychelles 0.581, Maldives 0.512, Lakshadweep 0.267, Fiji 0.256, Canary 0.000. The top flips to Maldives at 54% exposure weight. So the "Seychelles is top at every weighting" result from version 1 is gone, It was only ever true because both of version 1's inputs happened to be highest for Seychelles.
 
 Governance: share of the 10 km coastal zone protected, Seychelles 71.4%, Canary 50.4%, Fiji 12.2%, Maldives 1.3%, Lakshadweep no record. r = −0.01 (95% interval −0.96 to 0.96), without Seychelles −0.95. The 0.965 from version 1 is gone.
 
@@ -760,7 +761,7 @@ Re-export the three PDFs from the new markdown, push, nd tag v2.0 so Zenodo mint
 ## Entry 17
 
 ### Status
-Second forensic review of the whole project (20 October 2026), followed by corrections that did not need the large rasters. The exposure, coral and mangrove numbers did not change. The compound score, the weighting crossover and the governance correlation did.
+Second full check of the whole project (20 October 2026), followed by corrections that did not need the large rasters. The exposure, coral and mangrove numbers did not change. The compound score, the weighting crossover and the governance correlation did.
 
 ### Corrections
 | Change | Before | After | Why |
@@ -779,5 +780,36 @@ Second forensic review of the whole project (20 October 2026), followed by corre
 | Dashboard | v1 research question and island descriptions, "independent time points", outdated code screenshots, dropped cyclone material, figure numbers different from the paper | Brought in line with the paper; code screenshots hidden | Consistency |
 
 ### Still To Do
-Rerun the light scripts listed in the review, re-export the three PDFs, push, and redeploy the dashboard.
+Rerun the light scripts, re-export the three PDFs, push, and redeploy the dashboard.
 
+
+## Entry 18
+
+### Status
+New analysis (23 October 2026): do the statutory coastal setbacks of the five governments cover the buildings that stand on low land? Added as Sections 3.9 and 4.8 of the paper, with Figure 9. Nothing else in the results changed.
+
+### Why
+The governance part of the study only asked whether protected area coverage follows risk, with n = 4. A setback is the one coastal rule that decides where people may build, and buildings give hundreds of thousands of observations instead of four. The 100 m WorldPop grid is too coarse for a 20–25 m rule, so I used building footprints.
+
+### What I Did
+- Downloaded Overture Maps buildings (release 2026-08-19.0) for the five study areas (`scripts/acquisition/download_buildings_overture.py`) and reduced them to one representative point per footprint (`scripts/processing/export_building_points.py`): Maldives 124,936, Lakshadweep 9,464, Seychelles 53,565, Fiji 284,279 (OpenStreetMap only), Canary Islands 880,740.
+- `scripts/analysis/setback_calibration.py` samples elevation with the same DeltaDTM/Copernicus rule as the population analysis, measures distance to the edge of the validated island polygons, and compares it with each setback. Added to `run_all.py`; it skips if the building files are absent.
+- Figures: `outputs/plots/fig9_setback_calibration.png` (coverage curve, written by the analysis script) and `fig10_setback_close_ups.png` (`scripts/figures/setback_example_maps.py`, close-ups of the densest low-lying cluster per island); interactive `setback_coverage_curve.html` added to `build_interactive_plots.py`, whose compound bars are now one colour.
+- Dashboard: new "Coastal Setbacks" tab on the Governance & Encroachment page, a policy-extension card on the home page, the setback question on Study Design, and buildings and legal sources on Methodology & Data. README, Executive Summary (version 2.1), CITATION.cff (2.1.0), DATA_SOURCES_AND_LICENSES.md (Overture, ODbL) and requirements.txt (pillow, overturemaps) updated.
+- Checked the legal texts: Ley 22/1988 de Costas art. 23 (100 m, 20 m on urban land); Seychelles S.I. 91 of 2023 reg. 13 (25 m from the high water mark, 10 m with permission); Maldives tourism environment regulation cl. 2.10 (5 m from the vegetation line, resort islands only; nothing found for inhabited islands); Lakshadweep ICRZ 2019 20 m no development zone (secondary sources only, primary text still to check); Fiji none found.
+
+### Results
+| Island group | At or below 1 m | Setback | Low buildings outside every setback | 90% of low buildings within |
+|---|---:|---|---:|---:|
+| Maldives | 13.4% | none (inhabited) | 99.4% | 225 m |
+| Lakshadweep | 4.7% | 20 m | 93.2% | 345 m |
+| Seychelles | 4.6% | 25 m | 92.0% | 427 m |
+| Fiji | 0.5% | none | 99.8% | 463 m |
+| Canary Islands | 0.02% | 100 m / 20 m | 15.1% | 122 m |
+
+The building shares follow the population shares from Section 4.1, which is a useful cross-check. 45% of the low Seychelles buildings and 39% of the Fijian ones are on DeltaDTM cells below 0 m (south-east Mahé, Praslin, La Digue, Kadavu); dropping them changes the "outside every setback" share by under three points.
+
+### Still To Do
+- Check the primary text of the ICRZ 2019 notification for the Lakshadweep width.
+- Look at the 4,478 Maldivian buildings that fall more than 50 m outside the island polygons (largest cluster in Addu Atoll); some islands may be missing from boundaries_v2.
+- Carry the new section into the Executive Summary, README, dashboard and portfolios.

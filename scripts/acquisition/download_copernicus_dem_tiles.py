@@ -1,27 +1,9 @@
-"""Download Copernicus DEM GLO-30 tiles for any study island and build a
-lightweight VRT mosaic (data/terrain/<island>_elevation_v2.vrt).
+"""Download Copernicus DEM GLO-30 tiles for any study island and build a lightweight VRT
+mosaic (data/terrain/<island>_elevation_v2.vrt).
 
-Added 2026-10-10 after the Forensic Review. The original Seychelles raster
-(data/terrain/seychelles_elevation.tif) is 99.97% NoData, so 188 of 244
-Seychelles settlements had no elevation. This script generalises
-redownload_maldives_lakshadweep_dem.py to all islands and extends the bounds to
-cover EVERY settlement point (Lakshadweep's northern reefs at ~12.4 N were
-outside the old download).
-
-Why a VRT and not a merged GeoTIFF: Seychelles spans ~10 x 7 degrees; a merged
-1-arc-second float32 mosaic of that extent is ~3.6 GB in memory. A VRT is a
-small XML file that points at the tiles, so reading it costs only the pixels
-actually requested. rasterio opens it like any raster.
-
-About 404s: the Copernicus archive only publishes tiles that contain land. A
-404 normally means the 1x1 degree tile is open ocean, NOT a gap in the
-archive (the Maldives/Lakshadweep write-up described these as archive gaps;
-none of the excluded settlements actually fall in a missing tile).
-
-Usage (from the repository root):
+Run from the repository root:
     python scripts/acquisition/download_copernicus_dem_tiles.py seychelles lakshadweep
     python scripts/acquisition/download_copernicus_dem_tiles.py --all
-Data licence/attribution: see DATA_SOURCES_AND_LICENSES.md (Copernicus DEM).
 """
 import math
 import os

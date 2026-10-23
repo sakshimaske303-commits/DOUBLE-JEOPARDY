@@ -1,14 +1,8 @@
-"""Run the whole DOUBLE JEOPARDY analysis in order, from the repository root:
+"""Run the whole DOUBLE JEOPARDY analysis in order.
 
+Run from the repository root:
     python scripts/run_all.py            # analysis + figures (needs data/ rasters present)
     python scripts/run_all.py --download # first fetch DEM tiles and reef-cell DHW
-
-Added 2026-10-10 (Forensic Review) so that every reported number is produced by
-one reproducible pass and written to a CSV that the figures and dashboard read.
-Order matters: exposure -> population -> coral -> compound score -> WDPA ->
-governance -> NDBI -> figures -> maps -> dashboard slider data.
-
-Steps that need external downloads or credentials are only run with --download.
 """
 import os
 import runpy
@@ -35,7 +29,11 @@ STEPS = [
     "scripts/validation/boundary_area_validation.py",
     "scripts/analysis/governance_correlation_test.py",
     "scripts/analysis/ndbi_land_change.py",
+    # Building-level setback calibration: needs data/buildings/*_building_points.csv.gz
+    # (download_buildings_overture.py + export_building_points.py); skips cleanly if absent.
+    "scripts/analysis/setback_calibration.py",
     "scripts/figures/research_paper_figures.py",
+    "scripts/figures/setback_example_maps.py",
     "scripts/figures/map1_vulnerability_score.py",
     "scripts/figures/study_area_map.py",
     "scripts/figures/build_interactive_plots.py",

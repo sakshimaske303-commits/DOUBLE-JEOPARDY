@@ -21,7 +21,7 @@ Outputs2/
 OUTPUTS3/
 outputs4/
 
-# local backup made before the 2026-10-10 review fixes (safe to delete)
+# local backup (not pushed)
 _backup_before_review_fixes/
 
 # private finish plan (never pushed)
@@ -29,10 +29,11 @@ FINISH_PLAN.md
 
 # not part of the public project
 OCR_Submission/
-Claude outputs/
 Guidelines/
 
 # WDPA and UNEP-WCMC data may not be redistributed (see DATA_SOURCES_AND_LICENSES.md)
 data/protected_areas_wdpa/
 data/ecosystem_buffers/*_wdpa.gpkg
 dashboard/static/*_ecosystem_buffer_webmap/layers/*wdpa*
+
+data/buildings/

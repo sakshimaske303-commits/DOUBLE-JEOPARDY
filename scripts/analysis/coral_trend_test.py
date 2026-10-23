@@ -1,39 +1,4 @@
-"""Coral Degree Heating Week (DHW) trend tests, per island.
-
-Updated 2026-10-10 after the Forensic Review. For each island and for both the
-single-cell series (data/coral_bleaching) and the +-0.15 deg box average
-(data/coral_bleaching_v2) this reports:
-
-  smk_index_p     seasonal Mann-Kendall as used so far: pymannkendall
-                  seasonal_test(period=12) on the sample index. NOTE: samples
-                  are every 30 days (12 x 30 = 360 days), so these "seasons"
-                  drift ~5 days a year (~4 months over 1996-2020). They are not
-                  calendar months.
-  smk_calendar_p  seasonal Mann-Kendall with TRUE calendar-month seasons
-                  (Hirsch et al. 1982: S and Var(S) summed over months).
-                  This is what the paper's wording describes.
-  annual_max_p    Mann-Kendall on each year's MAXIMUM DHW, the metric used in
-                  bleaching-risk work. Sen's slope reported per year.
-  period_change   mean DHW 2016-2020 minus mean DHW 1996-2000 (the value used
-                  in the compound score).
-
-Update 2026-10-11 (FINISH_PLAN D3):
-  csmk_p          correlated seasonal Mann-Kendall (Hirsch and Slack 1984,
-                  pymannkendall.correlated_seasonal_test) on CALENDAR-MONTH
-                  means (Jan 1996 ... Dec 2020, 300 months). DHW is a 12-week
-                  running sum, so neighbouring months are strongly correlated;
-                  the ordinary seasonal test treats them as independent and
-                  gives p-values that are too small. This is the MAIN test.
-  monthly_smk_p   ordinary seasonal test on the same monthly matrix, to show
-                  how much the correction changes.
-  primary         True for the series reported in the paper: the mean over
-                  every 5 km cell of mapped reef ("reef_cells"). The single
-                  cell and the +-0.15 deg box are sensitivity checks.
-
-Results are written to data/coral_trend_results.csv so figures and the paper
-can read them instead of hard-coding p-values.
-Needs pandas, numpy, scipy, pymannkendall.
-"""
+"""Coral Degree Heating Week (DHW) trend tests, per island."""
 import numpy as np
 import pandas as pd
 from scipy.stats import norm

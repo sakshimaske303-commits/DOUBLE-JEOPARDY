@@ -14,9 +14,9 @@ apply_custom_style()
 R = load_results()
 G = R["gov"]
 
-st.markdown("<h1 style='text-align: center;'>📖 METHODOLOGY & DATA</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center;'>METHODOLOGY & DATA</h1>", unsafe_allow_html=True)
 st.markdown(
-    "<h3 style='text-align: center; color: #67E8F9; font-weight: 400;'>Full Transparency, Reproducibility, and Limitations</h3>",
+    "<h3 style='text-align: center; color: #67E8F9; font-weight: 400;'>Data, Reproducibility and Limitations</h3>",
     unsafe_allow_html=True,
 )
 st.markdown("---")
@@ -88,6 +88,8 @@ with col2:
     r5a, r5b = st.columns([0.88, 0.12])
     with r5a:
         st.markdown("- **Population** — WorldPop 2020")
+        st.markdown("- **Buildings** — Overture Maps 2026-08-19.0 (OpenStreetMap, Google, Microsoft, Esri, IGN España)")
+        st.markdown("- **Coastal setbacks** — Ley 22/1988 de Costas; Seychelles S.I. 91 of 2023; ICRZ Notification 2019; Maldives tourism environment regulation")
     with r5b:
         proof_popover("05_population_exposure_vscode.png", "population_weighted_exposure.py open in VS Code — computes what % of each island's population (not just settlements) lives at or below the 1m sea-level-rise threshold.")
     r4a, r4b = st.columns([0.88, 0.12])
@@ -141,7 +143,7 @@ with st.expander("**Filling a Data Gap: Lakshadweep's Population, Revisited**"):
 
 st.markdown("---")
 
-st.markdown("### Honest Limitations")
+st.markdown("### Limitations")
 
 hl1, hl2 = st.columns([0.94, 0.06])
 with hl1:
@@ -155,10 +157,18 @@ with hl1:
 with hl2:
     proof_popover("07_governance_correlation_vscode.png", "governance_correlation_test.py open in VS Code — the correlation (r, interval, leave-one-out) behind the descriptive H3 governance comparison.")
 
+st.warning("""
+**Setbacks are measured from the island outline, not the legal line.** Distances run to the edge of the island
+polygons, not to the high water mark or vegetation line, so they are approximate to some tens of metres; only
+national law is compared, not local plans or enforcement. The Lakshadweep width rests on secondary sources, Fiji's
+buildings are OpenStreetMap only, and many low buildings in Seychelles and Fiji sit on DeltaDTM cells below 0 m,
+so every setback number is also reported without them.
+""")
+
 st.info("""
 **Uneven data depth.** Canary Islands coral and mangrove data were confirmed genuinely absent —
 geographically and ecologically explained by its subtropical, volcanic Atlantic setting outside
-typical coral and mangrove habitat range — and documented transparently rather than substituted
+typical coral and mangrove habitat range — and documented rather than substituted
 or estimated. Lakshadweep population data, initially unavailable for the reason described above,
 was later obtained and is now included in the population-weighted exposure analysis.
 """)

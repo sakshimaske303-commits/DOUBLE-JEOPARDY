@@ -1,26 +1,6 @@
-"""Built-up (NDBI) change 2016 -> 2024 measured on LAND only, from the
-cloud-masked annual NDBI rasters (download_ndbi_encroachment_raster.py:
-Sentinel-2 L2A, SCL cloud/shadow/cirrus masked, ORBIT mosaicking).
-
-Added 2026-10-10 after the Forensic Review. The numbers previously reported in
-the paper (Fiji -0.0008, Maldives +0.0461, Seychelles +0.1135) come from
-analyze_ndbi_change.py, which averages Statistical-API half-year composites
-over the whole bounding box with no cloud or water mask. Those boxes are
-99.7% ocean (Maldives), 85% (Seychelles) and 30% (Fiji), and the half-year
-values differ by up to 0.22 within one year, more than the 2016->2024 change.
-Using these masked rasters instead, the forensic check found:
-  bbox mean change   Fiji -0.027, Maldives +0.012, Seychelles -0.033
-  land-only change   Fiji -0.011, Maldives +0.044, Seychelles -0.0003
-
-This script reports, per island:
-  * land-only mean NDBI in 2016 and 2024 and the change
-  * share of land pixels with change > +DELTA and < -DELTA
-  * the same restricted to land within BUFFER_M of mapped mangrove/coral
-    polygons (the "near ecosystem buffer" question the paper actually asks)
-  * a bootstrap 95% interval of the mean land change (resampling pixels in
-    BLOCK x BLOCK blocks to respect spatial autocorrelation)
-
-Run from the repository root. Needs rasterio, geopandas, numpy, pandas.
+"""Built-up (NDBI) change 2016 -> 2024 measured on LAND only, from the cloud-masked
+annual NDBI rasters (download_ndbi_encroachment_raster.py: Sentinel-2 L2A, SCL
+cloud/shadow/cirrus masked, ORBIT mosaicking).
 """
 import os
 

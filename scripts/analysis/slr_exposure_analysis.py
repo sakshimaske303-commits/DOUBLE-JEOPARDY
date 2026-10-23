@@ -1,37 +1,4 @@
-"""Settlement-based physical exposure to a 1 m sea-level-rise threshold.
-
-Rewritten 2026-10-10 after the Forensic Review. All DEM reading now goes
-through scripts/common/dem_sampling.py, which applies ONE rule to all five
-islands (out-of-extent, NoData, water-pixel snapping; see that module's
-docstring). The previous version had no NoData handling: Seychelles' -32767
-NoData value was counted as "at or below 1 m" for 188 of 244 settlements, and
-Lakshadweep's 2 at-risk settlements lay outside the DEM. It also used a
-different exclusion rule per island (blanket zero drop for Canary/Fiji,
-5x5 void test for Maldives/Lakshadweep, nothing for Seychelles).
-
-Outputs
--------
-data/slr_exposure_summary.csv         one row per island: counts by status,
-                                      coverage, % at risk at 0.5/1.0/1.5 m under
-                                      the main rule (water pixels snapped to
-                                      nearby land) and under the strict rule
-                                      (water-pixel points excluded).
-data/settlement_elevations_full/<island>.csv
-                                      one row per settlement with raw DEM value,
-                                      elevation used, status, at_risk flag.
-
-Update 2026-10-11 (FINISH_PLAN D1, D2): runs once per available elevation
-source (Copernicus GLO-30 always, DeltaDTM when prepared). The primary source
-(DeltaDTM when ready) is written to the files above, so every reader keeps
-working; all sources go to data/slr_exposure_summary_by_source.csv, and the
-non-primary per-place files get a suffix (<island>_copernicus.csv). Most OSM
-"settlement" points are island and islet names, not settlements, so the paper
-calls them "named places" and data/named_places_by_type.csv breaks the result
-down by OSM place type. The main exposure measure is now population-weighted
-(population_weighted_exposure.py).
-
-Run from the repository root:  python scripts/analysis/slr_exposure_analysis.py
-"""
+"""Settlement-based physical exposure to a 1 m sea-level-rise threshold."""
 
 import os
 import sys
@@ -99,7 +66,7 @@ def analyze_island(island, source="copernicus", primary=True):
 
 
 def place_type_table(frames):
-    """Exposure by OSM place type for the primary source (FINISH_PLAN D1)."""
+    """Exposure by OSM place type for the primary source."""
     rows = []
     for island, df in frames.items():
         for place, g in df.groupby(df["place"].fillna("(none)")):

@@ -1,30 +1,7 @@
 """Export DeltaDTM tiles for the five islands from Google Earth Engine to Google Drive.
 
-Added 2026-10-11 because the 4TU.ResearchData download was offline for
-maintenance. Same product: DeltaDTM v1.1 (Pronk et al. 2024), curated in the
-GEE community catalogue as
-    projects/sat-io/open-datasets/DELTARES/deltadtm_v1-1   (ee.Image, band "b1")
-In v1.1 values are clipped at 30 m (a value of 30 means "30 m or higher");
-that is dry at every threshold used here, so it needs no special handling.
-Cells with no value (open water) are written as -9999.
-
-One export task per 1 x 1 degree tile, for exactly the tiles that exist for
-Copernicus in data/terrain/raw_tiles/<island>/ (tiles without land are skipped).
-Each tile is exported on DeltaDTM's own 1-arc-second grid.
-
-One-time setup (in PowerShell, from the repository root):
-    pip install earthengine-api
-    earthengine authenticate
-Then:
+Run from the repository root:
     python scripts/acquisition/export_deltadtm_gee.py --project YOUR_GEE_PROJECT_ID
-
-Your GEE project ID is shown at the top right of https://code.earthengine.google.com
-(the same one used for STOLEN STRATA). The script starts all tasks and exits.
-Watch them in the Tasks tab of the Code Editor or at
-https://code.earthengine.google.com/tasks . When all are done, download the
-Google Drive folder "DeltaDTM_DOUBLE_JEOPARDY", unzip it, and put the .tif files in
-    data/terrain/deltadtm/gee/
-Then run:  python scripts/acquisition/prepare_deltadtm_tiles.py
 """
 import argparse
 import glob

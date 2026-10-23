@@ -14,7 +14,7 @@ apply_custom_style()
 R = load_results()
 P = R["primary"]
 
-st.markdown("<h1 style='text-align: center;'>🗺️ INTERACTIVE MAPS &amp; PLOTS</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center;'>INTERACTIVE MAPS &amp; PLOTS</h1>", unsafe_allow_html=True)
 st.markdown(
     "<h3 style='text-align: center; color: #1b4332; font-weight: 400;'>Explore the Geospatial Data and Headline Charts Live</h3>",
     unsafe_allow_html=True,
@@ -211,7 +211,7 @@ st.markdown("### Interactive Plots")
 st.markdown(f"""
 <div style="background: {PALETTE['card_bg']}; border-radius: 10px; padding: 14px; margin-bottom: 14px;">
     <p style="color: {PALETTE['text_dark']}; font-size: 0.9rem; margin: 0;">
-        The three headline statistical charts, hoverable and toggleable instead of locked into a flat image.
+        The four headline charts, hoverable and toggleable instead of locked into a flat image.
     </p>
 </div>
 """, unsafe_allow_html=True)
@@ -220,6 +220,7 @@ PLOTS = {
     "Compound Vulnerability Score": "compound_vulnerability_score.html",
     "Coral Thermal Stress Trends": "coral_thermal_stress_trends.html",
     "Weighting Sensitivity Curve": "weighting_sensitivity_curve.html",
+    "Coastal Setback Coverage": "setback_coverage_curve.html",
 }
 
 plot_choice = st.selectbox("Select a chart", list(PLOTS.keys()), key="plot_select")

@@ -10,3 +10,5 @@ pymannkendall
 python-dotenv
 matplotlib
 requests
+pillow
+overturemaps

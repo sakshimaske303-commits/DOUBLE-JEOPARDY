@@ -15,7 +15,6 @@ _cvs_sorted = sorted(R["cvs"], key=R["cvs"].get, reverse=True)
 
 st.set_page_config(
     page_title="DOUBLE JEOPARDY",
-    page_icon="🌊",
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -29,7 +28,7 @@ GITHUB_URL = "https://github.com/sakshimaske303-commits/DOUBLE-JEOPARDY"
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))   # .../dashboard
 ROOT_DIR = os.path.dirname(BASE_DIR)                      # repo root
 
-st.markdown("<h1 style='text-align: center;'>🌊 DOUBLE JEOPARDY</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center;'>DOUBLE JEOPARDY</h1>", unsafe_allow_html=True)
 st.markdown(
     "<h3 style='text-align: center; color: #67E8F9; font-weight: 400; margin-top: -10px;'>"
     "The Vulnerability Spiral — Compound Climate Risk Across 5 Islands</h3>",
@@ -120,6 +119,8 @@ st.markdown(
             Counting named places instead of people puts Seychelles level with the Maldives. And once
             reef heat stress is added, the top island depends on the weighting: Seychelles at equal weights,
             the Maldives once exposure carries {R['cvs_crossover']:.0%} or more of the weight. A single number would hide all of this.
+            The same goes for policy: the coastal setbacks in national law reach fewer than one in ten
+            low-lying buildings on the tropical islands, because on atolls low land is the island, not its edge.
         </p>
     </div>
     """,
@@ -214,6 +215,24 @@ with h3:
     </div>
     """, unsafe_allow_html=True)
 
+_SB = R.get("setback")
+if _SB is not None:
+    def _o(i):
+        return _SB.loc[(i, "all"), "low_outside_every_setback_pct"]
+    st.markdown(f"""
+    <div style="background: {PALETTE['card_bg']}; border-radius: 14px; margin-top: 18px;
+                padding: 20px; border: 2px solid {PALETTE['navy']};">
+        <p style="color: {PALETTE['navy']}; font-weight: 800; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 8px;">Policy extension — Coastal setbacks</p>
+        <p style="color: {PALETTE['navy']}; font-weight: 700; font-size: 1rem; margin-bottom: 8px;">The Building Rules Are Drawn in the Wrong Place</p>
+        <p style="color: {PALETTE['text_dark']}; font-size: 0.85rem; margin: 0;">
+            Across about 1.35 million building footprints, {_o('Seychelles'):.0f}% of the buildings at or below 1 m in
+            Seychelles stand landward of its 25 m setback, and {_o('Lakshadweep'):.0f}% in Lakshadweep landward of its 20 m zone;
+            the Maldives and Fiji have no setback for inhabited land. Only the Canary Islands' 100 m Ley de Costas line
+            covers most of them ({100 - _o('Canary Islands'):.0f}%). See Governance &amp; Encroachment → Coastal Setbacks.
+        </p>
+    </div>
+    """, unsafe_allow_html=True)
+
 st.markdown("---")
 
 st.markdown("### Explore the Analysis")
@@ -224,8 +243,9 @@ nav_items = [
     ("Ecological Findings", "Coral thermal stress vs. mangrove stability"),
     ("Physical Exposure", "People and places at or below 1 m, on two elevation models"),
     ("Compound Vulnerability", "The signature cross-island ranking"),
-    ("Governance & Encroachment", "Protection alignment and settlement pressure"),
-    ("Interactive Maps & Plots", "Live geospatial exploration plus the three headline charts"),
+    ("Governance & Encroachment", "Protection alignment, coastal setbacks and settlement pressure"),
+    ("Interactive Maps & Plots", "Live geospatial exploration plus the four headline charts"),
+    ("Robustness & Corrections", "Every sensitivity check, and what Version 1 got wrong"),
 ]
 
 cols = st.columns(3)
