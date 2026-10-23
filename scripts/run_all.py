@@ -23,6 +23,7 @@ STEPS = [
     "scripts/analysis/slr_exposure_analysis.py",
     "scripts/analysis/population_weighted_exposure.py",
     "scripts/analysis/coral_trend_test.py",
+    "scripts/validation/coral_trend_check.py",
     "scripts/analysis/mangrove_3point_comparison.py",
     "scripts/analysis/compound_vulnerability_score.py",
     "scripts/processing/wdpa_coastal_buffer.py",
@@ -32,6 +33,7 @@ STEPS = [
     # Building-level setback calibration: needs data/buildings/*_building_points.csv.gz
     # (download_buildings_overture.py + export_building_points.py); skips cleanly if absent.
     "scripts/analysis/setback_calibration.py",
+    "scripts/validation/setback_distance_check.py",
     "scripts/figures/research_paper_figures.py",
     "scripts/figures/setback_example_maps.py",
     "scripts/figures/map1_vulnerability_score.py",
@@ -67,6 +69,9 @@ if __name__ == "__main__":
         except Exception as e:
             print(f"!!! {step} failed: {e}")
             failed.append((step, str(e)))
-    print("\nFinished." + (" Failed steps:" if failed else " All steps ran."))
-    for step, err in failed:
-        print(f"  - {step}: {err}")
+    if failed:
+        print(f"\nPARTIAL RUN: {len(failed)} of {len(steps)} steps failed. Outputs of these steps were NOT regenerated:")
+        for step, err in failed:
+            print(f"  - {step}: {err}")
+        sys.exit(1)
+    print(f"\nCOMPLETE RUN: all {len(steps)} steps ran.")

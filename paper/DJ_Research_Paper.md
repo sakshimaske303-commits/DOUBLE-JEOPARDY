@@ -17,7 +17,7 @@ Low islands face two threats at once: the sea rising, and the reefs and mangrove
 
 International climate adaptation policy increasingly treats coastal ecosystems (mangroves, coral reefs, seagrass beds) as a single protective category, financed and managed under the umbrella term "nature based solutions." Research shows that these ecosystems provide measurable coastal protection. Reef structures dissipate wave energy before it reaches shore, and dense mangrove stands can reduce wave heights by well over half and, where wide enough, storm surge peak water levels too. Small island developing states are frequently identified as the setting where this protective value is proportionally greatest relative to national economic output.
 
-Less often tested is whether the ecosystems providing that protection are degrading at the same rate, or whether planning that treats them as one buffer hides different trajectories. This study tests mangrove extent and coral reef condition as two separate pathways, across a cross-national sample spanning three ocean basins, without assuming that they move together.
+Less often tested is whether the ecosystems providing that protection are degrading at the same rate, or whether planning that treats them as one buffer hides different trajectories. This study tests mangrove extent and coral reef condition as two separate pathways, across a cross-national sample spanning three ocean basins, without assuming that they move together. It examines how alternative elevation models, exposure measures and indicator weights change a comparative coastal risk ranking across five island groups, and adds a spatial screening of low-lying buildings against the coastal setbacks in national law.
 
 
 **Research question.** Across five island groups in three ocean basins, how many people live on land at or below 1 m, how has heat stress on their reefs and the extent of their mangroves changed between 1996 and 2020, and does combining exposure with reef heat stress change how the islands rank? Two main hypotheses follow: H1, reef heat stress increased over 1996–2020; H2, mangrove extent declined over the same period. Two secondary, descriptive analyses are reported separately: whether coastal protected area coverage is higher where the combined score is higher (H3, n = 4, descriptive only), whether built up surfaces expanded on land near the ecosystem buffers between 2016 and 2024, and whether each government's statutory coastal setback covers the buildings that stand on low land (Section 3.9).
@@ -89,6 +89,17 @@ Two rules handle the edges of DeltaDTM's coverage. Where DeltaDTM is empty and C
 
 **Named places (second measure).** I also sampled elevation at every OpenStreetMap place point. On these islands most of these points are not villages but names of islands and islets, and some are labels for whole atolls placed in open water. A point in water is moved to the nearest land cell within 60 m; if there is none, it is left out and reported, not counted as safe. This measure shows where mapped places sit, including uninhabited and resort islets, so it answers a different question from the population measure.
 
+**Same elevation rules in every analysis.** The three analyses read elevation from different units (a point, a 100 m population cell, a building), so the code differs, but the rules are the same:
+
+| Case | Named places (point) | People (100 m cell) | Buildings (point) |
+|---|---|---|---|
+| NoData, NaN or values ≤ −1000 m | excluded | excluded | excluded |
+| Exact 0.0 m (flattened water surface) | median of land pixels within about 60 m, else excluded | dropped before averaging the cell | treated as empty |
+| DeltaDTM empty, Copernicus > 10 m | Copernicus height (above 10 m) | Copernicus height | Copernicus height |
+| DeltaDTM empty, Copernicus ≤ 10 m | excluded | excluded | excluded |
+| Copernicus > 30 m | Copernicus height (high terrain) | Copernicus height | Copernicus height |
+| DeltaDTM below 0 m | kept | kept | kept; also reported without (Section 4.8) |
+
 **Threshold.** 1 m is a threshold on elevation, not a flood model; tides, surge, waves and hydraulic connection to the sea are not modelled. I repeated the named place measure at 0.5 m and 1.5 m (Section 4.6).
 
 ### 3.4 Mangrove Extent
@@ -99,7 +110,7 @@ I measured mangrove area at 1996, 2010 and 2020 in an equal area projection (EPS
 
 Degree Heating Weeks (DHW) measure accumulated heat stress, the main driver of bleaching, not reef condition itself. For each reef island I took every 5 km NOAA Coral Reef Watch cell that overlaps mapped reef and averaged DHW across those cells at each time step, from 1996 to 2020, sampled about every 30 days. The Canary Islands have no mapped reef; their series is one offshore 5 km cell, kept only as an Atlantic comparison.
 
-I compared mean DHW in 1996–2000 with 2016–2020, and tested for a monotonic trend with a seasonal Mann-Kendall test on calendar month means (300 months). DHW is a 12 week running sum, so neighbouring months are not independent, and the ordinary seasonal test (Hirsch et al., 1982) treats them as if they were. I therefore report the version corrected for serial correlation (Hirsch & Slack, 1984; Hipel & McLeod, 1994), as implemented in pyMannKendall (Hussain & Mahmud, 2019), and give the uncorrected p values alongside for comparison.
+I compared mean DHW in 1996–2000 with 2016–2020, and tested for a monotonic trend with a seasonal Mann-Kendall test on calendar month means (300 months). DHW is a 12 week running sum, so neighbouring months are not independent, and the ordinary seasonal test (Hirsch et al., 1982) treats them as if they were. I therefore report the version corrected for serial correlation (Hirsch & Slack, 1984; Hipel & McLeod, 1994), as implemented in pyMannKendall (Hussain & Mahmud, 2019), and give the uncorrected p values alongside for comparison. An independent implementation of both tests in NumPy reproduces the uncorrected p values exactly and the corrected ones to within 0.005 (`scripts/validation/coral_trend_check.py`).
 
 ### 3.6 Compound Score
 
@@ -352,7 +363,9 @@ NDBI is an index, not a map of buildings, and it responds to bare soil and dry v
 
 ### 6.7 Setbacks and Buildings
 
-- The shoreline is the edge of the island polygons, not the legal high water mark, vegetation line or inner edge of the Spanish public domain, so distances are approximate to some tens of metres. A 20–25 m rule against medians of 80–140 m is not sensitive to that, but individual buildings near the line are.
+- The shoreline is the edge of the island polygons, not the legal high water mark, vegetation line or inner edge of the Spanish public domain, so distances are approximate to some tens of metres. A 20–25 m rule against medians of 80–140 m is not sensitive to that, but individual buildings near the line are. The distances are a mapped-boundary proxy for the legal reference line, not a test of compliance.
+- Distances are computed on a local flat approximation. Against ellipsoidal (Vincenty) distances for about 13,000 sampled buildings, the median difference is under 0.5 m on the four tropical island groups and 3.8 m in the Canary Islands, and fewer than 0.1% of sampled buildings change side of any setback line (`scripts/validation/setback_distance_check.py`).
+- Elevation is sampled at one representative point per building, not across the whole footprint.
 - DeltaDTM is a 30 m grid sampled at one point per building, with about 0.4–0.5 m vertical error against lidar; cells below 0 m are artefacts and are reported with and without.
 - Building completeness differs: Fiji's extract is OpenStreetMap only, and 4,478 Maldivian buildings (3.6%, almost all OpenStreetMap; the largest cluster is in Addu Atoll) lie more than 50 m outside the island polygons and are excluded, which suggests some islands are missing or misplaced in the boundaries.
 - The setback measured is the one written in national law. Local plans, permits and enforcement are not observed, and the Lakshadweep width rests on secondary sources.

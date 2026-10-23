@@ -78,6 +78,10 @@ with tab1:
         ("Holds", "Reef heat series",
          "Reef-cell mean, one 5 km cell, or a ±0.15° box around it: no version reaches p < 0.05 once serial correlation is "
          "accounted for (corrected p 0.09 to 0.90)."),
+        ("Holds", "Coral test, rewritten from scratch",
+         "An independent NumPy version of the seasonal Mann-Kendall test and the Hirsch-Slack correction "
+         "reproduces the uncorrected p-values exactly and the corrected ones to within 0.005 "
+         "(scripts/validation/coral_trend_check.py)."),
         ("Sensitive", "Governance, leave one out",
          f"r = {G['r']:.2f} on four island groups; removing Seychelles alone moves it to {G['loo_no_sey']:.2f}. "
          "With n = 4 this is a description, not a test."),
@@ -97,6 +101,12 @@ with tab1:
              f"{pct(P[('maldives', 'deltadtm')])} of people at or below 1 m."),
         ]
     checks += [
+        ("Holds", "Distance on the ellipsoid",
+         "For about 13,000 sampled buildings, ellipsoidal (Vincenty) distances differ from the flat approximation by a "
+         "median of under 0.5 m on the tropical islands and 3.8 m in the Canaries; fewer than 0.1% change side of a "
+         "20, 25 or 100 m line (scripts/validation/setback_distance_check.py)."),
+        ("Holds", "Boundary reader",
+         "The setback script's own GeoPackage reader gives the same land areas as GeoPandas for all five island groups."),
         ("Open", "Shoreline and legal line",
          "Setback distances run to the edge of the island outlines, not the legal high water mark: some tens of metres of error, "
          "small next to medians of 80–136 m. Only national law is compared, not local plans or enforcement."),
@@ -139,8 +149,10 @@ with tab3:
 | "Uncorrected" coral p-values | Raw 30-day samples | Same monthly series as the corrected test | Like-for-like comparison |
 | Land-area validation | Not reproducible from the boundary files | Recomputed in EPSG:6933, all within 4% | New validation script |
 | Coastal setbacks | Not analysed | Building-level analysis, about 1.35 million footprints | Policy extension (paper Sections 3.9, 4.8) |
+| Independent checks | – | Coral p-values and setback distances recomputed independently; both hold | Validation (Development Log Entry 19) |
+| run_all.py | Ended "Finished" even if a step failed | Reports COMPLETE or PARTIAL RUN and exits with an error code | Old outputs cannot pass as new |
 """)
-    st.caption("Full record: paper/DJ_Development_Log.md, Entries 15–18.")
+    st.caption("Full record: paper/DJ_Development_Log.md, Entries 15–19.")
 
 st.markdown("---")
 st.markdown(

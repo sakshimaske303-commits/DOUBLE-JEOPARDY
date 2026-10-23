@@ -20,6 +20,7 @@
 16. [Entry 16](#entry-16)
 17. [Entry 17](#entry-17)
 18. [Entry 18](#entry-18)
+19. [Entry 19](#entry-19)
 
 ## Entry 1
 
@@ -813,3 +814,20 @@ The building shares follow the population shares from Section 4.1, which is a us
 - Check the primary text of the ICRZ 2019 notification for the Lakshadweep width.
 - Look at the 4,478 Maldivian buildings that fall more than 50 m outside the island polygons (largest cluster in Addu Atoll); some islands may be missing from boundaries_v2.
 - Carry the new section into the Executive Summary, README, dashboard and portfolios.
+
+
+## Entry 19
+
+### Status
+Validation checks (23 October 2026). Went through the parts of the analysis that rest on my own code and checked them against independent calculations. Nothing in the results changed.
+
+### What I Checked
+- **Coral trend p-values.** Wrote the seasonal Mann-Kendall test and the Hirsch-Slack correction again from scratch in NumPy (`scripts/validation/coral_trend_check.py`) nd ran it on the same monthly series. The uncorrected p-values match pyMannKendall exactly. The corrected ones match to within 0.005 (Maldives 0.316 vs 0.313, Seychelles 0.144 vs 0.143, Fiji 0.553 vs 0.550, Lakshadweep 0.905 vs 0.900). None of them comes near 0.05, so H1 stays where it was.
+- **Setback distances.** The setback script measures distance on a flat approximation around each island's mean latitude. Checked about 13,000 sampled buildings against ellipsoidal distances (Vincenty) to the same shoreline (`scripts/validation/setback_distance_check.py`). Median difference: 0.07 m Maldives, 0.17 m Lakshadweep, 0.04 m Seychelles, 0.40 m Fiji, 3.8 m Canary Islands. Fewer than 0.1% of sampled buildings change side of a 20, 25 or 100 m line.
+- **Boundary reader.** The setback script reads the GeoPackages with its own small parser instead of GeoPandas. The land areas it gives (292.9, 443.9, 18,819.3, 7,434.1, 30.8 km²) are the same as the ones `boundary_area_validation.py` gets with GeoPandas, so the parser reads the polygons correctly.
+- **Elevation rules.** The named places, population nd building analyses read elevation in different ways (point, 100 m cell, building point), but they use the same rules for NoData, 0 m water cells, the 10 m nd 30 m Copernicus cut-offs nd negative values. Wrote them down as one table in Section 3.3 of the paper.
+
+### Other Changes
+- `run_all.py` now ends with "COMPLETE RUN" or "PARTIAL RUN" nd exits with an error code if any step failed, so old outputs can't be mistaken for fresh ones. The two validation scripts are part of the run.
+- Paper: one sentence on what the study adds (Section 1), the elevation rule table (3.3), the coral check (3.5), nd the distance check, the mapped-boundary wording nd the one-point-per-building note (6.7).
+

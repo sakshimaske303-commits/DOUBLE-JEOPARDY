@@ -157,6 +157,8 @@ python scripts/run_all.py              # re-run analysis, figures, maps and dash
 
 Every reported number is written to a CSV in `data/` (e.g. `slr_exposure_summary.csv`, `population_weighted_exposure.csv`, `coral_trend_results.csv`, `compound_vulnerability_scores.csv`, `governance_alignment_summary.csv`, `ndbi_land_change.csv`, `setback_calibration_summary.csv`), and the figures and dashboard read those files. Elevation sampling for all islands uses one shared rule in `scripts/common/dem_sampling.py`. The setback analysis needs building footprints, which are too large to commit: run `python scripts/acquisition/download_buildings_overture.py` (needs `pip install overturemaps`) and `python scripts/processing/export_building_points.py` once, and `run_all.py` then includes `scripts/analysis/setback_calibration.py`. The DeltaDTM export needs the Earth Engine Python API (`pip install earthengine-api`) and an Earth Engine project; everything else runs without it.
 
+Two checks recompute key results independently: `scripts/validation/coral_trend_check.py` (coral trend p-values without pyMannKendall; they agree to within 0.005) and `scripts/validation/setback_distance_check.py` (setback distances on the WGS84 ellipsoid; fewer than 0.1% of sampled buildings change side of any setback line). `run_all.py` runs both and ends with COMPLETE RUN or PARTIAL RUN.
+
 ## Tech Stack
 
 Python · Google Earth Engine · Overture Maps · GeoPandas · Rasterio · Folium · SciPy · PyMannKendall · Plotly · Streamlit · GitHub Pages · Sentinel Hub API · NOAA Coral Reef Watch API · Global Mangrove Watch

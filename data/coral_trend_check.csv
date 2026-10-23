@@ -1,0 +1,5 @@
+island,S,p_seasonal_recomputed,p_seasonal_stored,p_corrected_recomputed,p_corrected_stored,max_abs_diff
+maldives,196,0.048777,0.048777,0.315862,0.313386,0.002475
+seychelles,348,0.001618,0.001618,0.144116,0.142964,0.001152
+fiji,126,0.252683,0.252683,0.553034,0.549863,0.003171
+lakshadweep,20,0.812709,0.812709,0.905184,0.900219,0.004965

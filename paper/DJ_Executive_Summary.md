@@ -70,6 +70,7 @@ On the four tropical island groups the setbacks reach fewer than one in ten low 
 - Five island groups (four for governance) describe this sample; they cannot establish general relationships.
 - The compound score uses min–max scaling, so Canary Islands' 0.00 is the lowest in this sample, not an absence of risk, and it leaves out adaptive capacity entirely.
 - Mangrove patches on the atolls are close to Global Mangrove Watch's pixel size, so small losses there may not be detectable.
+- An independent recalculation of the coral trend test and of the setback distances (on the WGS84 ellipsoid) reproduces the reported results.
 - Setback distances are measured to the island polygon edge, not the legal high water mark, and only national law is compared; local plans and enforcement are not observed. The Lakshadweep width rests on secondary sources, Fiji's buildings are OpenStreetMap only, and 45% of the low Seychelles buildings sit on DeltaDTM cells below 0 m (excluding them changes the result by under three points).
 
 ## Real World Relevance
