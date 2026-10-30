@@ -1,6 +1,6 @@
 # DOUBLE JEOPARDY: The Vulnerability Spiral
 
-[![EarthArXiv](https://img.shields.io/badge/EarthArXiv-Preprint-B7410E.svg)](https://eartharxiv.org/repository/view/14826/) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21739961.svg)](https://doi.org/10.5281/zenodo.21739961)
+[![EarthArXiv](https://img.shields.io/badge/EarthArXiv-Preprint-B7410E.svg)](https://eartharxiv.org/repository/view/14826/)
 
 **How many people on five island groups live at or below 1 m, how reef heat stress has changed around them, and whether protection and coastal building rules follow that risk.**
 
@@ -134,8 +134,6 @@ DOUBLE_JEOPARDY/
 │       └── interactive/             # Plotly interactive HTML charts (compound vulnerability score,
 │                                     #  coral thermal stress trends, weighting sensitivity curve,
 │                                     #  setback coverage curve)
-├── qgis_processing/                 # Superseded QGIS2Web (OpenLayers) webmap exports; the live maps are
-│                                     #  the folium maps in dashboard/static/ built by scripts/figures/
 ├── README.md
 ├── LICENSE
 ├── CITATION.cff

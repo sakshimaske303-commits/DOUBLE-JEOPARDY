@@ -37,3 +37,14 @@ data/ecosystem_buffers/*_wdpa.gpkg
 dashboard/static/*_ecosystem_buffer_webmap/layers/*wdpa*
 
 data/buildings/
+
+# local archive (not pushed)
+archive/
+
+# local working files (not pushed)
+local_fix_scripts/
+reorganize_repo.ps1
+run_all_log.txt
+*.log
+.vscode/
+paper/DJ_Research_Paper_EarthArXiv.pdf

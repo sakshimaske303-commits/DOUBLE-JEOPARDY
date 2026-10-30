@@ -39,11 +39,6 @@ keywords:
   - geospatial analysis
   - coastal setbacks
   - comparative environmental policy
-identifiers:
-  - type: doi
-    value: "10.5281/zenodo.21739961"
-    description: "Zenodo archive of DOUBLE JEOPARDY v1.0.0"
-doi: "10.5281/zenodo.21739961"
 license: CC-BY-4.0
 version: 2.1.0
 date-released: "2026-10-23"

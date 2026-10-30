@@ -34,7 +34,7 @@ MAP_FOLDERS = [
     "canary_ecosystem_buffer_webmap",
 ]
 
-STATIC_DIR = "static"
+STATIC_DIR = os.path.join("dashboard", "static")
 
 
 def inject_resize_fix(folder_name):

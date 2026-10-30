@@ -63,26 +63,6 @@ st.markdown(
                 </div>
             </div>
         </a>
-        <a href="https://doi.org/10.5281/zenodo.21739961" target="_blank" class="doi-badge-link" style="text-decoration:none;">
-            <div class="doi-badge-card" style="
-                display:flex; align-items:center; gap:18px;
-                background: linear-gradient(145deg, {PALETTE['card_bg']}, #0A0A0A);
-                border: 2px solid {PALETTE['navy']};
-                border-radius: 14px;
-                padding: 16px 32px;
-                box-shadow: 0 4px 20px rgba(34, 211, 238, 0.35);
-            ">
-                <div style="text-align:left;">
-                    <div style="color:{PALETTE['green']}; font-family:'Poppins',sans-serif; font-weight:800; font-size:1.05rem; letter-spacing:0.4px; display:flex; align-items:center; gap:8px;">
-                        <span>ARCHIVED &amp; CITABLE ON ZENODO</span>
-                        <span style="opacity:0.8; font-size:0.95rem;">↗</span>
-                    </div>
-                    <div style="color:{PALETTE['text_dark']}; font-family:'Poppins',sans-serif; font-weight:900; font-size:1.35rem; margin-top:2px;">
-                        DOI: 10.5281/zenodo.21739961
-                    </div>
-                </div>
-            </div>
-        </a>
     </div>
     """,
     unsafe_allow_html=True,

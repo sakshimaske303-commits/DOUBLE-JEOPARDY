@@ -756,7 +756,7 @@ NDBI on land: Maldives +0.055 (0.040 to 0.072), Seychelles −0.001, Fiji −0.0
 - Figure footers said "DeltaDTM v2"; corrected to v1.1.
 
 ### Still To Do
-Re-export the three PDFs from the new markdown, push, nd tag v2.0 so Zenodo mints a new version.
+Re-export the three PDFs from the new markdown, push, nd tag v2.0.
 
 
 ## Entry 17

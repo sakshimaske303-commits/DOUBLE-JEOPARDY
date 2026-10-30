@@ -1,7 +1,7 @@
 # DOUBLE JEOPARDY: The Vulnerability Spiral
 ### Sea-Level Exposure and Reef Heat Stress Across 5 Island Groups
 
-Executive Summary · Version 2.1 · DOI: 10.5281/zenodo.21739961 · Sakshi D. Maske
+Executive Summary · Version 2.1 · Sakshi D. Maske
 
 ## Project Overview
 
@@ -79,6 +79,6 @@ Adaptation finance for small islands is increasingly tied to vulnerability indic
 
 ---
 
-GitHub: [github.com/sakshimaske303-commits/DOUBLE-JEOPARDY](https://github.com/sakshimaske303-commits/DOUBLE-JEOPARDY) | Live Dashboard: [double-jeopardy-6ev9trz3dwafsb7panbnxg.streamlit.app](https://double-jeopardy-6ev9trz3dwafsb7panbnxg.streamlit.app) | Zenodo DOI: [10.5281/zenodo.21739961](https://doi.org/10.5281/zenodo.21739961)
+GitHub: [github.com/sakshimaske303-commits/DOUBLE-JEOPARDY](https://github.com/sakshimaske303-commits/DOUBLE-JEOPARDY) | Live Dashboard: [double-jeopardy-6ev9trz3dwafsb7panbnxg.streamlit.app](https://double-jeopardy-6ev9trz3dwafsb7panbnxg.streamlit.app)
 
 **Sakshi D. Maske**, Independent Geospatial Researcher
