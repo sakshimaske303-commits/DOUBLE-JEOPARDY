@@ -15,6 +15,7 @@
 | [`DJ_Executive_Summary.pdf`](./paper/DJ_Executive_Summary.pdf) / [`.md`](./paper/DJ_Executive_Summary.md) | One page snapshot: project overview, question, method, headline findings, limitations, and links (fastest overview; start here) |
 | [`DJ_Research_Paper.md`](./paper/DJ_Research_Paper.md) | Research paper: literature review, methods, results, limitations |
 | [`DJ_Development_Log.md`](./paper/DJ_Development_Log.md) | Full technical development log: every bug, debugging session, and methodology iteration |
+| [`DJ_Declarations.pdf`](./paper/DJ_Declarations.pdf) / [`.md`](./paper/DJ_Declarations.md) | Declarations: highlights, contributions, funding, data licences, reproducibility, what changed from version 1, AI assistance |
 
 ---
 
@@ -191,6 +192,16 @@ streamlit run app.py
 ```
 
 Note: The dashboard runs directly on the processed data already included in data/, no API keys required. The raw data acquisition scripts (e.g. download_coral_bleaching_stress.py, auth_sentinelhub.py) require a free Sentinel Hub account; credentials should be placed in a local .env file (see .gitignore; this file is not committed)
+
+## Declarations
+
+Full text: [`paper/DJ_Declarations.pdf`](./paper/DJ_Declarations.pdf).
+
+- **Authorship:** single author; I designed and carried out every stage, from data and code to writing and figures.
+- **Funding and interests:** no funding was received, and there are no competing interests.
+- **Ethics:** no human participants, animals or personal data, so no approval was needed.
+- **Data licences:** my code and text are CC BY 4.0, while third-party data keep their own licences; WDPA extracts are not redistributed (see `DATA_SOURCES_AND_LICENSES.md`).
+- **AI assistance:** The questions, the choice of islands and data, the methods, the decision to withdraw the six first-version results and the interpretation are mine. Within that work I used Claude (Anthropic), an AI assistant, in a supporting role. Its main job was cross-checking: comparing the exposure shares, reef heat-stress figures, compound scores and setback coverage quoted in the paper, executive summary, README and dashboard against the CSV files my scripts produce. I also asked it for help when one of my Python scripts broke or gave output I could not account for, and for the layout of the project web pages. The paper and other documents are my own writing; I used the assistant to flag wording that was unclear or overly technical, gaps where something seemed to be missing, and punctuation, and I decided which of those points to act on. It did not acquire or process the elevation, population, building, reef or mangrove data, and it did not run the analysis. I reviewed everything it suggested before using it, and the responsibility for the content is mine.
 
 ## Author
 

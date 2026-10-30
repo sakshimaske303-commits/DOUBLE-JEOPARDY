@@ -124,7 +124,12 @@ def build_island_map(island):
     fit_bounds = [[min(lat0, lat1), min(lon0, lon1)], [max(lat0, lat1), max(lon0, lon1)]]
 
     center = [lat_center, (bounds.left + bounds.right) / 2]
-    m = folium.Map(location=center, tiles="CartoDB positron")
+    m = folium.Map(location=center, tiles=None)
+    folium.TileLayer(
+        tiles="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+        attr="Tiles &copy; Esri &mdash; Source: Esri, Maxar, Earthstar Geographics, and the GIS User Community",
+        name="Esri World Imagery", max_native_zoom=17, max_zoom=20,
+    ).add_to(m)
     m.fit_bounds(fit_bounds)
 
     folium.raster_layers.ImageOverlay(

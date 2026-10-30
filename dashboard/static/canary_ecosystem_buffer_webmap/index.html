@@ -139,13 +139,13 @@ window.addEventListener('load', function() {
         
     
             var tile_layer_a890e52a5ba307b318642a6f611b0b2d = L.tileLayer(
-                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
                 {
   "minZoom": 0,
   "maxZoom": 20,
-  "maxNativeZoom": 20,
+  "maxNativeZoom": 17,
   "noWrap": false,
-  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "attribution": "Tiles \u0026copy; Esri \u0026mdash; Source: Esri, Maxar, Earthstar Geographics, and the GIS User Community",
   "subdomains": "abcd",
   "detectRetina": false,
   "tms": false,
@@ -298,7 +298,7 @@ window.addEventListener('load', function() {
     
             var layer_control_faa8ea109a0fbf3c916b8bbfb041bc4b_layers = {
                 base_layers : {
-                    "cartodbpositron" : tile_layer_a890e52a5ba307b318642a6f611b0b2d,
+                    "Esri World Imagery" : tile_layer_a890e52a5ba307b318642a6f611b0b2d,
                 },
                 overlays :  {
                     "Island Boundary (n=7)" : geo_json_9bb5307837a6afbe171022f7cf20f329,
