@@ -4,7 +4,7 @@
 
 Sakshi D. Maske · Independent Geospatial Researcher · ORCID [0009-0002-5683-5966](https://orcid.org/0009-0002-5683-5966)
 
-Version 2.1.0  
+Version 2.1.0 · Archived release: Zenodo, DOI [10.5281/zenodo.23827474](https://doi.org/10.5281/zenodo.23827474)  
 Preprint of the first version: EarthArXiv, DOI [10.31223/X5M50Q](https://doi.org/10.31223/X5M50Q) · Code and data: [github.com/sakshimaske303-commits/DOUBLE-JEOPARDY](https://github.com/sakshimaske303-commits/DOUBLE-JEOPARDY)
 
 ## Highlights
