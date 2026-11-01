@@ -15,6 +15,7 @@
 | [`DJ_Executive_Summary.pdf`](./paper/DJ_Executive_Summary.pdf) / [`.md`](./paper/DJ_Executive_Summary.md) | One page snapshot: project overview, question, method, headline findings, limitations, and links (fastest overview; start here) |
 | [`DJ_Research_Paper.md`](./paper/DJ_Research_Paper.md) | Research paper: literature review, methods, results, limitations |
 | [`DJ_Development_Log.md`](./paper/DJ_Development_Log.md) | Full technical development log: every bug, debugging session, and methodology iteration |
+| [`DJ_Policy_Brief.pdf`](./paper/DJ_Policy_Brief.pdf) / [`.md`](./paper/DJ_Policy_Brief.md) | Two-page policy brief: why distance-based setbacks do not protect atolls, and what to use instead |
 | [`DJ_Declarations.pdf`](./paper/DJ_Declarations.pdf) / [`.md`](./paper/DJ_Declarations.md) | Declarations: highlights, contributions, funding, data licences, reproducibility, what changed from version 1, AI assistance |
 
 ---
@@ -61,6 +62,7 @@ Interactive geospatial maps are hosted separately via GitHub Pages. Sample links
 - Combines exposure and the change in reef heat stress into a **compound score**, and sweeps the weighting from 0 to 100% to show where the ranking changes
 - Describes whether **protected-area coverage of the 10 km coastal zone** follows that risk (4 island groups; descriptive, not a test)
 - Tests whether each government's **statutory coastal setback** reaches the buildings on low land, using about 1.35 million building footprints (Overture Maps) and the setback written in national law
+- Codes each government's **coastal rules** by hand (policy density and setback intensity) and **23 rule changes since 1988**, and compares these policy outputs with how many low-lying buildings the rules reach
 - Adds **built-up change on land** from Sentinel-2 NDBI (2016–2024) as supporting context
 - Presents everything in an interactive Streamlit dashboard that reads its numbers directly from the analysis CSVs, with Python (folium) maps and Plotly plots
 
@@ -100,6 +102,15 @@ Counting named places instead of people gives a different picture: Maldives 28.8
 
 The 20 m and 25 m rules reach fewer than one in ten low buildings, which stand a median 80–136 m inland; Spain's 100 m Ley de Costas line covers 85% because low land in the Canaries is a narrow beachfront strip. On atolls low land is most of the island, so a distance rule, however wide, measures the wrong thing (Section 4.8 of the paper).
 
+**7. More coastal rules did not mean more reach.** Each government's coastal rules were coded from the legal texts (`data/policy_coding/`, with sources and a codebook): six instrument types for policy density and the setback width for intensity.
+
+| | Canary Islands | Lakshadweep | Seychelles | Fiji | Maldives |
+|---|---:|---:|---:|---:|---:|
+| Coastal instrument types in force (of 6) | 6 | 5 | 3 | 3 | 2 |
+| Low buildings reached by the setback | 84.9% | 6.8% | 8.0% | 0% | 0% |
+
+Lakshadweep has five of the six instrument types and its setback reaches 6.8% of its low buildings. Of 23 dated rule changes since 1988, 15 added protection; Spain relaxed its coastal law in 2013 and moved coastal management functions to the Canary Islands government in 2023, and the Maldives widened exemptions from environmental review in 2024–2025.
+
 **What changed from version 1.** Version 1 reported 78.3% of Seychelles settlements at risk, significant coral trends in the Maldives and Seychelles, a ranking that "held at every weighting", and a governance correlation of r = 0.965 (p = 0.035). Each of these came from a measurement choice that did not hold up: NoData elevation values counted as sea level, OSM points that are mostly island names, a surface elevation model, one 5 km DHW cell per island, a trend test that ignored serial correlation, and protected areas counted twice over a land-area denominator. The [Development Log](./paper/DJ_Development_Log.md) records each correction.
 
 ## Repository Structure
@@ -109,7 +120,8 @@ DOUBLE_JEOPARDY/
 ├── paper/                           # All formal write-ups, markdown + PDF
 │   ├── DJ_Research_Paper.md / .pdf  # Formal academic research paper
 │   ├── DJ_Executive_Summary.md / .pdf
-│   └── DJ_Development_Log.md / .pdf # Full technical development log
+│   ├── DJ_Development_Log.md / .pdf # Full technical development log
+│   └── DJ_Policy_Brief.md / .pdf    # Two-page brief for practitioners
 ├── scripts/                         # All analysis code, grouped by pipeline stage
 │   ├── acquisition/                 # download_*.py + auth_sentinelhub.py: raw data pulled from source APIs
 │   ├── processing/                  # clean_*.py, filter_*.py, normalize_*.py, precompute_*.py: raw to analysis-ready
@@ -118,8 +130,8 @@ DOUBLE_JEOPARDY/
 │   │                                 #   the scripts that produce the paper's actual reported numbers
 │   ├── figures/                     # build_*_map.py, map1_*.py, research_paper_figures.py,
 │   │                                 #   build_interactive_plots.py: everything that renders a figure
-│   ├── validation/                  # debug_*.py, verify_*.py, test_*.py, validate_*.py: sanity checks, not
-│   │                                 #   part of the reported pipeline, kept for audit trail
+│   ├── validation/                  # check_*.py, verify_*.py, validate_*.py: data checks, plus
+│   │                                 #   coral_trend_check.py and setback_distance_check.py (independent rechecks)
 │   └── local_fixes/                 # One-off local correction scripts (boundary rebuild, coral spatial
 │                                     #   average, etc.), each documented in the Development Log
 ├── dashboard/                       # Streamlit dashboard (10 pages)
@@ -128,6 +140,7 @@ DOUBLE_JEOPARDY/
 │   ├── settlements/, ecosystem_buffers/, terrain/ (incl. deltadtm/), population/
 │   ├── boundaries/, boundaries_v2/, mangroves/, coral_bleaching/
 │   ├── settlement_encroachment/
+│   ├── policy_coding/               # Hand-coded coastal rules and timeline, with codebook and sources
 │   └── buildings/                   # Overture building points (not committed; rebuilt by the scripts)
 ├── outputs/
 │   └── plots/                       # Publication quality static figures for the Research Paper

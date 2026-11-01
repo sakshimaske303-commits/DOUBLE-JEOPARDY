@@ -15,6 +15,7 @@ os.chdir(ROOT)
 DOWNLOAD_STEPS = [
     "scripts/acquisition/download_copernicus_dem_tiles.py",
     "scripts/acquisition/download_dhw_reef_cells.py",
+    "scripts/acquisition/download_vdem_owid.py",
 ]
 STEPS = [
     # DeltaDTM (bare earth): extracts the needed tiles from data/terrain/deltadtm/zips/
@@ -34,6 +35,8 @@ STEPS = [
     # (download_buildings_overture.py + export_building_points.py); skips cleanly if absent.
     "scripts/analysis/setback_calibration.py",
     "scripts/validation/setback_distance_check.py",
+    # Policy density, intensity and timeline from data/policy_coding/ (adds V-Dem if downloaded).
+    "scripts/analysis/coastal_policy_coding.py",
     "scripts/figures/research_paper_figures.py",
     "scripts/figures/setback_example_maps.py",
     "scripts/figures/map1_vulnerability_score.py",

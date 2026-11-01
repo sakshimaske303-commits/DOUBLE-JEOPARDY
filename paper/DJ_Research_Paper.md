@@ -7,9 +7,9 @@ Sakshi D. Maske
 
 ## Abstract
 
-Low islands face two threats at once: the sea rising, and the reefs and mangroves that buffer it weakening. I measured both across 5 island groups in 3 ocean basins (Maldives, Lakshadweep, Seychelles, Fiji and the Canary Islands), testing mangroves and coral reefs as separate pathways. Exposure is the share of people (WorldPop 2020) living on land at or below 1 m, on a bare earth elevation model (DeltaDTM v1.1), with the Copernicus GLO-30 surface model and the share of OpenStreetMap named places as comparisons. On bare earth, 11.8% of people in the Maldives and 6.4% in Lakshadweep live at or below 1 m, against 8.9% and 0.8% on the surface model; counting named places instead puts Seychelles (24.7%) level with the Maldives (28.8%). Mean Degree Heating Weeks over mapped reef were higher in 2016–2020 than in 1996–2000 on all 4 reef islands, most in Seychelles (+0.52 °C-weeks), but no monotonic trend is significant once serial correlation is accounted for (corrected seasonal Mann-Kendall p = 0.14 to 0.90). Mangrove extent (Global Mangrove Watch, 1996, 2010, 2020) shows no decline. A compound score of exposure and reef heat stress puts Seychelles (0.58) and the Maldives (0.56) in a near tie, with the top island changing at an exposure weight of 52%. Protection of the 10 km coastal zone ranges from 1.3% (Maldives) to 71.4% (Seychelles) and does not follow this score (r = −0.10, n = 4, descriptive only). A building-level extension adds a policy question: whether statutory coastal setbacks are drawn where low-lying buildings are. Of Overture Maps buildings at or below 1 m, 92–93% lie landward of the 25 m setback in Seychelles and the 20 m zone in Lakshadweep, the Maldives and Fiji have no setback for inhabited land, and only the Canary Islands' 100 m Ley de Costas line covers most of them (85%); on the four tropical island groups, half of the low buildings stand 80–136 m from the shoreline. The main result is about method: the elevation model, the exposure measure and the weighting each change which island looks most vulnerable, and an index used to allocate adaptation resources should report all three.
+Low islands face two threats at once: the sea rising, and the reefs and mangroves that buffer it weakening. I measured both across 5 island groups in 3 ocean basins (Maldives, Lakshadweep, Seychelles, Fiji and the Canary Islands), testing mangroves and coral reefs as separate pathways. Exposure is the share of people (WorldPop 2020) living on land at or below 1 m, on a bare earth elevation model (DeltaDTM v1.1), with the Copernicus GLO-30 surface model and the share of OpenStreetMap named places as comparisons. On bare earth, 11.8% of people in the Maldives and 6.4% in Lakshadweep live at or below 1 m, against 8.9% and 0.8% on the surface model; counting named places instead puts Seychelles (24.7%) level with the Maldives (28.8%). Mean Degree Heating Weeks over mapped reef were higher in 2016–2020 than in 1996–2000 on all 4 reef islands, most in Seychelles (+0.52 °C-weeks), but no monotonic trend is significant once serial correlation is accounted for (corrected seasonal Mann-Kendall p = 0.14 to 0.90). Mangrove extent (Global Mangrove Watch, 1996, 2010, 2020) shows no decline. A compound score of exposure and reef heat stress puts Seychelles (0.58) and the Maldives (0.56) in a near tie, with the top island changing at an exposure weight of 52%. Protection of the 10 km coastal zone ranges from 1.3% (Maldives) to 71.4% (Seychelles) and does not follow this score (r = −0.10, n = 4, descriptive only). A building-level extension adds a policy question: whether statutory coastal setbacks are drawn where low-lying buildings are. Of Overture Maps buildings at or below 1 m, 92–93% lie landward of the 25 m setback in Seychelles and the 20 m zone in Lakshadweep, the Maldives and Fiji have no setback for inhabited land, and only the Canary Islands' 100 m Ley de Costas line covers most of them (85%); on the four tropical island groups, half of the low buildings stand 80–136 m from the shoreline. Coding the coastal rules of the five governments shows that the number of coastal instruments in force (policy density, 2 to 6 of 6) and the width of the setback (policy intensity) follow the same order as the share of low buildings a setback reaches only because of the Canary Islands; Lakshadweep has five of the six instrument types but its setback reaches 7% of low buildings, and of the 23 coded rule changes since 1988, one relaxed coastal protection in Spain and two relaxed environmental protection in the Maldives. The main result is about method: the elevation model, the exposure measure and the weighting each change which island looks most vulnerable, and an index used to allocate adaptation resources should report all three.
 
-**Keywords**: sea level rise, digital terrain model, coral bleaching, mangroves, compound vulnerability, small island states, protected areas, coastal setbacks, policy instruments, remote sensing
+**Keywords**: sea level rise, digital terrain model, coral bleaching, mangroves, compound vulnerability, small island states, protected areas, coastal setbacks, policy instruments, policy density, comparative environmental policy, remote sensing
 
 ---
 
@@ -20,7 +20,7 @@ International climate adaptation policy increasingly treats coastal ecosystems (
 Less often tested is whether the ecosystems providing that protection are degrading at the same rate, or whether planning that treats them as one buffer hides different trajectories. This study tests mangrove extent and coral reef condition as two separate pathways, across a cross-national sample spanning three ocean basins, without assuming that they move together. It examines how alternative elevation models, exposure measures and indicator weights change a comparative coastal risk ranking across five island groups, and adds a spatial screening of low-lying buildings against the coastal setbacks in national law.
 
 
-**Research question.** Across five island groups in three ocean basins, how many people live on land at or below 1 m, how has heat stress on their reefs and the extent of their mangroves changed between 1996 and 2020, and does combining exposure with reef heat stress change how the islands rank? Two main hypotheses follow: H1, reef heat stress increased over 1996–2020; H2, mangrove extent declined over the same period. Two secondary, descriptive analyses are reported separately: whether coastal protected area coverage is higher where the combined score is higher (H3, n = 4, descriptive only), whether built up surfaces expanded on land near the ecosystem buffers between 2016 and 2024, and whether each government's statutory coastal setback covers the buildings that stand on low land (Section 3.9).
+**Research question.** Across five island groups in three ocean basins, how many people live on land at or below 1 m, how has heat stress on their reefs and the extent of their mangroves changed between 1996 and 2020, and does combining exposure with reef heat stress change how the islands rank? Two main hypotheses follow: H1, reef heat stress increased over 1996–2020; H2, mangrove extent declined over the same period. Two secondary, descriptive analyses are reported separately: whether coastal protected area coverage is higher where the combined score is higher (H3, n = 4, descriptive only), whether built up surfaces expanded on land near the ecosystem buffers between 2016 and 2024, whether each government's statutory coastal setback covers the buildings that stand on low land (Section 3.9), and how dense and how demanding each government's coastal rules are and how they have changed since 1988 (Section 3.10).
 
 This is version 2 of the study. Version 1 reported a clean result: Seychelles most exposed, significant coral trends in the Maldives and Seychelles, a ranking that held at every weighting, and protected area coverage strongly tracking risk. Most of that did not hold up once each measurement choice was rechecked; Section 6.1 sets out what changed and why. The corrections show that the same five islands rank differently depending on the elevation model, what is counted as exposure, and how inputs are weighted.
 
@@ -148,6 +148,16 @@ No Nodality instrument (public information, hazard mapping) is analysed here, an
 The pair Maldives–Lakshadweep is the closest to a most similar systems design in the sample: both are Indian Ocean coral atoll chains with similar island sizes and heights, and Minicoy in Lakshadweep speaks Mahl, a dialect of Dhivehi. They differ in government, a sovereign small island state against a Union Territory under India's national coastal regulation, and in the setback rule that follows from it.
 
 For buildings I used footprints from Overture Maps (release 2026-08-19.0), which merges OpenStreetMap, Google Open Buildings, Microsoft ML Buildings, Esri Community Maps and, for Spain, the Instituto Geográfico Nacional. The 100 m WorldPop grid is too coarse for a 20–25 m rule. Fiji's extract contains OpenStreetMap buildings only. For each footprint I took a representative point inside it, sampled elevation with the same rule as Section 3.3 (DeltaDTM, with Copernicus where DeltaDTM is empty and Copernicus exceeds 10 m, or where Copernicus exceeds 30 m), and measured its distance to the shoreline, taken as the edge of the validated island polygons (Section 6.3) densified to 5 m. Buildings more than 50 m seaward of the polygons or without usable elevation are excluded and counted. The main measure is the share of buildings at or below 1 m that stand landward of every statutory setback, that is, low buildings the setback does not reach. Because 45% of the low buildings in Seychelles and 39% in Fiji sit on cells below 0 m, which are DeltaDTM artefacts rather than ground below sea level, every number is also reported without them (`scripts/analysis/setback_calibration.py`).
+
+### 3.10 Policy Density, Intensity and Change Over Time
+
+Section 3.9 tests one instrument. To compare the five governments' coastal rules as a whole, I coded them by hand from the legal texts and official summaries (`data/policy_coding/`, with a codebook). Following Knill, Schulze and Tosun (2012), I separate policy density, the number of instrument types in force, from policy intensity, how demanding an instrument is.
+
+- **Density** counts six instrument types that bear on building near the shore: a statutory building setback, statutory coastal zones, an environmental impact assessment law covering coastal projects, a national coastal plan, a body with a coast-specific mandate, and a climate framework law. Each is 1 if found in force in October 2026 and 0 if not found.
+- **Intensity** is the setback width on built-up land and on other coastal land, averaged and divided by 100 m (Spain's easement, the widest in the sample). Governments with no setback score 0.
+- **Change over time** is a dated list of 23 changes to coastal and environmental rules from 1988 to 2025, each coded as expansion, dismantling (an instrument removed, relaxed or exempted; Bauer et al., 2012), reallocation of competence between levels of government, reform or implementation.
+
+To describe the political setting of each change, I add the V-Dem electoral democracy index (0 to 1; Coppedge et al., 2026, via Our World in Data) for the national government in the year of the change. With five countries this is descriptive only. Every coded value carries its legal basis, a source and a verification level (primary text, official summary, secondary source, or not found). Density and intensity are policy outputs; the share of low-lying buildings a setback reaches (Section 4.8) is used as the outcome they are compared with. The coding and figures are produced by `scripts/analysis/coastal_policy_coding.py`.
 
 ## 4. Results
 
@@ -303,6 +313,34 @@ A longer setback would not close the gap on the atolls. Applying the Spanish 100
 
 **Figure 10.** Close-ups of the densest cluster of buildings at or below 1 m in each island group (about 7 km across). Blue: low buildings inside the statutory setback; red: low buildings landward of it, or where there is none; grey: buildings above 1 m. In the Maldives window almost every building on the inhabited island is at or below 1 m; in the Canary Islands the low buildings are mostly on port quays. Cells below 0 m are left out.
 
+### 4.9 Policy Outputs and Their Reach
+
+| Jurisdiction | Density (of 6) | Setback on built-up land / elsewhere | Intensity | Low buildings reached by the setback | Setback needed to reach 75% of low buildings | Changes coded (expansion / dismantling / reallocation) |
+|---|---:|---|---:|---:|---:|---|
+| Canary Islands (Spain) | 6 | 20 m / 100 m | 0.60 | 84.9% | 62 m | 3 / 1 / 1 |
+| Lakshadweep (India) | 5 | 20 m / 20 m | 0.20 | 6.8% | 187 m | 2 / 0 / 0 |
+| Seychelles | 3 | 25 m / 25 m | 0.25 | 8.0% | 262 m | 3 / 0 / 0 |
+| Fiji | 3 | none | 0 | 0% | 262 m | 3 / 0 / 0 |
+| Maldives | 2 | none | 0 | 0% | 151 m | 4 / 2 / 1 |
+
+Density and intensity rank the governments in roughly the same order as the reach of their setbacks, but only because of the Canary Islands. Among the four tropical island groups the outputs do not translate into reach. Lakshadweep has five of the six instrument types, including statutory coastal zones and a dedicated coastal authority, and still reaches 6.8% of its low buildings; Seychelles, with a slightly wider rule and fewer instruments, reaches 8.0%. Reaching three in four low buildings would take a setback of 151–262 m on these islands, against 62 m in the Canary Islands.
+
+Over time most coded changes added rules: 15 of 23 are expansions, from India's 1991 coastal regulation to Seychelles' 25 m setback in 2023. Three changes relaxed protection. Spain's 2013 reform extended existing coastal concessions to up to 75 years and removed 12 settlements from the public domain. In the Maldives, a 2024 amendment allowed reclamation in previously protected areas, and in 2025 the Environmental Protection Agency was replaced by an authority under ministerial control while some road, housing and resort works were exempted from impact assessment (the Maldivian changes rest on a civil society statement and are coded as secondary). Two changes moved competence between levels: the Maldives created island councils in 2010, and Spain transferred coastal management functions to the Canary Islands government in 2023, keeping fees and mandatory reports at State level. Lakshadweep runs the other way: as a Union Territory, its coastal rules are set by notifications of the national ministry.
+
+Regime type does not sort the changes in this sample. Rules were added under governments across the whole range of the V-Dem electoral democracy index: the Maldives' 1993 environmental act at 0.16, Fiji's 2011 coastal framework at 0.13 under military rule, and Spain's 1988 Ley de Costas at 0.89. The three relaxations also came under different settings, Spain in 2013 at 0.88 and the Maldives in 2024–2025 at 0.58 and 0.56. The scores do separate the governments in other ways: Seychelles rose from 0.59 to 0.76 between its 2016 impact assessment law and 2025 and adopted its setback along the way (2023, 0.73), while India's score fell from 0.71 when the 2011 island notification was issued to 0.43 in 2019, the year of the current one. With five countries these are descriptions, not effects of regime type.
+
+<p align="center">
+  <img src="../outputs/plots/fig11_policy_density_intensity.png" width="800">
+</p>
+
+**Figure 11.** Policy density (instrument types in force, of 6), setback intensity (mean setback width divided by 100 m) and the share of buildings at or below 1 m within the statutory setback. Coding: `data/policy_coding/`, rules in force in October 2026.
+
+<p align="center">
+  <img src="../outputs/plots/fig12_coastal_policy_timeline.png" width="800">
+</p>
+
+**Figure 12.** Dated changes to coastal and environmental rules, 1988–2025, coded by direction. Grey line: V-Dem electoral democracy index of the national government (0 at the bottom of each row band, 1 at the top).
+
 ## 5. Discussion
 
 The first finding is about measurement. On forested coral islands, a surface elevation model reads the canopy as ground, and the share of people at or below 1 m in Lakshadweep and Seychelles rises five to eightfold when the canopy is removed. The order by people stays the same, but the gaps change, and by named places the leader changes from Seychelles to the Maldives. This matches what Kulp and Strauss (2019) found at global scale, and it matters for any index that ranks islands by exposure: the elevation model is a decision, and it should be reported as one.
@@ -316,6 +354,8 @@ Put together, the compound score does not give one answer. The island with the m
 Protection, finally, does not follow this risk in these 4 island groups. Seychelles protects most of its coastal zone and the Maldives almost none, while both sit at the top of the compound score. The reasons look institutional, a debt for nature swap and marine spatial plan in one case, a dispersed atoll geography with many small sites in the other. With 4 cases this describes the sample; it does not show that protection policy in general ignores risk.
 
 The setback analysis points the same way with a far larger sample of buildings. The one Authority instrument that decides where people build is calibrated to the low-lying stock only in the Canary Islands, and there because Spain's 1988 rule was written for a mainland and high-island coast where low land is a beachfront strip. On the coral and granitic islands the low buildings sit 80–140 m inland, and a distance rule of any practical width cannot follow them. For adaptation policy on atolls, that suggests instruments defined by height (minimum floor or ground levels, or raising land) rather than by distance from the shore. The most similar pair supports this reading: Lakshadweep's national 20 m zone and the Maldives' absence of one leave practically the same share of low buildings outside, so in this comparison the existence of a setback matters less than the geometry it assumes.
+
+The policy coding adds a distinction between outputs and outcomes. Counting instruments, Lakshadweep is the second most regulated coast in the sample, yet its rules reach almost no more low buildings than the Maldives', which has none of the coastal instruments coded here except an impact assessment law and a climate act. A comparison of environmental policy that stopped at the statute book would rank Lakshadweep well ahead of the Maldives; measured against where the buildings are, the two are close. Change over time points the same way: most rule changes since 1988 added instruments, but none of them changed the geometry of the setback on the tropical islands, and the two governments that relaxed coastal or environmental protection did so for different reasons, extending existing private use of the coast in Spain and speeding up development approvals in the Maldives.
 
 ## 6. Limitations
 
@@ -371,9 +411,18 @@ NDBI is an index, not a map of buildings, and it responds to bare soil and dry v
 - The setback measured is the one written in national law. Local plans, permits and enforcement are not observed, and the Lakshadweep width rests on secondary sources.
 - Buildings inside a setback may predate it; the analysis describes where buildings are, not whether rules were broken.
 
+### 6.8 Policy Coding
+
+- The coding was done by one coder, so there is no inter-coder reliability check; every value has its source and verification level so it can be rechecked.
+- "Not found" is coded 0 but is not proof that an instrument does not exist, especially for the Maldives and Fiji, where few legal texts are available in English.
+- Density counts instruments equally; an impact assessment law and a climate framework law do not regulate building location as directly as a setback does.
+- The Lakshadweep setback width and the Maldivian changes of 2024–2025 rest on secondary sources.
+- The timeline lists changes found in the sources used, not every amendment in each country.
+- The V-Dem index describes the national government; for the Canary Islands and Lakshadweep it is Spain's and India's score, not a regional one.
+
 ## 7. Conclusion
 
-On five island groups, the share of people living on land at or below 1 m depends strongly on the elevation model: on bare earth it is 11.8% in the Maldives and 6.4% in Lakshadweep, up from 8.9% and 0.8% on a surface model. Mangrove extent shows no decline. Heat stress over reef rose on every reef island, most in Seychelles, but over 1996–2020 the rise cannot be separated from serially correlated variability. Combining exposure with reef heat stress gives a near tie between Seychelles and the Maldives that flips at 52% exposure weight, and protection of the coastal zone does not follow that ranking. Coastal setbacks, where they exist, reach fewer than one in ten low-lying buildings on the four tropical island groups, against 85% in the Canary Islands, because on atolls low land is the island rather than its edge.
+On five island groups, the share of people living on land at or below 1 m depends strongly on the elevation model: on bare earth it is 11.8% in the Maldives and 6.4% in Lakshadweep, up from 8.9% and 0.8% on a surface model. Mangrove extent shows no decline. Heat stress over reef rose on every reef island, most in Seychelles, but over 1996–2020 the rise cannot be separated from serially correlated variability. Combining exposure with reef heat stress gives a near tie between Seychelles and the Maldives that flips at 52% exposure weight, and protection of the coastal zone does not follow that ranking. Coastal setbacks, where they exist, reach fewer than one in ten low-lying buildings on the four tropical island groups, against 85% in the Canary Islands, because on atolls low land is the island rather than its edge. The number of coastal instruments a government has says little about this: Lakshadweep, second in policy density, reaches 7% of its low buildings.
 
 The main lesson is about method. The elevation model, the exposure measure and the weighting each change which island looks most vulnerable. An index used to allocate adaptation resources across islands should report those choices and how sensitive its ranking is to them, and should use a bare earth model on low, forested coasts.
 
@@ -381,19 +430,31 @@ The main lesson is about method. The elevation model, the exposure measure and t
 
 Administration of Union Territory of Lakshadweep. (n.d.). About Lakshadweep. Government of India. [Read](https://lakshadweep.gov.in/about-lakshadweep/)
 
+Bauer, M. W., Jordan, A., Green-Pedersen, C., & Héritier, A. (Eds.). (2012). *Dismantling Public Policy: Preferences, Strategies, and Effects*. Oxford University Press.
+
 Bunting, P., Rosenqvist, A., Hilarides, L., Lucas, R. M., Thomas, N., Tadono, T., Worthington, T. A., Spalding, M., Murray, N. J., & Rebelo, L. M. (2022). Global Mangrove Extent Change 1996–2020: Global Mangrove Watch Version 3.0. Remote Sensing, 14(15), 3657. [https://doi.org/10.3390/rs14153657](https://doi.org/10.3390/rs14153657)
 
-European Space Agency / Copernicus Data Space Ecosystem. (2024). Copernicus DEM: Copernicus Digital Elevation Model Product Handbook (Issue 5.0). [Read](https://dataspace.copernicus.eu/sites/default/files/media/files/2024-06/geo1988-copernicusdem-spe-002_producthandbook_i5.0.pdf)
+Coppedge, M., Gerring, J., Knutsen, C. H., Lindberg, S. I., Teorell, J., et al. (2026). V-Dem Country-Year Dataset v16. Varieties of Democracy (V-Dem) Project. Electoral democracy index as processed by Our World in Data. [Read](https://ourworldindata.org/grapher/electoral-democracy-index)
 
 España. (1988). Ley 22/1988, de 28 de julio, de Costas. Boletín Oficial del Estado, 181, 29 July 1988. [Read](https://www.boe.es/buscar/act.php?id=BOE-A-1988-18762)
 
+España. (2013). Ley 2/2013, de 29 de mayo, de protección y uso sostenible del litoral y de modificación de la Ley 22/1988, de 28 de julio, de Costas. Boletín Oficial del Estado. [Read](https://www.boe.es/eli/es/l/2013/05/29/2/con)
+
+España. (2021). Ley 7/2021, de 20 de mayo, de cambio climático y transición energética. Boletín Oficial del Estado. [Read](https://www.boe.es/eli/es/l/2021/05/20/7/con)
+
+European Space Agency / Copernicus Data Space Ecosystem. (2024). Copernicus DEM: Copernicus Digital Elevation Model Product Handbook (Issue 5.0). [Read](https://dataspace.copernicus.eu/sites/default/files/media/files/2024-06/geo1988-copernicusdem-spe-002_producthandbook_i5.0.pdf)
+
 Ferrario, F., Beck, M. W., Storlazzi, C. D., Micheli, F., Shepard, C. C., & Airoldi, L. (2014). The effectiveness of coral reefs for coastal hazard risk reduction and adaptation. Nature Communications, 5, 3794. [https://doi.org/10.1038/ncomms4794](https://doi.org/10.1038/ncomms4794)
+
+Fiji. (2021). Climate Change Act 2021. [Read](https://climate-laws.org/geographies/fiji/laws/climate-change-act-2021)
+
+Government of India, Ministry of Environment and Forests. (2011). Island Protection Zone Notification, S.O. 20(E), 6 January 2011. [Read](https://icsf.net/wp-content/uploads/2011/01/219_island_protection_notification.pdf)
+
+Government of India, Ministry of Environment, Forest and Climate Change. (2019). Island Coastal Regulation Zone Notification, 2019. [Read](https://leap.unep.org/en/countries/in/national-legislation/island-coastal-regulation-zone-notification-2019)
 
 Guannel, G., Arkema, K., Ruggiero, P., & Verutes, G. (2016). The Power of Three: Coral Reefs, Seagrasses and Mangroves Protect Coastal Regions and Increase Their Resilience. *PLOS ONE*, 11(7), e0158094. [https://doi.org/10.1371/journal.pone.0158094](https://doi.org/10.1371/journal.pone.0158094)
 
 Heron, S. F., Maynard, J. A., van Hooidonk, R., & Eakin, C. M. (2016). Warming Trends and Bleaching Stress of the World's Coral Reefs 1985–2012. *Scientific Reports*, 6, 38402. [https://doi.org/10.1038/srep38402](https://doi.org/10.1038/srep38402)
-
-Government of India, Ministry of Environment, Forest and Climate Change. (2019). Island Coastal Regulation Zone Notification, 2019. [Read](https://leap.unep.org/en/countries/in/national-legislation/island-coastal-regulation-zone-notification-2019)
 
 Hipel, K. W., & McLeod, A. I. (1994). *Time Series Modelling of Water Resources and Environmental Systems*. Elsevier.
 
@@ -407,9 +468,13 @@ Hussain, M. M., & Mahmud, I. (2019). pyMannKendall: a python package for non par
 
 Instituto Canario de Estadística. (2026). Superficie. Islas y municipios de Canarias [Data set]. Gobierno de Canarias. [Read](https://www.gobiernodecanarias.org/istac/temas_estadisticos/territorioymedioambiente/territorioyusosdelsuelo/territorio/X00004A.html)
 
+Knill, C., Schulze, K., & Tosun, J. (2012). Regulatory policy outputs and impacts: Exploring a complex relationship. *Regulation & Governance*, 6(4), 427–444.
+
 Kulp, S. A., & Strauss, B. H. (2019). New elevation data triple estimates of global vulnerability to sea-level rise and coastal flooding. *Nature Communications*, 10, 4844. [https://doi.org/10.1038/s41467-019-12808-z](https://doi.org/10.1038/s41467-019-12808-z)
 
 Maldives, Ministry of Tourism. (n.d.). Regulation on the Protection and Conservation of Environment in the Tourism Industry. [Read](https://old.mvlaw.gov.mv/pdf/gavaid/minTourism/11.pdf)
+
+Ministerio de Política Territorial. (2022, August 30). Traspaso de funciones en materia de costas a la Comunidad Autónoma de Canarias [Press release]. [Read](https://www.mptfp.gob.es/dam/es/portal/prensa/notas_de_prensa/notas/2022/08/20220830CANARIAS.pdf)
 
 National Oceanic and Atmospheric Administration, Coral Reef Watch. Daily 5km Satellite Coral Bleaching Heat Stress Degree Heating Week Product (Version 3.1) — Methodology. [Read](https://coralreefwatch.noaa.gov/product/5km/methodology.php)
 
@@ -426,6 +491,8 @@ Pronk, M., Hooijer, A., Eilander, D., Haag, A., de Jong, T., Vousdoukas, M., Ver
 Seychelles. (2023). Physical Planning (Development and Subdivision of Parcels) Regulations, 2023 (S.I. 91 of 2023). [Read](https://www.gazette.sc/sites/default/files/2023-11/SI%2091%202023%20-%20Physical%20Planning%20%28Development%20and%20Subdivision%20of%20Parcels%29%20Regulations%202023.pdf)
 
 The Nature Conservancy, Mapping Ocean Wealth. Coastal Protection: The Role of Mangroves and Coral Reefs. [Read](https://oceanwealth.org/ecosystem-services/coastal-protection/)
+
+Transparency Maldives et al. (2026, June 5). Joint statement: The systematic dismantling of environmental protection in the Maldives. [Read](https://transparency.mv/publications/joint-statement-the-systematic-dismantling-of-environmental-protection-in-the-maldives/)
 
 Turner, B. L., Kasperson, R. E., Matson, P. A., McCarthy, J. J., Corell, R. W., Christensen, L., Eckley, N., Kasperson, J. X., Luers, A., Martello, M. L., Polsky, C., Pulsipher, A., & Schiller, A. (2003). A framework for vulnerability analysis in sustainability science. Proceedings of the National Academy of Sciences, 100(14), 8074–8079. [https://doi.org/10.1073/pnas.1231335100](https://doi.org/10.1073/pnas.1231335100)
 

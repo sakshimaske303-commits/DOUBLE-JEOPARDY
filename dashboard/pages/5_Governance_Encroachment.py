@@ -31,7 +31,7 @@ overlapping sites merged so no area is counted twice. Lakshadweep has no record 
 left out of the comparison rather than set to zero.
 """)
 
-tab1, tab_sb, tab2 = st.tabs(["Protection and Risk (H3)", "Coastal Setbacks", "Built-up Change (supplementary)"])
+tab1, tab_sb, tab_pol, tab2 = st.tabs(["Protection and Risk (H3)", "Coastal Setbacks", "Policy Comparison", "Built-up Change (supplementary)"])
 
 with tab1:
     isl = [i for i in R["islands"] if R["protected"].get(i) == R["protected"].get(i)]  # drop NaN
@@ -157,6 +157,74 @@ with tab_sb:
 
     for name, cap in (("fig9_setback_calibration.png", "Figure 9 — Setback coverage, as in the Research Paper"),
                       ("fig10_setback_close_ups.png", "Figure 10 — Close-ups of the densest low-lying clusters")):
+        pth = os.path.join(FIGURES_DIR, name)
+        if os.path.exists(pth):
+            st.markdown(f"##### {cap}")
+            st.image(pth, use_container_width=True)
+
+with tab_pol:
+    POL, TL = R.get("policy"), R.get("policy_timeline")
+    st.markdown("### Do More Coastal Rules Mean More Reach?")
+    st.markdown("""
+    Each government's coastal rules in force in October 2026 were coded by hand from the legal texts. **Policy density**
+    counts six instrument types (building setback, statutory coastal zones, impact assessment law, national coastal plan,
+    coast-specific authority, climate framework law). **Setback intensity** is the setback width, averaged over built-up
+    and other land and divided by 100 m. Following Knill, Schulze and Tosun (2012), these policy outputs are compared with
+    an outcome: the share of buildings at or below 1 m that the setback reaches.
+    """)
+    if POL is None:
+        st.info("Run scripts/analysis/coastal_policy_coding.py to produce data/coastal_policy_scores.csv.")
+    else:
+        rows = []
+        for _, r in POL.iterrows():
+            rule = "none" if r["setback_general_m"] == 0 else (
+                f"{int(r['setback_inhabited_m'])} m" if r["setback_inhabited_m"] == r["setback_general_m"]
+                else f"{int(r['setback_inhabited_m'])} m built-up / {int(r['setback_general_m'])} m elsewhere")
+            rows.append(f"| {r['label']} | {int(r['density'])} | {rule} | {r['intensity']:.2f} | "
+                        f"{r['low_reached_by_setback_pct']:.1f}% | {r['setback_for_75pct_low_m']:.0f} m |")
+        st.markdown("| Jurisdiction | Density (of 6) | Setback | Intensity | Low buildings reached | Setback needed for 75% |\n"
+                    "|---|---:|---|---:|---:|---:|\n" + "\n".join(rows))
+        col = {"maldives": "#2c7fb8", "seychelles": "#e34a33", "fiji": "#31a354",
+               "canary": "#756bb1", "lakshadweep": "#fd8d3c"}
+        fig = go.Figure()
+        for _, r in POL.iterrows():
+            fig.add_trace(go.Scatter(x=[r["density"]], y=[r["low_reached_by_setback_pct"]], mode="markers+text",
+                                     text=[r["label"]], textposition="top center", name=r["label"],
+                                     marker=dict(size=16, color=col[r["jurisdiction"]], line=dict(color="white", width=1.5)),
+                                     hovertemplate=r["label"] + "<br>density %{x} of 6<br>reached %{y:.1f}%<extra></extra>"))
+        fig.update_layout(template="plotly_dark", height=420, showlegend=False,
+                          xaxis=dict(title="Policy density (instrument types in force, of 6)", range=[1, 6.8], dtick=1),
+                          yaxis=dict(title="% of low buildings reached by the setback", range=[-5, 100]),
+                          font=dict(family="Poppins", color="#FFD60A"), plot_bgcolor="rgba(0,0,0,0)",
+                          paper_bgcolor="rgba(0,0,0,0)", margin=dict(t=20, b=40, l=20, r=20))
+        st.plotly_chart(fig, use_container_width=True)
+        lak = POL.set_index("jurisdiction").loc["lakshadweep"]
+        st.warning(f"""
+        **Outputs do not translate into reach on the tropical islands.** Lakshadweep has {int(lak['density'])} of the 6
+        instrument types and its setback reaches {lak['low_reached_by_setback_pct']:.1f}% of its low buildings. The Canary
+        Islands are the only case where many rules and a wide setback also reach most low buildings, because low land
+        there is a narrow beachfront strip.
+        """)
+    if TL is not None:
+        st.markdown("##### Rule changes since 1988")
+        lab = {"canary": "Canary Islands", "lakshadweep": "Lakshadweep", "seychelles": "Seychelles",
+               "maldives": "Maldives", "fiji": "Fiji"}
+        pick = st.selectbox("Jurisdiction", ["All"] + list(lab.values()), key="pol_tl")
+        t = TL.copy()
+        t["Jurisdiction"] = t["jurisdiction"].map(lab)
+        if pick != "All":
+            t = t[t["Jurisdiction"] == pick]
+        cols = ["Jurisdiction", "date", "instrument", "direction", "change", "verification"]
+        if "electoral_democracy_at_change" in t:
+            cols.insert(5, "electoral_democracy_at_change")
+        st.dataframe(t[cols].rename(columns={"date": "Date", "instrument": "Instrument", "direction": "Direction",
+                                             "change": "What changed", "verification": "Source level",
+                                             "electoral_democracy_at_change": "V-Dem electoral democracy"}),
+                     use_container_width=True, hide_index=True)
+        st.caption("Direction: expansion adds or tightens a rule; dismantling removes, relaxes or exempts; reallocation moves "
+                   "competence between levels of government. Coding and sources: data/policy_coding/.")
+    for name, cap in (("fig11_policy_density_intensity.png", "Figure 11 — Policy density, intensity and reach"),
+                      ("fig12_coastal_policy_timeline.png", "Figure 12 — Coastal rule changes since 1988")):
         pth = os.path.join(FIGURES_DIR, name)
         if os.path.exists(pth):
             st.markdown(f"##### {cap}")

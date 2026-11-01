@@ -120,6 +120,13 @@ stand at or below 1 m? Tested on about 1.35 million building footprints, with th
 by Hood's NATO scheme and the Maldives–Lakshadweep pair read as a most similar systems comparison.
 """)
 
+st.info("""
+**Policy extension — Coastal policy coding (descriptive).** How dense and how demanding are the five governments'
+coastal rules, and does that match how many low-lying buildings the rules reach? Six instrument types coded from the
+legal texts (policy density), the setback width (intensity), 23 dated rule changes since 1988 coded as expansion,
+dismantling or a shift between levels of government, and the V-Dem electoral democracy index for the political setting.
+""")
+
 st.markdown("---")
 
 st.markdown("### Methodology at a Glance")

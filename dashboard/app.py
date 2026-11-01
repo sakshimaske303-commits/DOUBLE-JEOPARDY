@@ -120,7 +120,8 @@ st.markdown(
             reef heat stress is added, the top island depends on the weighting: Seychelles at equal weights,
             the Maldives once exposure carries {R['cvs_crossover']:.0%} or more of the weight. A single number would hide all of this.
             The same goes for policy: the coastal setbacks in national law reach fewer than one in ten
-            low-lying buildings on the tropical islands, because on atolls low land is the island, not its edge.
+            low-lying buildings on the tropical islands, because on atolls low land is the island, not its edge,
+            and a government with more coastal rules does not reach more of them.
         </p>
     </div>
     """,
@@ -233,6 +234,25 @@ if _SB is not None:
     </div>
     """, unsafe_allow_html=True)
 
+_POL = R.get("policy")
+if _POL is not None:
+    _p = _POL.set_index("jurisdiction")
+    st.markdown(f"""
+    <div style="background: {PALETTE['card_bg']}; border-radius: 14px; margin-top: 18px;
+                padding: 20px; border: 2px solid {PALETTE['green']};">
+        <p style="color: {PALETTE['green']}; font-weight: 800; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 8px;">Policy extension — Comparing the five governments' coastal rules</p>
+        <p style="color: {PALETTE['navy']}; font-weight: 700; font-size: 1rem; margin-bottom: 8px;">More Rules Did Not Mean More Reach</p>
+        <p style="color: {PALETTE['text_dark']}; font-size: 0.85rem; margin: 0;">
+            Each government's coastal rules were coded from the legal texts: six instrument types for policy density,
+            the setback width for intensity, and 23 dated rule changes since 1988. Lakshadweep has
+            {int(_p.loc['lakshadweep', 'density'])} of the 6 instrument types and its setback reaches
+            {_p.loc['lakshadweep', 'low_reached_by_setback_pct']:.1f}% of its low buildings; the Maldives has
+            {int(_p.loc['maldives', 'density'])} and reaches none. Spain relaxed its coastal law in 2013, and the Maldives
+            widened exemptions from environmental review in 2024–2025. See Governance &amp; Encroachment → Policy Comparison.
+        </p>
+    </div>
+    """, unsafe_allow_html=True)
+
 st.markdown("---")
 
 st.markdown("### Explore the Analysis")
@@ -243,7 +263,7 @@ nav_items = [
     ("Ecological Findings", "Coral thermal stress vs. mangrove stability"),
     ("Physical Exposure", "People and places at or below 1 m, on two elevation models"),
     ("Compound Vulnerability", "The signature cross-island ranking"),
-    ("Governance & Encroachment", "Protection alignment, coastal setbacks and settlement pressure"),
+    ("Governance & Encroachment", "Protection alignment, coastal setbacks, policy comparison and settlement pressure"),
     ("Interactive Maps & Plots", "Live geospatial exploration plus the four headline charts"),
     ("Robustness & Corrections", "Every sensitivity check, and what Version 1 got wrong"),
 ]
@@ -275,6 +295,7 @@ _all_docs = [
     {"label": "Executive Summary", "filename": "DJ_Executive_Summary.pdf"},
     {"label": "Research Paper", "filename": "DJ_Research_Paper.pdf"},
     {"label": "Development Log", "filename": "DJ_Development_Log.pdf"},
+    {"label": "Policy Brief", "filename": "DJ_Policy_Brief.pdf"},
 ]
 _docs = [d for d in _all_docs if os.path.exists(os.path.join(BASE_DIR, "static", d["filename"]))]
 _missing = [d for d in _all_docs if d not in _docs]
@@ -304,7 +325,7 @@ st.markdown(
                 border-radius: 16px; border: 1px solid rgba(34,211,238,0.25);">
         <p style="color: {PALETTE['text_muted']}; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem;">Developed by</p>
         <h2 style="color: {PALETTE['navy']}; margin: 5px 0; border: none; padding: 0;">SAKSHI D. MASKE</h2>
-        <p style="color: {PALETTE['green']}; font-weight: 600; margin-bottom: 18px;">Independent Geospatial Researcher</p>
+        <p style="color: {PALETTE['green']}; font-weight: 600; margin-bottom: 18px;">Satellite data and policy, self-directed research</p>
         <a href="{GITHUB_URL}" target="_blank" style="text-decoration:none;">
             <span style="display:inline-block; background: linear-gradient(90deg, {PALETTE['navy']}, {PALETTE['green']}); color:#0A0A0A; font-weight:800; font-size:0.9rem; padding:10px 24px; border-radius:6px;">View on GitHub</span>
         </a>

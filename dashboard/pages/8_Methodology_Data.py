@@ -90,6 +90,8 @@ with col2:
         st.markdown("- **Population** — WorldPop 2020")
         st.markdown("- **Buildings** — Overture Maps 2026-08-19.0 (OpenStreetMap, Google, Microsoft, Esri, IGN España)")
         st.markdown("- **Coastal setbacks** — Ley 22/1988 de Costas; Seychelles S.I. 91 of 2023; ICRZ Notification 2019; Maldives tourism environment regulation")
+        st.markdown("- **Coastal policy coding** — legal texts and official summaries for the five governments, coded by hand (data/policy_coding/, with codebook and sources)")
+        st.markdown("- **Regime type** — V-Dem electoral democracy index v16, via Our World in Data")
     with r5b:
         proof_popover("05_population_exposure_vscode.png", "population_weighted_exposure.py open in VS Code — computes what % of each island's population (not just settlements) lives at or below the 1m sea-level-rise threshold.")
     r4a, r4b = st.columns([0.88, 0.12])
@@ -163,6 +165,13 @@ polygons, not to the high water mark or vegetation line, so they are approximate
 national law is compared, not local plans or enforcement. The Lakshadweep width rests on secondary sources, Fiji's
 buildings are OpenStreetMap only, and many low buildings in Seychelles and Fiji sit on DeltaDTM cells below 0 m,
 so every setback number is also reported without them.
+""")
+
+st.warning("""
+**The policy coding is done by one coder.** Every coded value carries its legal basis, source and verification
+level, so it can be rechecked. "Not found" is coded 0 but is not proof that a rule does not exist. The Lakshadweep
+setback width and the Maldivian changes of 2024–2025 rest on secondary sources. V-Dem scores describe the national
+government, so the Canary Islands and Lakshadweep carry Spain's and India's scores.
 """)
 
 st.info("""

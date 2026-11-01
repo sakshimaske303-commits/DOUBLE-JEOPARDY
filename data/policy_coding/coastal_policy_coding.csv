@@ -1,0 +1,41 @@
+jurisdiction,item,value,legal_basis,source,verification,note
+canary,D1_building_setback,1,"Ley 22/1988 de Costas, art. 23 and Transitional Provision 3",https://www.boe.es/eli/es/l/1988/07/28/22/con,primary,100 m protection easement; 20 m on land classified urban in 1988
+canary,D2_statutory_coastal_zones,1,"Ley 22/1988 de Costas, Titles I-II (public domain, protection, transit and access easements, 500 m influence zone)",https://www.boe.es/eli/es/l/1988/07/28/22/con,primary,
+canary,D3_eia_law,1,Ley 21/2013 de evaluación ambiental,https://www.boe.es/eli/es/l/2013/12/09/21/con,primary,
+canary,D4_coastal_plan,1,Estrategia de Adaptación al Cambio Climático de la Costa Española,https://www.miteco.gob.es/es/costas/temas/proteccion-costa/estrategia-adaptacion-cambio-climatico/,official,national coastal adaptation strategy
+canary,D5_dedicated_coastal_authority,1,Demarcación de Costas (State); coastal management functions transferred to the Canary Islands from 1 January 2023,https://www.mptfp.gob.es/dam/es/portal/prensa/notas_de_prensa/notas/2022/08/20220830CANARIAS.pdf,official,
+canary,D6_climate_law_coastal,1,"Ley 7/2021 de cambio climático y transición energética, art. 20",https://www.boe.es/eli/es/l/2021/05/20/7/con,primary,article on climate change in planning and management of the coastal public domain
+lakshadweep,D1_building_setback,1,Island Coastal Regulation Zone Notification 2019,https://leap.unep.org/en/countries/in/national-legislation/island-coastal-regulation-zone-notification-2019,secondary,20 m no development zone reported in secondary sources; primary text not verified
+lakshadweep,D2_statutory_coastal_zones,1,Island Coastal Regulation Zone Notification 2019 (ICRZ categories),https://leap.unep.org/en/countries/in/national-legislation/island-coastal-regulation-zone-notification-2019,official,FAOLEX summary of the notification
+lakshadweep,D3_eia_law,1,EIA Notification 2006; ICRZ clearance required before projects start,https://leap.unep.org/en/countries/in/national-legislation/island-coastal-regulation-zone-notification-2019,official,
+lakshadweep,D4_coastal_plan,1,"Island Protection Zone Notification 2011, S.O. 20(E): Integrated Islands Management Plans required for Lakshadweep",https://icsf.net/wp-content/uploads/2011/01/219_island_protection_notification.pdf,primary,requirement coded; approval status not verified
+lakshadweep,D5_dedicated_coastal_authority,1,Lakshadweep Coastal Zone Management Authority,https://www.greentribunal.gov.in/sites/default/files/news_updates/AFFIDAVIT%20BY%20LAKSHADWEEP%20CZMA%20in%20OA%20NO.%20249%20of%202023%20In%20re%20In%20the%20matter%20of%20News%20Item%20Published%20in%20the%20Hindu%20News%20Paper%20dated%2019.03.2023%20titled%20Indias%20Sinking%20Island.pdf,official,files affidavits before the National Green Tribunal (2023)
+lakshadweep,D6_climate_law_coastal,0,none found (India has no climate framework law),,not_found,
+seychelles,D1_building_setback,1,"Physical Planning (Development and Subdivision of Parcels) Regulations 2023, S.I. 91 of 2023, reg. 13",https://www.gazette.sc/sites/default/files/2023-11/SI%2091%202023%20-%20Physical%20Planning%20%28Development%20and%20Subdivision%20of%20Parcels%29%20Regulations%202023.pdf,primary,25 m from high water mark; 10 m with permission
+seychelles,D2_statutory_coastal_zones,0,"none found (land use plans under S.I. 90 of 2023 are general, not coastal zones)",https://www.gazette.sc/sites/default/files/2023-11/SI%2090%202023%20-%20Physical%20Planning%20%28Land%20Use%20and%20Development%20Plans%29%20Regulations%202023.pdf,not_found,
+seychelles,D3_eia_law,1,Environment Protection Act 2016 (Act 18 of 2016),https://www.ecolex.org/details/legislation/environment-protection-act-2016-no-18-of-2016-lex-faoc177682/,official,
+seychelles,D4_coastal_plan,1,Seychelles Coastal Management Plan 2019-2024,https://leap.unep.org/en/countries/sc/national-legislation/seychelles-coastal-management-plan-2019-2024,official,policy document; lists coastal setback regulations as an action
+seychelles,D5_dedicated_coastal_authority,0,none found (Planning Authority has general remit),https://seylii.org/akn/sc/act/2021/55,not_found,
+seychelles,D6_climate_law_coastal,0,none found,,not_found,
+maldives,D1_building_setback,0,"none found for inhabited islands; 5 m from the vegetation line applies only to islands leased for tourism (Regulation on the Protection and Conservation of Environment in the Tourism Industry, cl. 2.10)",,not_found,tourism regulation cl. 2.10 not coded because it does not apply to inhabited islands
+maldives,D2_statutory_coastal_zones,0,none found,,not_found,
+maldives,D3_eia_law,1,Environmental Protection and Preservation Act 4/1993; EIA Regulation 2012/R/27,https://cdn.cseindia.org/userfiles/CZM%20regulations%20Maldives.pdf,official,EIA exemptions widened in 2025 (see timeline)
+maldives,D4_coastal_plan,0,none found,,not_found,
+maldives,D5_dedicated_coastal_authority,0,"none found (Environmental Protection Agency, replaced in 2025 by an authority under the ministry, has general remit)",https://transparency.mv/publications/joint-statement-the-systematic-dismantling-of-environmental-protection-in-the-maldives/,not_found,
+maldives,D6_climate_law_coastal,1,Climate Emergency Act (Act 9/2021),https://climate-laws.org/document/climate-emergency-act-act-no-9-2021_706a,official,
+fiji,D1_building_setback,0,none found,,not_found,
+fiji,D2_statutory_coastal_zones,0,"none found (Integrated Coastal Management Framework 2011 is a policy, not law)",,not_found,
+fiji,D3_eia_law,1,Environment Management Act 2005,https://leap.unep.org/en/countries/fj/national-legislation/environment-management-act-2005-no-1-2005,official,
+fiji,D4_coastal_plan,1,Integrated Coastal Management Framework of the Republic of Fiji 2011,https://leap.unep.org/en/countries/fj/national-legislation/integrated-coastal-management-framework-republic-fiji-2011,official,policy framework
+fiji,D5_dedicated_coastal_authority,0,none found,,not_found,
+fiji,D6_climate_law_coastal,1,Climate Change Act 2021,https://climate-laws.org/geographies/fiji/laws/climate-change-act-2021,official,risk assessment for new buildings; planned relocation
+canary,I1_setback_inhabited_m,20,see D1,https://www.boe.es/eli/es/l/1988/07/28/22/con,primary,20 m applies to land classified urban in 1988; 100 m elsewhere
+canary,I2_setback_general_m,100,see D1,https://www.boe.es/eli/es/l/1988/07/28/22/con,primary,20 m applies to land classified urban in 1988; 100 m elsewhere
+lakshadweep,I1_setback_inhabited_m,20,see D1,https://leap.unep.org/en/countries/in/national-legislation/island-coastal-regulation-zone-notification-2019,secondary,primary text not verified
+lakshadweep,I2_setback_general_m,20,see D1,https://leap.unep.org/en/countries/in/national-legislation/island-coastal-regulation-zone-notification-2019,secondary,primary text not verified
+seychelles,I1_setback_inhabited_m,25,see D1,https://www.gazette.sc/sites/default/files/2023-11/SI%2091%202023%20-%20Physical%20Planning%20%28Development%20and%20Subdivision%20of%20Parcels%29%20Regulations%202023.pdf,primary,may be reduced to 10 m with permission
+seychelles,I2_setback_general_m,25,see D1,https://www.gazette.sc/sites/default/files/2023-11/SI%2091%202023%20-%20Physical%20Planning%20%28Development%20and%20Subdivision%20of%20Parcels%29%20Regulations%202023.pdf,primary,may be reduced to 10 m with permission
+maldives,I1_setback_inhabited_m,0,see D1,,not_found,no setback for inhabited islands found
+maldives,I2_setback_general_m,0,see D1,,not_found,no setback for inhabited islands found
+fiji,I1_setback_inhabited_m,0,see D1,,not_found,no setback found
+fiji,I2_setback_general_m,0,see D1,,not_found,no setback found

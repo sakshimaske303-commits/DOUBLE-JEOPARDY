@@ -14,6 +14,7 @@ Preprint of the first version: EarthArXiv, DOI [10.31223/X5M50Q](https://doi.org
 - Seychelles and the Maldives are in a near tie on the compound score, and the top island changes at an exposure weight of 52%.
 - Protection of the 10 km coastal zone, from 1.3% to 71.4%, does not follow the compound score (descriptive, n = 4).
 - National coastal setbacks reach fewer than one in ten low-lying buildings on the four tropical island groups, against 85% under the Canary Islands' 100 m line.
+- Coding the five governments' coastal rules shows that more instruments did not mean more reach: Lakshadweep has five of six instrument types and its setback reaches 7% of its low buildings; of 23 rule changes since 1988, three relaxed protection, in Spain (2013) and the Maldives (2024–2025).
 
 ## Contributions, funding and interests
 
@@ -21,7 +22,7 @@ I am the sole author. I conceived the study, designed the methods, wrote the cod
 
 ## Data and their licences
 
-The study uses public data only: DeltaDTM v1.1 and the Copernicus DEM GLO-30 for elevation, WorldPop 2020 for population, OpenStreetMap for named places and coastlines, Overture Maps building footprints, NOAA Coral Reef Watch Degree Heating Weeks, Global Mangrove Watch v3, UNEP-WCMC reef and mangrove layers, the World Database on Protected Areas (June 2026 release) and Sentinel-2. My own code and text are released under CC BY 4.0, but third-party data keep their original licences. WDPA extracts are not included because their terms do not allow public redistribution, and the UNEP-WCMC layers are for non-commercial research use. Full citations, licences and attribution texts are in `DATA_SOURCES_AND_LICENSES.md`.
+The study uses public data only: DeltaDTM v1.1 and the Copernicus DEM GLO-30 for elevation, WorldPop 2020 for population, OpenStreetMap for named places and coastlines, Overture Maps building footprints, NOAA Coral Reef Watch Degree Heating Weeks, Global Mangrove Watch v3, UNEP-WCMC reef and mangrove layers, the World Database on Protected Areas (June 2026 release), Sentinel-2, the V-Dem electoral democracy index (v16, via Our World in Data) and the published texts of national coastal and environmental laws. My own code and text are released under CC BY 4.0, but third-party data keep their original licences. WDPA extracts are not included because their terms do not allow public redistribution, and the UNEP-WCMC layers are for non-commercial research use. Full citations, licences and attribution texts are in `DATA_SOURCES_AND_LICENSES.md`.
 
 ## Reproducing the results
 

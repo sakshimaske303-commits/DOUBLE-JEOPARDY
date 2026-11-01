@@ -104,6 +104,11 @@ def load():
     R["setback"] = None if sb is None else sb.set_index(["island", "variant"])
     R["setback_curve"] = _read("setback_coverage_curve.csv")
 
+    # coastal policy coding (added 2026-11-01); optional
+    R["policy"] = _read("coastal_policy_scores.csv")
+    tl = _read("coastal_policy_timeline_with_regime.csv")
+    R["policy_timeline"] = tl if tl is not None else _read(os.path.join("policy_coding", "coastal_policy_timeline.csv"))
+
     nd = _read("ndbi_land_change.csv")
     R["ndbi"] = {} if nd is None else {(r["island"], r["zone"]): (r["mean_change"], r["ci95_low"], r["ci95_high"])
                                         for _, r in nd.iterrows()}

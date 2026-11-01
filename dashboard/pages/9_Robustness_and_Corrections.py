@@ -113,6 +113,9 @@ with tab1:
         ("Open", "Data coverage",
          "Fiji's buildings are OpenStreetMap only; 4,478 Maldivian buildings fall outside the island outlines; "
          "the Lakshadweep setback width rests on secondary sources; reef heat stress ends in 2020."),
+        ("Open", "Policy coding",
+         "One coder, no inter-coder reliability check; each value carries its source and verification level. "
+         "The Lakshadweep width and the Maldivian changes of 2024–2025 rest on secondary sources."),
     ]
     rows(checks)
 
@@ -150,9 +153,10 @@ with tab3:
 | Land-area validation | Not reproducible from the boundary files | Recomputed in EPSG:6933, all within 4% | New validation script |
 | Coastal setbacks | Not analysed | Building-level analysis, about 1.35 million footprints | Policy extension (paper Sections 3.9, 4.8) |
 | Independent checks | – | Coral p-values and setback distances recomputed independently; both hold | Validation (Development Log Entry 19) |
+| Coastal policy coding | Not analysed | Six instrument types, setback intensity, 23 dated rule changes, V-Dem regime scores | Policy extension (paper Sections 3.10, 4.9) |
 | run_all.py | Ended "Finished" even if a step failed | Reports COMPLETE or PARTIAL RUN and exits with an error code | Old outputs cannot pass as new |
 """)
-    st.caption("Full record: paper/DJ_Development_Log.md, Entries 15–19.")
+    st.caption("Full record: paper/DJ_Development_Log.md, Entries 15–20.")
 
 st.markdown("---")
 st.markdown(

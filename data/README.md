@@ -20,6 +20,8 @@ All paths are relative to the repository root. Large rasters (`*.tif`), the full
 | `ndbi_land_change.csv` | `scripts/analysis/ndbi_land_change.py` | Encroachment results |
 | `setback_calibration_summary.csv` | `scripts/analysis/setback_calibration.py` | Paper Section 4.8, Figure 9 |
 | `setback_coverage_curve.csv` | `scripts/analysis/setback_calibration.py` | Interactive setback curve |
+| `coastal_policy_scores.csv` | `scripts/analysis/coastal_policy_coding.py` | Paper Section 4.9, Figure 11 |
+| `coastal_policy_timeline_with_regime.csv` | `scripts/analysis/coastal_policy_coding.py` | Timeline with the V-Dem score in the year of each change (Figure 12) |
 
 ## Checks
 
@@ -55,6 +57,8 @@ All paths are relative to the repository root. Large rasters (`*.tif`), the full
 | `ecosystem_buffers/` | Coastal buffers and protected-area layers (WDPA files not committed) | `scripts/processing/clean_wdpa.py`, `wdpa_coastal_buffer.py` |
 | `protected_areas_wdpa/` | WDPA extracts (not committed; download from protectedplanet.net) | — |
 | `settlement_encroachment/` | Sentinel-2 NDBI rasters and summaries, 2016 vs. 2024 | `scripts/acquisition/download_ndbi_encroachment*.py`, `scripts/analysis/ndbi_land_change.py` |
+| `policy_coding/` | Hand-coded coastal rules (`coastal_policy_coding.csv`), dated rule changes (`coastal_policy_timeline.csv`) and `CODEBOOK.md`; every value has its source | coded by hand |
+| `regime/` | V-Dem electoral democracy index for Spain, India, Seychelles, Maldives and Fiji, via Our World in Data | `scripts/acquisition/download_vdem_owid.py` |
 | `buildings/` | Overture building points (not committed) | `scripts/acquisition/download_buildings_overture.py`, `scripts/processing/export_building_points.py` |
 | `cyclone_tracks/` | Cyclone wind speed records (exploratory, not in the paper) | `scripts/processing/consolidate_wind_speed.py` |
 | `satellite_damage_proxy/` | Cyclone damage proxy (exploratory, not in the paper) | `scripts/acquisition/download_cyclone_damage_proxy.py` |

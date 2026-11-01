@@ -11,7 +11,7 @@ Version 1 reported Seychelles as most exposed, significant coral trends, a ranki
 
 ## The Question
 
-How many people on these islands live at or below 1 m? How has heat stress on their reefs changed between 1996 and 2020, and have mangroves declined? When the two are put side by side, which island comes out highest, and does protected-area coverage follow that ranking? Finally, do the governments' coastal setbacks reach the buildings that stand on low land?
+How many people on these islands live at or below 1 m? How has heat stress on their reefs changed between 1996 and 2020, and have mangroves declined? When the two are put side by side, which island comes out highest, and does protected-area coverage follow that ranking? Finally, do the governments' coastal setbacks reach the buildings that stand on low land, and does having more coastal rules make a difference?
 
 ## The Method
 
@@ -21,6 +21,7 @@ How many people on these islands live at or below 1 m? How has heat stress on th
 - **Compound score:** exposure and change in reef heat stress, each scaled 0–1, averaged; weighting swept from 0 to 100%.
 - **Governance:** share of the 10 km coastal zone inside a protected area (WDPA, June 2026, overlaps merged). Descriptive only.
 - **Coastal setbacks:** about 1.35 million building footprints (Overture Maps, 2026-08-19.0), each with its bare-earth elevation and distance to the shoreline, compared with the setback in national law: 100 m in the Canary Islands (Ley de Costas), 25 m in Seychelles (S.I. 91 of 2023), 20 m in Lakshadweep (ICRZ 2019), none for inhabited land in the Maldives and Fiji. Instruments are classified with Hood's NATO scheme, and the Maldives–Lakshadweep pair is read as a most similar systems comparison.
+- **Policy coding:** each government's coastal rules in force in October 2026 coded by hand from legal texts: policy density (six instrument types) and setback intensity (width), following Knill, Schulze and Tosun (2012), plus 23 dated rule changes since 1988 coded as expansion, dismantling or a shift between levels of government. Every value carries its source.
 
 ## The Findings
 
@@ -52,6 +53,15 @@ How many people on these islands live at or below 1 m? How has heat stress on th
 
 On the four tropical island groups the setbacks reach fewer than one in ten low buildings, which stand 80–136 m from the shore (median). The Canary Islands' 100 m line covers 85%, because there low land is a thin beachfront strip. Even a 100 m rule would cover only 54% of the low buildings in the Maldives, while putting 39% of all buildings inside it: on atolls, low land is the island rather than its edge.
 
+**Policy outputs against their reach**
+
+| | Canary Islands | Lakshadweep | Seychelles | Fiji | Maldives |
+|---|---:|---:|---:|---:|---:|
+| Coastal instrument types in force (of 6) | 6 | 5 | 3 | 3 | 2 |
+| Low buildings reached by the setback | 84.9% | 6.8% | 8.0% | 0% | 0% |
+
+More rules did not mean more reach on the tropical islands: Lakshadweep has five of six instrument types and reaches 7% of its low buildings. Of 23 rule changes since 1988, 15 added protection; Spain relaxed its coastal law in 2013, and the Maldives widened exemptions from environmental review in 2024–2025. Regime type (V-Dem) does not sort these changes: rules were added under scores from 0.13 to 0.89, and relaxed at 0.88 (Spain) and 0.56–0.58 (Maldives).
+
 **Compound score (equal weights):** Seychelles 0.58 · Maldives 0.56 · Lakshadweep 0.32 · Fiji 0.28 · Canary Islands 0.00. Exposure points to the Maldives and reef heat stress to Seychelles, so the top island switches to the Maldives once exposure carries 52% or more of the weight. The top two are a near tie.
 
 ## What Changed From Version 1, and Why
@@ -75,7 +85,7 @@ On the four tropical island groups the setbacks reach fewer than one in ten low 
 
 ## Real World Relevance
 
-Adaptation finance for small islands is increasingly tied to vulnerability indices. This project shows that the same islands can rank differently depending on the elevation model, the exposure measure and the weighting, and that a surface model can understate how many people live at or below 1 m by several times on a forested atoll. Any index built on these inputs should report those choices and how sensitive its ranking is to them. For adaptation law, the setback result suggests that on atolls the rules on where to build should be written in heights (minimum floor or ground levels) rather than in distance from the shore.
+Adaptation finance for small islands is increasingly tied to vulnerability indices. This project shows that the same islands can rank differently depending on the elevation model, the exposure measure and the weighting, and that a surface model can understate how many people live at or below 1 m by several times on a forested atoll. Any index built on these inputs should report those choices and how sensitive its ranking is to them. For adaptation law, the setback result suggests that on atolls the rules on where to build should be written in heights (minimum floor or ground levels) rather than in distance from the shore. A two-page policy brief sets this out for practitioners (`paper/DJ_Policy_Brief.md`).
 
 ---
 

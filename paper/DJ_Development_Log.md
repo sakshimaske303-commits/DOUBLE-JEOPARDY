@@ -831,3 +831,19 @@ Validation checks (23 October 2026). Went through the parts of the analysis that
 - `run_all.py` now ends with "COMPLETE RUN" or "PARTIAL RUN" nd exits with an error code if any step failed, so old outputs can't be mistaken for fresh ones. The two validation scripts are part of the run.
 - Paper: one sentence on what the study adds (Section 1), the elevation rule table (3.3), the coral check (3.5), nd the distance check, the mapped-boundary wording nd the one-point-per-building note (6.7).
 
+## Entry 20
+
+### Status
+Policy coding (1 November 2026). Until now I only compared the setback widths. Wanted to compare the five governments' coastal rules as a whole nd see how they changed over time.
+
+### What I Did
+- **Coded the rules by hand.** Went through the coastal nd environmental laws for Spain/Canary Islands, India/Lakshadweep, Seychelles, the Maldives nd Fiji. For each one I checked six types of instrument: a building setback, statutory coastal zones, an impact assessment law, a national coastal plan, a body that only deals with the coast, nd a climate framework law. The count of these is the policy density. The setback width is the intensity. I took this split from Knill, Schulze nd Tosun (2012). It's all in `data/policy_coding/` with a codebook, nd next to every value I wrote down where I got it from nd whether I read the actual legal text or only a summary.
+- **Made a timeline.** 23 dated changes from 1988 to 2025, each marked as expansion, dismantling, a shift between levels of government, reform or implementation. Some of these I didn't know before I started. Spain's 2013 reform loosened parts of the 1988 Ley de Costas (longer concessions, 12 settlements taken out of the public domain), nd in 2023 Spain handed coastal management functions to the Canary Islands government. In the Maldives, the 2024 reclamation amendment nd the 2025 replacement of the Environmental Protection Agency go in the opposite direction to everything else on the list.
+- **Put the rules next to the buildings.** `scripts/analysis/coastal_policy_coding.py` compares density nd intensity with the share of low buildings each setback reaches (Entry 18). Lakshadweep comes second in density (5 of 6) but its setback reaches 6.8% of its low buildings. The Maldives has 2 of 6 nd reaches none. If I had only counted laws, these two would look very far apart.
+- **Added regime type.** `scripts/acquisition/download_vdem_owid.py` downloads the V-Dem electoral democracy index, nd the timeline shows the score in the year of each change. Rules were added under scores from 0.13 (Fiji, 2011, under military rule) to 0.89 (Spain, 1988), nd relaxed at 0.88 (Spain) nd 0.56–0.58 (Maldives), so regime type doesn't sort the changes here. With five countries I can only describe this, not test it.
+- **Wrote a policy brief.** Two pages on why distance rules don't work on atolls nd what to use instead (`paper/DJ_Policy_Brief.md`).
+
+### Open Points
+- I did the coding alone, so there's no second coder to compare with.
+- Where I couldn't find an instrument I coded 0, but that doesn't prove it doesn't exist, especially for the Maldives nd Fiji.
+- The Lakshadweep setback width nd the Maldivian changes of 2024–2025 come from secondary sources.
