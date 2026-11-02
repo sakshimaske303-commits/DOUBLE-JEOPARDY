@@ -287,7 +287,7 @@ st.markdown("---")
 st.markdown("### Full Project Documentation")
 st.markdown(
     f"<p style='color:{PALETTE['text_muted']}; font-weight:600;'>"
-    "The complete research paper, project journal, and development log open directly below, no download needed.</p>",
+    "The executive summary, research paper, development log, policy brief and declarations open directly below, no download needed.</p>",
     unsafe_allow_html=True,
 )
 
@@ -296,6 +296,7 @@ _all_docs = [
     {"label": "Research Paper", "filename": "DJ_Research_Paper.pdf"},
     {"label": "Development Log", "filename": "DJ_Development_Log.pdf"},
     {"label": "Policy Brief", "filename": "DJ_Policy_Brief.pdf"},
+    {"label": "Declarations", "filename": "DJ_Declarations.pdf"},
 ]
 _docs = [d for d in _all_docs if os.path.exists(os.path.join(BASE_DIR, "static", d["filename"]))]
 _missing = [d for d in _all_docs if d not in _docs]
