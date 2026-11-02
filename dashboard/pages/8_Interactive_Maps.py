@@ -5,7 +5,7 @@ import os
 
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.append(PROJECT_ROOT)
-from styles import apply_custom_style, PALETTE
+from styles import apply_custom_style, PALETTE, show_image
 from results import load as load_results, pct, source_label
 
 apply_custom_style()
@@ -192,7 +192,7 @@ st.markdown("### Mangrove Extent Trend Maps (1996 / 2010 / 2020)")
 
 selected_island_mangrove = st.selectbox("Select Island", list(MANGROVE_TREND_IMAGES.keys()), key="mangrove_select")
 image_path = os.path.join(PROJECT_ROOT, "dashboard", "static", MANGROVE_TREND_IMAGES[selected_island_mangrove])
-st.image(image_path, use_container_width=True)
+show_image(image_path)
 
 st.markdown(f"""
 <div style="background: {PALETTE['card_bg']}; border-left: 5px solid {PALETTE['mint']};

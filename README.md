@@ -134,7 +134,7 @@ DOUBLE_JEOPARDY/
 │   │                                 #   coral_trend_check.py and setback_distance_check.py (independent rechecks)
 │   └── local_fixes/                 # One-off local correction scripts (boundary rebuild, coral spatial
 │                                     #   average, etc.), each documented in the Development Log
-├── dashboard/                       # Streamlit dashboard (10 pages)
+├── dashboard/                       # Streamlit dashboard (11 pages, incl. Comparative Policy)
 │   └── static/                      # Interactive map exports, built in Python (folium) (served via GitHub Pages)
 ├── data/                            # Processed datasets across 5 islands, 11+ categories
 │   ├── settlements/, ecosystem_buffers/, terrain/ (incl. deltadtm/), population/

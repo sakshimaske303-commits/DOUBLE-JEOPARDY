@@ -6,7 +6,7 @@ import os
 
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.append(PROJECT_ROOT)
-from styles import apply_custom_style, PALETTE
+from styles import apply_custom_style, PALETTE, show_image
 from results import load as load_results, pct
 
 apply_custom_style()
@@ -77,7 +77,7 @@ with tab1:
     fig6_path = os.path.join(FIGURES_DIR, "fig6_governance_alignment.png")
     if os.path.exists(fig6_path):
         st.markdown("##### Figure 7 — As it appears in the Research Paper")
-        st.image(fig6_path, use_container_width=True)
+        show_image(fig6_path)
 
 with tab_sb:
     SB, CUR = R.get("setback"), R.get("setback_curve")
@@ -160,7 +160,7 @@ with tab_sb:
         pth = os.path.join(FIGURES_DIR, name)
         if os.path.exists(pth):
             st.markdown(f"##### {cap}")
-            st.image(pth, use_container_width=True)
+            show_image(pth)
 
 with tab_pol:
     POL, TL = R.get("policy"), R.get("policy_timeline")
@@ -228,7 +228,7 @@ with tab_pol:
         pth = os.path.join(FIGURES_DIR, name)
         if os.path.exists(pth):
             st.markdown(f"##### {cap}")
-            st.image(pth, use_container_width=True)
+            show_image(pth)
 
 with tab2:
     st.markdown("### Built-up Change on Land, 2016 to 2024 (supplementary)")

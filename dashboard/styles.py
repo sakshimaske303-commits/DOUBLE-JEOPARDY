@@ -292,3 +292,28 @@ PALETTE = {
     "text_muted": "#9CA3AF",
     "card_bg": "#141414",
 }
+
+
+def show_image(path, caption=None, max_width=1800):
+    """Embed an image in the page itself, so it does not depend on Streamlit's media file server."""
+    import base64, io, os
+    if not os.path.exists(path):
+        return
+    ext = os.path.splitext(path)[1].lower()
+    mime = "image/jpeg" if ext in (".jpg", ".jpeg") else "image/png"
+    with open(path, "rb") as f:
+        data = f.read()
+    if len(data) > 1_500_000:
+        from PIL import Image
+        img = Image.open(io.BytesIO(data))
+        if img.width > max_width:
+            img = img.resize((max_width, round(img.height * max_width / img.width)))
+        buf = io.BytesIO()
+        img.convert("RGB").save(buf, format="JPEG", quality=88)
+        data, mime = buf.getvalue(), "image/jpeg"
+    b64 = base64.b64encode(data).decode("ascii")
+    cap = (f"<p style='text-align:center; color:#9aa7b6; font-size:0.85rem; margin-top:6px;'>{caption}</p>"
+           if caption else "")
+    st.markdown(f"<div style='width:100%;'><img src='data:{mime};base64,{b64}' style='width:100%; height:auto; "
+                f"border-radius:8px;'>{cap}</div>", unsafe_allow_html=True)
+

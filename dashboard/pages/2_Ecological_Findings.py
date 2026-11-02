@@ -4,7 +4,7 @@ import os
 
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.append(PROJECT_ROOT)
-from styles import apply_custom_style, PALETTE
+from styles import apply_custom_style, PALETTE, show_image
 from results import load as load_results, pval
 
 R = load_results()
@@ -93,7 +93,7 @@ with tab1:
     st.markdown("##### Figure 5 — As it appears in the Research Paper")
     fig4_path = os.path.join(FIGURES_DIR, "fig4_coral_thermal_stress_trends.png")
     if os.path.exists(fig4_path):
-        st.image(fig4_path, use_container_width=True)
+        show_image(fig4_path)
     else:
         st.caption("Figure not found yet — run research_paper_figures.py once to generate it.")
 
@@ -148,7 +148,7 @@ with tab2:
     st.markdown("##### Figure 4 — As it appears in the Research Paper")
     fig5_path = os.path.join(FIGURES_DIR, "fig5_mangrove_extent_over_time.png")
     if os.path.exists(fig5_path):
-        st.image(fig5_path, use_container_width=True)
+        show_image(fig5_path)
     else:
         st.caption("Figure not found yet — run research_paper_figures.py once to generate it.")
 

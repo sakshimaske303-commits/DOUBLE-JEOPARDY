@@ -842,6 +842,7 @@ Policy coding (1 November 2026). Until now I only compared the setback widths. W
 - **Put the rules next to the buildings.** `scripts/analysis/coastal_policy_coding.py` compares density nd intensity with the share of low buildings each setback reaches (Entry 18). Lakshadweep comes second in density (5 of 6) but its setback reaches 6.8% of its low buildings. The Maldives has 2 of 6 nd reaches none. If I had only counted laws, these two would look very far apart.
 - **Added regime type.** `scripts/acquisition/download_vdem_owid.py` downloads the V-Dem electoral democracy index, nd the timeline shows the score in the year of each change. Rules were added under scores from 0.13 (Fiji, 2011, under military rule) to 0.89 (Spain, 1988), nd relaxed at 0.88 (Spain) nd 0.56–0.58 (Maldives), so regime type doesn't sort the changes here. With five countries I can only describe this, not test it.
 - **Wrote a policy brief.** Two pages on why distance rules don't work on atolls nd what to use instead (`paper/DJ_Policy_Brief.md`).
+- **Dashboard.** Gave the policy comparison its own page (Comparative Policy) with the coding matrix, the rule timeline with V-Dem nd the brief's recommendations. Also switched every figure on the dashboard to load from inside the page itself, because the "as it appears in the Research Paper" figures were showing up as broken images on the live app.
 
 ### Open Points
 - I did the coding alone, so there's no second coder to compare with.

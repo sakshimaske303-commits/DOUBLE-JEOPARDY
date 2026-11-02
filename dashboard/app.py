@@ -248,7 +248,7 @@ if _POL is not None:
             {int(_p.loc['lakshadweep', 'density'])} of the 6 instrument types and its setback reaches
             {_p.loc['lakshadweep', 'low_reached_by_setback_pct']:.1f}% of its low buildings; the Maldives has
             {int(_p.loc['maldives', 'density'])} and reaches none. Spain relaxed its coastal law in 2013, and the Maldives
-            widened exemptions from environmental review in 2024–2025. See Governance &amp; Encroachment → Policy Comparison.
+            widened exemptions from environmental review in 2024–2025. See the Comparative Policy page.
         </p>
     </div>
     """, unsafe_allow_html=True)
@@ -266,6 +266,7 @@ nav_items = [
     ("Governance & Encroachment", "Protection alignment, coastal setbacks, policy comparison and settlement pressure"),
     ("Interactive Maps & Plots", "Live geospatial exploration plus the four headline charts"),
     ("Robustness & Corrections", "Every sensitivity check, and what Version 1 got wrong"),
+    ("Comparative Policy", "Five governments' coastal law coded: density, intensity, rule changes since 1988 and the policy brief"),
 ]
 
 cols = st.columns(3)

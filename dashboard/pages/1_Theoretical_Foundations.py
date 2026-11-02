@@ -5,7 +5,7 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # .../dashboard
 ROOT_DIR = os.path.dirname(BASE_DIR)                                     # repo root
 sys.path.append(BASE_DIR)
-from styles import apply_custom_style, PALETTE
+from styles import apply_custom_style, PALETTE, show_image
 from results import load as load_results, pct
 
 R = load_results()
@@ -29,7 +29,7 @@ IMG_PATH = os.path.join(ROOT_DIR, "outputs", "plots", "imgg1.png")
 col_a, col_b, col_c = st.columns([0.2, 5.9, 0.2])
 with col_b:
     if os.path.exists(IMG_PATH):
-        st.image(IMG_PATH, use_container_width=True)
+        show_image(IMG_PATH)
     else:
         st.warning("Diagram not found at outputs/plots/imgg1.png")
     st.markdown(

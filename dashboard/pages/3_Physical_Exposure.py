@@ -6,7 +6,7 @@ import os
 
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.append(PROJECT_ROOT)
-from styles import apply_custom_style, PALETTE
+from styles import apply_custom_style, PALETTE, show_image
 from results import load as load_results, pct, source_label
 
 apply_custom_style()
@@ -58,7 +58,7 @@ st.markdown("")
 st.markdown("##### Figure 2 — As it appears in the Research Paper")
 fig2_path = os.path.join(FIGURES_DIR, "fig2_physical_exposure_by_island.png")
 if os.path.exists(fig2_path):
-    st.image(fig2_path, use_container_width=True)
+    show_image(fig2_path)
 
 st.info(f"""
 **Why two elevation models.** Copernicus GLO-30 is a *surface* model: over a wooded or built-up
@@ -108,7 +108,7 @@ not counted as safe; usable coverage is below 80% for {', '.join(low_cov) if low
 fig3_path = os.path.join(FIGURES_DIR, "fig3_settlement_vs_population_weighted.png")
 if os.path.exists(fig3_path):
     st.markdown("##### Figure 3 — As it appears in the Research Paper")
-    st.image(fig3_path, use_container_width=True)
+    show_image(fig3_path)
 
 st.markdown("---")
 st.markdown("### Try a Different Water Level")

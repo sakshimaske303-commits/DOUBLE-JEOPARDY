@@ -5,7 +5,7 @@ import os
 
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.append(PROJECT_ROOT)
-from styles import apply_custom_style, PALETTE
+from styles import apply_custom_style, PALETTE, show_image
 from results import load as load_results, pct, source_label
 
 apply_custom_style()
@@ -59,7 +59,7 @@ def proof_popover(filename, caption):
     path = os.path.join(PROOF_DIR, filename)
     with st.popover("Proof"):
         if os.path.exists(path):
-            st.image(path, caption=caption, use_container_width=True)
+            show_image(path, caption=caption)
         else:
             st.caption(f"Screenshot not added yet — save it as `outputs/proof_screenshots/{filename}`.")
 
