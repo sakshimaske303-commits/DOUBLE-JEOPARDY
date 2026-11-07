@@ -46,12 +46,12 @@ keywords:
   - policy design
 identifiers:
   - type: doi
-    value: "10.5281/zenodo.23827474"
-    description: "Zenodo archive of DOUBLE JEOPARDY v2.1.0"
+    value: "10.5281/zenodo.21739960"
+    description: "Zenodo archive of DOUBLE JEOPARDY (concept DOI, resolves to the latest version)"
   - type: doi
     value: "10.31223/X5M50Q"
     description: "EarthArXiv preprint"
-doi: "10.5281/zenodo.23827474"
+doi: "10.5281/zenodo.21739960"
 license: CC-BY-4.0
-version: 2.1.0
-date-released: "2026-10-31"
+version: 2.2.0
+date-released: "2026-11-07"

@@ -63,7 +63,7 @@ st.markdown(
                 </div>
             </div>
         </a>
-        <a href="https://doi.org/10.5281/zenodo.23827474" target="_blank" class="doi-badge-link" style="text-decoration:none;">
+        <a href="https://doi.org/10.5281/zenodo.21739960" target="_blank" class="doi-badge-link" style="text-decoration:none;">
             <div class="doi-badge-card" style="
                 display:flex; align-items:center; gap:18px;
                 background: linear-gradient(145deg, {PALETTE['card_bg']}, #0A0A0A);
@@ -78,7 +78,7 @@ st.markdown(
                         <span style="opacity:0.8; font-size:0.95rem;">↗</span>
                     </div>
                     <div style="color:{PALETTE['text_dark']}; font-family:'Poppins',sans-serif; font-weight:900; font-size:1.35rem; margin-top:2px;">
-                        DOI: 10.5281/zenodo.23827474
+                        DOI: 10.5281/zenodo.21739960
                     </div>
                 </div>
             </div>

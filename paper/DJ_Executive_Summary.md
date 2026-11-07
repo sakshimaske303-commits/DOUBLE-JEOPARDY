@@ -1,7 +1,7 @@
 # DOUBLE JEOPARDY
 ### Do Coastal Rules Reach the People at Risk? Comparing Five Island Jurisdictions
 
-Executive Summary · Version 2.1 · DOI: 10.5281/zenodo.23827474 · Sakshi D. Maske
+Executive Summary · Version 2.2 · DOI: 10.5281/zenodo.21739960 · Sakshi D. Maske
 
 ## Project Overview
 
@@ -91,6 +91,6 @@ For coastal law on atolls, the results point to rules written in heights, such a
 
 ---
 
-GitHub: [github.com/sakshimaske303-commits/DOUBLE-JEOPARDY](https://github.com/sakshimaske303-commits/DOUBLE-JEOPARDY) | Live Dashboard: [double-jeopardy-6ev9trz3dwafsb7panbnxg.streamlit.app](https://double-jeopardy-6ev9trz3dwafsb7panbnxg.streamlit.app) | Zenodo DOI: [10.5281/zenodo.23827474](https://doi.org/10.5281/zenodo.23827474)
+GitHub: [github.com/sakshimaske303-commits/DOUBLE-JEOPARDY](https://github.com/sakshimaske303-commits/DOUBLE-JEOPARDY) | Live Dashboard: [double-jeopardy-6ev9trz3dwafsb7panbnxg.streamlit.app](https://double-jeopardy-6ev9trz3dwafsb7panbnxg.streamlit.app) | Zenodo DOI: [10.5281/zenodo.21739960](https://doi.org/10.5281/zenodo.21739960)
 
 **Sakshi D. Maske**, Independent Geospatial Researcher

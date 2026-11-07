@@ -1,5 +1,5 @@
 # Distance Rules Do Not Fit Atolls
-### Policy brief from DOUBLE JEOPARDY: Do Coastal Rules Reach the People at Risk? Comparing Five Island Jurisdictions · Version 2.1 · Sakshi D. Maske
+### Policy brief from DOUBLE JEOPARDY: Do Coastal Rules Reach the People at Risk? Comparing Five Island Jurisdictions · Version 2.2 · Sakshi D. Maske
 
 ## Key points
 
@@ -37,4 +37,4 @@ DOUBLE JEOPARDY compared five island groups under five different governments: th
 
 The shoreline used here is the edge of mapped island polygons rather than the legal reference line, so distances may be off by some tens of metres. Elevation has an error of about 0.4–0.5 m. The Lakshadweep setback width and the Maldivian changes of 2024–2025 rest on secondary sources. Many buildings predate the rules, so the analysis shows whether a rule is drawn where low buildings stand, not whether any rule was obeyed or broken.
 
-**Full study:** Research Paper, Sections 3.9–3.10 and 4.8–4.9 · Code and data: [github.com/sakshimaske303-commits/DOUBLE-JEOPARDY](https://github.com/sakshimaske303-commits/DOUBLE-JEOPARDY) · Zenodo DOI: [10.5281/zenodo.23827474](https://doi.org/10.5281/zenodo.23827474)
+**Full study:** Research Paper, Sections 3.9–3.10 and 4.8–4.9 · Code and data: [github.com/sakshimaske303-commits/DOUBLE-JEOPARDY](https://github.com/sakshimaske303-commits/DOUBLE-JEOPARDY) · Zenodo DOI: [10.5281/zenodo.21739960](https://doi.org/10.5281/zenodo.21739960)

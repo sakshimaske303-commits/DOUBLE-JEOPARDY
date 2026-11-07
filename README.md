@@ -1,6 +1,6 @@
 # DOUBLE JEOPARDY: Do Coastal Rules Reach the People at Risk? Comparing Five Island Jurisdictions
 
-[![EarthArXiv](https://img.shields.io/badge/EarthArXiv-Preprint-B7410E.svg)](https://eartharxiv.org/repository/view/14826/) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23827474.svg)](https://doi.org/10.5281/zenodo.23827474)
+[![EarthArXiv](https://img.shields.io/badge/EarthArXiv-Preprint-B7410E.svg)](https://eartharxiv.org/repository/view/14826/) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21739960.svg)](https://doi.org/10.5281/zenodo.21739960)
 
 **How many people on five island groups live at or below 1 m, how reef heat stress has changed around them, and whether protection and coastal building rules follow that risk.**
 

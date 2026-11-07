@@ -4,7 +4,7 @@ Sakshi D. Maske
 
 *Independent Geospatial Researcher* · ORCID [0009-0002-5683-5966](https://orcid.org/0009-0002-5683-5966) · sakshimaske303@gmail.com
 
-Version 2.1.0 · Archived release: Zenodo, DOI [10.5281/zenodo.23827474](https://doi.org/10.5281/zenodo.23827474) · Preprint of the first version: EarthArXiv, DOI [10.31223/X5M50Q](https://doi.org/10.31223/X5M50Q) · Code and data: [github.com/sakshimaske303-commits/DOUBLE-JEOPARDY](https://github.com/sakshimaske303-commits/DOUBLE-JEOPARDY)
+Version 2.2.0 · Archived on Zenodo (all versions), DOI [10.5281/zenodo.21739960](https://doi.org/10.5281/zenodo.21739960) · Preprint of the first version: EarthArXiv, DOI [10.31223/X5M50Q](https://doi.org/10.31223/X5M50Q) · Code and data: [github.com/sakshimaske303-commits/DOUBLE-JEOPARDY](https://github.com/sakshimaske303-commits/DOUBLE-JEOPARDY)
 
 
 ## Abstract
@@ -494,7 +494,7 @@ No human participants, animals or personal data were involved, so ethical approv
 
 ### Data availability
 
-The study uses public data only: DeltaDTM v1.1 and the Copernicus DEM GLO-30 for elevation, WorldPop 2020 for population, OpenStreetMap for named places and coastlines, Overture Maps building footprints, NOAA Coral Reef Watch Degree Heating Weeks, Global Mangrove Watch v3, UNEP-WCMC reef and mangrove layers, the World Database on Protected Areas (June 2026 release), Sentinel-2, the V-Dem electoral democracy index (v16, via Our World in Data) and the published texts of national coastal and environmental laws. My own code and text are released under CC BY 4.0, but third-party data keep their original licences. WDPA extracts are not included because their terms do not allow public redistribution, and the UNEP-WCMC layers are for non-commercial research use. Full citations, licences and attribution texts are in `DATA_SOURCES_AND_LICENSES.md`. The code, processed data and figures are archived on Zenodo (DOI [10.5281/zenodo.23827474](https://doi.org/10.5281/zenodo.23827474)) and maintained on GitHub ([github.com/sakshimaske303-commits/DOUBLE-JEOPARDY](https://github.com/sakshimaske303-commits/DOUBLE-JEOPARDY)).
+The study uses public data only: DeltaDTM v1.1 and the Copernicus DEM GLO-30 for elevation, WorldPop 2020 for population, OpenStreetMap for named places and coastlines, Overture Maps building footprints, NOAA Coral Reef Watch Degree Heating Weeks, Global Mangrove Watch v3, UNEP-WCMC reef and mangrove layers, the World Database on Protected Areas (June 2026 release), Sentinel-2, the V-Dem electoral democracy index (v16, via Our World in Data) and the published texts of national coastal and environmental laws. My own code and text are released under CC BY 4.0, but third-party data keep their original licences. WDPA extracts are not included because their terms do not allow public redistribution, and the UNEP-WCMC layers are for non-commercial research use. Full citations, licences and attribution texts are in `DATA_SOURCES_AND_LICENSES.md`. The code, processed data and figures are archived on Zenodo (DOI [10.5281/zenodo.21739960](https://doi.org/10.5281/zenodo.21739960)) and maintained on GitHub ([github.com/sakshimaske303-commits/DOUBLE-JEOPARDY](https://github.com/sakshimaske303-commits/DOUBLE-JEOPARDY)).
 
 ### Code availability and reproducibility
 
