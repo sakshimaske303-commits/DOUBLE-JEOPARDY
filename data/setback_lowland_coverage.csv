@@ -1,0 +1,11 @@
+island,variant,spacing_m,land_points,land_points_with_elevation,low_points,low_land_km2,low_land_pct_of_land,statutory_setback_m,low_land_median_dist_m,pct_low_land_within_20m,pct_low_land_within_25m,pct_low_land_within_100m,pct_low_land_within_statutory_setback
+Maldives,all_low_land,30,325359,236642,37871,34.08,16.0,none,58.5,19.34,24.12,70.3,
+Maldives,open_low_land,30,325359,236642,29277,26.35,16.0,none,51.7,22.67,28.04,73.74,
+Lakshadweep,all_low_land,30,34286,33333,3752,3.38,11.26,20,58.1,21.78,26.33,69.56,21.78
+Lakshadweep,open_low_land,30,34286,33333,3388,3.05,11.26,20,56.9,22.93,27.57,70.43,22.93
+Seychelles,all_low_land,30,493307,460330,10280,9.25,2.23,25,65.2,20.55,25.17,63.32,25.17
+Seychelles,open_low_land,30,493307,460330,8494,7.64,2.23,25,56.7,23.28,28.37,67.34,28.37
+Fiji,all_low_land,60,5245935,5197950,18708,67.35,0.36,none,316.9,7.36,8.91,25.14,
+Fiji,open_low_land,60,5245935,5197950,18440,66.38,0.36,none,322.5,7.33,8.87,24.78,
+Canary Islands,all_low_land,60,2056470,2052615,1740,6.26,0.08,100/20,22.0,47.59,52.82,73.51,73.51
+Canary Islands,open_low_land,60,2056470,2052615,1687,6.07,0.08,100/20,22.1,47.48,52.64,73.03,73.03

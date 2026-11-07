@@ -20,6 +20,8 @@ All paths are relative to the repository root. Large rasters (`*.tif`), the full
 | `ndbi_land_change.csv` | `scripts/analysis/ndbi_land_change.py` | Encroachment results |
 | `setback_calibration_summary.csv` | `scripts/analysis/setback_calibration.py` | Paper Section 4.8, Figure 9 |
 | `setback_coverage_curve.csv` | `scripts/analysis/setback_calibration.py` | Interactive setback curve |
+| `setback_lowland_coverage.csv` | `scripts/analysis/setback_lowland_coverage.py` | Paper Section 4.8 (low land within each setback width) |
+| `setback_lowland_curve.csv` | `scripts/analysis/setback_lowland_coverage.py` | Share of low land within 10–500 m of the shore |
 | `coastal_policy_scores.csv` | `scripts/analysis/coastal_policy_coding.py` | Paper Section 4.9, Figure 11 |
 | `coastal_policy_timeline_with_regime.csv` | `scripts/analysis/coastal_policy_coding.py` | Timeline with the V-Dem score in the year of each change (Figure 12) |
 

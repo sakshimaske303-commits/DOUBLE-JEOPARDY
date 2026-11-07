@@ -211,6 +211,6 @@ except FileNotFoundError:
 
 st.markdown("---")
 st.markdown(
-    "<p class='caption-text' style='text-align:center;'>DOUBLE JEOPARDY — The Vulnerability Spiral</p>",
+    "<p class='caption-text' style='text-align:center;'>DOUBLE JEOPARDY: Do Coastal Rules Reach the People at Risk? Comparing Five Island Jurisdictions</p>",
     unsafe_allow_html=True,
 )

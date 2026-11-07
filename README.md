@@ -1,4 +1,4 @@
-# DOUBLE JEOPARDY: The Vulnerability Spiral
+# DOUBLE JEOPARDY: Do Coastal Rules Reach the People at Risk? Comparing Five Island Jurisdictions
 
 [![EarthArXiv](https://img.shields.io/badge/EarthArXiv-Preprint-B7410E.svg)](https://eartharxiv.org/repository/view/14826/) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23827474.svg)](https://doi.org/10.5281/zenodo.23827474)
 
@@ -15,12 +15,12 @@
 | [`DJ_Executive_Summary.pdf`](./paper/DJ_Executive_Summary.pdf) / [`.md`](./paper/DJ_Executive_Summary.md) | One page snapshot: project overview, question, method, headline findings, limitations, and links (fastest overview; start here) |
 | [`DJ_Research_Paper.md`](./paper/DJ_Research_Paper.md) | Research paper: literature review, methods, results, limitations |
 | [`DJ_Development_Log.md`](./paper/DJ_Development_Log.md) | Full technical development log: every bug, debugging session, and methodology iteration |
-| [`DJ_Policy_Brief.pdf`](./paper/DJ_Policy_Brief.pdf) / [`.md`](./paper/DJ_Policy_Brief.md) | Two-page policy brief: why distance-based setbacks do not protect atolls, and what to use instead |
+| [`DJ_Policy_Brief.pdf`](./paper/DJ_Policy_Brief.pdf) / [`.md`](./paper/DJ_Policy_Brief.md) | Two-page policy brief: why distance-based setbacks do not fit atolls, and what to use instead |
 | [`DJ_Declarations.pdf`](./paper/DJ_Declarations.pdf) / [`.md`](./paper/DJ_Declarations.md) | Declarations: highlights, contributions, funding, data licences, reproducibility, what changed from version 1, AI assistance |
 
 ---
 
-DOUBLE JEOPARDY looks at two threats to low islands together: the sea rising, and the reefs and mangroves that hold it back weakening. It measures both across 5 island groups in 3 ocean basins (Maldives, Lakshadweep, Seychelles, Fiji, Canary Islands), tests each ecosystem separately, and shows how much the answer depends on the elevation model, the exposure measure and the weighting.
+DOUBLE JEOPARDY looks at two threats to low islands together: the sea rising, and the reefs and mangroves that hold it back weakening. It measures both across 5 island groups in 3 ocean basins (Maldives, Lakshadweep, Seychelles, Fiji, Canary Islands), tests each ecosystem separately, and checks how much the results move when the height data, or the way exposure is counted, changes.
 
 ---
 
@@ -61,8 +61,8 @@ Interactive geospatial maps are hosted separately via GitHub Pages. Sample links
 - Tracks **mangrove extent** at 3 time points (1996, 2010, 2020) and **reef heat stress** as mean Degree Heating Weeks over all mapped reef cells, 1996–2020, tested as 2 separate hypotheses instead of one combined assumption
 - Combines exposure and the change in reef heat stress into a **compound score**, and sweeps the weighting from 0 to 100% to show where the ranking changes
 - Describes whether **protected-area coverage of the 10 km coastal zone** follows that risk (4 island groups; descriptive, not a test)
-- Tests whether each government's **statutory coastal setback** reaches the buildings on low land, using about 1.35 million building footprints (Overture Maps) and the setback written in national law
-- Codes each government's **coastal rules** by hand (policy density and setback intensity) and **23 rule changes since 1988**, and compares these policy outputs with how many low-lying buildings the rules reach
+- Checks whether each government's **statutory coastal setback** is drawn where the buildings on low land stand (design fit; compliance is not measured), using about 1.35 million building footprints (Overture Maps) and the setback written in national law
+- Codes each government's **coastal rules** by hand (policy density and setback intensity) and **23 rule changes since 1988**, and sets these policy outputs next to that design fit
 - Adds **built-up change on land** from Sentinel-2 NDBI (2016–2024) as supporting context
 - Presents everything in an interactive Streamlit dashboard that reads its numbers directly from the analysis CSVs, with Python (folium) maps and Plotly plots
 
@@ -90,26 +90,27 @@ Counting named places instead of people gives a different picture: Maldives 28.8
 
 **5. Protection does not track risk in this sample.** Coastal-zone protection ranges from 1.3% (Maldives) to 71.4% (Seychelles) and is unrelated to the compound score (r = −0.10, 95% interval −0.97 to 0.95, n = 4; Lakshadweep has no WDPA record). Removing Seychelles alone moves r to −0.95, so this is a description of four island groups, not a finding that generalises.
 
-**6. Coastal setbacks miss most low-lying buildings outside the Canary Islands.** For every building footprint, bare-earth elevation and distance to the shoreline were compared with the setback in national law:
+**6. On atolls, coastal setbacks are written in the wrong unit.** For every building footprint, bare-earth elevation and distance to the shoreline were compared with the setback in national law:
 
-| Island group | Buildings at or below 1 m | Statutory setback | Low buildings landward of every setback | Distance covering 90% of them |
-|---|---:|---|---:|---:|
-| Maldives | 13.4% (15,392) | none for inhabited islands | 99.4% | 225 m |
-| Lakshadweep | 4.7% (444) | 20 m | 93.2% | 345 m |
-| Seychelles | 4.6% (2,440) | 25 m | 92.0% | 427 m |
-| Fiji | 0.5% (1,397) | none | 99.8% | 463 m |
-| Canary Islands | 0.02% (192) | 100 m (20 m urban) | 15.1% | 122 m |
+| Island group | Buildings at or below 1 m | Statutory setback | Low buildings within the setback | Within 20 m, same width everywhere | Distance covering 90% of them |
+|---|---:|---|---:|---:|---:|
+| Maldives | 13.4% (15,392) | none for inhabited islands | no setback | 5.2% | 225 m |
+| Lakshadweep | 4.7% (444) | 20 m | 6.8% | 6.8% | 345 m |
+| Seychelles | 4.6% (2,440) | 25 m | 8.0% | 5.6% | 427 m |
+| Fiji | 0.5% (1,397) | none | no setback | 6.9% | 463 m |
+| Canary Islands | 0.02% (192) | 100 m (20 m urban) | 84.9% | 51.6% | 122 m |
 
-The 20 m and 25 m rules reach fewer than one in ten low buildings, which stand a median 80–136 m inland; Spain's 100 m Ley de Costas line covers 85% because low land in the Canaries is a narrow beachfront strip. On atolls low land is most of the island, so a distance rule, however wide, measures the wrong thing (Section 4.8 of the paper).
+The 20 m and 25 m rules cover fewer than one in ten low buildings, which stand a median 80–136 m inland, and the same 20 m width would cover about the same share in the Maldives and Fiji, which have no rule. Spain's 100 m Ley de Costas line covers 85% of the Canaries' 192 low buildings, a narrow beachfront and port strip (52% under the 20 m urban rule). Measured on low land rather than buildings, a 20–25 m setback covers 19–26% of the ground at or below 1 m on the atolls and Seychelles, and a 100 m line 63–70% (`scripts/analysis/setback_lowland_coverage.py`). On atolls most of the land is low, so distance from the shore says little about which buildings are at risk (Section 4.8 of the paper).
 
-**7. More coastal rules did not mean more reach.** Each government's coastal rules were coded from the legal texts (`data/policy_coding/`, with sources and a codebook): six instrument types for policy density and the setback width for intensity.
+**7. Instrument counts and setback coverage do not line up.** Each government's coastal rules were coded from the legal texts (`data/policy_coding/`, with sources and a codebook): six instrument types for policy density and the setback width for intensity.
 
 | | Canary Islands | Lakshadweep | Seychelles | Fiji | Maldives |
 |---|---:|---:|---:|---:|---:|
 | Coastal instrument types in force (of 6) | 6 | 5 | 3 | 3 | 2 |
-| Low buildings reached by the setback | 84.9% | 6.8% | 8.0% | 0% | 0% |
+| Statutory setback | 100 m (20 m urban) | 20 m | 25 m | none | none |
+| Low buildings within 20 m of the shore, same width | 51.6% | 6.8% | 5.6% | 6.9% | 5.2% |
 
-Lakshadweep has five of the six instrument types and its setback reaches 6.8% of its low buildings. Of 23 dated rule changes since 1988, 15 added protection; Spain relaxed its coastal law in 2013 and moved coastal management functions to the Canary Islands government in 2023, and the Maldives widened exemptions from environmental review in 2024–2025.
+Lakshadweep has five of the six instrument types and the Maldives two, yet a distance rule fits the low buildings of both equally poorly. These are descriptive comparisons; compliance and enforcement are not observed. Of 23 dated rule changes since 1988, 15 added protection; Spain relaxed its coastal law in 2013 and moved coastal management functions to the Canary Islands government in 2023, and the Maldives widened exemptions from environmental review in 2024–2025.
 
 **What changed from version 1.** Version 1 reported 78.3% of Seychelles settlements at risk, significant coral trends in the Maldives and Seychelles, a ranking that "held at every weighting", and a governance correlation of r = 0.965 (p = 0.035). Each of these came from a measurement choice that did not hold up: NoData elevation values counted as sea level, OSM points that are mostly island names, a surface elevation model, one 5 km DHW cell per island, a trend test that ignored serial correlation, and protected areas counted twice over a land-area denominator. The [Development Log](./paper/DJ_Development_Log.md) records each correction.
 
@@ -167,7 +168,7 @@ python scripts/run_all.py --download   # fetch Copernicus DEM tiles + reef-cell 
 python scripts/run_all.py              # re-run analysis, figures, maps and dashboard data only
 ```
 
-Every reported number is written to a CSV in `data/` (e.g. `slr_exposure_summary.csv`, `population_weighted_exposure.csv`, `coral_trend_results.csv`, `compound_vulnerability_scores.csv`, `governance_alignment_summary.csv`, `ndbi_land_change.csv`, `setback_calibration_summary.csv`), and the figures and dashboard read those files. Elevation sampling for all islands uses one shared rule in `scripts/common/dem_sampling.py`. The setback analysis needs building footprints, which are too large to commit: run `python scripts/acquisition/download_buildings_overture.py` (needs `pip install overturemaps`) and `python scripts/processing/export_building_points.py` once, and `run_all.py` then includes `scripts/analysis/setback_calibration.py`. The DeltaDTM export needs the Earth Engine Python API (`pip install earthengine-api`) and an Earth Engine project; everything else runs without it.
+Nearly every reported number is written to a CSV in `data/` (the mangrove areas are the main exception) (e.g. `slr_exposure_summary.csv`, `population_weighted_exposure.csv`, `coral_trend_results.csv`, `compound_vulnerability_scores.csv`, `governance_alignment_summary.csv`, `ndbi_land_change.csv`, `setback_calibration_summary.csv`), and the figures and dashboard read those files. Elevation sampling for all islands uses one shared rule in `scripts/common/dem_sampling.py`. The setback analysis needs building footprints, which are too large to commit: run `python scripts/acquisition/download_buildings_overture.py` (needs `pip install overturemaps`) and `python scripts/processing/export_building_points.py` once, and `run_all.py` then includes `scripts/analysis/setback_calibration.py`. The DeltaDTM export needs the Earth Engine Python API (`pip install earthengine-api`) and an Earth Engine project; everything else runs without it.
 
 Two checks recompute key results independently: `scripts/validation/coral_trend_check.py` (coral trend p-values without pyMannKendall; they agree to within 0.005) and `scripts/validation/setback_distance_check.py` (setback distances on the WGS84 ellipsoid; fewer than 0.1% of sampled buildings change side of any setback line). `run_all.py` runs both and ends with COMPLETE RUN or PARTIAL RUN.
 

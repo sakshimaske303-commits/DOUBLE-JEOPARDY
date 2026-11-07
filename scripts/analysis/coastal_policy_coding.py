@@ -1,5 +1,10 @@
-"""Coastal policy density and intensity for the five jurisdictions, compared with how many
-low-lying buildings each setback reaches, plus a timeline of rule changes.
+"""Coastal policy density and intensity for the five jurisdictions, set next to where the
+low-lying buildings stand relative to each setback, plus a timeline of rule changes.
+
+The share of low buildings within a setback is a measure of design fit (does a rule written as a
+distance from the shore cover the places where land is low?), not a policy outcome. It is reported
+only where a statutory setback exists, and next to the share within the same 20 m and 100 m widths
+on every island, so that island geometry and the presence of a rule can be told apart.
 
 Run from the repository root:
     python scripts/analysis/coastal_policy_coding.py
@@ -43,7 +48,9 @@ sb["jurisdiction"] = sb["island"].map(SUMMARY_NAME)
 sb = sb.set_index("jurisdiction").reindex(ORDER)
 has_rule = out["setback_general_m"] > 0
 out["low_buildings"] = sb["low_buildings"]
-out["low_reached_by_setback_pct"] = (100 - sb["low_outside_every_setback_pct"]).round(1).where(has_rule, 0.0)
+out["low_within_statutory_setback_pct"] = (100 - sb["low_outside_every_setback_pct"]).round(1).where(has_rule)
+out["low_within_20m_pct"] = sb["low_within_20m_pct"].round(1)
+out["low_within_100m_pct"] = sb["low_within_100m_pct"].round(1)
 out["setback_for_75pct_low_m"] = sb["setback_covering_75pct_low_m"]
 
 tl = pd.read_csv(os.path.join(D, "policy_coding", "coastal_policy_timeline.csv"))
@@ -73,24 +80,28 @@ out.insert(0, "label", [LABEL[j] for j in out.index])
 out.to_csv(os.path.join(D, "coastal_policy_scores.csv"))
 print(out.to_string())
 
-# ---------- Figure 11: density, intensity, reach ----------
+# ---------- Figure 11: density, intensity, and the same 20 m width on every island ----------
 os.makedirs(PLOTS, exist_ok=True)
 panels = [("density", "Policy density\n(instrument types in force, of 6)", 6, "{:.0f}"),
           ("intensity", "Setback intensity\n(mean width / 100 m)", 1, "{:.2f}"),
-          ("low_reached_by_setback_pct", "Low-lying buildings reached\nby the setback (%)", 100, "{:.1f}")]
+          ("low_within_20m_pct", "Low-lying buildings within 20 m\nof the shore, same width everywhere (%)", 100, "{:.1f}")]
+RULE = {"canary": "rule: 100 m / 20 m", "lakshadweep": "rule: 20 m", "seychelles": "rule: 25 m",
+        "fiji": "no rule", "maldives": "no rule"}
 fig, axes = plt.subplots(1, 3, figsize=(11, 3.9), sharey=True)
 y = np.arange(len(ORDER))[::-1]
 for ax, (col, title, xmax, fmt) in zip(axes, panels):
     vals = out.loc[ORDER, col].values
     ax.barh(y, vals, color=[COLOR[j] for j in ORDER], height=0.62)
-    for yi, v in zip(y, vals):
-        ax.text(v + xmax * 0.02, yi, fmt.format(v), va="center", fontsize=9)
+    for yi, v, j in zip(y, vals, ORDER):
+        lab = fmt.format(v) + (f"  ({RULE[j]})" if col == "low_within_20m_pct" else "")
+        ax.text(v + xmax * 0.02, yi, lab, va="center", fontsize=8.5)
     ax.set_xlim(0, xmax * 1.18); ax.set_title(title, fontsize=10)
     ax.spines[["top", "right"]].set_visible(False)
 axes[0].set_yticks(y); axes[0].set_yticklabels([LABEL[j] for j in ORDER])
-plt.figtext(0.5, 0.01, "Coding: data/policy_coding (rules in force, October 2026). Reach: share of buildings at or below 1 m "
-            "that stand within the statutory setback (Section 4.8).", ha="center", fontsize=7, color="gray")
-plt.tight_layout(rect=(0, 0.05, 1, 1))
+plt.figtext(0.5, 0.01, "Coding: data/policy_coding (rules in force, October 2026). Right panel: share of buildings at or below 1 m "
+            "within 20 m of the island outline, the same width on every island.\nLow buildings (n): Canary 192, "
+            "Lakshadweep 444, Seychelles 2,440, Fiji 1,397, Maldives 15,392.", ha="center", fontsize=6.5, color="gray")
+plt.tight_layout(rect=(0, 0.08, 1, 1))
 plt.savefig(os.path.join(PLOTS, "fig11_policy_density_intensity.png"), dpi=200); plt.close()
 
 # ---------- Figure 12: timeline ----------
@@ -108,11 +119,11 @@ for j, i in rows.items():
         ax.plot(s["year"], i - 0.35 + 0.7 * s["electoral_democracy_vdem"], color="#bdbdbd", lw=1.2, zorder=2)
 ax.set_yticks(list(rows.values())); ax.set_yticklabels([LABEL[j] for j in rows])
 ax.set_xlim(1986, 2027); ax.set_ylim(-0.6, len(ORDER) - 0.4)
-for k in ["expansion", "dismantling", "reallocation", "reform"]:
+for k in ["expansion", "dismantling", "reallocation", "reform", "implementation"]:
     m, c = MARK[k]; ax.scatter([], [], marker=m, color=c, s=70, label=k)
 if vdem is not None:
-    ax.plot([], [], color="#bdbdbd", lw=1.2, label="V-Dem electoral democracy (row band = 0 to 1)")
-ax.legend(loc="upper left", fontsize=8, frameon=False, ncol=5, bbox_to_anchor=(0, 1.12))
+    ax.plot([], [], color="#bdbdbd", lw=1.2, label="V-Dem electoral democracy (bottom of row = 0, top = 1)")
+ax.legend(loc="upper left", fontsize=8, frameon=False, ncol=6, bbox_to_anchor=(0, 1.12))
 ax.spines[["top", "right", "left"]].set_visible(False)
 plt.figtext(0.5, 0.01, "Source: data/policy_coding/coastal_policy_timeline.csv. Direction coded as in the codebook.",
             ha="center", fontsize=7, color="gray")

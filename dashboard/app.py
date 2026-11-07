@@ -31,7 +31,7 @@ ROOT_DIR = os.path.dirname(BASE_DIR)                      # repo root
 st.markdown("<h1 style='text-align: center;'>DOUBLE JEOPARDY</h1>", unsafe_allow_html=True)
 st.markdown(
     "<h3 style='text-align: center; color: #67E8F9; font-weight: 400; margin-top: -10px;'>"
-    "The Vulnerability Spiral — Compound Climate Risk Across 5 Islands</h3>",
+    "Do Coastal Rules Reach the People at Risk? Comparing Five Island Jurisdictions</h3>",
     unsafe_allow_html=True,
 )
 
@@ -119,9 +119,9 @@ st.markdown(
             Counting named places instead of people puts Seychelles level with the Maldives. And once
             reef heat stress is added, the top island depends on the weighting: Seychelles at equal weights,
             the Maldives once exposure carries {R['cvs_crossover']:.0%} or more of the weight. A single number would hide all of this.
-            The same goes for policy: the coastal setbacks in national law reach fewer than one in ten
-            low-lying buildings on the tropical islands, because on atolls low land is the island, not its edge,
-            and a government with more coastal rules does not reach more of them.
+            The same goes for policy: the coastal setbacks in national law cover fewer than one in ten
+            low-lying buildings on the tropical islands, because on atolls most of the land is low, not only the shore,
+            and counting a government's coastal rules says nothing about that fit.
         </p>
     </div>
     """,
@@ -241,13 +241,13 @@ if _POL is not None:
     <div style="background: {PALETTE['card_bg']}; border-radius: 14px; margin-top: 18px;
                 padding: 20px; border: 2px solid {PALETTE['green']};">
         <p style="color: {PALETTE['green']}; font-weight: 800; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 8px;">Policy extension — Comparing the five governments' coastal rules</p>
-        <p style="color: {PALETTE['navy']}; font-weight: 700; font-size: 1rem; margin-bottom: 8px;">More Rules Did Not Mean More Reach</p>
+        <p style="color: {PALETTE['navy']}; font-weight: 700; font-size: 1rem; margin-bottom: 8px;">Instrument Counts Do Not Track Design Fit</p>
         <p style="color: {PALETTE['text_dark']}; font-size: 0.85rem; margin: 0;">
             Each government's coastal rules were coded from the legal texts: six instrument types for policy density,
             the setback width for intensity, and 23 dated rule changes since 1988. Lakshadweep has
-            {int(_p.loc['lakshadweep', 'density'])} of the 6 instrument types and its setback reaches
-            {_p.loc['lakshadweep', 'low_reached_by_setback_pct']:.1f}% of its low buildings; the Maldives has
-            {int(_p.loc['maldives', 'density'])} and reaches none. Spain relaxed its coastal law in 2013, and the Maldives
+            {int(_p.loc['lakshadweep', 'density'])} of the 6 instrument types and its 20 m zone covers
+            {_p.loc['lakshadweep', 'low_within_statutory_setback_pct']:.1f}% of its low buildings; the Maldives has
+            {int(_p.loc['maldives', 'density'])} and no setback, and the same width would cover {_p.loc['maldives', 'low_within_20m_pct']:.1f}% there. Spain relaxed its coastal law in 2013, and the Maldives
             widened exemptions from environmental review in 2024–2025. See the Comparative Policy page.
         </p>
     </div>

@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this software or its findings, please cite it using the metadata below."
-title: "DOUBLE JEOPARDY: The Vulnerability Spiral of Compound Climate Risk Across 5 Islands"
+title: "DOUBLE JEOPARDY: Do Coastal Rules Reach the People at Risk? Comparing Five Island Jurisdictions"
 type: software
 authors:
   - family-names: "Maske"
@@ -22,10 +22,14 @@ abstract: >-
   Maldives in a near tie, with the top island changing at an exposure weight of
   0.52. Protection of the 10 km coastal zone does not follow this risk across the
   four island groups with a WDPA record (r = -0.10, n = 4; descriptive only).
-  Across about 1.35 million building footprints, statutory coastal setbacks
-  reach fewer than one in ten buildings at or below 1 m in Seychelles (25 m) and
-  Lakshadweep (20 m), the Maldives and Fiji have no setback for inhabited land,
-  and the Canary Islands' 100 m rule covers 85%.
+  Across about 1.35 million building footprints, the statutory setbacks of
+  Seychelles (25 m) and Lakshadweep (20 m) cover fewer than one in ten buildings
+  at or below 1 m, about the share the same width would cover in the Maldives and
+  Fiji, which have no setback for inhabited land, so coverage follows island
+  geometry rather than the rule. The Canary Islands' 100 m rule covers 85% of a
+  small set of 192 low buildings. Measured on low land rather than buildings, a
+  20-25 m setback covers about a fifth to a quarter of the ground at or below
+  1 m on the atolls and Seychelles.
 keywords:
   - sea-level rise
   - mangroves
@@ -39,6 +43,7 @@ keywords:
   - geospatial analysis
   - coastal setbacks
   - comparative environmental policy
+  - policy design
 identifiers:
   - type: doi
     value: "10.5281/zenodo.23827474"

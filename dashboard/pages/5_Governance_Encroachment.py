@@ -1,6 +1,7 @@
 import streamlit as st
 import plotly.graph_objects as go
 import numpy as np
+import pandas as pd
 import sys
 import os
 
@@ -81,12 +82,13 @@ with tab1:
 
 with tab_sb:
     SB, CUR = R.get("setback"), R.get("setback_curve")
-    st.markdown("### Do the Building Rules Reach the Low-Lying Buildings?")
+    st.markdown("### Is the Building Rule Drawn Where the Low-Lying Buildings Are?")
     st.markdown("""
     A setback is the one coastal rule that decides where people may build. For about 1.35 million building
     footprints (Overture Maps, release 2026-08-19.0), the bare-earth elevation (DeltaDTM) and the distance to the
-    shoreline were compared with the setback written in national law. The question is how many buildings at or
-    below 1 m stand landward of that line, where the rule does not reach them.
+    shoreline were compared with the setback written in national law. The question is whether the rule is drawn
+    where the buildings at or below 1 m stand. Many buildings predate the rules, so this measures the design of the
+    rule (its fit to the low land), not compliance.
     """)
     if SB is None:
         st.info("Run scripts/analysis/setback_calibration.py to produce data/setback_calibration_summary.csv.")
@@ -99,11 +101,12 @@ with tab_sb:
         for isl in order:
             r = SB.loc[(isl, variant)]
             rule = "none for inhabited land" if r["statutory_setback_m"] == "none" else f"{r['statutory_setback_m']} m"
-            rows.append(f"| {isl} | {r['low_pct']:.2f}% ({int(r['low_buildings']):,}) | {rule} | "
-                        f"{r['low_outside_every_setback_pct']:.1f}% | {r['low_median_dist_m']:.0f} m | "
+            within = "no setback" if r["statutory_setback_m"] == "none" else f"{100 - r['low_outside_every_setback_pct']:.1f}%"
+            rows.append(f"| {isl} | {r['low_pct']:.2f}% ({int(r['low_buildings']):,}) | {rule} | {within} | "
+                        f"{r['low_within_20m_pct']:.1f}% | {r['low_median_dist_m']:.0f} m | "
                         f"{r['setback_covering_90pct_low_m']:.0f} m |")
-        st.markdown("| Island group | Buildings at or below 1 m | Statutory setback | Low buildings landward of every setback | Median distance to shore | Distance covering 90% |\n"
-                    "|---|---:|---|---:|---:|---:|\n" + "\n".join(rows))
+        st.markdown("| Island group | Buildings at or below 1 m | Statutory setback | Low buildings within the setback | Within 20 m, same width everywhere | Median distance to shore | Distance covering 90% |\n"
+                    "|---|---:|---|---:|---:|---:|---:|\n" + "\n".join(rows))
 
         if CUR is not None:
             col = {"Maldives": "#2c7fb8", "Seychelles": "#e34a33", "Fiji": "#31a354",
@@ -132,14 +135,35 @@ with tab_sb:
 
         mal = SB.loc[("Maldives", "all")]
         st.warning(f"""
-        **On the tropical islands the setbacks reach fewer than one in ten low buildings.** Those buildings stand a
-        median {SB.loc[('Lakshadweep', 'all'), 'low_median_dist_m']:.0f}–{SB.loc[('Seychelles', 'all'), 'low_median_dist_m']:.0f} m
-        from the shore, well behind a 20 m or 25 m line. The Canary Islands are the exception: their low buildings are a
-        thin beachfront and port strip, and Spain's 100 m rule covers {100 - SB.loc[('Canary Islands', 'all'), 'low_outside_every_setback_pct']:.0f}% of them.
+        **On the tropical islands a distance rule cannot follow the low land.** The low buildings stand a median
+        {SB.loc[('Lakshadweep', 'all'), 'low_median_dist_m']:.0f}–{SB.loc[('Seychelles', 'all'), 'low_median_dist_m']:.0f} m
+        from the shore, well behind a 20 m or 25 m line, and the same 20 m width covers about the same share with a rule
+        (Lakshadweep {SB.loc[('Lakshadweep', 'all'), 'low_within_20m_pct']:.1f}%) as without one (Maldives
+        {SB.loc[('Maldives', 'all'), 'low_within_20m_pct']:.1f}%, Fiji {SB.loc[('Fiji', 'all'), 'low_within_20m_pct']:.1f}%).
+        The Canary Islands differ in geography: their {int(SB.loc[('Canary Islands', 'all'), 'low_buildings'])} low buildings are
+        a thin beachfront and port strip, and Spain's 100 m rule covers {100 - SB.loc[('Canary Islands', 'all'), 'low_outside_every_setback_pct']:.0f}% of them.
         Even a 100 m rule would cover only about half of the low buildings in the Maldives, because on an atoll low land
         is most of the island ({mal['low_pct']:.1f}% of all Maldivian buildings are at or below 1 m). Rules written in
         heights (minimum floor or ground levels) would fit atolls better than rules written in distance.
         """)
+
+    LAND = R.get("setback_land")
+    if LAND is not None:
+        st.markdown("##### Low land rather than buildings")
+        st.markdown("""
+        A setback decides where new buildings may go, so the land it covers matters more than today's buildings, many of
+        which predate the rules. A regular grid (30 m on the atolls and Seychelles, 60 m on Fiji and the Canary Islands)
+        gives the share of land at or below 1 m within each width.
+        """)
+        L = LAND[LAND["variant"] == "all_low_land"]
+        lrows = [f"| {r['island']} | {r['low_land_km2']:.1f} km² | {r['low_land_median_dist_m']:.0f} m | "
+                 f"{r['pct_low_land_within_20m']:.1f}% | {r['pct_low_land_within_25m']:.1f}% | {r['pct_low_land_within_100m']:.1f}% |"
+                 for _, r in L.iterrows()]
+        st.markdown("| Island group | Land at or below 1 m | Median distance to shore | Within 20 m | Within 25 m | Within 100 m |\n"
+                    "|---|---:|---:|---:|---:|---:|\n" + "\n".join(lrows))
+        st.caption("On the atolls and Seychelles a 20–25 m setback covers about a fifth to a quarter of the low land, against "
+                   "5–8% of the low buildings, and the share is about the same with a rule (Lakshadweep) as without one "
+                   "(Maldives). Source: data/setback_lowland_coverage.csv (scripts/analysis/setback_lowland_coverage.py).")
 
     st.markdown("##### Coastal instruments by Hood's NATO tools")
     st.markdown("""
@@ -151,9 +175,10 @@ with tab_sb:
 | Maldives | none for inhabited islands; 5 m from the vegetation line on resort islands | protected areas and UNESCO-MAB zones (Authority) | Tourism environment regulation, cl. 2.10 |
 | Fiji | none found | locally managed marine areas (Organisation, co-management) | – |
 """)
-    st.caption("The Maldives and Lakshadweep are the closest pair to a most similar systems design: Indian Ocean coral atolls, "
-               "with Mahl (a Dhivehi dialect) spoken on Minicoy, but a sovereign state against a Union Territory under India's "
-               "coastal regulation. Their low buildings are outside any setback at almost the same rate.")
+    st.caption("The Maldives and Lakshadweep are the closest pair to a most similar comparison: Indian Ocean coral atolls, "
+               "with Mahl (a Dhivehi dialect) spoken on Minicoy, under a sovereign state and a Union Territory under India's "
+               "coastal regulation. They also differ in population, reclamation and tourism. A 20 m width covers about the "
+               "same share of their low buildings with a rule (Lakshadweep) as without one (Maldives).")
 
     for name, cap in (("fig9_setback_calibration.png", "Figure 9 — Setback coverage, as in the Research Paper"),
                       ("fig10_setback_close_ups.png", "Figure 10 — Close-ups of the densest low-lying clusters")):
@@ -164,13 +189,14 @@ with tab_sb:
 
 with tab_pol:
     POL, TL = R.get("policy"), R.get("policy_timeline")
-    st.markdown("### Do More Coastal Rules Mean More Reach?")
+    st.markdown("### Do Instrument Counts Track Design Fit?")
     st.markdown("""
     Each government's coastal rules in force in October 2026 were coded by hand from the legal texts. **Policy density**
     counts six instrument types (building setback, statutory coastal zones, impact assessment law, national coastal plan,
     coast-specific authority, climate framework law). **Setback intensity** is the setback width, averaged over built-up
-    and other land and divided by 100 m. Following Knill, Schulze and Tosun (2012), these policy outputs are compared with
-    an outcome: the share of buildings at or below 1 m that the setback reaches.
+    and other land and divided by 100 m. Following Knill, Schulze and Tosun (2012), these are policy outputs. They are set
+    next to the share of buildings at or below 1 m within 20 m of the shore, the same width on every island, which shows
+    whether a distance rule can fit the low land at all. That is a measure of design, not a policy outcome.
     """)
     if POL is None:
         st.info("Run scripts/analysis/coastal_policy_coding.py to produce data/coastal_policy_scores.csv.")
@@ -180,30 +206,32 @@ with tab_pol:
             rule = "none" if r["setback_general_m"] == 0 else (
                 f"{int(r['setback_inhabited_m'])} m" if r["setback_inhabited_m"] == r["setback_general_m"]
                 else f"{int(r['setback_inhabited_m'])} m built-up / {int(r['setback_general_m'])} m elsewhere")
-            rows.append(f"| {r['label']} | {int(r['density'])} | {rule} | {r['intensity']:.2f} | "
-                        f"{r['low_reached_by_setback_pct']:.1f}% | {r['setback_for_75pct_low_m']:.0f} m |")
-        st.markdown("| Jurisdiction | Density (of 6) | Setback | Intensity | Low buildings reached | Setback needed for 75% |\n"
-                    "|---|---:|---|---:|---:|---:|\n" + "\n".join(rows))
+            within = "no setback" if pd.isna(r["low_within_statutory_setback_pct"]) else f"{r['low_within_statutory_setback_pct']:.1f}%"
+            rows.append(f"| {r['label']} | {int(r['density'])} | {rule} | {r['intensity']:.2f} | {within} | "
+                        f"{r['low_within_20m_pct']:.1f}% | {r['setback_for_75pct_low_m']:.0f} m |")
+        st.markdown("| Jurisdiction | Density (of 6) | Setback | Intensity | Low buildings within the setback | Within 20 m, same width | Width needed for 75% |\n"
+                    "|---|---:|---|---:|---:|---:|---:|\n" + "\n".join(rows))
         col = {"maldives": "#2c7fb8", "seychelles": "#e34a33", "fiji": "#31a354",
                "canary": "#756bb1", "lakshadweep": "#fd8d3c"}
         fig = go.Figure()
         for _, r in POL.iterrows():
-            fig.add_trace(go.Scatter(x=[r["density"]], y=[r["low_reached_by_setback_pct"]], mode="markers+text",
+            fig.add_trace(go.Scatter(x=[r["density"]], y=[r["low_within_20m_pct"]], mode="markers+text",
                                      text=[r["label"]], textposition="top center", name=r["label"],
                                      marker=dict(size=16, color=col[r["jurisdiction"]], line=dict(color="white", width=1.5)),
-                                     hovertemplate=r["label"] + "<br>density %{x} of 6<br>reached %{y:.1f}%<extra></extra>"))
+                                     hovertemplate=r["label"] + "<br>density %{x} of 6<br>within 20 m: %{y:.1f}%<extra></extra>"))
         fig.update_layout(template="plotly_dark", height=420, showlegend=False,
                           xaxis=dict(title="Policy density (instrument types in force, of 6)", range=[1, 6.8], dtick=1),
-                          yaxis=dict(title="% of low buildings reached by the setback", range=[-5, 100]),
+                          yaxis=dict(title="% of low buildings within 20 m (same width)", range=[-5, 100]),
                           font=dict(family="Poppins", color="#FFD60A"), plot_bgcolor="rgba(0,0,0,0)",
                           paper_bgcolor="rgba(0,0,0,0)", margin=dict(t=20, b=40, l=20, r=20))
         st.plotly_chart(fig, use_container_width=True)
         lak = POL.set_index("jurisdiction").loc["lakshadweep"]
         st.warning(f"""
-        **Outputs do not translate into reach on the tropical islands.** Lakshadweep has {int(lak['density'])} of the 6
-        instrument types and its setback reaches {lak['low_reached_by_setback_pct']:.1f}% of its low buildings. The Canary
-        Islands are the only case where many rules and a wide setback also reach most low buildings, because low land
-        there is a narrow beachfront strip.
+        **Instrument counts do not track design fit.** Lakshadweep has {int(lak['density'])} of the 6 instrument types and
+        its 20 m zone covers {lak['low_within_statutory_setback_pct']:.1f}% of its low buildings; the same width would cover a
+        similar share in the Maldives and Fiji, which have no rule. The Canary Islands combine the most rules with the
+        highest coverage, but that is one case, and its coverage comes from geography: low land there is a narrow
+        beachfront strip. Neither measure shows whether rules are complied with.
         """)
     if TL is not None:
         st.markdown("##### Rule changes since 1988")
@@ -223,7 +251,7 @@ with tab_pol:
                      use_container_width=True, hide_index=True)
         st.caption("Direction: expansion adds or tightens a rule; dismantling removes, relaxes or exempts; reallocation moves "
                    "competence between levels of government. Coding and sources: data/policy_coding/.")
-    for name, cap in (("fig11_policy_density_intensity.png", "Figure 11 — Policy density, intensity and reach"),
+    for name, cap in (("fig11_policy_density_intensity.png", "Figure 11 — Policy density, intensity and the same 20 m width"),
                       ("fig12_coastal_policy_timeline.png", "Figure 12 — Coastal rule changes since 1988")):
         pth = os.path.join(FIGURES_DIR, name)
         if os.path.exists(pth):

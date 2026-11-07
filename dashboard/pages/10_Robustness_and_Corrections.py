@@ -27,8 +27,8 @@ st.markdown(f"""
 <div style="padding: 18px 24px; background: rgba(34, 211, 238, 0.06); border: 1px solid rgba(34, 211, 238, 0.3);
             border-left: 4px solid {PALETTE['navy']}; border-radius: 10px; margin-bottom: 18px;">
     <p style="color:{PALETTE['text_dark']}; font-size:1rem; line-height:1.6; margin:0;">
-        The main result of this study is about method. The elevation model, the exposure measure and the weighting
-        each change which island looks most vulnerable. This page puts every check in one place: the choices that
+        Which island looks most vulnerable depends a lot on choices made along the way, from the height data to the
+        weights. This page puts every check in one place: the choices that
         move the answer, the ones that do not, and the results from the first version that were withdrawn.
     </p>
 </div>

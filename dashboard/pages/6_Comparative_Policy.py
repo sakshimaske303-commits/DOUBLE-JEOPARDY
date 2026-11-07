@@ -37,13 +37,13 @@ st.markdown("---")
 st.markdown("""
 Five governments regulate five low island groups against the same rising sea. This page compares their coastal
 policy in four steps: the **design** of the comparison, the **instruments** each government uses, how dense and
-demanding those instruments are against how many low-lying buildings they reach, and how the rules **changed over
-time** and under which political setting.
+demanding those instruments are against whether a distance rule can fit the low-lying land (**policy design**), and how
+the rules **changed over time** and under which political setting.
 """)
 
 c1, c2, c3, c4 = st.columns(4)
 for col, big, small in ((c1, "5", "governments compared"), (c2, "6", "instrument types coded per government"),
-                        (c3, "23", "dated rule changes, 1988–2025"), (c4, "1.35 M", "buildings the rules are tested against")):
+                        (c3, "23", "dated rule changes, 1988–2025"), (c4, "1.35 M", "buildings the rules are set against")):
     col.markdown(f"""
     <div style="background:{PALETTE['card_bg']}; border:1px solid rgba(34,211,238,0.35); border-radius:12px;
                 padding:16px; text-align:center;">
@@ -56,11 +56,11 @@ st.markdown("### 1. Design")
 st.markdown("""
 | | |
 |---|---|
-| **Cases** | Maldives, Seychelles, Fiji (independent states); Lakshadweep (Indian Union Territory); Canary Islands (Spain, EU outermost region) |
-| **Most similar pair** | Maldives and Lakshadweep: Indian Ocean coral atolls of similar size and height, with Mahl (a Dhivehi dialect) spoken on Minicoy, under a sovereign state and under India's national coastal regulation |
+| **Cases** | Maldives, Seychelles, Fiji (independent states); Lakshadweep (Indian Union Territory); Canary Islands (Spain, EU outermost region). Chosen for ecological range; read as a structured, focused comparison, not a controlled design |
+| **Closest pair** | Maldives and Lakshadweep: Indian Ocean coral atolls of similar height, with Mahl (a Dhivehi dialect) spoken on Minicoy, under a sovereign state and under India's national coastal regulation; they also differ in population, reclamation and tourism |
 | **Multi-level governance** | EU, national and regional levels in the Canary Islands; national rules for a Union Territory in Lakshadweep; national governments with island councils in the Maldives |
 | **Instruments** | Hood's NATO tools (Nodality, Authority, Treasure, Organisation); policy density and intensity (Knill, Schulze and Tosun 2012) |
-| **Outcome** | Share of buildings at or below 1 m that the statutory setback reaches |
+| **Design fit** | Share of buildings at or below 1 m within each setback, and within the same 20 m width on every island. Not a policy outcome: many buildings predate the rules |
 | **Political setting** | V-Dem electoral democracy index in the year of each rule change; descriptive only |
 """)
 
@@ -77,12 +77,12 @@ st.markdown("""
 """)
 
 # ---------------- 3. Density, intensity, reach ----------------
-st.markdown("### 3. More Rules, Same Reach")
+st.markdown("### 3. Instrument Counts and Design Fit")
 st.markdown("""
 Each government's coastal rules in force in October 2026 were coded by hand from the legal texts. **Policy density**
 counts six instrument types; **setback intensity** is the setback width, averaged over built-up and other land and
-divided by 100 m. Both are policy outputs. They are set against an outcome: the share of buildings at or below 1 m
-that the setback reaches.
+divided by 100 m. Both are policy outputs. They are set next to the share of buildings at or below 1 m within 20 m of
+the shore, the same width on every island, which shows whether a distance rule can fit the low land at all.
 """)
 code_path = os.path.join(DATA, "policy_coding", "coastal_policy_coding.csv")
 if POL is None or not os.path.exists(code_path):
@@ -103,30 +103,33 @@ else:
                 mark += " †"
             cells.append(mark)
         rows.append(f"| {LAB[j]} | " + " | ".join(cells) +
-                    f" | {int(P.loc[j, 'density'])} of 6 | {P.loc[j, 'intensity']:.2f} | {P.loc[j, 'low_reached_by_setback_pct']:.1f}% |")
-    st.markdown("| Jurisdiction | " + " | ".join(n for _, n in items) + " | Density | Intensity | Low buildings reached |\n"
-                "|---|" + ":---:|" * len(items) + "---:|---:|---:|\n" + "\n".join(rows))
+                    f" | {int(P.loc[j, 'density'])} of 6 | {P.loc[j, 'intensity']:.2f} | "
+                    + ("no setback" if pd.isna(P.loc[j, 'low_within_statutory_setback_pct']) else f"{P.loc[j, 'low_within_statutory_setback_pct']:.1f}%")
+                    + f" | {P.loc[j, 'low_within_20m_pct']:.1f}% |")
+    st.markdown("| Jurisdiction | " + " | ".join(n for _, n in items) + " | Density | Intensity | Low buildings within the setback | Within 20 m, same width |\n"
+                "|---|" + ":---:|" * len(items) + "---:|---:|---:|---:|\n" + "\n".join(rows))
     st.caption("● in force · ○ not found · † secondary source only. Every value, with its legal basis and source, is in "
                "data/policy_coding/coastal_policy_coding.csv; the coding rules are in data/policy_coding/CODEBOOK.md.")
 
     fig = go.Figure()
     for j in ORDER:
-        fig.add_trace(go.Scatter(x=[P.loc[j, "density"]], y=[P.loc[j, "low_reached_by_setback_pct"]],
+        fig.add_trace(go.Scatter(x=[P.loc[j, "density"]], y=[P.loc[j, "low_within_20m_pct"]],
                                  mode="markers+text", text=[LAB[j]], textposition="top center",
                                  marker=dict(size=10 + 40 * P.loc[j, "intensity"], color=COL[j],
                                              line=dict(color="white", width=1.5)),
                                  hovertemplate=(LAB[j] + "<br>density %{x} of 6<br>intensity "
-                                                + f"{P.loc[j, 'intensity']:.2f}" + "<br>reached %{y:.1f}%<extra></extra>")))
+                                                + f"{P.loc[j, 'intensity']:.2f}" + "<br>within 20 m: %{y:.1f}%<extra></extra>")))
     fig.update_layout(**LAYOUT, height=430, showlegend=False,
                       xaxis=dict(title="Policy density (instrument types in force, of 6)", range=[1, 6.8], dtick=1),
-                      yaxis=dict(title="% of low buildings reached by the setback", range=[-5, 100]))
+                      yaxis=dict(title="% of low buildings within 20 m (same width)", range=[-5, 100]))
     st.plotly_chart(fig, use_container_width=True)
     st.caption("Marker size: setback intensity.")
     lak, mal = P.loc["lakshadweep"], P.loc["maldives"]
     st.warning(f"""
-    **Outputs do not translate into reach on the tropical islands.** Lakshadweep has {int(lak['density'])} of the 6
-    instrument types and its setback reaches {lak['low_reached_by_setback_pct']:.1f}% of its low buildings; the Maldives
-    has {int(mal['density'])} and reaches none. Reaching three in four low buildings would take a setback of
+    **Instrument counts do not track design fit.** Lakshadweep has {int(lak['density'])} of the 6 instrument types and a
+    20 m zone covering {lak['low_within_statutory_setback_pct']:.1f}% of its low buildings; the Maldives has {int(mal['density'])}
+    and no setback, and the same 20 m width would cover {mal['low_within_20m_pct']:.1f}% there. Covering three in four low
+    buildings would take
     {P.loc[['lakshadweep', 'seychelles', 'fiji', 'maldives'], 'setback_for_75pct_low_m'].min():.0f}–{P.loc[['lakshadweep', 'seychelles', 'fiji', 'maldives'], 'setback_for_75pct_low_m'].max():.0f} m
     on these islands, against {P.loc['canary', 'setback_for_75pct_low_m']:.0f} m in the Canary Islands.
     """)
@@ -196,13 +199,13 @@ else:
 # ---------------- 5. Policy brief ----------------
 st.markdown("### 5. What It Means for Coastal Policy")
 st.success("""
-**Policy brief: Distance rules do not protect atolls**
+**Policy brief: Distance rules do not fit atolls**
 
-1. **On atolls, regulate by height, not by distance.** Minimum floor or ground levels reach low buildings wherever they stand.
-2. **Check a rule against where buildings are** before adopting it, using open building footprints and bare-earth elevation.
+1. **Set height requirements on atolls and low islands.** Minimum floor or ground levels apply to low buildings wherever they stand.
+2. **Test proposed rules against where buildings stand**, using open building footprints and bare-earth elevation.
 3. **Use bare-earth elevation data** on forested islands; surface models can understate exposure five to eight times.
-4. **Count instruments with care.** Put outcome measures next to output measures.
-5. **Watch for quiet rollbacks.** Exemptions and extended concessions weaken protection without repealing anything.
+4. **Check instrument counts against design fit**, since counting laws can rank a government highly when its rules are drawn where few people at risk live.
+5. **Track amendments over time.** Exemptions and longer concessions weaken protection without repealing any rule.
 
 The full two-page brief opens from the documentation viewer on the home page.
 """)
@@ -212,10 +215,12 @@ st.markdown("""
 - The coding was done by one coder; every value carries its source and verification level so it can be rechecked.
 - "Not found" is coded 0 but is not proof that a rule does not exist.
 - The Lakshadweep setback width and the Maldivian changes of 2024–2025 rest on secondary sources.
-- Only national law is compared, not local plans, permits or enforcement.
+- Only national law is compared, not local plans, permits or enforcement, and many buildings predate the rules, so coverage shows design fit, not compliance.
+- The Canary figure rests on 192 low buildings, many on port land, with the 100 m width applied to all of them.
+- Whether the 2019 Lakshadweep change was a relaxation depends on its 2011 island management plans, not yet verified.
 """)
 
-for name, cap in (("fig11_policy_density_intensity.png", "Figure 11 — Policy density, intensity and reach"),
+for name, cap in (("fig11_policy_density_intensity.png", "Figure 11 — Policy density, intensity and the same 20 m width"),
                   ("fig12_coastal_policy_timeline.png", "Figure 12 — Coastal rule changes since 1988")):
     pth = os.path.join(FIGURES_DIR, name)
     if os.path.exists(pth):

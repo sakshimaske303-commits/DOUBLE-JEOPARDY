@@ -103,6 +103,7 @@ def load():
     sb = _read("setback_calibration_summary.csv")
     R["setback"] = None if sb is None else sb.set_index(["island", "variant"])
     R["setback_curve"] = _read("setback_coverage_curve.csv")
+    R["setback_land"] = _read("setback_lowland_coverage.csv")
 
     # coastal policy coding (added 2026-11-01); optional
     R["policy"] = _read("coastal_policy_scores.csv")

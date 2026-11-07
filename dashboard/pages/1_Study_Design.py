@@ -114,15 +114,15 @@ with col3:
     """)
 
 st.info("""
-**Policy extension — Coastal setbacks (descriptive).** Do the setbacks in national law (Canary Islands 100 m,
-Seychelles 25 m, Lakshadweep 20 m, none for inhabited land in the Maldives and Fiji) reach the buildings that
-stand at or below 1 m? Tested on about 1.35 million building footprints, with the coastal instruments classified
-by Hood's NATO scheme and the Maldives–Lakshadweep pair read as a most similar systems comparison.
+**Policy extension — Coastal setbacks (descriptive, RQ2).** Are the setbacks in national law (Canary Islands 100 m,
+Seychelles 25 m, Lakshadweep 20 m, none for inhabited land in the Maldives and Fiji) drawn where the buildings at or
+below 1 m stand? Checked on about 1.35 million building footprints, with the coastal instruments classified by Hood's
+NATO scheme and the Maldives–Lakshadweep pair as the closest the sample has to a most similar comparison.
 """)
 
 st.info("""
 **Policy extension — Coastal policy coding (descriptive).** How dense and how demanding are the five governments'
-coastal rules, and does that match how many low-lying buildings the rules reach? Six instrument types coded from the
+coastal rules, and do those counts track whether the rules fit the low-lying land? Six instrument types coded from the
 legal texts (policy density), the setback width (intensity), 23 dated rule changes since 1988 coded as expansion,
 dismantling or a shift between levels of government, and the V-Dem electoral democracy index for the political setting.
 """)
@@ -152,6 +152,6 @@ st.markdown("""
 
 st.markdown("---")
 st.markdown(
-    "<p class='caption-text' style='text-align:center;'>DOUBLE JEOPARDY — The Vulnerability Spiral</p>",
+    "<p class='caption-text' style='text-align:center;'>DOUBLE JEOPARDY: Do Coastal Rules Reach the People at Risk? Comparing Five Island Jurisdictions</p>",
     unsafe_allow_html=True,
 )

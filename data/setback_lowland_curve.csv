@@ -1,0 +1,91 @@
+island,variant,distance_m,pct_low_land_within
+Maldives,all_low_land,10,8.95
+Maldives,all_low_land,20,19.34
+Maldives,all_low_land,25,24.12
+Maldives,all_low_land,50,44.32
+Maldives,all_low_land,100,70.3
+Maldives,all_low_land,150,83.79
+Maldives,all_low_land,200,90.92
+Maldives,all_low_land,300,96.57
+Maldives,all_low_land,500,99.63
+Maldives,open_low_land,10,10.7
+Maldives,open_low_land,20,22.67
+Maldives,open_low_land,25,28.04
+Maldives,open_low_land,50,48.87
+Maldives,open_low_land,100,73.74
+Maldives,open_low_land,150,85.79
+Maldives,open_low_land,200,92.06
+Maldives,open_low_land,300,97.24
+Maldives,open_low_land,500,99.7
+Lakshadweep,all_low_land,10,10.85
+Lakshadweep,all_low_land,20,21.78
+Lakshadweep,all_low_land,25,26.33
+Lakshadweep,all_low_land,50,44.78
+Lakshadweep,all_low_land,100,69.56
+Lakshadweep,all_low_land,150,80.52
+Lakshadweep,all_low_land,200,87.53
+Lakshadweep,all_low_land,300,94.91
+Lakshadweep,all_low_land,500,97.92
+Lakshadweep,open_low_land,10,11.84
+Lakshadweep,open_low_land,20,22.93
+Lakshadweep,open_low_land,25,27.57
+Lakshadweep,open_low_land,50,45.9
+Lakshadweep,open_low_land,100,70.43
+Lakshadweep,open_low_land,150,81.55
+Lakshadweep,open_low_land,200,88.46
+Lakshadweep,open_low_land,300,95.54
+Lakshadweep,open_low_land,500,98.2
+Seychelles,all_low_land,10,10.75
+Seychelles,all_low_land,20,20.55
+Seychelles,all_low_land,25,25.17
+Seychelles,all_low_land,50,42.49
+Seychelles,all_low_land,100,63.32
+Seychelles,all_low_land,150,75.18
+Seychelles,all_low_land,200,82.86
+Seychelles,all_low_land,300,91.53
+Seychelles,all_low_land,500,98.23
+Seychelles,open_low_land,10,12.33
+Seychelles,open_low_land,20,23.28
+Seychelles,open_low_land,25,28.37
+Seychelles,open_low_land,50,46.55
+Seychelles,open_low_land,100,67.34
+Seychelles,open_low_land,150,78.6
+Seychelles,open_low_land,200,85.67
+Seychelles,open_low_land,300,93.52
+Seychelles,open_low_land,500,99.0
+Fiji,all_low_land,10,3.83
+Fiji,all_low_land,20,7.36
+Fiji,all_low_land,25,8.91
+Fiji,all_low_land,50,15.37
+Fiji,all_low_land,100,25.14
+Fiji,all_low_land,150,33.06
+Fiji,all_low_land,200,39.34
+Fiji,all_low_land,300,48.78
+Fiji,all_low_land,500,59.29
+Fiji,open_low_land,10,3.83
+Fiji,open_low_land,20,7.33
+Fiji,open_low_land,25,8.87
+Fiji,open_low_land,50,15.16
+Fiji,open_low_land,100,24.78
+Fiji,open_low_land,150,32.62
+Fiji,open_low_land,200,38.92
+Fiji,open_low_land,300,48.39
+Fiji,open_low_land,500,58.88
+Canary Islands,all_low_land,10,30.86
+Canary Islands,all_low_land,20,47.59
+Canary Islands,all_low_land,25,52.82
+Canary Islands,all_low_land,50,65.69
+Canary Islands,all_low_land,100,73.51
+Canary Islands,all_low_land,150,79.25
+Canary Islands,all_low_land,200,84.37
+Canary Islands,all_low_land,300,90.4
+Canary Islands,all_low_land,500,96.09
+Canary Islands,open_low_land,10,30.82
+Canary Islands,open_low_land,20,47.48
+Canary Islands,open_low_land,25,52.64
+Canary Islands,open_low_land,50,65.32
+Canary Islands,open_low_land,100,73.03
+Canary Islands,open_low_land,150,78.78
+Canary Islands,open_low_land,200,83.94
+Canary Islands,open_low_land,300,90.1
+Canary Islands,open_low_land,500,95.97

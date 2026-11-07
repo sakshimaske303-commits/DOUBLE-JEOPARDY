@@ -2,8 +2,9 @@
 import geopandas as gpd
 import os
 
-# Folder with the global WDPA download on my machine; change it to yours.
-RAW_BASE = r"D:\SAKSHI_RESEARCH\SAKSHI_RESEARCH\SAKSHI QGIS\New folder\DIGITAL_TWIN_ISLANDS\02_data_raw"
+# Folder holding the unzipped global WDPA download (WDPA_extracted_0..2). Set WDPA_RAW_DIR to point
+# elsewhere; the default is data/raw/wdpa inside the repository.
+RAW_BASE = os.environ.get("WDPA_RAW_DIR", os.path.join("data", "raw", "wdpa"))
 OUTPUT_DIR = "data/protected_areas_wdpa"
 
 # Approximate bounding boxes per island (min_lon, min_lat, max_lon, max_lat)
